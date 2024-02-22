@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  </head>
+  <body class="td-{{ .Kind }}">
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+
+        {{ block "main" . }}{{ end }}
+
+        <script>
+          //If preferred browser language is Korean, show link to Korean version
+          var usrlang = navigator.language || navigator.userLanguage;
+          var koreanAcceptLanguageCodes = ["ko","ko-KR","ko-kr"];
+          var url = window.location.pathname;
+          var krURL = url.replace("/developer/practices/","/developer/kr/practices/");
+          if (koreanAcceptLanguageCodes.includes(usrlang)) {
+            $("html[lang=en] h1").append("<a style='font-size:17px;margin-left:20px' href='" + krURL + "'>한국어</a>");
+          }
+        </script>
+
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
+

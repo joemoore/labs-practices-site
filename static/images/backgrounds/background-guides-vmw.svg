@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 415.95 181.63">
+  <defs>
+    <clipPath id="a">
+      <rect width="415.95" height="181.63" style="fill: none"/>
+    </clipPath>
+    <linearGradient id="b" x1="61.95" y1="247.27" x2="356.04" y2="-46.83" gradientUnits="userSpaceOnUse">
+      <stop offset="0.21" stop-color="#3a4a51" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#46494d"/>
+      <stop offset="0.75" stop-color="#46494d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="c" x1="138.39" y1="146.51" x2="340.69" y2="146.51" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#79bf43"/>
+      <stop offset="0.16" stop-color="#5ebf6c"/>
+      <stop offset="0.33" stop-color="#46bf91"/>
+      <stop offset="0.5" stop-color="#33bfae"/>
+      <stop offset="0.67" stop-color="#26bfc2"/>
+      <stop offset="0.84" stop-color="#1ebfcf"/>
+      <stop offset="1" stop-color="#1bbfd3"/>
+    </linearGradient>
+    <linearGradient id="d" x1="45.56" y1="7.67" x2="187.13" y2="7.67" xlink:href="#c"/>
+    <linearGradient id="e" x1="139.46" y1="7.56" x2="340.34" y2="7.56" xlink:href="#c"/>
+    <linearGradient id="f" x1="139.46" y1="62.77" x2="139.46" y2="196.97" xlink:href="#c"/>
+    <linearGradient id="h" x1="241.55" y1="191" x2="241.55" y2="55.61" gradientTransform="translate(473.72 253.77) rotate(180)" xlink:href="#c"/>
+    <linearGradient id="i" x1="349.72" y1="83.25" x2="349.72" y2="-56.71" gradientTransform="translate(690.05 36.28) rotate(180)" xlink:href="#c"/>
+  </defs>
+  <g style="clip-path: url(#a)">
+    <path d="M139.59,200.65l92.58,0,108-108a.11.11,0,0,0-.08-.18l-92.32-.1Z" style="fill: none;stroke-miterlimit: 10;stroke: url(#c)"/>
+    <polygon points="46.75 46.2 108.31 46.39 185.92 -31.06 122.46 -31.06 46.75 46.2" style="fill: none;stroke-miterlimit: 10;stroke: url(#d)"/>
+    <polygon points="139.46 61.59 232.17 61.69 340.34 -46.47 247.76 -46.57 139.46 61.59" style="fill: url(#e)"/>
+    <g style="opacity: 0.15">
+      <polygon points="193.19 61.59 232.17 61.59 282.3 11.46 243.31 11.46 193.19 61.59" style="fill: #f4f8fa"/>
+    </g>
+    <g style="opacity: 0.15">
+      <polygon points="193.19 38.41 232.17 38.41 282.3 -11.71 243.31 -11.71 193.19 38.41" style="fill: #f4f8fa"/>
+    </g>
+    <g>
+      <line x1="139.46" y1="189.08" x2="139.46" y2="68.46" style="fill: none;stroke-linecap: round;stroke-miterlimit: 10;stroke-dasharray: 5.84838342666626,4.386287689208984;stroke: url(#f)"/>
+      <line x1="139.46" y1="66.27" x2="139.46" y2="63.27" style="fill: none;stroke-linecap: round;stroke-miterlimit: 10;stroke: url(#f)"/>
+    </g>
+    <line x1="232.17" y1="197.66" x2="232.17" y2="63.27" style="fill: none;stroke-linecap: round;stroke-miterlimit: 10;stroke-dasharray: 6,4.5;stroke: url(#h)"/>
+    <line x1="340.34" y1="-46.47" x2="340.34" y2="92.49" style="fill: none;stroke-linecap: round;stroke-miterlimit: 10;stroke-dasharray: 6,4.5;stroke: url(#i)"/>
+  </g>
+</svg>

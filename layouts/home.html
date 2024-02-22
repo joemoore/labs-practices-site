@@ -1,0 +1,73 @@
+{{ define "home-card" }}
+<a class="position-relative mr-3 mb-3 flex-315 transition-all td-box--gray-850 px-5 py-4"
+    href="{{ .RelPermalink }}">
+    <div class="gradient-edge-left"></div>
+    <h5 class="mb-3 text-white">{{ .Section }}</h5>
+    <h4 class="h4 text-white limiter limiter-2" style="min-height: 48px">{{ .Title }}</h4>
+    {{ range .Params.hosts }}
+    <div class="mb-2">
+        <img src='{{ partial "image-src.html" (dict "context" . "process" "resize" "size" "175x175") }}'
+            alt="{{ .Params.name }}" class="rounded w-25 mr-2">
+        <p class="d-inline-block">{{ .Params.name }}</p>
+    </div>
+    {{ end }}
+</a>
+{{ end }}
+
+
+{{ define "main" }}
+
+{{/* VARS */}}
+{{ $advocatePages := where (where (where .Site.Pages "Section" "team") "Params.roles" "intersect" (slice "advocate"))
+"Params.skills" "ne" nil}}
+{{ $advocatePages = sort $advocatePages "Params.name" "asc" }}
+{{ $advocates := slice }}
+{{ range $advocatePages }}
+{{ $advocates = $advocates | append .Params.name }}
+{{ end }}
+{{ $latestContent := sort (where .Site.RegularPages "Params.hosts" "intersect" $advocates | union (where
+.Site.RegularPages "Params.team" "intersect" $advocates) ) "Date"
+"desc" }}
+{{ $latestContent = where $latestContent "Date" "le" now }}
+{{ $latestContent = first 3 $latestContent }}
+
+<h1 class='d-none'>{{ .Title }} Homepage</h1>
+
+<section id="hero" class="td-box td-box--gray-dark position-relative td-box--height-auto overflow-hidden">
+    <div id="home-featured" class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mt-4">{{ .Params.tagline }}</h1>
+            </div>
+            <p class="text-center col-lg-9 col-12 mx-auto">{{ .Params.description }}</p>
+            <div class="container py-5 px-0">
+                <h5 class="text-center h5">Indexes of All The Things</h5>
+                <div class="row mt-4">
+                    {{ range .Params.indexes }}
+                    {{ with $.Site.GetPage (print .) }}
+                    {{ template "home-card" . }}
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+            <div class="container py-5 px-0">
+                <h5 class="text-center h5">Featured</h5>
+                <div class="row mt-4">
+                    {{ range .Params.featured }}
+                    {{ with $.Site.GetPage (print .) }}
+                    {{ template "home-card" . }}
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>sendAmplitudeEventOnLoad('home viewed', { 'url path': window.location.pathname });</script>
+
+{{ with .Content }}
+{{ . }}
+{{ end }}
+
+{{ end }}

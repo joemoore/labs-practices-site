@@ -1,0 +1,22 @@
+name: Generate and upload audit report
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**content**"
+  workflow_dispatch:
+jobs:
+  generate-audit:
+    if: github.repository == 'vmware-tanzu/tanzu-dev-portal'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      name: Checkout
+    - uses: ./.github/actions/audit
+      name: Generate Audit
+    - uses: actions/upload-artifact@v3
+      name: Upload artifact
+      with:
+        name: audit-output
+        path: audit-output.csv

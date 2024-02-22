@@ -1,0 +1,18 @@
+# Default build settings
+[build]
+  publish = "public"
+  command = "make netlify-deploy"
+
+[build.environment]
+  HUGO_VERSION = "0.107.0"
+  TZ='America/Los_Angeles'
+
+[context.production.environment]
+  HUGO_ENV = "production"
+
+[dev]
+  command = "make netlify-dev"
+  publish = "public/"
+  framework = "#custom"
+  targetPort = 1313
+  autoLaunch = false

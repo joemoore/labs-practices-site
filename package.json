@@ -1,0 +1,49 @@
+{
+    "name": "tanzu-dev-portal",
+    "version": "0.1.0",
+    "description": "Tanzu Developer Center",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joemoore/tanzu-dev-portal.git"
+    },
+    "author": "VMware, Inc.",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/joemoore/tanzu-dev-portal/issues"
+    },
+    "homepage": "https://github.com/joemoore/tanzu-dev-portal#readme",
+    "engines": {
+        "node": ">=16 <17"
+    },
+    "dependencies": {
+        "@amplitude/node": "^1.8.0",
+        "autoprefixer": "^10.3.1",
+        "postcss": "^8.4.31",
+        "postcss-cli": "^8.3.1"
+    },
+    "browserslist": [
+        "Android 2.3",
+        "Android >= 4",
+        "Chrome >= 20",
+        "Firefox >= 24",
+        "Explorer >= 8",
+        "iOS >= 6",
+        "Opera >= 12",
+        "Safari >= 6"
+    ],
+    "devDependencies": {
+        "@netlify/plugin-lighthouse": "^5.0.0",
+        "eslint": "^8.45.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-node": "^11.1.0",
+        "husky": "^7.0.1",
+        "prettier": "^2.8.2"
+    }
+}
