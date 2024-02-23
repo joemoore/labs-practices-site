@@ -93,7 +93,7 @@ time_format_default = "January 2, 2006"
 # Sections to publish in the main RSS feed.
 rss_sections = ["blog","tv-episode"]
 
-copyright = "VMware, Inc"
+copyright = "labspractices.com"
 privacy_policy = "https://www.vmware.com/help/privacy.html"
 terms_of_use = "https://www.vmware.com/help/legal.html"
 california_privacy_rights = "https://www.vmware.com/help/privacy/california-privacy-rights.html"
@@ -184,16 +184,6 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 	url = "https://twitch.com/vmwaretanzu"
 	icon = "fab fa-twitch"
         desc = "Watch our modern app development live stream."
-#[[params.links.developer]]
-#	name = "Slack"
-#	url = "https://slack.com/vmware-tanzu"
-#	icon = "fab fa-slack"
-#        desc = "Chat with other project developers"
-#[[params.links.developer]]
-#	name = "Developer mailing list"
-#	url = "https://tanzu.vmware.com/newsletter-subscription"
-#	icon = "fa fa-envelope"
-#       desc = "Discuss development issues around the project"
 
 [frontmatter]
   lastmod = ["lastmod", ":git", "date"]
