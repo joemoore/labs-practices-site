@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: PT Sans
+- Font Author: Copyright © 2009 ParaType Ltd. All rights reserved.
+- Font Source: http://fonts.gstatic.com/s/ptsans/v17/jizfRExUiTo99u79B_mh4OmnLD0Z4zM.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
