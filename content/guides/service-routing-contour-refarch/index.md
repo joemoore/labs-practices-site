@@ -1,17 +1,17 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: A reference architecture for implementing the Contour Service Mesh
 keywords:
-- Kubernetes
-- Contour
-lastmod: '2021-02-24'
+  - Kubernetes
+  - Contour
+lastmod: "2021-02-24"
 linkTitle: Contour Reference Architecture
 parent: Service Routing
 title: Contour Reference Architecture
 weight: 1600
 oldPath: "/content/guides/kubernetes/service-routing-contour-refarch.md"
 aliases:
-- "/guides/kubernetes/service-routing-contour-refarch"
+  - "/guides/kubernetes/service-routing-contour-refarch"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []

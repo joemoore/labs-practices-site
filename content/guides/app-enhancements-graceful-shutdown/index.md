@@ -1,15 +1,15 @@
 ---
-date: '2021-02-16'
-lastmod: '2021-02-26'
+date: "2021-02-16"
+lastmod: "2021-02-26"
 parent: Application Enhancements
 tags:
-- Kubernetes
+  - Kubernetes
 team:
-- John Harris
+  - John Harris
 title: Graceful Shutdown
 oldPath: "/content/guides/kubernetes/app-enhancements-graceful-shutdown.md"
 aliases:
-- "/guides/kubernetes/app-enhancements-graceful-shutdown"
+  - "/guides/kubernetes/app-enhancements-graceful-shutdown"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -128,8 +128,8 @@ metadata:
 spec:
   terminationGracePeriodSeconds: 60
   containers:
-  - image: nginx
-    name: nginx
+    - image: nginx
+      name: nginx
 ```
 
 ### Implement a Pre-stop Hook
@@ -151,10 +151,10 @@ metadata:
   name: nginx
 spec:
   containers:
-  - image: nginx
-    name: nginx
-    lifecycle:
-      preStop:
-        exec:
-          command: ["/pre-stop.sh"]
+    - image: nginx
+      name: nginx
+      lifecycle:
+        preStop:
+          exec:
+            command: ["/pre-stop.sh"]
 ```

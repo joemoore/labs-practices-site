@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: We Maintain a Healthy Work/Life Balance
 weight: 70
 oldPath: "/content/outcomes/application-development-how-we-work/work-life-balance.md"
 aliases:
-- "/outcomes/application-development-how-we-work/work-life-balance"
+  - "/outcomes/application-development-how-we-work/work-life-balance"
 tags: []
 ---
 

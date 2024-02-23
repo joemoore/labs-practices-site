@@ -1,20 +1,20 @@
 ---
 aliases:
-- guides/kubernetes/k8s-secrets-sa-what-is/
-- "/guides/kubernetes/platform-security-secrets-sa-what-is"
-date: '2021-02-24'
+  - guides/kubernetes/k8s-secrets-sa-what-is/
+  - "/guides/kubernetes/platform-security-secrets-sa-what-is"
+date: "2021-02-24"
 description: Learn how to create and manage Kubernetes secrets for service accounts. Explore platform security best practices in our developer guide.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Secrets and Service Accounts
 metaTitle: Create Kubernetes Secrets for Service Accounts
 parent: Platform Security
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Kubernetes
+  - Kubernetes
 team:
-- Brian McClain
-- Tiffany Jernigan
+  - Brian McClain
+  - Tiffany Jernigan
 title: How to Create Kubernetes Secrets and Service Accounts
 weight: 2
 oldPath: "/content/guides/kubernetes/platform-security-secrets-sa-what-is.md"
@@ -79,7 +79,7 @@ $ kubectl describe secret mysecret
 Name:         mysecret
 Namespace:    default
 Labels:       <none>
-Annotations:  
+Annotations:
 Type:         Opaque
 
 Data
@@ -114,16 +114,16 @@ metadata:
   name: secret-as-file
 spec:
   containers:
-  - name: secret-as-file
-    image: nginx
-    volumeMounts:
-    - name: mysecretvol
-      mountPath: "/etc/mysecret"
-      readOnly: true
+    - name: secret-as-file
+      image: nginx
+      volumeMounts:
+        - name: mysecretvol
+          mountPath: "/etc/mysecret"
+          readOnly: true
   volumes:
-  - name: mysecretvol
-    secret:
-      secretName: mysecret
+    - name: mysecretvol
+      secret:
+        secretName: mysecret
 ```
 
 Here, a new pod named `secret-as-file` is created from the
@@ -179,19 +179,19 @@ metadata:
   name: secret-as-env
 spec:
   containers:
-  - name: secret-as-env
-    image: nginx
-    env:
-    - name: SECRET_USERNAME
-      valueFrom:
-        secretKeyRef:
-          name: mysecret
-          key: username
-    - name: SECRET_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: mysecret
-          key: password
+    - name: secret-as-env
+      image: nginx
+      env:
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: username
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: password
 ```
 
 Here, instead of defining volumes that reference your secret, two environment
@@ -271,9 +271,9 @@ metadata:
   namespace: default
   name: pod-read-role
 rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["pods"]
-  verbs: ["get", "watch", "list"]
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods"]
+    verbs: ["get", "watch", "list"]
 
 ---
 apiVersion: v1
@@ -288,9 +288,9 @@ metadata:
   name: pod-read-rolebinding
   namespace: default
 subjects:
-- kind: ServiceAccount
-  name: pod-read-sa
-  apiGroup: ""
+  - kind: ServiceAccount
+    name: pod-read-sa
+    apiGroup: ""
 roleRef:
   kind: Role
   name: pod-read-role

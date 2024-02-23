@@ -1,23 +1,24 @@
 ---
-date: '2020-06-15'
-description: Walk through the set up and installation of Tekton, a set of open source
+date: "2020-06-15"
+description:
+  Walk through the set up and installation of Tekton, a set of open source
   Kubernetes resources to build and run CI/CD pipelines.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Getting Started with Tekton
 metaTitle: Getting Started with Tekton
 parent: Tekton
 patterns:
-- Deployment
+  - Deployment
 tags:
-- CI-CD
-- Tekton
+  - CI-CD
+  - Tekton
 team:
-- Brian McClain
-title: 'Getting Started with Tekton Part 1: Hello World'
+  - Brian McClain
+title: "Getting Started with Tekton Part 1: Hello World"
 weight: 1
 oldPath: "/content/guides/ci-cd/tekton-gs-p1.md"
 aliases:
-- "/guides/ci-cd/tekton-gs-p1"
+  - "/guides/ci-cd/tekton-gs-p1"
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -45,6 +46,7 @@ minikube start --memory=4096 --disk-size=10g
 Once your Minikube environment is created, you can install Tekton by applying the YAML from the [latest release](https://github.com/tektoncd/pipeline/releases):
 
 ## Install Tekton
+
 ```bash
 kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
 ```
@@ -55,7 +57,7 @@ You can monitor the progress of the install by watching the pods in the newly cr
 kubectl get pods --namespace tekton-pipelines --watch
 ```
 
-Once the install is complete, you'll see two newly created pods: 
+Once the install is complete, you'll see two newly created pods:
 
 ```bash
 tekton-pipelines-webhook-69796f78cf-b28z4      1/1     Running             0          9s
@@ -67,7 +69,6 @@ Finally, in a couple of the examples, you'll be pushing container images to Dock
 ```bash
 kubectl create secret docker-registry dockercreds --docker-server=https://index.docker.io/v1/ --docker-username=<DOCKERHUB_USERNAME> --docker-password=<DOCKERHUB_PASSWORD> --docker-email <DOCKERHUB_EMAIL>
 ```
-
 
 ## Create Your Own Task
 

@@ -2,18 +2,18 @@
 date: 2021-05-05 10:40:17.000000000 -06:00
 description: Dynamic testing of your Spring Security route authorizations
 draft: false
-lastmod: '2021-05-25'
+lastmod: "2021-05-25"
 tags:
-- spring
-- testing
-- spring security
-- Spring
+  - spring
+  - testing
+  - spring security
+  - Spring
 team:
-- Toby Rumans
+  - Toby Rumans
 title: Spring Route Authorization Testing
 oldPath: "/content/guides/spring/spring-route-authorization-testing.md"
 aliases:
-- "/guides/spring/spring-route-authorization-testing"
+  - "/guides/spring/spring-route-authorization-testing"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---

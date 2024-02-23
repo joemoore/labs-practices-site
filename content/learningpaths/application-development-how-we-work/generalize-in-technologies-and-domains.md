@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: We Generalize (in technologies and domains)
 weight: 40
 oldPath: "/content/outcomes/application-development-how-we-work/generalize-in-technologies-and-domains.md"
 aliases:
-- "/outcomes/application-development-how-we-work/generalize-in-technologies-and-domains"
+  - "/outcomes/application-development-how-we-work/generalize-in-technologies-and-domains"
 tags: []
 ---
 
@@ -26,7 +26,7 @@ This may sound daunting. You might be saying, "there's no way one person could k
 
 **The more business domains, languages, frameworks, and technologies we're exposed to, the easier learning new ones becomes.** In reality, they have more similarities than differences. And we also hone the most essential skill that anyone should have: **_we learn how to learn._**
 
-An avowed specialist—someone who focuses exclusively on a narrow set of skills—is by and large a liability for us as a consulting organization. **If someone only specializes in one or two technologies, industries, or design systems, they  limit the number of clients they can help,** and there is no guarantee that we'll have projects available that match their narrow skill set.
+An avowed specialist—someone who focuses exclusively on a narrow set of skills—is by and large a liability for us as a consulting organization. **If someone only specializes in one or two technologies, industries, or design systems, they limit the number of clients they can help,** and there is no guarantee that we'll have projects available that match their narrow skill set.
 
 If an organization is full of specialists, the organization is limited in its ability to react to an ever changing list of challenges; this is true for product as well as services orgs.
 

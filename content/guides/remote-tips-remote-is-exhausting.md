@@ -1,16 +1,16 @@
 ---
-date: '2021-01-29'
-lastmod: '2021-02-22'
+date: "2021-01-29"
+lastmod: "2021-02-22"
 linkTitle: Remote is Exhausting
 parent: Remote Tips
 tags:
-- Agile
+  - Agile
 team:
-- Pivotal/Tanzu Labs
-title: 'Remote Tips: Remote is Exhausting'
+  - Pivotal/Tanzu Labs
+title: "Remote Tips: Remote is Exhausting"
 oldPath: "/content/guides/agile/remote-tips-remote-is-exhausting.md"
 aliases:
-- "/guides/agile/remote-tips-remote-is-exhausting"
+  - "/guides/agile/remote-tips-remote-is-exhausting"
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---

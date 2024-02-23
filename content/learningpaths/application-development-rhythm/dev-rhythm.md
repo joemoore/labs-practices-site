@@ -3,16 +3,15 @@ title: Development Rhythm by Example
 weight: 40
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 oldPath: "/content/outcomes/application-development-rhythm/dev-rhythm.md"
 aliases:
-- "/outcomes/application-development-rhythm/dev-rhythm"
+  - "/outcomes/application-development-rhythm/dev-rhythm"
 tags: []
 ---
 
-*This article is the fifth in a five-part series.*
+_This article is the fifth in a five-part series._
 To view a demo on a developer daily workflow that follows Test Driven Development practices, Continuous Integration practices, uses the Red/Green/Refactor Cycle, the [Mikado Method](http://mikadomethod.info/) and private branching techniques, do one of the following:
-
 
 - Watch the video, [coming soon](https://github.com/joemoore/labs-practices-site/issues/1097).
 - Run through the Developer Flow Workshop, [coming soon](https://github.com/joemoore/labs-practices-site/issues/1098)

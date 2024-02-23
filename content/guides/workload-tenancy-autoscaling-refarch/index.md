@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Guidance for autoscaling application workloads and cluster compute resources
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Autoscaling Reference Architecture
 parent: Workload Tenancy
 title: Autoscaling Reference Architecture
 weight: 1600
 oldPath: "/content/guides/kubernetes/workload-tenancy-autoscaling-refarch.md"
 aliases:
-- "/guides/kubernetes/workload-tenancy-autoscaling-refarch"
+  - "/guides/kubernetes/workload-tenancy-autoscaling-refarch"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []

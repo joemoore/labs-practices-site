@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Learn exactly how Kubernetes works
 weight: -100
 linkTitle: Kubernetes Architecture

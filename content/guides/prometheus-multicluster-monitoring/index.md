@@ -1,55 +1,61 @@
 ---
 date: 2020-03-11
 description: Discover how to implement multi-cluster monitoring with Prometheus. Our developer guide covers best practices and tips for success.
-lastmod: '2021-02-24'
+lastmod: "2021-02-24"
 linkTitle: Multi-Cluster Monitoring
 parent: Platform Observability
 patterns:
-- Observability
+  - Observability
 tags:
-- Kubernetes
-- Observability
-- Prometheus
-- Grafana
-- Thanos
-- Bitnami
-- Helm
+  - Kubernetes
+  - Observability
+  - Prometheus
+  - Grafana
+  - Thanos
+  - Bitnami
+  - Helm
 team:
-- Vikram Vaswani
-- Juan Ariza
+  - Vikram Vaswani
+  - Juan Ariza
 title: Create a Multi-Cluster Monitoring Dashboard with Thanos, Grafana and Prometheus
 metaTitle: Multi-Cluster Monitoring with Prometheus, Thanos & Grafana
 weight: 1800
 oldPath: "/content/guides/kubernetes/prometheus-multicluster-monitoring.md"
 aliases:
-- "/guides/kubernetes/prometheus-multicluster-monitoring"
+  - "/guides/kubernetes/prometheus-multicluster-monitoring"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 faqs:
   faq:
-  - question: Why do developers and site reliability engineering (SRE) teams use Prometheus
-      and Grafana?
-    answer: SRE teams and developers use Prometheus, coupled with Grafana, to capture
-      metrics and telemetry data for applications running in a cluster, allowing deeper
-      insights into application performance and reliability. As teams scale out, effective
-      multi-cluster monitoring with Thanos is essential.
-  - question: What is Thanos Prometheus?
-    answer: Thanos is a monitoring system that aggregates data from multiple Prometheus
-      deployments. This data can then be inspected and analyzed using Grafana, just
-      as with regular Prometheus metrics.
-  - question: Can Prometheus monitor multiple Kubernetes clusters?
-    answer: Yes, with the Prometheus/Grafana combination, you can monitor multiple
-      Kubernetes clusters and multiple providers.
-  - question: How do you integrate Thanos with Prometheus?
-    answer: To integrate Thanos with Prometheus, install the Prometheus Operator on
-      each cluster, then install and configure Thanos in the "data aggregator" cluster.
-      As an additional step, install and configure Grafana to use Thanos as a data
-      source and start deploying applications into your "data producer" clusters and
-      collating the metrics in Thanos and Grafana.
-  - question: How do you connect Thanos to Grafana?
-    answer: After installing Grafana, navigate to the dashboard and click the "Add
-      data source" button. Next, on the "Choose data source type" page, select "Prometheus"
-      and set the URL for the Prometheus server with the Thanos service.
+    - question:
+        Why do developers and site reliability engineering (SRE) teams use Prometheus
+        and Grafana?
+      answer:
+        SRE teams and developers use Prometheus, coupled with Grafana, to capture
+        metrics and telemetry data for applications running in a cluster, allowing deeper
+        insights into application performance and reliability. As teams scale out, effective
+        multi-cluster monitoring with Thanos is essential.
+    - question: What is Thanos Prometheus?
+      answer:
+        Thanos is a monitoring system that aggregates data from multiple Prometheus
+        deployments. This data can then be inspected and analyzed using Grafana, just
+        as with regular Prometheus metrics.
+    - question: Can Prometheus monitor multiple Kubernetes clusters?
+      answer:
+        Yes, with the Prometheus/Grafana combination, you can monitor multiple
+        Kubernetes clusters and multiple providers.
+    - question: How do you integrate Thanos with Prometheus?
+      answer:
+        To integrate Thanos with Prometheus, install the Prometheus Operator on
+        each cluster, then install and configure Thanos in the "data aggregator" cluster.
+        As an additional step, install and configure Grafana to use Thanos as a data
+        source and start deploying applications into your "data producer" clusters and
+        collating the metrics in Thanos and Grafana.
+    - question: How do you connect Thanos to Grafana?
+      answer:
+        After installing Grafana, navigate to the dashboard and click the "Add
+        data source" button. Next, on the "Choose data source type" page, select "Prometheus"
+        and set the URL for the Prometheus server with the Thanos service.
 ---
 
 [Prometheus](https://prometheus.io/), coupled with
@@ -71,13 +77,13 @@ using Grafana, just as with regular Prometheus metrics. Although this setup
 sounds complex, it's actually very easy to achieve with the following Bitnami
 Helm charts:
 
-* [Bitnami's Prometheus Operator Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/prometheus-operator)
+- [Bitnami's Prometheus Operator Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/prometheus-operator)
   lets you deploy Prometheus in your Kubernetes cluster with an additional
   Thanos sidecar container.
-* [Bitnami's Thanos Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/thanos)
+- [Bitnami's Thanos Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/thanos)
   lets you deploy all the Thanos components together with MinIO and Alertmanager
   so you can quickly bootstrap a Thanos deployment.
-* [Bitnami's Grafana Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/grafana)
+- [Bitnami's Grafana Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/grafana)
   lets you deploy Grafana in your Kubernetes cluster.
 
 This guide walks you through the process of using these charts to create a
@@ -86,16 +92,16 @@ clusters and allows further monitoring and analysis using Grafana.
 
 ## Assumptions and prerequisites
 
-* You have three separate multi-node Kubernetes clusters running on the same
+- You have three separate multi-node Kubernetes clusters running on the same
   cloud provider:
 
-  * Two "data producer" clusters which will host Prometheus deployments and
+  - Two "data producer" clusters which will host Prometheus deployments and
     applications that expose metrics via Prometheus.
-  * One "data aggregator" cluster which will host Thanos and aggregate the data
+  - One "data aggregator" cluster which will host Thanos and aggregate the data
     from the data producers. This cluster will also host Grafana for data
     visualization and reporting.
 
-* You have the *kubectl* CLI and the Helm v3.x package manager installed and configured to work with your Kubernetes clusters. [Learn how to install *kubectl* and Helm v3.x](https://docs.bitnami.com/kubernetes/get-started-kubernetes#step-3-install-kubectl-command-line).
+- You have the _kubectl_ CLI and the Helm v3.x package manager installed and configured to work with your Kubernetes clusters. [Learn how to install _kubectl_ and Helm v3.x](https://docs.bitnami.com/kubernetes/get-started-kubernetes#step-3-install-kubectl-command-line).
 
 This guide uses clusters hosted on the Google Kubernetes Engine (GKE) service
 but you can use any Kubernetes provider. Learn about
@@ -111,13 +117,13 @@ which can be used by your Thanos deployment to access cluster metrics.
 Only one instance of the Prometheus Operator component should be running in a
 cluster.
 
-* Add the Bitnami charts repository to Helm:
+- Add the Bitnami charts repository to Helm:
 
   ```bash
   helm repo add bitnami https://charts.bitnami.com/bitnami
   ```
 
-* Install the Prometheus Operator in the first "data producer" cluster using the command below:
+- Install the Prometheus Operator in the first "data producer" cluster using the command below:
 
   ```bash
   helm install prometheus-operator \
@@ -129,16 +135,16 @@ cluster.
     --set prometheus.externalLabels.cluster="data-producer-0" \
     bitnami/prometheus-operator
   ```
-  
-  The *prometheus.thanos.create* parameter creates a Thanos sidecar container,
-  while the *prometheus.thanos.service.type* parameter makes the sidecar service
+
+  The _prometheus.thanos.create_ parameter creates a Thanos sidecar container,
+  while the _prometheus.thanos.service.type_ parameter makes the sidecar service
   available at a public load balancer IP address. Note the
-  *prometheus.externalLabels* parameter which lets you define one or more unique
+  _prometheus.externalLabels_ parameter which lets you define one or more unique
   labels per Prometheus instance - these labels are useful to differentiate
   different stores or data sources in Thanos.
-    
+
   The command above exposes the Thanos sidecar container in each cluster at a
-  public IP address using a *LoadBalancer* service. This makes it easy for
+  public IP address using a _LoadBalancer_ service. This makes it easy for
   Thanos to access Prometheus metrics in different clusters without needing any
   special firewall or routing configuration. However, this approach is highly
   insecure and should be used only for demonstration or testing purposes. In
@@ -146,7 +152,7 @@ cluster.
   Controller to control access from outside the cluster and further limit access
   using whitelisting and other security-related configuration.
 
-* Use the command below to obtain the public IP address of the sidecar service.
+- Use the command below to obtain the public IP address of the sidecar service.
   You will use this IP address in the next step.
 
   ```
@@ -154,17 +160,17 @@ cluster.
   ```
 
 Repeat the steps shown above for the second "data producer" cluster. Use a
-different value for the *prometheus.externalLabels.cluster* parameter, such as
-*data-producer-1*.
+different value for the _prometheus.externalLabels.cluster_ parameter, such as
+_data-producer-1_.
 
 ## Step 2: Install and configure Thanos on your Kubernetes cluster
 
 The next step is to install Thanos in the "data aggregator" cluster and
 integrate it with Alertmanager and MinIO as the object store.
 
-* Modify your Kubernetes context to reflect the cluster on which you wish to install Thanos.
+- Modify your Kubernetes context to reflect the cluster on which you wish to install Thanos.
 
-* Create a *values.yaml* file as shown below. Replace the KEY placeholder with a
+- Create a _values.yaml_ file as shown below. Replace the KEY placeholder with a
   hard-to-guess value and the SIDECAR-SERVICE-IP-ADDRESS-X placeholders with the
   public IP addresses of the Thanos sidecar containers in the "data producer"
   clusters.
@@ -206,33 +212,33 @@ integrate it with Alertmanager and MinIO as the object store.
       password: "KEY"
     defaultBuckets: "thanos"
   ```
- 
-* Install Thanos using the command below:
+
+- Install Thanos using the command below:
 
   ```bash
   helm install thanos bitnami/thanos \
     --values values.yaml
   ```
- 
-* Wait for the deployment to complete and note the DNS name and port number for
+
+- Wait for the deployment to complete and note the DNS name and port number for
   the Thanos Querier service in the deployment output, as shown below:
 
   ![Thanos Querier service](images/querier-service.png)
 
-* Follow the instructions shown in the chart output to connect to the Thanos
+- Follow the instructions shown in the chart output to connect to the Thanos
   Querier Web interface and navigate to the "Stores" tab. Confirm that both
   sidecar services are running and registered with Thanos, as shown below:
 
   ![Thanos Querier stores](images/querier-stores.png)
 
-  Confirm also that each service displays a unique *cluster* labelset, as configured in [Step 1](#step-1-install-the-prometheus-operator-on-each-cluster).
+  Confirm also that each service displays a unique _cluster_ labelset, as configured in [Step 1](#step-1-install-the-prometheus-operator-on-each-cluster).
 
 ## Step 3: Install Grafana on the same "data aggregator" cluster
 
 The next step is to install Grafana, also on the same "data aggregator" cluster
 as Thanos.
 
-* Use the command below, replacing GRAFANA-PASSWORD with a password for the
+- Use the command below, replacing GRAFANA-PASSWORD with a password for the
   Grafana application:
 
   ```bash
@@ -240,16 +246,16 @@ as Thanos.
     --set service.type=LoadBalancer \
     --set admin.password=GRAFANA-PASSWORD
   ```
-  
-* Wait for the deployment to complete and obtain the public IP address for the
+
+- Wait for the deployment to complete and obtain the public IP address for the
   Grafana load balancer service:
 
   ```bash
   kubectl get svc | grep grafana
   ```
 
-* Confirm that you are able to access Grafana by browsing to the load balancer
-  IP address on port 3000 and logging in with the username *admin* and the
+- Confirm that you are able to access Grafana by browsing to the load balancer
+  IP address on port 3000 and logging in with the username _admin_ and the
   configured password. Here is what you should see:
 
   ![Grafana dashboard](images/grafana-dashboard.png)
@@ -258,23 +264,22 @@ as Thanos.
 
 Follow these steps:
 
-* From the Grafana dashboard, click the "Add data source" button.
-* On the "Choose data source type" page, select "Prometheus".
+- From the Grafana dashboard, click the "Add data source" button.
+- On the "Choose data source type" page, select "Prometheus".
 
   ![Grafana data source](images/grafana-add-data-source.png)
 
-* On the "Settings" page, set the URL for the Prometheus server to
-  *http://NAME:PORT*, where NAME is the DNS name for the Thanos service obtained
+- On the "Settings" page, set the URL for the Prometheus server to
+  _http://NAME:PORT_, where NAME is the DNS name for the Thanos service obtained
   at the end of [Step 2](#step-2-install-and-configure-thanos) and PORT is the
   corresponding service port. Leave all other values at their default.
 
   ![Grafana data source configuration](images/grafana-thanos-url.png)
 
-* Click "Save & Test" to save and test the configuration. If everything is
+- Click "Save & Test" to save and test the configuration. If everything is
   configured correctly, you should see a success message like the one below.
 
   ![Grafana test](images/grafana-success.png)
-
 
 ## Step 5: Test the multi-cluster monitoring system
 
@@ -284,7 +289,7 @@ purposes, this guide will deploy a MariaDB replication cluster using Bitnami's
 MariaDB Helm chart in each "data producer" cluster and display the metrics
 generated by each MariaDB service in Grafana.
 
-* Deploy MariaDB in each cluster with one master and one slave using the
+- Deploy MariaDB in each cluster with one master and one slave using the
   production configuration with the commands below. Replace the
   MARIADB-ADMIN-PASSWORD and MARIADB-REPL-PASSWORD placeholders with the
   database administrator account and replication account password respectively.
@@ -301,33 +306,33 @@ generated by each MariaDB service in Grafana.
     --set slave.replicas=1 \
     --set metrics.enabled=true \
     --set metrics.serviceMonitor.enabled=true \
-    bitnami/mariadb 
+    bitnami/mariadb
   ```
-  
-  Note the *metrics.enabled* parameter, which enables the Prometheus exporter
-  for MySQL server metrics, and the *metrics.serviceMonitor.enabled* parameter,
+
+  Note the _metrics.enabled_ parameter, which enables the Prometheus exporter
+  for MySQL server metrics, and the _metrics.serviceMonitor.enabled_ parameter,
   which creates a Prometheus Operator ServiceMonitor.
 
-* Once deployment in each cluster is complete, note the instructions to connect
+- Once deployment in each cluster is complete, note the instructions to connect
   to each database service.
 
   ![MariaDB service](images/mariadb-service.png)
 
-* Browse to the
+- Browse to the
   [MySQL Overview dashboard in the Percona GitHub repository](https://github.com/percona/grafana-dashboards/blob/master/dashboards/MySQL_Overview.json)
   and copy the JSON model.
-* Log in to Grafana. From the Grafana dashboard, click the "Import -> Dashboard"
+- Log in to Grafana. From the Grafana dashboard, click the "Import -> Dashboard"
   menu item.
-* On the "Import" page, paste the JSON model into the "Or paste JSON" field.
+- On the "Import" page, paste the JSON model into the "Or paste JSON" field.
 
   ![Grafana dashboard import](images/grafana-dashboard-import.png)
 
-* Click "Load" to load the data and then "Import" to import the dashboard. The
+- Click "Load" to load the data and then "Import" to import the dashboard. The
   new dashboard should appear in Grafana, as shown below:
 
   ![Grafana MySQL dashboard](images/grafana-mysql-dashboard.png)
 
-* Connect to the MariaDB service in the first "data producer" cluster and
+- Connect to the MariaDB service in the first "data producer" cluster and
   perform some actions, such as creating a database, adding records to a table
   and executing a query. Perform similar actions in the second "data producer"
   cluster. You should see your activity in each cluster reflected in the MySQL
@@ -340,19 +345,19 @@ generated by each MariaDB service in Grafana.
   below:
 
   ![MariaDB hosts in Grafana](images/grafana-hosts.png)
-  
+
 You can now continue adding more applications to your clusters. So long as you
 enable Prometheus metrics and a Prometheus Operator ServiceMonitor for each
 deployment, Thanos will continuously receive and aggregate the metrics and you
-can inspect them using Grafana.  
+can inspect them using Grafana.
 
 ## Useful links
 
 To learn more about the topics discussed in this guide, use the links below:
 
-* [Bitnami Prometheus Operator Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/prometheus-operator)
-* [Bitnami's Thanos Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/thanos)
-* [Bitnami's Grafana Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/grafana)
-* [Bitnami MariaDB Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
-* [NGINX Ingress controller documentation](https://github.com/kubernetes/ingress/tree/master/controllers/nginx)
-* [Secure Kubernetes Services with Ingress, TLS and Let's Encrypt](https://docs.bitnami.com/tutorials/secure-kubernetes-services-with-ingress-tls-letsencrypt/)
+- [Bitnami Prometheus Operator Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/prometheus-operator)
+- [Bitnami's Thanos Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/thanos)
+- [Bitnami's Grafana Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/grafana)
+- [Bitnami MariaDB Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/mariadb)
+- [NGINX Ingress controller documentation](https://github.com/kubernetes/ingress/tree/master/controllers/nginx)
+- [Secure Kubernetes Services with Ingress, TLS and Let's Encrypt](https://docs.bitnami.com/tutorials/secure-kubernetes-services-with-ingress-tls-letsencrypt/)

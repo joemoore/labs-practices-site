@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Break down the monolith
 weight: -100
 linkTitle: Deconstruction

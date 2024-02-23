@@ -4,21 +4,21 @@ description: Using Docker to reduce development environment complexity when buil
 date: "2023-02-23"
 lastmod: "2023-02-23"
 tags:
-- Containers
-- Docker
-- Docker Compose
-- DevX
+  - Containers
+  - Docker
+  - Docker Compose
+  - DevX
 topics:
-- Containers
-- Networking
-- Docker
-- Docker Compose
-- DevEx
-- DevX
-- DX
+  - Containers
+  - Networking
+  - Docker
+  - Docker Compose
+  - DevEx
+  - DevX
+  - DX
 team:
-- Andre Browne
-- Liam Morley
+  - Andre Browne
+  - Liam Morley
 featured: false
 level1: Building Modern Applications
 level2: Modern Development Practices
@@ -30,12 +30,12 @@ Imagine you're working on a service within a [cloud native](https://tanzu.vmware
 
 There are a few approaches to solving this problem, each having their own tradeoffs:
 
-* __Running your services locally.__ This entails building and running multiple services directly on your workstation. This requires disk space, memory, CPU, and eventually might consume enough resources to render the workstation inoperable. In addition, it can require compilation tools and run-time environments for any of the first-party services. Furthermore, any third-party services (e.g. databases, message queues) will need to be set up in order to run everything locally.
-* __Running your services in the cloud.__ This entails deploying one or more services to the cloud every time you want feedback. This approach enables you to validate your services in an environment that more closely resembles your production environment. However, it might be the most time intensive, and will require infrastructure to support deploying your services.
-* __A hybrid of local and cloud.__ This entails configuring any locally running services to communicate with the services that you have deployed to the cloud. The hybrid approach has some of the advantages and disadvantages of the previous two approaches, and also can require managing proxying, firewall, and other network configuration.
-* __A hybrid of local and containerization.__ Containerization allows you to run services on a virtual machine in a custom environment pre-configured for each service. This approach removes some of the complexities and disadvantages of the other approaches, allows you to test your service locally, abstracts away the configuration and dependencies of each service, and mitigates some of the resource impacts of running all services locally.
+- **Running your services locally.** This entails building and running multiple services directly on your workstation. This requires disk space, memory, CPU, and eventually might consume enough resources to render the workstation inoperable. In addition, it can require compilation tools and run-time environments for any of the first-party services. Furthermore, any third-party services (e.g. databases, message queues) will need to be set up in order to run everything locally.
+- **Running your services in the cloud.** This entails deploying one or more services to the cloud every time you want feedback. This approach enables you to validate your services in an environment that more closely resembles your production environment. However, it might be the most time intensive, and will require infrastructure to support deploying your services.
+- **A hybrid of local and cloud.** This entails configuring any locally running services to communicate with the services that you have deployed to the cloud. The hybrid approach has some of the advantages and disadvantages of the previous two approaches, and also can require managing proxying, firewall, and other network configuration.
+- **A hybrid of local and containerization.** Containerization allows you to run services on a virtual machine in a custom environment pre-configured for each service. This approach removes some of the complexities and disadvantages of the other approaches, allows you to test your service locally, abstracts away the configuration and dependencies of each service, and mitigates some of the resource impacts of running all services locally.
 
-This guide covers the hybrid of local and containerization using __Docker__ as our virtual environment. You can use Docker to put your dependencies (e.g. compilers, runtimes, even entire databases) in a box, called a container, so that your only dependency is on Docker itself, and not the myriad of dependencies that each individual application service might have.
+This guide covers the hybrid of local and containerization using **Docker** as our virtual environment. You can use Docker to put your dependencies (e.g. compilers, runtimes, even entire databases) in a box, called a container, so that your only dependency is on Docker itself, and not the myriad of dependencies that each individual application service might have.
 
 Whether you're brand new to Docker, or have worked with it for decades, there are some questions you inevitably run into: how do I create these containers? And where can I put them? A popular method is to build the containers using an [automated CI/CD pipeline](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/what-is-ci-cd/), and then store them in a [container registry](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/container-registry/). Container Management is an extensive topic, and out of scope for this guide. This guide uses basic containers, with some basic build dependencies, and without any customization.
 
@@ -45,24 +45,24 @@ This guide walks you through step-by-step instructions for using Docker to conta
 
 This guide requires the following tools, applications and environment:
 
-* [Docker](https://www.docker.com/)
-* Docker Compose (Usually installed with Docker * depending on your Operating System)
-* [Git](https://git-scm.com/downloads)
-* Java 17 or later
-* TCP Port availability for port numbers `8888`, `8889`, and `48081`
-* [Postman](https://www.postman.com/downloads/), [curl](https://curl.se/) or similar tool capable of executing a HTTP POST request
+- [Docker](https://www.docker.com/)
+- Docker Compose (Usually installed with Docker \* depending on your Operating System)
+- [Git](https://git-scm.com/downloads)
+- Java 17 or later
+- TCP Port availability for port numbers `8888`, `8889`, and `48081`
+- [Postman](https://www.postman.com/downloads/), [curl](https://curl.se/) or similar tool capable of executing a HTTP POST request
 
 ## Launching the Sample Application Services
 
 To illustrate communication between local and containerized services, this guide has an accompanying repository of three services mimicking a banking domain. Our three services are:
 
-1. __Debit Service__ - This service allows bank customers to perform transactions
-1. __Account Service__ - This service can support balance inquiries, deposits, and withdrawals
-1. __Audit Service__ - This service logs any requests it receives
+1. **Debit Service** - This service allows bank customers to perform transactions
+1. **Account Service** - This service can support balance inquiries, deposits, and withdrawals
+1. **Audit Service** - This service logs any requests it receives
 
 This guide illustrates running two of these services on your local computer, and the third service virtually, demonstrating communication between both local and virtual systems.
 
-> ___NOTE:___ While the steps in this guide work with any operating system, the commands below assume a Mac or Linux environment. If you're running on Windows or any other operating system, you may need to tweak commands to suit your needs.
+> **_NOTE:_** While the steps in this guide work with any operating system, the commands below assume a Mac or Linux environment. If you're running on Windows or any other operating system, you may need to tweak commands to suit your needs.
 
 You are ready to start!
 
@@ -79,6 +79,7 @@ You are ready to start!
    ```
 
 1. Clone the repository, located at <https://github.com/vmware-tanzu-labs/simple-distributed-bank-services-demo>:
+
    ```shell
    git clone https://github.com/vmware-tanzu-labs/simple-distributed-bank-services-demo
    ```
@@ -97,7 +98,7 @@ You are ready to start!
 
 1. Run the Debit Service locally by using the following commands:
 
-    ```shell
+   ```shell
    cd debit-service
    SERVER_PORT=8889 ACCOUNT_SERVICE_URL=http://localhost:48081 AUDIT_SERVICE_URL=http://localhost:8888 ./gradlew bootRun
    ```
@@ -111,9 +112,11 @@ You are ready to start!
    You'll need to run this in a dedicated terminal session. This guide assumes you'll use dedicated terminal sessions for each task.
 
    The command to start this service specifies three [environment variables](https://12factor.net/config) used to configure how it will run:
-   * __SERVER_PORT__ dictates that the Debit Service will run on port `8889`.
-   * __ACCOUNT_SERVICE_URL__ specifies that the Debit Service will communicate with the Account Service using a host address and port of `localhost:48081`. __`48081` is the port that Docker exposes to the local workstation to allow communication into the account-service container, and ultimately, the account service.__
-   * __AUDIT_SERVICE_URL__ specifies that the Debit Service will communicate with the Audit Service using a host address and port of `localhost:8888`.
+
+   - **SERVER_PORT** dictates that the Debit Service will run on port `8889`.
+   - **ACCOUNT_SERVICE_URL** specifies that the Debit Service will communicate with the Account Service using a host address and port of `localhost:48081`. **`48081` is the port that Docker exposes to the local workstation to allow communication into the account-service container, and ultimately, the account service.**
+   - **AUDIT_SERVICE_URL** specifies that the Debit Service will communicate with the Audit Service using a host address and port of `localhost:8888`.
+
 1. Run the Audit Service locally on a different port, via the following commands:
 
    ```shell
@@ -123,12 +126,14 @@ You are ready to start!
 
    When the service is ready to receive a request, a message similar to the following log entry appears in the console:
 
-    ```shell
-    AuditServiceApplication        : Started AuditServiceApplication in 2.656 seconds (process running for 2.984)
+   ```shell
+   AuditServiceApplication        : Started AuditServiceApplication in 2.656 seconds (process running for 2.984)
    ```
 
    The command to start this service specifies one environment variable used to configure how it will run:
-   * __SERVER_PORT__ dictates that the Audit Service will run on port `8888`.
+
+   - **SERVER_PORT** dictates that the Audit Service will run on port `8888`.
+
 1. Verify that the 3 services started successfully and are ready to receive requests
 1. Make a request against the Debit Service. You can make the request in multiple ways. (e.g. Curl, Postman, etc.). Using curl to make the request, execute the following command:
 
@@ -147,7 +152,7 @@ You are ready to start!
 
 After completing the steps above the Account Service, running as a containerized service in Docker, communicated with the Audit Service, running locally on your workstation. But how does this work?
 
-![Service Architecture](images/diagrams/service-architecture.png 'Service Architecture')
+![Service Architecture](images/diagrams/service-architecture.png "Service Architecture")
 
 In Step 5 you executed a command that started the Account Service. This application, like the others that run locally, requires configuration. The [docker-compose.yml](https://github.com/vmware-tanzu-labs/simple-distributed-bank-services-demo/blob/main/docker-compose.yml) file stores this configuration for the Account Service container in the `account-service` section of `services`. It looks like this:
 
@@ -166,9 +171,9 @@ services:
       - ./account-service:/account-service
 ```
 
-By configuring the `AUDIT_SERVICE_URL` as `host.docker.internal:8888`, this allows the containerized application to communicate with the applications running locally. __Herein lies the magic!__ The domain `host.docker.internal` maps to a special network address provided by Docker to allow containers to access the host network on the workstation.
+By configuring the `AUDIT_SERVICE_URL` as `host.docker.internal:8888`, this allows the containerized application to communicate with the applications running locally. **Herein lies the magic!** The domain `host.docker.internal` maps to a special network address provided by Docker to allow containers to access the host network on the workstation.
 
->___NOTE:___ `host.docker.internal` is a specific Docker feature available only for Windows and MacOS. Docker for Linux provides access to the host network via [a different mechanism](https://docs.docker.com/network/drivers/host/).
+> **_NOTE:_** `host.docker.internal` is a specific Docker feature available only for Windows and MacOS. Docker for Linux provides access to the host network via [a different mechanism](https://docs.docker.com/network/drivers/host/).
 
 ## Conclusion
 
@@ -176,7 +181,7 @@ Developing Cloud Native applications provides many benefits and some challenges.
 
 Today, you learned how to configure and use Docker to support your development efforts while minimizing, or potentially even eliminating, the need to understand how to configure and run every dependency required to test and validate your application.
 
->___NOTE:___ Due to Docker’s licensing requirements and some compatibility issues with Apple’s silicon (e.g. M1, M2), the approach we describe in this guide may be inaccessible for some. Luckily, [Podman](https://podman.io) is a very capable alternative for container and image management while providing similar network configuration.
+> **_NOTE:_** Due to Docker’s licensing requirements and some compatibility issues with Apple’s silicon (e.g. M1, M2), the approach we describe in this guide may be inaccessible for some. Luckily, [Podman](https://podman.io) is a very capable alternative for container and image management while providing similar network configuration.
 
 ## Credits
 

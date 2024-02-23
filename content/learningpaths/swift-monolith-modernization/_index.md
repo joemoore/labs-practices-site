@@ -4,12 +4,12 @@ weight: 1
 layout: intro
 duration: 60
 tags:
-- All Roles
-- Applications
+  - All Roles
+  - Applications
 experience: Intermediate
 description: Learn how to use the Swift method to modernize your monolithic app.
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 ## Why is this important?
@@ -18,14 +18,12 @@ Existing applications with a long history are hard to change. Many large moderni
 
 This learning path concentrates on the Swift method helping to effectively and quickly start modernizing existing monolithic applications or build highly scalable applications. Created within [Pivotal/Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs) by Shaun Anderson, this opinionated method proved to be high value in dozens of modernization projects.
 
-
 ## Who is this learning path for?
 
 This learning path is mainly for software engineers, architects, and product managers involved in the construction of modern applications.
 
 Managers, designers, and other non-technical stakeholders may also find
 this learning path valuable to understand this unique approach to modern apps.
-
 
 ## What you will learn
 

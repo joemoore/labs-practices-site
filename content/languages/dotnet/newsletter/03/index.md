@@ -6,8 +6,8 @@ title: "Hooked on .NET - September 2023 with Rachel Appel"
 description: This edition features guest Rachel Appel discussing dark patterns. Includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch.
 link: https://open.substack.com/pub/laylacodesit/p/hooked-on-net-0f9
 canonical: https://open.substack.com/pub/laylacodesit/p/hooked-on-net-0f9
-team: 
-- Layla Porter
+team:
+  - Layla Porter
 ---
 
 ## Welcome back 👋

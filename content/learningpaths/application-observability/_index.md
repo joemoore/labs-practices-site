@@ -12,8 +12,8 @@ description: |
   that the state of your application can be quickly understood, no matter
   how complex it may be.
 aliases:
-- "/patterns/observability/"
-- "/outcomes/application-observability/"
+  - "/patterns/observability/"
+  - "/outcomes/application-observability/"
 oldPath: "/content/outcomes/application-observability/_index.md"
 tags: []
 ---

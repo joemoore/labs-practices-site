@@ -1,40 +1,41 @@
 ---
-date: '2020-07-28'
-description: Get your Python application into production in seconds and explore how
+date: "2020-07-28"
+description:
+  Get your Python application into production in seconds and explore how
   Cloud Foundry simplifies a developers' job from log streaming to scaling.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Python On Cloud Foundry
 metaTitle: Running a Python Application into Production
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Cloud-foundry
-- Python
-- Buildpacks
-- Containers
+  - Cloud-foundry
+  - Python
+  - Buildpacks
+  - Containers
 team:
-- Ben Wilcock
-title: 'Python Like A Pro: How To Deploy Python Application Into Production'
+  - Ben Wilcock
+title: "Python Like A Pro: How To Deploy Python Application Into Production"
 oldPath: "/content/guides/python/cf-gs.md"
 aliases:
-- "/guides/python/cf-gs"
+  - "/guides/python/cf-gs"
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
 
-In this guide, you'll learn how to get a Python application into production in seconds. 
+In this guide, you'll learn how to get a Python application into production in seconds.
 
 Production is super important. It's where your users meet your code and where you get recognition for all the hard work you've put in. Production is where your company competes, and where it gets rewarded for all the risks it's taken --- large and small.
 
-Getting code into production quickly and regularly is life changing for developers like yourself. It opens the door to true agility --- a huge win for you, your team, and your company. But if the path to production is littered with roadblocks, getting your applications out there will be tiring and time consuming. 
+Getting code into production quickly and regularly is life changing for developers like yourself. It opens the door to true agility --- a huge win for you, your team, and your company. But if the path to production is littered with roadblocks, getting your applications out there will be tiring and time consuming.
 
-That's where Cloud Foundry comes in. 
+That's where Cloud Foundry comes in.
 
 ## What Is Cloud Foundry?
 
 [Cloud Foundry][cloud-foundry] is an open-source platform that simplifies the lives of developers. Cloud Foundry's ['Application Runtime'][cfar] takes your application code --- written in Python or a number of other languages or frameworks --- and runs it on any cloud, including Azure, AWS, GCP, Kubernetes, or even vSphere VMs.
 
-A unique feature of Cloud Foundry is its smooth developer experience. Using a single command you can have your code running in a safe, secure, and stable environment in seconds. Once running, Cloud Foundry takes care of everything else including log streaming, health monitoring, scaling, networking, load-balancing, and makes everyday chores like starting and stopping applications a breeze. 
+A unique feature of Cloud Foundry is its smooth developer experience. Using a single command you can have your code running in a safe, secure, and stable environment in seconds. Once running, Cloud Foundry takes care of everything else including log streaming, health monitoring, scaling, networking, load-balancing, and makes everyday chores like starting and stopping applications a breeze.
 
 ## Before You Begin
 
@@ -42,7 +43,7 @@ There are a few things you need to do before getting started with Cloud Foundry:
 
 - Install the [Cloud Foundry CLI][cf-cli] tool on your computer. This is the tool you will use to interact with Cloud Foundry. You can check that the tool is working by issuing the command `cf help`.
 
-- Decide which Cloud Foundry you're going to use and obtain it's endpoint URL. If you don't have a Cloud Foundry to work with, consider installing Cloud Foundry locally onto Kubernetes on your computer by following the steps in [this guide][cf-on-k8s] 
+- Decide which Cloud Foundry you're going to use and obtain it's endpoint URL. If you don't have a Cloud Foundry to work with, consider installing Cloud Foundry locally onto Kubernetes on your computer by following the steps in [this guide][cf-on-k8s]
 
 {{% callout %}}
 **Note**: Cloud Foundry goes by many names. There are many ['certified distributions'][certified] that offer Cloud Foundry as a commercial product. The [VMware Tanzu Application Service][tas] is one example. It is certified to meet the Cloud Foundry open-source standard and is fully compatible with the [cf CLI][cf-cli] tool.
@@ -59,7 +60,7 @@ Download the sample Python application from Github and make the sample applicati
 
 In the folder you will notice three text files, `web.py`, `requirements.txt`, and `Procfile`. If you already know what each of these files is for, you can skip ahead to the next section. If you want to know more about them, read on.
 
-The file `web.py` contains a hello-world web application written in `Python3` using the `Flask` and `MarkupSafe` libraries. 
+The file `web.py` contains a hello-world web application written in `Python3` using the `Flask` and `MarkupSafe` libraries.
 
 ```python
 from flask import Flask
@@ -125,7 +126,7 @@ Select a space:
 <enter-selected-space-number>
 ```
 
-If you're using your employers Cloud Foundry, the login process may be different. For example, you may have single sign on (SSO) rather than a username and password and you may be restricted in terms of which orgs and spaces are available to you. 
+If you're using your employers Cloud Foundry, the login process may be different. For example, you may have single sign on (SSO) rather than a username and password and you may be restricted in terms of which orgs and spaces are available to you.
 
 'Org and space' are simply Cloud Foundry terms for application partitioning. Depending on how your cloud foundry was set up, you may see very different names and options. Cloud Foundry doesn't attach any special meaning to these names. Production could just as easily be called 'bob' if that makes sense in your organization. Ask your platform team for advice on which space to use.
 
@@ -159,7 +160,7 @@ USAGE:
 
 ## Run Your Python Application In The 'Production' Space
 
-The `cf target` command above confirmed that the `production` space is the current target for your applications. Any space is fine, it doesn't have to be production, the process is the same. 
+The `cf target` command above confirmed that the `production` space is the current target for your applications. Any space is fine, it doesn't have to be production, the process is the same.
 
 The command you use to run your application on Cloud Foundry is `cf push`. You must give the application a name when you push it. In the example below the name `python-demo` has been used:
 
@@ -167,6 +168,7 @@ The command you use to run your application on Cloud Foundry is `cf push`. You m
 > cf push python-demo --random-route
 Pushing app python-demo to org tanzu-devrel / space production as <your-email>
 ```
+
 {{% callout %}}
 **Note**: You don't have to use `--random-route` either, it just prevents clashes when an app exists with the same name elsewhere on your Cloud Foundry instance.
 {{% /callout %}}
@@ -193,7 +195,7 @@ start command:   FLASK_APP=web.py python3 -m flask run --host=0.0.0.0 --port=$PO
 0   running   2020-07-28T15:32:55Z   0.0%   4.3M of 1G   214.6M of 1G
 ```
 
-In this case, the route assigned to this application by Cloud Foundry is `python-demo-lean-quokka-sc.cfapps.io`. Your application's route will be different. You will use the route __you__ have been given to test that you can communicate with the application.
+In this case, the route assigned to this application by Cloud Foundry is `python-demo-lean-quokka-sc.cfapps.io`. Your application's route will be different. You will use the route **you** have been given to test that you can communicate with the application.
 
 ## Test Your Python Application Is Running
 
@@ -219,14 +221,13 @@ Hello, World!
 
 The test above uses the [HTTPie][httpie] tool, but you could also use `curl` or a regular web browser. It's up to you.
 
-
 ## There's More
 
 Here's a few more commonly used `cf` commands for you. Don't forget, you can use `cf help` to get a full list of all the available commands at any time, and `cf <command> --help` will give you detailed information on each of them.
 
 ### Listing Your Applications
 
-You can see a list of all the applications you have running in your current space at any time using the `cf apps` command. 
+You can see a list of all the applications you have running in your current space at any time using the `cf apps` command.
 
 ```bash
 > cf apps
@@ -303,6 +304,7 @@ And if you'd prefer to see Cloud Foundry in action without actually following th
 {{< youtube qLg2xtQ5kTA >}}
 
 ---
+
 [cloud-foundry]: https://cloudfoundry.org
 [cfar]: https://www.cloudfoundry.org/application-runtime/
 [cf-cli]: https://docs.cloudfoundry.org/cf-cli/install-go-cli.html
@@ -311,7 +313,6 @@ And if you'd prefer to see Cloud Foundry in action without actually following th
 [certified]: https://www.cloudfoundry.org/thefoundry/#cert-distros
 [python-cnb-guide]: /guides/python/cnb-gs-python
 [httpie]: https://httpie.org/
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages

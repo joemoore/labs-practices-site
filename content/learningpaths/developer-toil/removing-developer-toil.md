@@ -3,10 +3,10 @@ title: Removing Developer Toil Increases Developer Productivity
 weight: 60
 layout: single
 team:
-- Michael Coté
-- Danielle Burrow
-- Susie Forbath
-- Tyson McNulty
+  - Michael Coté
+  - Danielle Burrow
+  - Susie Forbath
+  - Tyson McNulty
 ---
 
 # Removing developer toil increases developer productivity

@@ -8,7 +8,7 @@ layout: topic
 weight: 1
 icon: kubernetes
 description: >
-    Creating your Kubernetes platform tailored for your applications
+  Creating your Kubernetes platform tailored for your applications
 menu:
   main:
     parent: sections

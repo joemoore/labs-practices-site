@@ -1,14 +1,14 @@
 ---
-date: '2021-05-25'
-lastmod: '2021-06-15'
+date: "2021-05-25"
+lastmod: "2021-06-15"
 layout: single
 team:
-- Marc Zottner
+  - Marc Zottner
 title: Exposing Prometheus Metrics from Java
 weight: 3
 oldPath: "/content/outcomes/application-observability/exposing-metrics-java-prometheus.md"
 aliases:
-- "/outcomes/application-observability/exposing-metrics-java-prometheus"
+  - "/outcomes/application-observability/exposing-metrics-java-prometheus"
 tags: []
 ---
 

@@ -1,15 +1,15 @@
 ---
-date: '2021-02-16'
-lastmod: '2021-02-16'
+date: "2021-02-16"
+lastmod: "2021-02-16"
 parent: Application Enhancements
 tags:
-- Kubernetes
+  - Kubernetes
 team:
-- John Harris
+  - John Harris
 title: Application Readiness Checklist
 oldPath: "/content/guides/kubernetes/app-enhancements-checklist.md"
 aliases:
-- "/guides/kubernetes/app-enhancements-checklist"
+  - "/guides/kubernetes/app-enhancements-checklist"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---

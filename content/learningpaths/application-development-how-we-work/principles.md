@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Our Foundational Principles
 weight: 10
 oldPath: "/content/outcomes/application-development-how-we-work/principles.md"
 aliases:
-- "/outcomes/application-development-how-we-work/principles"
+  - "/outcomes/application-development-how-we-work/principles"
 tags: []
 ---
 
@@ -21,21 +21,27 @@ In a world where we work with anyone, anywhere, anytime, upon anything, **what i
 The answer is our **foundational principles**. Within Pivotal/Tanzu Labs, we've developed six principles which complement our [VMware EPIC<sub>2</sub> values](https://news.vmware.com/company/vmwares-culture-built-epic2-values) with an eye towards how we work with clients and each other:
 
 ## ⚡️ Empower Teams
+
 Diverse teams with shared context, psychological safety, and decision-making authority move faster.
 
 ## 🌱 Start Simple
+
 Learn just enough to begin and let the work inform the direction.
 
 ## 🦋 Embrace Change
+
 Expect change and turn it into opportunity.
 
 ## 🚀 Deliver Early and Often
+
 Ship value to users and measure impact to lower risk.
 
 ## 🔬 Improve Continuously
+
 We are always learning and humbled by what we don't know.
 
 ## ❤️ Give Back
+
 Share our time, tools, code, and approach with internal and open source communities to maximize impact.
 
 ---

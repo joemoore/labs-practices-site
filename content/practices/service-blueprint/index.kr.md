@@ -1,22 +1,22 @@
 ---
-date: '2021-10-08'
+date: "2021-10-08"
 description: 일관성, 수익성 및 영향을 향상하기 위해 고객에게 표시되는 서비스의 숨겨진 진실을 밝힙니다.
-lastmod: '2021-10-08'
+lastmod: "2021-10-08"
 length: 1~2시간 이상
 participants: 핵심 팀, 이해관계자, 사용자, 실무 전문가
 tags: ["검색", "프레이밍", "제공"]
 title: 서비스 Blueprint
 why:
-- 정보의 단일 출처를 생성하려면 개략적인 수준에서 기존 서비스의 실패 사항을 이해하거나 서비스를 반복해야 합니다.
+  - 정보의 단일 출처를 생성하려면 개략적인 수준에서 기존 서비스의 실패 사항을 이해하거나 서비스를 반복해야 합니다.
 when:
-- 통찰력을 기록하기 위한 합성 과정 등, 워크플로우를 파악하는 탐색 초기 단계입니다.
-- 구성하는 도중, 이전 서비스 모델과 새 서비스 모델을 비교 및 대조하기 위해 서비스를 반복하거나 제공할 때입니다.
-- 팀이 서비스를 만들거나 이해하거나 반복할 때마다입니다.
+  - 통찰력을 기록하기 위한 합성 과정 등, 워크플로우를 파악하는 탐색 초기 단계입니다.
+  - 구성하는 도중, 이전 서비스 모델과 새 서비스 모델을 비교 및 대조하기 위해 서비스를 반복하거나 제공할 때입니다.
+  - 팀이 서비스를 만들거나 이해하거나 반복할 때마다입니다.
 what:
-- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-- 마커
-- 스티커 메모
-- 스프레드시트
+  - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+  - 마커
+  - 스티커 메모
+  - 스프레드시트
 remote: false
 miro_template_url: "URL for related Miro template"
 ---
@@ -318,4 +318,3 @@ href="http://www.practicalservicedesign.com/the-guide"
 target="_blank" rel="nofollow">Practical
 Service Design&rsquo;s Guide to Service Blueprints</a>, Erik
 Flowers 및 Megan Miller</p>
-

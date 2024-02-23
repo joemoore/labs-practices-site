@@ -1,14 +1,14 @@
 ---
-date: '2021-07-02'
-lastmod: '2021-07-02'
+date: "2021-07-02"
+lastmod: "2021-07-02"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Team Rhythm
 weight: 20
 oldPath: "/content/outcomes/application-development/team-rhythm.md"
 aliases:
-- "/outcomes/application-development/team-rhythm"
+  - "/outcomes/application-development/team-rhythm"
 tags: []
 ---
 
@@ -19,6 +19,7 @@ It is critical to establish a [psychologically safe](https://en.wikipedia.org/wi
 ![Team Standup](/images/outcomes/application-development/standup.jpg)
 
 ## What you will learn
+
 In this article, you will learn to:
 
 - List the daily meetings and describe your role in each one.
@@ -68,7 +69,7 @@ Your role as a **Team Member**:
 
 The Iteration Planning Meeting (IPM) is a regular meeting for the core team to understand and align on the work to be done. It is [similar but different to SCRUM Sprint Planning](https://tanzu.vmware.com/developer/practices/ipm/#sprint-planning-vs-iteration-planning),
 
-Regular planning meetings help ensure the [product backlog](https://en.wikipedia.org/wiki/Scrum_(software_development)#Product_backlog) is well-understood by all team members and always reflects the current priorities. By discussing and sizing product backlog items, the team may align on the delivery impact of the work to be done.
+Regular planning meetings help ensure the [product backlog](<https://en.wikipedia.org/wiki/Scrum_(software_development)#Product_backlog>) is well-understood by all team members and always reflects the current priorities. By discussing and sizing product backlog items, the team may align on the delivery impact of the work to be done.
 
 Your role as a **Developer:**
 
@@ -117,6 +118,7 @@ Your role as a **Team Member**:
 - Listen, participate, take notes, and answer questions.
 
 ### Retrospective
+
 ![3 Column Retrospective in Action](/practices/3-column-retro/images/retro-1.png)
 
 Some feel that the Retrospective practice is the most important of all Agile practices as it embodies the principle of continuous improvement. Retrospectives are a way to identify how to improve teamwork by reflecting on what worked well, what could be improved, and what is on people’s minds.
@@ -146,6 +148,6 @@ To learn more about Retrospectives and how to facilitate them, go [here](https:/
 - [Planning Poker](https://en.wikipedia.org/wiki/Planning_poker)
 - Chapter 12 of [Extreme Programming Explained](https://www.goodreads.com/book/show/67833.Extreme_Programming_Explained) by Kent Beck, Cynthia Andres
 - [ExtremeProgramming.org](http://www.extremeprogramming.org/rules/iterationplanning.html)
-- [Agile Retrospectives - Making Good Teams Great](https://pragprog.com/titles/dlret/agile-retrospectives/)  by Esther Derby and Diana Larsen, Foreword by Ken Schwaber
+- [Agile Retrospectives - Making Good Teams Great](https://pragprog.com/titles/dlret/agile-retrospectives/) by Esther Derby and Diana Larsen, Foreword by Ken Schwaber
 - [How to Run a Really Good Retrospective](https://tanzu.vmware.com/content/blog/how-to-run-a-really-good-retrospective) - Blog Post by Nicola Rushton
 - [Measure Success in Agile Retrospectives](https://tanzu.vmware.com/content/videos/measure-success-in-agile-retrospectives-enrico-teotti) – Video by Enrico Teotti

@@ -1,20 +1,20 @@
 ---
 title: Getting Started with Testcontainers
 description: How to setup and use Testcontainers in Spring.
-date: '2023-01-18'
-lastmod: '2022-01-18'
+date: "2023-01-18"
+lastmod: "2022-01-18"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 tags:
-- Testcontainers
-- Spring Boot
-- API
-- Getting Started
-- Spring
-- Microservices
+  - Testcontainers
+  - Spring Boot
+  - API
+  - Getting Started
+  - Spring
+  - Microservices
 # Author(s)
 team:
-- Alex Haldeman
+  - Alex Haldeman
 ---
 
 ## Making your expectations meet reality
@@ -22,7 +22,6 @@ team:
 > The more your tests resemble the way your software is used, the more confidence they can give you. - Kent C. Dodds
 
 When developers wade into the waters of test driven development, they are quickly met with the challenge of how to test interactions with external dependencies. For database integrations, some frameworks will provide you with an in-memory database to test against. In the case of interacting with caches or APIs, developers will often choose to mock the interface that calls the underlying dependency. These are both quick ways to get the expectations codified in our test to pass, but do these approaches reflect reality? Often, an in-memory database might not implement all of the behavior present in the production database, or the mock that was created for that API or cache might not cover the nuances of network interactions. This often leaves us with tests that don't resemble the way our software is used. This can be a worrisome spot to be in before deploying to production. How can we gain confidence that our code will work as expected when deployed? By using Testcontainers, developers can create a test environment with external dependencies that closely resemble production and inspire confidence in their integrations.
-
 
 ## What is Testcontainers?
 
@@ -116,7 +115,7 @@ public class BookmarkRepositoryTests {
 }
 ```
 
-When executing the tests, the test logs should show the container specified is being spun up. If you are using Docker, you can also observe the containers being started and stopped by running a `watch docker ps` command in your terminal while the test is running. 
+When executing the tests, the test logs should show the container specified is being spun up. If you are using Docker, you can also observe the containers being started and stopped by running a `watch docker ps` command in your terminal while the test is running.
 
 Let's go a little more in-depth by going through some realistic test examples with a Spring Boot application.
 
@@ -163,7 +162,7 @@ $ git checkout has-redis-bug && ./gradlew test
 
 #### The tests are passing, but is the app working?
 
-The tests should have passed after checking out the code at the `has-redis-bug` tag, but what happens if we run the app and try out the `/v1/book/search` endpoint? 
+The tests should have passed after checking out the code at the `has-redis-bug` tag, but what happens if we run the app and try out the `/v1/book/search` endpoint?
 
 <img src="images/search_500.png" alt="500 error from Search">
 
@@ -318,7 +317,7 @@ Adding the `implements Serializable` back should cause the test to pass, and we 
 Our SQL Server instance is responsible for persisting `Book` entities that are marked as "favorites". Let's say that a new requirement comes in to alter how books are persisted to include not only the ISBN-13 number, but also the ISBN-10. Let's checkout code at another tag that implements the requirement:
 
 ```bash
-$ git checkout fail-db-tests 
+$ git checkout fail-db-tests
 ```
 
 #### Introducing a migration not compatible with H2
@@ -326,11 +325,13 @@ $ git checkout fail-db-tests
 The existing `isbn` column in `Book` stores an ISBN-13, so we'll need to rename it to `isbn13` and create a new column called `isbn10`. We can do that with two migrations scripts:
 
 `rename-isbn-column.sql`
+
 ```sql
 EXEC sp_rename 'book.isbn', 'isbn13', 'COLUMN'
 ```
 
 `add-isbn10-column.sql`
+
 ```sql
 ALTER TABLE book ADD isbn10 VARCHAR(10) NOT NULL default '';
 ```
@@ -431,7 +432,7 @@ public class BookRepositoryTests extends SQLServerTestBase {
 }
 ```
 
-The first thing to notice here is that we are using the `DataJpaTest` annotation to create a test that exercises our JPA repositories. 
+The first thing to notice here is that we are using the `DataJpaTest` annotation to create a test that exercises our JPA repositories.
 Typically, this is done using an in-memory database. In order to override the settings that point to the in-memory DB, we employ the
 `AutoConfigureTestDatabase` to replace it with `NONE`. The settings to point the tests to our containerized SQL Server database are handled in
 `SQLServerTestBase`:
@@ -459,8 +460,8 @@ public abstract class SQLServerTestBase {
 ```
 
 We can see that this configuration is very similar to the approach taken for our Redis integration tests. We annotate the class with the
-`TestContainers` annotation, which allows us to create containers in the test file using the `Container` annotation. Finally, in order to 
-configure the test to use the database, we can create an `ApplicationContextInitializer` that sets up the proper test properties. Running the tests again, all should 
+`TestContainers` annotation, which allows us to create containers in the test file using the `Container` annotation. Finally, in order to
+configure the test to use the database, we can create an `ApplicationContextInitializer` that sets up the proper test properties. Running the tests again, all should
 pass now that the migrations are running on a real instance of SQL Server.
 
 ## Final Thoughts
@@ -471,12 +472,12 @@ After working through these examples, the advantages of using Testcontainers can
 - We have confidence that integrations with external depdendencies such as database will work as expected
 - Configuration for our integration tests does not require a complex external set up, as it lives inside of our tests
 
-
 However, using Testcontainers does not come without some downsides:
+
 - Spinning up containers for tests can be expensive, but can be offset by setting up patterns that can reuse containers where appropriate
-    - There is an experimental [reuse](https://www.testcontainers.org/features/reuse/) feature on the horizon
+  - There is an experimental [reuse](https://www.testcontainers.org/features/reuse/) feature on the horizon
 - Since tests require a Docker daemon to be running, there may be some extra setup required to get tests running in a Continuous Integration environment
-    - In some CI environments, such as GitHub Actions, Docker and Docker compose are already installed on the agents running the tests
+  - In some CI environments, such as GitHub Actions, Docker and Docker compose are already installed on the agents running the tests
 
 ## Reporting Issues
 

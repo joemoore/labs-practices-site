@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Workload Tenancy
 team:
-- Josh Rosso
+  - Josh Rosso
 title: Workload Tenancy
 weight: 82
 oldPath: "/content/guides/kubernetes/workload-tenancy.md"
 aliases:
-- "/guides/kubernetes/workload-tenancy"
+  - "/guides/kubernetes/workload-tenancy"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags:
-- Kubernetes
+  - Kubernetes
 ---
 
 Kubernetes is an inherently multi-tenant system. The term tenant can

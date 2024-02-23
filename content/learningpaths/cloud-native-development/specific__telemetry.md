@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Telemetry
 weight: 190
 oldPath: "/content/outcomes/cloud-native-development/specific__telemetry.md"
 aliases:
-- "/outcomes/cloud-native-development/specific__telemetry"
+  - "/outcomes/cloud-native-development/specific__telemetry"
 tags: []
 ---
 

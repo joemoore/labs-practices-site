@@ -7,28 +7,29 @@ tags: ["Discovery"]
 length: "2 hours"
 participants: "Core team, stakeholders, subject matter experts"
 # custom "cover" image example: "boris/boris.png"
-image: "" 
+image: ""
 lastmod: "2022-10-28"
-why: 
-- Impact analysis allows us to attach a baseline current-state value to a key business metric. We can then use this as a basis for setting objectives and key results and measuring the impact of a long-term product initiative.
+why:
+  - Impact analysis allows us to attach a baseline current-state value to a key business metric. We can then use this as a basis for setting objectives and key results and measuring the impact of a long-term product initiative.
 when:
-- After business objectives and metrics have been identified and prioritized.
+  - After business objectives and metrics have been identified and prioritized.
 what:
-- "Whiteboard or digital version like [Miro](https://miro.com/)" 
-- Dry erase markers
+  - "Whiteboard or digital version like [Miro](https://miro.com/)"
+  - Dry erase markers
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: 
-
+miro_template_url:
 ---
+
 ## How to Use this Method
 
 {{% section %}}
 
 ### Sample Agenda & Prompts
+
 1. Identify a key metric you wish to quantify a baseline from performing impact analysis. For instance, if a business goal of the project or product is to decrease time spent on a particular manual process, you could re-state this at the start of this activity.
-   
+
    {{< callout >}}
    **Example**: “We will be performing impact analysis on our invoice generation process to see the opportunities for time efficiency.”
    {{< /callout >}}
@@ -74,34 +75,42 @@ miro_template_url:
 {{% /section %}}
 
 {{% section %}}
+
 ### Success/Expected Outcomes
+
 You know you are done when we have an estimated value of the impact on a key business metric from an entire workflow.
 
-An example key business metric might be: *Total time spent to fulfill manual contract process is 215 minutes.*
+An example key business metric might be: _Total time spent to fulfill manual contract process is 215 minutes._
 
 In addition, by attaching a value to the key business metric, the Product Manager should be able to confidently align a product goal/metric. This will help better influence product decisions and prioritization of efforts.
 {{% /section %}}
 
 {{% section %}}
+
 ### Facilitator Notes & Tips
+
 - While several variables can be discovered through impact analysis, it is suggested to focus on one for each impact analysis activity.
 - Oftentimes, quantifying a manual process and identifying business opportunities leads to employee redundancy. Sensitivity and consideration may be required where the business metric involves operational costs incurred from headcount. It is advisable to discuss with stakeholder(s) how deep you want to conduct the analyses in front of participants, and which parts to discuss in private.
 - Be sure to include at least 2 Subject Matter Experts (SMEs) in this exercise to avoid missed steps and inaccurate estimations.
-You can use an existing Tanzu practice ([Journey Map](/practices/journey-map)) here as a reference when mapping out the workflows.
+  You can use an existing Tanzu practice ([Journey Map](/practices/journey-map)) here as a reference when mapping out the workflows.
 - The journey for which we are measuring the business impact may not always be the same as that for the primary user of the product
 - Optional: Add notes (insights, pain points) to any step in the workflow. This may come in handy for future product development.
-{{% /section %}}
+  {{% /section %}}
 
 {{% section %}}
+
 ## Related Practices
+
 - [Goals & Anti-Goals](/practices/goals-anti-goals/)
-Objectives and Key Results (OKRs)
+  Objectives and Key Results (OKRs)
 - [Product Valuation](/practices/product-valuation/)
 - [Journey Map](/practices/journey-map/)
-{{% /section %}}
+  {{% /section %}}
 
 {{% section %}}
+
 ## Real World Examples
+
 ![Impact Analysis](images/imact-analysis.png)
 
 The above example details a manual workflow by a customer operations team procuring an invoice from a client via online form submission.

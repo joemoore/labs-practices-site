@@ -1,13 +1,13 @@
 ---
-date: '2022-11-22'
-lastmod: '2022-11-22'
+date: "2022-11-22"
+lastmod: "2022-11-22"
 description: Discovery work is about finding and reducing risk, and technical discovery is no different. Running a technical discovery before software development can help to set your team up for success.
 linkTitle: Running a Technical Discovery
 subsection: Spring Cloud
 featured: true
 team:
-- Gagandeep Kaur
-- Luke Malcher
+  - Gagandeep Kaur
+  - Luke Malcher
 title: Running a Technical Discovery
 level1: Agile Transformation and Practices
 level2: Agile Development
@@ -62,6 +62,7 @@ Make sure you communicate technical discovery findings. Make sure the team knows
 Don’t forget that engineering also has an important role to play in product discovery work, so make sure to balance this with your technical discovery. During user interviews or prototype testing an engineer can identify technical concerns, or notice an opportunity that a less technical team member might miss.
 
 ## How to approach typical technical discovery goals
+
 Let's break down our goals to make them more achievable.
 
 ### Goal: Be ready to start building on day one
@@ -78,7 +79,6 @@ Pick the goals relevant to your situation:
 - Set up CI/CD, tools, platform, etc.
 - Ramp up on unfamiliar tech
 - Investigate potential integrations and get access to them e.g. API keys
-
 
 ### Goal: Have a clear path to production
 
@@ -113,7 +113,6 @@ Pick the goals relevant to your situation:
 - What’s off the table? What can’t we do?
 - Understand technical complexity of potential solutions
 - What technical or security requirements are there?
-
 
 ## Advice from our team
 

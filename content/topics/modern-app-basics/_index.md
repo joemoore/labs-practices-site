@@ -8,7 +8,7 @@ layout: topic
 weight: 1
 icon: containers
 description: >
-    The 101's of building and running modern applications
+  The 101's of building and running modern applications
 menu:
   main:
     parent: sections

@@ -1,27 +1,27 @@
 ---
-date: '2022-08-30'
+date: "2022-08-30"
 description: Learn how to secure your GraphQL APIs with Spring Security.
-lastmod: '2022-08-30'
+lastmod: "2022-08-30"
 linkTitle: Spring for GraphQL Security
 patterns:
-- API
+  - API
 subsection: Spring Boot
 tags:
-- Spring Boot
-- GraphQL
-- API
-- Getting Started
-- Spring
-- Spring Security
+  - Spring Boot
+  - GraphQL
+  - API
+  - Getting Started
+  - Spring
+  - Spring Security
 team:
-- Dan Vega
+  - Dan Vega
 languages:
-- java
+  - java
 langgettingstarted: true
 title: Spring for GraphQL Security
 weight: 2
 aliases:
-- "/guides/spring/spring-for-graphql-security"
+  - "/guides/spring/spring-for-graphql-security"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -99,7 +99,7 @@ This generated password is for development use only. Your security configuration
 2022-08-26 16:20:15.813  INFO 75864 --- [           main] c.e.j.JavabacksSecureApplication         : Started JavabacksSecureApplication in 0.8 seconds (JVM running for 1.146)
 ```
 
-In the previous guide, you saw how you could access a UI tool for validating your queries by going to [http://localhost:8080/graphiql](http://localhost:8080/graphiql).  With the application up and running try and visit that URL and you will be presented with a login form. This form is provided by Spring Security and is asking you for a username and password. If you enter the username of `user` and the generated password you should be able to see GraphiQL playground. Without configuring anything on your end Spring Security has provided you with some sensible defaults to get you up and running.
+In the previous guide, you saw how you could access a UI tool for validating your queries by going to [http://localhost:8080/graphiql](http://localhost:8080/graphiql). With the application up and running try and visit that URL and you will be presented with a login form. This form is provided by Spring Security and is asking you for a username and password. If you enter the username of `user` and the generated password you should be able to see GraphiQL playground. Without configuring anything on your end Spring Security has provided you with some sensible defaults to get you up and running.
 
 ### Spring Security Configuration
 
@@ -176,7 +176,7 @@ With your new users in place, you can restart the application and visit [http://
 
 ### Spring Security Method Security
 
-Now that you can authenticate using either user or admin it's time to focus on the authorization.  If you open up `CoffeeController` you will notice there are 2 methods. The `findAll` method will return all of the coffee products in the system. This seems like something anyone with the `USER` role should have access to. The `create` method will create a new product in the system and this seems like a method you should restrict to only users with the `ADMIN` role.
+Now that you can authenticate using either user or admin it's time to focus on the authorization. If you open up `CoffeeController` you will notice there are 2 methods. The `findAll` method will return all of the coffee products in the system. This seems like something anyone with the `USER` role should have access to. The `create` method will create a new product in the system and this seems like a method you should restrict to only users with the `ADMIN` role.
 
 ```java
 @QueryMapping(value = "allCoffee")
@@ -190,7 +190,7 @@ public Coffee create(@Argument String name, @Argument Size size) {
 }
 ```
 
-In a REST application, you could set rules for specific controllers or paths that a particular role is required. This won’t work in a GraphQL API because everything falls under a single endpoint `/graphql`. Not to worry though there is a solution that involves enabling Spring Security’s method level security.  You can enable the use of the `@PreAuthorize` and `@Secured` annotations by using the following `@EnableMethodSecurity` annotation on the `SecurityConfig` class:
+In a REST application, you could set rules for specific controllers or paths that a particular role is required. This won’t work in a GraphQL API because everything falls under a single endpoint `/graphql`. Not to worry though there is a solution that involves enabling Spring Security’s method level security. You can enable the use of the `@PreAuthorize` and `@Secured` annotations by using the following `@EnableMethodSecurity` annotation on the `SecurityConfig` class:
 
 ```java
 @Configuration
@@ -233,11 +233,11 @@ query allCoffee {
 }
 ```
 
- But if you try and create a new coffee you should receive a `403: Unauthorized` error
+But if you try and create a new coffee you should receive a `403: Unauthorized` error
 
 ```graphql
 mutation createCoffee {
-  createCoffee(name:"TEST",size:SHORT){
+  createCoffee(name: "TEST", size: SHORT) {
     id
     name
     size

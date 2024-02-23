@@ -1,21 +1,22 @@
 ---
-date: '2020-08-14'
-description: Learn how to install different versions of Python at the same time and
+date: "2020-08-14"
+description:
+  Learn how to install different versions of Python at the same time and
   switch between them with ease using the open-source command line tool Pyenv.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Installing Python
 metaTitle: How to Install Python
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Python
-- Development
+  - Python
+  - Development
 team:
-- Ben Wilcock
-title: 'Python Like A Pro: How to Install Python'
+  - Ben Wilcock
+title: "Python Like A Pro: How to Install Python"
 oldPath: "/content/guides/python/gs-python-like-a-pro.md"
 aliases:
-- "/guides/python/gs-python-like-a-pro"
+  - "/guides/python/gs-python-like-a-pro"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -30,7 +31,7 @@ So in this guide, you'll learn how to install many different versions of Python 
 
 ## Before You Begin
 
-There's a lot of different OS and package management choices out there.  But in the [Python Survey][survey] mentioned earlier, Linux was shown to be the most popular OS. [Ubuntu 20.04][ubuntu] has been chosen as the baseline for this guide because it's the latest LTS of the most popular Linux distribution. Ubuntu is also used in the [Windows Subsystem for Linux][wsl], so it's available to most Windows 10 based developers. On Mac OS, most of the tools shown here can be added via Homebrew.
+There's a lot of different OS and package management choices out there. But in the [Python Survey][survey] mentioned earlier, Linux was shown to be the most popular OS. [Ubuntu 20.04][ubuntu] has been chosen as the baseline for this guide because it's the latest LTS of the most popular Linux distribution. Ubuntu is also used in the [Windows Subsystem for Linux][wsl], so it's available to most Windows 10 based developers. On Mac OS, most of the tools shown here can be added via Homebrew.
 
 When following this guide, it helps if you're starting from a clean system. That way, any existing or additional Python installs can't cause issues or confusion as you follow the steps below. If your system isn't clean, try following this guide in a new Ubuntu virtual machine first, just so you know what to expect.
 
@@ -44,11 +45,11 @@ Having the ability to install and switch between Python versions in seconds --- 
 
 Pyenv lets you:
 
- - install multiple versions of Python at the same time.
- - change your global version at any time.
- - use different Python versions 'per-project'.
- - override your Python version with an environment variable.
- - search for commands present in multiple versions of Python at once.
+- install multiple versions of Python at the same time.
+- change your global version at any time.
+- use different Python versions 'per-project'.
+- override your Python version with an environment variable.
+- search for commands present in multiple versions of Python at once.
 
 Follow the steps below to install the `pyenv` tool on your system.
 
@@ -70,18 +71,19 @@ Installation is simple. A script in the open-source [pyenv-installer][pyenv-inst
 curl https://pyenv.run | bash
 ```
 
-After the script has run, you'll need to add the following lines to the bottom of your `.bashrc` file. 
+After the script has run, you'll need to add the following lines to the bottom of your `.bashrc` file.
 
 ```bash
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
+
 {{% callout %}}
 **Note**: If you're new to Linux, you can do this by opening the Terminal application and typing `nano .bashrc`. Nano uses arrows to navigate, `ctrl-o` to write the changes out, and `ctrl-x` to quit.
 {{% /callout %}}
 
-Once that's done, close your terminal session (type `exit`) and then open a new terminal. 
+Once that's done, close your terminal session (type `exit`) and then open a new terminal.
 
 Next, we need to add some system libraries so that Pyenv can build Python directly from the Python source code. This list may change from time to time, so always check for the latest advice in the [Pyenv Wiki][pyenv-prereqs].
 
@@ -113,14 +115,13 @@ Let's install the very latest version of Python --- which is 3.8.5 --- using the
 pyenv install 3.8.5
 ```
 
-Pyenv will now download, build, and install the requested version of Python. 
+Pyenv will now download, build, and install the requested version of Python.
 
 Finally, tell `pyenv` to rehash its list of 'shims' to make sure the new version of Python you just added is ready for use. Shims are the programs `pyenv` uses to redirect your Python calls. Rehashing instructs `pyenv` to install shims for all Python binaries known to `pyenv`.
 
 ```bash
 pyenv rehash
 ```
-
 
 ### Step 4: Switching Between Python Versions
 
@@ -175,6 +176,7 @@ Here's the video to accompany this guide:
 {{< youtube nXbe6Hmb_k0>}}
 
 ---
+
 [survey]: https://www.jetbrains.com/lp/python-developers-survey-2019/
 [wsl]: https://ubuntu.com/wsl
 [ubuntu]: https://ubuntu.com/download/desktop
@@ -183,7 +185,6 @@ Here's the video to accompany this guide:
 [pyenv-installer]: https://github.com/pyenv/pyenv-installer
 [pyenv-prereqs]: https://github.com/pyenv/pyenv/wiki/Common-build-problems
 [cnb]: /guides/python/cnb-gs-python
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages

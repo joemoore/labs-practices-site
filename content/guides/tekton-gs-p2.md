@@ -1,23 +1,24 @@
 ---
-date: '2020-06-15'
-description: Using Tekton, an automation tool for CI/CD pipelines, learn how to build
+date: "2020-06-15"
+description:
+  Using Tekton, an automation tool for CI/CD pipelines, learn how to build
   container images from a Dockerfile on top of Kubernetes.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Building a Container with Tekton
 metaTitle: Building a Container with Tekton
 parent: Tekton
 patterns:
-- Deployment
+  - Deployment
 tags:
-- CI-CD
-- Tekton
+  - CI-CD
+  - Tekton
 team:
-- Brian McClain
-title: 'Getting Started with Tekton Part 2: Building a Container'
+  - Brian McClain
+title: "Getting Started with Tekton Part 2: Building a Container"
 weight: 2
 oldPath: "/content/guides/ci-cd/tekton-gs-p2.md"
 aliases:
-- "/guides/ci-cd/tekton-gs-p2"
+  - "/guides/ci-cd/tekton-gs-p2"
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -26,7 +27,7 @@ In [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you learned how to ins
 
 ## Before You Begin
 
-If you went through the lessons in [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you're all set! This guide picks up where that guide left off, using the same Tekton installation on top of Minikube, with the same secrets, service accounts, and other resources defined. If you haven't gone through part one yet, make sure you start there. 
+If you went through the lessons in [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you're all set! This guide picks up where that guide left off, using the same Tekton installation on top of Minikube, with the same secrets, service accounts, and other resources defined. If you haven't gone through part one yet, make sure you start there.
 
 ## Building a Container with Kaniko
 
@@ -341,17 +342,17 @@ spec:
     name: buildpacks-v3
   inputs:
     resources:
-    - name: source
-      resourceRef:
-        name: spring-api-git
+      - name: source
+        resourceRef:
+          name: spring-api-git
     params:
-    - name: BUILDER_IMAGE
-      value: cloudfoundry/cnb:bionic
+      - name: BUILDER_IMAGE
+        value: cloudfoundry/cnb:bionic
   outputs:
     resources:
-    - name: image
-      resourceRef:
-        name: spring-api-tekton-demo
+      - name: image
+        resourceRef:
+          name: spring-api-tekton-demo
 ```
 
 As you might have expected, this denotes your two `PipelineResource` objects as the input and output resources. It also declares that you'll be using the `cloudfoundry/cnb:bionic` image for the buildpack builder.

@@ -10,7 +10,7 @@ In this lab you will enable your applications to use
 [service discovery](https://docs.pivotal.io/spring-cloud-services/2-0/common/service-registry/)
 to register and locate microservices.
 The applications will be using Internal Routes on
-*Tanzu Application Service*.
+_Tanzu Application Service_.
 
 At the end of the lab, each application will be able to discover
 microservices by name, reducing the configuration needed to deploy our
@@ -20,12 +20,12 @@ system.
 
 After completing the lab, you will be able to:
 
--   Describe the pros and cons of using Service Discovery
--   Describe the pros and cons of using Client Side Load Balancing
--   Explain how to add Client Side Load Balancing and Service Discovery
-    to an application
--   Identify the differences between routing through the Gorouter and
-    container to container networking
+- Describe the pros and cons of using Service Discovery
+- Describe the pros and cons of using Client Side Load Balancing
+- Explain how to add Client Side Load Balancing and Service Discovery
+  to an application
+- Identify the differences between routing through the Gorouter and
+  container to container networking
 
 ## Get started
 
@@ -37,14 +37,14 @@ After completing the lab, you will be able to:
     [Deploy a Distributed Application lab](../deploy-distributed-system/).
     You must have your `pal-tracker` application associated with the
     `deploy-distributed-app-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
 
 You will make no code changes in the lab.
 You will make only configuration changes to your
-distributed app running on *Tanzu Application Service*.
+distributed app running on _Tanzu Application Service_.
 
 ## Configure Internal Routes
 
@@ -104,9 +104,9 @@ about some types of Service Discovery implementations.
 
 Now that you have completed the lab, you will be able to:
 
--   Describe the pros and cons of using Service Discovery
--   Describe the pros and cons of using Client Side Load Balancing
--   Explain how to add Client Side Load Balancing and Service Discovery
-    to an application
--   Identify the differences between routing through the Gorouter and
-    container to container networking
+- Describe the pros and cons of using Service Discovery
+- Describe the pros and cons of using Client Side Load Balancing
+- Explain how to add Client Side Load Balancing and Service Discovery
+  to an application
+- Identify the differences between routing through the Gorouter and
+  container to container networking

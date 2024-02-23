@@ -1,6 +1,6 @@
 ---
-date: '2022-01-19'
-lastmod: '2022-01-19'
+date: "2022-01-19"
+lastmod: "2022-01-19"
 subsection: What is Reactive Programming?
 title: What is Reactive Programming?
 tags:

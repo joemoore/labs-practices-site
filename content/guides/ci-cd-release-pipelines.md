@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Push to production faster and safer
 weight: -100
 linkTitle: CI/CD, Release Pipelines

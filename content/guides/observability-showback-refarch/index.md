@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Considerations for showback in large Kubernetes environments
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Showback Reference Architecture
 parent: Platform Observability
 title: Showback Reference Architecture
 weight: 2000
 oldPath: "/content/guides/kubernetes/observability-showback-refarch.md"
 aliases:
-- "/guides/kubernetes/observability-showback-refarch"
+  - "/guides/kubernetes/observability-showback-refarch"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags: []

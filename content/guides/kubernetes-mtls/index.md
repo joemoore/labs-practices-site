@@ -1,51 +1,51 @@
 ---
-date: '2022-03-04'
+date: "2022-03-04"
 description: Learn how to secure workload traffic in Kubernetes using mutual TLS.
 title: Using mutual TLS to secure Kubernetes workload traffic
 linkTitle: Securing workload traffic with mutual TLS
 metaTitle: Securing workload traffic with mutual TLS
 parent: Kubernetes
 tags:
-- Kubernetes
-- mTLS
-- cert-manager
-- Spring-Boot
+  - Kubernetes
+  - mTLS
+  - cert-manager
+  - Spring-Boot
 team:
-- Dmitriy Dubson
+  - Dmitriy Dubson
 level1: Securing Kubernetes
 level2: Access and Security
 ---
 
 This guide is going to walk you through the steps for building a working implementation of Kubernetes workloads communicating internally using mutual TLS (mTLS). The example client application and service in this guide depict a
 working instance of such architecture, and can be applied to many other open source or proprietary services that
-support traffic encryption with mTLS. 
+support traffic encryption with mTLS.
 
 It is written specifically for application developers who want to add another layer of security to their Kubernetes workload
-traffic using mutual TLS, and requires a working knowledge of basic Kubernetes constructs and command-line 
+traffic using mutual TLS, and requires a working knowledge of basic Kubernetes constructs and command-line
 operations using `kubectl`.
 
-Upon completing this guide, you should have a working knowledge and working reference implementation of workloads communicating 
+Upon completing this guide, you should have a working knowledge and working reference implementation of workloads communicating
 using mutual TLS.
 
 This guide has three sections:
 
-- **Part I: Creating Workloads** defines a Redis workload and a Spring Boot client application workload communicating on the cluster 
-without traffic encryption. 
-- **Part II: Enabling mTLS** updates the design to include mutual TLS, and introduces a certificate manager into the cluster to aid 
-the creation of required certificates for powering encrypted traffic using mutual TLS. 
-- **Part II (Extended Cut): Managing CA Certificates Using Service Bindings** addresses a potential issue with a JVM-based CA certificate truststore that readers might find useful. This section is optional. 
+- **Part I: Creating Workloads** defines a Redis workload and a Spring Boot client application workload communicating on the cluster
+  without traffic encryption.
+- **Part II: Enabling mTLS** updates the design to include mutual TLS, and introduces a certificate manager into the cluster to aid
+  the creation of required certificates for powering encrypted traffic using mutual TLS.
+- **Part II (Extended Cut): Managing CA Certificates Using Service Bindings** addresses a potential issue with a JVM-based CA certificate truststore that readers might find useful. This section is optional.
 
 ## Part I: Creating Workloads
 
-From a sandbox, set up a local, working Kubernetes cluster. 
+From a sandbox, set up a local, working Kubernetes cluster.
 
 Note: Because this guide is only for demonstration and evaluation purposes, it is recommended that you create workloads from a sandbox.
 
-There are a few tools that you can use to set up a local Kubernetes cluster with a single node. The examples in this guide use [kind](https://kind.sigs.k8s.io/docs/user/quick-start/). 
+There are a few tools that you can use to set up a local Kubernetes cluster with a single node. The examples in this guide use [kind](https://kind.sigs.k8s.io/docs/user/quick-start/).
 Two other tools to consider are:
 
 - [minikube](https://minikube.sigs.k8s.io/docs/start/)
-- [MicroK8s](https://microk8s.io/).  
+- [MicroK8s](https://microk8s.io/).
 
 To verify a working Kubernetes environment, run:
 
@@ -226,9 +226,9 @@ the cluster at host address `redis-server` on port `6379`. TLS support is not ye
 not have any configuration besides the host and port of the Redis server.
 
 The application is configured with a liveness and readiness probe. If it reconciles successfully, then you know it has
-connected to Redis successfully. 
+connected to Redis successfully.
 
-For extra verification, the client application comes with an API endpoint that can be queried. 
+For extra verification, the client application comes with an API endpoint that can be queried.
 This specifically interacts with Redis:
 
 ```shell
@@ -251,7 +251,7 @@ on securing the traffic between Redis and the client application using mutual TL
 
 ## Part II: Enabling mTLS
 
-The mutual TLS (mTLS) scheme requires the use of digital certificates. The first step is to ensure 
+The mutual TLS (mTLS) scheme requires the use of digital certificates. The first step is to ensure
 the cluster has an entity in charge of managing certificates. In this example, use [**cert-manager**](https://cert-manager.io/).
 
 As of the release of this guide, the latest cert-manager version is `1.6.1`. Follow the installation process for this
@@ -264,14 +264,14 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6
 To verify that cert-manager is installed and operational, run:
 
 ```shell
-kubectl rollout status deployment/cert-manager -n cert-manager 
+kubectl rollout status deployment/cert-manager -n cert-manager
 # cert-manager should be successfully rolled out
 ```
 
 Once cert-manager is installed and operational on the cluster, move to the next step of defining the required
 components for mTLS.
 
-Focus on creating components required for private Public Key Infrastructure (PKI). In this case, *private*
+Focus on creating components required for private Public Key Infrastructure (PKI). In this case, _private_
 refers to components within an internal or non-public system interacting over encrypted channels using public/private
 keys and digital certificates. Our client application and internal Redis server can be thought of as "private" because the
 traffic between them never leaves the boundaries of the cluster.
@@ -305,7 +305,7 @@ metadata:
   name: bootstrap-issuer
   namespace: mtls-demo
 spec:
-  selfSigned: { }
+  selfSigned: {}
 ```
 
 ```shell
@@ -434,7 +434,7 @@ metadata:
   name: redis-client-certificate-keystore-password
   namespace: mtls-demo
 data:
-  password: cGFzc3dvcmQxMjM= # "password123"  
+  password: cGFzc3dvcmQxMjM= # "password123"
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -545,11 +545,11 @@ kubectl apply -f mtls-demo.yaml
 
 Mount a server certificate Secret resource as a Volume onto the Redis Pod, and place it into `/certs` directory on
 the Pod. The Secret resource is a reference to the Redis server certificate and contains the following
-files: 
+files:
 
 - `tls.crt` (the server certificate)
 - `tls.key` (the private key)
-- `ca.crt` (the CA certificate). 
+- `ca.crt` (the CA certificate).
 
 All files from the Secret are placed into the `/certs` directory.
 
@@ -571,7 +571,7 @@ You now move on to enabling the Spring Boot Redis client application to connect 
 
 Replace the existing Deployment definition of the Spring Boot Redis client application to insert the Redis
 client certificate that was issued in a previous step. Additionally, create a Secret resource to capture Java VM
-options to modify the loaded certificates within the runtime. 
+options to modify the loaded certificates within the runtime.
 
 > Replace the existing definition of `spring-boot-redis-client-app` Deployment in `mtls-demo.yaml`
 > Add `spring-boot-redis-client-app-java-opts` Secret before the Deployment.
@@ -651,14 +651,14 @@ Mount the Redis client certificate Secret resource as a Volume onto the applicat
 as `/certs`. Notify Spring Data Redis library via configuration environment variable `SPRING_REDIS_SSL` that Redis is
 accepting TLS connections. The key part of introducing the Redis client certificate and CA certificate into the
 application's JVM is the injection of the `spring-boot-redis-client-app-java-opts` Secret as a set of environment
-variables containing a single `JAVA_OPTS` environment variable allows us to define VM options for the JVM. This is where you 
+variables containing a single `JAVA_OPTS` environment variable allows us to define VM options for the JVM. This is where you
 specify [Java Secure Socket Extension (JSSE)](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html)
-environment variables: 
+environment variables:
 
 - `javax.net.ssl.keyStore` is the container for private certificates because it contains the Redis client
-certificate (`tls.crt`).
+  certificate (`tls.crt`).
 - `javax.net.ssl.trustStore` is the container for public certificates because it contains the CA
-certificate (`ca.crt` - our root certificate).
+  certificate (`ca.crt` - our root certificate).
 
 > Refer to [Java Secure Socket Extension (JSSE) Reference Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html#CustomizingStores)
 > for more about keystores and truststores .
@@ -683,7 +683,7 @@ curl -XGET http://localhost:8080/
 
 > ⚠️ Warning
 >
-> A caveat to be aware of is when you specify an explicit truststore via VM option and pass it to the JVM because it *overrides*
+> A caveat to be aware of is when you specify an explicit truststore via VM option and pass it to the JVM because it _overrides_
 > the default truststore! This can become a problem in cases where you need all the CA certificates from the default
 > truststore (usually located in `$JAVA_HOME/lib/security/cacerts`), AND a custom CA certificate truststore that is
 > dynamically issued by cert-manager. Read the **Part II Extended Cut: Managing CA certificates using Service Bindings**

@@ -1,13 +1,13 @@
 ---
 date: 2021-12-22
 description: Architectural Decision Records (ADRs) serve as a snapshot into the developer's past, and grants thoughts and insights about important technical decisions.
-title: 'Architectural Decision Records: What were the engineers thinking?'
+title: "Architectural Decision Records: What were the engineers thinking?"
 tags:
-- Development
-- Documentation
-- Architectural Decision Records
+  - Development
+  - Documentation
+  - Architectural Decision Records
 team:
-- Chad Serrant
+  - Chad Serrant
 level1: Building Modern Applications
 level2: Modern Development Practices
 ---
@@ -25,37 +25,41 @@ Architectural decision records (ADRs) document the thought process behind import
 Like a journal, you get to flip back in time and review your past thoughts. Like a historical lesson, you get to learn from your past mistakes without repeating them. Like a report, it is easy for readers to understand your thoughts without asking you for basic details.
 
 Some scenarios that could benefit from an ADR:
-* You have multiple ways to implement a feature. All are costly to revert and it’s not immediately obvious which solution you should follow. An ADR would help compare each approach.
-* You expect a future stakeholder will want to understand your rationale for a decision. An ADR will reveal the best decision you could make with the information you knew at the time.
-* Halfway through your current implementation, you take a step back and review your approach from a fresh (and maybe naive) perspective. An ADR serves as a time capsule, reminding you how you got here in the first place.
-* On Monday morning you forgot what you were doing on Friday. A small ADR can serve as a quick reminder of last week’s goal.
+
+- You have multiple ways to implement a feature. All are costly to revert and it’s not immediately obvious which solution you should follow. An ADR would help compare each approach.
+- You expect a future stakeholder will want to understand your rationale for a decision. An ADR will reveal the best decision you could make with the information you knew at the time.
+- Halfway through your current implementation, you take a step back and review your approach from a fresh (and maybe naive) perspective. An ADR serves as a time capsule, reminding you how you got here in the first place.
+- On Monday morning you forgot what you were doing on Friday. A small ADR can serve as a quick reminder of last week’s goal.
 
 ## What should an ADR include?
 
 Storytellers aim to answer three questions:
 
-* So what? (AKA “Why is this decision important?”)
-* What is it? (AKA “Describe the decision”)
-* Now what? (AKA “What can we do next after implementing this decision?”)
+- So what? (AKA “Why is this decision important?”)
+- What is it? (AKA “Describe the decision”)
+- Now what? (AKA “What can we do next after implementing this decision?”)
 
 Your ADR is a story about a task, the steps taken, and a happy ending.
 
 When describing the importance of the decision:
-* Highlight your pain points. Example: Before forking the codebase, it had multiple projects working off the same repository. This led to situations where one project altered a UI component of another project, causing strange behavior across the other apps.
-* Consider framing the issue in terms of development speed. Everyone understands the pain of delayed releases, as that delays customer satisfaction (and customer money). Example: Before we forked the codebase, the strange behaviors required teams to spend time debugging, coordinating, and prioritizing fixes to avoid regressions in the other apps.
-* Avoid describing the solution immediately. It’s very easy to cling to the first idea that comes, but it may not be the best one. Give your mind (and the readers) time to think of their own solutions. This part of the ADR should highlight what we knew at the time. In the project I worked on, forking the project was the third of four ideas we considered.
+
+- Highlight your pain points. Example: Before forking the codebase, it had multiple projects working off the same repository. This led to situations where one project altered a UI component of another project, causing strange behavior across the other apps.
+- Consider framing the issue in terms of development speed. Everyone understands the pain of delayed releases, as that delays customer satisfaction (and customer money). Example: Before we forked the codebase, the strange behaviors required teams to spend time debugging, coordinating, and prioritizing fixes to avoid regressions in the other apps.
+- Avoid describing the solution immediately. It’s very easy to cling to the first idea that comes, but it may not be the best one. Give your mind (and the readers) time to think of their own solutions. This part of the ADR should highlight what we knew at the time. In the project I worked on, forking the project was the third of four ideas we considered.
 
 When describing your solution:
-* Show alternative solutions, comparing pros and cons of each. Readers will appreciate how you looked for the best solution rather than the first.
-* Add enough detail to get the general idea of the decision. An algorithm or technique is enough.
-* However, don’t add details that will quickly turn obsolete. You don’t need to name a helper library or application, for example. If you feel you need to, create a notes section and get specific there.
+
+- Show alternative solutions, comparing pros and cons of each. Readers will appreciate how you looked for the best solution rather than the first.
+- Add enough detail to get the general idea of the decision. An algorithm or technique is enough.
+- However, don’t add details that will quickly turn obsolete. You don’t need to name a helper library or application, for example. If you feel you need to, create a notes section and get specific there.
 
 ### OK, crystal ball, now what?
 
 The final section of your ADR should describe the anticipated future. What lies in the application’s short- or medium-term future? Here are possible topics you can cover:
-* Caveats – The cons of the decision can lead to difficulty for future engineers. Maybe it makes caching difficult, or similar projects will drift in look and feel. Customer needs are always changing, so use this section to give readers a heads-up on what changes will cause this decision to backfire.
-* Refactoring – I love deleting code. You can’t cause bugs if there’s no code for the bugs to hide in! Architectural changes can render tricky code blocks obsolete. Look forward to that juicy refactor. It’s quite a morale booster.
-* New features – When the code is easy to read, it’s easy to brainstorm new features. This is the fun part of feature creep, writing them down!
+
+- Caveats – The cons of the decision can lead to difficulty for future engineers. Maybe it makes caching difficult, or similar projects will drift in look and feel. Customer needs are always changing, so use this section to give readers a heads-up on what changes will cause this decision to backfire.
+- Refactoring – I love deleting code. You can’t cause bugs if there’s no code for the bugs to hide in! Architectural changes can render tricky code blocks obsolete. Look forward to that juicy refactor. It’s quite a morale booster.
+- New features – When the code is easy to read, it’s easy to brainstorm new features. This is the fun part of feature creep, writing them down!
 
 ## Where should I store architectural decision records?
 

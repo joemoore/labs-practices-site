@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Service Routing
 team:
-- Craig Tracey
+  - Craig Tracey
 title: Service Routing
 weight: 67
 oldPath: "/content/guides/kubernetes/service-routing.md"
 aliases:
-- "/guides/kubernetes/service-routing"
+  - "/guides/kubernetes/service-routing"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags:
-- Kubernetes
+  - Kubernetes
 ---
 
 Fundamental to the deployment of most software is the ability to route traffic

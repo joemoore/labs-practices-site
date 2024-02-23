@@ -6,15 +6,16 @@ lastmod: "2022-01-14"
 level1: Agile Transformation and Practices
 level2: Agile Development
 tags:
-- Agile
-- Onboarding
-- XP
+  - Agile
+  - Onboarding
+  - XP
 # Author(s)
 team:
-- Joe Moore
-- Matt Parker
-- Pivotal/Tanzu Labs
+  - Joe Moore
+  - Matt Parker
+  - Pivotal/Tanzu Labs
 ---
+
 Pivotal/Tanzu Labs teaches clients, partners, and peers [XP](https://en.wikipedia.org/wiki/Extreme_programming), [Lean](https://www.amazon.com/Lean-Startup-Eric-Ries/dp/B007YXSYTK), and [User Centered Design](https://tanzu.vmware.com/campaigns/design) (UCD) principles and practices for product and application development.
 
 This FAQ explains the "whys" behind many Pivotal/Tanzu Labs engineering practices, and includes examples of real problems our teams have solved. It also provides guidelines on how to answer questions from enterprises about ways to scale these practices within organizations.
@@ -42,7 +43,7 @@ This FAQ explains the "whys" behind many Pivotal/Tanzu Labs engineering practice
 There is an overview of Pair Programming in [**Fundamentals of Modern Application Development learning path**](/learningpaths/application-development/pair-programming/). The following is a deeper dive into the topic.
 {{% /callout %}}
 
-How many people from your team have to [get hit by a bus (or win the lottery and retire)](https://en.wikipedia.org/wiki/Bus_factor) before it is unable to function? Most companies that come to Pivotal/Tanzu Labs have teams with a *bus count* or *lottery count* of 1.
+How many people from your team have to [get hit by a bus (or win the lottery and retire)](https://en.wikipedia.org/wiki/Bus_factor) before it is unable to function? Most companies that come to Pivotal/Tanzu Labs have teams with a _bus count_ or _lottery count_ of 1.
 
 ![The Bus Count](images/image9.jpg)
 
@@ -70,12 +71,12 @@ Some developers effortlessly make the transition to team code ownership. They im
 
 Yet, others struggle with team code ownership for several reasons:
 
-* Shifting psychological ownership may require a corresponding shift in your identity. Psychological ownership refers to the feeling of possessiveness and of being psychologically tied to an object. Psychological ownership occurs when the object becomes part of the psychological owner's identity. Psychological ownership answers the question, "What do I believe is mine?".
-* Developers may struggle to transition to a caretaker mindset. For example, an engineer may struggle to describe the developer's relationship with the code on a very challenging project and settle on the caretaker metaphor, "Sometimes I feel like a caretaker to [the code base].". A caretaker cleans up messes and makes things better.
-* A developer may be distraught at seeing their work slowly removed from the app.
-* A developer may feel belittled when seeing their work changed or fixed without them.
-* Developers can no longer take pride in functionality that they exclusively develop.
-* Existing knowledge silos may be slow to break down. This can hinder team code ownership,
+- Shifting psychological ownership may require a corresponding shift in your identity. Psychological ownership refers to the feeling of possessiveness and of being psychologically tied to an object. Psychological ownership occurs when the object becomes part of the psychological owner's identity. Psychological ownership answers the question, "What do I believe is mine?".
+- Developers may struggle to transition to a caretaker mindset. For example, an engineer may struggle to describe the developer's relationship with the code on a very challenging project and settle on the caretaker metaphor, "Sometimes I feel like a caretaker to [the code base].". A caretaker cleans up messes and makes things better.
+- A developer may be distraught at seeing their work slowly removed from the app.
+- A developer may feel belittled when seeing their work changed or fixed without them.
+- Developers can no longer take pride in functionality that they exclusively develop.
+- Existing knowledge silos may be slow to break down. This can hinder team code ownership,
 
 New hires who are also struggling with the transition eventually realize that someone else is going to take over. They know that it's OK to move on to something else. They recognize the lack of long-term individual authorship, learn to expect their code to be transitory, develop trust in their teammates, and loosely hold personal contributions. They understand that even if the code that is written today is in the code base for a little while, it is going to evolve into something better. Eventually, new hires experience the benefits of a collaborative environment. People are more flexible with changing things, accepting feedback, or collaborating. A collaborative environment is a place where the team can say, "Hey, this is **_our_** code!"
 
@@ -93,16 +94,18 @@ Test Driven Development (TDD) is a crucial engineering practice. Review the arti
 
 ## Q: What is a User Story?{id=stories}
 
-A *user story*, or *story*, is the primary unit of currency in an [Agile](https://tanzu.vmware.com/agile) backlog. It is a narrative description of a single task or activity being performed by a user of a system. A user story represents the smallest piece of incremental value that you can deliver into the hands of a user.
+A _user story_, or _story_, is the primary unit of currency in an [Agile](https://tanzu.vmware.com/agile) backlog. It is a narrative description of a single task or activity being performed by a user of a system. A user story represents the smallest piece of incremental value that you can deliver into the hands of a user.
 
 Stories focus all software implementation work on delivering real value to real people as early and often as possible. This leads to a lot of questions, beginning with, "How big should a story be?". To know the answer, shorten the story. Does the shortened story still provide real value to the user? If you can make the story smaller and still deliver real value to the customer, then your story is too big.
 
 Conversely, "Is it possible for a story to be too small?". To answer the question, ask yourself, "If I complete this story, will it provide real value to our users?" If the answer is no, then your story is too small.
 
 For example, suppose your story is about authentication:
-- _User can sign in, **_and_** sign out, **_and_** recover their password, **_and_** change their password, **_and_** recover their username_
+
+- _User can sign in, \*\*\_and_** sign out, **_and_** recover their password, **_and_** change their password, **_and_\*\* recover their username\_
 
 Your team collaborates, "How do we make this story smaller and still deliver value to the user?". Together, everyone decides to make smaller stories about authentication. So, now instead of having one large story, you have several smaller ones, including the following:
+
 - _User can sign in_
 - _User can sign out_
 - _User can recover their password_
@@ -114,6 +117,7 @@ Your team collaborates, "How do we make this story smaller and still deliver val
 {{% /callout %}}
 
 However, the team goes too far in making smaller stories out of bigger ones. They decide to break down _User can sign in_ into the following tiny stories:
+
 - _User can view the Username field on the Sign In form_
 - _User can view the Password field on the Sign In form_
 - _User can view the 'Sign In' button on the Sign In form_
@@ -152,11 +156,11 @@ For example, Your team is going to assign points to each story that is estimated
 
 Note that teams also keep in mind estimates from previous iterations. A complex story in a previous iteration might be given an "8", but the hardest story in this iteration isn't as complex, it could go in the "5" bucket.
 
-Next, keep track of how many story points the team delivers weekly. Consider using a tool like [Pivotal Tracker](https://www.pivotaltracker.com/) to automatically keep track of it for you. You can figure out how many points the team can deliver in a given week by maintaining a rolling average of points for the last three weeks. The rolling average for the number of points a team can deliver in a week is *velocity*.
+Next, keep track of how many story points the team delivers weekly. Consider using a tool like [Pivotal Tracker](https://www.pivotaltracker.com/) to automatically keep track of it for you. You can figure out how many points the team can deliver in a given week by maintaining a rolling average of points for the last three weeks. The rolling average for the number of points a team can deliver in a week is _velocity_.
 
 [Velocity](https://martinfowler.com/bliki/XpVelocity.html) is the key to planning on XP teams. Instead of asking a team to estimate a completion date based on their gut, the team predicts the completion date based on data. This makes it possible to know how many points the team can deliver weekly. It also helps prioritize a story in the backlog.
 
-It's also important to know that predictions made with velocity are not foolproof. Your team is probably not going to deliver the same amount of points each week. There is always going to be variation in the number of points your team delivers each week. The variation is also known as *volatility*. The more volatility, the higher the margin of error in velocity-based predictions.
+It's also important to know that predictions made with velocity are not foolproof. Your team is probably not going to deliver the same amount of points each week. There is always going to be variation in the number of points your team delivers each week. The variation is also known as _volatility_. The more volatility, the higher the margin of error in velocity-based predictions.
 
 It's important for your team to monitor volatility, especially when there are high degrees of it. Together, your team has to figure out the cause of the volatility and eliminate it. Otherwise, your team won't be able to predict completion dates with confidence, and the product managers won't be able to plan.
 
@@ -166,7 +170,7 @@ You don't want to estimate bugs and chores because you cannot rely on velocity t
 
 Here's why. Stories are planned, but bugs are an unintended consequence of feature development. A bug represents something that used to work, but no longer does. The completion of the original story is already accounted for in your team's velocity and forward progress. It would be inaccurate to get a second velocity boost, or to show additional forward progress from fixing what is accidentally broken, given that the bug can be thought of as a step backwards in progress. If the team fixes the same bug twenty times, they did not take twenty steps forward. Instead, the team is bogged down by the bug, and its velocity might, or even _should_, slow down to reflect the situation.
 
-Likewise, non-feature or bug-related tasks known as *chores* are a necessary aid to feature development. It is usually not possible to plan for these up front. They become apparent in reaction to the needs of the product as it evolves. If you start pointing bugs and chores, your velocity will artificially inflate.
+Likewise, non-feature or bug-related tasks known as _chores_ are a necessary aid to feature development. It is usually not possible to plan for these up front. They become apparent in reaction to the needs of the product as it evolves. If you start pointing bugs and chores, your velocity will artificially inflate.
 
 For example, You are pointing bugs and chores as they crop up, then adding them to the backlog. This process has led you to a current velocity of twenty points per week. The team backlog is finally empty, but now a product manager shows 10 new stories to your team. Together, your team estimates forty points for the stories, and informs the product manager that it is going to take two weeks to complete the 10 stories.
 
@@ -179,17 +183,18 @@ Bugs and chores have to bring velocity down. It's the reason why engineers don't
 ## Q: What is the Value of Continuous Integration/Continuous Delivery?
 
 There are two questions to consider when planning to ship software:
-* Should the product ship?
-* Can the product ship?
 
-* "Should the product ship?" is a business decision. Is it valuable for the business to put the latest features in the hands of the users right now? The product manager (PM) represents the business interests on the team and must own this decision.
-* "Can the product ship?" is an engineering question. Does the software work? Is the team confident it is going to pass in production? The goal of the XP engineers is to always answer "Yes" to this question. A team that is unable to ship, is unable to learn, and unable to immediately address bugs or critical security vulnerabilities. The longer a team spends not learning, the greater the risk that it is wasting time and money building the wrong thing.
+- Should the product ship?
+- Can the product ship?
+
+- "Should the product ship?" is a business decision. Is it valuable for the business to put the latest features in the hands of the users right now? The product manager (PM) represents the business interests on the team and must own this decision.
+- "Can the product ship?" is an engineering question. Does the software work? Is the team confident it is going to pass in production? The goal of the XP engineers is to always answer "Yes" to this question. A team that is unable to ship, is unable to learn, and unable to immediately address bugs or critical security vulnerabilities. The longer a team spends not learning, the greater the risk that it is wasting time and money building the wrong thing.
 
 The combination of three XP practices make it possible for teams to always have a "Yes" answer to the question "Can the Product Ship?". These include:
 
-* Stories
-* TDD
-* Continuous Integration/Continuous Delivery (CI/CD)
+- Stories
+- TDD
+- Continuous Integration/Continuous Delivery (CI/CD)
 
 If the stories in your backlog conform to the [definition of stories in this FAQ](#stories), and your team only commits implementations of the stories once the product manager, designers, and engineers agree the implementation completes the story, then you'll never have half-implemented features in the build.
 
@@ -197,7 +202,7 @@ A pair can run tests to determine if all the features in their copy of the code 
 
 Of course, there are all kinds of other benefits to CI. To paraphrase [Martin Fowler](https://www.martinfowler.com/articles/continuousIntegration.html), CI reduces risk by letting you know what works and what does not work at all times. It drastically raises awareness of bugs, allowing you to find and remove them quickly, and without fuss. As a result, projects that continuously integrate generally have fewer bugs. Of course, this is all predicated on the quality of your automated test suite.
 
-It's worth noting that some product managers automate their responsibility with respect to shipping. Some have the default answer to "Ship on Green.". In effect, they've asked the engineers to add another step to their build pipeline to automatically promote code to production on a Green build. That's called *continuous deployment*. Shipping is still a business responsibility, although the mechanics of it are facilitated by engineers. The default answer to "Ship on Green." doesn't abdicate the responsibility of the decision to the engineers. The product manager remains responsible for understanding how the features work in production, and how users are responding to it. This means the project has to prioritize all engineering work necessary to build automated production monitoring capabilities that make continuous deployment responsible.
+It's worth noting that some product managers automate their responsibility with respect to shipping. Some have the default answer to "Ship on Green.". In effect, they've asked the engineers to add another step to their build pipeline to automatically promote code to production on a Green build. That's called _continuous deployment_. Shipping is still a business responsibility, although the mechanics of it are facilitated by engineers. The default answer to "Ship on Green." doesn't abdicate the responsibility of the decision to the engineers. The product manager remains responsible for understanding how the features work in production, and how users are responding to it. This means the project has to prioritize all engineering work necessary to build automated production monitoring capabilities that make continuous deployment responsible.
 
 ## Q: Why Should Teams Host Retrospectives?
 
@@ -215,7 +220,7 @@ Engineer rotation can be difficult for everyone that it impacts. For example, yo
 
 Always remember, rotation is in the best interest of the project and everyone involved with it.
 
-Here's why. If a team is unchanged for too long, they start to become blind to the [*broken windows*](https://en.wikipedia.org/wiki/Broken_windows_theory). They won't see annoying workarounds as annoying anymore because they have grown used to them. They also become complacent over hacks in their codebase, intermittent failures in their CI build, and the inefficiency of the release process.
+Here's why. If a team is unchanged for too long, they start to become blind to the [_broken windows_](https://en.wikipedia.org/wiki/Broken_windows_theory). They won't see annoying workarounds as annoying anymore because they have grown used to them. They also become complacent over hacks in their codebase, intermittent failures in their CI build, and the inefficiency of the release process.
 
 In other words, you and your team will increasingly become less effective at maintaining quality in the code base and in their engineering process.
 
@@ -229,11 +234,11 @@ Conversely, if you're part of that core team that's been together for a while, a
 
 Rotation eliminates the need for various kinds of organizational overhead:
 
-* Personal assessment and feedback happens inline (part of pairing more than rotation, but rotation ensures a balanced aggregate view).
-* The need for excessive handbooks/playbooks/onboarding materials is greatly reduced as knowledge silos are broken down.
-* Transferring of existing skills and the sharing of new technologies happens organically, rather than needing artificial efforts like required classes and workshops.
-* It strengthens the connection between teams as friends rotate to other projects, increasing the likeliness of cross-team knowledge sharing and reducing duplicated efforts.
-* Reduces the strain on any one relationship, understanding that no one is *trapped* on a project forever.
+- Personal assessment and feedback happens inline (part of pairing more than rotation, but rotation ensures a balanced aggregate view).
+- The need for excessive handbooks/playbooks/onboarding materials is greatly reduced as knowledge silos are broken down.
+- Transferring of existing skills and the sharing of new technologies happens organically, rather than needing artificial efforts like required classes and workshops.
+- It strengthens the connection between teams as friends rotate to other projects, increasing the likeliness of cross-team knowledge sharing and reducing duplicated efforts.
+- Reduces the strain on any one relationship, understanding that no one is _trapped_ on a project forever.
 
 Pair programming helps lower risk in projects. Rotation is the real-life manifestation of that lowered risk, by having solution knowledge and context shared by the team rather than locked up in a few people, or worse, in a single person. The downside to a single person rotating onto another team is greatly lowered.
 
@@ -241,9 +246,9 @@ Project stakeholders often object to rotating any team member, not just develope
 
 Rotations are also an opportunity for:
 
-* Validating that the team has the right documentation to effectively onboard and/or handover to new people.
-* Giving new or junior engineers the chance to take responsibility for core engineering knowledge on the project.
-* Giving new or junior developers the opportunity to onboard new people onto the project.
+- Validating that the team has the right documentation to effectively onboard and/or handover to new people.
+- Giving new or junior engineers the chance to take responsibility for core engineering knowledge on the project.
+- Giving new or junior developers the opportunity to onboard new people onto the project.
 
 What about keeping historical context? What about having a consistent face on the project? Consider having an **anchor** for the project who rotates less frequently. See the section, [Anchors](#anchors).
 
@@ -256,13 +261,15 @@ Read the [**Anchor Playbook**](/learningpaths/anchor-playbook/) for an in-depth 
 ## Q: What is the Difference Between Scrum and XP?
 
 Before discussing how XP and Scrum are different, it's to understand how they are similar.
-* XP and Scrum strive to deliver useful software into the hands of users through short iterations via small teams employing continuous improvement.
-* XP and Scrum teams regularly reflect on what is working, what is not working, and what a team can do to iterate on the process.
+
+- XP and Scrum strive to deliver useful software into the hands of users through short iterations via small teams employing continuous improvement.
+- XP and Scrum teams regularly reflect on what is working, what is not working, and what a team can do to iterate on the process.
 
 The fundamental difference between Scrum and XP is that Scrum is based on project structure, whereas XP is based on delivery practices and project structure.
-- Scrum is a reaction to inefficient, poisonous projects, where teams are instructed how to do their jobs by inexperienced outsiders, who often have no real *skin in the game* regarding the outcomes. Scrum defines a set of rules that say the delivery team decides how they deliver, while the business team decides what is delivered. Both groups are responsible for the outcomes. If you're not in either group, or are not impacted by the outcomes then you don't get a say. If you're a member of one group, you do not instruct the other group on how to do their job. Although, you can, and should collaborate.
 
-  That's Scrum, a *protective bubble* where you can work on projects.
+- Scrum is a reaction to inefficient, poisonous projects, where teams are instructed how to do their jobs by inexperienced outsiders, who often have no real _skin in the game_ regarding the outcomes. Scrum defines a set of rules that say the delivery team decides how they deliver, while the business team decides what is delivered. Both groups are responsible for the outcomes. If you're not in either group, or are not impacted by the outcomes then you don't get a say. If you're a member of one group, you do not instruct the other group on how to do their job. Although, you can, and should collaborate.
+
+  That's Scrum, a _protective bubble_ where you can work on projects.
 
 - Scrum teams practice sprint commits. At the outset of a sprint, the developers decide on a certain amount of work that they'll commit to completing in a sprint. [SAFe](https://en.wikipedia.org/wiki/Scaled_agile_framework) has a [similar commitment model](https://www.scaledagileframework.com/pi-objectives/). There are pros and cons to this. There is a lot of positive energy and motivation that comes from a shared team goal like the sprint commit, and high-functioning Scrum teams do a lot to harness and leverage that positive energy. Furthermore, a high-functioning Scrum team always discusses renegotiating a sprint's scope during the sprint with the product manager, if they discover something to adjust mid-sprint.
 
@@ -287,7 +294,7 @@ As consultants, often one of our client's goals is for Pivotal/Tanzu Labs to int
 
 No! Deadlines aren't bad. They're great! A deadline is a chance for your process to shine.
 
-A lot of software development teams have had bad experiences with deadlines. They've been subjected to the dreaded [death march](https://en.wikipedia.org/wiki/Death_march_(project_management)). In other words, they've been given a fixed scope that they must complete by a certain date, and are already burned out working nights and weekends, potentially compromising the quality of their work, trying to meet the deadline.
+A lot of software development teams have had bad experiences with deadlines. They've been subjected to the dreaded [death march](<https://en.wikipedia.org/wiki/Death_march_(project_management)>). In other words, they've been given a fixed scope that they must complete by a certain date, and are already burned out working nights and weekends, potentially compromising the quality of their work, trying to meet the deadline.
 
 This problem is sometimes referred to as the [Iron Triangle](https://en.wikipedia.org/wiki/Project_management_triangle). On any team, you have three qualities you're trying to achieve: fast, inexpensive, and high quality. In other words, you want the team to deliver quality software as quickly as possible, for as little cost as possible. Unfortunately, you can't have all three qualities at once. You can only have **two of the three dimensions**.
 
@@ -306,6 +313,7 @@ So, when you are working towards a deadline, do not focus on how you are going t
 With a predictable velocity, the product manager can start to make hard decisions and weigh tradeoffs between features. It causes them to think more critically about their list of features, and to determine value evidence-based approaches when deciding what to build. Deadlines are forcing functions for lean validation and constant re-prioritization based on learning. It really is the only way to ensure that they have created something valuable by the deadline.
 
 ## Q: How Do You Scale Practices into Large, Traditional Enterprises?
+
 {{% callout %}}
 Build teams around architecture, not architecture around teams.
 
@@ -319,7 +327,7 @@ Read the white paper, [How to Scale Agile Software Development with Product Team
 
 #### Rule #1: Scale Slowly
 
-Consider the following *"Dont's"*.
+Consider the following _"Dont's"_.
 
 - Don't go from a team of 20 to a team of 200 overnight.
 - Don't jump from one team in one location to 10 teams in 10 locations.
@@ -330,7 +338,7 @@ Consider the following *"Dont's"*.
 
 #### Rule #2: Distribute Teams Based on Architectural Boundaries
 
-This rule is sometimes referred to as the *inverse Conway maneuver* in reference to [Mel Conway's "Law"](https://en.wikipedia.org/wiki/Conway%27s_law):
+This rule is sometimes referred to as the _inverse Conway maneuver_ in reference to [Mel Conway's "Law"](https://en.wikipedia.org/wiki/Conway%27s_law):
 
 > Organizations which design systems ... are constrained to produce designs which are copies of the communication structures of these organizations".
 
@@ -338,7 +346,7 @@ In other words, if you're not careful, your architecture will reflect the struct
 
 Consider the Tanzu Application Service (TAS). Like many well-designed systems, TAS has a plugin architecture, a set of well-defined APIs and extension points. You can plug in Buildpacks, service brokers, logging utilities, performance monitoring systems, and more. But, underneath the hood TAS also has a core distributed system, built by distributed teams that must collaborate closely.
 
-Always keep closely collaborating teams in the same time zone, or a close time zone ideally in the same location. Only spread them out geographically once you have proven it works well *in one place*. The teams building at the well-defined architectural boundaries are much easier to distribute to other locations. The plugin teams have minimal communication requirements with folks working on the core distributed system, since they're operating at a well-defined plugin point and working in largely independent problem domains.
+Always keep closely collaborating teams in the same time zone, or a close time zone ideally in the same location. Only spread them out geographically once you have proven it works well _in one place_. The teams building at the well-defined architectural boundaries are much easier to distribute to other locations. The plugin teams have minimal communication requirements with folks working on the core distributed system, since they're operating at a well-defined plugin point and working in largely independent problem domains.
 
 "That's all well and good for the new products that the team scales," you might think, "but, what about all the existing teams and products? When the team wants to apply Lean, UCD, and Agile engineering practices to them to optimize the existing business, how does the team do it?"
 
@@ -348,7 +356,9 @@ There are a couple of different engineering challenges to consider:
 2. You'll need to align certain teams vertically, instead of slicing them up horizontally. You have all kinds of cross-cutting domains in your legacy architecture (take authentication as the universal Example A domain that cuts across most, if not all, of your applications). You'll need to organize teams around business capabilities, not technologies. As [Martin Fowler points out](https://youtu.be/wgdBVIX9ifA?t=6m30s), the common misconception that companies have when it comes to microservices is that microservice architectures means that you have a team that only owns the microservice API and nothing else. However, if you look at Amazon, the archetype for the microservice architecture playing out at scale in a company,[Amazon organizes its teams around business capabilities.](https://aws.amazon.com/modern-apps/faqs/) They have an order team, a shipping team, a catalog team, etc. While it is true that each of these build services own their business capability end to end, all the way to the end user, they also own the experience, and how that experience plays out in the various software products their particular business capability is present in.
 
 ## Learn more
+
 If you'd like to learn more about how Pivotal/Tanzu Labs approaches modern application development and engineering, please check out these amazing resources.
+
 - [How Pivotal/Tanzu Labs Works and Why](/learningpaths/cloud-native-development-in-practice/)
 - [Fundamentals of Modern Application Development](/learningpaths/application-development/)
 - [Modern Application Development Rhythm](/learningpaths/application-development-rhythm/)
@@ -356,4 +366,3 @@ If you'd like to learn more about how Pivotal/Tanzu Labs approaches modern appli
 - [Cloud Native Development in Practice](/learningpaths/cloud-native-development-in-practice/)
 
 If you are a [Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs) team member, please [submit your updates to this FAQ!](https://github.com/joemoore/labs-practices-site/issues)
-

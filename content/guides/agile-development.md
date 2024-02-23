@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Modernize how you work
 weight: -100
 linkTitle: Agile Development

@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Approaches and best practices for secret management in Kubernetes
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Secret Management
 parent: Platform Security
 title: Secret Management
 weight: 3
 oldPath: "/content/guides/kubernetes/platform-security-secret-management.md"
 aliases:
-- "/guides/kubernetes/platform-security-secret-management"
+  - "/guides/kubernetes/platform-security-secret-management"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []

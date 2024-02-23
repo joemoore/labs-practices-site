@@ -1,22 +1,23 @@
 ---
 date: 2020-06-15
-description: Create a private registry for your customized Helm chart using Harbor
+description:
+  Create a private registry for your customized Helm chart using Harbor
   and Kubeapps.
-lastmod: '2021-02-25'
+lastmod: "2021-02-25"
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Kubeapps
-- Helm
-- Harbor
-- Kubernetes
+  - Kubeapps
+  - Helm
+  - Harbor
+  - Kubernetes
 team:
-- Raquel Campuzano
+  - Raquel Campuzano
 title: Deploy from a Private Helm Repository Using Kubeapps
 weight: 7
 oldPath: "/content/guides/kubernetes/kubeapps-private-repo.md"
 aliases:
-- "/guides/kubernetes/kubeapps-private-repo"
+  - "/guides/kubernetes/kubeapps-private-repo"
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -33,9 +34,9 @@ control as well as a known good source of images.
 
 Kubeapps officially supports the following Helm repositories:
 
-* [ChartMuseum](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#chartmuseum)
-* [Harbor](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#harbor)
-* [Artifactory Pro](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#artifactory)
+- [ChartMuseum](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#chartmuseum)
+- [Harbor](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#harbor)
+- [Artifactory Pro](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#artifactory)
 
 This tutorial shows you how to create a private project in Harbor, push a
 customized Helm chart to your registry and create an application repository to
@@ -49,18 +50,18 @@ Watch the following video or keep reading this tutorial to learn more:
 
 This guide assumes that:
 
-* You have a Docker environment installed and configured. Learn more about
+- You have a Docker environment installed and configured. Learn more about
   [installing Docker](https://docs.docker.com/engine/install/).
-* You have a Docker Hub account.
+- You have a Docker Hub account.
   [Register for a free account](https://hub.docker.com/).
-* You have a Kubernetes cluster. Check out our
+- You have a Kubernetes cluster. Check out our
   [Getting Started with Kubernetes guides](https://docs.bitnami.com/kubernetes/)
   for an easy way to get started with one.
-* You have administrator access to a preexisting installation of
+- You have administrator access to a preexisting installation of
   [Harbor](https://github.com/bitnami/charts/tree/master/bitnami/harbor).
-* You have
+- You have
   [Helm installed in your cluster](https://docs.bitnami.com/kubernetes/get-started-kubernetes/#step-4-install-helm).
-* You have
+- You have
   [Kubeapps installed in your cluster](https://github.com/kubeapps/kubeapps/blob/master/docs/user/getting-started.md)
   and are logged into the Kubeapps UI with admin credentials.
 
@@ -68,9 +69,9 @@ This guide assumes that:
 
 The first step is to create a project in Harbor. To do so:
 
-* Log in to Harbor.
-* In the "Projects" section, click "+ New Project".
-* In the resulting screen, give a name to your project. This should be private
+- Log in to Harbor.
+- In the "Projects" section, click "+ New Project".
+- In the resulting screen, give a name to your project. This should be private
   so don't activate the "Public" check. To get an unlimited storage quota, set
   that value as -1. Click "OK" to proceed.
 
@@ -82,32 +83,32 @@ Next, pull the Docker image of the chart you want to add to your private
 repository. Then, you need to push it to Harbor to make it available in your
 project. Follow these steps:
 
-* Execute the following command to obtain the latest Bitnami Ghost image: 
+- Execute the following command to obtain the latest Bitnami Ghost image:
 
   ```bash
   docker pull bitnami/ghost:3.13.2-debian-10-r0
   ```
 
-* Tag the image by executing the command below. Remember to replace the
+- Tag the image by executing the command below. Remember to replace the
   `HARBOR_DOMAIN_NAME` placeholder with the domain name where Harbor is installed.
 
   ```bash
   docker tag docker.io/bitnami/ghost:3.13.2-debian-10-r0 HARBOR_DOMAIN_NAME/project-private/ghost:3.13.2-debian-10-r0
   ```
 
-* Login in to Harbor. 
+- Login in to Harbor.
 
   ```bash
   docker login HARBOR_DOMAIN_NAME
   ```
 
-* Push the image to your registry by executing this command: 
+- Push the image to your registry by executing this command:
 
   ```bash
   docker push HARBOR_DOMAIN_NAME/project-private/ghost:3.13.2-debian-10-r0
   ```
 
-* You should see an output message similar to this: 
+- You should see an output message similar to this:
 
   ```bash
   The push refers to repository [harbor.bkpr-kubeapps-gke.nami.run/project-private/ghost]
@@ -126,11 +127,11 @@ project. Follow these steps:
   3.13.2-debian-10-r0: digest: sha256:9121f532fbe28f8e6d4cb11bf542374689c4595378ef83adeda5bff46731d972 size: 2839
   ```
 
-* Navigate to the Harbor UI and in your project, select the tab "Repositories".
+- Navigate to the Harbor UI and in your project, select the tab "Repositories".
   You should see the repository that contains the image you just pushed. Click
   on it to check image details:
 
- ![Harbor repositories](images/harbor-images-pushed.png)
+![Harbor repositories](images/harbor-images-pushed.png)
 
 ## Step 3: Enable a Robot Account in your project
 
@@ -138,34 +139,34 @@ Next step is to enable a Robot Account in your project with access to pull both
 Helm charts from the private repositories as well as Docker images in the
 private project. To do so:
 
-* From the Harbor UI, navigate to the "Robot Account" tab in your project and
+- From the Harbor UI, navigate to the "Robot Account" tab in your project and
   click "+ New Robot Account".
-* In the resulting window, give it a name, a description (optional) and in the
+- In the resulting window, give it a name, a description (optional) and in the
   "Permissions" section, activate the "Pull" check in the Helm Chart line. Click
   "Save" to proceed.
 
   ![Create a Robot Account in your project](images/create-robot-account.png)
 
-Once it is created, remember to copy the token in a safe place or export it to file. 
+Once it is created, remember to copy the token in a safe place or export it to file.
 
 ![Copy or export to file the token](images/robot-account-created.png)
 
 ## Step 4: Customize your Helm chart and push it to your private Harbor Registry
 
-* Get the Bitnami Ghost Helm chart and change to the chart's directory by
+- Get the Bitnami Ghost Helm chart and change to the chart's directory by
   executing the following command:
 
   ```bash
   helm fetch bitnami/ghost --untar && cd ghost
   ```
 
-* Edit the *values.yaml* file of the chart of the chart so that the
+- Edit the _values.yaml_ file of the chart of the chart so that the
   image.registry and image.repository value point to your registry and
   repository path respectively:
 
   ![Modify the chart values.yaml file](images/chart-values-yaml.png)
 
-* Once you have edited those values, package you chart by running:
+- Once you have edited those values, package you chart by running:
 
   ```bash
   cd ../ && helm package ./ghost
@@ -173,8 +174,8 @@ Once it is created, remember to copy the token in a safe place or export it to f
 
   You will see an output message similar to this: "Successfully packaged chart".
 
-* From the Harbor UI, navigate to the "Helm Charts" tab and click "Upload".
-  Browse the resultant *tgz* file of your packaged chart and click "Upload". You
+- From the Harbor UI, navigate to the "Helm Charts" tab and click "Upload".
+  Browse the resultant _tgz_ file of your packaged chart and click "Upload". You
   will see your Helm Chart uploaded in a few minutes:
 
   ![Harbor Helm chart uploaded](images/harbor-helm-chart.png)
@@ -189,32 +190,32 @@ Kubeapps to start deploying your charts on Kubernetes from its dashboard.
 
 ## Step 5: Create an application repository to enable your Harbor's private repository in Kubeapps
 
-* Log in to Kubeapps.
-* Select the namespace where the repository (and the secret) are to be created.
-  This should be different from the *kubeapps* namespace.
-* From the menu button in the top right corner, select the "App Repositories"
+- Log in to Kubeapps.
+- Select the namespace where the repository (and the secret) are to be created.
+  This should be different from the _kubeapps_ namespace.
+- From the menu button in the top right corner, select the "App Repositories"
   option, then click the "Add App Repository" button.
-* In the resulting screen enter the following information:
+- In the resulting screen enter the following information:
 
-  * Application repository name
-  * URL: private repository URL
-  * Repository Authorization: select the "Basic Auth" option and enter as
+  - Application repository name
+  - URL: private repository URL
+  - Repository Authorization: select the "Basic Auth" option and enter as
     "Username" the name you gave to the Robot Account created in Harbor, and as
     "Password", the token you obtain at the time of the creation. This way,
     Kubeapps will be able to see the charts you have pulled into your Harbor
     repository.
-  * Associate Docker Registry Credentials: click "Add New Credentials" to add
+  - Associate Docker Registry Credentials: click "Add New Credentials" to add
     the credentials that will allow Kubernetes to pull images from your private
     repository. Add the values below, then click "Submit"
-   
-    * Secret name
-    * Server: Harbor's server domain
-    * Username: in this case, as you created a Robot Account, use its name as username
-    * Password: use the Robot Account token as password
+
+    - Secret name
+    - Server: Harbor's server domain
+    - Username: in this case, as you created a Robot Account, use its name as username
+    - Password: use the Robot Account token as password
 
   ![Add an application repository with the Harbor credentials](images/app-repo-pull-secret.png)
 
-* Click the "Install Repo" button to finish the process. You will see your new
+- Click the "Install Repo" button to finish the process. You will see your new
   application repository in the list of existing application repositories in
   your namespace.
 
@@ -226,37 +227,37 @@ Kubeapps to start deploying your charts on Kubernetes from its dashboard.
   ![Private repository application catalog](images/private-repo-catalog.png)
 
 ## Step 6: Deploy your custom Ghost from the Kubeapps UI
-    
+
 Finally, you are able to install your custom application from your private
 registry on Kubernetes using the Kubeapps UI.
 
-* In the application repository catalog you just created, click the Ghost entry
+- In the application repository catalog you just created, click the Ghost entry
   to go to the chart page.
-* On the resulting screen, you can learn about the Ghost chart, the repository
+- On the resulting screen, you can learn about the Ghost chart, the repository
   where it is located, review older versions, and any related links. Click
   "Deploy" to deploy the chart:
 
   ![Deploy Ghost from your private repository](images/deploy-ghost.png)
 
-* This will take you to a page where you can configure your Ghost deployment.
+- This will take you to a page where you can configure your Ghost deployment.
   You can use either the "Form" or the "YAML" tab to customize your deployment
   as you want: give your chart a name, change the version you want to deploy,
   add an admin password (if not, a random 10-character alphanumeric string will
   be set), or configure Helm values.
 
   {{% aside type="info" title="Important" %}}
-  The Ghost chart requires a resolvable host. Specify it in the "Hostname" section. 
+  The Ghost chart requires a resolvable host. Specify it in the "Hostname" section.
   {{% /aside %}}
 
   ![Ghost values](images/ghost-values-kubeapps.png)
 
-* Click "Submit" to start the application deployment. Once submitted, you will
+- Click "Submit" to start the application deployment. Once submitted, you will
   be redirected to a page that describes the state of your deployment. The
   status will be "Deploying" until Ghost is up and running.
 
   ![Ghost deployment](images/ghost-deployment.png)
 
-* Once the chart is deployed, you can see all the deployment details, including
+- Once the chart is deployed, you can see all the deployment details, including
   the URLs to access the application.
 
   By default, Ghost creates a Service with LoadBalancer type to provide an
@@ -266,14 +267,14 @@ registry on Kubernetes using the Kubeapps UI.
   need to run minikube tunnel in a new terminal window in order for an IP
   address to be assigned.
 
- After some time, the URL should be visible in the Access URL table. Once it is
- visible, click one of the URLs shown to access your freshly deployed Ghost
- blog.
+After some time, the URL should be visible in the Access URL table. Once it is
+visible, click one of the URLs shown to access your freshly deployed Ghost
+blog.
 
- ![Ghost home page](images/ghost.png)
+![Ghost home page](images/ghost.png)
 
 ## Useful links
 
-* [Kubeapps Github repository](https://github.com/kubeapps/kubeapps)
-* [Using a Private Repository with Kubeapps](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#harbor)
-* [Harbor](https://goharbor.io/)
+- [Kubeapps Github repository](https://github.com/kubeapps/kubeapps)
+- [Using a Private Repository with Kubeapps](https://github.com/kubeapps/kubeapps/blob/master/docs/user/private-app-repository.md#harbor)
+- [Harbor](https://goharbor.io/)

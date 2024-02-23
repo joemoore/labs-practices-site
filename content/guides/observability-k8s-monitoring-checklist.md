@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: A list of components that platform operators should monitor
 keywords:
-- Kubernetes
-lastmod: '2021-03-15'
+  - Kubernetes
+lastmod: "2021-03-15"
 linkTitle: Kubernetes Monitoring Checklist
 parent: Platform Observability
 title: Kubernetes Monitoring Checklist
 weight: 1600
 oldPath: "/content/guides/kubernetes/observability-k8s-monitoring-checklist.md"
 aliases:
-- "/guides/kubernetes/observability-k8s-monitoring-checklist"
+  - "/guides/kubernetes/observability-k8s-monitoring-checklist"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags: []

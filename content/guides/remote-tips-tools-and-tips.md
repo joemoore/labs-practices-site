@@ -1,16 +1,16 @@
 ---
-date: '2020-10-01'
-lastmod: '2021-02-22'
+date: "2020-10-01"
+lastmod: "2021-02-22"
 linkTitle: Tools and Tips
 parent: Remote Tips
 tags:
-- Agile
+  - Agile
 team:
-- Pivotal/Tanzu Labs
-title: 'Remote Tips: Tools and Tips'
+  - Pivotal/Tanzu Labs
+title: "Remote Tips: Tools and Tips"
 oldPath: "/content/guides/agile/remote-tips-tools-and-tips.md"
 aliases:
-- "/guides/agile/remote-tips-tools-and-tips"
+  - "/guides/agile/remote-tips-tools-and-tips"
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---
@@ -19,6 +19,7 @@ level2: Team Tips
 
 - Try to minimize your tool stack!
 - Agree with your team on which tools you’ll use for certain tasks:
+
   - Conversations via video/audio
   - Collaborate/ideate/whiteboard
   - Messaging/chat

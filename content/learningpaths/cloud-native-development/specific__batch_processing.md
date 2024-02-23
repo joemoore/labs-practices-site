@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Batch Processing
 weight: 150
 oldPath: "/content/outcomes/cloud-native-development/specific__batch_processing.md"
 aliases:
-- "/outcomes/cloud-native-development/specific__batch_processing"
+  - "/outcomes/cloud-native-development/specific__batch_processing"
 tags: []
 ---
 

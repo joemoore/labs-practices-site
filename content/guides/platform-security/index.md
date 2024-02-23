@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Platform Security
 team:
-- Farid Saad
+  - Farid Saad
 title: Platform Security
 weight: 62
 oldPath: "/content/guides/kubernetes/platform-security.md"
 aliases:
-- "/guides/kubernetes/platform-security"
+  - "/guides/kubernetes/platform-security"
 level1: Securing Kubernetes
 level2: Access and Security
 tags:
-- Kubernetes
+  - Kubernetes
 ---
 
 ## Overview

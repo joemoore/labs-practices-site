@@ -8,7 +8,7 @@ layout: topic
 weight: 3
 icon: agile
 description: >
-    How you work is just as important as the work you do
+  How you work is just as important as the work you do
 menu:
   main:
     parent: sections

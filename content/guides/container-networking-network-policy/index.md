@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Implement a deny-all network policy in Kubernetes
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Network Policy Implementation
 parent: Container Networking
 tags:
-- networking
-- Calico
+  - networking
+  - Calico
 title: Network Policy Implementation
 oldPath: "/content/guides/kubernetes/container-networking-network-policy.md"
 aliases:
-- "/guides/kubernetes/container-networking-network-policy"
+  - "/guides/kubernetes/container-networking-network-policy"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 ---

@@ -8,7 +8,7 @@ layout: topic
 weight: 1
 icon: microservices
 description: >
-    Your language, your framework, your data
+  Your language, your framework, your data
 menu:
   main:
     parent: sections
@@ -16,10 +16,10 @@ menu:
       split: left
     weight: 4
 aliases:
-- /topics/agile
-- /guides/python
-- /guides/spring
-- /tags/.net
+  - /topics/agile
+  - /guides/python
+  - /guides/spring
+  - /tags/.net
 ---
 
 Your language, framework, data services, and practices are all tools in your toolbox. Understanding how they work and what their strengths are will yield tremendous results.

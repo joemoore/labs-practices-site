@@ -1,21 +1,21 @@
 ---
 date: 2021-09-24
 description: This tutorial describes how to backup data from, and restore data to, Apache Kafka deployments on Kubernetes
-lastmod: '2021-09-24'
+lastmod: "2021-09-24"
 parent: Velero
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Kubernetes
-- Kafka
+  - Kubernetes
+  - Kafka
 team:
-- Vikram Vaswani
+  - Vikram Vaswani
 title: Backup and Restore Apache Kafka Deployments on Kubernetes
 weight: 7
 level1: Securing Kubernetes
 level2: Backup and Restore
 aliases:
-- "/guides/kubernetes/backup-restore-data-kafka-kubernetes"
+  - "/guides/kubernetes/backup-restore-data-kafka-kubernetes"
 ---
 
 First published on [https://docs.bitnami.com/tutorials/backup-restore-data-kafka-kubernetes/](https://docs.bitnami.com/tutorials/backup-restore-data-kafka-kubernetes/)
@@ -32,24 +32,24 @@ This guide explains how to use [Velero](https://velero.io/), an open-source Kube
 
 This guide makes the following assumptions:
 
-* You have two separate Kubernetes clusters. A source cluster and a destination cluster with *kubectl* and Helm v3 installed. This guide uses Google Kubernetes Engine (GKE) clusters but you can also use any other Kubernetes provider. Go to [deploying a Kubernetes cluster on different cloud platforms](https://docs.bitnami.com/kubernetes/) and [how to install *kubectl* and Helm](https://docs.bitnami.com/kubernetes/get-started-kubernetes#step-3-install-kubectl-command-line) to learn more.
-* You have previously deployed the Bitnami Apache Kafka Helm chart on the source cluster and added some data to it. Example command sequences to perform these tasks are shown below.
+- You have two separate Kubernetes clusters. A source cluster and a destination cluster with _kubectl_ and Helm v3 installed. This guide uses Google Kubernetes Engine (GKE) clusters but you can also use any other Kubernetes provider. Go to [deploying a Kubernetes cluster on different cloud platforms](https://docs.bitnami.com/kubernetes/) and [how to install _kubectl_ and Helm](https://docs.bitnami.com/kubernetes/get-started-kubernetes#step-3-install-kubectl-command-line) to learn more.
+- You have previously deployed the Bitnami Apache Kafka Helm chart on the source cluster and added some data to it. Example command sequences to perform these tasks are shown below.
 
-    ```bash
-    helm repo add bitnami https://charts.bitnami.com/bitnami
-    helm install kafka bitnami/kafka
-    kubectl run kafka-client --restart='Never' --image docker.io/bitnami/kafka:2.8.0-debian-10-r27 --namespace default --command -- sleep infinity
-    kubectl exec --tty -i kafka-client --namespace default -- bash
-    kafka-console-producer.sh --broker-list kafka-0.kafka-headless.default.svc.cluster.local:9092 --topic test
-    >first
-    >second
-    >third
-    exit
-    ```
+  ```bash
+  helm repo add bitnami https://charts.bitnami.com/bitnami
+  helm install kafka bitnami/kafka
+  kubectl run kafka-client --restart='Never' --image docker.io/bitnami/kafka:2.8.0-debian-10-r27 --namespace default --command -- sleep infinity
+  kubectl exec --tty -i kafka-client --namespace default -- bash
+  kafka-console-producer.sh --broker-list kafka-0.kafka-headless.default.svc.cluster.local:9092 --topic test
+  >first
+  >second
+  >third
+  exit
+  ```
 
-* The Kubernetes provider is [supported by Velero](https://velero.io/docs/master/supported-providers/).
-* Both clusters are on the same Kubernetes provider. This is a requirement of [Velero's native support for migrating persistent volumes](https://velero.io/docs/v1.5/migration-case/).
-* The restored deployment on the destination cluster will have the same name, namespace and credentials as the original deployment on the source cluster.
+- The Kubernetes provider is [supported by Velero](https://velero.io/docs/master/supported-providers/).
+- Both clusters are on the same Kubernetes provider. This is a requirement of [Velero's native support for migrating persistent volumes](https://velero.io/docs/v1.5/migration-case/).
+- The restored deployment on the destination cluster will have the same name, namespace and credentials as the original deployment on the source cluster.
 
   **NOTE**: For persistent volume migration across cloud providers with Velero, you have the option of using Velero's [Restic integration](https://velero.io/docs/v1.5/restic/). This integration is not covered in this guide.
 
@@ -72,7 +72,7 @@ To install Velero on the source cluster:
    ![Velero installation output](images/velero-installation.png)
 
 4. Confirm that the Velero deployment is successful by checking for a running pod using the command below:
-  
+
    ```bash
    kubectl get pods -n velero
    ```
@@ -138,7 +138,7 @@ To restore the persistent volumes and integrate them with a new Apache Kafka dep
    helm install kafka bitnami/kafka
    ```
 
-    **NOTE**: The above deployment command is an example only. It is important to create the new deployment on the destination cluster using the same namespace, deployment name, credentials and cluster topology as the original deployment on the source cluster.
+   **NOTE**: The above deployment command is an example only. It is important to create the new deployment on the destination cluster using the same namespace, deployment name, credentials and cluster topology as the original deployment on the source cluster.
 
 7. Connect to the new deployment and confirm that your original messages are intact using a query similar to the following example. This will create a new deployment that uses the original pod volumes (and hence the original data).
 
@@ -147,12 +147,12 @@ To restore the persistent volumes and integrate them with a new Apache Kafka dep
    kubectl exec --tty -i kafka-client --namespace default -- bash
    kafka-console-consumer.sh  --bootstrap-server kafka.default.svc.cluster.local:9092 --topic test --from-beginning
    ```
+
 8. Confirm that your original data is intact.
 
-That's it! Check out the following links and keep the learning going. 
+That's it! Check out the following links and keep the learning going.
 
 ## Useful links
 
-* [Bitnami Apache Kafka Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/kafka)
-* [Velero documentation](https://velero.io/docs/master/)
-
+- [Bitnami Apache Kafka Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/kafka)
+- [Velero documentation](https://velero.io/docs/master/)

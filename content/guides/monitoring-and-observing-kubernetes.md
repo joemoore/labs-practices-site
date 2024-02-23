@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Get insight into your Kubernetes platform
 weight: -100
 linkTitle: Monitoring and Observing Kubernetes

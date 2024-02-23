@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: API Gateway
 weight: 150
 oldPath: "/content/outcomes/cloud-native-development/specific__api_gateway.md"
 aliases:
-- "/outcomes/cloud-native-development/specific__api_gateway"
+  - "/outcomes/cloud-native-development/specific__api_gateway"
 tags: []
 ---
 
@@ -19,7 +19,6 @@ When combined with TAS [route services](https://docs.pivotal.io/application-serv
 There are many commercial and open-source options for this - the former includes Apigee and the public cloud IaaS native solutions. The latter includes options such as [Netflix Zuul](https://github.com/Netflix/zuul) and [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway) (SCG). Unless your company uses a different commercial option, we use Spring Cloud Gateway as the default implementation framework for integration use cases.
 
 Go to the [Building a Gateway](https://spring.io/guides/gs/gateway/) guide to learn how to craft your first API gateway with SCG.
-
 
 ## Homework
 

@@ -1,18 +1,18 @@
 ---
-date: '2021-02-26'
-lastmod: '2021-02-26'
+date: "2021-02-26"
+lastmod: "2021-02-26"
 parent: What are Microservices?
 tags:
-- Cloud Native
-- Microservices
-- Getting Started
-- Kubernetes
-- Containers
-- CI-CD
+  - Cloud Native
+  - Microservices
+  - Getting Started
+  - Kubernetes
+  - Containers
+  - CI-CD
 title: What is Cloud Native?
 oldPath: "/content/guides/microservices/what-is-cloud-native.md"
 aliases:
-- "/guides/microservices/what-is-cloud-native"
+  - "/guides/microservices/what-is-cloud-native"
 level1: Modern App Basics
 level2: DevOps Practices
 ---
@@ -21,11 +21,11 @@ level2: DevOps Practices
 
 The more important thing is the ability to offer on-demand access to computing power along with modern data and application services for developers. Cloud native development incorporates the concepts of [DevOps](https://tanzu.vmware.com/devops), continuous delivery, [microservices](/guides/microservices/what-is-microservices-architecture), and [containers](/guides/containers/what-are-containers). At its root, cloud native is about structuring teams, culture, and technology to utilize automation and architectures to manage complexity and unlock velocity.
 
->*Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach. These techniques enable loosely coupled systems that are resilient, manageable, and observable. Combined with robust automation, they allow engineers to make high-impact changes frequently and predictably with minimal toil.* --[CNCF Definition of Cloud Native](https://github.com/cncf/toc/blob/master/DEFINITION.md)
+> _Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach. These techniques enable loosely coupled systems that are resilient, manageable, and observable. Combined with robust automation, they allow engineers to make high-impact changes frequently and predictably with minimal toil._ --[CNCF Definition of Cloud Native](https://github.com/cncf/toc/blob/master/DEFINITION.md)
 
 ## Cloud Native Applications
 
-Cloud native applications are developed and optimized to run in a cloud as distributed applications. According to the CNCF, cloud-native applications should have the following characteristics; 
+Cloud native applications are developed and optimized to run in a cloud as distributed applications. According to the CNCF, cloud-native applications should have the following characteristics;
 
 **They are containerized.** Each part \(applications, processes, etc.\) is packaged in its own container. This facilitates reproducibility, transparency, and resource isolation.
 
@@ -45,7 +45,7 @@ Some additional characteristics common to cloud native architectures are identif
 
 ## Better Tooling, Better Systems
 
-Cloud native is defined by better tooling and better systems. Without automated tooling, each new service in production will have a high operational cost. It becomes a separate thing that has to be monitored, tracked, provisioned, and so on. That overhead is one of the main reasons why sizing of microservices must be done in an appropriate way. 
+Cloud native is defined by better tooling and better systems. Without automated tooling, each new service in production will have a high operational cost. It becomes a separate thing that has to be monitored, tracked, provisioned, and so on. That overhead is one of the main reasons why sizing of microservices must be done in an appropriate way.
 
 Automation is the key to reducing the operational costs associated with building and running new services. Systems such as [Kubernetes](/guides/kubernetes/what-is-kubernetes), [containers](/guides/containers/what-are-containers), continuous integration and continuous delivery [\(CI/CD\)](/guides/ci-cd/ci-cd-what-is/), and monitoring all have the same overarching goal of making application development and operations teams more efficient so they can move faster and build more reliable products.
 
@@ -57,7 +57,7 @@ Organizations that adopt cloud native practices and technology generally report 
 
 **More efficient and happier teams.** Cloud native tooling allows big problems to be broken down into smaller pieces for more focused and nimble teams.
 
-**Reduced drudgery.**  Accomplished by automating much of the manual work that causes operations pain and downtime, this takes the form of self-healing and self-managing infrastructure. Modern systems can do more.
+**Reduced drudgery.** Accomplished by automating much of the manual work that causes operations pain and downtime, this takes the form of self-healing and self-managing infrastructure. Modern systems can do more.
 
 **More reliable infrastructure and applications.** Automation to handle expected churn often results in better failure modes for unexpected events and failures. When a single command or button click deploys an application for development, testing, or production, it is much easier to automate deployment in a disaster recovery scenario \(either automatically or manually\).
 
@@ -68,7 +68,8 @@ Organizations that adopt cloud native practices and technology generally report 
 **More efficient usage of resources.** Automated deployment and management of applications and services open up opportunities to apply algorithmic automation. For instance, Kubernetes can automate placement of workloads on machines instead of having an ops team manage the placement via a spreadsheet.
 
 ## Keep Learning
-A cloud native platform helps take care of Day 1 and Day 2 operations, automatically monitoring and remediating issues that previously would have needed manual intervention. 
+
+A cloud native platform helps take care of Day 1 and Day 2 operations, automatically monitoring and remediating issues that previously would have needed manual intervention.
 Find out more from Kubernetes founders **Craig McLuckie** and **Joe Beda** discussing the difference between Cloud and Cloud Native:
 
 {{< youtube I0p8MIezKkE >}}

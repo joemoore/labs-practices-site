@@ -8,21 +8,21 @@ length: 2시간
 participants: 경영진
 lastmod: "2022-01-03"
 date: "2022-01-03"
-why: 
-- 우리는 동료들이 어떤 책임을 지고 있는지 알고 있다고 간주하며, 이로 인해 목표를 달성하지 못하거나 일을 중복해서 하기도 합니다. 이 워크숍은 제품 팀보다 책임이 명확하지 않은 경영진에 특히 유용합니다.
+why:
+  - 우리는 동료들이 어떤 책임을 지고 있는지 알고 있다고 간주하며, 이로 인해 목표를 달성하지 못하거나 일을 중복해서 하기도 합니다. 이 워크숍은 제품 팀보다 책임이 명확하지 않은 경영진에 특히 유용합니다.
 when:
-- 경영진의 구성을 변경하거나 역할 및 책임을 마지막으로 명시한 후 1년 이상 지난 경우입니다.
+  - 경영진의 구성을 변경하거나 역할 및 책임을 마지막으로 명시한 후 1년 이상 지난 경우입니다.
 what:
-- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-- 화이트보드용 마커
-- 스티커 메모
-- 네임펜
+  - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+  - 화이트보드용 마커
+  - 스티커 메모
+  - 네임펜
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: "URL for related Miro template" 
-
+miro_template_url: "URL for related Miro template"
 ---
+
 <h2 id="how-to-use-this-method">이 방식을 활용하는
 방법</h2>
 

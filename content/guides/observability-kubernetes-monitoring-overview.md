@@ -1,21 +1,21 @@
 ---
-date: '2021-02-26'
-lastmod: '2021-02-26'
+date: "2021-02-26"
+lastmod: "2021-02-26"
 parent: Platform Observability
 patterns:
-- Observability
+  - Observability
 tags:
-- Kubernetes
-- Observability
-- Prometheus
-- Grafana
-- Wavefront
-- Microservices
+  - Kubernetes
+  - Observability
+  - Prometheus
+  - Grafana
+  - Wavefront
+  - Microservices
 title: Kubernetes Monitoring Overview
 weight: 1
 oldPath: "/content/guides/kubernetes/observability-kubernetes-monitoring-overview.md"
 aliases:
-- "/guides/kubernetes/observability-kubernetes-monitoring-overview"
+  - "/guides/kubernetes/observability-kubernetes-monitoring-overview"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 ---
@@ -28,11 +28,11 @@ This guide provides an overview of monitoring tools for Kubernetes environments.
 
 Containerized systems such as [Kubernetes present new monitoring challenges](https://tanzu.vmware.com/kubernetes-monitoring) versus virtual-machine-based compute environments. These differences include:
 
-* The ephemeral nature of containers
-* An increased density of objects, services, and metrics within a given node
-* A focus on services, rather than machines
-* More diverse consumers of monitoring data 
-* Changes in the software development lifecycle
+- The ephemeral nature of containers
+- An increased density of objects, services, and metrics within a given node
+- A focus on services, rather than machines
+- More diverse consumers of monitoring data
+- Changes in the software development lifecycle
 
 As monolithic apps are refactored into microservices and orchestrated with Kubernetes, requirements for monitoring those apps change. To start, instrumentation to capture application data needs to be at a container level, at scale, across thousands of endpoints. Because Kubernetes workloads are ephemeral by default and can start or stop at any time, application monitoring must be dynamic and aware of Kubernetes labels and namespaces. A consistent set of rules or alerts must be applied to all pods, new and old.
 
@@ -42,9 +42,9 @@ Observability should always be a consideration when you’re developing new apps
 
 How can you protect your Kubernetes system from hijackers and infiltrators? Here are some suggestions:
 
-* Monitor cluster and network utilization
-* Monitor for suspicious activity and analyze failed login and RBAC events
-* Monitor configurations, such as dashboard access, for risks and vulnerabilities
+- Monitor cluster and network utilization
+- Monitor for suspicious activity and analyze failed login and RBAC events
+- Monitor configurations, such as dashboard access, for risks and vulnerabilities
 
 The NIST document, [Security Assurance Requirements for Linux Application Container Deployments](https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8176.pdf) sets forth security requirements and countermeasures to help meet the recommendations of the [NIST Application Container Security Guide](https://csrc.nist.gov/publications/detail/sp/800-190/final) when containerized applications are deployed in production environments. According to NIST, you should log and monitor resource consumption of containers to ensure availability of critical resources.
 
@@ -62,13 +62,13 @@ For security auditing purposes, consider streaming your logs to an external loca
 
 ##### Log Aggregation
 
-An effective log aggregator must support the processing of events from thousands of endpoints, the ability to accommodate real-time queries, and a superior analytics engine to provide intelligent metrics to solve complex technical and business problems. You have the option to implement log aggregation using a number of popular open source or commercial logging analytics solutions, such as Elasticsearch, Fluentd, Kibana, or Splunk. Each solution has a set of strengths and weaknesses. 
+An effective log aggregator must support the processing of events from thousands of endpoints, the ability to accommodate real-time queries, and a superior analytics engine to provide intelligent metrics to solve complex technical and business problems. You have the option to implement log aggregation using a number of popular open source or commercial logging analytics solutions, such as Elasticsearch, Fluentd, Kibana, or Splunk. Each solution has a set of strengths and weaknesses.
 
 [Fluentd](https://www.fluentd.org) is an open-source data collector for unified logging. [Fluent Bit](https://fluentbit.io) is a lightweight data forwarder for Fluentd. Fluentd is used to create a unified logging layer to collect and process data. Fluent Bit is for forwarding data from the edge to Fluentd aggregators. Fluentd and Fluent Bit can collect logging data and push it to an output destination, such as [Elasticsearch](https://www.elastic.co), which is a distributed search and analytics engine that lets data engineers query unstructured, structured, and time-series data.
 
 ### Network monitoring
 
-Network-based security monitoring tools, such as a network intrusion detection system \(IDS\) and web application firewalls, may work nearly out of the box, but making them work well takes some effort. The biggest hurdle is that many tools expect IP addresses to be a useful context for events. To integrate these tools with Kubernetes, consider enriching the collected events with Kubernetes `namespace`, `pod name`, and `pod label` metadata. This adds valuable context to the event that you can use for alerting or manual review and can make these traditional tools even more powerful in a Kubernetes cluster than in a traditional environment. Some monitoring tools can collect Kubernetes metadata, but you can also write custom event enrichment code to add this kind of metadata integration to those that don't. 
+Network-based security monitoring tools, such as a network intrusion detection system \(IDS\) and web application firewalls, may work nearly out of the box, but making them work well takes some effort. The biggest hurdle is that many tools expect IP addresses to be a useful context for events. To integrate these tools with Kubernetes, consider enriching the collected events with Kubernetes `namespace`, `pod name`, and `pod label` metadata. This adds valuable context to the event that you can use for alerting or manual review and can make these traditional tools even more powerful in a Kubernetes cluster than in a traditional environment. Some monitoring tools can collect Kubernetes metadata, but you can also write custom event enrichment code to add this kind of metadata integration to those that don't.
 
 ### Host event monitoring
 
@@ -80,7 +80,7 @@ To make sense of host-based events, you'll again want to consider extending your
 
 The open-source community is converging on [Prometheus](https://prometheus.io) as a preferred solution for Kubernetes monitoring. The ability to address evolving requirements of Kubernetes while including a rich set of language-specific client libraries gives Prometheus an advantage.
 
-Prometheus excels at monitoring multidimensional data, including time-series data, and it is hosted by the Cloud Native Computing Foundation, of which VMware is a member. [Grafana](https://grafana.com) is an open-source metrics dashboard commonly used with Prometheus to display data. 
+Prometheus excels at monitoring multidimensional data, including time-series data, and it is hosted by the Cloud Native Computing Foundation, of which VMware is a member. [Grafana](https://grafana.com) is an open-source metrics dashboard commonly used with Prometheus to display data.
 
 ### Wavefront
 

@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Continuous Integration and Delivery
 weight: 60
 oldPath: "/content/outcomes/cloud-native-development/general__ci_cd.md"
 aliases:
-- "/outcomes/cloud-native-development/general__ci_cd"
+  - "/outcomes/cloud-native-development/general__ci_cd"
 tags: []
 ---
 

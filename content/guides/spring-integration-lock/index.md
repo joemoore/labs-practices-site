@@ -1,6 +1,6 @@
 ---
-date: '2021-10-22'
-lastmod: '2021-10-22'
+date: "2021-10-22"
+lastmod: "2021-10-22"
 title: How To Implement a Spring Distributed Lock
 linkTitle: Working With the Spring Distributed Lock
 description: Run through a simple demonstration of how to implement a Spring Distributed Lock within your Spring application.
@@ -16,9 +16,9 @@ tags:
 team:
   - Eric Standley
 weight: 2
-oldPath: '/content/guides/spring/spring-distributed-lock.md'
+oldPath: "/content/guides/spring/spring-distributed-lock.md"
 aliases:
-  - '/guides/spring/spring-distributed-lock'
+  - "/guides/spring/spring-distributed-lock"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---

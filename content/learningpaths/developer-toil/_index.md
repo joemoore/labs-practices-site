@@ -5,10 +5,10 @@ duration: 60
 experience: Beginner
 layout: intro
 team:
-- Michael Cote
-- Danielle Burrow
-- Susie Forbath
-- Tyson McNulty
+  - Michael Cote
+  - Danielle Burrow
+  - Susie Forbath
+  - Tyson McNulty
 ---
 
 Anything you can do to speed up your software release cycle will improve the quality, resilience, and business value of your software. In this paper, we describe one approach organizations use to speed up this release cycle, the Developer Toil Audit. This is a systematic process for finding, valuing, and prioritizing fixing waste in your software process.
@@ -21,5 +21,4 @@ This paper describes the overall Developer Toil Audit with examples and how to g
 
 We've developed this method and process at Pivotal/Tanzu Labs after helping hundreds of organizations improve their software development and delivery process. We still use it today as part of a broader technical debt assessment methodology. If you're interested in finding out more after reading this overview, don't hesitate to [contact us](https://tanzu.vmware.com/office-hours).
 
-[^1]:
-     In the Kubernetes world, [as of the Spring of 2022 at least](https://tanzu.vmware.com/content/blog/state-of-kubernetes-2022?utm_source=cote&utm_medium=whitepaper&utm_content=devtoil&utm_campaign=devrel), the phrase "developer experience" or "DevX" is being used more frequently to describe, well, the day-to-day experience developers have creating their software. Of course, you want that experience to be good, which increases developer productivity and happiness. Addressing developer toil is one the best and easiest ways to improve DevX.
+[^1]: In the Kubernetes world, [as of the Spring of 2022 at least](https://tanzu.vmware.com/content/blog/state-of-kubernetes-2022?utm_source=cote&utm_medium=whitepaper&utm_content=devtoil&utm_campaign=devrel), the phrase "developer experience" or "DevX" is being used more frequently to describe, well, the day-to-day experience developers have creating their software. Of course, you want that experience to be good, which increases developer productivity and happiness. Addressing developer toil is one the best and easiest ways to improve DevX.

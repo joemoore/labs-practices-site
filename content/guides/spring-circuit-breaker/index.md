@@ -1,30 +1,30 @@
 ---
-date: '2022-09-28'
+date: "2022-09-28"
 description: Learn how to add fault tolerance to your applications with Spring Cloud Circuit Breaker.
-lastmod: '2022-09-28'
+lastmod: "2022-09-28"
 linkTitle: Spring Cloud Circuit Breaker
 patterns:
-- API
+  - API
 subsection: Spring Cloud
 tags:
-- Spring Cloud
-- Spring Cloud Circuit Breaker
-- API
-- Getting Started
-- Spring
-- Circuit Breaker
-- Fault Tolerance
+  - Spring Cloud
+  - Spring Cloud Circuit Breaker
+  - API
+  - Getting Started
+  - Spring
+  - Circuit Breaker
+  - Fault Tolerance
 team:
-- Nate Schutta
-- Jakub Pilimon
-- Layla Porter
+  - Nate Schutta
+  - Jakub Pilimon
+  - Layla Porter
 languages:
-- java
+  - java
 langgettingstarted: true
 title: Spring Cloud Circuit Breaker, Adding Fault Tolerance to Your Applications
 weight: 2
 aliases:
-- "/guides/spring/spring-cloud-circuit-breaker"
+  - "/guides/spring/spring-cloud-circuit-breaker"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -42,6 +42,7 @@ Vulnerable calls are wrapped in a circuit breaker, which monitors the results. W
 In this situation, the circuit breaker redirects to whatever fallback method you’ve configured. Periodically, the circuit breaker pings the underlying service and, if it is healthy, the circuit is “closed” and calls flow to the underlying endpoint once again.
 
 ## Adding and configuring circuit breakers
+
 While circuit breakers were once bespoke, hand-rolled solutions, today developers have numerous libraries across multiple programming environments they can incorporate into their applications. In the Java ecosystem, there are several options, from [Resilience4J](https://resilience4j.readme.io/docs) to [Spring Retry](https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html). Spring [Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker) provides an abstraction across various implementations, allowing developers the flexibility to change the underlying library as necessary. As is often the case, Spring provides a consistent, declarative approach to adding circuit breakers to code.
 
 First, add the dependency:
@@ -49,9 +50,10 @@ First, add the dependency:
 ```xml
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>		
+	<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 </dependency>
 ```
+
 Next, configure the circuit breakers via the ‘CircuitBreakerFactory’. Each circuit breaker can have its own specific configuration, or you can utilize a default configuration. The configuration allows you to set the failure threshold, sliding window size, timeout duration, and more.
 
 ```java
@@ -80,6 +82,7 @@ class CircuitBreakerConfiguration {
     }
 }
 ```
+
 Once the circuit breaker is configured, wrap the protected call with the configured circuit breaker.
 
 ```java
@@ -100,7 +103,9 @@ class WaffleController {
     }
 }
 ```
+
 ## A failing call
+
 What does this look like in practice? Let’s start with a sample controller that calls a service (the MacronutrientsProvider) that we’ve engineered to fail on a regular basis:
 
 ```java
@@ -127,6 +132,7 @@ Running this code a hundred times without a circuit breaker results, predictably
 ![Shell output showing percentage or requests served within a certain time.](./images/time-no-cb.jpg)
 
 ## A better way
+
 Clearly we can do better. Let’s rerun the test, but this time we’ll wrap the vulnerable call with a circuit breaker.
 
 ```java
@@ -147,6 +153,7 @@ class WaffleController {
     }
 }
 ```
+
 Look at the first line of the results, the time taken for the tests to run. Instead of just over 30 seconds, we’re down to just over a second!
 
 ![Shell output after running the example one hundred times but this time with a circuit breaker in place.](./images/results-with-cb.jpg)
@@ -156,11 +163,13 @@ Look at the first line of the results, the time taken for the tests to run. Inst
 As you can see with even this pedagogical example, adding a circuit breaker has a noticeable effect. Critically, circuit breakers allow your application to respond to inevitable failures in a planned, predictable way.
 
 ## Wrapping up
+
 Distributed applications are quickly becoming the new normal in software. And while they provide many benefits, they come with additional complexity. Systems must be designed to account for failing remote calls; adding circuit breakers to code no longer requires hand-rolled solutions, but it is vital for a healthy micro(service)biome. Your code will be more resilient, allowing you to sleep better while also minimizing disruptions to your customers.
 
 Looking for more information about circuit breakers? Check out:
-* [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
-* [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker)
-* [Spring Cloud Circuit Breaker documentation](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/)
-* [Spring Cloud Circuit Breaker Demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo)
-* [Spring Tips: Spring Cloud Circuit Breaker](https://www.youtube.com/watch?v=s5-leUCti5o)
+
+- [Circuit Breaker Pattern](https://martinfowler.com/bliki/CircuitBreaker.html)
+- [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker)
+- [Spring Cloud Circuit Breaker documentation](https://docs.spring.io/spring-cloud-circuitbreaker/docs/current/reference/html/)
+- [Spring Cloud Circuit Breaker Demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo)
+- [Spring Tips: Spring Cloud Circuit Breaker](https://www.youtube.com/watch?v=s5-leUCti5o)

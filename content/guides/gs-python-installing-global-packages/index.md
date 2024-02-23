@@ -1,32 +1,33 @@
 ---
-date: '2020-08-24'
-description: Learn how to isolate your global Python packages using PipX, a tool that
+date: "2020-08-24"
+description:
+  Learn how to isolate your global Python packages using PipX, a tool that
   allows the installation of packages in an isolated environment.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Managing Python Global Packages
 metaTitle: Managing Python Global Packages
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Python
-- Development
+  - Python
+  - Development
 team:
-- Ben Wilcock
-title: 'Python Like A Pro: Managing Global Packages'
+  - Ben Wilcock
+title: "Python Like A Pro: Managing Global Packages"
 oldPath: "/content/guides/python/gs-python-installing-global-packages.md"
 aliases:
-- "/guides/python/gs-python-installing-global-packages"
+  - "/guides/python/gs-python-installing-global-packages"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
 
 ## Why You Need This Guide
 
-There are loads of super-useful Python-based tools available in the [Python Package Installer][pip] --- also known as 'pip'. [MyPy][mypy] the static type checker, [Flake8][flake8] the awesome code linter, [Black][black] the 'uncompromising code formatter,' and [Glances][glances] the 'eye on your system,' are all great examples. These are Python packages that are useful globally, across all your Python projects, and beyond! 
+There are loads of super-useful Python-based tools available in the [Python Package Installer][pip] --- also known as 'pip'. [MyPy][mypy] the static type checker, [Flake8][flake8] the awesome code linter, [Black][black] the 'uncompromising code formatter,' and [Glances][glances] the 'eye on your system,' are all great examples. These are Python packages that are useful globally, across all your Python projects, and beyond!
 
 But, as detailed in [pip's CLI tools documentation][pip-cli-tools-docs], "_installing packages and their dependencies to the same global environment can cause version conflicts, and break dependencies that the operating system has on Python packages_."
 
-Unsurprisingly, the bright folks in 'python-land' have a solution to this problem --- in the form of [PipX][pipx]. PipX is a tool that allows the installation of Python packages in an isolated environment. Because PipX isolates them, their installation won't disrupt each other or your system. 
+Unsurprisingly, the bright folks in 'python-land' have a solution to this problem --- in the form of [PipX][pipx]. PipX is a tool that allows the installation of Python packages in an isolated environment. Because PipX isolates them, their installation won't disrupt each other or your system.
 
 Follow the steps below to get started with PipX.
 
@@ -87,14 +88,13 @@ The Glances tool will start and show you various live statistics about your comp
 **Note**: What's cool about [Glances][glances] is that it's cross-platform, can run in the terminal, but also offers a way for you to access the machine stats over the network using a web browser. Pretty neat!
 {{% /callout %}}
 
+Quit glances by issuing the stop command `Ctrl-C`.
 
-Quit glances by issuing the stop command `Ctrl-C`. 
-
-To check the installation of Glances has not altered your system's `pip` packages, use the `pip list` command.  Glances will _not_ appear on this list.
+To check the installation of Glances has not altered your system's `pip` packages, use the `pip list` command. Glances will _not_ appear on this list.
 
 To see a list of tools installed by `pipx`, use the `pipx list` command. You will see that Glances _is_ present on this list.
 
-### Step 3: Run A Tool Without Installation With PipX 
+### Step 3: Run A Tool Without Installation With PipX
 
 When you're unsure if a package is right for you, PipX offers a way to try the package without installing it. Let's try this feature using the fun --- but mostly useless --- `pycowsay` package:
 
@@ -103,7 +103,6 @@ pipx run pycowsay mooooooo
 ```
 
 The first argument after `pipx run` is always assumed to be the name of the package you would like to run. PipX will download `pycowsay` and run it in a temporary virtual environment. Any arguments after the package name go straight to the package you're running. The result of the command is the classic cow saying `moooooo` as seen in the screenshot below:
-
 
 ![img](images/gs-python-global-packages-screenshot-python-pycowsay.png)
 
@@ -126,7 +125,6 @@ Here's the video to accompany this guide.
 
 ---
 
-
 [pip]: https://pip.pypa.io/en/stable/
 [pipx]: https://pipxproject.github.io/pipx/
 [pipx-docs]: https://pipxproject.github.io/pipx/docs/
@@ -139,11 +137,9 @@ Here's the video to accompany this guide.
 [black]: https://black.readthedocs.io/en/stable/
 [flake8]: https://flake8.pycqa.org/en/latest/
 [mypy]: http://www.mypy-lang.org/
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages
 [gs-cnb]: /guides/python/cnb-gs-python
 [gs-cf]: /guides/python/cf-gs
-
 [playlist]: https://www.youtube.com/playlist?list=PLAdzTan_eSPRmqaxkzGISNNjok4F0SAAP

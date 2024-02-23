@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Considerations for implementing admission control in Kubernetes
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Admission Control
 parent: Platform Security
 title: Admission Control
 weight: 1
 oldPath: "/content/guides/kubernetes/platform-security-admission-control.md"
 aliases:
-- "/guides/kubernetes/platform-security-admission-control"
+  - "/guides/kubernetes/platform-security-admission-control"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []

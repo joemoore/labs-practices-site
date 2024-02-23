@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Data Access
 weight: 130
 oldPath: "/content/outcomes/cloud-native-development/specific__data_access.md"
 aliases:
-- "/outcomes/cloud-native-development/specific__data_access"
+  - "/outcomes/cloud-native-development/specific__data_access"
 tags: []
 ---
 

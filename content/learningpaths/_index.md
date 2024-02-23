@@ -11,11 +11,11 @@ menu:
       split: right
     weight: 2
 aliases:
-- "/patterns"
-- "/patterns/api"
-- "/patterns/eventing"
-- "/outcomes"
-- "/outcomes/"
+  - "/patterns"
+  - "/patterns/api"
+  - "/patterns/eventing"
+  - "/outcomes"
+  - "/outcomes/"
 oldPath: "/content/outcomes/_index.md"
 tags: []
 ---

@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: We Care About More Than Engineering
 weight: 30
 oldPath: "/content/outcomes/application-development-how-we-work/more-than-engineering.md"
 aliases:
-- "/outcomes/application-development-how-we-work/more-than-engineering"
+  - "/outcomes/application-development-how-we-work/more-than-engineering"
 tags: []
 ---
 

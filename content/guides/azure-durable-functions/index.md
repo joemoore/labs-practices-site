@@ -1,5 +1,5 @@
 ---
-date: '2023-10-10'
+date: "2023-10-10"
 description: Learn the basics of Azure Durable Functions and how to unit test them.
 title: Azure Durable Functions and Unit Testing in TypeScript
 languages:
@@ -41,7 +41,7 @@ To achieve this, we will use a durable function that uses an [Azure activity fun
 
 ```typescript
 export const monitorOrchestrator: OrchestrationHandler = function* (
-  context: OrchestrationContext
+  context: OrchestrationContext,
 ) {
   let polledTimes = 0;
 
@@ -68,7 +68,6 @@ export const monitorOrchestrator: OrchestrationHandler = function* (
 };
 ```
 
-
 Here's how it works:
 
 1. We employ an infinite loop since we are polling until completion or timeout. This loop is eventually exited once the task is completed.
@@ -90,32 +89,31 @@ describe("monitor orchestrator", () => {
       df: {
         callActivity: jest.fn(),
         currentUtcDateTime: Date.now(),
-        createTimer: jest.fn()
+        createTimer: jest.fn(),
       },
     } as unknown as OrchestrationContext;
 
     // 1. creates the generator function
     const generator = monitorOrchestrator(mockContext);
 
-    let result: IteratorResult<Task, unknown>
+    let result: IteratorResult<Task, unknown>;
     // 2. runs until the first yield
-    result = generator.next() 
-    expect(result.done).toBe(false)
-    
+    result = generator.next();
+    expect(result.done).toBe(false);
+
     // 3. yields the status check value to be PENDING
-    result = generator.next('PENDING')
-    expect(result.done).toBe(false)
-    
+    result = generator.next("PENDING");
+    expect(result.done).toBe(false);
+
     // 4. yields the timer
-    result = generator.next()
-    expect(result.done).toBe(false)
-    
+    result = generator.next();
+    expect(result.done).toBe(false);
+
     // 5. yields the status check value to be DONE
-    result = generator.next('DONE')
-    expect(result.done).toBe(true)
+    result = generator.next("DONE");
+    expect(result.done).toBe(true);
 
-
-    expect(result.value).toEqual('Activity Completed, polled 2 times')
+    expect(result.value).toEqual("Activity Completed, polled 2 times");
   });
 });
 ```
@@ -154,7 +152,7 @@ In this scenario, we have an orchestrator that initiates multiple tasks running 
 
 ```typescript
 export const parallelOrchestrator: OrchestrationHandler = function* (
-  context: OrchestrationContext
+  context: OrchestrationContext,
 ) {
   const tasks: Task[] = [];
 
@@ -198,7 +196,7 @@ describe("parallel orchestrator", () => {
     } as unknown as OrchestrationContext;
 
     const generator = parallelOrchestrator(mockContext);
-    
+
     // 1. Runs until the Task.all() yield
     generator.next();
     expect(mockContext.df.callActivity).toHaveBeenCalledTimes(5);

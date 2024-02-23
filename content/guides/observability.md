@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Platform Observability
 team:
-- Alexander Brand
+  - Alexander Brand
 title: Platform Observability
 weight: 57
 oldPath: "/content/guides/kubernetes/observability.md"
 aliases:
-- "/guides/kubernetes/observability"
+  - "/guides/kubernetes/observability"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags:
-- Kubernetes
+  - Kubernetes
 ---
 
 [Observability](https://tanzu.vmware.com/what-is-observability) is crucial for successfully operating a complex software system

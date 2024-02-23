@@ -1,18 +1,18 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Identity and Access Control
 team:
-- Craig Tracey
+  - Craig Tracey
 title: Identity and Access Control
 tags:
-- Getting Started
-- Kubernetes
+  - Getting Started
+  - Kubernetes
 featured: true
 weight: 42
 oldPath: "/content/guides/kubernetes/identity.md"
 aliases:
-- "/guides/kubernetes/identity"
+  - "/guides/kubernetes/identity"
 level1: Securing Kubernetes
 level2: Access and Security
 description: Lock down your Kubernetes cluster by implementing the principle of least privilege
@@ -122,7 +122,7 @@ subjects:
     apiGroup: rbac.authorization.k8s.io
 ```
 
-{{% aside title="What about other protocols?" %}} 
+{{% aside title="What about other protocols?" %}}
 There are no direct LDAP or Active Directory integrations, but it is possible to
 integrate these systems with tools that will act as identity brokers.
 
@@ -169,7 +169,7 @@ tools, this is still not possible. Fortunately, Kubernetes affords a number of
 alternative means of identity and access control. Each of these, while capable,
 may have drawbacks that make it a less favorable approach.
 
-{{% aside title="Why choose one?" %}} 
+{{% aside title="Why choose one?" %}}
 Identity in Kubernetes is not mutually exclusive. It allows for multiple
 identity configurations simultaneously. While you are not likely in a scenario
 where it will be hard to choose the best integration, you will want to consider

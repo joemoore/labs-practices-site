@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Using Sonobuoy for cluster conformance testing
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Cluster Acceptance Testing
 parent: Workload Tenancy
 title: Automated Cluster Acceptance Testing
 weight: 1400
 oldPath: "/content/guides/kubernetes/workload-tenancy-conformance-test.md"
 aliases:
-- "/guides/kubernetes/workload-tenancy-conformance-test"
+  - "/guides/kubernetes/workload-tenancy-conformance-test"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []

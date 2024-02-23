@@ -1,54 +1,61 @@
 ---
-date: '2021-02-16'
-lastmod: '2021-02-25'
+date: "2021-02-16"
+lastmod: "2021-02-25"
 parent: Application Enhancements
 tags:
-- Kubernetes
-- Spring
-- Java
-- Microservices
+  - Kubernetes
+  - Spring
+  - Java
+  - Microservices
 team:
-- Andriy Kalashnykov
+  - Andriy Kalashnykov
 title: A Microservices Guide for Spring Cloud Kubernetes Reference Architecture
 metaTitle: Spring Cloud Kubernetes Reference Architecture Guide
 description: Discover how to enhance your Spring applications for Kubernetes. Get the most out of your deployments with our expert developer guide.
 oldPath: "/content/guides/kubernetes/app-enhancements-spring-k8s.md"
 aliases:
-- "/guides/kubernetes/app-enhancements-spring-k8s"
+  - "/guides/kubernetes/app-enhancements-spring-k8s"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 faqs:
   faq:
-  - question: What is Spring Cloud Kubernetes?
-    answer: Spring Cloud Kubernetes is a Kubernetes API server integration that allows
-      for service discovery, configuration, and load balancing used by Spring Cloud;
-      it provides Spring Cloud implementations of common interfaces that consume Kubernetes.
-  - question: How do you enable Spring Cloud Kubernetes?
-    answer: Spring Cloud Kubernetes can be enabled by adding a dependency that contains
-      modules for service discovery, configuration, and Ribbon load balancing to the
-      Spring Cloud Kubernetes in your project
-  - question: What are the best practices for the design, development, and deployment
-      of Spring Boot microservices on Kubernetes?
-    answer: Best practices for Spring Boot microservices on Kubernetes include using
-      the [twelve-factor](https://12factor.net/) methodology, keeping each microservice
-      in a separate [Maven](https://maven.apache.org/) or [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
-      project, using dependencies when inheriting form parent project instead of using
-      relative path, and using [Spring Initializr](https://start.spring.io/) to generate
-      project structure, fill in project details, pick your options, and download
-      a bundled up project.
-  - question: What are the main concerns addressed by the Spring Cloud Kubernetes
-      reference architecture?
-    answer: The main concerns addressed by the Spring Cloud Kubernetes reference architecture
-      include externalized configurations, Kubernetes API server access, health checks,
-      reporting application state using Spring Boot Actuator, service discovery, exposing
-      API documentation, building docker images with best practices, layering JARs,
-      and observing the application.
-  - question: How do you configure Spring Cloud Kubernetes to access Kubernetes API?
-    answer: The simplest way to configure Spring Cloud Kubernetes to access Kubernetes
-      API is to define a ClusterRole with a list of resources and verbs, create a
-      YAML file in the default namespace, create service accounts, bind service accounts
-      from each namespace to ClusterRole, and finally, make sure that deployment manifests
-      for the correct microservices service account.
+    - question: What is Spring Cloud Kubernetes?
+      answer:
+        Spring Cloud Kubernetes is a Kubernetes API server integration that allows
+        for service discovery, configuration, and load balancing used by Spring Cloud;
+        it provides Spring Cloud implementations of common interfaces that consume Kubernetes.
+    - question: How do you enable Spring Cloud Kubernetes?
+      answer:
+        Spring Cloud Kubernetes can be enabled by adding a dependency that contains
+        modules for service discovery, configuration, and Ribbon load balancing to the
+        Spring Cloud Kubernetes in your project
+    - question:
+        What are the best practices for the design, development, and deployment
+        of Spring Boot microservices on Kubernetes?
+      answer:
+        Best practices for Spring Boot microservices on Kubernetes include using
+        the [twelve-factor](https://12factor.net/) methodology, keeping each microservice
+        in a separate [Maven](https://maven.apache.org/) or [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
+        project, using dependencies when inheriting form parent project instead of using
+        relative path, and using [Spring Initializr](https://start.spring.io/) to generate
+        project structure, fill in project details, pick your options, and download
+        a bundled up project.
+    - question:
+        What are the main concerns addressed by the Spring Cloud Kubernetes
+        reference architecture?
+      answer:
+        The main concerns addressed by the Spring Cloud Kubernetes reference architecture
+        include externalized configurations, Kubernetes API server access, health checks,
+        reporting application state using Spring Boot Actuator, service discovery, exposing
+        API documentation, building docker images with best practices, layering JARs,
+        and observing the application.
+    - question: How do you configure Spring Cloud Kubernetes to access Kubernetes API?
+      answer:
+        The simplest way to configure Spring Cloud Kubernetes to access Kubernetes
+        API is to define a ClusterRole with a list of resources and verbs, create a
+        YAML file in the default namespace, create service accounts, bind service accounts
+        from each namespace to ClusterRole, and finally, make sure that deployment manifests
+        for the correct microservices service account.
 ---
 
 This Reference Architecture demonstrates design, development, and deployment of
@@ -524,8 +531,8 @@ NOTE: secrets are not secure, they are merely an obfuscation
 {{% /aside %}}
 
 In this example, a secret named `department` is mounted to the file
-  `/etc/secretspot` via volume `mongodb` for the following microservices:
-  `department-service`, `employee-service`, `organization-service`.
+`/etc/secretspot` via volume `mongodb` for the following microservices:
+`department-service`, `employee-service`, `organization-service`.
 
 `/spring-microservices-k8s/department-service/src/main/resources/bootstrap.yaml`
 
@@ -575,16 +582,16 @@ spec:
 
 Mongo credentials are defined inside Secret object `/spring-microservices-k8s/k8s/department-secret.yaml`
 
-  ```yaml
-  apiVersion: v1
-  kind: Secret
-  metadata:
-    name: department
-  type: Opaque
-  data:
-    spring.data.mongodb.username: bW9uZ28tYWRtaW4=
-    spring.data.mongodb.password: bW9uZ28tYWRtaW4tcGFzc3dvcmQ=
-  ```
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: department
+type: Opaque
+data:
+  spring.data.mongodb.username: bW9uZ28tYWRtaW4=
+  spring.data.mongodb.password: bW9uZ28tYWRtaW4tcGFzc3dvcmQ=
+```
 
 ## Use Spring Boot Actuator to export metrics for Prometheus
 

@@ -1,19 +1,19 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: A reference architecture for implementing the Istio Service Mesh
 keywords:
-- Kubernetes
-- Istio
-lastmod: '2021-02-24'
+  - Kubernetes
+  - Istio
+lastmod: "2021-02-24"
 linkTitle: Istio Reference Architecture
 parent: Service Routing
 title: Istio Reference Architecture
 tags:
-- Getting Started
+  - Getting Started
 weight: 1600
 oldPath: "/content/guides/kubernetes/service-routing-istio-refarch.md"
 aliases:
-- "/guides/kubernetes/service-routing-istio-refarch"
+  - "/guides/kubernetes/service-routing-istio-refarch"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 ---
@@ -241,7 +241,6 @@ Istio can be installed in two different ways.
 **Note**: All the following steps use the **istioctl command** method.
 {{% /callout %}}
 
-
 This command is just for reference to get installation quickly and highlighting
 the important parameters.
 
@@ -448,7 +447,6 @@ istioctl install -f istiooperator-airgap-1-7-3.yaml
 {{% callout %}}
 **Note**: istioctl version is the target version (e.g. 1.7.3).
 {{% /callout %}}
-
 
 ![Control plane upgrade](images/istio-upgrade2.png)
 
@@ -1060,6 +1058,7 @@ tls.key:
 
 {{% callout %}}
 **Note**:
+
 - Full automation can be achieved in case that the Root CA is configured in
   vault.
 - Full automation **can not** be achieved in the case that an intermediate CA
@@ -1076,8 +1075,7 @@ tls.key:
   operations. You will need to write a utility which keeps track of CA cert in
   vault and the moment it changes, recreate all the secrets
   (bookinfo-ingressgateway-certs-ca) in istio-system automatically.
-{{% /callout %}}
-
+  {{% /callout %}}
 
 #### Access Privilege Required to Create a Certificate
 
@@ -1430,7 +1428,6 @@ spec:
 **Note**: EXTERNAL_SERVICE_HOST=my-nginx-client.mesh-external.svc.cluster.local
 {{% /callout %}}
 
-
 1. Create egress gateway definition in `sleep` namespace as all traffic external
    to mesh goes via this Egress Gateway.
 
@@ -1619,7 +1616,6 @@ spec:
 {{% callout %}}
 **Note**: EXTERNAL_SERVICE_HOST=my-nginx-client.mesh-external.appk8s.com
 {{% /callout %}}
-
 
 Please see [Within cluster](#application-developer-responsibility-1) section for
 all required responsibilities. Note that an additional service entry is

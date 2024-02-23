@@ -1,26 +1,28 @@
 ---
-date: '2020-11-02'
-description: Looking to run a private container image for self-hosting or enterprise
+date: "2020-11-02"
+description:
+  Looking to run a private container image for self-hosting or enterprise
   purposes? This guide walks through deploying Harbor to Kubernetes.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Harbor
 metaTitle: Deploying Harbor to Kubernetes
 patterns:
-- Deployment
+  - Deployment
 subsection: Harbor
 tags:
-- Kubernetes
-- Containers
-- Getting Started
+  - Kubernetes
+  - Containers
+  - Getting Started
 team:
-- Tony Vetter
-- Paul Czarkowski
-title: Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s
+  - Tony Vetter
+  - Paul Czarkowski
+title:
+  Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s
   Encrypt
 weight: 7
 oldPath: "/content/guides/kubernetes/harbor-gs.md"
 aliases:
-- "/guides/kubernetes/harbor-gs"
+  - "/guides/kubernetes/harbor-gs"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -103,7 +105,7 @@ Before you get started, you’ll need to do the following:
   long the Let’s Encrypt servers take to issue certificates. But in most of my
   testing for writing this post, it took about 30 minutes.
 
-- *Optional - buy a domain name*: You can use `.xip.io` (a
+- _Optional - buy a domain name_: You can use `.xip.io` (a
   [service](http://xip.io) that provides dynamic DNS based on IP address)
   addresses to avoid needing to buy a domain. Otherwise you will need a domain
   name that you control in order to configure DNS. This guide uses a
@@ -115,7 +117,7 @@ Before you get started, you’ll need to do the following:
 
 ## Prepare the Environment
 
-Create a Kubernetes cluster.  In GKE this can be as simple as running:
+Create a Kubernetes cluster. In GKE this can be as simple as running:
 
 ```bash
 gcloud container clusters create jan8 --num-nodes 3
@@ -133,6 +135,7 @@ mkdir harbor-install && cd $_
 While you are going to use Helm to install Project Contour, Helm will not create
 the namespace for you. So the first step in this installation is to create that
 namespace.
+
 ```
 $ kubectl create namespace projectcontour
 ```
@@ -165,7 +168,6 @@ Now simply wait for the Pods to become `READY`.
 watch kubectl get pods -n projectcontour
 ```
 
-
 Then define some environment variables for your proposed Harbor domain and your
 email address. It is recommended that you use a subdomain under the domain
 procured in the prerequisites section (e.g., harbor.example.com). This way you
@@ -196,8 +198,6 @@ Set your email address for cert-manager:
 export EMAIL_ADDRESS=username@example.com
 ```
 
-
-
 ## Set Up DNS
 
 {{% aside type="warning" title="You may skip this section" %}}
@@ -222,19 +222,19 @@ watch kubectl get service ingress-contour-envoy -n projectcontour -o wide
 
 2. Now set up a DNS zone within your cloud provider.
 
-  - For GCP, this can be found in the GCP web UI, under Networking Services,
-    Cloud DNS. Click `Create Zone` and follow the instructions to give the zone
-    a descriptive name, as well as provide the DNS name. The DNS name will be
-    whatever domain you have registered (e.g., `example.com`).
+- For GCP, this can be found in the GCP web UI, under Networking Services,
+  Cloud DNS. Click `Create Zone` and follow the instructions to give the zone
+  a descriptive name, as well as provide the DNS name. The DNS name will be
+  whatever domain you have registered (e.g., `example.com`).
 
-  - For AWS, this is done via a service called
-    [Route 53](https://aws.amazon.com/route53/faqs/), and for Azure,
-    [this is done](https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-portal_)
-    by creating a resource in the Azure Portal.
+- For AWS, this is done via a service called
+  [Route 53](https://aws.amazon.com/route53/faqs/), and for Azure,
+  [this is done](https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-portal_)
+  by creating a resource in the Azure Portal.
 
-  - Once completed, the important part is that you now have a list of name
-    servers. For example, one or more of the format
-    `ns-cloud-x1.googledomains.com.` Record these for a future step.
+- Once completed, the important part is that you now have a list of name
+  servers. For example, one or more of the format
+  `ns-cloud-x1.googledomains.com.` Record these for a future step.
 
 3. Next, add an A record to your DNS zone for a wildcard (`*`) subdomain. An A
    record is an "Address" record, one of the most fundamental types of DNS

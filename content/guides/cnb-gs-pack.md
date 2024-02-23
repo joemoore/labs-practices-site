@@ -1,24 +1,25 @@
 ---
-date: '2020-04-16'
-description: Discover how to use pack, a CLI tool that builds container images locally
+date: "2020-04-16"
+description:
+  Discover how to use pack, a CLI tool that builds container images locally
   on your developer machine using Cloud Native Buildpacks
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Getting Started with `pack`
 metaTitle: Getting Started with the `pack` CLI
 parent: Cloud Native Buildpacks
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Buildpacks
-- Getting Started
-- Containers
+  - Buildpacks
+  - Getting Started
+  - Containers
 team:
-- Bryan Friedman
+  - Bryan Friedman
 title: Getting Started with the pack CLI using Cloud Native Buildpacks
 weight: 2
 oldPath: "/content/guides/containers/cnb-gs-pack.md"
 aliases:
-- "/guides/containers/cnb-gs-pack"
+  - "/guides/containers/cnb-gs-pack"
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
@@ -29,7 +30,7 @@ level2: Packaging and Publishing
 
 There are a few things you need to do before getting started with `pack`:
 
-- Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally. 
+- Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally.
 
 - Check out [Containers 101](https://kube.academy/courses/containers-101) on KubeAcademy, particularly if you've never worked with [containers](https://tanzu.vmware.com/containers) or Docker before.
 
@@ -61,7 +62,7 @@ pack build myapp -p samples/apps/java-maven
 
 ### Run Image Locally
 
-After you've built your image locally, test it out with Docker using the following command: 
+After you've built your image locally, test it out with Docker using the following command:
 
 ```
 docker run --rm -p 8080:8080 myapp

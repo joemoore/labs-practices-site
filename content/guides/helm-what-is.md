@@ -1,20 +1,21 @@
 ---
-date: '2020-04-16'
-description: Learn the basics of Helm, a tool to help you define, install, and upgrade
+date: "2020-04-16"
+description:
+  Learn the basics of Helm, a tool to help you define, install, and upgrade
   applications running on Kubernetes, and explore how it works.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Helm
-- Kubernetes
+  - Helm
+  - Kubernetes
 team:
-- Tyler Britten
+  - Tyler Britten
 title: What Is Helm?
 weight: 1
 oldPath: "/content/guides/kubernetes/helm-what-is.md"
 aliases:
-- "/guides/kubernetes/helm-what-is"
+  - "/guides/kubernetes/helm-what-is"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -25,15 +26,14 @@ level2: Preparing and Deploying Kubernetes Workloads
 
 Helm reduces the amount of work you need to do to deploy, upgrade, and manage an application to Kubernetes. This helps limit human error and also creates a more declarative configuration to enable workflows like [GitOps](https://www.weave.works/blog/what-is-gitops-really).
 
-This capability really stands out when you have a large, complex application; your app may contain dozens of Kubernetes objects that need to be configured and changed during upgrades. 
+This capability really stands out when you have a large, complex application; your app may contain dozens of Kubernetes objects that need to be configured and changed during upgrades.
 It also applies if you're deploying the same app multiple times. Using find-and-replace in multiple manifests is a recipe for disaster. Helm can make the process easy and repeatable.
 
-It's why an instance of a chart running on a Kubernetes cluster is called a _release_. If you need three different installs of a web server, each one is its own release. The Helm docs includes releases as one of [_three important concepts_](https://helm.sh/docs/intro/using_helm/):  
+It's why an instance of a chart running on a Kubernetes cluster is called a _release_. If you need three different installs of a web server, each one is its own release. The Helm docs includes releases as one of [_three important concepts_](https://helm.sh/docs/intro/using_helm/):
 
 {{% callout %}}
 Helm installs _charts_ into Kubernetes, creating a new _release_ for each installation. And to find new charts, you can search Helm chart _repositories_.
 {{% /callout %}}
-
 
 You can read more about the [Helm architecture here.](https://helm.sh/docs/topics/architecture/)
 

@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Basics of containers and running on Kubernetes
 weight: -100
 linkTitle: Kubernetes Platform

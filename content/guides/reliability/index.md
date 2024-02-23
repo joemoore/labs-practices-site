@@ -6,11 +6,11 @@ lastmod: "2022-09-27"
 level1: Building Modern Applications
 level2: Modern Development Practices
 tags:
-- 
+  -
 # Author(s)
 team:
-- Christina Liu
-- Brian Watkins
+  - Christina Liu
+  - Brian Watkins
 ---
 
 ## Consider These Common Anti-Patterns
@@ -52,7 +52,7 @@ When a team holds this kind of workshop early on, it serves multiple purposes:
 - It sets the tone that reliability is important.
 - It helps the team understand reliability in terms that are specific to their particular domain.
 - It gives a chance for each participant to share their reliability-related fears, fostering psychological safety and a feeling of belonging.
-- It helps the team agree on which aspects of reliability are most important based on our understanding of what our users expect from our software and on what the business hopes to achieve. 
+- It helps the team agree on which aspects of reliability are most important based on our understanding of what our users expect from our software and on what the business hopes to achieve.
 
 A team then knows where to focus, and can then consider the best way to make progress on specific reliability outcomes: How can we measure this particular outcome? What sorts of objectives should we establish for those metrics? How is our system doing today? If we aren't currently meeting our objectives, what investments are necessary to do so?
 
@@ -64,11 +64,11 @@ Organize your backlog by breaking up the work that contributes to reliability ou
 
 ### Maturity Level 1 - Basic Observability
 
-We encourage teams to think about work that goes into achieving some reliability outcome as a product feature like anything else. There is a difference, however. Reliability is something users generally take for granted. Only when the application is unreliable do users notice that work needs to be done. This is an important point: reliability is not visible by default. For the product development team that is concerned with reliability, some extra work must be done to make the application *observable* in a production environment. In doing so, we will be able to quantify relevant aspects of its operation, so that we can judge the degree to which our software achieves specific reliability outcomes. 
+We encourage teams to think about work that goes into achieving some reliability outcome as a product feature like anything else. There is a difference, however. Reliability is something users generally take for granted. Only when the application is unreliable do users notice that work needs to be done. This is an important point: reliability is not visible by default. For the product development team that is concerned with reliability, some extra work must be done to make the application _observable_ in a production environment. In doing so, we will be able to quantify relevant aspects of its operation, so that we can judge the degree to which our software achieves specific reliability outcomes.
 
-Teams should invest in observability from the very beginning of development because we know this work will provide an important source of insight and feedback that we can use to make better decisions later. The insights gathered help the entire team. Engineers can use this data to weigh the tradeoffs of various implementation options. Product managers can use this data as another input when deciding what features to prioritize next. Designers can use this data to identify potential user pains that might need to be addressed. Not to mention, once a team can observe its app in a production environment, they will have greater confidence that the software is actually operating consistently well in the areas that matter. 
+Teams should invest in observability from the very beginning of development because we know this work will provide an important source of insight and feedback that we can use to make better decisions later. The insights gathered help the entire team. Engineers can use this data to weigh the tradeoffs of various implementation options. Product managers can use this data as another input when deciding what features to prioritize next. Designers can use this data to identify potential user pains that might need to be addressed. Not to mention, once a team can observe its app in a production environment, they will have greater confidence that the software is actually operating consistently well in the areas that matter.
 
-Maturity Level 1 is about establishing basic observability, by which we mean gathering data by passively monitoring the application as it executes in a production environment. Stories that fall into this epic generally involve instrumenting deployable components so that they record and send telemetry to some application monitoring tool where the data can be analyzed. Most tools will collect a tremendous amount of data automatically; the challenge later will be to focus on the metrics that matter for our application. Upon completion of this epic, monitoring for key Service Level Indicators related to important reliability outcomes should be covered, and, from here, baseline measures can be used to compare all future improvements. 
+Maturity Level 1 is about establishing basic observability, by which we mean gathering data by passively monitoring the application as it executes in a production environment. Stories that fall into this epic generally involve instrumenting deployable components so that they record and send telemetry to some application monitoring tool where the data can be analyzed. Most tools will collect a tremendous amount of data automatically; the challenge later will be to focus on the metrics that matter for our application. Upon completion of this epic, monitoring for key Service Level Indicators related to important reliability outcomes should be covered, and, from here, baseline measures can be used to compare all future improvements.
 
 What counts as a good metric or a good indicator? The four golden signals are a good way to start (latency, errors, saturation, throughput), and these generally come for free with most tools. But, again, we encourage teams to frame reliability in terms of domain-specific service level indicators. These are metrics that let you know that your software is performing consistently well in those areas that matter to users the most. Don't just observe errors on HTTP requests, translate these into domain-specific failures that would matter to your users. For example: “failures buying insurance” rather than “500 on POST to the /purchase endpoint”.
 
@@ -88,7 +88,6 @@ In order to observe some aspects of reliability, a team may find that it needs t
 
 **Your team ...** prioritizes engineering work (like building probes or setting up performance tests) required to observe important, domain-specific aspects of the application that would be otherwise difficult to observe with passive monitoring.
 
-
 ### Maturity Level 3 - Establish Service Level Objectives
 
 Once you have a way to observe important service level indicators (SLIs), then the team should work toward establishing appropriate service level objectives (SLOs). While an SLI tells us what level of service our application is providing in some area, an SLO tells us whether that level of service is acceptable.
@@ -101,8 +100,7 @@ In addition to establishing an SLO, the team should consider what consequences f
 
 **Your software ...** is observable in such a way that the team can determine at a glance (usually on a dashboard of some sort) the degree to which the application meets its service level of objectives over some time frame. Reports from automated performance and load testing are also displayed and compared with actual production usage.
 
-**Your team ...** is confident that the objectives chosen appropriately balance the need for user satisfaction with the investment required. The team should do research to validate assumptions about service level objectives. How slow is too slow (when will users start to complain)? How do users react when things break? If certain parts of the app fail, what sorts of solutions could we provide to help them continue to accomplish their job or at least feel confident that their workflow has been disrupted in a minimal way? The team should also agree on what to do if the app fails to provide an appropriate level of service on a sustained basis. Should the team stop development of user-facing capabilities in order to focus solely on reliability? How long would a ‘feature freeze' last? Should someone be alerted when the app fails to meet its service level objectives? Is that a member of the team or some other support team? Stakeholders should participate with the team to craft a policy document that describes SLIs, SLOs, and what happens should the software fail to meet its objectives. 
-
+**Your team ...** is confident that the objectives chosen appropriately balance the need for user satisfaction with the investment required. The team should do research to validate assumptions about service level objectives. How slow is too slow (when will users start to complain)? How do users react when things break? If certain parts of the app fail, what sorts of solutions could we provide to help them continue to accomplish their job or at least feel confident that their workflow has been disrupted in a minimal way? The team should also agree on what to do if the app fails to provide an appropriate level of service on a sustained basis. Should the team stop development of user-facing capabilities in order to focus solely on reliability? How long would a ‘feature freeze' last? Should someone be alerted when the app fails to meet its service level objectives? Is that a member of the team or some other support team? Stakeholders should participate with the team to craft a policy document that describes SLIs, SLOs, and what happens should the software fail to meet its objectives.
 
 ### Beyond Maturity Level 3 - Data-Driven Product Evolution & Proactive Experimentation
 
@@ -112,7 +110,7 @@ Not all teams will have the luxury of excess error budget and development cycles
 
 - **Engineers:** now that the product has an established track record of operation, when should we make important architectural changes? Are we consistently seeing that some important user workflows are taking a significant amount of time to complete? Consider different approaches that could remediate the problem, and use the data you are collecting to know when you’ve made progress.
 - **Product Managers:** when should we prioritize investments in reliability over delivery of new user-facing capabilities? Are we consistently running out of error budget? If so, maybe the team is moving too fast and needs to focus on paying down tech debt, exploring more reliable architectures, and so on.
-- **Designers:** based on the data we’re gathering, what assumptions can we make about user expectations, and how might we validate them? What potential sources of user pain should we probe in our next rounds of research? 
+- **Designers:** based on the data we’re gathering, what assumptions can we make about user expectations, and how might we validate them? What potential sources of user pain should we probe in our next rounds of research?
 
 Maturity levels 4 and 5 can be considered two waypoints in this process of collecting data and proactively experimenting to inform your product’s continuous development and improvement:
 

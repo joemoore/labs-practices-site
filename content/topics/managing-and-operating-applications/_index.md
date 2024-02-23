@@ -8,7 +8,7 @@ layout: topic
 weight: 3
 icon: monitoring
 description: >
-    Metrics, monitoring, tracing, and more
+  Metrics, monitoring, tracing, and more
 menu:
   main:
     parent: sections

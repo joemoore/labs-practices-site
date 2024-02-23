@@ -1,17 +1,18 @@
 ---
-date: '2021-02-24'
-description: Considerations, guidance, and best practices for monitoring Kubernetes
+date: "2021-02-24"
+description:
+  Considerations, guidance, and best practices for monitoring Kubernetes
   clusters.
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Kubernetes Platform Monitoring
 parent: Platform Observability
 title: Kubernetes Platform Monitoring
 weight: 1600
 oldPath: "/content/guides/kubernetes/observability-k8s-platform-monitoring.md"
 aliases:
-- "/guides/kubernetes/observability-k8s-platform-monitoring"
+  - "/guides/kubernetes/observability-k8s-platform-monitoring"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags: []

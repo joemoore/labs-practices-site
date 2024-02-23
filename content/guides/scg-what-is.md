@@ -1,23 +1,23 @@
 ---
-date: '2020-04-16'
+date: "2020-04-16"
 description: Discover the basics and importance of Spring Cloud Gateway, a library for building API gateways on top of Spring and Java.
-lastmod: '2021-03-23'
+lastmod: "2021-03-23"
 linkTitle: Spring Cloud Gateway
 patterns:
-- API
+  - API
 subsection: Spring Cloud Gateway
 tags:
-- Spring Cloud Gateway
-- Spring
-- Microservices
-- Messaging and Integration
+  - Spring Cloud Gateway
+  - Spring
+  - Microservices
+  - Messaging and Integration
 team:
-- Brian McClain
+  - Brian McClain
 title: What is Spring Cloud Gateway?
 metaTitle: What is Spring Cloud Gateway? Exploring the API Library
 oldPath: "/content/guides/spring/scg-what-is.md"
 aliases:
-- "/guides/spring/scg-what-is"
+  - "/guides/spring/scg-what-is"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -40,7 +40,7 @@ Spring Cloud Gateway is a library for building an API gateway, so it looks like 
 
 Spring Cloud Gateway is intended to sit between a requester and a resource that's being requested, where it intercepts, analyzes, and modifies every request. That means you can route requests based on their context. Did a developer include a header indicating an API version? We can route that request to the appropriately versioned backend. Does the request require sticky sessions? The gateway can keep track of each user's session, even if your backend can't.
 
-Since every request is going through your gateway, you get a few extras on top of simple routing. In fact, since your gateway is just another Spring Boot application, you have access to the entire Spring ecosystem. 
+Since every request is going through your gateway, you get a few extras on top of simple routing. In fact, since your gateway is just another Spring Boot application, you have access to the entire Spring ecosystem.
 
 [Spring Cloud](https://spring.io/projects/spring-cloud) allows developers to implement things such as distributed configuration, service registration, load balancing, the circuit breaker pattern, and more. It provides these tools to implement many common patterns in distributed systems.
 

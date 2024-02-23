@@ -1,16 +1,16 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: Implementing Open Policy Agent in Kubernetes
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Developing OPA Policies
 parent: Platform Security
 title: Developing OPA Policies
 weight: 1600
 oldPath: "/content/guides/kubernetes/platform-security-opa.md"
 aliases:
-- "/guides/kubernetes/platform-security-opa"
+  - "/guides/kubernetes/platform-security-opa"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []
@@ -410,61 +410,61 @@ a valid Deployment and the other with an invalid Deployment.
    manifest contains a Deployment that OPA should allow because the container
    has a CPU limit.
 
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      namespace: default
-      name: nginx-good
-      labels:
-        app: nginx
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - name: nginx
-            image: nginx
-            ports:
-            - containerPort: 80
-            resources:
-              limits:
-                cpu: "200m"
-                memory: "256Mi"
-    ```
+   ```yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     namespace: default
+     name: nginx-good
+     labels:
+       app: nginx
+   spec:
+     replicas: 1
+     selector:
+       matchLabels:
+         app: nginx
+     template:
+       metadata:
+         labels:
+           app: nginx
+       spec:
+         containers:
+           - name: nginx
+             image: nginx
+             ports:
+               - containerPort: 80
+             resources:
+               limits:
+                 cpu: "200m"
+                 memory: "256Mi"
+   ```
 
 2. Create a file called `PolicyA-bad.yaml`. This manifest contains a Deployment
    that OPA should **not** allow to get created because the container lacks CPU
    limits.
 
-    ```yaml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      namespace: default
-      name: nginx-bad
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: nginx
-      template:
-        metadata:
-          labels:
-            app: nginx
-        spec:
-          containers:
-          - name: nginx
-            image: nginx
-            ports:
-            - containerPort: 80
-    ```
+   ```yaml
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+     namespace: default
+     name: nginx-bad
+   spec:
+     replicas: 1
+     selector:
+       matchLabels:
+         app: nginx
+     template:
+       metadata:
+         labels:
+           app: nginx
+       spec:
+         containers:
+           - name: nginx
+             image: nginx
+             ports:
+               - containerPort: 80
+   ```
 
 Now that you have the Kubernetes manifests, lets verify that OPA is working as
 expected.

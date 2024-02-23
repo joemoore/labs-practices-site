@@ -17,9 +17,9 @@ same foundation.
 
 ## Routes
 
-[*Tanzu Application Service* Routes](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#routes)
-are *domain name resolvable addresses* used in the
-*Tanzu Application Service* architecture to route network traffic to
+[_Tanzu Application Service_ Routes](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#routes)
+are _domain name resolvable addresses_ used in the
+_Tanzu Application Service_ architecture to route network traffic to
 mapped applications.
 
 A route consists of two parts:
@@ -28,10 +28,10 @@ A route consists of two parts:
     A
     [domain](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#domains)
     with DNS configuration to resolve to a load balancer
-    forwarding requests to *Tanzu Application Service* routers.
+    forwarding requests to _Tanzu Application Service_ routers.
 1.  `hostname`:
     A subdomain of the [domain](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#domains) associated with the load
-    balancer forwarding requests to *Tanzu Application Service* routers.
+    balancer forwarding requests to _Tanzu Application Service_ routers.
 
 The route specification is as follows:
 
@@ -43,7 +43,7 @@ the hostname is `pal-tracker` and the domain is
 
 ## Route uniqueness
 
-When you push an application to *Tanzu Application Service*,
+When you push an application to _Tanzu Application Service_,
 if you do not explicitly tell the `cf push` command to exclude the route
 via the `--no-route` options,
 or map an automatically generated route via the `--random-route` option,
@@ -132,7 +132,7 @@ Route pal-tracker-besmith.apps.tas.example.com does exist
 ## Reserving routes
 
 If the route is available for use,
-you can also *reserve* a route in a space by running the
+you can also _reserve_ a route in a space by running the
 `cf create-route` command.
 The route will exist,
 but not be mapped to any application.
@@ -156,7 +156,7 @@ OK
 ```
 
 If you attempt to reserve a route already reserved or mapped to an
-existing application on the *Tanzu Application Service* foundation,
+existing application on the _Tanzu Application Service_ foundation,
 you will get this message:
 
 ```no-highlight

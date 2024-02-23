@@ -20,11 +20,11 @@ Migration tools such as Flyway work by tracking changes to the database
 schema alongside the codebase.
 This has many benefits:
 
--   Migrations can be applied to different environments in a
-    reproducible way.
--   The schema is versioned in lock-step with the code.
--   The last-run migration is readily apparent.
--   Schema changes are performed easily.
+- Migrations can be applied to different environments in a
+  reproducible way.
+- The schema is versioned in lock-step with the code.
+- The last-run migration is readily apparent.
+- Schema changes are performed easily.
 
 ### Schema migration not data migration
 
@@ -45,12 +45,12 @@ tools.
 
 After completing the lab, you will be able to:
 
--   Define database schema migrations
--   Describe why versioning schema changes with the codebase in source
-    control is beneficial
--   Describe how to create and run a script for setting up databases
-    on your development machine
--   Use the command-line to create services from the marketplace
+- Define database schema migrations
+- Describe why versioning schema changes with the codebase in source
+  control is beneficial
+- Describe how to create and run a script for setting up databases
+  on your development machine
+- Use the command-line to create services from the marketplace
 
 ## Get started
 
@@ -62,7 +62,7 @@ After completing the lab, you will be able to:
     [Spring MVC with REST Endpoints lab](../spring-mvc/).
     You must have your `pal-tracker` application associated with the
     `mvc-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -84,15 +84,15 @@ or you can
 You may also refer to the [Hints](#hints) section at the end of the lab
 if you need more assistance.
 
-## Create a database on *Tanzu Application Service*
+## Create a database on _Tanzu Application Service_
 
-Create the database service on *Tanzu Application Service*
+Create the database service on _Tanzu Application Service_
 that you will use later in the lab.
 You do this here because the MySQL service takes a while to create
 instances.
 
 1.  Use the `cf marketplace` command to find a MySQL database service on
-    your *Tanzu Application Service* installation.
+    your _Tanzu Application Service_ installation.
     use the `cf create-service` command to create an instance of this
     service named _tracker-database_.
 
@@ -113,11 +113,11 @@ instances.
     This file will be used to perform the following actions during local
     development.
 
-    -   Drop old databases.
-    -   Create a development version of the database.
-    -   Create a test version of the database.
-    -   Create a `tracker` user in the database that has access to the
-        databases.
+    - Drop old databases.
+    - Create a development version of the database.
+    - Create a test version of the database.
+    - Create a `tracker` user in the database that has access to the
+      databases.
 
 ## Create migrations
 
@@ -132,17 +132,17 @@ instances.
 1.  This file holds the instructions to create the time
     entries table with the following columns:
 
-    -   `id` (integer, primary key)
-    -   `project_id` (integer)
-    -   `user_id` (integer)
-    -   `date` (date)
+    - `id` (integer, primary key)
+    - `project_id` (integer)
+    - `user_id` (integer)
+    - `date` (date)
 
-        You will use a date type here because you do not need
-        to track time information.
-        This decision depends on the requirements of the
-        software.
+      You will use a date type here because you do not need
+      to track time information.
+      This decision depends on the requirements of the
+      software.
 
-    -   `hours` (integer)
+    - `hours` (integer)
 
 1.  Flyway helps keep track of database versions as a project
     progresses.
@@ -211,7 +211,7 @@ Read more about flyway naming conventions
     +------------+--------------+------+-----+---------+----------------+
     ```
 
-## Migrate on *Tanzu Application Service*
+## Migrate on _Tanzu Application Service_
 
 You are building a cloud native application which assumes that backing
 services (like a database) are provided by the platform.
@@ -226,7 +226,7 @@ then provide the connection information to your application.
 1.  Bind the service instance to your application with the
     `cf bind-service` command.
 
-    This instructs *Tanzu Application Service* to provide your
+    This instructs _Tanzu Application Service_ to provide your
     application with the connection information for the MySQL database
     you created earlier.
     This is given to your application in the `VCAP_SERVICES`
@@ -242,7 +242,7 @@ then provide the connection information to your application.
     The cherry-pick you performed at the beginning of this lab brought
     in changes to your `.github/workflows/pipeline.yml` file which run a
     `migrate-databases.sh` script.
-    This script opens an SSH tunnel to your *Tanzu Application Service*
+    This script opens an SSH tunnel to your _Tanzu Application Service_
     database and performs migrations.
 
     The database instance that your application has access to is
@@ -250,10 +250,10 @@ then provide the connection information to your application.
     directly.
     Instead, you can open an SSH tunnel which will use your application
     as a proxy so that the Flyway CLI running on your CI server can
-    migrate the database managed by *Tanzu Application Service*.
+    migrate the database managed by _Tanzu Application Service_.
 
     This functionality does assume you have SSH access on the
-    *Tanzu Application Service* instance you are working with.
+    _Tanzu Application Service_ instance you are working with.
     This may not be possible in your environment.
     In this case you should take a look at the [Extras](#extras)
     section for some ideas as to how you might handle this.
@@ -265,7 +265,7 @@ then provide the connection information to your application.
 
     This will trigger a rebuild and re-deployment to the staging
     environment that will also perform the migrations on your
-    *Tanzu Application Service* database.
+    _Tanzu Application Service_ database.
 
 ## Wrap up
 
@@ -275,102 +275,102 @@ slides about database migrations.
 
 Now that you have completed the lab, you should be able to:
 
--   Define database schema migrations
--   Describe why versioning schema changes with the codebase in source
-    control is beneficial
--   Describe how to create and run a script for setting up databases
-    on your development machine
--   Use the command-line to create services from the marketplace
+- Define database schema migrations
+- Describe why versioning schema changes with the codebase in source
+  control is beneficial
+- Describe how to create and run a script for setting up databases
+  on your development machine
+- Use the command-line to create services from the marketplace
 
 ## Extras
 
 ### Verify container service binding
 
--   Verify whether or not the `VCAP_SERVICES` environment variable is
-    set in the current running `pal-tracker` container:
+- Verify whether or not the `VCAP_SERVICES` environment variable is
+  set in the current running `pal-tracker` container:
 
-    -   SSH to the running `pal-tracker`:
+  - SSH to the running `pal-tracker`:
 
-        `cf ssh pal-tracker -i 0`
+    `cf ssh pal-tracker -i 0`
 
-    -   Determine if `VCAP_SERVICES` is set:
+  - Determine if `VCAP_SERVICES` is set:
 
-        `env |grep VCAP_SERVICES`
+    `env |grep VCAP_SERVICES`
 
--   Do you see the environment variable set in the running container?
-    Why, or why not?
+- Do you see the environment variable set in the running container?
+  Why, or why not?
 
 ### Write and execute some additional migrations
 
--   Write a few other migrations if you have additional time.
--   Explore some of the other
-    [Flyway commands](https://flywaydb.org/documentation/)
-    and investigate how you can use them to manipulate the database.
+- Write a few other migrations if you have additional time.
+- Explore some of the other
+  [Flyway commands](https://flywaydb.org/documentation/)
+  and investigate how you can use them to manipulate the database.
 
--   Next,
-    implement your migrations using a different
-    [versioning scheme](https://flywaydb.org/documentation/migrations#versioned-migrations).
+- Next,
+  implement your migrations using a different
+  [versioning scheme](https://flywaydb.org/documentation/migrations#versioned-migrations).
 
 ### Implement a migration that operates on-platform
 
 The migration in this lab runs off-platform &mdash;
 it runs on either a developer workstation,
 or on the CI/CD server infrastructure.
-It does *not* run on the *Tanzu Application Service* platform.
+It does _not_ run on the _Tanzu Application Service_ platform.
 
 It is problematic for two reasons:
 
--   It requires a tunnel to execute the migration against the managed
-    and brokered MySQL database.
-    Your platform operators will likely not allow and enable tunneling
-    on your *Tanzu Application Service* platform.
+- It requires a tunnel to execute the migration against the managed
+  and brokered MySQL database.
+  Your platform operators will likely not allow and enable tunneling
+  on your _Tanzu Application Service_ platform.
 
--   It requires the `pal-tracker` application to be pushed *before* the
-    migration can be executed,
-    because the design requires a running container on the platform that
-    the Flyway migration can tunnel to its network.
-    That implies you must design into your release workflow to block
-    traffic to your application until the migration is successfully
-    complete.
+- It requires the `pal-tracker` application to be pushed _before_ the
+  migration can be executed,
+  because the design requires a running container on the platform that
+  the Flyway migration can tunnel to its network.
+  That implies you must design into your release workflow to block
+  traffic to your application until the migration is successfully
+  complete.
 
 You can improve upon this design by the following:
 
--   Implement a process/job whose sole function is to run a Flyway
-    migration,
-    *that is not the same application that consumes the migrated database.*
-    It will run on the *Tanzu Application Service* platform as a
-    [*Task*](https://docs.pivotal.io/application-service/2-9/devguide/using-tasks.html),
-    or as a *Tanzu Application Service*
-    [*Scheduled Job*](https://docs.pivotal.io/scheduler/1-4/using-jobs.html).
+- Implement a process/job whose sole function is to run a Flyway
+  migration,
+  _that is not the same application that consumes the migrated database._
+  It will run on the _Tanzu Application Service_ platform as a
+  [_Task_](https://docs.pivotal.io/application-service/2-9/devguide/using-tasks.html),
+  or as a _Tanzu Application Service_
+  [_Scheduled Job_](https://docs.pivotal.io/scheduler/1-4/using-jobs.html).
 
--   Ensure the migration job is run *before* the release of the
-    next application version that depends on it.
-    For zero downtime,
-    rolling upgrades,
-    this means your database changes must be backward compatible.
+- Ensure the migration job is run _before_ the release of the
+  next application version that depends on it.
+  For zero downtime,
+  rolling upgrades,
+  this means your database changes must be backward compatible.
 
-Implement the *improved* migration:
+Implement the _improved_ migration:
 
 1.  Create a new Spring boot app named `pal-tracker-migrations`.
     Use Spring Boot with Flyway Integration to run the Flyway
     migrations.
     You can simplify the solution by bundling the Flyway migrations
-    inside the application *resources* and reference from the
+    inside the application _resources_ and reference from the
     classpath instead of the file system.
     See the following links for help:
 
     - [Spring Boot migrations](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-use-a-higher-level-database-migration-tool)
     - [Flyway](https://flywaydb.org/documentation/usage/plugins/springboot)
     - [Baeldung migration tutorial](https://www.baeldung.com/database-migrations-with-flyway)
-    - [*Tanzu Application Service* Overview - a better migration approach](https://docs.google.com/presentation/d/17NxY9m73TDW2aiXvCDMeV7y74ox2F4bnV8ye921c0VQ/view#slide=id.gb9790c5b4b_0_329)
+    - [_Tanzu Application Service_ Overview - a better migration approach](https://docs.google.com/presentation/d/17NxY9m73TDW2aiXvCDMeV7y74ox2F4bnV8ye921c0VQ/view#slide=id.gb9790c5b4b_0_329)
 
 1.  [Create a Cloud task](https://docs.pivotal.io/application-service/2-9/devguide/using-tasks.html)
-    for your new migration and run it on *Tanzu Application Service*
+    for your new migration and run it on _Tanzu Application Service_
     platform.
 
 ## Hints
 
-### How do you create a database instance in *Tanzu Application Service*?
+### How do you create a database instance in _Tanzu Application Service_?
 
 This lab assumes that you have some kind of MySQL service available in
 your foundation, as shown through the `cf marketplace` command.

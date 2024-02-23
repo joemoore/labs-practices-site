@@ -1,14 +1,14 @@
 ---
-date: '2021-07-12'
-lastmod: '2021-07-12'
+date: "2021-07-12"
+lastmod: "2021-07-12"
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 title: Messaging
 weight: 170
 oldPath: "/content/outcomes/cloud-native-development/specific__messaging.md"
 aliases:
-- "/outcomes/cloud-native-development/specific__messaging"
+  - "/outcomes/cloud-native-development/specific__messaging"
 tags: []
 ---
 
@@ -19,7 +19,6 @@ If your application currently uses a messaging solution such as [RabbitMQ](https
 Even if your application currently does not use some form of pub/sub, we often aim to modernize towards asynchronous communication between your microservices using Spring Cloud Stream and RabbitMQ. With the RabbitMQ tile available in TAS, it is straightforward to introduce a messaging layer of communication. There are many benefits for doing it this way.
 
 Read the [Introduction](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) and [Quick Start](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) guide for SCS to get a feel for working with the library.
-
 
 ## Homework
 

@@ -1,15 +1,15 @@
 ---
-date: '2021-05-06'
-lastmod: '2021-06-15'
+date: "2021-05-06"
+lastmod: "2021-06-15"
 layout: single
 team:
-- Howard Yoo
-- Zac Bergquist
+  - Howard Yoo
+  - Zac Bergquist
 title: Detecting Abnormal Behavior with Tanzu Observability
 weight: 99
 oldPath: "/content/outcomes/application-observability/automation-abnormal-behavior-detection.md"
 aliases:
-- "/outcomes/application-observability/automation-abnormal-behavior-detection"
+  - "/outcomes/application-observability/automation-abnormal-behavior-detection"
 tags: []
 ---
 

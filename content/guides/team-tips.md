@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Tips to work better as a team
 weight: -100
 linkTitle: Team Tips

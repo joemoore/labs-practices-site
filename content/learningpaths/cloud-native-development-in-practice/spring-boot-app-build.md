@@ -86,23 +86,23 @@ you can begin building a Spring Boot _Hello World_ application.
 1.  If you are familiar with Gradle, make the following additions to
     your `build.gradle` file:
 
-    -   Add a `plugins` closure:
+    - Add a `plugins` closure:
 
-        -   Apply the `2.5.3.RELEASE` version of the
-            [Spring Boot Gradle plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-gradle-plugin.html).
+      - Apply the `2.5.3.RELEASE` version of the
+        [Spring Boot Gradle plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-gradle-plugin.html).
 
-        -   Apply the `1.0.11.RELEASE` version of the
-            [Spring Dependency Management plugin](https://plugins.gradle.org/plugin/io.spring.dependency-management)
+      - Apply the `1.0.11.RELEASE` version of the
+        [Spring Dependency Management plugin](https://plugins.gradle.org/plugin/io.spring.dependency-management)
 
-        -   Apply the
-            [Java plugin](https://docs.gradle.org/current/userguide/java_plugin.html).
+      - Apply the
+        [Java plugin](https://docs.gradle.org/current/userguide/java_plugin.html).
 
-    -   Create a `repositories` closure adding Maven Central to your
-        `build.gradle` file.
+    - Create a `repositories` closure adding Maven Central to your
+      `build.gradle` file.
 
-    -   Add a `dependencies` closure,
-        and add a Java implementation dependency on the
-        `org.springframework.boot:spring-boot-starter-web` package.
+    - Add a `dependencies` closure,
+      and add a Java implementation dependency on the
+      `org.springframework.boot:spring-boot-starter-web` package.
 
 1.  If you are unfamiliar with Gradle at this point, or want to check
     the changes that you have made, you can see what the resulting
@@ -201,7 +201,7 @@ you can begin building a Spring Boot _Hello World_ application.
 ## Create a controller
 
 In the same package you will now create a controller class that returns
-`hello` when the app receives a __GET__ request at `/`.
+`hello` when the app receives a **GET** request at `/`.
 
 Following labs will go in to more detail about what is happening here,
 but for now, just follow along.
@@ -233,7 +233,7 @@ but for now, just follow along.
 
     You now have a small working web application.
     In the next lab,
-    you will push this application to *Tanzu Application Service*.
+    you will push this application to _Tanzu Application Service_.
 
 ## Wrap up
 

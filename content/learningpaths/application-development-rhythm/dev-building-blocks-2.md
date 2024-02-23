@@ -3,15 +3,16 @@ title: Building Blocks, Part 2
 weight: 40
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 oldPath: "/content/outcomes/application-development-rhythm/dev-building-blocks-2.md"
 aliases:
-- "/outcomes/application-development-rhythm/dev-building-blocks-2"
+  - "/outcomes/application-development-rhythm/dev-building-blocks-2"
 tags: []
 ---
+
 This article is the fourth in a five-part series.
 
-A healthy *Developer Rhythm* starts with a disciplined workflow.
+A healthy _Developer Rhythm_ starts with a disciplined workflow.
 The only way you can successfully achieve this type of workflow
 is to learn how to use modern developer tools much in the same
 way that a carpenter has to learn how to use the tools of their trade.
@@ -35,7 +36,7 @@ In this article, you will learn to:
 
 ### Private Branch Method
 
-Distributed Source Code Version Systems like *Git* or *Mercurial*
+Distributed Source Code Version Systems like _Git_ or _Mercurial_
 allow you to work independently from the team source control repository.
 
 To get started, copy the complete repository,
@@ -87,7 +88,7 @@ It contains a distinct process of setting a goal,
 performing experiments,
 visualizing the goal,
 and achieving the goal.
-It also includes the steps for *undoing* or reverting from failed
+It also includes the steps for _undoing_ or reverting from failed
 experiments.
 
 The Mikado Method is commonly used in combination with refactoring and
@@ -97,7 +98,7 @@ test-first practices.
 
 If you work on a remote team or in an organization where you cannot pair,
 you might be lonely,
-especially *when you get stuck*.
+especially _when you get stuck_.
 Sometimes,
 you will get stuck in a problem,
 with no other developers to consult.
@@ -134,13 +135,13 @@ and add more sophisticated tools, as needed.
 It's always a good idea to start with a minimal developer
 toolset because:
 
--   It is more important for you to focus on solving problems
-    than on using tools.
-    It's up to you to keep the tools you are not using
-    out of the way.
+- It is more important for you to focus on solving problems
+  than on using tools.
+  It's up to you to keep the tools you are not using
+  out of the way.
 
--   More complex tools may hide key details that you are
-    unaware of, but need to know as a developer.
+- More complex tools may hide key details that you are
+  unaware of, but need to know as a developer.
 
 ### Languages, Compilers, Build tools
 
@@ -156,7 +157,7 @@ If not, your choice could be restricted by:
 
 ### Frameworks
 
-*[Software Frameworks](https://en.wikipedia.org/wiki/Software*framework)*
+*[Software Frameworks](https://en.wikipedia.org/wiki/Software*framework)\*
 are common tools in a developer's toolkit that sheds some of the burden of
 software development.
 When you use a framework,
@@ -169,7 +170,7 @@ See [Spring Framework](https://spring.io/projects/spring-framework) for an examp
 
 ### Interactive Development Environment
 
-*Interactive Development Environment* (IDE) is a popular
+_Interactive Development Environment_ (IDE) is a popular
 developer tool for writing software that you can also use to.
 
 - Debug software.
@@ -194,7 +195,7 @@ ecosystem.
 
 ### Accelerators
 
-*Accelerators* are specialized tools used at specific points in the
+_Accelerators_ are specialized tools used at specific points in the
 development workflow,
 typically at the beginning of a new project.
 
@@ -228,19 +229,19 @@ development,
 refactoring or the Mikado Method.
 
 Or,
-you can use it  to become proficient with the features of your IDEs,
+you can use it to become proficient with the features of your IDEs,
 source control or other tooling.
 
 ## Summary
 
 After reading this article, you can now:
 
--   List and describe techniques and methods that facilitate the
-    developer flow.
--   List and describe general tools that facilitate the developer
-    flow.
+- List and describe techniques and methods that facilitate the
+  developer flow.
+- List and describe general tools that facilitate the developer
+  flow.
 
-If you have followed the *Modern Application Development* series this
+If you have followed the _Modern Application Development_ series this
 far,
 you now have a high level idea of what a daily developer workflow
 might look like,

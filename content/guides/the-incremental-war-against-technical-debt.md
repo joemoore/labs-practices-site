@@ -1,19 +1,19 @@
 ---
-title:  "The Incremental War Against Technical Debt"
+title: "The Incremental War Against Technical Debt"
 linkTitle: "The Incremental War Against Technical Debt"
 description: An analysis of the causes of technical debt, and what we can do about it.
 featured: true
 tags:
-- Technical debt
-- Pair programming
-- Agile
+  - Technical debt
+  - Pair programming
+  - Agile
 # Author(s)
 team:
-- George Dean
+  - George Dean
 date: "2021-09-28"
 lastmod: "2021-10-29"
 aliases:
-- "/guides/agile/the-incremental-war-against-technical-debt"
+  - "/guides/agile/the-incremental-war-against-technical-debt"
 level1: Agile Transformation and Practices
 level2: Agile Development
 ---
@@ -26,7 +26,7 @@ You sum up your limited options and decide to add your own chewing gum and duct 
 
 This painful experience is the product of technical debt: repeatedly doing what works now instead of doing the right thing for the long run.
 
-##  What Does Technical Debt Look Like?
+## What Does Technical Debt Look Like?
 
 Here is what you will find when you read the code:
 
@@ -48,14 +48,16 @@ Here is what you will find when you talk to the team:
 - Without good abstractions to build on, the team's velocity slows down over time.
 - Burnout is high and turnover is common.
 
-##  Why Did this Happen?
+## Why Did this Happen?
 
 The [retrospective prime directive](https://retrospectivewiki.org/index.php?title=The_Prime_Directive) can give us some
 instruction here:
+
 > _“we understand and truly believe that everyone did the best job they could, given what they knew at the time,
 > their skills and abilities, the resources available, and the situation at hand.”_
 
 People are doing their best in the presence of constraints. These are the usual constraints:
+
 - Developers are working alone, trying their best to navigate the 10 - 30 technologies used across their stack.
 - Teams are operating in two week sprints, committing to achieve a certain set of features by the end of the two weeks.
 - The definition of "done" for a story is limited to user-visible behavior; the effect on the codebase is an externality.
@@ -81,7 +83,7 @@ On teams of solo engineers, I have found that:
 - Team members specialize in certain areas since collective code ownership is impossible without knowledge sharing. Permanent silos are created that grow deeper over time. Specialization makes it very difficult to complete full-stack stories.
 - Teammates often end up having an unhealthy relationship with each other's work. They may not fully understand it, may not agree with the decisions that were made (or the idea of doing the work at all), and may get blocked by problems they encounter with unfamiliar code.
 - There is often fuzziness around team definition. This includes oversized teams of 20+ developers, or individual developers contributing to many teams’ codebases.
-- Standups end up being a hard place for product managers and designers. Developers who have not had an opportunity to share technical ideas throughout the day tend to  dominate the conversation. There is not a lot of room for product managers and designers to participate.
+- Standups end up being a hard place for product managers and designers. Developers who have not had an opportunity to share technical ideas throughout the day tend to dominate the conversation. There is not a lot of room for product managers and designers to participate.
 - Code quality remains heterogeneous across the codebase. The level of simplicity, factoring and testing of the code is proportional to the level of the experience of the author, with no real ability to make an impact across silos.
 - Pain accumulates and becomes a long-term part of the development experience. The belief is that if you are feeling pain, it is probably your own fault and you should upskill to become a better developer. You are incentivized not to speak up, but instead to endure through.
 - There is divergence of thought between teammates at every level, from file naming conventions to beliefs about automated testing.
@@ -128,10 +130,13 @@ There is a missing step in this workflow. As you write the tests and the impleme
 Suppose you are working on a story to prevent cross-site request forgery and JSON hijacking. Your plan.txt might look like this:
 
 #### Prefactoring
+
 ```
 Backfill test for api.ts
 ```
+
 #### Functionality
+
 ```
 If an X-XSRF-TOKEN cookie is present, send it as a header with all post requests
 from the frontend
@@ -141,6 +146,7 @@ XSRF-TOKEN cookie, and require it in an X-XSRF-TOKEN header
 ```
 
 #### Cleanup
+
 ```
 Run tslint with every ship
 
@@ -162,6 +168,7 @@ Inject CookieRepository as a dependency into HttpClient
 ```
 
 #### Not done
+
 ```
 Fix error on server start: java.io.IOException: Connection closed prematurely
 

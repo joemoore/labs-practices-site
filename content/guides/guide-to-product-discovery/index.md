@@ -1,20 +1,20 @@
 ---
-date: '2022-10-26'
+date: "2022-10-26"
 description: A Guide to Product Discovery
-lastmod: '2022-10-27'
+lastmod: "2022-10-27"
 linkTitle: A Guide to Product Discovery
 subsection: Spring Cloud
 featured: true
 alises:
-    - /guides/guide-to-discovery-and-framing
+  - /guides/guide-to-discovery-and-framing
 team:
-    - Luke Malcher
+  - Luke Malcher
 title: A Guide to Product Discovery
 level1: Agile Transformation and Practices
 level2: Agile Development
 ---
 
-![A diagram showing the progression of a Product Discovery. The first stage is Problem Discovery, which is represented by a diamond. The next stage is Solution Framing, which is also represented by a diamond. After that there is a series of cycles which represent product iterations during the Delivery phase.](images/double-diamond.png 'double diamond')
+![A diagram showing the progression of a Product Discovery. The first stage is Problem Discovery, which is represented by a diamond. The next stage is Solution Framing, which is also represented by a diamond. After that there is a series of cycles which represent product iterations during the Delivery phase.](images/double-diamond.png "double diamond")
 
 Most new ideas for products and features come with a set of built-in assumptions. We hope the new product will be adopted and loved by our customers. We want it to deliver certain outcomes or value for our business or organization. And we assume that it can be built by a team given a certain amount of time and investment.
 
@@ -36,15 +36,15 @@ Product Discovery is a journey for a [balanced team](https://tanzu.vmware.com/de
 
 A diverse, balanced team approach:
 
--   Ensures a range of perspectives
--   Results in solutions that are both usable and feasible to build
--   Aligns the entire team on why the product is worth building
+- Ensures a range of perspectives
+- Results in solutions that are both usable and feasible to build
+- Aligns the entire team on why the product is worth building
 
 In parallel to the product discovery phase mentioned here, it might be valuable to run a technical discovery. This may involve activities such as [value stream mapping](https://tanzu.vmware.com/developer/practices/value-stream-map/), pipeline and codebase set up, and pushing a skeleton app through to the production environment to ensure that the team can start building and iterating as soon as they have defined a viable starting point for the product.
 
 ## Problem Discovery
 
-![A diagram summarizing the main stages and activities of Problem Discovery. The main activities listed are assumptions, proto-personas, user interviews, journey map, service blueprint, research synthesis and problem prioritization.](images/product-discovory.png 'problem discovery')
+![A diagram summarizing the main stages and activities of Problem Discovery. The main activities listed are assumptions, proto-personas, user interviews, journey map, service blueprint, research synthesis and problem prioritization.](images/product-discovory.png "problem discovery")
 
 The goal of the Problem Discovery phase is to clearly define an important problem that, if solved, will deliver the highest business and user value. Problem Discovery typically happens over a fast-paced, two to three week period during which you’ll extensively learn about your users, problem space, the business drivers, and any existing technology or technical constraints.
 
@@ -90,7 +90,7 @@ This ruthless prioritization of a single problem over all others can feel like a
 
 ## Solution Framing
 
-![A diagram summarizing the main activities of Problem Discovery. The main activities listed are solution brainstorming, design studio, design critique, solution prioritization, lean experiments, lean business canvas and user story mapping.](images/solution-framing.png 'solution framing')
+![A diagram summarizing the main activities of Problem Discovery. The main activities listed are solution brainstorming, design studio, design critique, solution prioritization, lean experiments, lean business canvas and user story mapping.](images/solution-framing.png "solution framing")
 
 During Solution Framing, your team’s goal is to determine a suitable starting point for building your product based on the problems you’ve identified in Problem Discovery. During this stage you’ll explore, evaluate, and iterate on potential solutions.
 
@@ -128,8 +128,8 @@ Collaborate with your team and stakeholders to develop a value proposition. Make
 
 ## Moving into Delivery
 
-![An Image of loops indicating iteration](images/itarate.png 'iterate iterate iterate')
-    
+![An Image of loops indicating iteration](images/itarate.png "iterate iterate iterate")
+
 The goal of Product Discovery is not to understand the entire problem ecosystem, or to design your entire product up front. Agreement on a single, validated feature and an initial backlog of [user stories](https://tanzu.vmware.com/developer/practices/user-stories/) is usually enough to start delivery.
 
 You might know, for example, that your product has certain integrations, but you might not know exactly what data you need. That is enough for engineering to start building, while implementation details are discovered through research or user feedback.

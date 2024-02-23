@@ -1,16 +1,16 @@
 ---
-date: '2020-10-01'
-lastmod: '2021-02-22'
+date: "2020-10-01"
+lastmod: "2021-02-22"
 linkTitle: Building Relationships
 parent: Remote Tips
 tags:
-- Agile
+  - Agile
 team:
-- Pivotal/Tanzu Labs
-title: 'Remote Tips: Building Relationships'
+  - Pivotal/Tanzu Labs
+title: "Remote Tips: Building Relationships"
 oldPath: "/content/guides/agile/remote-tips-building-relationships.md"
 aliases:
-- "/guides/agile/remote-tips-building-relationships"
+  - "/guides/agile/remote-tips-building-relationships"
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---
@@ -39,21 +39,23 @@ level2: Team Tips
 - Do silly quizzes as a team (e.g., “What Star Wars character are you?”).
 - Try a cooking/fermenting/brewing club.
 - Play free and instant-play team games during breaks:
-    - https://www.webliero.com/
-    - https://dominion.games/
-    - https://codenames.game/
-    - http://www.spyfall.app/
-    - http://skribbl.io/
+  - https://www.webliero.com/
+  - https://dominion.games/
+  - https://codenames.game/
+  - http://www.spyfall.app/
+  - http://skribbl.io/
 
 ### Building empathy
+
 - Try user manuals:
-    - Each team member creates their own user manual that outlines hours they prefer to work, how they prefer to communicate, what their personal interests are, etc.
-    - Share and compare all the user manuals to find common ground, areas of difference, and actions to ensure effective collaboration and strong relationships.
+  - Each team member creates their own user manual that outlines hours they prefer to work, how they prefer to communicate, what their personal interests are, etc.
+  - Share and compare all the user manuals to find common ground, areas of difference, and actions to ensure effective collaboration and strong relationships.
 - Take and share results of [personality tests](https://www.16personalities.com/).
 - Use gallery view in video calls.
 - Encourage always-on video, but make it optional; remember, in a remote setting, it's OK to look away!
 
 ### Creating virtual spaces
+
 - Set up dedicated meeting rooms for all meetings: IPM, retro, etc.
 - Set up dedicated meeting rooms for pairs (e.g., team-name-pair-1, team-name-pair-2, team-name-pms, etc.).
 - Set up personal meeting rooms so somebody can quickly talk to you even if you’re soloing.
@@ -61,6 +63,7 @@ level2: Team Tips
 - Set up a shared calendar/social calendar.
 
 ### Being kinder, more inclusive, and expressive
+
 - It costs nothing to be kind, even if you don't believe someone deserves it.
 - Sharing praise creates a climate where feedback is viewed as a gift rather than an attack—say thanks!
 - 👩🏻‍🏫 Use emoji or emoticons when chatting—they can be more inclusive when English isn’t the first language, and help convey tone, emphasis and emotion.
@@ -70,6 +73,7 @@ level2: Team Tips
 - It's impossible to know everything; you can't know how your words are interpreted without asking.
 
 ### Checking in
+
 - Schedule regular virtual coffee chats and happy hours.
 - Schedule 1:1s with team members.
 - Emphasize weekly retros as a way to continuously improve the way you work and get to know each other better.

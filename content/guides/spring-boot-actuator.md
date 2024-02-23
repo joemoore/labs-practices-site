@@ -1,30 +1,30 @@
 ---
-date: '2021-01-29'
-lastmod: '2021-01-29'
+date: "2021-01-29"
+lastmod: "2021-01-29"
 linkTitle: Spring Boot Actuator
 patterns:
-- Observability
+  - Observability
 tags:
-- Spring Boot Actuator
-- Getting Started
-- Spring
+  - Spring Boot Actuator
+  - Getting Started
+  - Spring
 title: Custom Health Checks Using Spring Boot Actuator
 weight: 1
 oldPath: "/content/guides/spring/spring-boot-actuator.md"
 aliases:
-- "/guides/spring/spring-boot-actuator"
+  - "/guides/spring/spring-boot-actuator"
 level1: Managing and Operating Applications
 level2: Metrics, Tracing, and Monitoring
 description: Gain insight into the Spring environment and your applications running in production
 ---
 
-[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html) provides insight into the Spring environment for applications running in production. Actuator includes a number of built-in endpoints allowing you to monitor and interact with your application. 
+[Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html) provides insight into the Spring environment for applications running in production. Actuator includes a number of built-in endpoints allowing you to monitor and interact with your application.
 
-One important endpoint is `/health`.  It provides an indication of the general health of your application and will check the health of each of the `@Component` classes that implement the `HealthIndicator` interface. All standard components (such as `DataSource`) implement this interface by default.  
+One important endpoint is `/health`. It provides an indication of the general health of your application and will check the health of each of the `@Component` classes that implement the `HealthIndicator` interface. All standard components (such as `DataSource`) implement this interface by default.
 
 ## Adding a Custom Check
 
-You can create a custom health check for app components that Spring does not cover by creating a class that uses the `HealthIndicator` interface and annotating it with `@Component` to pull it into the Spring context.  The following code includes examples that do health checks against a cache, a data source, and a remote (SOAP or REST) service:
+You can create a custom health check for app components that Spring does not cover by creating a class that uses the `HealthIndicator` interface and annotating it with `@Component` to pull it into the Spring context. The following code includes examples that do health checks against a cache, a data source, and a remote (SOAP or REST) service:
 
 ```java
 @Override
@@ -65,13 +65,14 @@ public Health health() {
 }
 ```
 
-Implementing a custom health check class this way is preferred to adding code directly to a smoke test controller, as it takes full advantage of the Actuator framework. Spring Boot Actuator’s health check functionality allows you to monitor the status of your running applications. It can be integrated with monitoring software to alert you when a production system misbehaves or goes down. 
+Implementing a custom health check class this way is preferred to adding code directly to a smoke test controller, as it takes full advantage of the Actuator framework. Spring Boot Actuator’s health check functionality allows you to monitor the status of your running applications. It can be integrated with monitoring software to alert you when a production system misbehaves or goes down.
 
 ## Learn More
+
 To find out more about Spring Boot Actuator’s production monitoring capabilities, refer to the following resources:
 
-* [Prometheus and Grafana: Gathering Metrics from Spring Boot on Kubernetes](/guides/spring/spring-prometheus/)
+- [Prometheus and Grafana: Gathering Metrics from Spring Boot on Kubernetes](/guides/spring/spring-prometheus/)
 
-* [Production Ready Spring Boot Applications (video)](/tv/spring-live/0041/)
+- [Production Ready Spring Boot Applications (video)](/tv/spring-live/0041/)
 
-* [Save Your Stack: Build Cloud Native Apps with Spring, Kubernetes and Cassandra (blog)](/blog/save-your-stack-build-cloud-native-apps-with-spring-kubernetes-and-cassandra/)
+- [Save Your Stack: Build Cloud Native Apps with Spring, Kubernetes and Cassandra (blog)](/blog/save-your-stack-build-cloud-native-apps-with-spring-kubernetes-and-cassandra/)

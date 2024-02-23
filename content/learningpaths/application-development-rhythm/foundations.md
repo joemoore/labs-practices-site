@@ -3,13 +3,14 @@ title: Foundations
 weight: 10
 layout: single
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 oldPath: "/content/outcomes/application-development-rhythm/foundations.md"
 aliases:
-- "/outcomes/application-development-rhythm/foundations"
+  - "/outcomes/application-development-rhythm/foundations"
 tags: []
 ---
-*This article is the first in a five-part series.*
+
+_This article is the first in a five-part series._
 
 Modern Application Developers know the secret to
 successfully building modern apps in today's
@@ -20,17 +21,17 @@ environment.
 ![Foundations](/images/outcomes/application-development-rhythm/foundations-building.jpg)
 
 To get the most out of this series, take some time to learn more about
-*modern application principles* and *practices*.
+_modern application principles_ and _practices_.
 
 ## What You Will Learn
 
 In this first article, you will learn how to:
 
--   Explain the context of modern application development.
--   Describe the types of building blocks that comprise modern
-    application development.
--   Describe how a modern application developer must continually
-    consider trade offs and technical debt.
+- Explain the context of modern application development.
+- Describe the types of building blocks that comprise modern
+  application development.
+- Describe how a modern application developer must continually
+  consider trade offs and technical debt.
 
 ## Modern Application Principles and Practices
 
@@ -38,11 +39,11 @@ Modern Application Development improves your organization's
 ability to maintain, plan to build,
 or modernize existing software products that:
 
--   Achieve a market fit.
-    Provide long-term value to your organization and customers.
--   Are subject to continual change.
--   Allow changes to be done *quickly*, *safely*, and *sustainably*.
--   Allow persistent product teams to build, evolve and maintain software.
+- Achieve a market fit.
+  Provide long-term value to your organization and customers.
+- Are subject to continual change.
+- Allow changes to be done _quickly_, _safely_, and _sustainably_.
+- Allow persistent product teams to build, evolve and maintain software.
 
 If none of these apply, you can stop reading now.
 
@@ -54,7 +55,7 @@ Older legacy application development practices include a lot of formal
 processes,
 bureaucracy,
 and a separation of skill sets with the logic that it is necessary to use
-formalized structure to *force discipline top-down* to deliver software.
+formalized structure to _force discipline top-down_ to deliver software.
 
 Modern application development practices require just as much,
 if not more discipline, than legacy processes.
@@ -86,7 +87,7 @@ You can view building block examples in each of the upcoming articles:
 
 Principles are foundational rules that help modern application developers
 select the best practices to use to accomplish a specific task.
-For example, *why* it is a good idea to combine the some of the principles
+For example, _why_ it is a good idea to combine the some of the principles
 in this article that are similar in belief or behavior.
 
 Principles are proven success factors that remain relevant for long periods of time.
@@ -112,16 +113,16 @@ They are:
 
 As you collaborate with other experienced modern application development
 practitioners,
-make sure to ask *why* they do work in a specific way,
+make sure to ask _why_ they do work in a specific way,
 and what principles they use to guide their work.
 
 ![Principles](/images/outcomes/application-development-rhythm/principles.jpg)
 
 ## Practices
 
-A *practice* is a specific way the developer works to accomplish a goal, according to their work context
-*principles*.
-Think of *practices* as a high level method of *how* work is done without
+A _practice_ is a specific way the developer works to accomplish a goal, according to their work context
+_principles_.
+Think of _practices_ as a high level method of _how_ work is done without
 specifying the exact steps.
 
 The lifetime of principles is tied to the relevance of the context in which they
@@ -133,18 +134,18 @@ safely.
 
 Practices in this series include:
 
--   [Pair Programming](../../application-development/pair-programming/)
+- [Pair Programming](../../application-development/pair-programming/)
 
--   [Test Driven Development](../../application-development/test-driven-development/)
+- [Test Driven Development](../../application-development/test-driven-development/)
 
 ### Methods and Techniques
 
-*Methods and Techniques* are processes or procedures that facilitate the
+_Methods and Techniques_ are processes or procedures that facilitate the
 performance of the relevant practices.
 
 Though not broad enough to be considered practices, methods and techniques
-form the detailed *how* in the practitioners' work in very specific
-scenarios that support the relevant *practices*.
+form the detailed _how_ in the practitioners' work in very specific
+scenarios that support the relevant _practices_.
 
 Some of the methods and techniques you will see in this series includes:
 
@@ -158,10 +159,10 @@ development problem.
 They are an excellent resource for providing solutions to new and
 recurring software problems.
 
-*Patterns* are also long-lived,
-similar to *practices*.
+_Patterns_ are also long-lived,
+similar to _practices_.
 
-Think of patterns as one of the high level *whats* of building software.
+Think of patterns as one of the high level _whats_ of building software.
 
 Software patterns are discovered over time,
 then published so that other developers may also share and collaborate
@@ -169,12 +170,12 @@ their findings.
 
 ![Patterns](/images/outcomes/application-development-rhythm/patterns.jpg)
 
-*Anti-patterns* are code patterns that do not provide a solution to fix
+_Anti-patterns_ are code patterns that do not provide a solution to fix
 a new or recurring software problem.
 
 ## Tools and Technologies
 
-*Tools* and *Technologies* facilitate the use of solution pattern
+_Tools_ and _Technologies_ facilitate the use of solution pattern
 methods and practices,
 as well as the implementation of solution patterns,
 where appropriate.
@@ -229,27 +230,27 @@ you can do your part in keeping your organization's upfront costs down
 by working with minimal designs.
 Although this is a proven cost-effective solution,
 there are drawbacks that can sometimes cause
-[*Technical Debt*](#technical-debt).
+[_Technical Debt_](#technical-debt).
 
 ### Taxes
 
-The term *tax* describes the ongoing costs of
+The term _tax_ describes the ongoing costs of
 authoring and maintaining software products.
 
-*Taxes* are *compulsory charges* imposed to fund activities over time.
+_Taxes_ are _compulsory charges_ imposed to fund activities over time.
 
 Examples of software taxes include:
 
--   Software maintenance such as
-    keeping the application codebases clean.
+- Software maintenance such as
+  keeping the application codebases clean.
 
--   Use of *Platforms* or *Middleware*.
+- Use of _Platforms_ or _Middleware_.
 
--   Tools license or subscription costs.
+- Tools license or subscription costs.
 
--   Third party dependency upgrades.
+- Third party dependency upgrades.
 
--   Developer continual learning.
+- Developer continual learning.
 
 It's never a good idea to avoid paying taxes for these products
 because the associated software product team may be
@@ -257,35 +258,35 @@ impacted by the consequences.
 
 ### Technical Debt
 
-*Technical Debt* is the concept where:
+_Technical Debt_ is the concept where:
 
--   A software product team,
-    or developer,
-    chooses to take a shortcut,
-    in a feature or design implementation,
-    for an immediate benefit.
+- A software product team,
+  or developer,
+  chooses to take a shortcut,
+  in a feature or design implementation,
+  for an immediate benefit.
 
-    You can expect the team or developer to remediate,
-    or repay for taking
-    the shortcut at a later time.
+  You can expect the team or developer to remediate,
+  or repay for taking
+  the shortcut at a later time.
 
--   The more shortcuts that are taken without remediating,
-    or replaying them,
-    the more accumulation of "debt" will have consequences for
-    the product team.
-    Most of the time this results in the team slowing down.
+- The more shortcuts that are taken without remediating,
+  or replaying them,
+  the more accumulation of "debt" will have consequences for
+  the product team.
+  Most of the time this results in the team slowing down.
 
 A common example of accumulation of technical debt is when:
 
--   A developer chooses to deviate from software development principles
-    as a short cut to move faster in the moment.
+- A developer chooses to deviate from software development principles
+  as a short cut to move faster in the moment.
 
--   A developer should remediate the deviation as part of an ongoing
-    code maintenance activity.
+- A developer should remediate the deviation as part of an ongoing
+  code maintenance activity.
 
--   Development teams that continually deviate from development
-    principles ultimately put the software codebase in a state that
-    becomes hard to maintain and change.
+- Development teams that continually deviate from development
+  principles ultimately put the software codebase in a state that
+  becomes hard to maintain and change.
 
 Always repay your technical debt!
 
@@ -293,7 +294,7 @@ Always repay your technical debt!
 
 In this article, you learned about:
 
--   Modern application development.
--   The types of building blocks that comprise modern application
-    development.
--   Trade offs, Costs and Technical Debt
+- Modern application development.
+- The types of building blocks that comprise modern application
+  development.
+- Trade offs, Costs and Technical Debt

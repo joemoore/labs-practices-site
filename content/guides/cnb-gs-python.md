@@ -1,22 +1,23 @@
 ---
-date: '2020-07-21'
-description: Read industry best practices about building containers and discover how
+date: "2020-07-21"
+description:
+  Read industry best practices about building containers and discover how
   to use Buildpacks to package your Python apps into Docker containers.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 linkTitle: Python Buildpacks
 metaTitle: Building Docker Containers with Python
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Python
-- Containers
-- Buildpacks
+  - Python
+  - Containers
+  - Buildpacks
 team:
-- Ben Wilcock
-title: 'Python Like A Pro: Building Docker Containers'
+  - Ben Wilcock
+title: "Python Like A Pro: Building Docker Containers"
 oldPath: "/content/guides/python/cnb-gs-python.md"
 aliases:
-- "/guides/python/cnb-gs-python"
+  - "/guides/python/cnb-gs-python"
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
@@ -89,7 +90,6 @@ The `Procfile` specifies the command-line used to execute the application at run
 ```text
 web: FLASK_APP=web.py python3 -m flask run --host=0.0.0.0 --port=$PORT
 ```
-
 
 ### Get The List Of Suggested Builders
 
@@ -233,6 +233,7 @@ And if you'd prefer to see the buildpack in action without actually following th
 {{< youtube JS_YIn49xuw >}}
 
 ---
+
 [heroku-python-bp]: https://github.com/heroku/heroku-buildpack-python
 [heroku-python-bp-help]: https://devcenter.heroku.com/articles/python-support
 [bp-spec]: https://github.com/buildpacks/spec/blob/main/platform.md
@@ -240,7 +241,6 @@ And if you'd prefer to see the buildpack in action without actually following th
 [google-buildpacks]: https://github.com/GoogleCloudPlatform/buildpacks
 [httpie]: https://httpie.org/
 [bp-github]: https://github.com/buildpacks
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages

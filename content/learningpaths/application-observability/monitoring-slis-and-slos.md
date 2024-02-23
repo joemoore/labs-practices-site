@@ -1,16 +1,16 @@
 ---
-date: '2021-04-21'
-lastmod: '2021-06-15'
+date: "2021-04-21"
+lastmod: "2021-06-15"
 layout: single
 related:
-- "/guides/kubernetes/app-observability-exporting-metrics"
+  - "/guides/kubernetes/app-observability-exporting-metrics"
 team:
-- Zac Bergquist
+  - Zac Bergquist
 title: Monitoring SLIs and SLOs
 weight: 1
 oldPath: "/content/outcomes/application-observability/monitoring-slis-and-slos.md"
 aliases:
-- "/outcomes/application-observability/monitoring-slis-and-slos"
+  - "/outcomes/application-observability/monitoring-slis-and-slos"
 tags: []
 ---
 

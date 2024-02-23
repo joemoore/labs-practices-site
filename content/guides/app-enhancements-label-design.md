@@ -1,15 +1,15 @@
 ---
-date: '2021-02-16'
-lastmod: '2021-02-24'
+date: "2021-02-16"
+lastmod: "2021-02-24"
 parent: Application Enhancements
 tags:
-- Kubernetes
+  - Kubernetes
 team:
-- John Harris
+  - John Harris
 title: Label Best Practices
 oldPath: "/content/guides/kubernetes/app-enhancements-label-design.md"
 aliases:
-- "/guides/kubernetes/app-enhancements-label-design"
+  - "/guides/kubernetes/app-enhancements-label-design"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -41,8 +41,7 @@ metadata:
     app: my_app
     version: 1.0.0
     component: frontend
-spec:
-  ...
+spec: ...
 ```
 
 ### Labels with Selectors
@@ -92,10 +91,11 @@ perform these queries: `=`, `==`, and `!=`.
 {{< table "table" >}}
 | Operator | Description |
 | -------- | ----------- |
-| =        | equal to or is |
-| ==       | equal to or is |
-| !=       | not equal to or is not |
+| = | equal to or is |
+| == | equal to or is |
+| != | not equal to or is not |
 {{< table />}}
+
 #### Label Query Examples
 
 Find all components in Kubernetes that are related to running MySQL

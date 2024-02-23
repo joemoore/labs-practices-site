@@ -1,18 +1,18 @@
 ---
-date: '2021-08-16'
-lastmod: '2021-08-16'
+date: "2021-08-16"
+lastmod: "2021-08-16"
 layout: single
 team:
-- Pivotal/Tanzu Labs
-title: 'Prioritizing Impactful Outcomes: User Stories, Estimation, and Velocity'
+  - Pivotal/Tanzu Labs
+title: "Prioritizing Impactful Outcomes: User Stories, Estimation, and Velocity"
 weight: 40
 oldPath: "/content/outcomes/application-development/prioritizing-outcomes.md"
 aliases:
-- "/outcomes/application-development/prioritizing-outcomes"
+  - "/outcomes/application-development/prioritizing-outcomes"
 tags: []
 ---
 
-Being busy isn’t always the same as making progress towards an important goal. To make progress, the team has to know what to work on, why it is important, when one task is done and it’s time to move on to the next. The team also has to know what is the next most important and valuable thing to work on so they are always delivering the most impact to their end users. Using user stories estimated based on risk and  complexity that are ruthlessly prioritized using that that information is the best way we’ve seen to consistently and predictably deliver value forever.
+Being busy isn’t always the same as making progress towards an important goal. To make progress, the team has to know what to work on, why it is important, when one task is done and it’s time to move on to the next. The team also has to know what is the next most important and valuable thing to work on so they are always delivering the most impact to their end users. Using user stories estimated based on risk and complexity that are ruthlessly prioritized using that that information is the best way we’ve seen to consistently and predictably deliver value forever.
 
 ![Two People at a Whiteboard](/images/outcomes/application-development/whiteboard2.jpg)
 
@@ -20,10 +20,9 @@ Being busy isn’t always the same as making progress towards an important goal.
 
 In this article, you will learn to:
 
-* [Define what a user story is and why they are useful.](#stories)
-* [Describe the advantages of estimating work in terms of risk and complexity instead of time.](#estimation)
-* [Describe how measuring velocity enables teams to predict delivery.](#velocity)
-
+- [Define what a user story is and why they are useful.](#stories)
+- [Describe the advantages of estimating work in terms of risk and complexity instead of time.](#estimation)
+- [Describe how measuring velocity enables teams to predict delivery.](#velocity)
 
 ## Define What a User Story is and Why They are Useful{id=stories}
 
@@ -42,7 +41,6 @@ A story’s position in the backlog **makes its priority clear**; the most impor
 ![Prioritized Team User Story Backlog](/images/outcomes/application-development/backlog.png)
 
 Finally, a user story provides a common way to talk about the **goals, motivations, and definitions of success** of your end users. By carefully crafting user stories based on an understanding of your users, you are more likely to build something that delivers value to them.
-
 
 ### Structure of a User Story
 
@@ -82,14 +80,13 @@ Example:
 
 #### Acceptance Criteria
 
-Acceptance criteria list the scenarios the product manager uses to verify that the story is complete. [Behavioral Specification](https://en.wikipedia.org/wiki/Behavior-driven_development#Behavioral_specifications) is a common format, also called the [Gherkin](https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language) language:
+Acceptance criteria list the scenarios the product manager uses to verify that the story is complete. [Behavioral Specification](https://en.wikipedia.org/wiki/Behavior-driven_development#Behavioral_specifications) is a common format, also called the [Gherkin](<https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language>) language:
 
 GIVEN `situation or context`
 
 WHEN `some action is carried out`
 
 THEN `some consequences`
-
 
 {{% callout %}}
 Example:
@@ -147,9 +144,9 @@ Simply put: [people are bad at estimating how long it will take to complete task
 
 Agile software teams use **estimation** to understand the relative complexity of delivering a story. They do this because:
 
-* It helps the team understand and compare the development cost of new features, and make decisions accordingly.
-* It allows the team to get to a shared understanding of the story and the risks or unknowns they could encounter.
-* Over time, estimates can be used to predict how long it will take to deliver a particular feature or release.
+- It helps the team understand and compare the development cost of new features, and make decisions accordingly.
+- It allows the team to get to a shared understanding of the story and the risks or unknowns they could encounter.
+- Over time, estimates can be used to predict how long it will take to deliver a particular feature or release.
 
 When discussing a story, usually in an [iteration or sprint planning meeting](https://tanzu.vmware.com/developer/practices/ipm/), teams will estimate the size of a story in terms of **story points**. Story points measure a story’s complexity and risk. Teams use different scales. For example:
 
@@ -183,10 +180,9 @@ If the number of story points a team delivers varies widely across multiple iter
 
 ## In this Article, You Learned to
 
-* Define what a user story is and why they are useful.
-* Describe the advantages of estimating work in terms of risk and complexity instead of time.
-* Describe how measuring velocity enables teams to predict delivery
-
+- Define what a user story is and why they are useful.
+- Describe the advantages of estimating work in terms of risk and complexity instead of time.
+- Describe how measuring velocity enables teams to predict delivery
 
 ## Keep Learning
 
@@ -198,8 +194,8 @@ Learn more about user stories in [User Story Mapping: Discover the Whole Story, 
 
 ## Related Topics
 
-* Teaming
-* Discovery and Framing process
-* Agile
-* Lean
-* User Centered Design
+- Teaming
+- Discovery and Framing process
+- Agile
+- Lean
+- User Centered Design

@@ -1,18 +1,18 @@
 ---
-date: '2021-02-09'
+date: "2021-02-09"
 description: Implement a tilt-based development workflow for Kubernetes.
-lastmod: '2021-02-09'
+lastmod: "2021-02-09"
 linkTitle: Getting Started with Tilt
 parent: Developer Workflow
 tags:
-- Tilt
-- Kubernetes
+  - Tilt
+  - Kubernetes
 team:
-- John Harris
+  - John Harris
 title: Getting Started with Tilt
 oldPath: "/content/guides/kubernetes/dev-workflow-tilt.md"
 aliases:
-- "/guides/kubernetes/dev-workflow-tilt"
+  - "/guides/kubernetes/dev-workflow-tilt"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -25,31 +25,31 @@ outlined below.
 1. Save changes in code editor
 2. Build and tag Docker image
 
-    ```shell
-    docker build -t <repository_name>/<image_name>:<tag> .
-    ```
+   ```shell
+   docker build -t <repository_name>/<image_name>:<tag> .
+   ```
 
 3. Push Docker image to registry
 
-    ```shell
-    docker push <repository_name>/<image_name>:<tag>
-    ```
+   ```shell
+   docker push <repository_name>/<image_name>:<tag>
+   ```
 
 4. Re-deploy Kubernetes manifests
 
-    ```shell
-    kubectl delete -f deployment.yaml
-    kubectl apply -f deployment.yaml
-    ```
+   ```shell
+   kubectl delete -f deployment.yaml
+   kubectl apply -f deployment.yaml
+   ```
 
 5. Run commands to observe changes in test environment
 
-    ```shell
-    kubectl describe pod <pod_name>
-    kubectl logs <pod_name>
-    kubectl port-forward deployment/<deployment_name> 8080:8080
-    curl localhost:8080
-    ```
+   ```shell
+   kubectl describe pod <pod_name>
+   kubectl logs <pod_name>
+   kubectl port-forward deployment/<deployment_name> 8080:8080
+   curl localhost:8080
+   ```
 
 This workflow represents the "inner-loop" of development in a cloud-native
 application. More specifically, these are actions performed many times by a
@@ -118,8 +118,8 @@ func main() {
         ReadTimeout:  5 * time.Second,
         WriteTimeout: 5 * time.Second,
     }
-    // Make a channel to listen for errors coming from the listener. 
-    // Use a buffered channel so the goroutine can exit if we don't 
+    // Make a channel to listen for errors coming from the listener.
+    // Use a buffered channel so the goroutine can exit if we don't
     // collect this error.
     serverErrors := make(chan error, 1)
     // Start the service listening for requests.
@@ -127,8 +127,8 @@ func main() {
         log.Printf("main : API listening on %s", api.Addr)
         serverErrors <- api.ListenAndServe()
     }()
-    // Make a channel to listen for an interrupt or terminate signal 
-    // from the OS. Use a buffered channel because the signal package 
+    // Make a channel to listen for an interrupt or terminate signal
+    // from the OS. Use a buffered channel because the signal package
     // requires it.
     shutdown := make(chan os.Signal, 1)
     signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
@@ -148,13 +148,13 @@ func main() {
         err := api.Shutdown(ctx)
         if err != nil {
             log.Printf(
-                "main : Graceful shutdown did not complete in %v : %v", 
+                "main : Graceful shutdown did not complete in %v : %v",
                 timeout, err)
             err = api.Close()
         }
         if err != nil {
             log.Fatalf(
-                "main : could not stop server gracefully : %v", 
+                "main : could not stop server gracefully : %v",
                 err)
         }
     }
@@ -225,15 +225,15 @@ spec:
     spec:
       imagePullSecrets:
         # Reference the Secret described in the .yaml found below
-        - name: regcred 
+        - name: regcred
       containers:
-      - name: hello-world
-        image: hub.docker.com/example_repository/hello-world
-        imagePullPolicy: Always
-        ports:
         - name: hello-world
-          containerPort: 8080
-        resources: {}
+          image: hub.docker.com/example_repository/hello-world
+          imagePullPolicy: Always
+          ports:
+            - name: hello-world
+              containerPort: 8080
+          resources: {}
 ```
 
 During development, you will likely use a personal or shared image repository

@@ -8,7 +8,7 @@ layout: topic
 weight: 2
 icon: messaging
 description: >
-    Get your code in production quickly and safely
+  Get your code in production quickly and safely
 menu:
   main:
     parent: sections

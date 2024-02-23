@@ -1,9 +1,9 @@
 ---
-date: '2021-02-24'
+date: "2021-02-24"
 description: A workflow for tuning Kubernetes clusters
 keywords:
-- Kubernetes
-lastmod: '2021-02-24'
+  - Kubernetes
+lastmod: "2021-02-24"
 linkTitle: Cluster Tuning Guide
 parent: Workload Tenancy
 title: Cluster Tuning Guide
@@ -11,7 +11,7 @@ weight: 1800
 featured: true
 oldPath: "/content/guides/kubernetes/workload-tenancy-cluster-tuning.md"
 aliases:
-- "/guides/kubernetes/workload-tenancy-cluster-tuning"
+  - "/guides/kubernetes/workload-tenancy-cluster-tuning"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -348,15 +348,15 @@ begin the [eviction
 process.](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#evicting-end-user-pods)
 
 {{< table "table" >}}
-| Eviction Order | QoS        | Priority | Utilization | Usage / Request | Pod Label |
+| Eviction Order | QoS | Priority | Utilization | Usage / Request | Pod Label |
 | -------------- | ---------- | -------- | ----------- | --------------- | --------- |
-| 1              | BestEffort | 1        | 2%          | N/A             | D         |
-| 2              | BestEffort | 2        | 5%          | N/A             | C         |
-| 3              | BestEffort | 3        | 20%         | N/A             | A         |
-| 4              | BestEffort | 3        | 10%         | N/A             | B         |
-| 5              | Burstable  | 3        | N/A         | 2               | F         |
-| 6              | Burstable  | 2        | N/A         | 0.5             | E         |
-| 7              | Guaranteed | 1        | N/A         | 1               | G         |
+| 1 | BestEffort | 1 | 2% | N/A | D |
+| 2 | BestEffort | 2 | 5% | N/A | C |
+| 3 | BestEffort | 3 | 20% | N/A | A |
+| 4 | BestEffort | 3 | 10% | N/A | B |
+| 5 | Burstable | 3 | N/A | 2 | F |
+| 6 | Burstable | 2 | N/A | 0.5 | E |
+| 7 | Guaranteed | 1 | N/A | 1 | G |
 {{</ table >}}
 **Table 3: Eviction prioritization of pods from Figure 7**
 
@@ -732,9 +732,9 @@ function makes the following assumptions:
 {{< table "table" >}}
 | # of nodes (n) | maxUtilization(n) |
 | -------------- | ----------------- |
-| 2              | 50%               |
-| 3              | 66%               |
-| 10             | 90%               |
+| 2 | 50% |
+| 3 | 66% |
+| 10 | 90% |
 {{</ table >}}
 **Table 4: Example calculations of maximum node utilization with function from Figure 22**
 
@@ -752,12 +752,12 @@ output for this function.
 {{< table "table" >}}
 | # of nodes (n) | max # of node failures | node allocatable constraints | max utilization of nodes |
 | -------------- | ---------------------- | ---------------------------- | ------------------------ |
-| 2              | 1                      | 0                            | 50%                      |
-| 3              | 1                      | 0                            | 66%                      |
-| 10             | 1                      | 0                            | 90%                      |
-| 2              | 1                      | 0.2                          | 40%                      |
-| 3              | 1                      | 0.3                          | 56%                      |
-| 10             | 2                      | 0.5                          | 75%                      |
+| 2 | 1 | 0 | 50% |
+| 3 | 1 | 0 | 66% |
+| 10 | 1 | 0 | 90% |
+| 2 | 1 | 0.2 | 40% |
+| 3 | 1 | 0.3 | 56% |
+| 10 | 2 | 0.5 | 75% |
 {{</ table >}}
 **Table 5: Example calculation of maximum node utilization with function from Figure 23**
 

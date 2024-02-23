@@ -1,24 +1,24 @@
 ---
-date: '2021-02-24'
-lastmod: '2021-02-25'
+date: "2021-02-24"
+lastmod: "2021-02-25"
 linkTitle: Contour to Ingress and Beyond
 parent: Service Routing
 tags:
-- Kubernetes
-- Tanzu
-- Contour
-- Ingress
-- httproxy
-- istio
-- service mesh
-- network
+  - Kubernetes
+  - Tanzu
+  - Contour
+  - Ingress
+  - httproxy
+  - istio
+  - service mesh
+  - network
 team:
-- Paul Czarkowski
+  - Paul Czarkowski
 title: Getting Started with Contour - To Ingress and Beyond
 weight: 2
 oldPath: "/content/guides/kubernetes/service-routing-contour-to-ingress-and-beyond.md"
 aliases:
-- "/guides/kubernetes/service-routing-contour-to-ingress-and-beyond"
+  - "/guides/kubernetes/service-routing-contour-to-ingress-and-beyond"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 ---
@@ -54,18 +54,18 @@ Kubernetes CLI
 
 1. Verify access to your Kubernetes cluster
 
-    ```bash
-    $ kubectl version --short
-    Client Version: v1.20.2
-    Server Version: v1.19.3+vmware.1
-    ```
+   ```bash
+   $ kubectl version --short
+   Client Version: v1.20.2
+   Server Version: v1.19.3+vmware.1
+   ```
 
 1. Create a scratch directory to work from
 
-    ```bash
-    mkdir ~/scratch/contour-demo
-    cd ~/scratch/contour-demo
-    ```
+   ```bash
+   mkdir ~/scratch/contour-demo
+   cd ~/scratch/contour-demo
+   ```
 
 ### Installing Contour 1.12.0
 
@@ -80,61 +80,62 @@ however best practice would have you download them locally first for validation
 and repeatability.
 
 1. Download contour installation manifests
-    ```bash
-    wget https://projectcontour.io/quickstart/v1.12.0/contour.yaml
-    ```
+
+   ```bash
+   wget https://projectcontour.io/quickstart/v1.12.0/contour.yaml
+   ```
 
 1. View the manifests in your favorite local text editor
 
-    ```bash
-    less contour.yaml
-    ```
+   ```bash
+   less contour.yaml
+   ```
 
 1. Validate even further by doing a dry run install
 
-    ```bash
-    kubectl apply -f contour.yaml --dry-run=client
-    ```
+   ```bash
+   kubectl apply -f contour.yaml --dry-run=client
+   ```
 
 1. If that all looks good (and it should!), perform the actual install
 
-    ```bash
-    kubectl apply -f contour.yaml
-    ```
+   ```bash
+   kubectl apply -f contour.yaml
+   ```
 
 1. After a few moments you can confirm that its ready.
 
-    You're looking for both the **deployment** and **DaemonSet** to show as fully
-    Available, and a valid IP (or hostname) in the `EXTERNAL-IP` field of your
-    envoy **service**.
+   You're looking for both the **deployment** and **DaemonSet** to show as fully
+   Available, and a valid IP (or hostname) in the `EXTERNAL-IP` field of your
+   envoy **service**.
 
-    ```bash
-    $ kubectl -n projectcontour get deployment,daemonset,service
+   ```bash
+   $ kubectl -n projectcontour get deployment,daemonset,service
 
-      NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
-      deployment.apps/contour   2/2     2            2           2m18s
+     NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+     deployment.apps/contour   2/2     2            2           2m18s
 
-      NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-      daemonset.apps/envoy   3         3         3       3            3           <none>          2m17s
+     NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+     daemonset.apps/envoy   3         3         3       3            3           <none>          2m17s
 
-      NAME              TYPE           CLUSTER-IP       EXTERNAL-IP
-      PORT(S)                      AGE
-      service/contour   ClusterIP      100.71.191.199   <none>
-      8001/TCP                     2m18s
-      service/envoy     LoadBalancer   100.66.114.136   a36c85343e9284c1cb4236d844c31aab-1691151764.us-east-2.elb.amazonaws.com   80:30825/TCP,443:30515/TCP   2m18s
-    ```
+     NAME              TYPE           CLUSTER-IP       EXTERNAL-IP
+     PORT(S)                      AGE
+     service/contour   ClusterIP      100.71.191.199   <none>
+     8001/TCP                     2m18s
+     service/envoy     LoadBalancer   100.66.114.136   a36c85343e9284c1cb4236d844c31aab-1691151764.us-east-2.elb.amazonaws.com   80:30825/TCP,443:30515/TCP   2m18s
+   ```
 
-  1. Save the Ingress `EXTERNAL-IP` for later use as a [xip.io](http://xip.io) dynamic DNS host.
+1. Save the Ingress `EXTERNAL-IP` for later use as a [xip.io](http://xip.io) dynamic DNS host.
 
-  {{% aside title="Note for AWS Users" %}}
-  Since this is deployed in Amazon Web Services I had to resolve the hostname
-  using the `host` command, but in other clouds you will probably get an IP
-  address.
-  {{% /aside %}}
+{{% aside title="Note for AWS Users" %}}
+Since this is deployed in Amazon Web Services I had to resolve the hostname
+using the `host` command, but in other clouds you will probably get an IP
+address.
+{{% /aside %}}
 
-  ```bash
-  INGRESS_HOST=<external ip address from above>.xip.io
-  ```
+```bash
+INGRESS_HOST=<external ip address from above>.xip.io
+```
 
 ### Creating an Ingress using Contour 1.12.0
 
@@ -145,59 +146,59 @@ for later re-use.
 
 1. Create a namespace
 
-    ```bash
-    kubectl create namespace my-ingress-app -o yaml > my-ingress-app-namespace.yaml
-    ```
+   ```bash
+   kubectl create namespace my-ingress-app -o yaml > my-ingress-app-namespace.yaml
+   ```
 
 1. Create a deployment containing a basic nginx pod
 
-    ```bash
-    kubectl -n my-ingress-app create deployment --image=nginx \
-      nginx -o yaml > my-ingress-app-deployment.yaml
-    ```
+   ```bash
+   kubectl -n my-ingress-app create deployment --image=nginx \
+     nginx -o yaml > my-ingress-app-deployment.yaml
+   ```
 
 1. Create a service for the deployment
 
-    ```bash
-    kubectl -n my-ingress-app expose deployment nginx --port 80 -o yaml > my-ingress-app-service.yaml
-    ```
+   ```bash
+   kubectl -n my-ingress-app expose deployment nginx --port 80 -o yaml > my-ingress-app-service.yaml
+   ```
 
 1. Finally create an Ingress for the service
 
-    ```bash
-    kubectl -n my-ingress-app create ingress nginx --class=default \
-      --rule="nginx.$INGRESS_HOST/*=nginx:80" -o yaml > my-ingress-app-ingress.yaml
-    ```
+   ```bash
+   kubectl -n my-ingress-app create ingress nginx --class=default \
+     --rule="nginx.$INGRESS_HOST/*=nginx:80" -o yaml > my-ingress-app-ingress.yaml
+   ```
 
 1. Validate that your resources are deployed and ready
 
-    ```bash
-    $ kubectl -n my-ingress-app get all,ingress
+   ```bash
+   $ kubectl -n my-ingress-app get all,ingress
 
-    Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
-    NAME                         READY   STATUS    RESTARTS   AGE
-    pod/nginx-6799fc88d8-dphdt   1/1     Running   0          13m
+   Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
+   NAME                         READY   STATUS    RESTARTS   AGE
+   pod/nginx-6799fc88d8-dphdt   1/1     Running   0          13m
 
-    NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
-    service/nginx   ClusterIP   100.69.247.38   <none>        80/TCP    12m
+   NAME            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)   AGE
+   service/nginx   ClusterIP   100.69.247.38   <none>        80/TCP    12m
 
-    NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
-    deployment.apps/nginx   1/1     1            1           13m
+   NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+   deployment.apps/nginx   1/1     1            1           13m
 
-    NAME                               DESIRED   CURRENT   READY   AGE
-    replicaset.apps/nginx-6799fc88d8   1         1         1       13m
+   NAME                               DESIRED   CURRENT   READY   AGE
+   replicaset.apps/nginx-6799fc88d8   1         1         1       13m
 
-    NAME                       CLASS     HOSTS                                                                     ADDRESS                                                                   PORTS   AGE
-    ingress.extensions/nginx   default   a36c85343e9284c1cb4236d844c31acb-1691151764.us-east-2.elb.amazonaws.com   a36c85343e9284c1cb4236d844c31acb-1691151764.us-east-2.elb.amazonaws.com   80      51s
-    ```
+   NAME                       CLASS     HOSTS                                                                     ADDRESS                                                                   PORTS   AGE
+   ingress.extensions/nginx   default   a36c85343e9284c1cb4236d844c31acb-1691151764.us-east-2.elb.amazonaws.com   a36c85343e9284c1cb4236d844c31acb-1691151764.us-east-2.elb.amazonaws.com   80      51s
+   ```
 
 1. Validate that you can access the application
 
-    ```bash
-    $ curl -s nginx.3.13.150.109.xip.io  | grep h1
+   ```bash
+   $ curl -s nginx.3.13.150.109.xip.io  | grep h1
 
-    <h1>Welcome to nginx!</h1>
-    ```
+   <h1>Welcome to nginx!</h1>
+   ```
 
 Congratulations! If you see the **Welcome to nginx!** message, that means you've
 successfully installed and tested Contour as an Ingress Controller. However its
@@ -240,23 +241,23 @@ As we did earlier we'll start by deploying a nginx **Pod** and a **Service**.
 
 1. Create a namespace
 
-    ```bash
-    kubectl create namespace http-proxy -o yaml > http-proxy-namespace.yaml
-    ```
+   ```bash
+   kubectl create namespace http-proxy -o yaml > http-proxy-namespace.yaml
+   ```
 
 1. Create a Deployment containing a basic nginx pod
 
-    ```bash
-    kubectl -n http-proxy create deployment --image=nginx \
-      nginx -o yaml > http-proxy-nginx-deployment.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy create deployment --image=nginx \
+     nginx -o yaml > http-proxy-nginx-deployment.yaml
+   ```
 
 1. Create a service for the deployment
 
-    ```bash
-    kubectl -n http-proxy expose deployment nginx --port 80 -o yaml \
-      > http-proxy-nginx-service.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy expose deployment nginx --port 80 -o yaml \
+     > http-proxy-nginx-service.yaml
+   ```
 
 Now that we have the Deployment and Service created we can create the HTTPProxy
 resource. Unfortunately we can't just sling a `kubectl create httpproxy` like we
@@ -264,44 +265,44 @@ could with the other resources so we'll need to get creative.
 
 1. Create a HTTPProxy manifest
 
-    ```bash
-    cat << EOF > http-proxy.yaml
-    apiVersion: projectcontour.io/v1
-    kind: HTTPProxy
-    metadata:
-      name: www
-      namespace: http-proxy
-    spec:
-      virtualhost:
-        fqdn: www.$INGRESS_HOST
-      routes:
-        - conditions:
-          - prefix: /
-          services:
-            - name: nginx
-              port: 80
-    EOF
-    ```
+   ```bash
+   cat << EOF > http-proxy.yaml
+   apiVersion: projectcontour.io/v1
+   kind: HTTPProxy
+   metadata:
+     name: www
+     namespace: http-proxy
+   spec:
+     virtualhost:
+       fqdn: www.$INGRESS_HOST
+     routes:
+       - conditions:
+         - prefix: /
+         services:
+           - name: nginx
+             port: 80
+   EOF
+   ```
 
 1. Apply the HTTPProxy manifest
 
-    ```bash
-    kubectl apply -n http-proxy -f http-proxy.yaml
-    ```
+   ```bash
+   kubectl apply -n http-proxy -f http-proxy.yaml
+   ```
 
 1. Wait a few moments and then attempt to access the nginx service
 
-    ```bash
-    curl -s www.3.13.150.109.xip.io | grep h1
-    <h1>Welcome to nginx!</h1>
-    ```
+   ```bash
+   curl -s www.3.13.150.109.xip.io | grep h1
+   <h1>Welcome to nginx!</h1>
+   ```
 
 #### Rate Limiting
 
 Now that your nginx is working via **HTTPProxy** we can look at some of the more
 advanced features. Let's start with Rate limiting. Contour 1.12.0 supports doing
-*local* rate limiting, which means that each Envoy **Pod** will have its own
-limits, vs a *global* rate limit which would need further coordination between
+_local_ rate limiting, which means that each Envoy **Pod** will have its own
+limits, vs a _global_ rate limit which would need further coordination between
 the Envoy **Pods**. You can also set the Rate limit for the virtualhost, or for
 a specific route.
 
@@ -312,54 +313,54 @@ able to hit the limit after 6 requests.
 
 1. Create a new **HTTPProxy** resource with rate limiting enabled
 
-    ```bash
-    cat << EOF > rate-limit.yaml
-    apiVersion: projectcontour.io/v1
-    kind: HTTPProxy
-    metadata:
-      name: rate
-      namespace: http-proxy
-    spec:
-      virtualhost:
-        fqdn: rate.$INGRESS_HOST
-        rateLimitPolicy:
-          local:
-            requests: 2
-            unit: minute
-      routes:
-        - conditions:
-          - prefix: /
-          services:
-            - name: nginx
-              port: 80
-    EOF
-    ```
+   ```bash
+   cat << EOF > rate-limit.yaml
+   apiVersion: projectcontour.io/v1
+   kind: HTTPProxy
+   metadata:
+     name: rate
+     namespace: http-proxy
+   spec:
+     virtualhost:
+       fqdn: rate.$INGRESS_HOST
+       rateLimitPolicy:
+         local:
+           requests: 2
+           unit: minute
+     routes:
+       - conditions:
+         - prefix: /
+         services:
+           - name: nginx
+             port: 80
+   EOF
+   ```
 
 1. Apply the new rate limited manifest:
 
-    ```bash
-    kubectl -n http-proxy apply -f rate-limit.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy apply -f rate-limit.yaml
+   ```
 
 1. Wait a few moments and then fire up a while loop to connecting to the service
    and watch it hit the limit after a few hits.
 
    Note: You'll need to hit CTRL-C to break the while loop.
 
-    ```bash
-    $ while true; do curl -s rate.$INGRESS_HOST | grep -E 'h1|rate' ; done
+   ```bash
+   $ while true; do curl -s rate.$INGRESS_HOST | grep -E 'h1|rate' ; done
 
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    local_rate_limited
-    local_rate_limited
-    local_rate_limited
-    ^C
-    ```
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   local_rate_limited
+   local_rate_limited
+   local_rate_limited
+   ^C
+   ```
 
 That's it, rate limiting is enabled. This is incredibly useful if you have a
 service with known limitations or you want to restrict any one user from
@@ -375,57 +376,57 @@ requests.
 
 1. Create a Deployment containing a basic httpd pod
 
-    ```bash
-    kubectl -n http-proxy create deployment --image=httpd \
-      httpd -o yaml > http-proxy-httpd-deployment.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy create deployment --image=httpd \
+     httpd -o yaml > http-proxy-httpd-deployment.yaml
+   ```
 
 1. Create a service for the deployment
 
-    ```bash
-    kubectl -n http-proxy expose deployment httpd --port 80 -o yaml \
-      > http-proxy-httpd-service.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy expose deployment httpd --port 80 -o yaml \
+     > http-proxy-httpd-service.yaml
+   ```
 
 1. Ensure the new **Pod** is available beside the existing nginx one.
 
-    ```bash
-    kubectl get pods -n http-proxy
-    NAME                     READY   STATUS    RESTARTS   AGE
-    httpd-757fb56c8d-kz476   1/1     Running   0          23s
-    nginx-6799fc88d8-jxvj7   1/1     Running   0          163m
-    ```
+   ```bash
+   kubectl get pods -n http-proxy
+   NAME                     READY   STATUS    RESTARTS   AGE
+   httpd-757fb56c8d-kz476   1/1     Running   0          23s
+   nginx-6799fc88d8-jxvj7   1/1     Running   0          163m
+   ```
 
 1. Create a **HTTPProxy** resource to perform weighted routing across the two services
 
-    ```bash
-    cat << EOF > weighted.yaml
-    apiVersion: projectcontour.io/v1
-    kind: HTTPProxy
-    metadata:
-      name: weight
-      namespace: http-proxy
-    spec:
-      virtualhost:
-        fqdn: weight.$INGRESS_HOST
-      routes:
-        - conditions:
-          - prefix: /
-          services:
-            - name: httpd
-              port: 80
-              weight: 10
-            - name: nginx
-              port: 80
-              weight: 90
-    EOF
-    ```
+   ```bash
+   cat << EOF > weighted.yaml
+   apiVersion: projectcontour.io/v1
+   kind: HTTPProxy
+   metadata:
+     name: weight
+     namespace: http-proxy
+   spec:
+     virtualhost:
+       fqdn: weight.$INGRESS_HOST
+     routes:
+       - conditions:
+         - prefix: /
+         services:
+           - name: httpd
+             port: 80
+             weight: 10
+           - name: nginx
+             port: 80
+             weight: 90
+   EOF
+   ```
 
 1. Apply the new resource
 
-    ```bash
-    kubectl -n http-proxy apply -f weighted.yaml
-    ```
+   ```bash
+   kubectl -n http-proxy apply -f weighted.yaml
+   ```
 
 1. Test the weighting
 
@@ -433,24 +434,24 @@ requests.
    is applied per Envoy **Pod**, so it might not be exactly 10% for small test
    runs, but would statistically work out over time.
 
-    ```bash
-    $ while true; do curl -s weight.$INGRESS_HOST | grep h1 ; done
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <h1>Welcome to nginx!</h1>
-    <html><body><h1>It works!</h1></body></html>
-    ^C
-    ```
+   ```bash
+   $ while true; do curl -s weight.$INGRESS_HOST | grep h1 ; done
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <h1>Welcome to nginx!</h1>
+   <html><body><h1>It works!</h1></body></html>
+   ^C
+   ```
 
 That's it! we've successfully done a walk through of some of the new features of
 Contour 1.12.0 and tested out both Rate Limiting and Weighted Routing. Let's
@@ -460,16 +461,16 @@ clean up.
 
 1. Delete your http-proxy namespace and resources
 
-    ```bash
-    kubectl -n http-proxy delete -f .
-    ```
+   ```bash
+   kubectl -n http-proxy delete -f .
+   ```
 
 1. Uninstall Contour
 
-    ```bash
-    cd ..
-    kubectl delete -f contour.yaml
-    ```
+   ```bash
+   cd ..
+   kubectl delete -f contour.yaml
+   ```
 
 ### Conclusion
 

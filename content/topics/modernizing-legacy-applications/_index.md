@@ -8,7 +8,7 @@ layout: topic
 weight: 2
 icon: modernize
 description: >
-    Break down the monolith and build up existing applications
+  Break down the monolith and build up existing applications
 menu:
   main:
     parent: sections

@@ -1,24 +1,25 @@
 ---
 date: 2019-05-13
-description: Deploy a Spring Boot container image on Kubernetes using the Bitnami
+description:
+  Deploy a Spring Boot container image on Kubernetes using the Bitnami
   Apache Tomcat Helm chart.
-lastmod: '2021-02-05'
+lastmod: "2021-02-05"
 linkTitle: Spring Boot Production
 parent: Bitnami
 tags:
-- Bitnami
-- Spring Boot
-- Docker
-- Helm
-- Containers
-- Kubernetes
+  - Bitnami
+  - Spring Boot
+  - Docker
+  - Helm
+  - Containers
+  - Kubernetes
 team:
-- Raquel Campuzano
+  - Raquel Campuzano
 title: Move a Custom Spring Boot Application to Production Using Bitnami Helm Charts
 weight: 4
 oldPath: "/content/guides/containers/deploy-spring-boot-application-production-helm.md"
 aliases:
-- "/guides/containers/deploy-spring-boot-application-production-helm"
+  - "/guides/containers/deploy-spring-boot-application-production-helm"
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
@@ -31,25 +32,24 @@ This tutorial walks you through the process of deploying a Spring Boot container
 
 This guide makes the following assumptions:
 
-* You have basic knowledge of [Docker](https://www.docker.com/) containers.
-* You have a Docker environment installed and configured. [Learn more about installing Docker](https://docs.docker.com/install/).
-* You have a Docker Hub account. [Register for a free account](https://hub.docker.com/).
-* You have a [Spring Boot container published](https://docs.bitnami.com/tutorials/deploy-locally-spring-boot-application-docker/#step-6-publish-the-docker-image) in a container registry (this tutorial assumes that you are using [Docker Hub](https://hub.docker.com/)).
-* You have a [Kubernetes cluster running](https://docs.bitnami.com/kubernetes/) in the platform of your choice. This tutorial uses [Minikube](https://docs.bitnami.com/kubernetes/get-started-kubernetes/).
-* You have the [*kubectl* command line (*kubectl* CLI)](https://docs.bitnami.com/kubernetes/get-started-kubernetes/#step-3-install-kubectl-command-line) installed.
-* You have [Helm v3.x](https://docs.bitnami.com/kubernetes/get-started-kubernetes/#step-4-install-helm) installed.
+- You have basic knowledge of [Docker](https://www.docker.com/) containers.
+- You have a Docker environment installed and configured. [Learn more about installing Docker](https://docs.docker.com/install/).
+- You have a Docker Hub account. [Register for a free account](https://hub.docker.com/).
+- You have a [Spring Boot container published](https://docs.bitnami.com/tutorials/deploy-locally-spring-boot-application-docker/#step-6-publish-the-docker-image) in a container registry (this tutorial assumes that you are using [Docker Hub](https://hub.docker.com/)).
+- You have a [Kubernetes cluster running](https://docs.bitnami.com/kubernetes/) in the platform of your choice. This tutorial uses [Minikube](https://docs.bitnami.com/kubernetes/get-started-kubernetes/).
+- You have the [_kubectl_ command line (_kubectl_ CLI)](https://docs.bitnami.com/kubernetes/get-started-kubernetes/#step-3-install-kubectl-command-line) installed.
+- You have [Helm v3.x](https://docs.bitnami.com/kubernetes/get-started-kubernetes/#step-4-install-helm) installed.
 
 The following are the steps you will complete in this guide:
 
-* Step 1: Create the Helm chart
-* Step 2: Adapt the Helm chart to include the source code and database
-* Step 3: Create a secret to secure the deployment
-* Step 4: Deploy the example application in Kubernetes
+- Step 1: Create the Helm chart
+- Step 2: Adapt the Helm chart to include the source code and database
+- Step 3: Create a secret to secure the deployment
+- Step 4: Deploy the example application in Kubernetes
 
 {{% callout %}}
 **Note**: Learn how to create a Spring Boot Docker container image in the [Deploy locally a Spring Boot application using Bitnami containers](../deploy-locally-spring-boot-application-docker) guide.
 {{% /callout %}}
-
 
 ## Step 1: Create the Helm chart
 
@@ -65,7 +65,7 @@ This will create a folder in your local system that contains all the files requi
 
 The first step consists of adapting the current Bitnami Tomcat Helm chart to include the sample Spring Boot container image and MariaDB as a database. Then, connect both pods when deploying the resulting chart. Follow the instructions below:
 
-* Change to the *tomcat* directory and create a file named *requirements.yaml* with the content below to include MariaDB as a dependency:
+- Change to the _tomcat_ directory and create a file named _requirements.yaml_ with the content below to include MariaDB as a dependency:
 
   ```plaintext
   dependencies:
@@ -77,7 +77,7 @@ The first step consists of adapting the current Bitnami Tomcat Helm chart to inc
       - spring-java-app-database
   ```
 
-* Edit the *values.yaml* file and replace the default values with the following to include your image. Remember to replace the DOCKER_USERNAME placeholder with your Docker account username.
+- Edit the _values.yaml_ file and replace the default values with the following to include your image. Remember to replace the DOCKER_USERNAME placeholder with your Docker account username.
 
   ```plaintext
   [...]
@@ -87,7 +87,7 @@ The first step consists of adapting the current Bitnami Tomcat Helm chart to inc
      tag: latest
   ```
 
-* Add the following lines at the end of the *values.yaml* file to specify the database:
+- Add the following lines at the end of the _values.yaml_ file to specify the database:
 
   ```plaintext
   [...]
@@ -108,7 +108,7 @@ The first step consists of adapting the current Bitnami Tomcat Helm chart to inc
     password: ThePassword
   ```
 
-* Edit the *templates/_helpers.tpl* and add the lines below to generate the name of the MariaDB service so the application will be able to connect to it:
+- Edit the _templates/\_helpers.tpl_ and add the lines below to generate the name of the MariaDB service so the application will be able to connect to it:
 
   ```plaintext
   {{/*
@@ -124,7 +124,7 @@ The first step consists of adapting the current Bitnami Tomcat Helm chart to inc
 
 The next step is to create a secret for the Spring Boot application that secures the connection between the application and the database. Follow these instructions:
 
-* In the *templates* directory, create a file named *spring-secret.yaml* that includes the following content:
+- In the _templates_ directory, create a file named _spring-secret.yaml_ that includes the following content:
 
   ```plaintext
   apiVersion: v1
@@ -141,7 +141,7 @@ The next step is to create a secret for the Spring Boot application that secures
     spring-db: {{ printf "{\"spring\": {\"datasource\":{\"url\": \"jdbc:mysql://%s:3306/%s\", \"username\": \"%s\", \"password\": \"%s\"}}}" (include "mariadb.fullname" .) .Values.mariadb.db.name .Values.mariadb.db.user .Values.mariadb.db.password | b64enc }}
   ```
 
-* Edit the *templates/deployment.yaml* file to add the lines below. These refer to the secret created in the step above:
+- Edit the _templates/deployment.yaml_ file to add the lines below. These refer to the secret created in the step above:
 
   ```plaintext
   [...]
@@ -165,19 +165,19 @@ Before deploying the resulting Helm chart, make sure that you can connect to you
 kubectl cluster-info
 ```
 
-* Execute the command below to install missing dependencies. In this case, it will install the database that we have indicated in the *requirements.yaml* file:
+- Execute the command below to install missing dependencies. In this case, it will install the database that we have indicated in the _requirements.yaml_ file:
 
   ```plaintext
   helm dependency update .
   ```
 
-* Deploy the chart by executing the *helm install* command. It is recommended to install it by passing a name using the */--n* flag.
+- Deploy the chart by executing the _helm install_ command. It is recommended to install it by passing a name using the _/--n_ flag.
 
   ```plaintext
   helm install spring-java .
   ```
 
-* Check that all pods are ready by executing the *kubectl get pods* command. Take into account that the database pod takes more time to be deployed than the Tomcat pod, is possible that the *kubectl logs* command show errors during that time.
+- Check that all pods are ready by executing the _kubectl get pods_ command. Take into account that the database pod takes more time to be deployed than the Tomcat pod, is possible that the _kubectl logs_ command show errors during that time.
 
   ```plaintext
   kubectl get pods -w
@@ -187,20 +187,20 @@ kubectl cluster-info
 
   ![Pod status](images/get-pods.png)
 
-* To test that the Spring Boot application has been successfully deployed it is necessary to make it accessible from your local system. To do so, port forward the Tomcat pod as shown below. Replace *svc/spring-java-tomcat* with the name of the service that appears in your deployment:
+- To test that the Spring Boot application has been successfully deployed it is necessary to make it accessible from your local system. To do so, port forward the Tomcat pod as shown below. Replace _svc/spring-java-tomcat_ with the name of the service that appears in your deployment:
 
   ```plaintext
   kubectl port-forward svc/spring-java-tomcat 8080:80
   Forwarding from 127.0.0.1:8080 -> 8080
   ```
 
-* To test if the application works fine, open a new terminal and insert some data in the database by executing:
+- To test if the application works fine, open a new terminal and insert some data in the database by executing:
 
   ```plaintext
   curl 'localhost:8080/gs-mysql-data-0.1.0/demo/add?name=First&email=someemail@someemailprovider.com'
   ```
 
-* Query the application again to check if the data is present in the database:
+- Query the application again to check if the data is present in the database:
 
   ```plaintext
   curl 'localhost:8080/gs-mysql-data-0.1.0/demo/all'
@@ -216,12 +216,12 @@ Congratulations! You have your Spring Boot application running in a Kubernetes p
 
 ## Useful links
 
-* [Bitnami Kubernetes projects](https://bitnami.com/kubernetes)
-* [Deploy locally a Spring Boot application using Bitnami containers](../deploy-locally-spring-boot-application-docker)
-* [Get started with Kubernetes guides](https://docs.bitnami.com//kubernetes/)
-* [Deploy, Scale And Upgrade An Application On Kubernetes With Helm](https://docs.bitnami.com/tutorials/deploy-application-kubernetes-helm/)
-* [Bitnami Tomcat Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/tomcat)
-* [Bitnami Helm charts](https://github.com/bitnami/charts)
-* [Docker Hub](https://hub.docker.com/)
-* [Spring Boot official site](https://spring.io/projects/spring-boot)
-* [Bitnami tutorials repository](https://github.com/bitnami/tutorials)
+- [Bitnami Kubernetes projects](https://bitnami.com/kubernetes)
+- [Deploy locally a Spring Boot application using Bitnami containers](../deploy-locally-spring-boot-application-docker)
+- [Get started with Kubernetes guides](https://docs.bitnami.com//kubernetes/)
+- [Deploy, Scale And Upgrade An Application On Kubernetes With Helm](https://docs.bitnami.com/tutorials/deploy-application-kubernetes-helm/)
+- [Bitnami Tomcat Helm chart](https://github.com/bitnami/charts/tree/master/bitnami/tomcat)
+- [Bitnami Helm charts](https://github.com/bitnami/charts)
+- [Docker Hub](https://hub.docker.com/)
+- [Spring Boot official site](https://spring.io/projects/spring-boot)
+- [Bitnami tutorials repository](https://github.com/bitnami/tutorials)

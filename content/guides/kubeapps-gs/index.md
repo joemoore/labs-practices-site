@@ -1,22 +1,23 @@
 ---
-date: '2020-04-23'
-description: Walk through the process of deploying Kubeapps for your cluster and installing
+date: "2020-04-23"
+description:
+  Walk through the process of deploying Kubeapps for your cluster and installing
   an example application with this step-by-step Kubeapps guide.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 parent: Packaging
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Kubeapps
-- Getting Started
-- Kubernetes
+  - Kubeapps
+  - Getting Started
+  - Kubernetes
 team:
-- Tiffany Jernigan
+  - Tiffany Jernigan
 title: Getting Started with Kubeapps
 weight: 6
 oldPath: "/content/guides/kubernetes/kubeapps-gs.md"
 aliases:
-- "/guides/kubernetes/kubeapps-gs"
+  - "/guides/kubernetes/kubeapps-gs"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -145,7 +146,7 @@ Kubeapps dashboard for Kubernetes.
 
 ![Dashboard main page](images/dashboard-home.png)
 
-***Note:*** If you are setting up Kubeapps for other people to access, you will
+**_Note:_** If you are setting up Kubeapps for other people to access, you will
 want to use a different service type or setup Ingress rather than using the
 above `kubectl port-forward`. For detailed information on installing,
 configuring and upgrading Kubeapps, checkout the
@@ -191,7 +192,6 @@ to run `minikube tunnel` in your terminal in order for an IP address to be
 assigned to your application.
 {{% /callout %}}
 
-
 ![WordPress deployment notes](images/wordpress-url.png)
 
 To get the credentials for logging into your WordPress account, refer to the
@@ -201,6 +201,7 @@ To get the credentials for logging into your WordPress account, refer to the
 ![WordPress deployment notes](images/wordpress-credentials.png)
 
 ## [Optional] Step 5: Uninstall/Delete WordPress
+
 If you want to uninstall/delete your WordPress application, you can do so by
 clicking the "Delete" button. You can choose to click the checkbox for "Purge
 Release" (default action with the Helm 3 CLI). If you do not click it, the Helm

@@ -1,15 +1,15 @@
 ---
-date: '2021-02-16'
-lastmod: '2021-02-24'
+date: "2021-02-16"
+lastmod: "2021-02-24"
 parent: Application Enhancements
 tags:
-- Kubernetes
+  - Kubernetes
 team:
-- John Harris
+  - John Harris
 title: Probing Application State
 oldPath: "/content/guides/kubernetes/app-enhancements-probing-app-state.md"
 aliases:
-- "/guides/kubernetes/app-enhancements-probing-app-state"
+  - "/guides/kubernetes/app-enhancements-probing-app-state"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -124,7 +124,6 @@ The following diagram demonstrates the impact of this `livenessProbe`.
 {{% callout %}}
 **Note**: Startup Probes are not enabled by default until Kubernetes 1.18. Until then, they need to be enabled via `--feature-gates` on the `kube-apiserver` and the `kubelet` in each node.
 {{% /callout %}}
-
 
 Sometimes a `livenessProbe` might be ideal as an ongoing check,
 but not necessarily for initialization time.

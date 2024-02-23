@@ -1,36 +1,38 @@
 ---
-date: '2021-02-09'
-description: Help the team understand the circumstances surrounding the problem they’re
+date: "2021-02-09"
+description:
+  Help the team understand the circumstances surrounding the problem they’re
   attempting to solve
 
-lastmod: '2021-03-17'
+lastmod: "2021-03-17"
 length: 45-60 min
 participants: Core team
 tags:
-- Discovery
-- Framing
-- Remote
+  - Discovery
+  - Framing
+  - Remote
 title: Scenario Writing
 what:
-- Whiteboard or digital version like [Miro](https://miro.com/)
-- Dry erase markers
-- Output from **Personas** workshop
-- Tape
+  - Whiteboard or digital version like [Miro](https://miro.com/)
+  - Dry erase markers
+  - Output from **Personas** workshop
+  - Tape
 when:
-- You can write scenarios during Discovery to outline the existing experience, but
-  they are usually written in Framing (or Delivery) to capture an idealized experience
-  and often followed by a Design Studio
+  - You can write scenarios during Discovery to outline the existing experience, but
+    they are usually written in Framing (or Delivery) to capture an idealized experience
+    and often followed by a Design Studio
 why:
-- This activity allows the team to tell a story about either the user's current, potentially
-  frustrating experience with the core problem or their future, ideally positive experience
-  after the team’s solution is in place. Doing this provides structure in advance
-  of exploratory research—drawing out areas to probe—or leverages what the team has
-  learned to support solution sketching.
+  - This activity allows the team to tell a story about either the user's current, potentially
+    frustrating experience with the core problem or their future, ideally positive experience
+    after the team’s solution is in place. Doing this provides structure in advance
+    of exploratory research—drawing out areas to probe—or leverages what the team has
+    learned to support solution sketching.
 ---
 
 ## How to Use this Method
 
 {{% section %}}
+
 ### Sample Agenda & Prompts
 
 1. Create four columns on the physical or digital whiteboard and label each with the following:
@@ -43,7 +45,7 @@ why:
    {{% callout %}}
    **Tip**: If time is short and/or the full team is busy with other work, you can also do this activity by yourself/with your pair using the word processing program of your choice
    {{% /callout %}}
-   
+
 1. Begin by defining the **user**, ideally using the persona(s) your team has created. What you write should answer these questions:
 
    - Who is this person?
@@ -54,6 +56,7 @@ why:
    {{% /callout %}}
 
    You can lead the team in creating a well-formed persona using the [Personas](/practices/personas) activity
+
 1. Next, define the **goal** of the scenario. What you write should answer these questions:
 
    - What is the user trying to accomplish?
@@ -75,14 +78,17 @@ why:
    {{% callout %}}
    **Tip**: If you’re writing a scenario for the future state, be careful not to be too prescriptive in how you capture the solution. Leave enough ambiguity so that the team has space to ideate broadly.
    {{% /callout %}}
-{{% /section %}}
+   {{% /section %}}
 
 {{% section %}}
+
 ### Success/Expected Outcomes
+
 You’ve succeeded once you feel the team understands the scope of current or future scenario and could confidently use it to support subsequent activities (research, design studio, etc.)
 {{% /section %}}
 
 {{% section %}}
+
 ### Facilitator Notes & Tips
 
 Example of a **current state** scenario:  
@@ -93,13 +99,16 @@ How sheep farmers will purchase sheep via the internet with the new product
 {{% /section %}}
 
 {{% section %}}
+
 ### Preceding
+
 - [Personas](/practices/personas)
 - [Problem Prioritization](/practices/problem-prioritization)
 - [Insight Prioritization](/practices/insight-prioritization)  
-{{% /section %}}
+  {{% /section %}}
 
 {{% section %}}
+
 ### Following
 
 [Design Studio](/practices/design-studio)

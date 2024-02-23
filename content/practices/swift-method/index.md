@@ -1,52 +1,55 @@
 ---
-date: '2021-02-11'
-description: A set of lightweight techniques using agile and Domain Driven Design
+date: "2021-02-11"
+description:
+  A set of lightweight techniques using agile and Domain Driven Design
   (DDD) principles that help teams plan enough to start modernizing software systems
 resources:
-- name: cover
-  src: images/swift.png
-lastmod: '2021-03-04'
+  - name: cover
+    src: images/swift.png
+lastmod: "2021-03-04"
 length: 2-4 days if done end-to-end
 participants: Business stakeholders, architects, technical leads, developers
 tags:
-- Kickoff
-- Discovery
-- Framing
-- Modernization
+  - Kickoff
+  - Discovery
+  - Framing
+  - Modernization
 title: Swift Method
 what:
-- Sticky arrow flags
-- Whiteboard tape - black, green, red; 2 rolls of each
-- Scissors
-- Scotch tape
-- Dry Erase Surface (3 ft x 2 ft)
-- Super sticky 4x6 multicolor sticky notes, 4 pack
+  - Sticky arrow flags
+  - Whiteboard tape - black, green, red; 2 rolls of each
+  - Scissors
+  - Scotch tape
+  - Dry Erase Surface (3 ft x 2 ft)
+  - Super sticky 4x6 multicolor sticky notes, 4 pack
 when:
-- Jumpstart application modernization initiatives in an iterative fashion. This is
-  the core method of the [App Navigator](https://tanzu.vmware.com/application-modernization),
-  which can be a short consulting engagement that quickly reviews current business
-  functionality and plans “to be” architecture. Our experts practice the Swift method
-  to discover architecture, boundaries, points of risk or concern, and then map a
-  direction to move from current state to future state.
+  - Jumpstart application modernization initiatives in an iterative fashion. This is
+    the core method of the [App Navigator](https://tanzu.vmware.com/application-modernization),
+    which can be a short consulting engagement that quickly reviews current business
+    functionality and plans “to be” architecture. Our experts practice the Swift method
+    to discover architecture, boundaries, points of risk or concern, and then map a
+    direction to move from current state to future state.
 why:
-- Align business leaders and technical practitioners. Use this approach to break down
-  a system of systems, and develop a notional architectural plan that maps future
-  goals with the way the system “wants to behave.” We’ve found this to be especially
-  important for critical systems modernization. - Inform decisions on how to organize
-  development teams, and prioritize work from both a business and technical perspective.
-  It’s also helpful as a “catch-all” way to define a path between the status quo and
-  the desired state.
+  - Align business leaders and technical practitioners. Use this approach to break down
+    a system of systems, and develop a notional architectural plan that maps future
+    goals with the way the system “wants to behave.” We’ve found this to be especially
+    important for critical systems modernization. - Inform decisions on how to organize
+    development teams, and prioritize work from both a business and technical perspective.
+    It’s also helpful as a “catch-all” way to define a path between the status quo and
+    the desired state.
 ---
 
 ## How to Use this Method
 
 {{% section %}}
+
 ### Sample Agenda & Prompts
+
 1. [Event Storm](/practices/event-storming) the system, using language that business and technical people understand.
 
 1. Conduct a [Boris](/practices/boris) exercise that models the relationships between capabilities in a system. Conduct a SNAP that documents the technical capabilities identified during Boris in real time.
 
-    ![SNAP analysis](images/snap.jpg)
+   ![SNAP analysis](images/snap.jpg)
 
 1. Identify thin slices of modernization.
 
@@ -63,27 +66,31 @@ why:
    **Tip**: In order to determine the right MVPs for your system you have to consider thin vertical end to end slices where these domains interact with one another. The MVPs map a path from ["strangling the monolith"](https://tanzu.vmware.com/content/blog/strangling-a-monolith-by-focusing-on-roi) and leveraging tactical patterns to interact with the new domains and services.
    {{% /callout %}}
 
-1. As you define the slices, leverage tactical implementation patterns  like <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer" target="_blank">anti-corruption layer</a>, <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">Facade</a>, <a href="https://www.swiftbird.us/docket-choreography" target="_blank">Docket Based Choreography</a>, and <a href="https://martinfowler.com/bliki/StranglerFigApplication.html" target="_blank">Strangler</a> so that the newer or strangled services coexist together with the older legacy system
+1. As you define the slices, leverage tactical implementation patterns like <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer" target="_blank">anti-corruption layer</a>, <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">Facade</a>, <a href="https://www.swiftbird.us/docket-choreography" target="_blank">Docket Based Choreography</a>, and <a href="https://martinfowler.com/bliki/StranglerFigApplication.html" target="_blank">Strangler</a> so that the newer or strangled services coexist together with the older legacy system
 
-1. Create a backlog of prioritized user stories tied back to ***goals*** (practice coming soon) / OKRs. Map user stories to MVP or releases.
+1. Create a backlog of prioritized user stories tied back to **_goals_** (practice coming soon) / OKRs. Map user stories to MVP or releases.
 
    {{% callout %}}
    **Tip**: User story impact mapping is a technique that can be applied for mapping stories to MVPs and releases. Here's a <a href="https://blog.eriksen.com.br/en/mapping-domain-knowledge" target="_blank">blog post</a> that explains how to combine User Story Mapping with DDD.
    {{% /callout %}}
+
 1. Start hands-on experimentation, feedback, and iterative progress.
-{{% /section %}}
+   {{% /section %}}
 
 {{% section %}}
+
 ### Success/Expected Outcomes
+
 - Quickly discover current system capabilities, create an aspirational target architecture, identify underlying areas of concern and agree on prioritization
 - Discuss and understand notional solutions, tactical fixes, potential trade-offs, framed in an incremental, measured way
 - Architectural work to validate / invalidate assumptions and help inform solutions / fixes
 - Develop approach to incrementally modernize services
 - Definition of solution(s) with associated business outcomes using an “everything on the table” approach
-- A  plan of tactical steps that starts small, scales & enables customer developers and architects to move forward confidently.
-{{% /section %}}
+- A plan of tactical steps that starts small, scales & enables customer developers and architects to move forward confidently.
+  {{% /section %}}
 
 {{% section %}}
+
 ### Facilitator Notes & Tips
 
 A good facilitator should be able to drive out how a system should be designed based on supporting the business capabilities from a DDD perspective.
@@ -92,14 +99,17 @@ This notional architecture now represents a good first cut direction of the syst
 {{% /section %}}
 
 {{% section %}}
+
 ### Related Practices
+
 Swift Method contains many activities, including:
 
 - [Event Storming](/practices/event-storming)
 - [Boris](/practices/boris)
-{{% /section %}}
+  {{% /section %}}
 
 {{% section %}}
+
 ### Real World Examples
 
 See the <a href="https://miro.com/app/board/o9J_kzaSk0E=/" target="_blank">Event Storming and Boris Training Miro board</a> for a detailed description of [Boris](/practices/boris) and the Swift Method of modernization for an Uber Eats-style application
@@ -108,6 +118,7 @@ See the <a href="https://miro.com/app/board/o9J_kzaSk0E=/" target="_blank">Event
 {{% /section %}}
 
 {{% section %}}
+
 ### Recommended Reading
 
 <a href="https://tanzu.vmware.com/content/white-papers/tackle-application-modernization-in-days-and-weeks-not-months-and-years" target="_blank">Tackle Application Modernization in Days and Weeks, Not Months and Years</a> (white paper)

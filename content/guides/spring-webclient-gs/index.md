@@ -1,8 +1,8 @@
 ---
 title: Getting Started with Spring WebClient
 description: Learn how to setup and use the Spring WebClient to make REST calls. Explore everything from basic calls to custom return items.
-date: '2022-01-11'
-lastmod: '2022-01-11'
+date: "2022-01-11"
+lastmod: "2022-01-11"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 tags:

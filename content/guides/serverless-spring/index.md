@@ -1,24 +1,24 @@
 ---
-date: '2022-10-31'
+date: "2022-10-31"
 description: Learn how to build and deploy serverless functions using Spring Boot and Spring Cloud Function.
-lastmod: '2022-10-31'
+lastmod: "2022-10-31"
 linkTitle: Serverless Spring
 patterns:
 subsection: Spring Boot
 tags:
-    - Getting Started
-    - Spring Boot
-    - Spring Cloud Function
-    - Serverless
+  - Getting Started
+  - Spring Boot
+  - Spring Cloud Function
+  - Serverless
 team:
-    - Dan Vega
+  - Dan Vega
 languages:
-    - java
+  - java
 langgettingstarted: true
 title: Serverless Spring
 weight: 2
 aliases:
-    - '/guides/spring/serverless-spring/'
+  - "/guides/spring/serverless-spring/"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -37,20 +37,20 @@ What happens in a scenario where you aren’t taking requests all day? Let’s s
 
 The answer to this no and its a perfect use case for moving this functionality to serverless functions. This isn’t the only reason why to reach for serverless though, it has many features:
 
--   **Scalability**: Serverless functions can be auto provisioned to scaled depending on load. This means that if your newsletter gets really popular you can be confident that the service will be able to handle the increase in traffic.
--   **Cost**: When it comes to serverless you only pay for what you use. This means that while your functions are not being used and just sitting idle you are not paying for them. ​​
--   **Security**: Serverless platforms are patching your systems and runtimes on your behalf and this is one less thing you need to manage.
+- **Scalability**: Serverless functions can be auto provisioned to scaled depending on load. This means that if your newsletter gets really popular you can be confident that the service will be able to handle the increase in traffic.
+- **Cost**: When it comes to serverless you only pay for what you use. This means that while your functions are not being used and just sitting idle you are not paying for them. ​​
+- **Security**: Serverless platforms are patching your systems and runtimes on your behalf and this is one less thing you need to manage.
 
 You just saw one good use case for serverless but we want to leave you with a few others that might peak your curiosity:
 
--   Full Application (Static Site + BaaS)
--   Backend as a Service (BaaS)
--   REST API
--   Authentication
--   Multimedia Transformation
--   Email Notification
--   Data Transformation
--   CRON Jobs
+- Full Application (Static Site + BaaS)
+- Backend as a Service (BaaS)
+- REST API
+- Authentication
+- Multimedia Transformation
+- Email Notification
+- Data Transformation
+- CRON Jobs
 
 ## Spring Cloud Function
 
@@ -62,9 +62,9 @@ This is where Spring Boot + [Spring Cloud Function](https://spring.io/projects/s
 
 Things you need to know before getting started:
 
--   The Spring Boot application you will follow along with today uses Java 11. The reason we are using an older version of Java is because the target platform (AWS) currently supports that.
--   Basic understanding of Java
--   Basic understanding of Spring Boot
+- The Spring Boot application you will follow along with today uses Java 11. The reason we are using an older version of Java is because the target platform (AWS) currently supports that.
+- Basic understanding of Java
+- Basic understanding of Spring Boot
 
 The final code for this guide can be located on [Github](https://github.com/danvega/newsletter-guide).
 
@@ -84,9 +84,9 @@ One of the main features of Spring Cloud Function is to adapt and support a rang
 
 Spring Cloud Function embraces and builds on top of the 3 core functional interfaces defined by Java and available to us since Java 8 in the [java.util.function package](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/package-summary.html).
 
--   `Supplier<O>`: Returns output (GET)
--   `Function<I,O>`: Accepts input and returns output (GET/POST)
--   `Consumer<I>`: Accepts input (POST)
+- `Supplier<O>`: Returns output (GET)
+- `Function<I,O>`: Accepts input and returns output (GET/POST)
+- `Consumer<I>`: Accepts input (POST)
 
 In a nutshell, any bean in your Application Context that is of type `Supplier`, `Function` or `Consumer` could be registered with `FunctionCatalog`.
 

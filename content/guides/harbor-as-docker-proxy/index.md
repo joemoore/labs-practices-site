@@ -1,50 +1,56 @@
 ---
-date: '2021-01-22'
-lastmod: '2021-02-25'
+date: "2021-01-22"
+lastmod: "2021-02-25"
 linkTitle: Eliminate Docker Hub Rate Limits
 parent: Harbor
 patterns:
-- Deployment
+  - Deployment
 tags:
-- Kubernetes
-- Containers
+  - Kubernetes
+  - Containers
 team:
-- Paul Czarkowski
+  - Paul Czarkowski
 title: How to use Harbor Registry to Eliminate Docker Hub Rate Limits
 weight: 2
 oldPath: "/content/guides/kubernetes/harbor-as-docker-proxy.md"
 aliases:
-- "/guides/kubernetes/harbor-as-docker-proxy"
+  - "/guides/kubernetes/harbor-as-docker-proxy"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 faqs:
   faq:
-  - question: What is Harbor Registry?
-    answer: Harbor Registry is an open-source, cloud native registry that expands
-      Docker Distribution functionalities with the ability to store, sign, and scan
-      content and images.
-  - question: What can Harbor be used for?
-    answer: Harbor serves a variety of purposes; it mainly secures artifacts through
-      role-based access control, scanning images for vulnerabilities, and signing
-      images as trusted. Harbor can also be used to work around Docker Hub Rate Limits.
-  - question: How do you upgrade Harbor?
-    answer: In order to upgrade Harbor, you must update the configuration file and
-      migrate your data to comply with the relevant database schema of the latest
-      Harbor version. Step by step, you must remove the existing Harbor instance,
-      backup your current files, backup your database, download the latest Harbor
-      release package, perform your migration, update the harbor.yml file, then run
-      the install script.
-  - question: What is the difference between Docker Registry and Harbor?
-    answer: Harbor is an expansion of Docker Registry that has the added benefit of
-      multiple, single host registries, enhanced security, and identity management
-      features.
-  - question: How do you stop Docker Hub Rate Limits?
-    answer: Docker Hub Rate Limits can be worked around by using either Proxy-ing,
-      which allows you to keep a local copy of images on an as-requested basis or
-      Replication, which allows you to replicate images between registries.
+    - question: What is Harbor Registry?
+      answer:
+        Harbor Registry is an open-source, cloud native registry that expands
+        Docker Distribution functionalities with the ability to store, sign, and scan
+        content and images.
+    - question: What can Harbor be used for?
+      answer:
+        Harbor serves a variety of purposes; it mainly secures artifacts through
+        role-based access control, scanning images for vulnerabilities, and signing
+        images as trusted. Harbor can also be used to work around Docker Hub Rate Limits.
+    - question: How do you upgrade Harbor?
+      answer:
+        In order to upgrade Harbor, you must update the configuration file and
+        migrate your data to comply with the relevant database schema of the latest
+        Harbor version. Step by step, you must remove the existing Harbor instance,
+        backup your current files, backup your database, download the latest Harbor
+        release package, perform your migration, update the harbor.yml file, then run
+        the install script.
+    - question: What is the difference between Docker Registry and Harbor?
+      answer:
+        Harbor is an expansion of Docker Registry that has the added benefit of
+        multiple, single host registries, enhanced security, and identity management
+        features.
+    - question: How do you stop Docker Hub Rate Limits?
+      answer:
+        Docker Hub Rate Limits can be worked around by using either Proxy-ing,
+        which allows you to keep a local copy of images on an as-requested basis or
+        Replication, which allows you to replicate images between registries.
 ---
 
 {{< youtube id="KSH2Hzk-E7U" class="youtube-video-shortcode" >}}
+
 <div align="center"><i><a href="https://www.youtube.com/watch?v=KSH2Hzk-E7U&feature=youtu.be">Watch Paul Walk through this guide on Tanzu.TV Shortcuts.</a></i></div>
 
 On August 24 2020 [Docker](https://docker.com) announced they would be
@@ -150,7 +156,7 @@ For more information about how Proxy Projects work, see the
 
    ![Create Proxy Project](images/create-proxy-project.png)
 
-1. Test the proxy is working with `docker pull`:  
+1. Test the proxy is working with `docker pull`:
 
 ```bash
 $ docker pull <url-of-registry>/dockerhub-proxy/library/ubuntu:20.04
@@ -230,7 +236,7 @@ now we're just waiting for it to **finish**.
 
 1. Go to **Projects** and select **dockerhub-replica** then click
    **Repositories**. You should see `dockerhub-replica/python/python` with at
-   least one Artifact. *To avoid this accidental redundancy in the name we
+   least one Artifact. \*To avoid this accidental redundancy in the name we
    should have set **Destination namespace** to `dockerhub-replica` rather than
    `dockerhub-replica/python`.
 

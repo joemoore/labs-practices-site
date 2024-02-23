@@ -1,19 +1,19 @@
 ---
 draft: true
-date: '2021-02-24'
-lastmod: '2021-02-26'
+date: "2021-02-24"
+lastmod: "2021-02-26"
 subsection: Container Networking
 team:
-- Josh Rosso
+  - Josh Rosso
 title: Container Networking
 tags:
-- Getting Started
-- Kubernetes
+  - Getting Started
+  - Kubernetes
 featured: true
 weight: 32
 oldPath: "/content/guides/kubernetes/container-networking.md"
 aliases:
-- "/guides/kubernetes/container-networking"
+  - "/guides/kubernetes/container-networking"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 description: An introduction to Container Network Interface (CNI) plugins

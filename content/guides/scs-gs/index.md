@@ -1,39 +1,42 @@
 ---
-date: '2020-05-06'
-description: Leverage Spring Cloud Stream, a framework for building highly scalable,
+date: "2020-05-06"
+description:
+  Leverage Spring Cloud Stream, a framework for building highly scalable,
   event-driven microservices for your enterprise needs.
-lastmod: '2021-03-07'
+lastmod: "2021-03-07"
 parent: Spring Cloud Stream
 patterns:
-- Eventing
+  - Eventing
 tags:
-- Spring Cloud Stream
-- Event Streaming
-- Spring
-- Messaging and Integration
+  - Spring Cloud Stream
+  - Event Streaming
+  - Spring
+  - Messaging and Integration
 team:
-- Brian McClain
+  - Brian McClain
 title: Getting Started with Spring Cloud Stream
 oldPath: "/content/guides/event-streaming/scs-gs.md"
 aliases:
-- "/guides/event-streaming/scs-gs"
+  - "/guides/event-streaming/scs-gs"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
 
-Spring Cloud Stream is a framework for building highly scalable, event-driven microservices connected with shared messaging systems. Spring Cloud Stream provides components that abstract the communication with many message brokers away from the code. If you'd like to learn more, make sure to check out [Spring Cloud Stream: What Is It?](/guides/event-streaming/scs-what-is/). In this guide, you'll go through writing a fictitious loan check system. One service will generate new loan applications, containing the applicant name and requested amount. That service will leverage Spring Cloud Stream to send that application to a second service, which will approve or decline loan applications.  
+Spring Cloud Stream is a framework for building highly scalable, event-driven microservices connected with shared messaging systems. Spring Cloud Stream provides components that abstract the communication with many message brokers away from the code. If you'd like to learn more, make sure to check out [Spring Cloud Stream: What Is It?](/guides/event-streaming/scs-what-is/). In this guide, you'll go through writing a fictitious loan check system. One service will generate new loan applications, containing the applicant name and requested amount. That service will leverage Spring Cloud Stream to send that application to a second service, which will approve or decline loan applications.
 
 ## Before You Begin
+
 Before you begin, there are a few tools you will need:
 
 - [Docker](https://docs.docker.com/get-docker/). You’ll run a RabbitMQ server and a Kafka server in containers to ease the setup.
 - [Docker Compose](https://docs.docker.com/compose/install/). This example has a `docker-compose.yml` file to make setting up the multiple containers easier.
 - Your text editor or IDE of choice.
-[JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.
+  [JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.
 
 You can see the [completed example on GitHub](https://github.com/benwilcock/spring-cloud-stream-demo).
 
 ## Setting Up the Message Brokers
+
 To simplify the setup of both RabbitMQ and Kafka, you can use the `docker-compose.yml` file included with the example:
 
 ```
@@ -45,6 +48,7 @@ docker-compose up
 This will stand up both RabbitMQ and Kafka, as well as forward all of the required ports to both so that they can be connected to over `localhost`. If you’re new to either, make sure to check out [Getting Started with RabbitMQ](/guides/messaging-and-integration/rabbitmq-gs) and [Getting Started with Kafka](/guides/messaging-and-integration/kafka-gs).
 
 ## Simplified Code Example
+
 You can actually get up and running with consuming messages from the message broker of your choice in just a few lines of code. In your `pom.xml` file, you’ll only need to include Spring Cloud Stream, as well as the binder of your choice. In the case of RabbitMQ, it would look like this:
 
 ```xml
@@ -63,18 +67,18 @@ From here, all that remains is setting up the `Consumer` that will handle receiv
 ```java
 @SpringBootApplication
 public class ScsGettingStartedApplication {
- 
+
    public static void main(String[] args) {
        SpringApplication.run(ScsGettingStartedApplication.class, args);
    }
- 
+
    @Bean
    public Consumer<String> toUpper() {
        return s -> {
-           System.out.println(s.toUpperCase());       
+           System.out.println(s.toUpperCase());
        };
-   }  
- 
+   }
+
 }
 ```
 

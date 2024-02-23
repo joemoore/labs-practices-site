@@ -109,7 +109,7 @@ You will do some setup to prepare:
 
     You can make the repository public or private,
     but
-    **do NOT select any of the *initialize this repository with***
+    **do NOT select any of the _initialize this repository with_**
     **options.**
 
 1.  Before your push your local repository to the remote,
@@ -174,14 +174,14 @@ You will use Gradle as your build and dependency management system.
     git commit -m'added gradle wrapper to initial project'
     ```
 
-## *Tanzu Application Service* (*Tanzu Application Service*) command line interface (CLI)
+## _Tanzu Application Service_ (_Tanzu Application Service_) command line interface (CLI)
 
-You will interact with *Tanzu Application Service* is via the _Tanzu
+You will interact with _Tanzu Application Service_ is via the _Tanzu
 Application Services CLI_.
 This command-line interface is common to all products,
-like *Tanzu Application Service*,
+like _Tanzu Application Service_,
 based on the (open source) Cloud Foundry technology.
-For this reason it is usually known as the *Cloud Foundry CLI*.
+For this reason it is usually known as the _Cloud Foundry CLI_.
 
 1.  Verify the CLI is installed correctly by running
 
@@ -208,13 +208,13 @@ For this reason it is usually known as the *Cloud Foundry CLI*.
 ### CF target
 
 The CF CLI can interact with multiple installations of
-*Tanzu Application Service* so you need to *target* a specific
+_Tanzu Application Service_ so you need to _target_ a specific
 installation (also called a foundation).
 Targeting means telling your CLI about the API endpoint for a
 foundation.
 
 1.  Use the `login` command to log in to your
-    *Tanzu Application Service* foundation's API endpoint.
+    _Tanzu Application Service_ foundation's API endpoint.
 
 1.  Verify the CLI has targeted the correct foundation by using the
     `target` command.
@@ -422,15 +422,15 @@ make sure you are using the following workflow when making and pushing
 changes to your remote:
 
 1.  Verify the state of your workspace with the `git status` command.
-    Unstaged changes will be highlighted in *red*,
-    staged changes will be highlighted in *green*.
+    Unstaged changes will be highlighted in _red_,
+    staged changes will be highlighted in _green_.
     Everything else in your workspace is either ignored
     (recorded in the `.gitignore` file),
     or already committed in your local repository.
 
 1.  Stage your changes with the `git add` command.
 
-    Run `git status` to verify your staged changes appear in *green*.
+    Run `git status` to verify your staged changes appear in _green_.
 
 1.  Commit your changes with the `git commit` command.
     Add the `-m` option with the commit message in single or double
@@ -441,7 +441,7 @@ changes to your remote:
 
 ### Fast-forward
 
-In this learning path you will be directed to *fast-forward* in some of
+In this learning path you will be directed to _fast-forward_ in some of
 the labs by "cherry picking" Git commits or tags.
 
 In most cases,
@@ -469,89 +469,90 @@ solution files that you will not have to author.
 
 1.  An example:
 
-    -   You want to skip ahead to the start of the
-        [Deployment Pipelines Lab](../pipelines/) after this
-        introduction lab.
+    - You want to skip ahead to the start of the
+      [Deployment Pipelines Lab](../pipelines/) after this
+      introduction lab.
 
-    -   You will need to fast-forward from start of the Spring Boot
-        application lab to the start of the deployment pipeline labs:
+    - You will need to fast-forward from start of the Spring Boot
+      application lab to the start of the deployment pipeline labs:
 
-        ```bash
-        git cherry-pick spring-boot-solution
-        git cherry-pick configuration-start
-        git cherry-pick configuration-solution
-        git cherry-pick pipeline-start
-        ```
+      ```bash
+      git cherry-pick spring-boot-solution
+      git cherry-pick configuration-start
+      git cherry-pick configuration-solution
+      git cherry-pick pipeline-start
+      ```
 
-    -   Review the status of your workspace:
+    - Review the status of your workspace:
 
-        ```bash
-        git status
-        ```
+      ```bash
+      git status
+      ```
 
-        You will see that your local history is ahead of your
-        remote by 4 commits that you just cherry-picked:
+      You will see that your local history is ahead of your
+      remote by 4 commits that you just cherry-picked:
 
-        ```no-highlight
-        On branch main
-        Your branch is ahead of 'origin/main' by 4 commits.
-          (use "git push" to publish your local commits)
+      ```no-highlight
+      On branch main
+      Your branch is ahead of 'origin/main' by 4 commits.
+        (use "git push" to publish your local commits)
 
-        nothing to commit, working tree clean
-        ```
+      nothing to commit, working tree clean
+      ```
 
-    -   Review the git log:
+    - Review the git log:
 
-        ```bash
-        git log --oneline --decorate --graph --all
-        ```
+      ```bash
+      git log --oneline --decorate --graph --all
+      ```
 
-        You will see:
-        -   4 new commits on a divergent branch from those
-            associated with the start and solution points.
+      You will see:
 
-        -   The 4 new commits have the same commit patch and
-            commit messages as those associated with the tags
-            cherry-picked.
-            **But they are not the same commits**.
+      - 4 new commits on a divergent branch from those
+        associated with the start and solution points.
 
-        -   Local `HEAD` is pointed to the last commit generated
-            by the last cherry-pick,
-            but the remote `HEAD` still points to the initial
-            commit.
+      - The 4 new commits have the same commit patch and
+        commit messages as those associated with the tags
+        cherry-picked.
+        **But they are not the same commits**.
 
-        ```no-highlight
-        * 6fa5aa2 (HEAD -> main) Add deployment pipeline
-        * c6df538 Add manifest file for configuration and deployment to PCF
-        * 88c30fc Add tests for configuration lab
-        * 9f4286d Simple Spring Boot app
-        | * 307c6b2 (tag: rolling-upgrade-solution) rolling update
-        | * 5e66cdf (tag: scaling-availability-solution) harden cloud foundry configuration for production
-        | * 0297055 (tag: scaling-availability-start) Add production tuning parameters to manifest, autoscaling scripts
-        | * cd0aaa3 (tag: actuator-solution) Add actuator dependency and configuration
-        | * a6305cf (tag: actuator-start) Add instrumentation for pal-tracker failure
-        | * 38decca (tag: jdbc-solution) Persist time entries in database
-        | * 00974ae (tag: jdbc-start) Add tests for persisting time entries in database
-        | * 087905f (tag: migration-solution) Add migrations and pipeline changes
-        | * c5a3bdf (tag: migration-start) Add task for migrating databases
-        | * 18e4e96 (tag: mvc-solution) Add TimeEntry MVC in memory
-        | * bc09138 (tag: mvc-start) Add tests and inmemory repo implementation for MVC lab
-        | * 5929ac7 (tag: pipeline-solution) Update route
-        | * 25bc37f (tag: pipeline-start) Add deployment pipeline
-        | * 3fc69ee (tag: configuration-solution) Add manifest file for configuration and deployment to PCF
-        | * 02e3279 (tag: configuration-start) Add tests for configuration lab
-        | * 5457bea (tag: spring-boot-solution) Simple Spring Boot app
-        |/
-        * 0ac8b7f (tag: spring-boot-start, origin/main, origin/HEAD) Initial commit
-        ```
+      - Local `HEAD` is pointed to the last commit generated
+        by the last cherry-pick,
+        but the remote `HEAD` still points to the initial
+        commit.
 
-    -   You need to push your changes to the remote to complete
-        the fast forward:
+      ```no-highlight
+      * 6fa5aa2 (HEAD -> main) Add deployment pipeline
+      * c6df538 Add manifest file for configuration and deployment to PCF
+      * 88c30fc Add tests for configuration lab
+      * 9f4286d Simple Spring Boot app
+      | * 307c6b2 (tag: rolling-upgrade-solution) rolling update
+      | * 5e66cdf (tag: scaling-availability-solution) harden cloud foundry configuration for production
+      | * 0297055 (tag: scaling-availability-start) Add production tuning parameters to manifest, autoscaling scripts
+      | * cd0aaa3 (tag: actuator-solution) Add actuator dependency and configuration
+      | * a6305cf (tag: actuator-start) Add instrumentation for pal-tracker failure
+      | * 38decca (tag: jdbc-solution) Persist time entries in database
+      | * 00974ae (tag: jdbc-start) Add tests for persisting time entries in database
+      | * 087905f (tag: migration-solution) Add migrations and pipeline changes
+      | * c5a3bdf (tag: migration-start) Add task for migrating databases
+      | * 18e4e96 (tag: mvc-solution) Add TimeEntry MVC in memory
+      | * bc09138 (tag: mvc-start) Add tests and inmemory repo implementation for MVC lab
+      | * 5929ac7 (tag: pipeline-solution) Update route
+      | * 25bc37f (tag: pipeline-start) Add deployment pipeline
+      | * 3fc69ee (tag: configuration-solution) Add manifest file for configuration and deployment to PCF
+      | * 02e3279 (tag: configuration-start) Add tests for configuration lab
+      | * 5457bea (tag: spring-boot-solution) Simple Spring Boot app
+      |/
+      * 0ac8b7f (tag: spring-boot-start, origin/main, origin/HEAD) Initial commit
+      ```
 
-        ```bash
-        git push origin main
-        ```
+    - You need to push your changes to the remote to complete
+      the fast forward:
+
+      ```bash
+      git push origin main
+      ```
 
     Note that the fast-forward is the for the codebase only,
     you will also have to push your application to
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.

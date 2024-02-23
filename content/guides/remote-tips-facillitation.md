@@ -1,28 +1,29 @@
 ---
-date: '2020-10-01'
-lastmod: '2021-02-22'
+date: "2020-10-01"
+lastmod: "2021-02-22"
 linkTitle: Facilitation
 parent: Remote Tips
 tags:
-- Agile
+  - Agile
 team:
-- Pivotal/Tanzu Labs
-title: 'Remote Tips: Facilitation'
+  - Pivotal/Tanzu Labs
+title: "Remote Tips: Facilitation"
 oldPath: "/content/guides/agile/remote-tips-facillitation.md"
 aliases:
-- "/guides/agile/remote-tips-facillitation"
+  - "/guides/agile/remote-tips-facillitation"
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---
 
 ## Setting team working agreements and ground rules
+
 - Agree on tools that everyone has access to.
 - Agree on how you will communicate, interact, and make decisions. This can be based on user manuals created by each team member:
-    - Chat tools are used for _________ .
-    - Email is used for ___________ .
-    - I tap someone on the shoulder by doing _________.
-    - Standup is for _________ .
-    - Stand-down is for ____________.
+  - Chat tools are used for ****\_**** .
+  - Email is used for ****\_\_\_**** .
+  - I tap someone on the shoulder by doing ****\_****.
+  - Standup is for ****\_**** .
+  - Stand-down is for ****\_\_\_\_****.
 - Clearly set the agenda, desired outcomes and a timebox for each session.
 - Agree on hand gestures during video calls.
 - Maintain a team decision log.
@@ -33,6 +34,7 @@ level2: Team Tips
 - Set aside time before group activities for team members to reflect on their goals for the session.
 
 ## Preparing in advance
+
 - Prepare a digital whiteboard with the activities that you want to run.
 - Keep prompts visible alongside your remote templates.
 - Practice walking through the session beforehand.
@@ -44,6 +46,7 @@ level2: Team Tips
 - Set up breakout rooms in advance, if possible.
 
 ## Keeping participants engaged and included
+
 - Instead of waiting for people to speak up, try prompting: "What are your thoughts, Abbie?"
 - Use attendees’ names to keep their attention.
 - Use a round-robin format to encourage everyone to speak.
@@ -64,15 +67,18 @@ level2: Team Tips
 - Make windows full screen, enlarge your text, or zoom in.
 
 ## Making use of the tools
+
 - Always keep video on.
 - Interact in real time (e.g., Miro, Screen, Tuple, etc.).
 
 ## Using dual monitors
+
 - Duplicate the view: Use one screen to participate, and one to get a full view of the digital whiteboard and observe team activities.
 - View teammates on another screen while facilitating team activities to monitor for body language, sign language and other visual cues.
 - Use a separate screen for side-channel communication with other facilitators.
 
 ## Other remote facilitation resources
+
 - [5 tips for effective remote pair programming](https://tanzu.vmware.com/content/resources-for-remote-software-teams/5-tips-for-effective-remote-pair-programming-while-working-from-home)
 - [How to conduct a remote event storming session](https://tanzu.vmware.com/content/resources-for-remote-software-teams/how-to-conduct-a-remote-event-storming-session)
 - [VMware Tanzu Blog | Resources for Remote Software Teams](https://tanzu.vmware.com/content/resources-for-remote-software-teams)

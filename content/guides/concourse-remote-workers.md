@@ -1,22 +1,22 @@
 ---
-date: '2021-08-06'
+date: "2021-08-06"
 description: Install Concourse CI workers onto remote Kubernetes clusters.
-lastmod: '2021-08-06'
+lastmod: "2021-08-06"
 linkTitle: Concourse CI Remote Workers
 metaTitle: Concourse CI Remote Workers
 parent: Concourse CI
 patterns:
-- Deployment
+  - Deployment
 tags:
-- CI-CD
-- Concourse
-- Kubernetes
+  - CI-CD
+  - Concourse
+  - Kubernetes
 team:
-- Luke Short
+  - Luke Short
 title: Deploying Remote Concourse CI Workers
 oldPath: "/content/guides/ci-cd/concourse-remote-workers.md"
 aliases:
-- "/guides/ci-cd/concourse-remote-workers"
+  - "/guides/ci-cd/concourse-remote-workers"
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -118,7 +118,7 @@ $ kubectl config get-contexts
 $ kubectl config set-context <CONTEXT>
 ```
 
-Disable components that are not required for a workers-only deployment with `web.enabled: false` and `postgresql.enabled: false`. For the Secrets, only define `secrets.hostKeyPub` and `secrets.workerKey` (do not define `secrets.hostKey`, `secrets.sessionSigningKey`, or  `secrets.workerKeyPub`). The remote worker hosts will SSH into the web hosts to add themselves to the cluster. Along with this, a SSH tunnel back from the web to remote worker hosts is created. This way, the web hosts can delegate pipelines to the hosts.
+Disable components that are not required for a workers-only deployment with `web.enabled: false` and `postgresql.enabled: false`. For the Secrets, only define `secrets.hostKeyPub` and `secrets.workerKey` (do not define `secrets.hostKey`, `secrets.sessionSigningKey`, or `secrets.workerKeyPub`). The remote worker hosts will SSH into the web hosts to add themselves to the cluster. Along with this, a SSH tunnel back from the web to remote worker hosts is created. This way, the web hosts can delegate pipelines to the hosts.
 
 ```yaml
 ---
@@ -168,7 +168,7 @@ Deploy a remote worker in a different namespace. The remote worker hosts listen 
 $ helm install -f values-remote.yaml --namespace concourse-remote --create-namespace concourse concourse/concourse
 ```
 
-Log into the Concourse web dashboard by going to ``http://concourse.example.com``. Then download the `fly` binary for the operating system of the workstation.
+Log into the Concourse web dashboard by going to `http://concourse.example.com`. Then download the `fly` binary for the operating system of the workstation.
 
 Verify that the local and remote worker hosts are being listed.
 

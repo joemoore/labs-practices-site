@@ -14,11 +14,11 @@ Repository using
 
 After completing the lab, you will be able to:
 
--   Describe how to set up a Spring Boot app to connect to a MySQL
-    database locally
--   Describe how to set up a Spring Boot app running on
-    *Tanzu Application Service* to connect to a MySQL Service
--   Use JDBC Template to perform CRUD database operations
+- Describe how to set up a Spring Boot app to connect to a MySQL
+  database locally
+- Describe how to set up a Spring Boot app running on
+  _Tanzu Application Service_ to connect to a MySQL Service
+- Use JDBC Template to perform CRUD database operations
 
 ## Get started
 
@@ -26,8 +26,8 @@ After completing the lab, you will be able to:
     [Backing Services and Database Migrations lab](../database-migrations/).
     You must have your `pal-tracker` application associated with the
     `migrations-solution` codebase deployed and running on
-    *Tanzu Application Service*,
-    and your local and *Tanzu Application Service* databases must have
+    _Tanzu Application Service_,
+    and your local and _Tanzu Application Service_ databases must have
     been migrated.
 
 1.  In a terminal window,
@@ -154,7 +154,7 @@ the information about that binding so that it is not lost if
 you re-create the application:
 
 ```yaml
-  services:
+services:
   - tracker-database
 ```
 
@@ -164,23 +164,24 @@ as the `routes` and `env` labels.
 ## Create the repository
 
 1.  Create a new class called `JdbcTimeEntryRepository` that:
-    -   Implements the `TimeEntryRepository` interface.
-    -   Takes a `DataSource` as a constructor argument.
-        Make sure to use the `DataSource` interface type,
-        not the concrete `MysqlDataSource` class type.
+
+    - Implements the `TimeEntryRepository` interface.
+    - Takes a `DataSource` as a constructor argument.
+      Make sure to use the `DataSource` interface type,
+      not the concrete `MysqlDataSource` class type.
 
     Use the `JdbcTimeEntryRepositoryTest` to guide your
     implementation.
     Keep the following tips in mind:
 
-    -   Use the `DataSource` to construct a `JdbcTemplate` object and
-        store the `JdbcTemplate` object to a private field.
+    - Use the `DataSource` to construct a `JdbcTemplate` object and
+      store the `JdbcTemplate` object to a private field.
 
-    -   In the `create` method use the `JDBCTemplate#update()` method
-        to persist the `TimeEntry` object to the database.
-        Retrieve the newly created record from the database using the
-        generated ID (the ID can be retrieved using a
-        [`GeneratedKeyHolder`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/GeneratedKeyHolder.html))
+    - In the `create` method use the `JDBCTemplate#update()` method
+      to persist the `TimeEntry` object to the database.
+      Retrieve the newly created record from the database using the
+      generated ID (the ID can be retrieved using a
+      [`GeneratedKeyHolder`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/support/GeneratedKeyHolder.html))
 
     Take a look at our solution if you need help:
 
@@ -224,35 +225,35 @@ as the `routes` and `env` labels.
 
 Now that you have completed the lab, you should be able to:
 
--   Recall why *Object Relational Mappers* encourage circular
-    dependencies
--   Describe how to set up a Spring Boot app to connect to a MySQL
-    database locally
--   Describe how to set up a Spring Boot app running on
-    *Tanzu Application Service* to connect to a MySQL Service
--   Use JDBC Template to perform CRUD database operations
+- Recall why _Object Relational Mappers_ encourage circular
+  dependencies
+- Describe how to set up a Spring Boot app to connect to a MySQL
+  database locally
+- Describe how to set up a Spring Boot app running on
+  _Tanzu Application Service_ to connect to a MySQL Service
+- Use JDBC Template to perform CRUD database operations
 
 ## Extras
 
 ### Verify container service binding
 
--   Verify whether or not the `VCAP_SERVICES` environment variable is
-    set in the current running `pal-tracker` container:
+- Verify whether or not the `VCAP_SERVICES` environment variable is
+  set in the current running `pal-tracker` container:
 
-    -   SSH to the running `pal-tracker`:
+  - SSH to the running `pal-tracker`:
 
-        `cf ssh pal-tracker -i 0`
+    `cf ssh pal-tracker -i 0`
 
-    -   Determine if `VCAP_SERVICES` is set:
+  - Determine if `VCAP_SERVICES` is set:
 
-        `env | grep VCAP_SERVICES`
+    `env | grep VCAP_SERVICES`
 
--   Do you see the environment variable set in the running container?
-    Why, or why not?
+- Do you see the environment variable set in the running container?
+  Why, or why not?
 
 ### Java buildpack auto-reconfiguration
 
-In this lab you saw the *Java buildpack auto-reconfiguration* feature
+In this lab you saw the _Java buildpack auto-reconfiguration_ feature
 in work.
 It replaces the Spring Boot auto-configured `DataSource` with one it
 creates from the service binding found in `VCAP_SERVICES`.
@@ -267,7 +268,7 @@ deploying your JDBC code changes is this warning:
 
 But you did not see this when you ran this locally as a Spring Boot app!
 
-A trade-off of using the default *Tanzu Application Service* Java
+A trade-off of using the default _Tanzu Application Service_ Java
 buildpack auto-reconfiguration behavior is that it hijacks backing
 service configuration,
 and replaces with the associated Spring beans configured separately by
@@ -303,7 +304,7 @@ or you can also use the
 
 ### Spring Data JDBC
 
-1.  Try out reimplementing time entry persistence with *Spring Data JDBC*.
+1.  Try out reimplementing time entry persistence with _Spring Data JDBC_.
 
 1.  Read through the
     [Spring Data JDBC reference](https://docs.spring.io/spring-data/jdbc/docs/2.1.3/reference/html/#preface)
@@ -311,14 +312,14 @@ or you can also use the
 
 ### JPA
 
-1.  Try out reimplementing time entry persistence with *JPA*.
+1.  Try out reimplementing time entry persistence with _JPA_.
 
 1.  Read through the
     [Spring JPA guide](https://spring.io/guides/gs/accessing-data-jpa/)
     for help getting started.
 
-If you completed both of the *Spring Data JDBC* and *JPA* extras,
-how did both of the solution compare to the *JDBC Template* solution?
+If you completed both of the _Spring Data JDBC_ and _JPA_ extras,
+how did both of the solution compare to the _JDBC Template_ solution?
 
 ## Hints
 
@@ -333,15 +334,15 @@ do not need to create the datasource at all &mdash;
 Spring Boot will do that for you!
 In order to do that it needs several things to be true:
 
--   Spring Boot auto-configuration is enabled, which it is by default.
+- Spring Boot auto-configuration is enabled, which it is by default.
 
--   There is a valid value for the configuration property
-    `spring.datasource.url` (in this case provided via the environment),
-    or the app is running in a cloud environment
-    (such as *Tanzu Application Service*) where information on bound
-    database instances is available.
+- There is a valid value for the configuration property
+  `spring.datasource.url` (in this case provided via the environment),
+  or the app is running in a cloud environment
+  (such as _Tanzu Application Service_) where information on bound
+  database instances is available.
 
--   There is an appropriate JDBC driver available on the classpath.
+- There is an appropriate JDBC driver available on the classpath.
 
 If these conditions are true,
 Spring Boot will create a datasource bean and place it in the

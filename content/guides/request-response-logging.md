@@ -1,53 +1,61 @@
 ---
-date: '2021-01-29'
-lastmod: '2021-02-24'
+date: "2021-01-29"
+lastmod: "2021-02-24"
 linkTitle: Request/Response Logging
 patterns:
-- Observability
+  - Observability
 tags:
-- Logging
-- Spring Boot
-- Observability
-- Spring
+  - Logging
+  - Spring Boot
+  - Observability
+  - Spring
 featured: true
 title: How to Log Request & Response in Spring Boot Applications
 metaTitle: Spring Boot Log Request & Response Guide
 weight: 2
 oldPath: "/content/guides/spring/request-response-logging.md"
 aliases:
-- "/guides/spring/request-response-logging"
+  - "/guides/spring/request-response-logging"
 description: Discover the importance of request and response logging in modern application development. Our guide covers best practices and tools.
 faqs:
   faq:
-  - question: How do log requests and responses in Spring Boot work?
-    answer: Log requests and responses in a Spring Boot application work by utilizing
-      logback to collect full payloads,  an essential part of monitoring and troubleshooting
-      running applications.
-  - question: How do you get Spring Boot logs?
-    answer: Spring Boot logs can be obtained by creating a Maven Project Object Model
-      and enabling logback.
-  - question: What logging does Spring Boot use?
-    answer: Spring Boot utilizes Apache Commons for internal logging and is also configured
-      to support Logback, Log4j2, and Java Util Logging for console and file logging.
-  - question: How do you manage logs in Spring Boot microservices
-    answer: Logs in Spring Boot can be managed by enabling logback in a POM, containing
-      configuration details and other vital information about the project. Additionally,
-      [Prometheus](https://tanzu.vmware.com/developer/guides/spring/spring-prometheus/)
-      and Grafana can also be utilized when trying to visualize data and metrics.
-  - question: How do you capture both requests and responses when diagnosing bugs
-      in a Spring Boot application?
-    answer: Capturing client's requests and server's response when diagnosing bugs
-      can be accomplished with the TeeFilter servlet.
-  - question: How do you avoid logging sensitive data in Spring Boot?
-    answer: Enabling or disabling access logging can help users avoid logging sensitive
-      data in Spring Boot.
+    - question: How do log requests and responses in Spring Boot work?
+      answer:
+        Log requests and responses in a Spring Boot application work by utilizing
+        logback to collect full payloads,  an essential part of monitoring and troubleshooting
+        running applications.
+    - question: How do you get Spring Boot logs?
+      answer:
+        Spring Boot logs can be obtained by creating a Maven Project Object Model
+        and enabling logback.
+    - question: What logging does Spring Boot use?
+      answer:
+        Spring Boot utilizes Apache Commons for internal logging and is also configured
+        to support Logback, Log4j2, and Java Util Logging for console and file logging.
+    - question: How do you manage logs in Spring Boot microservices
+      answer:
+        Logs in Spring Boot can be managed by enabling logback in a POM, containing
+        configuration details and other vital information about the project. Additionally,
+        [Prometheus](https://tanzu.vmware.com/developer/guides/spring/spring-prometheus/)
+        and Grafana can also be utilized when trying to visualize data and metrics.
+    - question:
+        How do you capture both requests and responses when diagnosing bugs
+        in a Spring Boot application?
+      answer:
+        Capturing client's requests and server's response when diagnosing bugs
+        can be accomplished with the TeeFilter servlet.
+    - question: How do you avoid logging sensitive data in Spring Boot?
+      answer:
+        Enabling or disabling access logging can help users avoid logging sensitive
+        data in Spring Boot.
 level1: Managing and Operating Applications
 level2: Metrics, Tracing, and Monitoring
 ---
 
-Logging is essential for monitoring and troubleshooting running applications. This guide explains how to utilize `logback` to collect full request/response payloads in a Spring Boot application. 
+Logging is essential for monitoring and troubleshooting running applications. This guide explains how to utilize `logback` to collect full request/response payloads in a Spring Boot application.
 
 ## Getting Started
+
 To begin, you create a Maven Project Object Model to enable `logback`. A Project Object Model or `POM` is an XML file that contains information about the project and configuration details. Below is a sample specifying the required dependencies.
 
 ```xml
@@ -73,10 +81,10 @@ To begin, you create a Maven Project Object Model to enable `logback`. A Project
         <artifactId>logback-classic</artifactId>
         <version>${logback.version}</version>
     </dependency>
-</dependencies>   	 
+</dependencies>
 ```
 
-Next create a `logback-access.xml` under `src/main/resources`.You can change the fields displayed in an access log. For a full list of available fields refer to the [logback documentation](http://logback.qos.ch/access.html). 
+Next create a `logback-access.xml` under `src/main/resources`.You can change the fields displayed in an access log. For a full list of available fields refer to the [logback documentation](http://logback.qos.ch/access.html).
 
 ```xml
 <configuration>
@@ -89,8 +97,9 @@ Next create a `logback-access.xml` under `src/main/resources`.You can change the
 </configuration>
 ```
 
-## Capturing Request/Response 
-It is often useful to capture both the client's request and the server's response when diagnosing bugs. The `TeeFilter` servlet filter accomplishes this. 
+## Capturing Request/Response
+
+It is often useful to capture both the client's request and the server's response when diagnosing bugs. The `TeeFilter` servlet filter accomplishes this.
 
 ```java
 import ch.qos.logback.access.servlet.TeeFilter;
@@ -113,7 +122,7 @@ public class FilterConfiguration {
 }
 ```
 
-Once this is configured, every request/response payload is logged to your default appender. 
+Once this is configured, every request/response payload is logged to your default appender.
 
 ## Enabling or Disabling Logging
 
@@ -123,13 +132,13 @@ There are potential impacts to application performance when this filter is activ
 
 ## Keep Learning
 
-You can find out more by reading the [Spring Boot documentation on logging](https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/boot-features-logging.html) or the full [logback manual](http://logback.qos.ch/manual/index.html).  
+You can find out more by reading the [Spring Boot documentation on logging](https://docs.spring.io/spring-boot/docs/2.1.8.RELEASE/reference/html/boot-features-logging.html) or the full [logback manual](http://logback.qos.ch/manual/index.html).
 
-Logging has three elements: collection, indexing, and visualization. This guide explains the first element, collection. For indexing and visualization, there’s a wide ecosystem of open-source technologies that can be used. For example, the “EFK stack” (Elasticsearch, Fluentd, and Kibana) is popular for solving this problem. 
+Logging has three elements: collection, indexing, and visualization. This guide explains the first element, collection. For indexing and visualization, there’s a wide ecosystem of open-source technologies that can be used. For example, the “EFK stack” (Elasticsearch, Fluentd, and Kibana) is popular for solving this problem.
 
 Two open-source tools that help with logging and visualization are Prometheus and Grafana. Prometheus excels at gathering metrics from a wide array of sources, while Grafana is the go-to tool for visualizing complex time-series data. The following guides explain how to use these tools in Kubernetes environments:
 
-* [Prometheus and Grafana: Gathering Metrics from Spring Boot on Kubernetes](/guides/spring/spring-prometheus/)
-* [Prometheus and Grafana: Gathering Metrics from Kubernetes](/guides/kubernetes/observability-prometheus-grafana-p1/)
- 
+- [Prometheus and Grafana: Gathering Metrics from Spring Boot on Kubernetes](/guides/spring/spring-prometheus/)
+- [Prometheus and Grafana: Gathering Metrics from Kubernetes](/guides/kubernetes/observability-prometheus-grafana-p1/)
+
 Spring Boot also provides health checks for application monitoring in addition to logging. Learn how to [enable health checks using Spring Boot Actuator](/guides/spring/spring-boot-actuator).

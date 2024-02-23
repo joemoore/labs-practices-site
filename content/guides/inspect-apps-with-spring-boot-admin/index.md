@@ -8,19 +8,19 @@ weight: 2
 level1: Managing and Operating Applications
 level2: Metrics, Tracing, and Monitoring
 tags:
-- Tanzu
-- Tanzu Application Platform
-- Java
-- Spring
-- Spring Boot
-- Microservices
-- Kubernetes
-- Cloud 
+  - Tanzu
+  - Tanzu Application Platform
+  - Java
+  - Spring
+  - Spring Boot
+  - Microservices
+  - Kubernetes
+  - Cloud
 team:
-- Ben Wilcock
+  - Ben Wilcock
 ---
 
-## What You'll Learn 
+## What You'll Learn
 
 In this guide you'll learn how to get started with [Spring Boot Admin][sba]. You'll discover how to create an admin server, how to register apps with this server, and how to inspect your app settings using nothing but your mouse and browser. Let Spring Boot Admin take the stress out of inspecting and troubleshooting your microservices on Kubernetes!
 
@@ -32,44 +32,41 @@ Prefer a video? Click [here](#video-of-this-guide) or scroll to the end.
 
 When you're pushing multiple Spring-based microservices to Kubernetes, it can be hard to remember all the various configs and settings you've applied to each app. Examining your setup with command line tools like `kubectl`, `curl`, can be challenging and slow. And if you're in a hurry — troubleshooting an urgent issue, for example — this friction can be frustrating.
 
-Some Kubernetes-based application platforms do have features designed to help you examine your apps. For example, the [Tanzu Application Platform][tap] provides '[Live View](/videos/tap-alv-p1-onboarding/)'. Live View lets you inspect the various settings currently applied to your applications in real time while they're running inside Kubernetes. 
+Some Kubernetes-based application platforms do have features designed to help you examine your apps. For example, the [Tanzu Application Platform][tap] provides '[Live View](/videos/tap-alv-p1-onboarding/)'. Live View lets you inspect the various settings currently applied to your applications in real time while they're running inside Kubernetes.
 
 The settings exposed by Live View include:
 
-* Environment variables,
-* Configuration properties,
-* Logging settings,
-* Current memory consumption,
-* And more!
+- Environment variables,
+- Configuration properties,
+- Logging settings,
+- Current memory consumption,
+- And more!
 
 ![Live View in action](images/LiveViewClip.gif "Image showing Live view inspecting an application")
 
 But what if you're using vanilla Kubernetes? Or a Tanzu Application Platform profile that doesn't include Live View? Or a platform that's simply less 'application aware' than Tanzu?
 
-That's where [Spring Boot Admin][sba] can help. Spring Boot Admin is an open-source application that lets you view the configuration settings and status of your Spring applications while they're running. 
+That's where [Spring Boot Admin][sba] can help. Spring Boot Admin is an open-source application that lets you view the configuration settings and status of your Spring applications while they're running.
 
-It's easy to get started with Spring Boot Admin, and if you follow this guide you'll learn: 
+It's easy to get started with Spring Boot Admin, and if you follow this guide you'll learn:
 
-* How to create a Spring Boot Admin server, 
-* How to register a client, 
-* How to deploy the server to a lightweight GUI-less version of the [Tanzu Application Platform][tap].
-
+- How to create a Spring Boot Admin server,
+- How to register a client,
+- How to deploy the server to a lightweight GUI-less version of the [Tanzu Application Platform][tap].
 
 ## Let's get started!
 
-You begin by creating a Spring Boot application project using [start.spring.io][initializr]. From there, you can add the dependencies that you'll need for this exercise. They are: 
+You begin by creating a Spring Boot application project using [start.spring.io][initializr]. From there, you can add the dependencies that you'll need for this exercise. They are:
 
-* Spring Web, 
-* Spring Actuators, 
-* Spring Security, 
-* Spring Boot Admin Server, 
-* Spring Boot Admin Client.
+- Spring Web,
+- Spring Actuators,
+- Spring Security,
+- Spring Boot Admin Server,
+- Spring Boot Admin Client.
 
-Remember to give the application a meaningful `Artifact` name and check the rest of the settings make sense before clicking the "GENERATE" button to download your project. 
+Remember to give the application a meaningful `Artifact` name and check the rest of the settings make sense before clicking the "GENERATE" button to download your project.
 
 ![Image showing start.spring.io creating a Spring Boot Admin project](images/Initializr.gif "Image showing start.spring.io creating a Spring Boot Admin project")
-
-
 
 Extract the Zip archive to your filesystem and open it inside your favorite IDE. I'm using Visual Studio Code in the video, but you could use Eclipse, IntelliJ, or [Spring Tools 4](https://spring.io/tools).
 
@@ -79,7 +76,7 @@ Extract the Zip archive to your filesystem and open it inside your favorite IDE.
 
 Spring Boot Admin has two logical parts, a server and a client. Clients register with the server. In this case, you're creating both a client and a server in one project — hence the addition of both the client and server dependencies in the previous step.
 
-Setting up your Spring Boot Admin server requires very little code. First Add the `@EnableAdminServer` annotation to your main application class and resolve any missing imports. 
+Setting up your Spring Boot Admin server requires very little code. First Add the `@EnableAdminServer` annotation to your main application class and resolve any missing imports.
 
 In the [demo code for this article][code], I'm also adding a security configuration so that my Spring Boot Admin dashboard can be accessed without a username and password. This is optional, but makes getting started easier and you can remove it later once you have configured your preferred security features.
 
@@ -96,7 +93,7 @@ public class SpringBootAdminServerApplication {
     public static class SecurityPermitAllConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().anyRequest().permitAll()  
+            http.authorizeRequests().anyRequest().permitAll()
                 .and().csrf().disable();
         }
     }
@@ -111,7 +108,7 @@ spring.application.name=spring-boot-admin-server
 
 ## Register Your Server as a Client Application
 
-In the `application.properties` file, you can tell the Spring Boot Admin server to register as a client of itself. You do this by setting the `spring.boot.admin.client.URL` property to `localhost:8080`. You must also expose all the Spring Boot Actuator endpoints by setting the `management.endpoints.web.exposure.include` property to `*`. 
+In the `application.properties` file, you can tell the Spring Boot Admin server to register as a client of itself. You do this by setting the `spring.boot.admin.client.URL` property to `localhost:8080`. You must also expose all the Spring Boot Actuator endpoints by setting the `management.endpoints.web.exposure.include` property to `*`.
 
 {{%note%}}
 Exposing the actuators on clients is important. Spring Boot Admin server reads the information from the actuators of the clients and presents their data in a friendly web-based user interface.
@@ -128,17 +125,15 @@ spring.boot.admin.client.instance.service-base-url=http://localhost:8080 # <-- T
 
 ## Test Your Spring Boot Admin Server
 
-Once configured, test that the server starts correctly. Open a terminal, navigate to your project's folder, and start the Spring Boot Admin server application in the usual way. 
+Once configured, test that the server starts correctly. Open a terminal, navigate to your project's folder, and start the Spring Boot Admin server application in the usual way.
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-
-You can see the Spring Boot Admin server dashboard by entering the URL [http://localhost:8080](http://localhost:8080) into your web browser. In the dashboard, you will see the first registered application, your Spring Boot Admin server! 
+You can see the Spring Boot Admin server dashboard by entering the URL [http://localhost:8080](http://localhost:8080) into your web browser. In the dashboard, you will see the first registered application, your Spring Boot Admin server!
 
 ![Spring Boot Admin Test](images/SbaTestClip.gif "Image showing a Spring Boot Admin being tested.")
-
 
 ## Customizing For Kubernetes
 
@@ -170,7 +165,7 @@ git add --all # Add all the source code
 git commit -am "initial commit" # Create the first commit
 ```
 
-The code must then be pushed to a new remote repository on GitHub. You can do this using the [GitHub command line tool](https://cli.github.com/) as follows. 
+The code must then be pushed to a new remote repository on GitHub. You can do this using the [GitHub command line tool](https://cli.github.com/) as follows.
 
 ```bash
 gh repo create spring-boot-admin-server --public --source=. --remote=origin --push
@@ -179,8 +174,8 @@ gh repo create spring-boot-admin-server --public --source=. --remote=origin --pu
 Finally, the `tanzu` CLI can tell TAP to run Spring Boot Admin server on Kubernetes using the `apps workload create` command.
 
 ```bash
-tanzu apps workload create spring-boot-admin-server \                
-    --git-repo https://github.com/benwilcock/spring-boot-admin-server \   
+tanzu apps workload create spring-boot-admin-server \
+    --git-repo https://github.com/benwilcock/spring-boot-admin-server \
     --git-branch main \
     --type web \
     --label app.kubernetes.io/part-of=spring-boot-admin-server \
@@ -227,31 +222,31 @@ Open the URL in your browser.
 If you're not using Tanzu Application Platform, [expose the application as a Kubernetes service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#expose) in the usual way and then navigate your browser to the application's URL.
 {{%/warning%}}
 
-The Spring Boot Admin server dashboard is now ready to help you inspect and troubleshoot your application setup. You can register all your Spring applications as clients of Spring Boot Admin, and hopefully, you'll never again struggle to remember your configuration details! 
+The Spring Boot Admin server dashboard is now ready to help you inspect and troubleshoot your application setup. You can register all your Spring applications as clients of Spring Boot Admin, and hopefully, you'll never again struggle to remember your configuration details!
 
 The Spring Boot Admin server dashboard shows which applications are registered. It also shows:
 
-* Their current health status, 
-* Their environment details, 
-* Some basic metrics, 
-* Their configuration settings,
-* And more! 
+- Their current health status,
+- Their environment details,
+- Some basic metrics,
+- Their configuration settings,
+- And more!
 
 Spring Boot Admin can even be configured to message you on Slack if any of your apps go offline!
 
 {{%info%}}
-Check out the [Spring Boot Admin documentation](https://via.vmware.com/SBA-docs) for more information. 
+Check out the [Spring Boot Admin documentation](https://via.vmware.com/SBA-docs) for more information.
 {{%/info%}}
 
 ## Keep On Learning
 
 You're on a roll! Why not continue your learning journey with these other resources?
 
-* [Spring Boot Admin website][sba] and [documentation][sba-docs],
-* [Sample code from this article][code],
-* [Tanzu Application Platform product page][tap]
-* [Install the Tanzu Application Platform on Your Laptop][tap-on-lap],
-* [Try the Tanzu Application Platform Hands On Lab][tap-hol].
+- [Spring Boot Admin website][sba] and [documentation][sba-docs],
+- [Sample code from this article][code],
+- [Tanzu Application Platform product page][tap]
+- [Install the Tanzu Application Platform on Your Laptop][tap-on-lap],
+- [Try the Tanzu Application Platform Hands On Lab][tap-hol].
 
 ## Video of This Guide
 
@@ -263,9 +258,9 @@ Learn how to inspect and troubleshoot your Spring Boot microservices on Kubernet
 
 [sba]: https://via.vmware.com/SBA
 [sba-docs]: https://via.vmware.com/SBA-docs
-[code]: https://via.vmware.com/SBA-demo 
+[code]: https://via.vmware.com/SBA-demo
 [initializr]: https://start.spring.io
-[tap]: https://via.vmware.com/TAP-prod 
+[tap]: https://via.vmware.com/TAP-prod
 [tap-on-lap]: https://via.vmware.com/TAPonLAP
 [tap-hol]: https://via.vmw.com/TAP-HOL
 [dev-gs-innerloop]: /guides/tanzu-application-platform-inner-loop

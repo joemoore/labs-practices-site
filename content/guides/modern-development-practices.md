@@ -1,5 +1,5 @@
 ---
-date: '2021-09-16'
+date: "2021-09-16"
 description: Shorten the development loop
 weight: -100
 linkTitle: Modern Development Practices

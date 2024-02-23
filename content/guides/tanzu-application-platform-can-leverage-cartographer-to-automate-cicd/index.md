@@ -1,14 +1,14 @@
 ---
 title: "Understanding How Tanzu Application Platform can use Cartographer's Supply Chain to Automate the CI/CD Process"
-description: Cartographer allows users to create secure, reusable supply chains. In this guide, learn how Cartographer is used within VMware Tanzu Application Platform to automate CI/CD pipelines.  
+description: Cartographer allows users to create secure, reusable supply chains. In this guide, learn how Cartographer is used within VMware Tanzu Application Platform to automate CI/CD pipelines.
 date: 2022-03-09
 lastmod: 2022-03-09
 level1: Building Kubernetes Runtime
 level2: Application Platform on Kubernetes
 tags:
-- Tanzu
-- Tanzu Application Platform
-- Cartographer
+  - Tanzu
+  - Tanzu Application Platform
+  - Cartographer
 tanzu:
   label: tap
   featured: false
@@ -17,20 +17,20 @@ tanzu:
   gettingstartedweight: 3
 # Author(s)
 team:
-- Gowtham Shankar
+  - Gowtham Shankar
 ---
 
 VMware Tanzu Application Platform is a modular, application-aware platform that gives developers a prepaved path to production for building and deploying software on any compliant public cloud or on-premises Kubernetes cluster. Designed to deliver a superior and secure developer experience, it makes the [software supply chain even more secure](https://tanzu.vmware.com/developer/guides/supply-chain-choreography/) with a suite of features, including vulnerability scanning, a software bill of materials, image signing, and more.
 
-In order to understand how Tanzu Application Platform leverages the supply chain to automate the CI/CD process, let’s start by looking at the basic steps involved in a cloud native [CI/CD process](https://tanzu.vmware.com/developer/guides/ci-cd-what-is/). 
+In order to understand how Tanzu Application Platform leverages the supply chain to automate the CI/CD process, let’s start by looking at the basic steps involved in a cloud native [CI/CD process](https://tanzu.vmware.com/developer/guides/ci-cd-what-is/).
 
 ![An example pipeline](images/image1.jpg)
 
 By default, Tanzu Application Platform uses the following:
 
-* **FluxCD** to poll for any changes from the source code repository.
-* **Kpack** to convert the source code into a runnable artifact
-* **Knative** manifest files to deploy these changes into the Kubernetes cluster
+- **FluxCD** to poll for any changes from the source code repository.
+- **Kpack** to convert the source code into a runnable artifact
+- **Knative** manifest files to deploy these changes into the Kubernetes cluster
 
 ![components used within the example pipeline](images/image2.jpg)
 
@@ -84,8 +84,8 @@ Download the above code snippet [here](https://github.com/gowthamshankar99/tanzu
 
 ## Tying all the pieces together
 
-* Flux, kpack, and Knative/Kubernetes form the underlying template that does the actual work.
-* `ClusterSourceTemplate`, `ClusterImageTemplate`, and `ClusterTemplates` are the `Cartographer` constructs that wrap the underlying templates so that Cartographer can understand them and pass outputs from one step to another.
-* `ClusterSupplyChain` is the `SupplyChain` object that ties all the Cartographer objects together to form a pipeline.
+- Flux, kpack, and Knative/Kubernetes form the underlying template that does the actual work.
+- `ClusterSourceTemplate`, `ClusterImageTemplate`, and `ClusterTemplates` are the `Cartographer` constructs that wrap the underlying templates so that Cartographer can understand them and pass outputs from one step to another.
+- `ClusterSupplyChain` is the `SupplyChain` object that ties all the Cartographer objects together to form a pipeline.
 
 ![Tying it all together](images/image9.jpg)

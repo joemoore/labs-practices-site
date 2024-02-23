@@ -7,21 +7,21 @@ tags: ["검색"]
 length: 45분~1시간
 participants: 핵심 팀, 실무 전문가
 # custom "cover" image example: "boris/boris.png"
-image: "cover-image.png" 
+image: "cover-image.png"
 lastmod: "2022-04-15"
 date: "2022-04-15"
-why: 
-- 사용성 테스트를 통한 디자인 검증은 사용자와 이들의 요구에 영향을 미칠 수 있는 사용자 중심 디자인을 수립하는 데 도움이 됩니다. 사용자에게 가치를 창출하기 위해서는 사용자에게 맞는 방식으로 문제를 해결하고 있는지 확인해야 합니다. 이 세션은 사용성 테스트를 수행하기 전에 팀을 조정하기 위한 모범 사례에 대한 개요를 제공합니다.
+why:
+  - 사용성 테스트를 통한 디자인 검증은 사용자와 이들의 요구에 영향을 미칠 수 있는 사용자 중심 디자인을 수립하는 데 도움이 됩니다. 사용자에게 가치를 창출하기 위해서는 사용자에게 맞는 방식으로 문제를 해결하고 있는지 확인해야 합니다. 이 세션은 사용성 테스트를 수행하기 전에 팀을 조정하기 위한 모범 사례에 대한 개요를 제공합니다.
 when:
-- 프로젝트 초기 연구의 중요성을 고려해 사용성 테스트는 일반적으로 초기에 이루어지며, 기능 또는 흐름을 개발하기 전에 디자인의 유효성을 검사하려는 경우에 이루어지기도 합니다. 사용자가 적절히 테스트할 수 있도록 디자인되고 제작된 프로토타입이 있어야 합니다.
+  - 프로젝트 초기 연구의 중요성을 고려해 사용성 테스트는 일반적으로 초기에 이루어지며, 기능 또는 흐름을 개발하기 전에 디자인의 유효성을 검사하려는 경우에 이루어지기도 합니다. 사용자가 적절히 테스트할 수 있도록 디자인되고 제작된 프로토타입이 있어야 합니다.
 what:
-- Invision 또는 Figma와 같은 프로토타이핑 툴
+  - Invision 또는 Figma와 같은 프로토타이핑 툴
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: "URL for related Miro template" 
-
+miro_template_url: "URL for related Miro template"
 ---
+
 <h2 id="how-to-use-this-method">이 방식을 활용하는
 방법</h2>
 

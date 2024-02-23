@@ -5,18 +5,19 @@ featured: true
 featuredspot: 1
 level1: Building Modern Applications
 layout: intro
-description: Learn how we approach modern application development practices, teaming,
+description:
+  Learn how we approach modern application development practices, teaming,
   culture, and technology at Pivotal/Tanzu Labs.
 team:
-- Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 tags:
-- All Roles
-- Applications
+  - All Roles
+  - Applications
 experience: Beginner
 duration: 240
 oldPath: "/content/outcomes/application-development/_index.md"
 aliases:
-- "/outcomes/application-development/"
+  - "/outcomes/application-development/"
 ---
 
 ## Why is this important?

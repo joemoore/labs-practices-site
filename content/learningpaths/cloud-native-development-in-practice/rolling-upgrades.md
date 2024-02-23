@@ -7,13 +7,13 @@ team:
 ---
 
 You will demonstrate how to achieve zero downtime upgrades of your
-`pal-tracker` application running on *Tanzu Application Service*.
+`pal-tracker` application running on _Tanzu Application Service_.
 
 ## Learning outcomes
 
 After completing the lab, you will be able to:
 
-- Demonstrate zero downtime upgrades on *Tanzu Application Service*.
+- Demonstrate zero downtime upgrades on _Tanzu Application Service_.
 
 ## Getting started
 
@@ -27,7 +27,7 @@ slides.
     [Scaling lab](../scaling/).
     You must have your `pal-tracker` application associated with the
     `scaling-availability-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -44,18 +44,18 @@ In this lab you will exercise your `pal-tracker` application under load.
 
 You can monitor the `pal-tracker` application through the following:
 
--   Command Line via the following `cf` commands:
+- Command Line via the following `cf` commands:
 
-    - `cf app pal-tracker`
-    - `cf events pal-tracker`
+  - `cf app pal-tracker`
+  - `cf events pal-tracker`
 
--   [*Apps Manager*](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
-    user interface.
+- [_Apps Manager_](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
+  user interface.
 
 If you will monitor via command line you will need a minimum of four
 terminal windows open.
 
-If you choose to monitor with *Apps Manager* you will need only one.
+If you choose to monitor with _Apps Manager_ you will need only one.
 
 ## Perform a zero downtime upgrade
 
@@ -82,7 +82,7 @@ How would you do that?
 
 1.  Run the script from the `pal-tracker` project directory,
     and make sure to supply the `${DOMAIN}` and `${UNIQUE_IDENTIFIER}`
-    parameters you used in the *Deployment Pipelines* lab when
+    parameters you used in the _Deployment Pipelines_ lab when
     specifying the route in your `manifest.yml` file:
 
     `./scripts/rolling-update.sh ${UNIQUE_IDENTIFIER} ${DOMAIN}`
