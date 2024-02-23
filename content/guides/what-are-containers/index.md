@@ -2,30 +2,30 @@
 date: '2021-02-26'
 lastmod: '2021-02-26'
 tags:
-- Containers
-- Microservices
+    - Containers
+    - Microservices
 title: What are Containers?
 featured: true
 weight: 1
-oldPath: "/content/guides/containers/what-are-containers.md"
+oldPath: '/content/guides/containers/what-are-containers.md'
 aliases:
-- "/guides/containers/what-are-containers"
+    - '/guides/containers/what-are-containers'
 level1: Modern App Basics
 level2: Kubernetes Platform
 description: The very basics of container anatomy
 ---
 
-[Containers](https://tanzu.vmware.com/containers) are logical constructs that contain the binaries for an application. Container binaries run at a higher level of [infrastructure abstraction](https://tanzu.vmware.com/cloud-native) than [virtual machines](https://tanzu.vmware.com/content/analyst-reports/the-synergies-between-containers-and-virtual-machines). In contrast to a virtual machine, which provides an entire operating system to provide a runtime environment for an application's binaries, a container bundles only an application's binaries and its required libraries. 
+[Containers](https://tanzu.vmware.com/containers) are logical constructs that contain the binaries for an application. Container binaries run at a higher level of [infrastructure abstraction](https://tanzu.vmware.com/cloud-native) than [virtual machines](https://tanzu.vmware.com/content/analyst-reports/the-synergies-between-containers-and-virtual-machines). In contrast to a virtual machine, which provides an entire operating system to provide a runtime environment for an application's binaries, a container bundles only an application's binaries and its required libraries.
 
-It’s important to note that VMs and containers are not mutually exclusive.  The infrastructure (networks, servers, and storage) required to support containers can often be more easily managed using virtualization, and therefore the two technologies are complementary.
+It’s important to note that VMs and containers are not mutually exclusive. The infrastructure (networks, servers, and storage) required to support containers can often be more easily managed using virtualization, and therefore the two technologies are complementary.
 
-In general, the term **container** is used to refer to either a container image or an instance of a running container. When you run a container, an abstraction layer, the container runtime, schedules access to a shared operating system. Container standards are being developed by the [Open Container Initiative](https://opencontainers.org/), which currently has specifications for both the container runtime and the container image. 
+In general, the term **container** is used to refer to either a container image or an instance of a running container. When you run a container, an abstraction layer, the container runtime, schedules access to a shared operating system. Container standards are being developed by the [Open Container Initiative](https://opencontainers.org/), which currently has specifications for both the container runtime and the container image.
 
 ## The Container Runtime
 
-Although [Docker](https://docs.docker.com/get-started/overview/) is the most popular example of a container runtime, there are others, such as containerd, rkt etc. 
+Although [Docker](https://docs.docker.com/get-started/overview/) is the most popular example of a container runtime, there are others, such as containerd, rkt etc.
 
-Similar to how a Linux kernel helps run application processes by providing hardware resources, a container runtime helps partition the Linux kernel to run isolated Linux processes with specific resource limits around CPU, memory, etc. The runtime also helps isolate application processes using two Linux kernel primitives: [control groups \(cgroups\)](https://man7.org/linux/man-pages/man7/cgroups.7.html) and [namespaces](https://man7.org/linux/man-pages/man7/namespaces.7.html). Cgroups limit resources to a set of processes running on a Linux host, and namespaces isolate processes from one another. 
+Similar to how a Linux kernel helps run application processes by providing hardware resources, a container runtime helps partition the Linux kernel to run isolated Linux processes with specific resource limits around CPU, memory, etc. The runtime also helps isolate application processes using two Linux kernel primitives: [control groups \(cgroups\)](https://man7.org/linux/man-pages/man7/cgroups.7.html) and [namespaces](https://man7.org/linux/man-pages/man7/namespaces.7.html). Cgroups limit resources to a set of processes running on a Linux host, and namespaces isolate processes from one another.
 
 ![Linux Kernel Without Containers](images/linux-kernel-without-containers.png)
 
@@ -39,18 +39,18 @@ Because containers operate at a higher level of abstraction than VMs, they impro
 
 **Benefits for Operations, Infrastructure, and IT Teams**
 
-* Lowers the operating system footprint that has to be managed across servers
-* Reduces an application's dependencies on an operating system
-* Eases maintenance and shortens maintenance windows
+-   Lowers the operating system footprint that has to be managed across servers
+-   Reduces an application's dependencies on an operating system
+-   Eases maintenance and shortens maintenance windows
 
 **Benefits for Application Development Teams**
 
-* Because containers decouple an application and its dependencies from the operating system, development teams can skip creating multiple test environments with various operating systems for validating application behavior
-* Streamlines the development pipeline to reduce the time to build and ship applications
+-   Because containers decouple an application and its dependencies from the operating system, development teams can skip creating multiple test environments with various operating systems for validating application behavior
+-   Streamlines the development pipeline to reduce the time to build and ship applications
 
 All of these benefits produce a compelling result: Containers shorten the time it takes to build, test, and ship applications.
 
-Containers help accelerate development pipelines by streamlining dev/test cycles and reducing the effort needed to deploy applications. They execute consistently in each deployment, providing portability between platforms and between [clouds](https://www.vmware.com/topics/glossary/content/cloud.html). Containers increase the efficiency and agility of an organization. 
+Containers help accelerate development pipelines by streamlining dev/test cycles and reducing the effort needed to deploy applications. They execute consistently in each deployment, providing portability between platforms and between [clouds](https://www.vmware.com/topics/glossary/content/cloud.html). Containers increase the efficiency and agility of an organization.
 
 ## Keep Learning
 

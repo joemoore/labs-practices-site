@@ -2,16 +2,16 @@
 date: '2021-02-24'
 description: A reference architecture for implementing the Contour Service Mesh
 keywords:
-- Kubernetes
-- Contour
+    - Kubernetes
+    - Contour
 lastmod: '2021-02-24'
 linkTitle: Contour Reference Architecture
 parent: Service Routing
 title: Contour Reference Architecture
 weight: 1600
-oldPath: "/content/guides/kubernetes/service-routing-contour-refarch.md"
+oldPath: '/content/guides/kubernetes/service-routing-contour-refarch.md'
 aliases:
-- "/guides/kubernetes/service-routing-contour-refarch"
+    - '/guides/kubernetes/service-routing-contour-refarch'
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -33,25 +33,25 @@ Each section covers architectural recommendations and, at times, configuration
 for each concern in a Contour deployment. At a high-level, the key
 recommendations are:
 
-- Follow the [split deployment architecture](#split-deployment) to deploy
-  Contour onto the cluster.
-  - Use a Deployment to run at least two instances of contour
-  - Use a DaemonSet to deploy Envoy. (Use a Deployment if you want to auto-scale
-    Envoy pods.)
-- Use an external load balancer to distribute traffic across Envoy pods.
-- [Set `externalTrafficPolicy: Local` when exposing Envoy over a `NodePort` or
-  `LoadBalancer` service](#avoiding-unnecessary-network-hops)
-- Consider using [dedicated ingress nodes](#dedicated-ingress-nodes) to minimize
-  variability in request latency and unexpected performance issues.
-- [Consider binding Envoy to the underlying host's network](#envoy-and-host-networking).
-- Create a [wildcard DNS record](#wildcard-dns) that resolves to the load
-  balancer in front of Envoy.
-- Leverage [TLS certificate
-  delegation](#wildcard-certificates-and-tls-certificate-delegation) to secure
-  wildcard TLS certificates.
-- [Avoid ingress configuration
-  clashes](#preventing-ingress-configuration-collisions) by leveraging HTTPProxy
-  inclusion or an admission controller, such as OPA Gatekeeper.
+-   Follow the [split deployment architecture](#split-deployment) to deploy
+    Contour onto the cluster.
+    -   Use a Deployment to run at least two instances of contour
+    -   Use a DaemonSet to deploy Envoy. (Use a Deployment if you want to auto-scale
+        Envoy pods.)
+-   Use an external load balancer to distribute traffic across Envoy pods.
+-   [Set `externalTrafficPolicy: Local` when exposing Envoy over a `NodePort` or
+    `LoadBalancer` service](#avoiding-unnecessary-network-hops)
+-   Consider using [dedicated ingress nodes](#dedicated-ingress-nodes) to minimize
+    variability in request latency and unexpected performance issues.
+-   [Consider binding Envoy to the underlying host's network](#envoy-and-host-networking).
+-   Create a [wildcard DNS record](#wildcard-dns) that resolves to the load
+    balancer in front of Envoy.
+-   Leverage [TLS certificate
+    delegation](#wildcard-certificates-and-tls-certificate-delegation) to secure
+    wildcard TLS certificates.
+-   [Avoid ingress configuration
+    clashes](#preventing-ingress-configuration-collisions) by leveraging HTTPProxy
+    inclusion or an admission controller, such as OPA Gatekeeper.
 
 ## Contour overview
 
@@ -121,16 +121,16 @@ Service when the request has a Host header of `app1.example.com`.
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: app1
+    name: app1
 spec:
-  virtualhost:
-    fqdn: app1.example.com
-  routes:
-    - conditions:
-        - prefix: /
-      services:
-        - name: app1
-          port: 80
+    virtualhost:
+        fqdn: app1.example.com
+    routes:
+        - conditions:
+              - prefix: /
+          services:
+              - name: app1
+                port: 80
 ```
 
 The following diagrams shows the flow of the request:
@@ -152,18 +152,18 @@ expose `app1` over HTTPS using the certificate and private key contained in the
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: app1
+    name: app1
 spec:
-  virtualhost:
-    fqdn: app1.example.com
-    tls:
-      secretName: tls-cert
-  routes:
-    - conditions:
-        - prefix: /
-      services:
-        - name: app1
-          port: 80
+    virtualhost:
+        fqdn: app1.example.com
+        tls:
+            secretName: tls-cert
+    routes:
+        - conditions:
+              - prefix: /
+          services:
+              - name: app1
+                port: 80
 ```
 
 The following diagram shows the request flow:
@@ -191,19 +191,19 @@ service to `tls`:
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: app1
+    name: app1
 spec:
-  virtualhost:
-    fqdn: app1.example.com
-    tls:
-      secretName: tls-cert
-  routes:
-    - conditions:
-        - prefix: /
-      services:
-        - name: app1
-          port: 443
-          protocol: tls
+    virtualhost:
+        fqdn: app1.example.com
+        tls:
+            secretName: tls-cert
+    routes:
+        - conditions:
+              - prefix: /
+          services:
+              - name: app1
+                port: 443
+                protocol: tls
 ```
 
 The following diagram shows the connections given the above configuration:
@@ -218,22 +218,22 @@ HTTPProxy configuration:
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: app1
+    name: app1
 spec:
-  virtualhost:
-    fqdn: app1.example.com
-    tls:
-      secretName: tls-cert
-  routes:
-    - conditions:
-        - prefix: /
-      services:
-        - name: app1
-          port: 443
-          protocol: tls
-          validation:
-            caSecret: ca-cert
-            subjectName: app1.example.com
+    virtualhost:
+        fqdn: app1.example.com
+        tls:
+            secretName: tls-cert
+    routes:
+        - conditions:
+              - prefix: /
+          services:
+              - name: app1
+                port: 443
+                protocol: tls
+                validation:
+                    caSecret: ca-cert
+                    subjectName: app1.example.com
 ```
 
 ### Exposing TCP services
@@ -251,16 +251,16 @@ resource, as in the following example:
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: tcp-svc
+    name: tcp-svc
 spec:
-  virtualhost:
-    fqdn: tcp-app.example.com
-    tls:
-      secretName: tls-secret
-  tcpproxy:
-    services:
-      - name: tcp-app
-        port: 8080
+    virtualhost:
+        fqdn: tcp-app.example.com
+        tls:
+            secretName: tls-secret
+    tcpproxy:
+        services:
+            - name: tcp-app
+              port: 8080
 ```
 
 With the above configuration, Envoy first inspects the SNI extension to
@@ -283,16 +283,16 @@ HTTPProxy example:
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: tcp-svc
+    name: tcp-svc
 spec:
-  virtualhost:
-    fqdn: tcp-app.example.com
-    tls:
-      passthrough: true
-  tcpproxy:
-    services:
-      - name: tcp-app
-        port: 8080
+    virtualhost:
+        fqdn: tcp-app.example.com
+        tls:
+            passthrough: true
+    tcpproxy:
+        services:
+            - name: tcp-app
+              port: 8080
 ```
 
 ![TCP Proxy with TLS passthrough](images/contour-ingress-patterns-tcp-proxying-passthrough.drawio.png#diagram)
@@ -428,32 +428,32 @@ the Envoy pod specification:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  labels:
-    app: envoy
-  name: envoy
-  namespace: projectcontour
+    labels:
+        app: envoy
+    name: envoy
+    namespace: projectcontour
 spec:
-  # ...
-  # removed for brevity
-  # ...
-  spec:
-    hostNetwork: true # Enable hostNetwork
-    dnsPolicy: ClusterFirstWithHostNet # Update dns policy
-    containers:
-      - args:
-          - -c
-          - /config/envoy.json
-          - --service-cluster $(CONTOUR_NAMESPACE)
-          - --service-node $(ENVOY_POD_NAME)
-          - --log-level info
-        command:
-          - envoy
-        image: docker.io/envoyproxy/envoy:v1.15.0
-        imagePullPolicy: IfNotPresent
-        name: envoy
-  # ...
-  # removed for brevity
-  # ...
+    # ...
+    # removed for brevity
+    # ...
+    spec:
+        hostNetwork: true # Enable hostNetwork
+        dnsPolicy: ClusterFirstWithHostNet # Update dns policy
+        containers:
+            - args:
+                  - -c
+                  - /config/envoy.json
+                  - --service-cluster $(CONTOUR_NAMESPACE)
+                  - --service-node $(ENVOY_POD_NAME)
+                  - --log-level info
+              command:
+                  - envoy
+              image: docker.io/envoyproxy/envoy:v1.15.0
+              imagePullPolicy: IfNotPresent
+              name: envoy
+    # ...
+    # removed for brevity
+    # ...
 ```
 
 ### Avoiding unnecessary network hops
@@ -633,41 +633,41 @@ of `example.com`.
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: example-com-root
-  namespace: httpproxy-roots # Roots can only exist in this namespace
+    name: example-com-root
+    namespace: httpproxy-roots # Roots can only exist in this namespace
 spec:
-  virtualhost:
-    fqdn: example.com
-  includes:
-    - name: auth
-      namespace: authentication
-      conditions:
-        - prefix: /auth # The authentication team can use example.com/auth
-    - name: reservations
-      namespace: reservations
-      conditions:
-        - prefix: /reservations # The reservations team can use example.com/reservations
-    - name: user-profile
-      namespace: user-profile
-      conditions:
-        - prefix: /profile # The user profile team can use example.com/profile
+    virtualhost:
+        fqdn: example.com
+    includes:
+        - name: auth
+          namespace: authentication
+          conditions:
+              - prefix: /auth # The authentication team can use example.com/auth
+        - name: reservations
+          namespace: reservations
+          conditions:
+              - prefix: /reservations # The reservations team can use example.com/reservations
+        - name: user-profile
+          namespace: user-profile
+          conditions:
+              - prefix: /profile # The user profile team can use example.com/profile
 ---
 # Example HTTPProxy created by the reservations team in their namespace.
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: reservations
-  namespace: reservations
+    name: reservations
+    namespace: reservations
 spec: # Notice the `virtualhost` stanza is missing, as this is not a root HTTPProxy
-  routes:
-    - services: # matches /reservations
-        - name: reservations-home
-          port: 80
-    - conditions:
-        - prefix: /cancel # matches /reservations/cancel
-      services:
-        - name: cancellation-svc
-          port: 80
+    routes:
+        - services: # matches /reservations
+              - name: reservations-home
+                port: 80
+        - conditions:
+              - prefix: /cancel # matches /reservations/cancel
+          services:
+              - name: cancellation-svc
+                port: 80
 ```
 
 #### Admission Control
@@ -732,16 +732,16 @@ developers can set the `kubernetes.io/ingress.class` annotation:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: my-ingress
-  annotations:
-    kubernetes.io/ingress.class: "my-ingress-class"
+    name: my-ingress
+    annotations:
+        kubernetes.io/ingress.class: 'my-ingress-class'
 spec:
-  rules:
-    - host: my-svc.example.com
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: my-svc
-              servicePort: 80
+    rules:
+        - host: my-svc.example.com
+          http:
+              paths:
+                  - path: /
+                    backend:
+                        serviceName: my-svc
+                        servicePort: 80
 ```

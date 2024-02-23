@@ -1,23 +1,23 @@
 ---
 date: '2021-02-05'
 description: This tutorial will show you which are the best practices that any chart
-  developer should follow.
+    developer should follow.
 lastmod: '2021-02-16'
 parent: Packaging
 patterns:
-- Deployment
+    - Deployment
 tags:
-- Helm
-- Bitnami
-- Kubernetes
+    - Helm
+    - Bitnami
+    - Kubernetes
 featured: true
 team:
-- Javier Salmeron
+    - Javier Salmeron
 title: Best Practices for Creating Production-Ready Helm Charts
 weight: 5
-oldPath: "/content/guides/kubernetes/production-ready-helm.md"
+oldPath: '/content/guides/kubernetes/production-ready-helm.md'
 aliases:
-- "/guides/kubernetes/production-ready-helm"
+    - '/guides/kubernetes/production-ready-helm'
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -28,11 +28,11 @@ As maintainers of a collection of more than [45 Helm charts](https://github.com/
 
 ## Use non-root containers
 
-Ensuring that a container is able to perform only a very limited set of operations is vital for production deployments. This is possible thanks to the **use of non-root containers, which are executed by a user different from *root*.** Although creating a non-root container is a bit more complex than a root container (especially regarding filesystem permissions), it is absolutely worth it. Also, in environments like OpenShift, [using non-root containers is mandatory](https://engineering.bitnami.com/articles/running-non-root-containers-on-openshift.html).
+Ensuring that a container is able to perform only a very limited set of operations is vital for production deployments. This is possible thanks to the **use of non-root containers, which are executed by a user different from _root_.** Although creating a non-root container is a bit more complex than a root container (especially regarding filesystem permissions), it is absolutely worth it. Also, in environments like OpenShift, [using non-root containers is mandatory](https://engineering.bitnami.com/articles/running-non-root-containers-on-openshift.html).
 
-In order to make your Helm chart work with non-root containers, add the [*securityContext*](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) section to your *yaml* files.
+In order to make your Helm chart work with non-root containers, add the [_securityContext_](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) section to your _yaml_ files.
 
-This is what we do, for instance, in the Bitnami Elasticsearch Helm chart. This chart deploys several Elasticsearch *StatefulSets* and *Deployments* (data, ingestion, coordinating and master nodes), all of them with non-root containers. If we check the master node *StatefulSet*, we see the following:
+This is what we do, for instance, in the Bitnami Elasticsearch Helm chart. This chart deploys several Elasticsearch _StatefulSets_ and _Deployments_ (data, ingestion, coordinating and master nodes), all of them with non-root containers. If we check the master node _StatefulSet_, we see the following:
 
 ```yaml
 spec:
@@ -42,7 +42,7 @@ spec:
   {{- end }}
 ```
 
-The snippet above changes the permissions of the mounted volumes, so the container user can access them for read/write operations. In addition to this, inside the container definition, we see another *securityContext* block:
+The snippet above changes the permissions of the mounted volumes, so the container user can access them for read/write operations. In addition to this, inside the container definition, we see another _securityContext_ block:
 
 ```yaml
 {{- if .Values.securityContext.enabled }}
@@ -51,23 +51,23 @@ securityContext:
 {{- end }}
 ```
 
-In this part we specify the user running the container. In the *values.yaml* file, we set the default values for these parameters:
+In this part we specify the user running the container. In the _values.yaml_ file, we set the default values for these parameters:
 
 ```yaml
 ## Pod Security Context
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 ##
 securityContext:
-  enabled: true
-  fsGroup: 1001
-  runAsUser: 1001
+    enabled: true
+    fsGroup: 1001
+    runAsUser: 1001
 ```
 
 With these changes, the chart will work as non-root in platforms like GKE, Minikube or OpenShift.
 
 ## Do not persist the configuration
 
-Adding persistence is an essential part of deploying stateful applications. In our experience, deciding what or what not to persist can be tricky. After several iterations in our charts, we found that **persisting the application configuration is not a recommended practice**. One advantage of Kubernetes is that you can change the deployment parameters very easily by just doing `kubectl edit deployment` or `helm upgrade`. If the configuration is persisted, none of the changes would be applied. So, when developing a production-ready Helm chart, make sure that the configuration can be easily changed with `kubectl` or `helm upgrade`. One common practice is to create a *ConfigMap* with the configuration and have it mounted in the container. Let's use the [Bitnami RabbitMQ chart](https://github.com/bitnami/charts/tree/master/bitnami/rabbitmq) as an example:
+Adding persistence is an essential part of deploying stateful applications. In our experience, deciding what or what not to persist can be tricky. After several iterations in our charts, we found that **persisting the application configuration is not a recommended practice**. One advantage of Kubernetes is that you can change the deployment parameters very easily by just doing `kubectl edit deployment` or `helm upgrade`. If the configuration is persisted, none of the changes would be applied. So, when developing a production-ready Helm chart, make sure that the configuration can be easily changed with `kubectl` or `helm upgrade`. One common practice is to create a _ConfigMap_ with the configuration and have it mounted in the container. Let's use the [Bitnami RabbitMQ chart](https://github.com/bitnami/charts/tree/master/bitnami/rabbitmq) as an example:
 
 ```yaml
 apiVersion: v1
@@ -90,12 +90,12 @@ data:
 {{ .Values.rabbitmq.extraConfiguration | indent 4 }}
 ```
 
-Note that there is a section in the *values.yaml* file that allows you to include any custom configuration:
+Note that there is a section in the _values.yaml_ file that allows you to include any custom configuration:
 
 ```yaml
-  ## Configuration file content: required cluster configuration
-  ## Do not override unless you know what you are doing. To add more configuration, use `extraConfiguration` instead
-  configuration: |-
+## Configuration file content: required cluster configuration
+## Do not override unless you know what you are doing. To add more configuration, use `extraConfiguration` instead
+configuration: |-
     ## Clustering
     cluster_formation.peer_discovery_backend  = rabbit_peer_discovery_k8s
     cluster_formation.k8s.host = kubernetes.default.svc.cluster.local
@@ -106,14 +106,14 @@ Note that there is a section in the *values.yaml* file that allows you to includ
     queue_master_locator=min-masters
     # enable guest user
     loopback_users.guest = false
-  ## Configuration file content: extra configuration
-  ## Use this instead of  `configuration` to add more configuration
-  extraConfiguration: |-
+## Configuration file content: extra configuration
+## Use this instead of  `configuration` to add more configuration
+extraConfiguration: |-
     #disk_free_limit.absolute = 50MB
     #management.load_definitions = /app/load_definition.json
 ```
 
-This *ConfigMap* then gets mounted in the container filesystem, as shown in this extract of the *StatefulSet* spec:
+This _ConfigMap_ then gets mounted in the container filesystem, as shown in this extract of the _StatefulSet_ spec:
 
 ```yaml
 volumes:
@@ -122,18 +122,18 @@ volumes:
     name: {{ template "rabbitmq.fullname" . }}-config
 ```
 
-If the application needs to write in the configuration file, then you'll need to create a copy inside the container, as *ConfigMaps* are mounted as read-only. This is done in the same spec:
+If the application needs to write in the configuration file, then you'll need to create a copy inside the container, as _ConfigMaps_ are mounted as read-only. This is done in the same spec:
 
 ```yaml
 containers:
-- name: rabbitmq
-image: {{ template "rabbitmq.image" . }}
-imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+    - name: rabbitmq
+image: { { template "rabbitmq.image" . } }
+imagePullPolicy: { { .Values.image.pullPolicy | quote } }
 command:
-      # ...
-      #copy the mounted configuration to both places
-      cp  /opt/bitnami/rabbitmq/conf/* /opt/bitnami/rabbitmq/etc/rabbitmq
-      # ...
+    # ...
+    #copy the mounted configuration to both places
+    cp  /opt/bitnami/rabbitmq/conf/* /opt/bitnami/rabbitmq/etc/rabbitmq
+    # ...
 ```
 
 This will make your chart not only easy to upgrade, but also more adaptable to user needs, as they can provide their custom configuration file.
@@ -144,8 +144,8 @@ If we are talking about production environments, we are talking about observabil
 
 When writing your chart, make sure that your deployment is able to work with the above tools seamlessly. To do so, ensure the following:
 
-* All the containers log to stdout/stderr (so the EFK stack can easily ingest all the logging information)
-* Prometheus exporters are included (either using sidecar containers or having a separate deployment)
+-   All the containers log to stdout/stderr (so the EFK stack can easily ingest all the logging information)
+-   Prometheus exporters are included (either using sidecar containers or having a separate deployment)
 
 All Bitnami charts work with BKPR (which includes EFK and Prometheus) out of the box. Let's take a look at the [Bitnami PostgreSQL chart](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) and [Bitnami PostgreSQL container](https://github.com/bitnami/bitnami-docker-postgresql) to see how we did it.
 
@@ -229,17 +229,17 @@ With this, we ensured that it works with EFK. Then, in the chart we added a side
 {{- end }}
 ```
 
-We also made sure that the pods or services contain the proper annotations that Prometheus uses to detect exporters. In this case, we defined them in the chart's *values.yaml* file, as shown below:
+We also made sure that the pods or services contain the proper annotations that Prometheus uses to detect exporters. In this case, we defined them in the chart's _values.yaml_ file, as shown below:
 
 ```yaml
 metrics:
-  enabled: false
-  service:
-    type: ClusterIP
-    annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "9187"
-  #...  
+    enabled: false
+    service:
+        type: ClusterIP
+        annotations:
+            prometheus.io/scrape: 'true'
+            prometheus.io/port: '9187'
+    #...
 ```
 
 In the case of the PostgreSQL chart, these annotations go to a metrics service, separate from the PostgreSQL service, which is defined as below:
@@ -283,8 +283,8 @@ Now you know some essential guidelines for creating secured (with non-root conta
 
 To learn more, check the following links:
 
-* [Official Helm chart good practice guidelines](https://helm.sh/docs/chart_best_practices/)
-* [Helm best practices by CodeFresh](https://codefresh.io/docs/docs/new-helm/helm-best-practices/)
-* [Bitnami Kubernetes Production Runtime](https://kubeprod.io/)
-* [Bitnami Helm charts](https://github.com/bitnami/charts/)
-* [Kubeapps Hub](https://hub.kubeapps.com/)
+-   [Official Helm chart good practice guidelines](https://helm.sh/docs/chart_best_practices/)
+-   [Helm best practices by CodeFresh](https://codefresh.io/docs/docs/new-helm/helm-best-practices/)
+-   [Bitnami Kubernetes Production Runtime](https://kubeprod.io/)
+-   [Bitnami Helm charts](https://github.com/bitnami/charts/)
+-   [Kubeapps Hub](https://hub.kubeapps.com/)

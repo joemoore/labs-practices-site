@@ -3,20 +3,20 @@ date: '2021-02-16'
 lastmod: '2021-02-26'
 subsection: Packaging
 team:
-- John Harris
+    - John Harris
 title: Packaging
 weight: 52
-oldPath: "/content/guides/kubernetes/packaging.md"
+oldPath: '/content/guides/kubernetes/packaging.md'
 aliases:
-- "/guides/kubernetes/packaging"
+    - '/guides/kubernetes/packaging'
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 tags:
-- Kubernetes
+    - Kubernetes
 ---
 
 In Kubernetes, the desired state of the system is declared via resources sent to the API Server.
-Resources are stored as JSON or YAML files called *manifests*.
+Resources are stored as JSON or YAML files called _manifests_.
 The management of manifests can be cumbersome but there are many tools which can help.
 To inform tooling choices it is helpful to define the nature of the problems commonly encountered and identify the approaches that each tool takes to address them.
 
@@ -103,7 +103,7 @@ In addition, utilizing namespaces in lieu of prefixing/suffixing names (`namespa
 ### Helm
 
 [Helm](https://helm.sh/) is the dominant player in the world of Kubernetes
-templating. Helm manifests are organized into modules called *charts*. Charts
+templating. Helm manifests are organized into modules called _charts_. Charts
 expose parameters that can be used to customize deployments. Customization of
 the underlying resources is accomplished by using Golang text templates as a
 DSL. Helm also incorporates the concept of a package registry to facilitate easy
@@ -112,28 +112,28 @@ managing internal projects (a business specific API, a website deployment, etc).
 
 **Pros:**
 
-* Large ecosystem of charts
-* Third-party software is usually available via Helm charts
-  (a message queue, a database, etc)
-* Deploying applications and their associated objects is done in one command
-* Parameterizing values makes it easier to adjust configurations per environment
-  (a values file for dev, test, prod)
+-   Large ecosystem of charts
+-   Third-party software is usually available via Helm charts
+    (a message queue, a database, etc)
+-   Deploying applications and their associated objects is done in one command
+-   Parameterizing values makes it easier to adjust configurations per environment
+    (a values file for dev, test, prod)
 
 **Cons:**
 
-* Charts trend towards becoming a 1:1 mapping of parameters into Kubernetes
-  resource definition fields
-* Instead of configuring a well-documented Kubernetes API resource, users end up
-  configuring a less well known and under-documented helm chart API (as in the
-  exposed chart input parameters).
-* The Go text templating language is not aware that it is outputting schemas
-  defined by OpenAPI or even that it is being used to format data at all. Helm
-  is not able to validate that `replicas: "three"` is an invalid Deployment
-  field.
-* YAML's sensitivity to indention along with conditionally defined template
-  blocks often results in unforeseen issues when input parameters are changed.
-  Even when indentation is accounted for correctly, the result is often hard to
-  read.
+-   Charts trend towards becoming a 1:1 mapping of parameters into Kubernetes
+    resource definition fields
+-   Instead of configuring a well-documented Kubernetes API resource, users end up
+    configuring a less well known and under-documented helm chart API (as in the
+    exposed chart input parameters).
+-   The Go text templating language is not aware that it is outputting schemas
+    defined by OpenAPI or even that it is being used to format data at all. Helm
+    is not able to validate that `replicas: "three"` is an invalid Deployment
+    field.
+-   YAML's sensitivity to indention along with conditionally defined template
+    blocks often results in unforeseen issues when input parameters are changed.
+    Even when indentation is accounted for correctly, the result is often hard to
+    read.
 
 ### Kustomize
 
@@ -142,7 +142,7 @@ As of [Kubernetes
 the [Kustomize](https://kustomize.io/) tool is a part of the native toolchain
 via `kubectl apply -k`. Kustomize does not use templates. Instead, it relies on
 patching. This attribute allows Kustomize to modify vanilla manifests. Kustomize
-also provides *Kubernetes aware* functionality such as applying a prefix to all
+also provides _Kubernetes aware_ functionality such as applying a prefix to all
 managed resource names. Behavior is controlled by a `kustomization.yaml` file.
 
 The main negative to using Kustomize is the inability to encapsulate Kubernetes
@@ -156,16 +156,16 @@ relatively little knowledge of internal implementation details.
 
 **Pros:**
 
-* Part of the native `kubectl` toolchain
-* Able to modify vanilla manifests.
+-   Part of the native `kubectl` toolchain
+-   Able to modify vanilla manifests.
 
 **Cons:**
 
-* Main negative to using Kustomize is the inability to encapsulate Kubernetes
-  resource implementation aspects
-* Because patching operates at the resource level, updating implementation
-  details (Deployment vs StatefulSet) almost always results in breaking changes
-  to downstream users.
+-   Main negative to using Kustomize is the inability to encapsulate Kubernetes
+    resource implementation aspects
+-   Because patching operates at the resource level, updating implementation
+    details (Deployment vs StatefulSet) almost always results in breaking changes
+    to downstream users.
 
 ### Operators
 
@@ -178,7 +178,7 @@ to templating tools, this approach uses a programming language (the controller,
 usually written in Go) to translate parameters (the CRD) into a set of manifests
 (the created resources).
 
-As the name suggests, operators are responsible for *operating* applications.
+As the name suggests, operators are responsible for _operating_ applications.
 This means a sufficiently sophisticated operator probably has the ability to
 perform application-specific steps required to upgrade to a new app version.
 This is done in response to the user (human operator) making a declarative
@@ -192,15 +192,15 @@ lifecycle concerns (for example: stateful or legacy apps).
 
 **Pros:**
 
-* Naturally address configuration drift
-* When running complex third party applications, sufficiently mature operators
-  should be favored over basic templating tools.
-* Mature operators can act like cloud services, making it more simple to install
-  and update Kubernetes applications
+-   Naturally address configuration drift
+-   When running complex third party applications, sufficiently mature operators
+    should be favored over basic templating tools.
+-   Mature operators can act like cloud services, making it more simple to install
+    and update Kubernetes applications
 
 **Cons:**
 
-* Kubernetes API pollution, creating additional cognitive load on cluster users
-* Rogue operators can be hard to debug
-* Building an operator involves a large amount of effort
-* Most cloud native workloads do not warrant the development of an operator
+-   Kubernetes API pollution, creating additional cognitive load on cluster users
+-   Rogue operators can be hard to debug
+-   Building an operator involves a large amount of effort
+-   Most cloud native workloads do not warrant the development of an operator

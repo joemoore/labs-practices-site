@@ -3,24 +3,24 @@ title: IPM(반복 계획 회의)
 linkTitle: IPM(반복 계획 회의)
 description: 수행한 작업을 이해하고 조율하기 위한 핵심 팀의 정기 회의입니다.
 # Note: remove any tags that are not relevant.
-tags: ["제공"]
+tags: ['제공']
 length: 1시간
 participants: 핵심 제공 팀
-lastmod: "2021-06-17"
-date: "2021-06-17"
-why: 
-- 정기적인 계획 회의를 통해 제품 백로그를 모든 팀원이 잘 이해하고 항상 현재 우선순위를 반영할 수 있습니다. 제품 백로그 항목을 논의하고 그 크기를 조정함으로써 팀은 수행할 작업의 제공 영향에 맞게 조치할 수 있습니다.
+lastmod: '2021-06-17'
+date: '2021-06-17'
+why:
+    - 정기적인 계획 회의를 통해 제품 백로그를 모든 팀원이 잘 이해하고 항상 현재 우선순위를 반영할 수 있습니다. 제품 백로그 항목을 논의하고 그 크기를 조정함으로써 팀은 수행할 작업의 제공 영향에 맞게 조치할 수 있습니다.
 when:
-- "반복 계획 회의는 일반적으로 제품 반복 주기(예: 매주)를 따르거나, 제품 백로그의 규모와 이해 수준을 바람직하게 유지하는 데 필요한 만큼 자주 소집되어야 합니다."
+    - '반복 계획 회의는 일반적으로 제품 반복 주기(예: 매주)를 따르거나, 제품 백로그의 규모와 이해 수준을 바람직하게 유지하는 데 필요한 만큼 자주 소집되어야 합니다.'
 what:
-- 제품 백로그
-- 검토 후 잠재적으로 제품 백로그로 승격하기 위해 우선순위를 지정해 마련한 사용자 사례
+    - 제품 백로그
+    - 검토 후 잠재적으로 제품 백로그로 승격하기 위해 우선순위를 지정해 마련한 사용자 사례
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: "URL for related Miro template" 
-
+miro_template_url: 'URL for related Miro template'
 ---
+
 <h2 id="how-to-use-this-method">이 방식을 활용하는
 방법</h2>
 

@@ -3,25 +3,25 @@ title: 영향 분석
 linkTitle: 영향 분석
 description: 관련성 있는 주요 비즈니스 측정지표에 대한 기준선을 체계적으로 설정하는 방법
 # Note: remove any tags that are not relevant.
-tags: ["검색"]
+tags: ['검색']
 length: 2시간
-participants: "핵심 팀, 이해관계자, 실무 전문가"
+participants: '핵심 팀, 이해관계자, 실무 전문가'
 # custom "cover" image example: "boris/boris.png"
-image: "" 
-lastmod: "2022-10-28"
-why: 
-- 영향 분석을 통해 기준 현재 상태 값을 주요 비즈니스 측정지표에 연동할 수 있습니다. 그러면 목표와 주요 결과를 설정하고 장기적인 제품 이니셔티브의 영향을 측정하는 기준으로 이 값을 사용할 수 있습니다.
+image: ''
+lastmod: '2022-10-28'
+why:
+    - 영향 분석을 통해 기준 현재 상태 값을 주요 비즈니스 측정지표에 연동할 수 있습니다. 그러면 목표와 주요 결과를 설정하고 장기적인 제품 이니셔티브의 영향을 측정하는 기준으로 이 값을 사용할 수 있습니다.
 when:
-- 비즈니스 목표 및 측정지표를 식별하고 우선순위를 지정한 후입니다.
+    - 비즈니스 목표 및 측정지표를 식별하고 우선순위를 지정한 후입니다.
 what:
-- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-- 화이트보드용 마커
+    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+    - 화이트보드용 마커
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: 
-
+miro_template_url:
 ---
+
 <h2 id="how-to-use-this-method">이 방식을 활용하는 방법</h2>
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div class="col-lg-9"><h3 id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <ol>

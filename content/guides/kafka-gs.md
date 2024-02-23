@@ -1,38 +1,39 @@
 ---
 date: '2020-05-06'
 description: Leverage Apache Kafka, a distributed streaming platform built for storing
-  and processing streams of records, while focusing on performance.
+    and processing streams of records, while focusing on performance.
 lastmod: '2021-03-07'
 linkTitle: Kafka
 patterns:
-- Eventing
+    - Eventing
 subsection: Kafka
 tags:
-- Kafka
-- Event Streaming
-- Messaging and Integration
+    - Kafka
+    - Event Streaming
+    - Messaging and Integration
 team:
-- Brian McClain
+    - Brian McClain
 title: Getting Started with Kafka
-oldPath: "/content/guides/messaging-and-integration/kafka-gs.md"
+oldPath: '/content/guides/messaging-and-integration/kafka-gs.md'
 aliases:
-- "/guides/messaging-and-integration/kafka-gs"
+    - '/guides/messaging-and-integration/kafka-gs'
 level1: Building Modern Applications
 level2: Services
 ---
 
 ## What Is Kafka?
-[Apache Kafka](https://kafka.apache.org/) is a distributed streaming platform built for publishing, consuming, storing, and processing streams of records. It’s built to run as a cluster of servers potentially across multiple data centers, and to focus on performance and reliability. 
+
+[Apache Kafka](https://kafka.apache.org/) is a distributed streaming platform built for publishing, consuming, storing, and processing streams of records. It’s built to run as a cluster of servers potentially across multiple data centers, and to focus on performance and reliability.
 
 ## Before You Begin
 
 Before you begin, there are a few tools you will need:
 
-- [Docker Desktop](https://docs.docker.com/get-docker/). You’ll run your Kafka server in a container to ease the setup. If you’d prefer to run Kafka natively, checkout the 
-- [Kafka Quickstart guide](https://kafka.apache.org/quickstart).
-- [Docker Compose](https://docs.docker.com/compose/install/). Kafka has a dependency on [Zookeeper](https://zookeeper.apache.org/), so instead you can use a `docker-compose.yml` file, referenced later, to make standing up your Kafka server easier.
-Your text editor or IDE of choice.
-- [JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.
+-   [Docker Desktop](https://docs.docker.com/get-docker/). You’ll run your Kafka server in a container to ease the setup. If you’d prefer to run Kafka natively, checkout the
+-   [Kafka Quickstart guide](https://kafka.apache.org/quickstart).
+-   [Docker Compose](https://docs.docker.com/compose/install/). Kafka has a dependency on [Zookeeper](https://zookeeper.apache.org/), so instead you can use a `docker-compose.yml` file, referenced later, to make standing up your Kafka server easier.
+    Your text editor or IDE of choice.
+-   [JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.
 
 This example has been written in Java, but if you’d like to see the example in other languages, to see the whole thing put together, you can find these [on GitHub](https://github.com/BrianMMcClain/kafka-getting-started)
 
@@ -58,7 +59,9 @@ You’ll see quite a few logs fly by, but it should end with something like the 
 kafka_1      | [2020-04-17 16:36:02,261] INFO Kafka startTimeMs: 1587141362239 (org.apache.kafka.common.utils.AppInfoParser)
 kafka_1      | [2020-04-17 16:36:02,263] INFO [KafkaServer id=1001] started (kafka.server.KafkaServer)
 ```
+
 ## Building the Application
+
 The application has two parts: the emitter, which will generate and send messages to Kafka, and the receiver, which will constantly listen for messages from Kafka and print them to the console. Both applications share a similar `pom.xml` file, which only has one dependency:
 
 ```
@@ -73,7 +76,7 @@ This Kafka client will handle everything from the connection to the server, to s
 
 ### Building The Emitter
 
-The entirety of the code for the emitter can be found in the `emitter.java` file. There’s a few things going on in this code, so as usual it’s best to walk through it step  by step:
+The entirety of the code for the emitter can be found in the `emitter.java` file. There’s a few things going on in this code, so as usual it’s best to walk through it step by step:
 
 ```java
 // Set the properties to use when connecting to Kafka
@@ -108,7 +111,7 @@ while (true) {
 }
 ```
 
-Once connected to Kafka, the code begins a loop of taking the user input, checking if they wish to exit, and—if not—sending their input to Kafka. Earlier in the code, the constant `TOPIC_NAME` is set to `hello`, which is where all messages will be sent to. None  of this code is specific to Kafka, except for this line:
+Once connected to Kafka, the code begins a loop of taking the user input, checking if they wish to exit, and—if not—sending their input to Kafka. Earlier in the code, the constant `TOPIC_NAME` is set to `hello`, which is where all messages will be sent to. None of this code is specific to Kafka, except for this line:
 
 ```java
 producer.send(new ProducerRecord<String, String>(TOPIC_NAME, null, message));

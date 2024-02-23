@@ -6,17 +6,17 @@ linkTitle: Concourse CI Remote Workers
 metaTitle: Concourse CI Remote Workers
 parent: Concourse CI
 patterns:
-- Deployment
+    - Deployment
 tags:
-- CI-CD
-- Concourse
-- Kubernetes
+    - CI-CD
+    - Concourse
+    - Kubernetes
 team:
-- Luke Short
+    - Luke Short
 title: Deploying Remote Concourse CI Workers
-oldPath: "/content/guides/ci-cd/concourse-remote-workers.md"
+oldPath: '/content/guides/ci-cd/concourse-remote-workers.md'
 aliases:
-- "/guides/ci-cd/concourse-remote-workers"
+    - '/guides/ci-cd/concourse-remote-workers'
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -46,57 +46,57 @@ If no local worker hosts are required, set `worker.enabled: false`. In the examp
 ---
 # values.yaml file.
 concourse:
-  web:
-    # Define the URL to use for Concourse.
-    # Use "http://" for simplified testing purposes.
-    # This needs to use the domain defined in "web.ingress.hosts".
-    externalUrl: http://concourse.example.com
-    auth:
-      mainTeam:
-        # The default user to create.
-        localUser: admin
+    web:
+        # Define the URL to use for Concourse.
+        # Use "http://" for simplified testing purposes.
+        # This needs to use the domain defined in "web.ingress.hosts".
+        externalUrl: http://concourse.example.com
+        auth:
+            mainTeam:
+                # The default user to create.
+                localUser: admin
 # Automatically create Secret objects for the default user account and SSH keys.
 secrets:
-  # Define the password for the "admin" user as "password123".
-  localUsers: admin:password123
-  # Public and private SSH keys for the web hosts.
-  hostKeyPub: |-
-    ssh-rsa <OMITTED>
-  hostKey: |-
-    -----BEGIN RSA PRIVATE KEY-----
-    <OMITTED>
-    -----END RSA PRIVATE KEY----
-  # Private SSH key for the web hosts to securely sign HTTP session tokens.
-  # No public key is required.
-  sessionSigningKey: |-
-    -----BEGIN RSA PRIVATE KEY-----
-    <OMITTED>
-    -----END RSA PRIVATE KEY----
-  # Public and private SSH keys for the worker hosts.
-  workerKeyPub: |-
-    ssh-rsa <OMITTED>
-  workerKey: |-
-    -----BEGIN RSA PRIVATE KEY-----
-    <OMITTED>
-    -----END RSA PRIVATE KEY----
+    # Define the password for the "admin" user as "password123".
+    localUsers: admin:password123
+    # Public and private SSH keys for the web hosts.
+    hostKeyPub: |-
+        ssh-rsa <OMITTED>
+    hostKey: |-
+        -----BEGIN RSA PRIVATE KEY-----
+        <OMITTED>
+        -----END RSA PRIVATE KEY----
+    # Private SSH key for the web hosts to securely sign HTTP session tokens.
+    # No public key is required.
+    sessionSigningKey: |-
+        -----BEGIN RSA PRIVATE KEY-----
+        <OMITTED>
+        -----END RSA PRIVATE KEY----
+    # Public and private SSH keys for the worker hosts.
+    workerKeyPub: |-
+        ssh-rsa <OMITTED>
+    workerKey: |-
+        -----BEGIN RSA PRIVATE KEY-----
+        <OMITTED>
+        -----END RSA PRIVATE KEY----
 web:
-  service:
-    workerGateway:
-      type: NodePort
-      # The web hosts port to use for remote worker hosts to SSH into.
-      NodePort: 32222
-  ingress:
-    enabled: true
-    hosts:
-      # Define the domain name for Concourse.
-      # This needs to match what is defined for 'concourse.web.externalURL'.
-      - concourse.example.com
+    service:
+        workerGateway:
+            type: NodePort
+            # The web hosts port to use for remote worker hosts to SSH into.
+            NodePort: 32222
+    ingress:
+        enabled: true
+        hosts:
+            # Define the domain name for Concourse.
+            # This needs to match what is defined for 'concourse.web.externalURL'.
+            - concourse.example.com
 # Disable PersistentVolumeClaims for testing purposes.
 persistence:
-  enabled: false
-postgresql:
-  persistence:
     enabled: false
+postgresql:
+    persistence:
+        enabled: false
 ```
 
 ```bash
@@ -118,7 +118,7 @@ $ kubectl config get-contexts
 $ kubectl config set-context <CONTEXT>
 ```
 
-Disable components that are not required for a workers-only deployment with `web.enabled: false` and `postgresql.enabled: false`. For the Secrets, only define `secrets.hostKeyPub` and `secrets.workerKey` (do not define `secrets.hostKey`, `secrets.sessionSigningKey`, or  `secrets.workerKeyPub`). The remote worker hosts will SSH into the web hosts to add themselves to the cluster. Along with this, a SSH tunnel back from the web to remote worker hosts is created. This way, the web hosts can delegate pipelines to the hosts.
+Disable components that are not required for a workers-only deployment with `web.enabled: false` and `postgresql.enabled: false`. For the Secrets, only define `secrets.hostKeyPub` and `secrets.workerKey` (do not define `secrets.hostKey`, `secrets.sessionSigningKey`, or `secrets.workerKeyPub`). The remote worker hosts will SSH into the web hosts to add themselves to the cluster. Along with this, a SSH tunnel back from the web to remote worker hosts is created. This way, the web hosts can delegate pipelines to the hosts.
 
 ```yaml
 ---
@@ -168,7 +168,7 @@ Deploy a remote worker in a different namespace. The remote worker hosts listen 
 $ helm install -f values-remote.yaml --namespace concourse-remote --create-namespace concourse concourse/concourse
 ```
 
-Log into the Concourse web dashboard by going to ``http://concourse.example.com``. Then download the `fly` binary for the operating system of the workstation.
+Log into the Concourse web dashboard by going to `http://concourse.example.com`. Then download the `fly` binary for the operating system of the workstation.
 
 Verify that the local and remote worker hosts are being listed.
 

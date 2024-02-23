@@ -6,15 +6,15 @@ lastmod: 2022-08-18
 level1: Building Kubernetes Runtime
 level2: Application Platform on Kubernetes
 tags:
-- Tanzu
-- Tanzu Application Platform
+    - Tanzu
+    - Tanzu Application Platform
 tanzu:
-  label: tap
-  featured: true
-  featuredweight: 2
+    label: tap
+    featured: true
+    featuredweight: 2
 # Author(s)
 team:
-- Madhavan Srinivass Sampath
+    - Madhavan Srinivass Sampath
 ---
 
 In this article, users will get detailed instructions on how to configure RBAC for Tanzu Application Platform on Tanzu Kubernetes Grid and OpenLDAP.
@@ -24,18 +24,19 @@ RBAC is a mechanism that restricts system access based on a role within the orga
 User Roles: app-editor, app-viewer and app-operator
 
 Service Accounts Roles: workload and Deliverable
+
 ## Prerequisites
 
 A client machine with the following CLIs installed. - Tanzu CLI and plugins, TAP plugins, RBAC plugin, kubectl
 
 ## Installing OpenLDAP
 
-1. Install the LDAP packages 
+1. Install the LDAP packages
 
-```
+````
 $ sudo apt update
 $ sudo apt -y install slapd ldap-utils ``` When prompted, provide the LDAP admin password
-```
+````
 
 2. Confirm the successful installation
 
@@ -113,15 +114,15 @@ memberUid: editor
 7. Apply the config
 
 ```
-$ ldapadd -x -D cn=admin,dc=dapd,dc=net -W -f ldapusers.ldif 
-Enter LDAP Password: 
+$ ldapadd -x -D cn=admin,dc=dapd,dc=net -W -f ldapusers.ldif
+Enter LDAP Password:
 adding new entry "uid=app-editor,ou=people,dc=dapd,dc=net"
 $ ldapadd -x -D cn=admin,dc=dapd,dc=net -W -f ldapgroups.ldif
-Enter LDAP Password: 
+Enter LDAP Password:
 adding new entry "cn=editor,ou=groups,dc=dapd,dc=net"
 ```
 
-8. Generate certificates and configure LDAP for SSL. Copy the certificates to `/etc/ldap/sasl2/` directory and change the ownership of `/etc/ldap/sasl2/*` to OpenLDAP user 
+8. Generate certificates and configure LDAP for SSL. Copy the certificates to `/etc/ldap/sasl2/` directory and change the ownership of `/etc/ldap/sasl2/*` to OpenLDAP user
 
 ```
 $ sudo cp {ldapserver.dapd.net.key,ldapserver.dapd.net.crt} \ /etc/ssl/certs/ca-certificates.crt /etc/ldap/sasl2/     $ sudo chown -R openldap. /etc/ldap/sasl2
@@ -154,7 +155,7 @@ modifying entry "cn=config"
 $ sudo systemctl restart slapd
 ```
 
-11. Secure the connection between the client and server 
+11. Secure the connection between the client and server
 
 ```
 echo "TLS_REQCERT allow" | sudo tee /etc/ldap/ldap.conf
@@ -177,13 +178,13 @@ Root CA cert if LDAP
 2. Add the LDAP information to the config file to create a TKG management cluster. Refer here for detailed documentation.
 
 ```
-IDENTITY_MANAGEMENT_TYPE: ldap 
-LDAP_BIND_DN: "cn=admin,dc=dapd,dc=net" 
-LDAP_BIND_PASSWORD: "VMware1!" 
-LDAP_GROUP_SEARCH_BASE_DN: "ou=groups,dc=dapd,dc=net" 
+IDENTITY_MANAGEMENT_TYPE: ldap
+LDAP_BIND_DN: "cn=admin,dc=dapd,dc=net"
+LDAP_BIND_PASSWORD: "VMware1!"
+LDAP_GROUP_SEARCH_BASE_DN: "ou=groups,dc=dapd,dc=net"
 LDAP_GROUP_SEARCH_FILTER: "(objectClass=posixGroup)"
-LDAP_GROUP_SEARCH_GROUP_ATTRIBUTE: memberUid 
-LDAP_GROUP_SEARCH_NAME_ATTRIBUTE: cn 
+LDAP_GROUP_SEARCH_GROUP_ATTRIBUTE: memberUid
+LDAP_GROUP_SEARCH_NAME_ATTRIBUTE: cn
 LDAP_GROUP_SEARCH_USER_ATTRIBUTE:  uid
 LDAP_HOST: "10.221.41.4:636"
 LDAP_ROOT_CA_DATA_B64: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURWRENDQWp5Z0F3SUJBZ0lVVXFPU0tHQk4rTmoyZnpSalZUZjdPTW9Gdlprd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0dURVhNQlVHQTFVRUF3d09aR0Z3WkdWc2FYWmxjbmt0WTJFd0hoY05Nakl3TlRFek1EWXlOVEExV2hjTgpNekl3TlRFd01EWXlOVEExV2pBWk1SY3dGUVlEVlFRRERBNWtZWEJrWld4cGRtVnllUzFqWVRDQ0FTSXdEUVlKCktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQU1qWUdZNzdMRWdXcUlnZXk4RHRZZkxTWGI4SkFOVTMKUDMrQWZmOEV4NEVnZFllcXdjdkhNKzRQRzREeFc0cTJ2em5OK0VaVzNoa0xiWFh1emFqeGZEcVBna3p0NFJqegptZ2FzcFRSK3gyZ3hObVJDVnVGenVGQkYzZFdBYy9KMU05TERac3JSS2ZhWGowQmZlV1o5alNTVFN3c1ZVVU1BCkJlaFhDaUd5RldadXZjS3Q1VGl5bE9xcXdReTBqa0thTjg5eXFmVWVuUFd1WlpNNUNIRW5JK04waURnSHVQdzYKNWt4TFhnS3pnZlNZb1Z4bGVxcXZWNS9FQUhMWWtLRm4zRHZEL09qVXJ5dUMvbFZoZWgwSmNRQkgyWFluOWJjdQpSNzN6SFFBK0UvSTZ2aFZqTmFyNlJsZEF6cGQxU1ltR0Z5bzNuYXp4Ry9JTy9nWUh5TWc3dGRzQ0F3RUFBYU9CCmt6Q0JrREFkQmdOVkhRNEVGZ1FVelJvVWR4WFc0VXZhUmlPSUVVaFcyNFNzTFVzd1ZBWURWUjBqQkUwd1M0QVUKelJvVWR4WFc0VXZhUmlPSUVVaFcyNFNzTFV1aEhhUWJNQmt4RnpBVkJnTlZCQU1NRG1SaGNHUmxiR2wyWlhKNQpMV05oZ2hSU281SW9ZRTM0MlBaL05HTlZOL3M0eWdXOW1UQU1CZ05WSFJNRUJUQURBUUgvTUFzR0ExVWREd1FFCkF3SUJCakFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBVFExVm9aNDBYcU94bGZoMDNkNFlGTjFXSVl2YkpXYmMKdXR5ZSt2NU5iTkFzeWJaTXVOQndodEd4eE1odElBMWR0c200bTRUUDE5bjRVOGdNZWJqcjNFcVQ1OVMzQUZzTwpBbmNGOFl6ZHdYdWdSOE1SekpTY3BSenM4d3czSnNaR0hLUGUyWW04bytvcWFhZjAyM0Jvcjd5TjZJSElNZ2E4Cm05cDNnRVZ0dUtqWjM3aEFNcCtpRGtrSE9IMDZNVVBaZXdHMUFSTGxtRlY5Z1BZY05XcnFrSnUwSXErQlE2UjIKalgycDgxY2NzbGkwOWdhbDdueDBSYVJFTW8yNXpvK1M1anNWSVhZdGwwUk9YWWQzWUo5b2xDendiczQ2RHpIWQpyRWZCZWloWFQrMzRPR1gzaGNCN1o1V2pWMkVwelhBMGxSUjMwY3ZIRXRpTTVYcS84VlFXNHc9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
@@ -224,55 +225,56 @@ tanzu package repository add tanzu-tap-repo --url registry.tanzu.vmware.com/tanz
 ```
 
 3. Prepare the `tap-install-values.yaml`
+
 ```yaml
 ceip_policy_disclosed: true
 profile: full
-shared: 
+shared:
 ingress_domain: tap.example.com
 supply_chain: basic
-buildservice: 
+buildservice:
 kp_default_repository: $REGISTRY/build-service
 kp_default_repository_username: $REGISTRY_USERNAME
 kp_default_repository_password: $REGISTRY_PASSWORD
 tanzunet_username: $TANZUNET_USERNAME
 tanzunet_password: $TANZUNET_PASSWORD
-contour: 
-envoy: 
-    service: 
+contour:
+envoy:
+    service:
     type: LoadBalancer
 infrastructure_provider: vsphere
 namespace: tanzu-system-ingress
-grype: 
+grype:
 namespace: my-apps
 targetImagePullSecret: registry-credentials
-metadata_store: 
+metadata_store:
 app_service_type: ClusterIP
 ingress_domain: tap.example.com
 ingress_enabled: "true"
-ootb_supply_chain_basic: 
+ootb_supply_chain_basic:
 cluster_builder: default
-gitops: 
+gitops:
     ssh_secret: $SSH_SECRET_KEY
-registry: 
+registry:
     repository: tap/apps
     server: $REGISTRY
-tap_gui: 
-app_config: 
-    app: 
+tap_gui:
+app_config:
+    app:
     baseUrl: "http://tap-gui.tap.example.com"
     title: "TAP Beta 4"
-    backend: 
+    backend:
     baseUrl: "http://tap-gui.tap.example.com"
-    cors: 
+    cors:
         origin: "http://tap-gui.tap.example.com"
-    catalog: 
-    locations: 
-        - 
+    catalog:
+    locations:
+        -
         target: "https://GIT-CATALOG-URL/catalog-info.yaml"
         type: url
-    integrations: 
-    github: 
-        - 
+    integrations:
+    github:
+        -
         host: github.com
         token: $GITHUB_TOKEN
 ingressEnabled: true
@@ -340,7 +342,7 @@ $ tanzu cluster kubeconfig get tkgm-15-wld01 --export-file tkg-wld-02-kubeconfig
 ```
 kubectl get pods -n my-apps --kubeconfig ~/tkg-wld-02-kubeconfig
 Log in by visiting this link:
-https://10.221.42.13/oauth2/authorize?access_type=offline&client_id=pinniped-cli&code_challenge=C80QanvFGmYNzOrDW00qgakqL4vkIW_da6srU4HHBGM&code_challenge_method=S256&nonce=43f35735a2aeac339ef9aa6454033c29&redirect_uri=http%3A%2F%2F127.0.0.1%3A56604%2Fcallback&response_mode=form_post&response_type=code&scope=offline_access+openid+pinniped%3Arequest-audience&state=23f25868966a04e521618fcbde6dda3b 
+https://10.221.42.13/oauth2/authorize?access_type=offline&client_id=pinniped-cli&code_challenge=C80QanvFGmYNzOrDW00qgakqL4vkIW_da6srU4HHBGM&code_challenge_method=S256&nonce=43f35735a2aeac339ef9aa6454033c29&redirect_uri=http%3A%2F%2F127.0.0.1%3A56604%2Fcallback&response_mode=form_post&response_type=code&scope=offline_access+openid+pinniped%3Arequest-audience&state=23f25868966a04e521618fcbde6dda3b
     Optionally, paste your authorization code: [...]
 
 NAME                                                  READY   STATUS       RESTARTS   AGE

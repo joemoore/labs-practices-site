@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Continuous Integration and Delivery
 weight: 60
-oldPath: "/content/outcomes/cloud-native-development/general__ci_cd.md"
+oldPath: '/content/outcomes/cloud-native-development/general__ci_cd.md'
 aliases:
-- "/outcomes/cloud-native-development/general__ci_cd"
+    - '/outcomes/cloud-native-development/general__ci_cd'
 tags: []
 ---
 
@@ -18,8 +18,8 @@ While we can work with many of these tools, Concourse provides one of the purest
 
 ## Homework
 
-- Run through the [Learning Concourse tutorial](https://github.com/concourse/concourse/wiki/Tutorials).
+-   Run through the [Learning Concourse tutorial](https://github.com/concourse/concourse/wiki/Tutorials).
 
 ## Additional resources
 
-- Review the [Introduction of Secure Software Supply Chains](/outcomes/secure-software-supply-chain/what-is-ci-cd/).
+-   Review the [Introduction of Secure Software Supply Chains](/outcomes/secure-software-supply-chain/what-is-ci-cd/).

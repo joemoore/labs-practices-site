@@ -4,21 +4,21 @@ lastmod: '2021-02-25'
 linkTitle: Contour to Ingress and Beyond
 parent: Service Routing
 tags:
-- Kubernetes
-- Tanzu
-- Contour
-- Ingress
-- httproxy
-- istio
-- service mesh
-- network
+    - Kubernetes
+    - Tanzu
+    - Contour
+    - Ingress
+    - httproxy
+    - istio
+    - service mesh
+    - network
 team:
-- Paul Czarkowski
+    - Paul Czarkowski
 title: Getting Started with Contour - To Ingress and Beyond
 weight: 2
-oldPath: "/content/guides/kubernetes/service-routing-contour-to-ingress-and-beyond.md"
+oldPath: '/content/guides/kubernetes/service-routing-contour-to-ingress-and-beyond.md'
 aliases:
-- "/guides/kubernetes/service-routing-contour-to-ingress-and-beyond"
+    - '/guides/kubernetes/service-routing-contour-to-ingress-and-beyond'
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 ---
@@ -80,6 +80,7 @@ however best practice would have you download them locally first for validation
 and repeatability.
 
 1. Download contour installation manifests
+
     ```bash
     wget https://projectcontour.io/quickstart/v1.12.0/contour.yaml
     ```
@@ -124,17 +125,17 @@ and repeatability.
       service/envoy     LoadBalancer   100.66.114.136   a36c85343e9284c1cb4236d844c31aab-1691151764.us-east-2.elb.amazonaws.com   80:30825/TCP,443:30515/TCP   2m18s
     ```
 
-  1. Save the Ingress `EXTERNAL-IP` for later use as a [xip.io](http://xip.io) dynamic DNS host.
+1. Save the Ingress `EXTERNAL-IP` for later use as a [xip.io](http://xip.io) dynamic DNS host.
 
-  {{% aside title="Note for AWS Users" %}}
-  Since this is deployed in Amazon Web Services I had to resolve the hostname
-  using the `host` command, but in other clouds you will probably get an IP
-  address.
-  {{% /aside %}}
+{{% aside title="Note for AWS Users" %}}
+Since this is deployed in Amazon Web Services I had to resolve the hostname
+using the `host` command, but in other clouds you will probably get an IP
+address.
+{{% /aside %}}
 
-  ```bash
-  INGRESS_HOST=<external ip address from above>.xip.io
-  ```
+```bash
+INGRESS_HOST=<external ip address from above>.xip.io
+```
 
 ### Creating an Ingress using Contour 1.12.0
 
@@ -300,8 +301,8 @@ could with the other resources so we'll need to get creative.
 
 Now that your nginx is working via **HTTPProxy** we can look at some of the more
 advanced features. Let's start with Rate limiting. Contour 1.12.0 supports doing
-*local* rate limiting, which means that each Envoy **Pod** will have its own
-limits, vs a *global* rate limit which would need further coordination between
+_local_ rate limiting, which means that each Envoy **Pod** will have its own
+limits, vs a _global_ rate limit which would need further coordination between
 the Envoy **Pods**. You can also set the Rate limit for the virtualhost, or for
 a specific route.
 
@@ -344,7 +345,7 @@ able to hit the limit after 6 requests.
 1. Wait a few moments and then fire up a while loop to connecting to the service
    and watch it hit the limit after a few hits.
 
-   Note: You'll need to hit CTRL-C to break the while loop.
+    Note: You'll need to hit CTRL-C to break the while loop.
 
     ```bash
     $ while true; do curl -s rate.$INGRESS_HOST | grep -E 'h1|rate' ; done
@@ -429,9 +430,9 @@ requests.
 
 1. Test the weighting
 
-   Note: It's not clear in the documentation, but it appears that the weighting
-   is applied per Envoy **Pod**, so it might not be exactly 10% for small test
-   runs, but would statistically work out over time.
+    Note: It's not clear in the documentation, but it appears that the weighting
+    is applied per Envoy **Pod**, so it might not be exactly 10% for small test
+    runs, but would statistically work out over time.
 
     ```bash
     $ while true; do curl -s weight.$INGRESS_HOST | grep h1 ; done

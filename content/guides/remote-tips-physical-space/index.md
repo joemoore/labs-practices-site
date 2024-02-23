@@ -4,13 +4,13 @@ lastmod: '2021-02-22'
 linkTitle: Physical Space
 parent: Remote Tips
 tags:
-- Agile
+    - Agile
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: 'Remote Tips: Physical Space'
-oldPath: "/content/guides/agile/remote-tips-physical-space.md"
+oldPath: '/content/guides/agile/remote-tips-physical-space.md'
 aliases:
-- "/guides/agile/remote-tips-physical-space"
+    - '/guides/agile/remote-tips-physical-space'
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---

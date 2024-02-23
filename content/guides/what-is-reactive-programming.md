@@ -4,13 +4,13 @@ lastmod: '2022-01-19'
 subsection: What is Reactive Programming?
 title: What is Reactive Programming?
 tags:
-  - Programming Paradigm
-  - Getting Started
-  - Spring
-  - Reactive
+    - Programming Paradigm
+    - Getting Started
+    - Spring
+    - Reactive
 weight: 1
 team:
-  - Eric Standley
+    - Eric Standley
 level1: Modern App Basics
 level2: Modern Development Concepts
 description: Learn what reactive programming is about.
@@ -24,9 +24,9 @@ So after all that, what exactly is reactive programming? Well, if you look aroun
 
 Let's go over two examples, one real-world and one programming, that will help explain the idea of running outside of time and context.
 
-- Let's say that you are a fan of a certain sports team, and whenever they release a new piece of apparel, you purchase it. To make sure you never miss out on a piece of apparel, you subscribe on your team's social media page to get a notification when they announce new apparel. In this example, the code you write is equivalent to the action of buying the apparel. You don't know ahead of time when a new piece will be released, but when it does happen, you know you'll buy it. Also, like in this example of signing up on the social media page, when you code up what you want done, you'll also have to tell whatever reactive framework you are using that you want to be notified.
+-   Let's say that you are a fan of a certain sports team, and whenever they release a new piece of apparel, you purchase it. To make sure you never miss out on a piece of apparel, you subscribe on your team's social media page to get a notification when they announce new apparel. In this example, the code you write is equivalent to the action of buying the apparel. You don't know ahead of time when a new piece will be released, but when it does happen, you know you'll buy it. Also, like in this example of signing up on the social media page, when you code up what you want done, you'll also have to tell whatever reactive framework you are using that you want to be notified.
 
-- Now let's go over a common code scenario where we'd want to use this; a blocking I/O call. Let's say that your service needs to update its database after making a REST call to service X for some data. In this case, you would write the code to parse the returned data while doing whatever manipulations are needed on it. Once you have that block of code, you would then subscribe it to the "event" of returning from that specific REST call.
+-   Now let's go over a common code scenario where we'd want to use this; a blocking I/O call. Let's say that your service needs to update its database after making a REST call to service X for some data. In this case, you would write the code to parse the returned data while doing whatever manipulations are needed on it. Once you have that block of code, you would then subscribe it to the "event" of returning from that specific REST call.
 
 ## Some Drawbacks
 
@@ -36,9 +36,9 @@ While reactive programming can save us time and computing resources, there are s
 
 This was just a high-level overview to explain the overarching idea behind reactive programming. There is much more to learn that is out there. From here, you should either start to experiment with a reactive framework in your chosen language or look up reactive streams and backpressure. While it isn't necessary to have a stream of data to do reactive programming, this use case is why reactive programming has become so important to today's programming landscape. One of the key issues with data streams is backpressure, which just means that there is more data coming in than the service can handle. Hopefully this intro has given you insight to see how the reactive programming model can greatly help in this situation. The following links all provide more information on how to implement reactive programming:
 
-- [The Reactive Manifesto](https://www.reactivemanifesto.org/) a high level call to make systems more reactive with a good high level view of what's considered reactive.
-- [The Reactive Principles](https://principles.reactive.foundation/) like the first link this isn't language specific but does dive into more depth about the reasons and how to's of reactive programming.
-- [Jay Phelps: Backpressure: Resistance is NOT Futile](https://www.youtube.com/watch?v=I6eZ4ZyI1Zg) a good video going over what is meant by backpressure in a reactive system.
-- [Spring Reactive](https://spring.io/reactive) our own Spring project that allows for easier reactive coding in Java.
-- [RxJS](https://rxjs.dev/) a popular reactive framework for the Javascript language
-- [ReactiveX](https://reactivex.io/) a cross platform framework for reactive programming
+-   [The Reactive Manifesto](https://www.reactivemanifesto.org/) a high level call to make systems more reactive with a good high level view of what's considered reactive.
+-   [The Reactive Principles](https://principles.reactive.foundation/) like the first link this isn't language specific but does dive into more depth about the reasons and how to's of reactive programming.
+-   [Jay Phelps: Backpressure: Resistance is NOT Futile](https://www.youtube.com/watch?v=I6eZ4ZyI1Zg) a good video going over what is meant by backpressure in a reactive system.
+-   [Spring Reactive](https://spring.io/reactive) our own Spring project that allows for easier reactive coding in Java.
+-   [RxJS](https://rxjs.dev/) a popular reactive framework for the Javascript language
+-   [ReactiveX](https://reactivex.io/) a cross platform framework for reactive programming

@@ -3,13 +3,13 @@ date: '2021-02-16'
 lastmod: '2021-02-16'
 parent: Application Enhancements
 tags:
-- Kubernetes
+    - Kubernetes
 team:
-- John Harris
+    - John Harris
 title: Externalizing Configuration
-oldPath: "/content/guides/kubernetes/app-enhancements-externalizing-configuration.md"
+oldPath: '/content/guides/kubernetes/app-enhancements-externalizing-configuration.md'
 aliases:
-- "/guides/kubernetes/app-enhancements-externalizing-configuration"
+    - '/guides/kubernetes/app-enhancements-externalizing-configuration'
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -47,7 +47,8 @@ func main() {
 }
 ```
 
-This program produces the following output: 
+This program produces the following output:
+
 ```shell
 $ export DATABASE_ENDPOINT=foo.example.com
 $ go run environment-variables-example.go
@@ -63,15 +64,15 @@ variables.
 apiVersion: v1
 kind: Pod
 metadata:
-  name: environment-variable-example
+    name: environment-variable-example
 spec:
-  containers:
-  - name: test-container
-    image: k8s.gcr.io/busybox
-    command: [ "/bin/sh", "-c", "echo $DATABASE_ENDPOINT" ]
-    env:
-    - name: DATABASE_ENDPOINT
-      value: "foo.example.com"
+    containers:
+        - name: test-container
+          image: k8s.gcr.io/busybox
+          command: ['/bin/sh', '-c', 'echo $DATABASE_ENDPOINT']
+          env:
+              - name: DATABASE_ENDPOINT
+                value: 'foo.example.com'
 ```
 
 ## Mounted Files
@@ -118,28 +119,28 @@ configure a Kubernetes pod with a ConfigMap mounted at `/etc/configuration`.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: example-configuration
-  namespace: default
+    name: example-configuration
+    namespace: default
 data:
-  DATABASE_ENDPOINT: foo.example.com
+    DATABASE_ENDPOINT: foo.example.com
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-configmap
+    name: example-configmap
 spec:
-  containers:
-    - name: test-container
-      image: k8s.gcr.io/busybox
-      command: [ "/bin/sh", "-c", "cat /etc/configuration" ]
-      volumeMounts:
-      - name: config-volume
-        mountPath: /etc/configuration
-  volumes:
-    - name: config-volume
-      configMap:
-        name: example-configuration
-  restartPolicy: Never
+    containers:
+        - name: test-container
+          image: k8s.gcr.io/busybox
+          command: ['/bin/sh', '-c', 'cat /etc/configuration']
+          volumeMounts:
+              - name: config-volume
+                mountPath: /etc/configuration
+    volumes:
+        - name: config-volume
+          configMap:
+              name: example-configuration
+    restartPolicy: Never
 ```
 
 These examples cover basic use cases within the context of Kubernetes. For more
@@ -160,20 +161,22 @@ in `base64` encoding, whereas ConfigMap data is stored in plain text.
 ## Secret Creation
 
 Create a secret using `kubectl` with the following command:
+
 ```shell
 kubectl create secret generic prod-db-secret --from-literal=username=produser --from-literal=password=Y4nys7f11
 ```
 
 This produces the following object in Kubernetes:
+
 ```yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: database-credentials
+    name: database-credentials
 type: Opaque
 data:
-  username: YWRtaW4=
-  password: MWYyZDFlMmU2N2Rm
+    username: YWRtaW4=
+    password: MWYyZDFlMmU2N2Rm
 ```
 
 ## Environment Variables
@@ -185,24 +188,24 @@ configuration.
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-secret-environment-variable
+    name: example-secret-environment-variable
 spec:
-  containers:
-  - name: test-container
-    image: k8s.gcr.io/busybox
-    command: [ "/bin/sh", "-c", "echo $SECRET_USERNAME && echo $SECRET_PASSWORD" ]
-    env:
-      - name: SECRET_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: database-credentials
-            key: username
-      - name: SECRET_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: database-credentials
-            key: password
-  restartPolicy: Never
+    containers:
+        - name: test-container
+          image: k8s.gcr.io/busybox
+          command: ['/bin/sh', '-c', 'echo $SECRET_USERNAME && echo $SECRET_PASSWORD']
+          env:
+              - name: SECRET_USERNAME
+                valueFrom:
+                    secretKeyRef:
+                        name: database-credentials
+                        key: username
+              - name: SECRET_PASSWORD
+                valueFrom:
+                    secretKeyRef:
+                        name: database-credentials
+                        key: password
+    restartPolicy: Never
 ```
 
 ## Mounted Files
@@ -213,20 +216,20 @@ Similarly, secrets may also be mounted in a pod as a file.
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-secret-file
+    name: example-secret-file
 spec:
-  containers:
-  - name: test-container
-    image: k8s.gcr.io/busybox
-    command: [ "/bin/sh", "-c", "cat /etc/credentials" ]
-    volumeMounts:
-    - name: credential-mount
-      mountPath: "/etc/credentials"
-      readOnly: true
-  volumes:
-  - name: credential-mount
-    secret:
-      secretName: database-credentials
+    containers:
+        - name: test-container
+          image: k8s.gcr.io/busybox
+          command: ['/bin/sh', '-c', 'cat /etc/credentials']
+          volumeMounts:
+              - name: credential-mount
+                mountPath: '/etc/credentials'
+                readOnly: true
+    volumes:
+        - name: credential-mount
+          secret:
+              secretName: database-credentials
 ```
 
 ## Credential Managers
@@ -251,42 +254,42 @@ with examples in this document.
 apiVersion: v1
 kind: Pod
 metadata:
-  name: example-secret-vault
+    name: example-secret-vault
 spec:
-  securityContext:
-    runAsUser: 1001
-    fsGroup: 1001
-  volumes:
-  - name: vault-auth
-    emptyDir:
-      medium: Memory
-  - name: vault-secrets
-    emptyDir:
-      medium: Memory
-  initContainers:
-  - name: vault-authenticator
-    image: sethvargo/vault-kubernetes-authenticator:0.2.0
-    imagePullPolicy: Always
-    volumeMounts:
-    - name: vault-auth
-      mountPath: /var/run/secrets/vaultproject.io
-    env:
-    - name: VAULT_ROLE
-      value: myapp-role
     securityContext:
-      allowPrivilegeEscalation: false
-  containers:
-  - name: test-container
-    image: k8s.gcr.io/busybox
-    command: [ "/bin/sh", "-c", "ls /home/vault && cat /var/run/secrets/vaultproject.io" ]
-    volumeMounts:
-    - name: vault-auth
-      mountPath: /home/vault
-    - name: vault-secrets
-      mountPath: /var/run/secrets/vaultproject.io
-    env:
-    - name: HOME
-      value: /home/vault
+        runAsUser: 1001
+        fsGroup: 1001
+    volumes:
+        - name: vault-auth
+          emptyDir:
+              medium: Memory
+        - name: vault-secrets
+          emptyDir:
+              medium: Memory
+    initContainers:
+        - name: vault-authenticator
+          image: sethvargo/vault-kubernetes-authenticator:0.2.0
+          imagePullPolicy: Always
+          volumeMounts:
+              - name: vault-auth
+                mountPath: /var/run/secrets/vaultproject.io
+          env:
+              - name: VAULT_ROLE
+                value: myapp-role
+          securityContext:
+              allowPrivilegeEscalation: false
+    containers:
+        - name: test-container
+          image: k8s.gcr.io/busybox
+          command: ['/bin/sh', '-c', 'ls /home/vault && cat /var/run/secrets/vaultproject.io']
+          volumeMounts:
+              - name: vault-auth
+                mountPath: /home/vault
+              - name: vault-secrets
+                mountPath: /var/run/secrets/vaultproject.io
+          env:
+              - name: HOME
+                value: /home/vault
 ```
 
 This manifest describes a deployment in which the `vault-authenticator`

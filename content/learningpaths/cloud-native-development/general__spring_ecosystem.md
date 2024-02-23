@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Spring Ecosystem
 weight: 30
-oldPath: "/content/outcomes/cloud-native-development/general__spring_ecosystem.md"
+oldPath: '/content/outcomes/cloud-native-development/general__spring_ecosystem.md'
 aliases:
-- "/outcomes/cloud-native-development/general__spring_ecosystem"
+    - '/outcomes/cloud-native-development/general__spring_ecosystem'
 tags: []
 ---
 
@@ -24,12 +24,12 @@ Spring Boot provides a "convention over configuration" foundation for Spring-bas
 
 To better understand what you have in your tool belt before we get started, take some time to become familiar with the basic concepts of each framework, found in the introductions of the following documentation.
 
-* [Part 1: Cloud Native Applications](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_cloud_native_applications)
-* [Part 2: Spring Cloud Config](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_config)
-* [Part 3: Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_netflix)
-* [Part 4: Spring Cloud Stream](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_stream)
+-   [Part 1: Cloud Native Applications](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_cloud_native_applications)
+-   [Part 2: Spring Cloud Config](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_config)
+-   [Part 3: Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_netflix)
+-   [Part 4: Spring Cloud Stream](https://cloud.spring.io/spring-cloud-static/spring-cloud.html#_spring_cloud_stream)
 
 ## Homework
 
-- Use [this guide](https://spring.io/guides/gs/spring-boot/) to build a simple RESTful web service using Spring Boot and minimal configuration.
-- Read through the introductions for the most common Spring Cloud components.
+-   Use [this guide](https://spring.io/guides/gs/spring-boot/) to build a simple RESTful web service using Spring Boot and minimal configuration.
+-   Read through the introductions for the most common Spring Cloud components.

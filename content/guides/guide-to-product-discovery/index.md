@@ -129,7 +129,7 @@ Collaborate with your team and stakeholders to develop a value proposition. Make
 ## Moving into Delivery
 
 ![An Image of loops indicating iteration](images/itarate.png 'iterate iterate iterate')
-    
+
 The goal of Product Discovery is not to understand the entire problem ecosystem, or to design your entire product up front. Agreement on a single, validated feature and an initial backlog of [user stories](https://tanzu.vmware.com/developer/practices/user-stories/) is usually enough to start delivery.
 
 You might know, for example, that your product has certain integrations, but you might not know exactly what data you need. That is enough for engineering to start building, while implementation details are discovered through research or user feedback.

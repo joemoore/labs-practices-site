@@ -8,17 +8,18 @@ level1: Building Modern Applications
 layout: intro
 description: Engineering Leadership at Pivotal/Tanzu Labs
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 tags:
-- All Roles
-- Applications
+    - All Roles
+    - Applications
 experience: Beginner
 duration: 120
 aliases:
-- "/outcomes/anchor-playbook/"
+    - '/outcomes/anchor-playbook/'
 ---
 
 ## The Anchor Role
+
 The anchor role tends to resist easy definition. In some ways, it is more clearly described by what it is not:
 
 {{< table "table" >}}
@@ -30,7 +31,7 @@ The anchor role tends to resist easy definition. In some ways, it is more clearl
 | Is not "the architect" | Is the initiator of architectural conversations |
 | Is not "the manager" | Is an advocate for growth and empowerment |
 | Is not responsible for the business stakeholder's decisions | Is responsible for due diligence with regard to technical excellence |
-|  |  |
+| | |
 {{< /table >}}
 
 At Pivotal/Tanzu Labs, while architecture and technology leadership are fundamental to our practice, we don’t have traditional, top-down architects or framework-writing tech leads. Our teams need leadership of a different flavor, so we evolved to have **_anchors_** instead. This framing raises more questions than it answers. What do we need from technical leadership and why do we do it differently?
@@ -40,6 +41,7 @@ At Pivotal/Tanzu Labs, we value empowered [balanced teams](/outcomes/application
 ![This is an anchor](/learningpaths/anchor-playbook/images/standing.jpg)
 
 ### So what is an anchor?
+
 An anchor is **_the representative of the engineering practice who can explain and model the engineering practice_** in the same way that Product Managers and Designers anchor their practices in a balanced team. They monitor team dynamics, encourage best practices, and ask the tough questions needed to drive success. They will not be the only engineer or the only team member doing this, but they will make sure it gets done.
 
 Okay, that’s a little more descriptive.
@@ -57,6 +59,7 @@ Choosing which anchortype you need for a given project can be a good conversatio
 Anchortypes describe the variety of hats the anchor may wear on different projects. These are not prescriptive descriptions; the anchor role is always evolving and requires the freedom to evolve. However, these classifications can help us describe the anchor role to teams and each other. Anchors can use these touch-points to discuss and determine the appropriate anchor modality to meet the needs of the project and the team.
 
 ## History: why is called an "anchor?"
+
 Once upon a time, the group that became Pivotal/Tanzu Labs was a small consulting company in San Francisco working with startups in our office, all using very early versions of [Ruby on Rails](https://rubyonrails.org/).
 
 Though enabling rapid productivity, Ruby on Rails at the time had many bugs and shortcomings, and the framework was changing dramatically with each release.

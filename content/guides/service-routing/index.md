@@ -3,16 +3,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Service Routing
 team:
-- Craig Tracey
+    - Craig Tracey
 title: Service Routing
 weight: 67
-oldPath: "/content/guides/kubernetes/service-routing.md"
+oldPath: '/content/guides/kubernetes/service-routing.md'
 aliases:
-- "/guides/kubernetes/service-routing"
+    - '/guides/kubernetes/service-routing'
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags:
-- Kubernetes
+    - Kubernetes
 ---
 
 Fundamental to the deployment of most software is the ability to route traffic
@@ -42,16 +42,16 @@ An example Service declaration may take the following form:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql
-  namespace: myapp
+    name: mysql
+    namespace: myapp
 spec:
-  type: ClusterIP # this is the default value if unspecified
-  selector:
-    app: mysql
-  ports:
-    - protocol: TCP
-      port: 3307
-      targetPort: 3306
+    type: ClusterIP # this is the default value if unspecified
+    selector:
+        app: mysql
+    ports:
+        - protocol: TCP
+          port: 3307
+          targetPort: 3306
 ```
 
 This Service will provide Layer 3/4 access to mysql Pods that are labeled with
@@ -193,17 +193,17 @@ deployment with TLS certificates.
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: test-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    name: test-ingress
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
-    - http:
-        paths:
-          - path: /testpath
-            backend:
-              serviceName: test
-              servicePort: 80
+    rules:
+        - http:
+              paths:
+                  - path: /testpath
+                    backend:
+                        serviceName: test
+                        servicePort: 80
 ```
 
 As with any Kubernetes controller, a user may declare a desired state and the
@@ -325,17 +325,17 @@ familiarity with.
 
 **Pros:**
 
-- Broad adoption.
-- Well-tested in production scenarios.
-- Extends the Ingress resource with dozens of implementation-specific
-  annotations.
-- Functionality may be extended with Lua scripting.
+-   Broad adoption.
+-   Well-tested in production scenarios.
+-   Extends the Ingress resource with dozens of implementation-specific
+    annotations.
+-   Functionality may be extended with Lua scripting.
 
 **Cons:**
 
-- Technology is not well-suited for highly dynamic environments.
-  - All Ingress changes require that NGINX reloads the process in order to apply
-    the changes. This may have a detrimental impacts on in-flight connections.
+-   Technology is not well-suited for highly dynamic environments.
+    -   All Ingress changes require that NGINX reloads the process in order to apply
+        the changes. This may have a detrimental impacts on in-flight connections.
 
 #### Contour
 
@@ -356,19 +356,19 @@ rollout patterns, thus further enabling CI/CD.
 
 **Pros:**
 
-- Built on top of Envoy, a highly performant and scalable reverse proxy.
-- Ingress configuration is applied via an API; not static configuration files.
-- Extends Ingress control to support multi-team environments.
-  - HTTPProxy provides richer configuration than is available with the Ingress
-    resource alone. Some of these extended features include weighted routes
-    and specification of load balancing strategies without the use of
-    annotations.
+-   Built on top of Envoy, a highly performant and scalable reverse proxy.
+-   Ingress configuration is applied via an API; not static configuration files.
+-   Extends Ingress control to support multi-team environments.
+    -   HTTPProxy provides richer configuration than is available with the Ingress
+        resource alone. Some of these extended features include weighted routes
+        and specification of load balancing strategies without the use of
+        annotations.
 
 **Cons:**
 
-- Relatively new within the ecosystem, only reaching GA recently.
-  - Features that already exist for other Ingress controllers may not yet be
-    available for Contour.
+-   Relatively new within the ecosystem, only reaching GA recently.
+    -   Features that already exist for other Ingress controllers may not yet be
+        available for Contour.
 
 #### Traefik
 
@@ -384,20 +384,20 @@ open source software.
 
 **Pros:**
 
-- Has some extended features that may not be available with other Ingress
-  solutions.
-- Seamless integrations with services such as Let's Encrypt
-- Full-featured dashboard
-- Multi-platform support beyond Kubernetes alone.
-  - Docker
-  - Rancher
-  - Marathon
+-   Has some extended features that may not be available with other Ingress
+    solutions.
+-   Seamless integrations with services such as Let's Encrypt
+-   Full-featured dashboard
+-   Multi-platform support beyond Kubernetes alone.
+    -   Docker
+    -   Rancher
+    -   Marathon
 
 **Cons:**
 
-- Has not seen strong traction within the community.
-- Deep feature list, but configuration can be a bit complicated.
-- Some Enterprise features are not open sourced.
+-   Has not seen strong traction within the community.
+-   Deep feature list, but configuration can be a bit complicated.
+-   Some Enterprise features are not open sourced.
 
 ### Service Mesh
 
@@ -411,36 +411,36 @@ license.
 
 Features:
 
-- HTTP, HTTP/2, and gRPC Proxying
-- TCP Proxying and Protocol Detection
-- Retries and Timeouts
-- Automatic mTLS
-- Ingress
-- Telemetry and Monitoring
-- Automatic Proxy Injection
-- Dashboard and Grafana
-- Distributed Tracing
-- Fault Injection
-- High Availability
-- Service Profiles
-- Traffic Split (canaries, blue/green deploys)
+-   HTTP, HTTP/2, and gRPC Proxying
+-   TCP Proxying and Protocol Detection
+-   Retries and Timeouts
+-   Automatic mTLS
+-   Ingress
+-   Telemetry and Monitoring
+-   Automatic Proxy Injection
+-   Dashboard and Grafana
+-   Distributed Tracing
+-   Fault Injection
+-   High Availability
+-   Service Profiles
+-   Traffic Split (canaries, blue/green deploys)
 
 **Pros:**
 
-- Lightweight service mesh solution which requires absolutely no changes to
-  application code.
-- Contains all of the features that would be expected from a service mesh
-  solution.
-- Was one of the first service mesh options and is quite mature as a result.
-- Recently rewritten in the aim of improving performance.
+-   Lightweight service mesh solution which requires absolutely no changes to
+    application code.
+-   Contains all of the features that would be expected from a service mesh
+    solution.
+-   Was one of the first service mesh options and is quite mature as a result.
+-   Recently rewritten in the aim of improving performance.
 
 **Cons:**
 
-- Linkerd doesn't provide an Ingress Controller. The [project
-  documentation](https://linkerd.io/2/tasks/using-ingress/) has information
-  about integrating with Nginx, Contour, and others. This means Linkerd requires
-  managing Ingress as additional operational overhead.
-- Traffic splitting syntax can be cumbersome.
+-   Linkerd doesn't provide an Ingress Controller. The [project
+    documentation](https://linkerd.io/2/tasks/using-ingress/) has information
+    about integrating with Nginx, Contour, and others. This means Linkerd requires
+    managing Ingress as additional operational overhead.
+-   Traffic splitting syntax can be cumbersome.
 
 #### Istio
 
@@ -456,34 +456,34 @@ a special sidecar proxy throughout your environment that intercepts all network
 communication between microservices, then configure and manage Istio using its
 control plane functionality, which includes:
 
-- Automatic load balancing for HTTP, gRPC, WebSocket, and TCP traffic.
-- Fine-grained control of traffic behavior with rich routing rules, retries,
-  failovers, and fault injection.
-- A pluggable policy layer and configuration API supporting access controls,
-  rate limits and quotas.
-- Automatic metrics, logs, and traces for all traffic within a cluster,
-  including cluster ingress and egress.
-- Secure service-to-service communication in a cluster with strong
-  identity-based authentication and authorization.
+-   Automatic load balancing for HTTP, gRPC, WebSocket, and TCP traffic.
+-   Fine-grained control of traffic behavior with rich routing rules, retries,
+    failovers, and fault injection.
+-   A pluggable policy layer and configuration API supporting access controls,
+    rate limits and quotas.
+-   Automatic metrics, logs, and traces for all traffic within a cluster,
+    including cluster ingress and egress.
+-   Secure service-to-service communication in a cluster with strong
+    identity-based authentication and authorization.
 
 **Pros:**
 
-- Istio has a huge amount of momentum behind it. It is currently the most
-  popular service mesh offering on the market.
-- It forms the basis of VMware's NSX-SM solution.
-- It is extraordinarily full-featured, but this also creates a large degree of
-  complexity.
-- Istio may be used as both an Ingress and a service mesh with the Ingress
-  Gateway feature.
+-   Istio has a huge amount of momentum behind it. It is currently the most
+    popular service mesh offering on the market.
+-   It forms the basis of VMware's NSX-SM solution.
+-   It is extraordinarily full-featured, but this also creates a large degree of
+    complexity.
+-   Istio may be used as both an Ingress and a service mesh with the Ingress
+    Gateway feature.
 
 **Cons:**
 
-- Istio does not have an open governance model. Its steering committee is run by
-  IBM, Google, and Red Hat.
-- Istio is in rapid development and many features are at various levels of
-  stability, some of which may not be suitable for production.
-- Configuration can be extraordinarily complex.
-- You may be required to leverage the Istio ingress controller exclusively in
-  order to leverage the features you are interested in.
-- The complexity that Istio introduces to a Kubernetes deployment often mandates
-  a team dedicated to its operation and support.
+-   Istio does not have an open governance model. Its steering committee is run by
+    IBM, Google, and Red Hat.
+-   Istio is in rapid development and many features are at various levels of
+    stability, some of which may not be suitable for production.
+-   Configuration can be extraordinarily complex.
+-   You may be required to leverage the Istio ingress controller exclusively in
+    order to leverage the features you are interested in.
+-   The complexity that Istio introduces to a Kubernetes deployment often mandates
+    a team dedicated to its operation and support.

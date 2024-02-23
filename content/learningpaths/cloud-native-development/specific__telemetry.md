@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Telemetry
 weight: 190
-oldPath: "/content/outcomes/cloud-native-development/specific__telemetry.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__telemetry.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__telemetry"
+    - '/outcomes/cloud-native-development/specific__telemetry'
 tags: []
 ---
 
@@ -20,4 +20,4 @@ When you add these to your Spring Boot app, you get automatic embedded monitorin
 
 ## Homework
 
-- Read the [Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) guide.
+-   Read the [Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/) guide.

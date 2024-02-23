@@ -3,12 +3,12 @@ date: '2021-05-25'
 lastmod: '2021-06-15'
 layout: single
 team:
-- Marc Zottner
+    - Marc Zottner
 title: Exposing Prometheus Metrics from Java
 weight: 3
-oldPath: "/content/outcomes/application-observability/exposing-metrics-java-prometheus.md"
+oldPath: '/content/outcomes/application-observability/exposing-metrics-java-prometheus.md'
 aliases:
-- "/outcomes/application-observability/exposing-metrics-java-prometheus"
+    - '/outcomes/application-observability/exposing-metrics-java-prometheus'
 tags: []
 ---
 
@@ -49,11 +49,11 @@ With the correct dependencies in place, you're ready to expose metrics.
 
 For exposing application metrics, you have two options:
 
-- if you're writing a Java application without using a framework, you must
-  expose the endpoint yourself
-- if you're using Spring Boot, you can ad the
-  [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready)
-  dependency to your application
+-   if you're writing a Java application without using a framework, you must
+    expose the endpoint yourself
+-   if you're using Spring Boot, you can ad the
+    [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready)
+    dependency to your application
 
 ### Using Vanilla Java
 
@@ -125,7 +125,7 @@ This exposes metrics at the `/actuator/prometheus` endpoint.
 
 ## References
 
-- [Spring Boot Actuator: Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready)
-  — Spring Boot reference documentation about Actuator
-- [Exposing Actuator Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
-  — provides more information about exposing Spring Boot actuator endpoints
+-   [Spring Boot Actuator: Production-ready Features](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready)
+    — Spring Boot reference documentation about Actuator
+-   [Exposing Actuator Endpoints](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints)
+    — provides more information about exposing Spring Boot actuator endpoints

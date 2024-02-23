@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Security
 weight: 200
-oldPath: "/content/outcomes/cloud-native-development/specific__security.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__security.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__security"
+    - '/outcomes/cloud-native-development/specific__security'
 tags: []
 ---
 
@@ -20,4 +20,4 @@ It's a good idea to complete this exercise to be comfortable applying the techno
 
 ## Homework
 
-- Read the [Securing Web Services](https://spring.io/guides/gs/securing-web/) guide.
+-   Read the [Securing Web Services](https://spring.io/guides/gs/securing-web/) guide.

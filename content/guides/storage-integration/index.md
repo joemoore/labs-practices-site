@@ -2,16 +2,16 @@
 date: '2021-02-24'
 lastmod: '2021-04-29'
 team:
-- Josh Rosso
+    - Josh Rosso
 title: Storage Integration
 weight: 72
-oldPath: "/content/guides/kubernetes/storage-integration.md"
+oldPath: '/content/guides/kubernetes/storage-integration.md'
 aliases:
-- "/guides/kubernetes/storage-integration"
+    - '/guides/kubernetes/storage-integration'
 level1: Managing and Operating Kubernetes
 level2: Kubernetes Architecture
 tags:
-- Kubernetes
+    - Kubernetes
 ---
 
 Core Kubernetes does not concern itself with storage integration. At most, it
@@ -126,16 +126,16 @@ example vSAN. However, if you're thinking about integrating a new storage
 provider, it's important that you consider the storage offerings and resiliency
 guarantees your platform needs to offer. Some key considerations are:
 
-- What I/O speeds are required for platform workloads?
-- What disaster scenarios does the persistence layer need to handle?
-- How many workloads will need persistent storage?
-  - How much storage do you need and what are your expansion requirements?
-- Do you need to offer dynamic volume resizing if a workload uses up its
-  storage?
-- What backup scenarios (if any) do you plan to offer?
-  - Alternatively, do you plan to make the application teams responsible for
-    their backups?
-- What storage system can you realistically operate? Ceph? vSAN?
+-   What I/O speeds are required for platform workloads?
+-   What disaster scenarios does the persistence layer need to handle?
+-   How many workloads will need persistent storage?
+    -   How much storage do you need and what are your expansion requirements?
+-   Do you need to offer dynamic volume resizing if a workload uses up its
+    storage?
+-   What backup scenarios (if any) do you plan to offer?
+    -   Alternatively, do you plan to make the application teams responsible for
+        their backups?
+-   What storage system can you realistically operate? Ceph? vSAN?
 
 Having conversations around these points will help you determine the best
 storage integration for you.

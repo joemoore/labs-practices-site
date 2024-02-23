@@ -1,19 +1,19 @@
 ---
-title:  "The Incremental War Against Technical Debt"
-linkTitle: "The Incremental War Against Technical Debt"
+title: 'The Incremental War Against Technical Debt'
+linkTitle: 'The Incremental War Against Technical Debt'
 description: An analysis of the causes of technical debt, and what we can do about it.
 featured: true
 tags:
-- Technical debt
-- Pair programming
-- Agile
+    - Technical debt
+    - Pair programming
+    - Agile
 # Author(s)
 team:
-- George Dean
-date: "2021-09-28"
-lastmod: "2021-10-29"
+    - George Dean
+date: '2021-09-28'
+lastmod: '2021-10-29'
 aliases:
-- "/guides/agile/the-incremental-war-against-technical-debt"
+    - '/guides/agile/the-incremental-war-against-technical-debt'
 level1: Agile Transformation and Practices
 level2: Agile Development
 ---
@@ -26,39 +26,41 @@ You sum up your limited options and decide to add your own chewing gum and duct 
 
 This painful experience is the product of technical debt: repeatedly doing what works now instead of doing the right thing for the long run.
 
-##  What Does Technical Debt Look Like?
+## What Does Technical Debt Look Like?
 
 Here is what you will find when you read the code:
 
-- The wrong tools are being used for the job. For example, a document store is used where a relational database would be appropriate, or vice versa.
-- Servers are deployed using manual, one-off configuration instead of defined in version controlled infrastructure-as-code.
-- There is no type safety where a compiled or type-checked language would have been possible.
-- Code is untested or its tests are commented out.
-- Code is duplicated, poorly factored, unused, or annotated with TODOs.
-- The test suite takes too long or has too many external dependencies to run locally before pushing code.
-- The code is [accidentally complex](https://en.wikipedia.org/wiki/No_Silver_Bullet) or over-engineered.
+-   The wrong tools are being used for the job. For example, a document store is used where a relational database would be appropriate, or vice versa.
+-   Servers are deployed using manual, one-off configuration instead of defined in version controlled infrastructure-as-code.
+-   There is no type safety where a compiled or type-checked language would have been possible.
+-   Code is untested or its tests are commented out.
+-   Code is duplicated, poorly factored, unused, or annotated with TODOs.
+-   The test suite takes too long or has too many external dependencies to run locally before pushing code.
+-   The code is [accidentally complex](https://en.wikipedia.org/wiki/No_Silver_Bullet) or over-engineered.
 
 ## What are the Outcomes?
 
 Here is what you will find when you talk to the team:
 
-- Production incidents are frequent and stressful.
-- It is slow for the team to change direction in response to user feedback.
-- Developers are duplicating bad patterns, thereby creating more problems for the future.
-- Without good abstractions to build on, the team's velocity slows down over time.
-- Burnout is high and turnover is common.
+-   Production incidents are frequent and stressful.
+-   It is slow for the team to change direction in response to user feedback.
+-   Developers are duplicating bad patterns, thereby creating more problems for the future.
+-   Without good abstractions to build on, the team's velocity slows down over time.
+-   Burnout is high and turnover is common.
 
-##  Why Did this Happen?
+## Why Did this Happen?
 
 The [retrospective prime directive](https://retrospectivewiki.org/index.php?title=The_Prime_Directive) can give us some
 instruction here:
+
 > _“we understand and truly believe that everyone did the best job they could, given what they knew at the time,
 > their skills and abilities, the resources available, and the situation at hand.”_
 
 People are doing their best in the presence of constraints. These are the usual constraints:
-- Developers are working alone, trying their best to navigate the 10 - 30 technologies used across their stack.
-- Teams are operating in two week sprints, committing to achieve a certain set of features by the end of the two weeks.
-- The definition of "done" for a story is limited to user-visible behavior; the effect on the codebase is an externality.
+
+-   Developers are working alone, trying their best to navigate the 10 - 30 technologies used across their stack.
+-   Teams are operating in two week sprints, committing to achieve a certain set of features by the end of the two weeks.
+-   The definition of "done" for a story is limited to user-visible behavior; the effect on the codebase is an externality.
 
 Despite their ubiquity, these constraints are a recipe for growing technical debt.
 
@@ -66,9 +68,9 @@ Despite their ubiquity, these constraints are a recipe for growing technical deb
 
 The path forward from here is not to devote a week/month/quarter to "fixing all the things," but instead to change the way that day-to-day development happens. Here is how:
 
-- Pair on it.
-- Stop committing to time and scope.
-- Systematically feel and address pain.
+-   Pair on it.
+-   Stop committing to time and scope.
+-   Systematically feel and address pain.
 
 ## Pair On It
 
@@ -78,26 +80,26 @@ The path forward from here is not to devote a week/month/quarter to "fixing all 
 
 On teams of solo engineers, I have found that:
 
-- Team members specialize in certain areas since collective code ownership is impossible without knowledge sharing. Permanent silos are created that grow deeper over time. Specialization makes it very difficult to complete full-stack stories.
-- Teammates often end up having an unhealthy relationship with each other's work. They may not fully understand it, may not agree with the decisions that were made (or the idea of doing the work at all), and may get blocked by problems they encounter with unfamiliar code.
-- There is often fuzziness around team definition. This includes oversized teams of 20+ developers, or individual developers contributing to many teams’ codebases.
-- Standups end up being a hard place for product managers and designers. Developers who have not had an opportunity to share technical ideas throughout the day tend to  dominate the conversation. There is not a lot of room for product managers and designers to participate.
-- Code quality remains heterogeneous across the codebase. The level of simplicity, factoring and testing of the code is proportional to the level of the experience of the author, with no real ability to make an impact across silos.
-- Pain accumulates and becomes a long-term part of the development experience. The belief is that if you are feeling pain, it is probably your own fault and you should upskill to become a better developer. You are incentivized not to speak up, but instead to endure through.
-- There is divergence of thought between teammates at every level, from file naming conventions to beliefs about automated testing.
+-   Team members specialize in certain areas since collective code ownership is impossible without knowledge sharing. Permanent silos are created that grow deeper over time. Specialization makes it very difficult to complete full-stack stories.
+-   Teammates often end up having an unhealthy relationship with each other's work. They may not fully understand it, may not agree with the decisions that were made (or the idea of doing the work at all), and may get blocked by problems they encounter with unfamiliar code.
+-   There is often fuzziness around team definition. This includes oversized teams of 20+ developers, or individual developers contributing to many teams’ codebases.
+-   Standups end up being a hard place for product managers and designers. Developers who have not had an opportunity to share technical ideas throughout the day tend to dominate the conversation. There is not a lot of room for product managers and designers to participate.
+-   Code quality remains heterogeneous across the codebase. The level of simplicity, factoring and testing of the code is proportional to the level of the experience of the author, with no real ability to make an impact across silos.
+-   Pain accumulates and becomes a long-term part of the development experience. The belief is that if you are feeling pain, it is probably your own fault and you should upskill to become a better developer. You are incentivized not to speak up, but instead to endure through.
+-   There is divergence of thought between teammates at every level, from file naming conventions to beliefs about automated testing.
 
 ### Teams that Pair Program
 
 On teams that pair, with rotation among pairs, I have found that:
 
-- Bad ideas are effortlessly discarded instead of getting permanently baked into the codebase.
-- The team builds a shared understanding of the problems that need to be addressed and how to invest their time.
-- There is internal pressure to do the right thing within the team. Pairs have the knowledge, power, and self-accountability to write tests, refactor, and address problems.
-- Developers get feedback on their ideas before the work is done, not afterwards, when it is usually too late to make substantive changes.
-- The level of waste is reduced, with no context switching to review pull requests, address comments, rebase, or resolve conflicts.
-- Code quality across the codebase converges to the highest standard as people learn from one another.
-- There are fewer, more productive streams of work, compared to more less-productive streams on teams that solo. Pairing means that teams limit work in progress, deliver production-deployable work faster, and reduce merge conflicts.
-- A higher level of thought about the development process emerges. For example, "Could we avoid large batch, late-stage security reviews by using automation to turn compliance into a continuous process?"
+-   Bad ideas are effortlessly discarded instead of getting permanently baked into the codebase.
+-   The team builds a shared understanding of the problems that need to be addressed and how to invest their time.
+-   There is internal pressure to do the right thing within the team. Pairs have the knowledge, power, and self-accountability to write tests, refactor, and address problems.
+-   Developers get feedback on their ideas before the work is done, not afterwards, when it is usually too late to make substantive changes.
+-   The level of waste is reduced, with no context switching to review pull requests, address comments, rebase, or resolve conflicts.
+-   Code quality across the codebase converges to the highest standard as people learn from one another.
+-   There are fewer, more productive streams of work, compared to more less-productive streams on teams that solo. Pairing means that teams limit work in progress, deliver production-deployable work faster, and reduce merge conflicts.
+-   A higher level of thought about the development process emerges. For example, "Could we avoid large batch, late-stage security reviews by using automation to turn compliance into a continuous process?"
 
 Everything is better when we work together.
 
@@ -128,10 +130,13 @@ There is a missing step in this workflow. As you write the tests and the impleme
 Suppose you are working on a story to prevent cross-site request forgery and JSON hijacking. Your plan.txt might look like this:
 
 #### Prefactoring
+
 ```
 Backfill test for api.ts
 ```
+
 #### Functionality
+
 ```
 If an X-XSRF-TOKEN cookie is present, send it as a header with all post requests
 from the frontend
@@ -141,6 +146,7 @@ XSRF-TOKEN cookie, and require it in an X-XSRF-TOKEN header
 ```
 
 #### Cleanup
+
 ```
 Run tslint with every ship
 
@@ -162,6 +168,7 @@ Inject CookieRepository as a dependency into HttpClient
 ```
 
 #### Not done
+
 ```
 Fix error on server start: java.io.IOException: Connection closed prematurely
 

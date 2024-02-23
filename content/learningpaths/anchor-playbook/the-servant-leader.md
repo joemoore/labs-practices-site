@@ -3,16 +3,17 @@ date: '2021-11-04'
 lastmod: '2021-11-04'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: The Servant Leader
 weight: 20
 tags:
-- Teams
-- Roles
-- Agile
+    - Teams
+    - Roles
+    - Agile
 aliases:
-- "/outcomes/anchor-playbook/the-servant-leader"
+    - '/outcomes/anchor-playbook/the-servant-leader'
 ---
+
 > AN EXPERT FACILITATOR AND COACH; CAN STEP UP OR STEP BACK AS NEEDED.
 
 {{% callout %}}
@@ -24,16 +25,19 @@ Many Pivotal/Tanzu Labs engineers feel that anchors are responsible for assessin
 ![Leader of the team](/learningpaths/anchor-playbook/images/group.jpg)
 
 ### Responsibilities
-- Bring the team to a higher level of situational awareness
-- Facilitate conversations, especially through activities
-- Keep the team moving forward
-- Model values and norms for the team to imitate
-- Make sure everyone has a voice in decision-making
+
+-   Bring the team to a higher level of situational awareness
+-   Facilitate conversations, especially through activities
+-   Keep the team moving forward
+-   Model values and norms for the team to imitate
+-   Make sure everyone has a voice in decision-making
 
 ### Considerations
-- A servant leader opens up the team for more diversity and safety for experimentation
-- Even while growing, the team needs to be held to a standard of excellence
+
+-   A servant leader opens up the team for more diversity and safety for experimentation
+-   Even while growing, the team needs to be held to a standard of excellence
 
 ### Challenges
-- Anchors may put unreasonable expectations on themselves and feel alone and stressed
-- Anchors with many other responsibilities have little time to pair and code
+
+-   Anchors may put unreasonable expectations on themselves and feel alone and stressed
+-   Anchors with many other responsibilities have little time to pair and code

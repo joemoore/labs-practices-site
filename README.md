@@ -17,11 +17,11 @@
 
 ## About The Project
 
-![Labs Practices Site Screen Shot](static/images/github/homepage-screenshot.png)
+The [Labs Practices Site](https://labspractices.com) is a site specifically built re-host and enhance content once available on the Tanzu Developer Center that is valuable to the Labs, Labs-alumni, and Labs-client community.
 
-The Labs Practices Site is a site specifically built to be a great resource for software development teams. The contributions on the Labs Practices Site are from teams across Pivotal, VMware, Broadcom, as well as individuals not associated with those organizations.
+Who is this community?
 
-Our guiding principle is to ensure readers have free, immediate access to all the content on the Labs Practices Site. No purchase is ever necessary to access content on the Labs Practices Site because it is either open source or an easily accessible trial.
+If you know, you know. If you are, you are. If you were, you were.
 
 ## Getting Started Building a Local Deployment of the Labs Practices Site
 
@@ -178,7 +178,7 @@ See the [open issues](https://github.com/joemoore/labs-practices-site/issues) an
 
 ## Contributing
 
-Content contributions are what make open source and the developer community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
+Content contributions are what make open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
 ### Contributing Code
 
@@ -186,7 +186,7 @@ The code contribution process is documented in [CONTRIBUTING.md](https://github.
 
 ### Contributing Content
 
-The content contribution process is documented fully on our GitHub [wiki site](https://github.com/joemoore/labs-practices-site/wiki).
+**_Under Development_** The content contribution process is documented fully on our GitHub [wiki site](https://github.com/joemoore/labs-practices-site/wiki).
 
 ## Code of Conduct
 

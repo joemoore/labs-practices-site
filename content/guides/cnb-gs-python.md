@@ -1,22 +1,22 @@
 ---
 date: '2020-07-21'
 description: Read industry best practices about building containers and discover how
-  to use Buildpacks to package your Python apps into Docker containers.
+    to use Buildpacks to package your Python apps into Docker containers.
 lastmod: '2021-03-07'
 linkTitle: Python Buildpacks
 metaTitle: Building Docker Containers with Python
 patterns:
-- Deployment
+    - Deployment
 tags:
-- Python
-- Containers
-- Buildpacks
+    - Python
+    - Containers
+    - Buildpacks
 team:
-- Ben Wilcock
+    - Ben Wilcock
 title: 'Python Like A Pro: Building Docker Containers'
-oldPath: "/content/guides/python/cnb-gs-python.md"
+oldPath: '/content/guides/python/cnb-gs-python.md'
 aliases:
-- "/guides/python/cnb-gs-python"
+    - '/guides/python/cnb-gs-python'
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
@@ -31,13 +31,13 @@ For Python developers, there are currently two implementations of the Buildpack 
 
 There are a few things you need to do before getting started with Python Buildpacks:
 
-- Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally.
+-   Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally.
 
-- Check out [Containers 101](https://kube.academy/courses/containers-101) on KubeAcademy, particularly if you've never worked with containers or Docker before.
+-   Check out [Containers 101](https://kube.academy/courses/containers-101) on KubeAcademy, particularly if you've never worked with containers or Docker before.
 
-- Follow the documentation for [installing `pack`](https://buildpacks.io/docs/install-pack/) in your local environment.
+-   Follow the documentation for [installing `pack`](https://buildpacks.io/docs/install-pack/) in your local environment.
 
-- [Optional] If you are completely new to buildpacks, you might prefer to first read up on [what are buildpacks?](/guides/containers/cnb-what-is)
+-   [Optional] If you are completely new to buildpacks, you might prefer to first read up on [what are buildpacks?](/guides/containers/cnb-what-is)
 
 ## Using Buildpacks With Python
 
@@ -89,7 +89,6 @@ The `Procfile` specifies the command-line used to execute the application at run
 ```text
 web: FLASK_APP=web.py python3 -m flask run --host=0.0.0.0 --port=$PORT
 ```
-
 
 ### Get The List Of Suggested Builders
 
@@ -213,26 +212,27 @@ You can stop and remove the container from Docker as follows:
 
 Learn more about buildpacks right here on the Labs Practices Site with these great guides:
 
-- [Buildpacks: What Are They?](/guides/containers/cnb-what-is)
+-   [Buildpacks: What Are They?](/guides/containers/cnb-what-is)
 
-- [Getting Started With The `pack` CLI](/guides/containers/cnb-gs-pack)
+-   [Getting Started With The `pack` CLI](/guides/containers/cnb-gs-pack)
 
-- [Getting Started With Automated Builds Using `kpack`](/guides/containers/cnb-gs-kpack)
+-   [Getting Started With Automated Builds Using `kpack`](/guides/containers/cnb-gs-kpack)
 
 Find out more about what the `pack` tool can do by using the `--help` command and browsing the [Buildpacks.io][bp-website] website.
 
 If you liked this guide, you might find these others in our 'Python Like A Pro' series useful:
 
-- [Install Python Like A Pro!][gs-pyenv]
-- [Managing Python Project Dependencies Like A Pro!][gs-pyenv-venv]
-- [Managing Python Global Packages Like A Pro][gs-pipx]
-- [Run Python In Production Like A Pro!][gs-cf]
+-   [Install Python Like A Pro!][gs-pyenv]
+-   [Managing Python Project Dependencies Like A Pro!][gs-pyenv-venv]
+-   [Managing Python Global Packages Like A Pro][gs-pipx]
+-   [Run Python In Production Like A Pro!][gs-cf]
 
 And if you'd prefer to see the buildpack in action without actually following the steps above, check out the accompanying YouTube video guide:
 
 {{< youtube JS_YIn49xuw >}}
 
 ---
+
 [heroku-python-bp]: https://github.com/heroku/heroku-buildpack-python
 [heroku-python-bp-help]: https://devcenter.heroku.com/articles/python-support
 [bp-spec]: https://github.com/buildpacks/spec/blob/main/platform.md
@@ -240,7 +240,6 @@ And if you'd prefer to see the buildpack in action without actually following th
 [google-buildpacks]: https://github.com/GoogleCloudPlatform/buildpacks
 [httpie]: https://httpie.org/
 [bp-github]: https://github.com/buildpacks
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages

@@ -5,23 +5,23 @@ lastmod: '2022-10-21'
 linkTitle: Securing RSocket TCP with TLS
 metaTitle: Securing RSocket TCP with TLS
 patterns:
-- API
+    - API
 tags:
-- Keystore
-- X.509
-- OpenSSL
-- Kotlin
-- TCP
-- SSL
-- TLS
-- Reactive
-- Spring-Boot
+    - Keystore
+    - X.509
+    - OpenSSL
+    - Kotlin
+    - TCP
+    - SSL
+    - TLS
+    - Reactive
+    - Spring-Boot
 team:
-- Mario Gray
+    - Mario Gray
 title: Learn how to apply TLS to Spring RSocket
-oldPath: "/content/guides/spring/rsocket-tls-spring-boot.md"
+oldPath: '/content/guides/spring/rsocket-tls-spring-boot.md'
 aliases:
-- "/guides/spring/tls-rsocket-spring-boot"
+    - '/guides/spring/tls-rsocket-spring-boot'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -34,9 +34,9 @@ It is assumed the developer knows about OpenSSL, Kotlin or at least JAVA 11 and 
 
 SSL/TLS is a type of Public Key Infrastructure. PKI have concepts of a private and public key pair. Servers of an encrypted message will use the private key to generate the encrypted bits and ensure the identity of the creator. Meanwhile, clients or other non-trusted parties can use the public portion to decrypt the message.
 
-SSL/TLS Certificates allow a server to join the `chain-of-trust` with other entities involved in the exchange of encrypted messages.  The [X.509](https://en.wikipedia.org/wiki/X.509) certificate format contain a public key, and a set of metadata that identifies the entity it represents. SSL/TLS certificates represent the most common types of X.509 certificates in the PKI stack. 
+SSL/TLS Certificates allow a server to join the `chain-of-trust` with other entities involved in the exchange of encrypted messages. The [X.509](https://en.wikipedia.org/wiki/X.509) certificate format contain a public key, and a set of metadata that identifies the entity it represents. SSL/TLS certificates represent the most common types of X.509 certificates in the PKI stack.
 
->_**NOTE**_: SSL is the deprecated standard. For intents and purposes, TLS is the reigning standard. See the [TLS Wiki](https://en.wikipedia.org/wiki/Transport_Layer_Security) on why.
+> _**NOTE**_: SSL is the deprecated standard. For intents and purposes, TLS is the reigning standard. See the [TLS Wiki](https://en.wikipedia.org/wiki/Transport_Layer_Security) on why.
 
 A `chain-of-trust` is the relationship model that forms around a repository called a `truststore` (a keystore for declaring trusted certificates) which is commonly found in every browser and JDK. This `truststore` allows software to validate that an X.509 has a link with trusted parties.
 
@@ -54,11 +54,12 @@ In most day-to-day scenarios, you are using whats called [one way TLS](https://w
 
 In [two way TLS](https://www.ibm.com/docs/en/sim/7.0.1.13?topic=communication-one-way-two-way-ssl-authentication), both parties offer TLS certificates. In addition to the above scenario, the client will present it's certificate to the server. In two-way TLS, a server creates a keystore as above, but also a truststore for validating client certificates. Additionally, the client creates a keystore for holding it's own private key and certificate.
 
-## Establishing or Breaking the Chain of Trust 
+## Establishing or Breaking the Chain of Trust
 
 TLS Certificates are usually issued by well known and trusted Certificate Authorities (CA). It's sometimes feasible to get around this by issuing a [self signed](https://en.wikipedia.org/wiki/Self-signed_certificate) certificate in that _only_ the user issuing it trusts. Self-signed certificates cannot be trusted outside the scope of the user/app who created it; they are really useful for one-off (test/proving) situations.
 
 A Self Signed certificate is easy to generate with one command:
+
 ```bash
 openssl req -newkey rsa:2048 -nodes -keyout key.pem -x509 -days 365 -out certificate.pem
 ```
@@ -86,6 +87,7 @@ Just one dependency - 'RSocket Messaging' is needed to get this going. Create th
 This application will expose a messaging endpoint that lets us exercise the TLS connectivity through RSocket. We just need a single controller to do the work:
 
 ControllerMapping.kt
+
 ```kotlin
 package example.rsocket.tls
 
@@ -113,9 +115,10 @@ This will be our working directory for the next few sections.
 
 ### Generating our CA's Private Key
 
-To get started, we will need to generate the public/private key pair of our own CA. 
+To get started, we will need to generate the public/private key pair of our own CA.
 
 Lets generate the RSA 2048-bit key pair for our Root certificate:
+
 ```bash
 openssl genrsa -out ca.key 2048 -aes256 -sha256 -passin pass:111111
 ```
@@ -123,6 +126,7 @@ openssl genrsa -out ca.key 2048 -aes256 -sha256 -passin pass:111111
 This tells OpenSSL to generate a new RSA key 2048 bits long and store it in a file `ca.key`. The `aes256` flag tells it to encrypt the key using [AES256](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption algorithm. We provided a password using the `passin` flag. `sha256` tells which hashing algorithm to generate the fingerprint with. The resulting file is Base64 encoded.
 
 You can even check and inspect the key:
+
 ```bash
 openssl rsa -in ca.key -text -check
 ```
@@ -134,6 +138,7 @@ The output is somewhat lengthy and includes a status indicator of the key's vali
 Since we have the root key, we will create an X.509 certificate to be used in signing other keys.
 
 Using OpenSSL, create the root certificate from the key generated earlier:
+
 ```bash
 openssl req -x509 -new -key ca.key -passout pass:111111 -out ca.cer -days 365 -sha256 -subj "/CN=CARoot"
 ```
@@ -156,18 +161,20 @@ The CSR file contains a public key with some organizational metadata used to ide
 
 The CSR will contain the Distinguished Name (DN) that identifies the requesting entity. This DN will include pieces of information such as:
 
-* Private Key
-* FQDN - Fully Qualified Domain Name
-* CN - Common Name of the server
-* Owner - Distinguished Name of the owner entity
-* Email
+-   Private Key
+-   FQDN - Fully Qualified Domain Name
+-   CN - Common Name of the server
+-   Owner - Distinguished Name of the owner entity
+-   Email
 
-We largely ignore the details of metadata in this guide. However, in specific cases, metadata is expected to appear with a formalized value such as FQDN having the local root of a domain name.  This demo doesn't require such measures beyond Common Name (CN) matching our server, thus we will use 'Unknown' for every other metadata and put 'Server'/'Client' as the CN.
+We largely ignore the details of metadata in this guide. However, in specific cases, metadata is expected to appear with a formalized value such as FQDN having the local root of a domain name. This demo doesn't require such measures beyond Common Name (CN) matching our server, thus we will use 'Unknown' for every other metadata and put 'Server'/'Client' as the CN.
 
 We can create the CSR file using the private key we just generated:
+
 ```bash
 openssl req -new -key server.key -sha256 -out server.csr -subj "/CN=server,OU=Unknown,O=Unknown,L=Unknown,ST=Unknown,C=Unknown" -passin pass:111111
 ```
+
 The output is 'server.csr' containing the Base64 encoded CSR.
 
 Now, we can sign the server's CSR with our Root certificate.
@@ -195,7 +202,7 @@ cat ca.cer server.pem > serverca.pem
 openssl pkcs12 -export -in serverca.pem -inkey server.key -name localhost -passout pass:111111 > server-ks.p12
 ```
 
->_**NOTE**_:  If you already have a JKS keystore in tow, simply convert that keystore into `PKCS#12` using Java [Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html):
+> _**NOTE**_: If you already have a JKS keystore in tow, simply convert that keystore into `PKCS#12` using Java [Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html):
 
 ```bash
 keytool -importkeystore -srckeystore KEYSTORE-FILENAME.jks -destkeystore KEYSTORE-FILENAME.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass somepassword -deststorepass somepassword
@@ -215,7 +222,6 @@ openssl pkcs12 -export -name localhost -in ca.cer -inkey ca.key -passout pass:11
 
 This command exports the `in` root certificate into the new `PKCS#12` keystore.
 
-
 At this point, we have all of the keystores necessary to make the application work. We need to copy this to a directory under `src/main/resources`
 
 ```bash
@@ -230,6 +236,7 @@ The application can now take advantage of the keystore that contain the certific
 Let's add TLS to our RSocket Server by including some necessary paths and TLS related configuration options in `application.properties`:
 
 application.properties
+
 ```properties
 spring.application.name=rsocket-tls
 spring.rsocket.server.port=9090
@@ -247,7 +254,6 @@ my.ssl.trust-store-password=111111
 
 SSL configuration is not specific to SSL as it applies to TLS - remember TLS supersedes SSL. The above configuration applies to the [SSL](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/web/server/Ssl.html) configuration class at runtime.
 
-
 Specifying [client-auth](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/web/server/Ssl.ClientAuth.html) with `'NONE'` tells our app that only the server will present certificates. Change this option to `'WANT'` or `'NEED'` when you want to make mutual TLS (mTLS) the desired client authentication mechanism.
 
 The rest of the properties lets us specify the location and what the keystore format is in addition to their passwords. Additionally, we have the non-standard `my.` client truststore properties for injecting keystore details for our client configuration.
@@ -256,7 +262,7 @@ The rest of the properties lets us specify the location and what the keystore fo
 
 ### Client Configuration
 
-The client is a standard [RSocketRequester](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/rsocket/RSocketRequester.html) that uses a TCP socket to transmit frames. We can allow the client to trust our server's certificate  with help of [TcpClientTransport](https://github.com/rsocket/rsocket-java/blob/master/rsocket-transport-netty/src/main/java/io/rsocket/transport/netty/client/TcpClientTransport.java) configured with a [TrustManager](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/TrustManagerFactory.html) and sending it to the Requester.  Lets take a look at client configuration for our `TcpClientTransport` below;
+The client is a standard [RSocketRequester](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/rsocket/RSocketRequester.html) that uses a TCP socket to transmit frames. We can allow the client to trust our server's certificate with help of [TcpClientTransport](https://github.com/rsocket/rsocket-java/blob/master/rsocket-transport-netty/src/main/java/io/rsocket/transport/netty/client/TcpClientTransport.java) configured with a [TrustManager](https://docs.oracle.com/javase/8/docs/api/javax/net/ssl/TrustManagerFactory.html) and sending it to the Requester. Lets take a look at client configuration for our `TcpClientTransport` below;
 
 ```kotlin
 class PKITransportFactory(private val trust: File,
@@ -307,7 +313,7 @@ Finally, we are ready to test our client and server.
 
 ## Testing the TLS Setup
 
-To test the whole thing - validity of certificates and their positions in the keystore and the client's truststore -  we will write a test.
+To test the whole thing - validity of certificates and their positions in the keystore and the client's truststore - we will write a test.
 
 First, we will need to create the requester, and it's TCP connection:
 

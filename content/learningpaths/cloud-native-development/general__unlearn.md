@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Things to Unlearn
 weight: 1
-oldPath: "/content/outcomes/cloud-native-development/general__unlearn.md"
+oldPath: '/content/outcomes/cloud-native-development/general__unlearn.md'
 aliases:
-- "/outcomes/cloud-native-development/general__unlearn"
+    - '/outcomes/cloud-native-development/general__unlearn'
 tags: []
 ---
 

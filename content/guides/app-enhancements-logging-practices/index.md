@@ -3,13 +3,13 @@ date: '2021-02-16'
 lastmod: '2021-02-16'
 parent: Application Enhancements
 tags:
-- Kubernetes
+    - Kubernetes
 team:
-- John Harris
+    - John Harris
 title: Logging Best Practices
-oldPath: "/content/guides/kubernetes/app-enhancements-logging-practices.md"
+oldPath: '/content/guides/kubernetes/app-enhancements-logging-practices.md'
 aliases:
-- "/guides/kubernetes/app-enhancements-logging-practices"
+    - '/guides/kubernetes/app-enhancements-logging-practices'
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -68,41 +68,41 @@ allows logging utilities to consume log events as they are redirected to
 apiVersion: v1
 kind: Pod
 metadata:
-  name: counter
+    name: counter
 spec:
-  containers:
-  - name: count
-    image: busybox
-    args:
-    - /bin/sh
-    - -c
-    - >
-      i=0;
-      while true;
-      do
-        echo "$i: $(date)" >> /var/log/1.log;
-        echo "$(date) INFO $i" >> /var/log/2.log;
-        i=$((i+1));
-        sleep 1;
-      done
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  - name: count-log-1
-    image: busybox
-    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/1.log']
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  - name: count-log-2
-    image: busybox
-    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/2.log']
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  volumes:
-  - name: varlog
-    emptyDir: {}
+    containers:
+        - name: count
+          image: busybox
+          args:
+              - /bin/sh
+              - -c
+              - >
+                  i=0;
+                  while true;
+                  do
+                    echo "$i: $(date)" >> /var/log/1.log;
+                    echo "$(date) INFO $i" >> /var/log/2.log;
+                    i=$((i+1));
+                    sleep 1;
+                  done
+          volumeMounts:
+              - name: varlog
+                mountPath: /var/log
+        - name: count-log-1
+          image: busybox
+          args: [/bin/sh, -c, 'tail -n+1 -f /var/log/1.log']
+          volumeMounts:
+              - name: varlog
+                mountPath: /var/log
+        - name: count-log-2
+          image: busybox
+          args: [/bin/sh, -c, 'tail -n+1 -f /var/log/2.log']
+          volumeMounts:
+              - name: varlog
+                mountPath: /var/log
+    volumes:
+        - name: varlog
+          emptyDir: {}
 ```
 
 This allows you to abide by logging best practices in a cloud-native environment
@@ -123,7 +123,7 @@ Automation _can_ parse _Structured logs_ on the other hand, because they are
 organized into a machine-readable data format. This allows you to construct
 queries that reference specific parts of the logs. For example, structured logs
 allow a user to easily construct a query to filter all events based on their
-timestamp, log level or other user-defined metadata. 
+timestamp, log level or other user-defined metadata.
 
 ### Language Support for Structured Logging
 
@@ -131,7 +131,7 @@ A best practice for structured logging is to implement it directly in
 application code with a logging library. This results in logs conforming to a
 data format by the time another tool consumes them, which prevents CPU cycles
 from being spent on parsing. Most languages have a native logging library that
-supports structured logging. 
+supports structured logging.
 
 Consider the following example implementation of structured logging in
 [_Logrus_](https://github.com/sirupsen/logrus/tree/v1.4.2), a logging library
@@ -172,6 +172,7 @@ func main() {
 ```
 
 The code referenced above produces the following output:
+
 ```shell
 {"animal":"walrus","level":"info","msg":"A group of walrus emerges from the
 ocean","size":10,"time":"2014-03-10 19:57:38.562264131 -0400 EDT"}
@@ -200,15 +201,16 @@ troubleshoot as a cloud environment becomes more complex.
 
 Elasticsearch could use the following mapping configuration to parse the
 previous section's logs.
+
 ```shell
 {
   "mappings": {
-    "properties": { 
-      "animal":    { "type": "text"  }, 
-      "level":     { "type": "text"  }, 
-      "msg":       { "type": "text" },  
+    "properties": {
+      "animal":    { "type": "text"  },
+      "level":     { "type": "text"  },
+      "msg":       { "type": "text" },
       "time":  {
-        "type":   "date", 
+        "type":   "date",
         "format": "strict_date_optional_time||epoch_millis"
       }
     }
@@ -218,7 +220,7 @@ previous section's logs.
 
 Notice that `title`, `name`, and `age` properties each have an assigned data
 type, and the `created` property has both an assigned data type and defined
-format. 
+format.
 
 ### Structured-Logging Sidecar
 
@@ -226,7 +228,7 @@ If an application does not implement structured logging and you cannot modify
 the application, parsing may occur after the application has emitted log events.
 Use [_Fluentbit_](https://fluentbit.io/documentation/0.12/), a log shipper that
 VMware recommends, to deploy a sidecar (as described in the previous section)
-which parses logs before shipping them. 
+which parses logs before shipping them.
 
 Consider the following example from the Fluentbit documentation. Fluentbit may
 take the following as input:
@@ -236,6 +238,7 @@ take the following as input:
 ```
 
 And produce the following output:
+
 ```shell
 {
   "host":    "192.168.2.20",
@@ -247,7 +250,7 @@ And produce the following output:
   "referer": "",
   "agent":   ""
  }
- ```
+```
 
 Although this sidecar implements simple logic and its overhead is low, VMware
 recommends that your application print structured logs to avoid the overhead

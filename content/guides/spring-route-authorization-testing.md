@@ -4,16 +4,16 @@ description: Dynamic testing of your Spring Security route authorizations
 draft: false
 lastmod: '2021-05-25'
 tags:
-- spring
-- testing
-- spring security
-- Spring
+    - spring
+    - testing
+    - spring security
+    - Spring
 team:
-- Toby Rumans
+    - Toby Rumans
 title: Spring Route Authorization Testing
-oldPath: "/content/guides/spring/spring-route-authorization-testing.md"
+oldPath: '/content/guides/spring/spring-route-authorization-testing.md'
 aliases:
-- "/guides/spring/spring-route-authorization-testing"
+    - '/guides/spring/spring-route-authorization-testing'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -530,20 +530,20 @@ class Access {
 
 ### Pros
 
-- Humans don't have to remember to update it. The tests tell you when to change.
-- Every API route is tested against every role.
-- `@TestFactory` generates an individual case for every route.
-- Any team member can easily add new specs.
-- Lets you refactor your authorization matchers with confidence.
+-   Humans don't have to remember to update it. The tests tell you when to change.
+-   Every API route is tested against every role.
+-   `@TestFactory` generates an individual case for every route.
+-   Any team member can easily add new specs.
+-   Lets you refactor your authorization matchers with confidence.
 
 ### Cons
 
-- Adds a lot of tests to your suite that could slow it down.
-- Your hand will get sore from all the high fives.
+-   Adds a lot of tests to your suite that could slow it down.
+-   Your hand will get sore from all the high fives.
 
 ## Further reading
 
-- [Dynamic tests in Junit 5](https://www.baeldung.com/junit5-dynamic-tests)
+-   [Dynamic tests in Junit 5](https://www.baeldung.com/junit5-dynamic-tests)
 
 ## Example Repository
 

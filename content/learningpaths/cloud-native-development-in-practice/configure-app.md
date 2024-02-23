@@ -3,7 +3,7 @@ title: Configure a Spring Boot Application
 weight: 20
 layout: single
 team:
-  - Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 ---
 
 Gain more understanding on how to build cloud native applications.
@@ -16,9 +16,9 @@ After completing the lab, you will be able to:
 -   Use environment variables to configure an application running
     locally
 -   Use `cf logs` to view the logs of an application running on
-    *Tanzu Application Service*
+    _Tanzu Application Service_
 -   Use environment variables to configure an application running on
-    *Tanzu Application Service*
+    _Tanzu Application Service_
 -   Explain when to use the CLI versus a manifest for
     application configuration
 
@@ -57,7 +57,7 @@ will be introduced in later lessons.
     [Deploying a Spring Boot Application lab](../spring-boot-app-deploy/).
     You must have your `pal-tracker` application associated with the
     `spring-boot-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -81,7 +81,7 @@ will be introduced in later lessons.
     ```
 
     Your goal is to get your tests to pass by the end of the lab,
-    as well as deploy the updated code to *Tanzu Application Service*.
+    as well as deploy the updated code to _Tanzu Application Service_.
 
 ## If you get stuck
 
@@ -128,14 +128,14 @@ You will use the environment variable mechanism to provide configuration
 to a process.
 
 It does not matter if your application is written in
-[Java](https://en.wikipedia.org/wiki/Java_(programming_language)),
-[Ruby](https://en.wikipedia.org/wiki/Ruby_(programming_language)),
-[Golang](https://en.wikipedia.org/wiki/Go_(programming_language)), or
+[Java](<https://en.wikipedia.org/wiki/Java_(programming_language)>),
+[Ruby](<https://en.wikipedia.org/wiki/Ruby_(programming_language)>),
+[Golang](<https://en.wikipedia.org/wiki/Go_(programming_language)>), or
 some other language,
 they all have the capability of accessing environment variables during
 their process start up time.
 
-*Tanzu Application Service* can be configured to provide your application
+_Tanzu Application Service_ can be configured to provide your application
 with environment variables when it is executed.
 In fact, it provides
 [several environment variables](http://docs.run.pivotal.io/devguide/deploy-apps/environment-variable.html)
@@ -187,7 +187,7 @@ the requested variable.
 From now on the `WELCOME_MESSAGE` environment variable must be set to
 run your app.
 One way to do this is to add the environment variable assignment before
-the *Gradle* command.
+the _Gradle_ command.
 
 ```bash
 WELCOME_MESSAGE=howdy ./gradlew bootRun
@@ -251,9 +251,9 @@ to make this easier.
 This has the added benefit of documenting required environment variables
 and supporting multiple operating systems.
 
-## *Tanzu Application Service* environment variables
+## _Tanzu Application Service_ environment variables
 
-When *Tanzu Application Service* starts your application,
+When _Tanzu Application Service_ starts your application,
 it will be running with a port provided by the runtime environment.
 It will also have an instance ID set which will be distinct for
 each instance, if the app has multiple instances.
@@ -268,10 +268,10 @@ Create an endpoint to see some of that information.
 1.  Declare `@Value` annotated constructor arguments to be populated
     with values of the following environment variables:
 
-    - `PORT`
-    - `MEMORY_LIMIT`
-    - `CF_INSTANCE_INDEX`
-    - `CF_INSTANCE_ADDR`
+    -   `PORT`
+    -   `MEMORY_LIMIT`
+    -   `CF_INSTANCE_INDEX`
+    -   `CF_INSTANCE_ADDR`
 
 1.  Add a default value to the variables above so that the app will
     still run correctly locally.
@@ -299,15 +299,15 @@ Create an endpoint to see some of that information.
     Make sure the root route still has the welcome message you set above.
 
 1.  Make sure all your tests pass before moving on by running the
-    *Gradle* `build` task.
+    _Gradle_ `build` task.
 
 ## Deploy
 
-1.  Push the app to *Tanzu Application Service*.
+1.  Push the app to _Tanzu Application Service_.
     The app will fail to start and will be reported as a crash.
 
     To see what the problem is, use the `cf logs` command.
-    Logging in *Tanzu Application Service* works by taking everything
+    Logging in _Tanzu Application Service_ works by taking everything
     from standard output and error
     (`System.out` and `System.err` in Java)
     and storing it in a small buffer.
@@ -323,8 +323,8 @@ Create an endpoint to see some of that information.
 
 1.  To fix this issue, use the `cf set-env` command to set the
     `WELCOME_MESSAGE` environment variable to
-    __Howdy from Tanzu Application Service__ in your app's container on
-    *Tanzu Application Service*.
+    **Howdy from Tanzu Application Service** in your app's container on
+    _Tanzu Application Service_.
     The CLI will give you a helpful tip:
 
     ```no-highlight
@@ -345,12 +345,12 @@ Create an endpoint to see some of that information.
     cf restart pal-tracker
     ```
 
-1.  Once your app is running on *Tanzu Application Service*,
+1.  Once your app is running on _Tanzu Application Service_,
     navigate to the root endpoint and check that it displays
-    __Howdy from Tanzu Application Service__.
+    **Howdy from Tanzu Application Service**.
 
 1.  Navigate to the `/env` endpoint and verify actual values are
-    displayed instead of __NOT SET__.
+    displayed instead of **NOT SET**.
 
 ## Manifest
 
@@ -363,8 +363,8 @@ variables in the
 such as the `WELCOME_MESSAGE` and setting the JDK version to use when
 running the application.
 
-A *Tanzu Application Service* manifest is also an appropriate place to
-describe *Backing Services* dependencies that your app requires.
+A _Tanzu Application Service_ manifest is also an appropriate place to
+describe _Backing Services_ dependencies that your app requires.
 You will see more about backing services in the
 [Backing Services and Database Migrations](../database-migrations/) and
 [Data Access](../jdbc-template/) labs.
@@ -396,9 +396,9 @@ To see the effect of using a manifest:
 ## Wrap up
 
 Review the
-[*Tanzu Application Service* Environment](https://docs.google.com/presentation/d/1s8bT9cpfMWXluYkCZHVUB9jKUmfG-ODzj2P1nZsBVaY/present#slide=id.ge9c860dc14_0_0)
+[_Tanzu Application Service_ Environment](https://docs.google.com/presentation/d/1s8bT9cpfMWXluYkCZHVUB9jKUmfG-ODzj2P1nZsBVaY/present#slide=id.ge9c860dc14_0_0)
 slides about environment variable configuration on
-*Tanzu Application Service*.
+_Tanzu Application Service_.
 
 Now that you have completed the lab, you should be able to:
 
@@ -408,19 +408,19 @@ Now that you have completed the lab, you should be able to:
 -   Use `cf logs` to view the logs of an application running on Cloud
     Foundry
 -   Use environment variables to configure an application running on
-    *Tanzu Application Service*
+    _Tanzu Application Service_
 -   Explain when to use the command line interface (CLI)
     versus a manifest for application configuration
 
 ## Extras
 
-### *Tanzu Application Service* command line interface (CLI)
+### _Tanzu Application Service_ command line interface (CLI)
 
 If you have additional time, explore the `cf` CLI by reading the
 [documentation](https://docs.run.pivotal.io/cf-cli/cf-help.html) or by
 running `cf help` and `cf <command> --help`.
 
-### Explore the *pal-tracker* application environment
+### Explore the _pal-tracker_ application environment
 
 1.  Review the
     [`cf env`](http://cli.cloudfoundry.org/en-US/cf/ssh.html) command.
@@ -429,7 +429,7 @@ running `cf help` and `cf <command> --help`.
     Review the system provided environment variables,
     as well as the user provided environment variables.
 
-### Explore the *pal-tracker* container
+### Explore the _pal-tracker_ container
 
 1.  Review the
     [`cf ssh`](http://cli.cloudfoundry.org/en-US/cf/ssh.html) command.
@@ -439,11 +439,11 @@ running `cf help` and `cf <command> --help`.
 
 1.  Run the following and review the running `pal-tracker` container:
 
-    -   [*Tanzu Application Service* environment variables](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html):
+    -   [_Tanzu Application Service_ environment variables](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html):
 
         `env | grep CF_`
 
-        Notice that *Tanzu Application Service* sets the IP address,
+        Notice that _Tanzu Application Service_ sets the IP address,
         ports,
         and host name (GUID) of the containers for you.
 
@@ -452,7 +452,7 @@ running `cf help` and `cf <command> --help`.
         `ps -ef`
 
         Notice the Java process,
-        how did *Tanzu Application Service* know what the run command is
+        how did _Tanzu Application Service_ know what the run command is
         for the `pal-tracker` application?
 
         Notice the `envoy` and `healthcheck` processes.

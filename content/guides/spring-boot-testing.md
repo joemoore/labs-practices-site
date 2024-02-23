@@ -4,59 +4,60 @@ lastmod: '2021-01-29'
 linkTitle: Testing Best Practices
 parent: Spring Boot
 patterns:
-- API
+    - API
 tags:
-- Spring Boot
-- Testing
-- Spring
-- Microservices
+    - Spring Boot
+    - Testing
+    - Spring
+    - Microservices
 title: Best Practices for How to Test Spring Boot Applications
 description: Get familiar with writing tests for Spring Boot applications that are fast, independent, repeatable, self-validating, and timely.
 weight: 3
-oldPath: "/content/guides/spring/spring-boot-testing.md"
+oldPath: '/content/guides/spring/spring-boot-testing.md'
 aliases:
-- "/guides/spring/spring-boot-testing"
+    - '/guides/spring/spring-boot-testing'
 faqs:
-  faq:
-  - question: What is Spring Boot testing?
-    answer: Spring Boot testing is the practice of ensuring the functionality of Spring
-      Boot applications and their respective components, a critical step in the successful
-      development of applications in a microservices architecture.
-  - question: How do you test a Spring Boot microservice?
-    answer: Spring Boot [microservices](https://tanzu.vmware.com/microservices) can
-      be tested by using the JUnit testing framework, by annotating the test with
-      `@Test`. Alternatively, to only load slices of functionality, use the `@SpringBootTest`
-      annotation while listing the Spring components that participate in the test
-      scenario in the annotation declaration.
-  - question: What are the best practices for Spring Boot testing?
-    answer: For Spring Boot testing, it is best practice to utilize the F.I.R.S.T.
-      principles. Therefore, the test must be fast, independent, repeatable, self-validating,
-      and timely.
-  - question: How can you speed up Spring Boot testing?
-    answer: Spring Boot testing can be optimized by using the `@DataJpaTest` annotation
-      to only load `@Repository` Spring components. In addition, configuring the test
-      to exclude `@Service`, `@Controller`, and other components will greatly improve
-      speed.
-  - question: Which annotation can be used to run quick unit tests in Spring Boot?
-    answer: The `@SpringBootTest` annotation can be used to run quick unit tests in
-      Spring Boot.
-  - question: What are the benefits of using mock frameworks in Spring Boot testing?
-    answer: Mock frameworks eliminate the need to access real instances of external
-      resources while Spring Boot testing.
+    faq:
+        - question: What is Spring Boot testing?
+          answer: Spring Boot testing is the practice of ensuring the functionality of Spring
+              Boot applications and their respective components, a critical step in the successful
+              development of applications in a microservices architecture.
+        - question: How do you test a Spring Boot microservice?
+          answer: Spring Boot [microservices](https://tanzu.vmware.com/microservices) can
+              be tested by using the JUnit testing framework, by annotating the test with
+              `@Test`. Alternatively, to only load slices of functionality, use the `@SpringBootTest`
+              annotation while listing the Spring components that participate in the test
+              scenario in the annotation declaration.
+        - question: What are the best practices for Spring Boot testing?
+          answer: For Spring Boot testing, it is best practice to utilize the F.I.R.S.T.
+              principles. Therefore, the test must be fast, independent, repeatable, self-validating,
+              and timely.
+        - question: How can you speed up Spring Boot testing?
+          answer: Spring Boot testing can be optimized by using the `@DataJpaTest` annotation
+              to only load `@Repository` Spring components. In addition, configuring the test
+              to exclude `@Service`, `@Controller`, and other components will greatly improve
+              speed.
+        - question: Which annotation can be used to run quick unit tests in Spring Boot?
+          answer: The `@SpringBootTest` annotation can be used to run quick unit tests in
+              Spring Boot.
+        - question: What are the benefits of using mock frameworks in Spring Boot testing?
+          answer: Mock frameworks eliminate the need to access real instances of external
+              resources while Spring Boot testing.
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
 
 Proper testing is critical to the successful development of applications that use a microservices architecture. This guide provides some important recommendations for writing tests for Spring Boot applications, using [F.I.R.S.T. principles](https://www.appsdeveloperblog.com/the-first-principle-in-unit-testing/):
 
-* F - Fast
-* I - Independent
-* R - Repeatable
-* S - Self-Validating
-* T - Timely
+-   F - Fast
+-   I - Independent
+-   R - Repeatable
+-   S - Self-Validating
+-   T - Timely
 
-## Isolate the functionality to be tested 
-You can better isolate the functionality you want to test by limiting the context of loaded frameworks/components. Often, it is sufficient to use the [JUnit](https://junit.org/) unit testing framework. without loading any additional frameworks.  **To accomplish this, you only need to annotate your test with `@Test`.**
+## Isolate the functionality to be tested
+
+You can better isolate the functionality you want to test by limiting the context of loaded frameworks/components. Often, it is sufficient to use the [JUnit](https://junit.org/) unit testing framework. without loading any additional frameworks. **To accomplish this, you only need to annotate your test with `@Test`.**
 
 In the very naive code snippet below, there are no database interactions, and MapRepository loads data from the classpath.
 
@@ -113,9 +114,10 @@ public class CarServiceTest {
 }
 ```
 
-## Only load slices of functionality 
+## Only load slices of functionality
 
 ### @SpringBootTest Annotation
+
 When testing spring boot applications, the `@SpringBootTest` annotation loads the whole application, but it is often better to limit the application context to just the set of Spring components that participate in the test scenario. This is accomplished by listing them in the annotation declaration.
 
 ```java
@@ -143,7 +145,9 @@ public class CarServiceWithRepoTest {
 	}
 }
 ```
+
 ### @DataJpaTest Annotation
+
 Using `@DataJpaTest` only loads `@Repository` spring components, and will greatly improve performance by not loading `@Service`, `@Controller`, etc.
 
 ```java
@@ -168,7 +172,7 @@ public class MapTests {
 
 Sometimes, the `Table Already Exists` exception is thrown when testing with an [H2 database](http://www.h2database.com/html/main.html). This is an indication that H2 was not cleared between test invocations. This behavior has been observed when combining database tests with initialization of the API mocking tool [WireMock](http://wiremock.org). It could also occur if multiple qualifying schema-.sql files are located in the classpath.
 
-It is a good practice to mock the beans that are involved in database interactions, and turn off Spring Boot test db initialization for the Spring profile that tests run.  You should strongly consider this when testing `Controllers`.  Alternatively, you can try to declare your table creation DDL in `schema.sql` files as `CREATE TABLE IF NOT EXISTS`.
+It is a good practice to mock the beans that are involved in database interactions, and turn off Spring Boot test db initialization for the Spring profile that tests run. You should strongly consider this when testing `Controllers`. Alternatively, you can try to declare your table creation DDL in `schema.sql` files as `CREATE TABLE IF NOT EXISTS`.
 
 ```properties
 spring.datasource.initialize=false
@@ -210,6 +214,7 @@ public class CarServiceControllerTests {
 ```
 
 ## Keep Learning
+
 Many of the frameworks and other capabilities mentioned in this best practices guide are described in the [Spring Boot testing documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html). This recent video on [testing messaging in Spring](/tv/code/0004/) describes the use of Spock, JUnit, Mockito, Spring Cloud Stream and Spring Cloud Contract.
 
 A more exhaustive [tutorial](https://spring.io/guides/gs/testing-web/) is available to help you learn more about testing the web layer.

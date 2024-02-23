@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: API Gateway
 weight: 150
-oldPath: "/content/outcomes/cloud-native-development/specific__api_gateway.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__api_gateway.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__api_gateway"
+    - '/outcomes/cloud-native-development/specific__api_gateway'
 tags: []
 ---
 
@@ -20,7 +20,6 @@ There are many commercial and open-source options for this - the former includes
 
 Go to the [Building a Gateway](https://spring.io/guides/gs/gateway/) guide to learn how to craft your first API gateway with SCG.
 
-
 ## Homework
 
-- Read the [Building a Gateway](https://spring.io/guides/gs/gateway/) guide.
+-   Read the [Building a Gateway](https://spring.io/guides/gs/gateway/) guide.

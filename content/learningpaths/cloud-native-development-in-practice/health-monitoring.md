@@ -3,7 +3,7 @@ title: Health Monitoring
 weight: 70
 layout: single
 team:
-  - Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 ---
 
 This lab introduces the concepts of Observability,
@@ -18,8 +18,8 @@ application.
 
 After completing the lab, you will be able to:
 
-- Explain how to set up Actuator for a Spring Boot app
-- Explain uses for health indicators and availability probes
+-   Explain how to set up Actuator for a Spring Boot app
+-   Explain uses for health indicators and availability probes
 
 ## Get started
 
@@ -31,7 +31,7 @@ After completing the lab, you will be able to:
     [Data Access lab](../jdbc-template/).
     You must have your `pal-tracker` application associated with the
     `jdbc-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -43,7 +43,7 @@ After completing the lab, you will be able to:
     ```
 
     This added a `PalTrackerFailure` class, which you will use in the
-    *Liveness* section of the lab to demonstrate Spring Boot
+    _Liveness_ section of the lab to demonstrate Spring Boot
     `AvailabilityState`.
 
 1.  Attempt to compile:
@@ -131,18 +131,18 @@ This lab will walk you through the more interesting and important ones.
     Custom metrics will also be shown here.
     There are several types of custom metrics that can be collected:
 
-    -   *Gauge* - gives an instantaneous measurement of a value that
+    -   _Gauge_ - gives an instantaneous measurement of a value that
         may increase or decrease over time, for example,
         the current amount of free memory.
-    -   *Counter* - counts the number of times an event has occurred,
+    -   _Counter_ - counts the number of times an event has occurred,
         for example, the total number of API requests processed.
-    -   *DistributionSummary* - tracks aspects of the characteristics of
+    -   _DistributionSummary_ - tracks aspects of the characteristics of
         a set of events, including the total value,
         maximum value and count.
         For example, the total number of bytes received in messages on a
         queue, the maximum message size,
         and the total number of messages.
-    -   *Timer* - similar to **DistributionSummary** but specialized for
+    -   _Timer_ - similar to **DistributionSummary** but specialized for
         tracking information about the duration large number of short
         running events
 
@@ -174,7 +174,7 @@ This lab will walk you through the more interesting and important ones.
 ## Health indicators
 
 Spring Boot will automatically provide health indicators for
-external *backing services*, such as relational databases or
+external _backing services_, such as relational databases or
 message oriented middleware, which support auto-configuration.
 This will enable you to monitor the ability of the application to
 connect to them.
@@ -244,7 +244,7 @@ may be streamed to monitoring systems:
 ### Platform automation/self healing
 
 Another use is that of special types of health indicators called
-*availability probes*.
+_availability probes_.
 
 Modern application platforms support a contract with the applications
 they run that the platform will monitor the application instance health.
@@ -276,13 +276,13 @@ types.
 
 The two most common types are:
 
-- readiness probe
-- liveness probe
+-   readiness probe
+-   liveness probe
 
 Spring Boot 2.3.x and above allow your application to:
 
-- Define rules for availability types
-- Expose availability probe endpoints via Actuator health endpoints
+-   Define rules for availability types
+-   Expose availability probe endpoints via Actuator health endpoints
 
 ### Enable probes locally
 
@@ -298,17 +298,17 @@ You will need to enable them.
 1.  Restart the `pal-tracker` application on your development workstation.
 
 1.  Verify a request to the `actuator/health` endpoint has a 200 HTTP
-    response and an *up* status:
+    response and an _up_ status:
 
     ```bash
     curl -v localhost:8080/actuator/health
     ```
 
 1.  Verify the `readinessState` and `livenessState` entries are both
-    present in the response of the `health` endpoint with *up* status.
+    present in the response of the `health` endpoint with _up_ status.
 
 1.  Verify a request to the `actuator/health/liveness` endpoint has a
-    200 HTTP response and an *up* status:
+    200 HTTP response and an _up_ status:
 
     ```bash
     curl -v localhost:8080/actuator/health/liveness
@@ -317,11 +317,11 @@ You will need to enable them.
     This is the `liveness` probe endpoint.
 
 **Note:**
-***Tanzu Application Service* supports use the of the liveness probe
+**_Tanzu Application Service_ supports use the of the liveness probe
 with the `health-check` feature, which you will demonstrate in the
 next lab.**
 
-***Tanzu Application Service* does not currently support the use of**
+**_Tanzu Application Service_ does not currently support the use of**
 **readiness checks.**
 
 ### Liveness
@@ -339,11 +339,11 @@ being up.
 Let's pretend that our application can no longer service the requests
 reliably.
 Perhaps the app encounters a fatal exception from which it cannot recover,
-or there is a *persistent* failure of a backing service.
+or there is a _persistent_ failure of a backing service.
 
 Unfortunately backing services health indicators are not suitable to
 use for the liveness probe of the application as a whole because they
-also indicate *transient* failures of the backing service.
+also indicate _transient_ failures of the backing service.
 This is discussed further in the
 [Special Considerations](#special-considerations) section.
 
@@ -362,7 +362,7 @@ demonstrate a broken liveness state in your `pal-tracker` application:
 1.  Restart `pal-tracker` application on your development workstation.
 
 1.  Verify a request against the liveness endpoint with a 200 HTTP
-    response and an *up* status:
+    response and an _up_ status:
 
     ```bash
     curl -v localhost:8080/actuator/health/liveness
@@ -375,7 +375,7 @@ demonstrate a broken liveness state in your `pal-tracker` application:
     ```
 
 1.  Verify a request against the liveness endpoint with a 503 HTTP
-    response and a *down* status:
+    response and a _down_ status:
 
     ```bash
     curl -v localhost:8080/actuator/health/liveness
@@ -395,11 +395,11 @@ demonstrate a broken liveness state in your `pal-tracker` application:
 It may be tempting to use the auto-configured backing service health
 indicators to override the liveness probe of your application.
 
-[*Do not do this!*](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/spring-boot-features.html#boot-features-application-availability-liveness-state)
+[_Do not do this!_](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/spring-boot-features.html#boot-features-application-availability-liveness-state)
 
 Be aware that the health indicators for most backing services show a
 near realtime state of connections to a resource, and as such, may
-capture both *transient* and *persistent* failure events.
+capture both _transient_ and _persistent_ failure events.
 
 You should generally not use transient failures alone to calculate
 the liveness state of your application, as this may cause the platform
@@ -425,15 +425,15 @@ availability probes.
 ## Monitoring tools
 
 The majority of the actuator endpoints discussed in the
-[*Actuator diagnostic endpoints* section](#actuator-diagnostic-endpoints)
-are used in context of *developer diagnostics*.
+[_Actuator diagnostic endpoints_ section](#actuator-diagnostic-endpoints)
+are used in context of _developer diagnostics_.
 Much of the information exposed through these endpoints,
 and especially the JVM information exposed through the metrics endpoint,
 is likely to be available through Application Performance Monitoring
 tools such as
-[*Dynatrace*](https://www.dynatrace.com/),
-[*AppDynamics*](https://www.appdynamics.com/) or
-[*New Relic*](https://newrelic.com/).
+[_Dynatrace_](https://www.dynatrace.com/),
+[_AppDynamics_](https://www.appdynamics.com/) or
+[_New Relic_](https://newrelic.com/).
 
 ## Actuator security considerations
 
@@ -474,8 +474,8 @@ Consider the following guidelines:
 
 Now that you have completed the lab, you should be able to:
 
-- Explain how to set up Actuator for a Spring Boot app
-- Explain uses for health indicators and availability probes
+-   Explain how to set up Actuator for a Spring Boot app
+-   Explain uses for health indicators and availability probes
 
 ## Extra
 
@@ -486,5 +486,5 @@ Expose your project's git information
 
 ## Resources
 
-- [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
-- [Health Indicators](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/production-ready-features.html#production-ready-health)
+-   [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
+-   [Health Indicators](https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/html/production-ready-features.html#production-ready-health)

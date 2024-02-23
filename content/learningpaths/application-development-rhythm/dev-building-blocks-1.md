@@ -3,15 +3,16 @@ title: Building Blocks, Part 1
 weight: 30
 layout: single
 team:
-- Pivotal/Tanzu Labs
-oldPath: "/content/outcomes/application-development-rhythm/dev-building-blocks-1.md"
+    - Pivotal/Tanzu Labs
+oldPath: '/content/outcomes/application-development-rhythm/dev-building-blocks-1.md'
 aliases:
-- "/outcomes/application-development-rhythm/dev-building-blocks-1"
+    - '/outcomes/application-development-rhythm/dev-building-blocks-1'
 tags: []
 ---
+
 This article is the third in a five-part series.
 
-A healthy *Developer Rhythm* uses a disciplined workflow.
+A healthy _Developer Rhythm_ uses a disciplined workflow.
 This type of workflow requires you to use a set of
 building blocks to facilitate that flow.
 
@@ -21,10 +22,10 @@ building blocks to facilitate that flow.
 
 In this article, you will learn to:
 
--   List and describe the development *practices* to use in your
+-   List and describe the development _practices_ to use in your
     day-to-day development flow.
 
--   List and describe the development flow *techniques and methods*
+-   List and describe the development flow _techniques and methods_
     to use in your day-to-day development flow.
 
 ## Coding and Architectural Design Principles and Practices
@@ -34,20 +35,20 @@ This is because there is nothing existing to change
 and nothing existing to break when adding new features.
 
 Much of the work you do as a developer centers around
-adding and modifying code to *an existing codebase*.
+adding and modifying code to _an existing codebase_.
 This implies frequent change.
 Frequent change can be difficult.
 
 You can gain knowledge and experience using
 principles and practices by continually applying
 them to the problems you are trying to solve, while
-also ensuring the codebase is *flexible to change*.
+also ensuring the codebase is _flexible to change_.
 
 There are many good development principles.
 The following principle is universal for software,
 regardless of the language or technology:
 
-***Code must be easy for any developer to read, adapt and extend.***
+**_Code must be easy for any developer to read, adapt and extend._**
 
 ### Pair Programming Practices
 
@@ -71,7 +72,7 @@ modern app developer workflow.
 Test-first practices have a wide range of acceptance and are supported
 through mature techniques and tools.
 
-*Test-Driven development* is a test-first practice.
+_Test-Driven development_ is a test-first practice.
 You can read more about it
 [here](https://tanzu.vmware.com/developer/outcomes/application-development/test-driven-development/).
 
@@ -89,13 +90,13 @@ safety and sustainability because they let you:
 Read about
 [Continuous Integration here](https://tanzu.vmware.com/developer/guides/ci-cd/ci-cd-what-is/#what-is-ci).
 
-You may associate this with merging (*pushing*) your work to the
+You may associate this with merging (_pushing_) your work to the
 team’s repository,
-and having an automation tool verify that   the integration works.
+and having an automation tool verify that the integration works.
 
-With a *pull* based model,
- you *pull the latest* changes into a local
-development environment and verify integration *locally* before
+With a _pull_ based model,
+you _pull the latest_ changes into a local
+development environment and verify integration _locally_ before
 merging the changes back to a shared repository.
 Integrating locally prevents the automated test and build from
 failing due to integration conflicts.
@@ -103,7 +104,7 @@ failing due to integration conflicts.
 ## Trunk-based Development Method
 
 [Trunk-based development](https://trunkbaseddevelopment.com/) is the
-method of a team’s developers integrating on a *trunk* or *mainline* of
+method of a team’s developers integrating on a _trunk_ or _mainline_ of
 a source control repository.
 
 ![Trunk](/images/outcomes/application-development-rhythm/trunk.jpg)
@@ -111,13 +112,13 @@ a source control repository.
 Examples of trunk naming in various source control systems, include:
 
 -   **Git**:
-    *main* is the preferred branch name.
+    _main_ is the preferred branch name.
 -   **Mercurial**:
-    *default*
+    _default_
 -   **Subversion (SVN)**:
-    *trunk*
+    _trunk_
 -   **Concurrent Version Systems (CVS)**:
-    *HEAD*
+    _HEAD_
 
 For small,
 cohesive modern application product teams this model works well.
@@ -125,7 +126,7 @@ It also scales well when combined with
 [short-lived feature branches](https://trunkbaseddevelopment.com/#scaled-trunk-based-development).
 
 Trunk-based development facilitates
-*Continuous Integration* and *Continuous Delivery* practices.
+_Continuous Integration_ and _Continuous Delivery_ practices.
 If you are working on products that support multiple,
 release versions used by different customers,
 or if you have a significant number of contributors that are outside
@@ -134,8 +135,8 @@ this model is not the best for you.
 
 Example scenarios include:
 
-- A large-scale supported open source or *OSS product*.
-- A commercial-off-the-shelf or *COTS product*.
+-   A large-scale supported open source or _OSS product_.
+-   A commercial-off-the-shelf or _COTS product_.
 
 ## Timeboxing Technique
 
@@ -147,7 +148,7 @@ specific amount of time,
 the team should assess whether it is worthwhile to continue the work.
 
 Timeboxing is often applied to research activities, as done in
-*[Spikes](https://www.leadingagile.com/2016/09/whats-a-spike-who-should-enter-it-how-to-word-it/)*.
+_[Spikes](https://www.leadingagile.com/2016/09/whats-a-spike-who-should-enter-it-how-to-word-it/)_.
 
 Two characteristics of modern app development are the achievement of
 consistency,
@@ -167,10 +168,10 @@ is a good tool to help you timebox.
 
 After reading this article, you can now:
 
--   List and describe the development *practices* in your
+-   List and describe the development _practices_ in your
     day-to-day development flow.
 
--   List and describe the development flow *techniques and methods* in
+-   List and describe the development flow _techniques and methods_ in
     your day-to-day development flow.
 
 You were also introduced to the major building blocks to use
@@ -179,11 +180,11 @@ There are many more building blocks for you to learn about.
 
 The building blocks described here, influence use of
 other techniques and tools that you can read about
-in the article, *Building Blocks, Part 2*.
+in the article, _Building Blocks, Part 2_.
 
 ## Keep Learning
 
-- [Pair Programming](../../application-development/pair-programming/)
-- [Test-Driven Development](../../application-development/test-driven-development/)
-- [Cloud Native Development](../../application-development/cloud-native-development/)
-- [Trunk-based Development](https://trunkbaseddevelopment.com)
+-   [Pair Programming](../../application-development/pair-programming/)
+-   [Test-Driven Development](../../application-development/test-driven-development/)
+-   [Cloud Native Development](../../application-development/cloud-native-development/)
+-   [Trunk-based Development](https://trunkbaseddevelopment.com)

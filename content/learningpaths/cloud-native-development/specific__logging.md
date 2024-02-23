@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Logging
 weight: 100
-oldPath: "/content/outcomes/cloud-native-development/specific__logging.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__logging.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__logging"
+    - '/outcomes/cloud-native-development/specific__logging'
 tags: []
 ---
 

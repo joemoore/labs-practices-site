@@ -1,30 +1,30 @@
 ---
 title: 2x2 우선순위 지정
 linkTitle: 2x2 우선순위 지정
-description: "대비될 수 있는 두 가지 기준에 대한 옵션의 우선순위를 지정하여 현재에 집중하는 데 가장 중요한 옵션을 찾습니다."
+description: '대비될 수 있는 두 가지 기준에 대한 옵션의 우선순위를 지정하여 현재에 집중하는 데 가장 중요한 옵션을 찾습니다.'
 # Note: remove any tags that are not relevant.
-tags: ["범위 지정", "킥오프", "검색", "프레이밍", "인셉션", "전환", "최적화", "제공"]
-length: "1시간 이상"
-participants: "핵심 팀, 이해관계자, 실무 전문가"
+tags: ['범위 지정', '킥오프', '검색', '프레이밍', '인셉션', '전환', '최적화', '제공']
+length: '1시간 이상'
+participants: '핵심 팀, 이해관계자, 실무 전문가'
 # custom "cover" image example: "boris/boris.png"
-image: "2x2/2x2-populated.png" 
-lastmod: "2021-06-15"
-why: 
-- 이를 통해 팀은 최적으로 진행하는 방법을 보다 쉽게 결정하기 위해 그룹 간에 의견을 일치하고 공동의 이해를 증진함으로써 이점을 누릴 수 있습니다.
+image: '2x2/2x2-populated.png'
+lastmod: '2021-06-15'
+why:
+    - 이를 통해 팀은 최적으로 진행하는 방법을 보다 쉽게 결정하기 위해 그룹 간에 의견을 일치하고 공동의 이해를 증진함으로써 이점을 누릴 수 있습니다.
 when:
-- 여러 가지 옵션이 제시되고 팀이 집중해야 할 가장 중요한 사항을 결정해야 할 때마다 진행 방법에 관해 대비되는 옵션이 있습니다.
+    - 여러 가지 옵션이 제시되고 팀이 집중해야 할 가장 중요한 사항을 결정해야 할 때마다 진행 방법에 관해 대비되는 옵션이 있습니다.
 what:
-- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-- 화이트보드용 마커
-- 스티커 메모
-- 네임펜
-- 마스킹 테이프
+    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+    - 화이트보드용 마커
+    - 스티커 메모
+    - 네임펜
+    - 마스킹 테이프
 
 # If this practice or workshop has a Miro template: remote: true
 remote: true
-miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/" 
-
+miro_template_url: 'https://miro.com/templates/2x2-prioritization-matrix/'
 ---
+
  <h2 id="how-to-use-this-method">이 방식을 활용하는
  방법</h2>
 

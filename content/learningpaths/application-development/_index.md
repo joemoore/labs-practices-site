@@ -6,17 +6,17 @@ featuredspot: 1
 level1: Building Modern Applications
 layout: intro
 description: Learn how we approach modern application development practices, teaming,
-  culture, and technology at Pivotal/Tanzu Labs.
+    culture, and technology at Pivotal/Tanzu Labs.
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 tags:
-- All Roles
-- Applications
+    - All Roles
+    - Applications
 experience: Beginner
 duration: 240
-oldPath: "/content/outcomes/application-development/_index.md"
+oldPath: '/content/outcomes/application-development/_index.md'
 aliases:
-- "/outcomes/application-development/"
+    - '/outcomes/application-development/'
 ---
 
 ## Why is this important?
@@ -25,9 +25,9 @@ Software engineering techniques have never evolved at such a rapid pace as they 
 
 Beyond technology, this learning path also teaches the fundamentals of the 30+ year old [Pivotal/Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs) methodology on developing modern applications, including how to:
 
-- Build the right thing the first time.
-- Use Agile development to deliver the products your customers want.
-- Seed a new mindset. Quickly validate your concepts. Get them from idea to production in days, and not months.
+-   Build the right thing the first time.
+-   Use Agile development to deliver the products your customers want.
+-   Seed a new mindset. Quickly validate your concepts. Get them from idea to production in days, and not months.
 
 ## Who is this learning path for?
 

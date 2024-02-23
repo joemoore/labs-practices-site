@@ -3,16 +3,16 @@ date: '2023-10-10'
 description: Learn the basics of Azure Durable Functions and how to unit test them.
 title: Azure Durable Functions and Unit Testing in TypeScript
 languages:
-  - typescript
+    - typescript
 tags:
-  - Getting Started
-  - Azure
-  - Serverless
-  - Testing
-  - Azure Functions
+    - Getting Started
+    - Azure
+    - Serverless
+    - Testing
+    - Azure Functions
 team:
-  - Adrià Navarro
-  - Xiaonan Wei
+    - Adrià Navarro
+    - Xiaonan Wei
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -40,34 +40,31 @@ For this example, we will be using the v4 programming model. You can find detail
 To achieve this, we will use a durable function that uses an [Azure activity function](https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#activity-functions) to continuously monitor an operation's status until it completes (or the orchestrator client times out).
 
 ```typescript
-export const monitorOrchestrator: OrchestrationHandler = function* (
-  context: OrchestrationContext
-) {
-  let polledTimes = 0;
+export const monitorOrchestrator: OrchestrationHandler = function* (context: OrchestrationContext) {
+    let polledTimes = 0;
 
-  // 1. Infinite loop until completion
-  while (true) {
-    // 2. Invoke activity function to check status
-    const status = yield context.df.callActivity(statusCheckActivityName);
+    // 1. Infinite loop until completion
+    while (true) {
+        // 2. Invoke activity function to check status
+        const status = yield context.df.callActivity(statusCheckActivityName);
 
-    polledTimes++;
+        polledTimes++;
 
-    if (status === "DONE") {
-      // 3. Break out of the loop once it's completed
-      break;
+        if (status === 'DONE') {
+            // 3. Break out of the loop once it's completed
+            break;
+        }
+
+        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {
+            zone: 'utc',
+        }).plus({ seconds: 5 });
+        // 4. While not completed pause the execution for 5 seconds
+        yield context.df.createTimer(deadline.toJSDate());
     }
 
-    const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {
-      zone: "utc",
-    }).plus({ seconds: 5 });
-    // 4. While not completed pause the execution for 5 seconds
-    yield context.df.createTimer(deadline.toJSDate());
-  }
-
-  return `Activity Completed, polled ${polledTimes} times`;
+    return `Activity Completed, polled ${polledTimes} times`;
 };
 ```
-
 
 Here's how it works:
 
@@ -84,39 +81,38 @@ Here's how it works:
 To test the orchestrator function, call the `monitorOrchestrator` function with a mock `OrchestrationContext`. This provides an instance of a `Generator` that you can use to execute the business logic by calling the `next()` method.
 
 ```typescript
-describe("monitor orchestrator", () => {
-  it("polls 2 times until status is DONE", () => {
-    const mockContext: OrchestrationContext = {
-      df: {
-        callActivity: jest.fn(),
-        currentUtcDateTime: Date.now(),
-        createTimer: jest.fn()
-      },
-    } as unknown as OrchestrationContext;
+describe('monitor orchestrator', () => {
+    it('polls 2 times until status is DONE', () => {
+        const mockContext: OrchestrationContext = {
+            df: {
+                callActivity: jest.fn(),
+                currentUtcDateTime: Date.now(),
+                createTimer: jest.fn(),
+            },
+        } as unknown as OrchestrationContext;
 
-    // 1. creates the generator function
-    const generator = monitorOrchestrator(mockContext);
+        // 1. creates the generator function
+        const generator = monitorOrchestrator(mockContext);
 
-    let result: IteratorResult<Task, unknown>
-    // 2. runs until the first yield
-    result = generator.next() 
-    expect(result.done).toBe(false)
-    
-    // 3. yields the status check value to be PENDING
-    result = generator.next('PENDING')
-    expect(result.done).toBe(false)
-    
-    // 4. yields the timer
-    result = generator.next()
-    expect(result.done).toBe(false)
-    
-    // 5. yields the status check value to be DONE
-    result = generator.next('DONE')
-    expect(result.done).toBe(true)
+        let result: IteratorResult<Task, unknown>;
+        // 2. runs until the first yield
+        result = generator.next();
+        expect(result.done).toBe(false);
 
+        // 3. yields the status check value to be PENDING
+        result = generator.next('PENDING');
+        expect(result.done).toBe(false);
 
-    expect(result.value).toEqual('Activity Completed, polled 2 times')
-  });
+        // 4. yields the timer
+        result = generator.next();
+        expect(result.done).toBe(false);
+
+        // 5. yields the status check value to be DONE
+        result = generator.next('DONE');
+        expect(result.done).toBe(true);
+
+        expect(result.value).toEqual('Activity Completed, polled 2 times');
+    });
 });
 ```
 
@@ -153,23 +149,21 @@ Let's walk through the steps in the test and how they execute different parts of
 In this scenario, we have an orchestrator that initiates multiple tasks running in parallel. Each task doubles the input value and returns it as a result. The orchestrator then pauses until all tasks are completed, adds their results, and returns the sum.
 
 ```typescript
-export const parallelOrchestrator: OrchestrationHandler = function* (
-  context: OrchestrationContext
-) {
-  const tasks: Task[] = [];
+export const parallelOrchestrator: OrchestrationHandler = function* (context: OrchestrationContext) {
+    const tasks: Task[] = [];
 
-  // 1. Start all parallel activities
-  for (let i = 0; i < 5; i++) {
-    tasks.push(context.df.callActivity(doubleInputActivityName, i));
-  }
+    // 1. Start all parallel activities
+    for (let i = 0; i < 5; i++) {
+        tasks.push(context.df.callActivity(doubleInputActivityName, i));
+    }
 
-  // 2. Wait for all parallel activities to complete
-  const results = yield context.df.Task.all(tasks);
+    // 2. Wait for all parallel activities to complete
+    const results = yield context.df.Task.all(tasks);
 
-  // 3. Process the results
-  const total = results.reduce((val, acc) => (acc += val));
+    // 3. Process the results
+    const total = results.reduce((val, acc) => (acc += val));
 
-  return `The sum is ${total}`;
+    return `The sum is ${total}`;
 };
 ```
 
@@ -186,28 +180,28 @@ Here's the breakdown:
 To test this scenario, follow a similar approach as in the previous example. Create the generator function and use `next()` to provide values to the yield statements. In this case, there's only one `yield` statement that pauses the execution until all tasks are completed.
 
 ```typescript
-describe("parallel orchestrator", () => {
-  it("calculates sum of all parallel activities results", () => {
-    const mockContext: OrchestrationContext = {
-      df: {
-        callActivity: jest.fn(),
-        Task: {
-          all: jest.fn(),
-        },
-      },
-    } as unknown as OrchestrationContext;
+describe('parallel orchestrator', () => {
+    it('calculates sum of all parallel activities results', () => {
+        const mockContext: OrchestrationContext = {
+            df: {
+                callActivity: jest.fn(),
+                Task: {
+                    all: jest.fn(),
+                },
+            },
+        } as unknown as OrchestrationContext;
 
-    const generator = parallelOrchestrator(mockContext);
-    
-    // 1. Runs until the Task.all() yield
-    generator.next();
-    expect(mockContext.df.callActivity).toHaveBeenCalledTimes(5);
+        const generator = parallelOrchestrator(mockContext);
 
-    // 2. Yields Task.all() with an array of results
-    const result = generator.next([1, 2, 3, 4, 5]);
-    expect(result.value).toEqual("The sum is 15");
-    expect(result.done).toBe(true);
-  });
+        // 1. Runs until the Task.all() yield
+        generator.next();
+        expect(mockContext.df.callActivity).toHaveBeenCalledTimes(5);
+
+        // 2. Yields Task.all() with an array of results
+        const result = generator.next([1, 2, 3, 4, 5]);
+        expect(result.value).toEqual('The sum is 15');
+        expect(result.done).toBe(true);
+    });
 });
 ```
 

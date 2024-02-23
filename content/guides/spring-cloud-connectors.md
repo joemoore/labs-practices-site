@@ -3,19 +3,19 @@ date: '2021-02-24'
 lastmod: '2021-02-24'
 linkTitle: Spring Cloud Connectors
 patterns:
-- API
+    - API
 subsection: Spring Cloud Connectors
 tags:
-- Kafka
-- Spring
-- Spring Data
-- Spring Cloud
-- Spring Cloud Connectors
+    - Kafka
+    - Spring
+    - Spring Data
+    - Spring Cloud
+    - Spring Cloud Connectors
 title: What are Spring Cloud Connectors?
 weight: 5
-oldPath: "/content/guides/spring/spring-cloud-connectors.md"
+oldPath: '/content/guides/spring/spring-cloud-connectors.md'
 aliases:
-- "/guides/spring/spring-cloud-connectors"
+    - '/guides/spring/spring-cloud-connectors'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -32,9 +32,9 @@ Spring Cloud Connectors uses the `CloudConnector` interface to provide cloud pla
 
 You can extend Spring Cloud Connectors to support additional services, including services that are specific to your own environment or application. Spring Cloud Connectors uses two interfaces to provide cloud service support:
 
-* `ServiceInfo` models the information required to connect to the service. In the case of a database service, a ServiceInfo implementation might include fields for host, port, database name, username, and password; in the case of a web service, it might include fields for URL and API key.
+-   `ServiceInfo` models the information required to connect to the service. In the case of a database service, a ServiceInfo implementation might include fields for host, port, database name, username, and password; in the case of a web service, it might include fields for URL and API key.
 
-* `ServiceInfoCreator` creates `ServiceInfo` objects based on the service information collected by a cloud connector. A ServiceInfoCreator implementation is specific to a cloud platform.
+-   `ServiceInfoCreator` creates `ServiceInfo` objects based on the service information collected by a cloud connector. A ServiceInfoCreator implementation is specific to a cloud platform.
 
 ## Application Framework Support
 
@@ -45,6 +45,7 @@ Spring Cloud Connectors uses the `ServiceConnectorCreator` interface to provide 
 ## Examples
 
 ### Using the Cloud Foundry Connector
+
 The Cloud Foundry connector discovers services that are bound to an application running in Cloud Foundry. (Since Cloud Foundry enumerates each service in a consistent format, Spring Cloud Connectors does not care which service provider is providing it.)
 
 This connector checks for the presence of a `VCAP_APPLICATION` environment variable. This is a system-provided environment variable which is specific to Cloud Foundry. If the variable exists, the connector will be activated.
@@ -57,43 +58,38 @@ cf cups [service-name] -p "comma,separated,list,of,params"
 
 Example: `cf cups oracle-db-service -p "jdbcUrl"`
 
-Once the service is defined, you bind the service to your application and then consume the `VCAP_SERVICES` environment variable, which stores connection and identification information for service instances that are bound to Cloud Foundry apps. 
+Once the service is defined, you bind the service to your application and then consume the `VCAP_SERVICES` environment variable, which stores connection and identification information for service instances that are bound to Cloud Foundry apps.
 
 A sample `VCAP_SERVICES` entry looks like:
 
 ```yml
 {
- "VCAP_SERVICES": {
-  "user-provided": [
-   {
-	"credentials": {
- 	"jdbcUrl": "oracle://$user:$password@$hostname:$port/$name"
-	},
-	"label": "user-provided",
-	"name": "oracle-db-service",
-	"syslog_drain_url": "",
-	"tags": [],
-	"volume_mounts": []
-   },
-   {
-	"credentials": {
- 	"hosts": "localhost:8080",
- 	"password": "welcome",
- 	"username": "user"
-	},
-	"label": "user-provided",
-	"name": "cassandra-service",
-	"syslog_drain_url": "",
-	"tags": [],
-	"volume_mounts": []
-   }
-  ]
- }
+    'VCAP_SERVICES':
+        {
+            'user-provided':
+                [
+                    {
+                        'credentials': { 'jdbcUrl': 'oracle://$user:$password@$hostname:$port/$name' },
+                        'label': 'user-provided',
+                        'name': 'oracle-db-service',
+                        'syslog_drain_url': '',
+                        'tags': [],
+                        'volume_mounts': [],
+                    },
+                    {
+                        'credentials': { 'hosts': 'localhost:8080', 'password': 'welcome', 'username': 'user' },
+                        'label': 'user-provided',
+                        'name': 'cassandra-service',
+                        'syslog_drain_url': '',
+                        'tags': [],
+                        'volume_mounts': [],
+                    },
+                ],
+        },
 }
 ```
 
 In your code, you can parse this information to retrieve connection details or create a custom Spring Cloud connector.
-
 
 ### Creating a Kafka Connector
 
@@ -187,18 +183,19 @@ The `KafkaServiceInfoCreator` parses the JSON presented by the `VCAP_SERVICES` a
 
 **3. To allow these classes to be discovered by spring cloud connectors when using Cloud Foundry, create a file `org.springframework.cloud.cloudfoundry.CloudFoundryServiceInfoCreator` in `src/main/resources/META-INF/services/` and add the `com.example.kafka.KafkaServiceInfoCreator` to it**
 
--    To consume the `kafka-service` that is created using the `cf cli``cf cups kafka-service -p 'servers,clientId'`
+-   To consume the `kafka-service` that is created using the `cf cli``cf cups kafka-service -p 'servers,clientId'`
 
-- The following code is required:
+-   The following code is required:
 
 ```java
   Cloud cloud = new CloudFactory().getCloud();
   KafkaServiceInfo kafkaServiceInfo = (KafkaServiceInfo) cloud.getServiceInfo("kafka-service");
 ```
 
--    Now the `KafkaServiceInfo` is ready for creating a connection to Kafka service
+-   Now the `KafkaServiceInfo` is ready for creating a connection to Kafka service
 
 ### Creating a Cloud Database Connection
+
 Creating and using a cloud database connection is a simple three-step process.
 
 #### 1. Include the maven dependency
@@ -226,6 +223,7 @@ public class CloudConfig extends AbstractCloudConfig {
 ```
 
 #### 3. Optionally, create an `application-cloud.properties` file
+
 This file should contain information about the DB used in the cloud if different than test/standalone. For example:
 
 ```property
@@ -234,8 +232,8 @@ spring.datasource.platform=mysql
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 
-
 ## Keep Learning
-For more information about Spring Cloud Connectors and a Quick Start tutorial, refer to the [Spring Cloud Connectors page on Spring.io](https://cloud.spring.io/spring-cloud-connectors/). You may also want to learn more about [Extending Spring Cloud Connectors](http://cloud.spring.io/spring-cloud-connectors/spring-cloud-connectors.html#_extending_spring_cloud_connectors). 
+
+For more information about Spring Cloud Connectors and a Quick Start tutorial, refer to the [Spring Cloud Connectors page on Spring.io](https://cloud.spring.io/spring-cloud-connectors/). You may also want to learn more about [Extending Spring Cloud Connectors](http://cloud.spring.io/spring-cloud-connectors/spring-cloud-connectors.html#_extending_spring_cloud_connectors).
 
 To learn about connecting to external datasources, see the guide [Spring Cloud Connectors and Datasources](/guides/spring/spring-cloud-connectors-datasources).

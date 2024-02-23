@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Guidance on pod priority and preemption
 keywords:
-- Kubernetes
+    - Kubernetes
 lastmod: '2021-03-04'
 linkTitle: Pod Priority and Preemption
 parent: Workload Tenancy
 title: Pod Priority and Preemption
 weight: 2000
-oldPath: "/content/guides/kubernetes/workload-tenancy-priority-preemption.md"
+oldPath: '/content/guides/kubernetes/workload-tenancy-priority-preemption.md'
 aliases:
-- "/guides/kubernetes/workload-tenancy-priority-preemption"
+    - '/guides/kubernetes/workload-tenancy-priority-preemption'
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -83,12 +83,12 @@ With the above assumptions, we can define the following priority classes for
 your entire application needs.
 
 {{< table "table" >}}
-| PriorityClass Name | Value   | preemptionPolicy     | globalDefault |
+| PriorityClass Name | Value | preemptionPolicy | globalDefault |
 | ------------------ | ------- | -------------------- | ------------- |
-| cat-1              | 10000   | None                 | true          |
-| cat-2              | 20000   | PreemptLowerPriority | false         |
-| cat-3              | 30000   | PreemptLowerPriority | false         |
-| cluster-service    | 1000000 | PreemptLowerPriority | false         |
+| cat-1 | 10000 | None | true |
+| cat-2 | 20000 | PreemptLowerPriority | false |
+| cat-3 | 30000 | PreemptLowerPriority | false |
+| cluster-service | 1000000 | PreemptLowerPriority | false |
 {{</ table >}}
 **_Table 1: Sample PriorityClass Allocation_**
 
@@ -114,10 +114,10 @@ disruption budgets.
 {{< table "table" >}}
 | Application | Disruption Budget |
 | ----------- | ----------------- |
-| Blue Pod    | Min Available : 3 |
-| Purple Pod  | Min Available : 3 |
-| Green Pod   | Min Available : 2 |
-| Red Pod     | Min Available : 2 |
+| Blue Pod | Min Available : 3 |
+| Purple Pod | Min Available : 3 |
+| Green Pod | Min Available : 2 |
+| Red Pod | Min Available : 2 |
 {{</ table >}}
 **_Table 2: Scenario Disruption Budget_**
 
@@ -158,13 +158,13 @@ select one victim (worker node) for preemption.
 1. If there are potential pods to preempt, the Kubernetes scheduler selects the
    worker node based on the below sequence.
 
-   1. The node with minimum number of `PodDisruptionBudget` violations.
-   1. If ties, the node with minimum highest priority victim is picked.
-   1. If ties, ties are broken by sum of priorities of all victims.
-   1. If ties, the node with the minimum number of victims is picked.
-   1. If ties, the node with the latest start time of all highest priority
-      victims is picked.
-   1. If ties, the first such node is picked randomly.
+    1. The node with minimum number of `PodDisruptionBudget` violations.
+    1. If ties, the node with minimum highest priority victim is picked.
+    1. If ties, ties are broken by sum of priorities of all victims.
+    1. If ties, the node with the minimum number of victims is picked.
+    1. If ties, the node with the latest start time of all highest priority
+       victims is picked.
+    1. If ties, the first such node is picked randomly.
 
 1. Trigger the kubelet to start executing preemption logic.
 

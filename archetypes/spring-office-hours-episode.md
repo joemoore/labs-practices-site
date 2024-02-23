@@ -20,11 +20,17 @@ Draft: true
 ---
 
 # Dev center
+
 # Streamyard
-#  - Different Image
-#  - Same description
-#  - Time and date
+
+# - Different Image
+
+# - Same description
+
+# - Time and date
+
 ## YouTubeID
+
 ## Show Notes
 
 Long form description of episode.

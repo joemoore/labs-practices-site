@@ -1,21 +1,21 @@
 ---
 date: '2020-08-19'
 description: Learn how to isolate your Python dependencies using pyenv-virtualenv.
-  Explore this guide to manage project dependencies and become a Python Pro!
+    Explore this guide to manage project dependencies and become a Python Pro!
 lastmod: '2021-03-07'
 linkTitle: Managing Python Project Dependencies
 metaTitle: Managing Python Project Dependencies
 patterns:
-- Deployment
+    - Deployment
 tags:
-- Python
-- Development
+    - Python
+    - Development
 team:
-- Ben Wilcock
+    - Ben Wilcock
 title: 'Python Like A Pro: Managing Project Dependencies'
-oldPath: "/content/guides/python/gs-managing-python-packages.md"
+oldPath: '/content/guides/python/gs-managing-python-packages.md'
 aliases:
-- "/guides/python/gs-managing-python-packages"
+    - '/guides/python/gs-managing-python-packages'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -50,14 +50,14 @@ Finally, if you'd prefer to watch a video on this guide, scroll down to the bott
 
 As a guideline, it's best if each Python project you work on has its own set of dependencies, both on the version of Python it needs, but also on any dependencies you install via [pip][pip]. This model is especially true if your work involves tens or even hundreds of Python projects --- like a microservices project.
 
-In the past, giving each Python project its independence was difficult. There was no built-in way to achieve isolation between _all_ your Python projects.  Fortunately, the [Pyenv 'VirtualEnv'][peve] project can fix this issue, and it works with all Python versions including version 2.
+In the past, giving each Python project its independence was difficult. There was no built-in way to achieve isolation between _all_ your Python projects. Fortunately, the [Pyenv 'VirtualEnv'][peve] project can fix this issue, and it works with all Python versions including version 2.
 
 Pyenv-virtualenv lets you:
 
-* isolate Python projects using a workspace known as a 'virtual environment.'
-* link a Python project to a specific Python version.
-* isolate the pip dependencies within a Python project.
-* automatically switch to the correct virtual environment for the current project.
+-   isolate Python projects using a workspace known as a 'virtual environment.'
+-   link a Python project to a specific Python version.
+-   isolate the pip dependencies within a Python project.
+-   automatically switch to the correct virtual environment for the current project.
 
 Let's get 'hands-on' and take a closer look at `pyenv virtualenv` in action.
 
@@ -75,7 +75,6 @@ curl https://raw.githubusercontent.com/benwilcock/buildpacks-python-demo/master/
 To see the sample code in the hello world program you just downloaded, use `cat web.py`.
 {{% /callout %}}
 
-
 Now, still within the `python-3-project` folder, create a new Python 3.8.5 virtual environment using `pyenv virtualenv <version> <project-name>` like this:
 
 ```bash
@@ -88,13 +87,13 @@ Then, activate the new `py3` virtual environment within the `python-3-project` f
 pyenv local py3
 ```
 
-At this point, your prompt may change slightly to confirm that the virtual environment is active. The folder will contain a new hidden file called `.python-version`. This file contains the name of the virtual environment currently active for this folder --- in this case, `py3`. 
+At this point, your prompt may change slightly to confirm that the virtual environment is active. The folder will contain a new hidden file called `.python-version`. This file contains the name of the virtual environment currently active for this folder --- in this case, `py3`.
 
 ```bash
 # .python-version
 py3
 ```
-  
+
 ### Step 2: Add Some Package Dependencies
 
 From this point on, any dependencies you install while in this folder will be specific to the `py3` virtual environment. Add the [Flask][flask] and [Gunicorn][gunicorn] packages as follows:
@@ -136,7 +135,7 @@ When Gunicorn starts, it reports its version as `20.x.x` like so:
 [2020-08-19 10:37:08 +0100] [11875] [INFO] Starting gunicorn 20.0.4
 ```
 
-Now, point your browser to `http://localhost:8080` and you'll be greeted with the legend __"Hello, World!"__
+Now, point your browser to `http://localhost:8080` and you'll be greeted with the legend **"Hello, World!"**
 
 ### Step 4: Leave The Project Folder
 
@@ -146,7 +145,7 @@ Finally, leave the `python-3-project` folder.
 cd ..
 ```
 
-The `py3` virtual environment will deactivate itself, and your regular command prompt will reappear. The command `pyenv version` will confirm which version of Python is currently active now you've left the `python-3-project` folder. 
+The `py3` virtual environment will deactivate itself, and your regular command prompt will reappear. The command `pyenv version` will confirm which version of Python is currently active now you've left the `python-3-project` folder.
 
 ```bash
 # result of 'pyenv version' (in my case)
@@ -156,7 +155,6 @@ system (set by /home/ben/.pyenv/version)
 {{% callout %}}
 **Note**: Should you ever move back into the `python-3-project` folder, pyenv will automatically activate the `py3` virtual environment.
 {{% /callout %}}
-
 
 ### Step 5: Rinse And Repeat With Python 2.8.17
 
@@ -183,16 +181,17 @@ To discover more of what `pyenv` can do for you, check out the [pyenv website][p
 
 If you liked this guide, you might find these others in our 'Python Like A Pro' series useful:
 
-- [Install Python Like A Pro!][gs-pyenv]
-- [Managing Python Global Packages Like A Pro][gs-pipx]
-- [Build Python Docker Containers Like A Pro!][gs-cnb]
-- [Run Python In Production Like A Pro!][gs-cf]
+-   [Install Python Like A Pro!][gs-pyenv]
+-   [Managing Python Global Packages Like A Pro][gs-pipx]
+-   [Build Python Docker Containers Like A Pro!][gs-cnb]
+-   [Run Python In Production Like A Pro!][gs-cf]
 
 Here’s the video to accompany this guide:
 
 {{< youtube 7Id2EU0zjw8>}}
 
---- 
+---
+
 [install]: /guides/python/gs-python-like-a-pro
 [pyenv]: https://github.com/pyenv/pyenv
 [pbpg]: /guides/python/cnb-gs-python
@@ -201,7 +200,6 @@ Here’s the video to accompany this guide:
 [pip]: https://pip.pypa.io/en/stable/
 [gunicorn]: https://gunicorn.org/
 [flask]: https://palletsprojects.com/p/flask/
-
 [gs-pyenv]: /guides/python/gs-python-like-a-pro
 [gs-pyenv-venv]: /guides/python/gs-managing-python-packages
 [gs-pipx]: /guides/python/gs-python-installing-global-packages

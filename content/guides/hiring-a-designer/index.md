@@ -1,23 +1,22 @@
 ---
-title: "Hiring a Design Contractor or Vendor"
-description: "This guide is meant to help teams who’d like to bring on a design contractor or vendor and need help interviewing, evaluating, and onboarding a designer once hired."
-date: "2021-12-17"
-lastmod: "2021-12-17"
+title: 'Hiring a Design Contractor or Vendor'
+description: 'This guide is meant to help teams who’d like to bring on a design contractor or vendor and need help interviewing, evaluating, and onboarding a designer once hired.'
+date: '2021-12-17'
+lastmod: '2021-12-17'
 level1: Agile Transformation and Practices
 level2: Team Tips
 tags:
-- Onboarding
-- Agile
-- Design
+    - Onboarding
+    - Agile
+    - Design
 
 # Author(s)
 team:
-- Eric Cipra
-- Simon Holroyd
-- Paul Sullivan
-- Michele Molino
-- Joe Moore
-
+    - Eric Cipra
+    - Simon Holroyd
+    - Paul Sullivan
+    - Michele Molino
+    - Joe Moore
 ---
 
 We highly recommend your product team be a [balanced team](/learningpaths/application-development/balanced-teams) made up of a product manager, designer, and some number of engineers. Sometimes, however, your team may not have a dedicated designer who is able to [design in an agile environment](https://tanzu.vmware.com/design), think through user experiences, [facilitate and synthesize research](/practices/research-synthesis), and develop designs for the team to implement—but it may want one. This guide will help teams who’d like to bring on a design contractor or vendor and need help interviewing, evaluating, and onboarding a designer but aren’t sure how to go about doing that.
@@ -26,37 +25,35 @@ _If you need help convincing your team or leadership to contract with a designer
 
 ## Preparing for and running interviews 🔎
 
-
 ### Key hiring considerations
 
 These key hiring considerations are intended to help support any hiring conversations with prospective **design contractors** but could easily be repurposed to help with hiring a full-time designer. The list includes areas to investigate and, where appropriate, some sample questions that are rooted in asking about what the designer has _done_ as opposed to asking them to _speculate on the future_.
-
 
 ### Things to look for and ask about
 
 1. Values collaboration across disciplines (e.g., wants to pair with developers to implement designs)
 
-   > “Tell me a bit about how you worked with [PM/engineer] on this project?”
-   >
-   > “Tell me a bit about your favorite [PM/engineer] working style? What do you like about it?"
+    > “Tell me a bit about how you worked with [PM/engineer] on this project?”
+    >
+    > “Tell me a bit about your favorite [PM/engineer] working style? What do you like about it?"
 
 2. Gets excited about shipping software vs. “just making designs”
 
-   > “What are your strategies for balancing between building ideal features and shipping production software?”
+    > “What are your strategies for balancing between building ideal features and shipping production software?”
 
 3. Is able to start small and iterate vs. doing “big design up front” (i.e., solving for all things at once)
 
-   > “Walk me through the process you took to reach this design.”
+    > “Walk me through the process you took to reach this design.”
 
 4. Advocates for getting user feedback on design decisions and is confident leading user research
 
-   > “Can you elaborate more on the research you did [on feature/in phase]?
-   >
-   > “Can you provide some examples of things you learned in research that you did not expect? How did this impact your design strategy or the product plan?”
+    > “Can you elaborate more on the research you did [on feature/in phase]?
+    >
+    > “Can you provide some examples of things you learned in research that you did not expect? How did this impact your design strategy or the product plan?”
 
 5. Has strong, but loosely held, opinions (i.e., is willing to push for things they think are right but is just as willing to compromise in the face of new information)
 
-   > “Tell me about a time when you had a different opinion about [a feature/a direction] than others on your team. How did you navigate that?”
+    > “Tell me about a time when you had a different opinion about [a feature/a direction] than others on your team. How did you navigate that?”
 
 6. Has familiarity with the design tools that the team is using
 
@@ -65,14 +62,13 @@ These key hiring considerations are intended to help support any hiring conversa
 This set of hiring logistics is intended to give one possible fast approach to hiring a design contractor into a team that does not have a designer but does have a product manager-like role and/or at least one engineer. Naturally this will vary based on how much recruiting/sourcing is done by you vs. by a partner agency, and it can always be adjusted to fit the parameters of your existing hiring processes. A general flow might include these touch-points with the option to simplify further as time and availability require:
 
 1. Initial screening by you **OR** partner agency locates a potential candidate
-   * Decision (move forward or end)
+    - Decision (move forward or end)
 2. Portfolio review **AND** cross-discipline chat **OR** hands-on activity
-   * Decision (extend offer or end)
+    - Decision (extend offer or end)
 
 Additional explanations of each of the activities can be found below.
 
 ### Before interviewing
-
 
 <table class="table">
     <tr>
@@ -96,13 +92,11 @@ Additional explanations of each of the activities can be found below.
     <tr><td></td><td></td></tr>
 </table>
 
-
-
 ### Initial screening
+
 30 minutes if run by a product manager; N/A if run by partner agency
 
 _Note: If done by a partner agency, prep the agency with a high-level overview of the desired designer_
-
 
 <table class="table">
     <tr>
@@ -144,11 +138,9 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
     <tr><td></td><td></td></tr>
 </table>
 
-
-
 ### Portfolio review
-30 minutes run by a product manager (or similar)
 
+30 minutes run by a product manager (or similar)
 
 <table class="table">
     <tr>
@@ -191,11 +183,9 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
     <tr><td></td><td></td></tr>
 </table>
 
-
-
 ### Option 1: Cross-discipline chat
-20–30 minutes run by an engineer (ideally)
 
+20–30 minutes run by an engineer (ideally)
 
 <table class="table">
     <tr>
@@ -239,10 +229,9 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
    <tr><td></td><td></td></tr>
 </table>
 
-
 ### Option 2: Hands-on activity
-30–45 minutes run by a product manager (or similar)
 
+30–45 minutes run by a product manager (or similar)
 
 <table class="table">
     <tr>
@@ -293,7 +282,6 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
    <tr><td></td><td></td></tr>
 </table>
 
-
 ### Final decision
 
 <table class="table">
@@ -319,7 +307,6 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
     </tr>
     <tr><td></td><td></td></tr>
 </table>
-
 
 ## After hiring: Onboarding a new designer 👱🎨
 
@@ -347,28 +334,25 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
     <tr><td></td><td></td></tr>
 </table>
 
-
 ### Key design artifacts for new hires
 
 Once you’ve hired a design contractor or vendor, it’s critical to get them up-to-speed on your work. This is a non-comprehensive list of design and team artifacts that a new designer would likely appreciate having access to as they onboard.
 
-* Overview and access to the [team’s road map and backlog of work](/practices/outcome-oriented-roadmap)
-* Location of the team’s collaborative visual work (e.g., [Miro](https://miro.com/), [Mural](https://www.mural.co/), etc.), pointing out anything that is specifically design-oriented (e.g., [design critiques](/practices/design-critique) or brainstorming activities)
-* Location where any existing designs live (e.g., [Figma](https://www.figma.com/), [Sketch](https://www.sketch.com/), etc.)
-* Overview, if possible, of how those designs are laid out (e.g., if there are multiple pages, what is the purpose of each?) so the design contractor can get up to speed quickly
-* Location, if any, where any existing [research notes or synthesis](/practices/research-synthesis) has taken place
-* Location of a shared team drive (e.g., Google Drive, Sharepoint, etc.), pointing out any design-oriented folders they should know about
-* Location of any special fonts or other design artifacts (e.g., videos, stock images, logos, etc.) that the designer may need to use
-
+-   Overview and access to the [team’s road map and backlog of work](/practices/outcome-oriented-roadmap)
+-   Location of the team’s collaborative visual work (e.g., [Miro](https://miro.com/), [Mural](https://www.mural.co/), etc.), pointing out anything that is specifically design-oriented (e.g., [design critiques](/practices/design-critique) or brainstorming activities)
+-   Location where any existing designs live (e.g., [Figma](https://www.figma.com/), [Sketch](https://www.sketch.com/), etc.)
+-   Overview, if possible, of how those designs are laid out (e.g., if there are multiple pages, what is the purpose of each?) so the design contractor can get up to speed quickly
+-   Location, if any, where any existing [research notes or synthesis](/practices/research-synthesis) has taken place
+-   Location of a shared team drive (e.g., Google Drive, Sharepoint, etc.), pointing out any design-oriented folders they should know about
+-   Location of any special fonts or other design artifacts (e.g., videos, stock images, logos, etc.) that the designer may need to use
 
 ### Areas for design exploration
 
 Here are a few questions the team can ask to help identify upcoming work that could benefit from dedicated design thinking. The goal is to point the designer in the right direction—and/or, if you’re early in the process, to help justify why you need a design contractor in the first place.
 
-* Is there a problem or solution you identified during a [Discovery and Framing](/practices/?filters=discovery,framing) that wasn’t a priority then but is quickly becoming the next priority now?
-* Is there a feature set you’ve already implemented in a lean way that you need to extend to make even more impactful?
-* Were there any recent [research learnings](/practices/research-synthesis) that the team has found particularly compelling but which have taken a back seat to other in-flight priorities?
-* Is there another [persona](/practices/personas) whose experience the team is ready to investigate further?
-* Are there mobile/tablet considerations that the team is ready to optimize for?
-* Is there anything lingering in the “unprioritized” section of the [team road map](/practices/outcome-oriented-roadmap) that is worth digging into via some sort of research?
-
+-   Is there a problem or solution you identified during a [Discovery and Framing](/practices/?filters=discovery,framing) that wasn’t a priority then but is quickly becoming the next priority now?
+-   Is there a feature set you’ve already implemented in a lean way that you need to extend to make even more impactful?
+-   Were there any recent [research learnings](/practices/research-synthesis) that the team has found particularly compelling but which have taken a back seat to other in-flight priorities?
+-   Is there another [persona](/practices/personas) whose experience the team is ready to investigate further?
+-   Are there mobile/tablet considerations that the team is ready to optimize for?
+-   Is there anything lingering in the “unprioritized” section of the [team road map](/practices/outcome-oriented-roadmap) that is worth digging into via some sort of research?

@@ -3,18 +3,18 @@ date: '2021-01-29'
 lastmod: '2021-02-05'
 linkTitle: Tekton
 patterns:
-- Deployment
+    - Deployment
 subsection: Tekton
 tags:
-- CI-CD
-- Kubernetes
-- Tekton
+    - CI-CD
+    - Kubernetes
+    - Tekton
 team:
-- Brian McClain
+    - Brian McClain
 title: What is Tekton?
-oldPath: "/content/guides/ci-cd/tekton-what-is.md"
+oldPath: '/content/guides/ci-cd/tekton-what-is.md'
 aliases:
-- "/guides/ci-cd/tekton-what-is"
+    - '/guides/ci-cd/tekton-what-is'
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -29,30 +29,33 @@ Adding your own functionality to Tekton is also straightforward. Since `Task` re
 
 ## How Does It Work?
 
-Tekton can be thought of as the composition of two different resources: 
+Tekton can be thought of as the composition of two different resources:
 
 1. `Task` – A resource that accomplishes a specific action. Tasks are the pieces that take specific inputs and produce specific outputs.
-2. `Pipeline`– Defines a series of `Task` resources, the order in which to run them, as well as their inputs, outputs, and parameters. 
+2. `Pipeline`– Defines a series of `Task` resources, the order in which to run them, as well as their inputs, outputs, and parameters.
 
 For example, you may want to develop a `Pipeline` to test and build some Go code and then create a container image to run the code. You would probably define your Git repository as an input, and both an artifact repository and container registry as outputs. You’d then define three `Task` resources:
 
 **Task 1**
-- __Input__: Git repository
-- __Step__: Test the Go code
-- __Output__: None
+
+-   **Input**: Git repository
+-   **Step**: Test the Go code
+-   **Output**: None
 
 **Task 2**
-- __Input__: Git repository
-- __Step__: Build the Go code
-- __Output__: Artifact repository to store the built code
+
+-   **Input**: Git repository
+-   **Step**: Build the Go code
+-   **Output**: Artifact repository to store the built code
 
 **Task 4**
-- __Input__: Compiled Go code from the artifact repository
-- __Step__: Create the container image
-- __Output__: Registry to store the container image
+
+-   **Input**: Compiled Go code from the artifact repository
+-   **Step**: Create the container image
+-   **Output**: Registry to store the container image
 
 Of course, the exact tasks depend on the tools, languages, and frameworks that you’re using. But thanks to the flexibility of Tekton, you’re not limited to just what it can do out of the box. If you need to create a `Task` to build some code in a language that’s not currently supported, it’s as easy as providing Tekton with a container that has the tools to build the code and telling it which commands to run.
 
 ## How Can I Use It?
 
-There are some great resources to get started with Tekton.  [Getting Started with Tekton](/guides/ci-cd/tekton-gs-p1/) walks you through how to install Tekton and create your first Task. In [part 2](/guides/ci-cd/tekton-gs-p2/) of the guide, we cover how to build a pipeline that builds a container image for your code using [Kaniko](https://github.com/GoogleContainerTools/kaniko). Meanwhile, the [Tekton Docs](https://tekton.dev/docs/) do a great job of explaining the concepts and components, and even include some interactive tutorials right in the browser!
+There are some great resources to get started with Tekton. [Getting Started with Tekton](/guides/ci-cd/tekton-gs-p1/) walks you through how to install Tekton and create your first Task. In [part 2](/guides/ci-cd/tekton-gs-p2/) of the guide, we cover how to build a pipeline that builds a container image for your code using [Kaniko](https://github.com/GoogleContainerTools/kaniko). Meanwhile, the [Tekton Docs](https://tekton.dev/docs/) do a great job of explaining the concepts and components, and even include some interactive tutorials right in the browser!

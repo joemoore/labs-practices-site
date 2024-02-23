@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Thank you!
 weight: 90
-oldPath: "/content/outcomes/application-development-how-we-work/thank-you.md"
+oldPath: '/content/outcomes/application-development-how-we-work/thank-you.md'
 aliases:
-- "/outcomes/application-development-how-we-work/thank-you"
+    - '/outcomes/application-development-how-we-work/thank-you'
 tags: []
 ---
 

@@ -1,23 +1,23 @@
 ---
 date: '2020-06-15'
 description: Using Tekton, an automation tool for CI/CD pipelines, learn how to build
-  container images from a Dockerfile on top of Kubernetes.
+    container images from a Dockerfile on top of Kubernetes.
 lastmod: '2021-03-07'
 linkTitle: Building a Container with Tekton
 metaTitle: Building a Container with Tekton
 parent: Tekton
 patterns:
-- Deployment
+    - Deployment
 tags:
-- CI-CD
-- Tekton
+    - CI-CD
+    - Tekton
 team:
-- Brian McClain
+    - Brian McClain
 title: 'Getting Started with Tekton Part 2: Building a Container'
 weight: 2
-oldPath: "/content/guides/ci-cd/tekton-gs-p2.md"
+oldPath: '/content/guides/ci-cd/tekton-gs-p2.md'
 aliases:
-- "/guides/ci-cd/tekton-gs-p2"
+    - '/guides/ci-cd/tekton-gs-p2'
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -26,7 +26,7 @@ In [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you learned how to ins
 
 ## Before You Begin
 
-If you went through the lessons in [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you're all set! This guide picks up where that guide left off, using the same Tekton installation on top of Minikube, with the same secrets, service accounts, and other resources defined. If you haven't gone through part one yet, make sure you start there. 
+If you went through the lessons in [part one of this guide](/guides/ci-cd/tekton-gs-p1/), you're all set! This guide picks up where that guide left off, using the same Tekton installation on top of Minikube, with the same secrets, service accounts, and other resources defined. If you haven't gone through part one yet, make sure you start there.
 
 ## Building a Container with Kaniko
 
@@ -40,9 +40,9 @@ First, since you'll be pushing the resulting container image to Docker Hub, you'
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: dockerhub-service
+    name: dockerhub-service
 secrets:
-  - name: dockercreds
+    - name: dockercreds
 ```
 
 Next, you'll need to define one input for the code that will be built, and one output for where to publish the container image:
@@ -51,14 +51,14 @@ Next, you'll need to define one input for the code that will be built, and one o
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: sinatra-hello-world-git
+    name: sinatra-hello-world-git
 spec:
-  type: git
-  params:
-    - name: revision
-      value: main
-    - name: url
-      value: https://github.com/BrianMMcClain/sinatra-hello-world
+    type: git
+    params:
+        - name: revision
+          value: main
+        - name: url
+          value: https://github.com/BrianMMcClain/sinatra-hello-world
 ```
 
 This introduces a new concept—a `PipelineResource`, e—which defines an input into, or an output from, a `Task`. If you want to learn more, make sure to check out the [`PipelineResource` documentation](https://github.com/tektoncd/pipeline/blob/master/docs/resources.md). This `PipelineResource` is of type `git`, which points to the branch named `main` of the code to build on GitHub. It also gives it the name "sinatra-hello-world-git", which is what you’ll use to reference it later on in the example.
@@ -69,12 +69,12 @@ You'll need one other `PipelineResource` to define where to publish the containe
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: sinatra-hello-world-tekton-demo-image
+    name: sinatra-hello-world-tekton-demo-image
 spec:
-  type: image
-  params:
-    - name: url
-      value: <DOCKER_USERNAME>/sinatra-hello-world-tekton-demo
+    type: image
+    params:
+        - name: url
+          value: <DOCKER_USERNAME>/sinatra-hello-world-tekton-demo
 ```
 
 This `PipelineResource` is of type `image`, as in a container image. It's also been given the name "sinatra-hello-world-tekton-demo-image". In this case, it simply takes the image name and tag. Since no full URL is provided, it's assumed that it will be published to Docker Hub, but you can also point to your own container registry.
@@ -89,39 +89,39 @@ With your input and output defined, it's time to create the `Task` that will bui
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: build-docker-image-from-git-source
+    name: build-docker-image-from-git-source
 spec:
-  params:
-    - name: pathToDockerFile
-      type: string
-      description: The path to the dockerfile to build
-      default: $(resources.inputs.docker-source.path)/Dockerfile
-    - name: pathToContext
-      type: string
-      description: |
-        The build context used by Kaniko
-        (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
-      default: $(resources.inputs.docker-source.path)
-  resources:
-    inputs:
-      - name: docker-source
-        type: git
-    outputs:
-      - name: builtImage
-        type: image
-  steps:
-    - name: build-and-push
-      image: gcr.io/kaniko-project/executor:v0.17.1
-      # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
-      env:
-        - name: "DOCKER_CONFIG"
-          value: "/tekton/home/.docker/"
-      command:
-        - /kaniko/executor
-      args:
-        - --dockerfile=$(params.pathToDockerFile)
-        - --destination=$(resources.outputs.builtImage.url)
-        - --context=$(params.pathToContext)
+    params:
+        - name: pathToDockerFile
+          type: string
+          description: The path to the dockerfile to build
+          default: $(resources.inputs.docker-source.path)/Dockerfile
+        - name: pathToContext
+          type: string
+          description: |
+              The build context used by Kaniko
+              (https://github.com/GoogleContainerTools/kaniko#kaniko-build-contexts)
+          default: $(resources.inputs.docker-source.path)
+    resources:
+        inputs:
+            - name: docker-source
+              type: git
+        outputs:
+            - name: builtImage
+              type: image
+    steps:
+        - name: build-and-push
+          image: gcr.io/kaniko-project/executor:v0.17.1
+          # specifying DOCKER_CONFIG is required to allow kaniko to detect docker credential
+          env:
+              - name: 'DOCKER_CONFIG'
+                value: '/tekton/home/.docker/'
+          command:
+              - /kaniko/executor
+          args:
+              - --dockerfile=$(params.pathToDockerFile)
+              - --destination=$(resources.outputs.builtImage.url)
+              - --context=$(params.pathToContext)
 ```
 
 Here, a new `Task` named "build-docker-image-from-git-source" is created. The best way to understand this is to walk through the spec step by step.
@@ -143,23 +143,23 @@ There's one final piece, which is the `TaskRunner` to run this `Task`:
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: build-docker-image-from-git-source-task-run
+    name: build-docker-image-from-git-source-task-run
 spec:
-  serviceAccountName: dockerhub-service
-  taskRef:
-    name: build-docker-image-from-git-source
-  params:
-    - name: pathToDockerFile
-      value: Dockerfile
-  resources:
-    inputs:
-      - name: docker-source
-        resourceRef:
-          name: sinatra-hello-world-git
-    outputs:
-      - name: builtImage
-        resourceRef:
-          name: sinatra-hello-world-tekton-demo-image
+    serviceAccountName: dockerhub-service
+    taskRef:
+        name: build-docker-image-from-git-source
+    params:
+        - name: pathToDockerFile
+          value: Dockerfile
+    resources:
+        inputs:
+            - name: docker-source
+              resourceRef:
+                  name: sinatra-hello-world-git
+        outputs:
+            - name: builtImage
+              resourceRef:
+                  name: sinatra-hello-world-tekton-demo-image
 ```
 
 This `TaskRun` object says that you want to run the `build-docker-image-from-git-source` `Task` that you just defined and provide the two `PipelineResource` objects that you defined as resources. This is how Tekton knows that it should use the `sinatra-hello-world-git` `PipelineResource` for the `docker-source`.
@@ -297,33 +297,33 @@ Here you can see this `Task` expects an input resource of type `git` and an outp
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: dockerhub-service
+    name: dockerhub-service
 secrets:
-  - name: regcred # Create secret for your container registry
+    - name: regcred # Create secret for your container registry
 
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: spring-api-git
+    name: spring-api-git
 spec:
-  type: git
-  params:
-    - name: revision
-      value: main
-    - name: url
-      value: https://github.com/BrianMMcClain/spring-boot-api-demo
+    type: git
+    params:
+        - name: revision
+          value: main
+        - name: url
+          value: https://github.com/BrianMMcClain/spring-boot-api-demo
 
 ---
 apiVersion: tekton.dev/v1alpha1
 kind: PipelineResource
 metadata:
-  name: spring-api-tekton-demo
+    name: spring-api-tekton-demo
 spec:
-  type: image
-  params:
-    - name: url
-      value: <DOCKER_USERNAME>/spring-api-tekton-demo
+    type: image
+    params:
+        - name: url
+          value: <DOCKER_USERNAME>/spring-api-tekton-demo
 ```
 
 This should all look familiar from the previous example. The service account uses the secret defined at the beginning of the guide, the `git` `PipelineResource` points to the code that you'll be building, and the image `PipelineResource` will tell Tekton where to send the resulting image.
@@ -334,24 +334,24 @@ Finally, define the `TaskRun` to tie it all together:
 apiVersion: tekton.dev/v1alpha1
 kind: TaskRun
 metadata:
-  name: build-spring-api-with-buildpacks
+    name: build-spring-api-with-buildpacks
 spec:
-  serviceAccountName: dockerhub-service
-  taskRef:
-    name: buildpacks-v3
-  inputs:
-    resources:
-    - name: source
-      resourceRef:
-        name: spring-api-git
-    params:
-    - name: BUILDER_IMAGE
-      value: cloudfoundry/cnb:bionic
-  outputs:
-    resources:
-    - name: image
-      resourceRef:
-        name: spring-api-tekton-demo
+    serviceAccountName: dockerhub-service
+    taskRef:
+        name: buildpacks-v3
+    inputs:
+        resources:
+            - name: source
+              resourceRef:
+                  name: spring-api-git
+        params:
+            - name: BUILDER_IMAGE
+              value: cloudfoundry/cnb:bionic
+    outputs:
+        resources:
+            - name: image
+              resourceRef:
+                  name: spring-api-tekton-demo
 ```
 
 As you might have expected, this denotes your two `PipelineResource` objects as the input and output resources. It also declares that you'll be using the `cloudfoundry/cnb:bionic` image for the buildpack builder.

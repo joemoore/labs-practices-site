@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: We Share Knowledge
 weight: 60
-oldPath: "/content/outcomes/application-development-how-we-work/share-knowledge.md"
+oldPath: '/content/outcomes/application-development-how-we-work/share-knowledge.md'
 aliases:
-- "/outcomes/application-development-how-we-work/share-knowledge"
+    - '/outcomes/application-development-how-we-work/share-knowledge'
 tags: []
 ---
 

@@ -3,12 +3,12 @@ date: '2021-05-11'
 lastmod: '2021-06-15'
 layout: single
 team:
-- Craig Tracey
+    - Craig Tracey
 title: Developing a DevSecOps Practice
 weight: 1
-oldPath: "/content/outcomes/secure-software-supply-chain/establish-devsecops.md"
+oldPath: '/content/outcomes/secure-software-supply-chain/establish-devsecops.md'
 aliases:
-- "/outcomes/secure-software-supply-chain/establish-devsecops"
+    - '/outcomes/secure-software-supply-chain/establish-devsecops'
 tags: []
 ---
 
@@ -103,7 +103,7 @@ Within DevSecOps the application developer's role still consists, primarily, of
 bringing new software to customers. However, the scope of their work grows.
 Instead of being squarely focused on new features, or even addressing bugs,
 their scope needs to include tasks that will help to establish and maintain the
-security of their software pipelines. 
+security of their software pipelines.
 
 The software delivery pipeline requires the same degree of diligence as the
 product itself. After all, this is the component that stands between your

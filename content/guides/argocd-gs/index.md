@@ -1,56 +1,56 @@
 ---
 date: '2020-05-05'
 description: Deploy applications to Kubernetes with ArgoCD, a declarative GitOps tool
-  that is lightweight and easy to configure.
+    that is lightweight and easy to configure.
 lastmod: '2021-03-07'
 linkTitle: ArgoCD
 metaTitle: Using ArgoCD with Kubernetes-Native Continuous Delivery
 patterns:
-- Deployment
+    - Deployment
 tags:
-- CI-CD
-- ArgoCD
-- Getting Started
+    - CI-CD
+    - ArgoCD
+    - Getting Started
 featured: true
 team:
-- Tony Vetter
+    - Tony Vetter
 title: Getting Started with ArgoCD on Kubernetes
-oldPath: "/content/guides/ci-cd/argocd-gs.md"
+oldPath: '/content/guides/ci-cd/argocd-gs.md'
 aliases:
-- "/guides/ci-cd/argocd-gs"
+    - '/guides/ci-cd/argocd-gs'
 faqs:
-  faq:
-  - question: How do you install ArgoCD on Kubernetes?
-    answer: After creating a Kubernetes cluster, ArgoCD can be installed with two
-      simple commands. First, create a namespace to install the ArgoCD and run the
-      command `kubectl create namespace argocd`. Finally, apply the script `kubectl
-      apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
-      to finish the install.
-  - question: What are the benefits of using ArgoCD on Kubernetes?
-    answer: Because ArgoCD can apply git repository configurations to Kubernetes,
-      it assists in the lifecycle management and accelerated deployment of [cloud-native
-      applications](https://tanzu.vmware.com/cloud-native).
-  - question: How do you install ArgoCD CLI?
-    answer: On Mac, the ArgoCD CLI can be installed with `brew`, where there is a
-      tap for ArgoCD. Otherwise, the binary will need to be installed by navigating
-      to ArgoCD releases page, installing the correct version appropriate for your
-      platform, renaming the file, modifying the command, logging in, and deploying
-      your application.
-  - question: How do you deploy apps to ArgoCD in Kubernetes?
-    answer: After Installation of the ArgoCD CLI, to deploy your applications with
-      ArgoCD, first tell ArgoCD about your deployment target Kubernetes cluster using
-      the command `argocd cluster add target-k8s`, then configure ArgoCD to pull the
-      image using [spring-petclinic](https://github.com/spring-projects/spring-petclinic
-      ). Finally, push your container to DockerHub and create your own configuration
-      files, or [fork our repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
-      into your own.
-  - question: How do you add a Kubernetes cluster to ArgoCD?
-    answer: Kubernetes clusters can be added to ArgoCD by installing the proper configuration
-      files, installing ArgoCD on a Kubernetes cluster, then starting both the target
-      cluster and the cluster in which you installed ArgoCD.
-  - question: What is ArgoCD sync?
-    answer: "“Sync” is the terminology ArgoCD uses to describe the application on
-      your target cluster as being up to date with the sources ArgoCD is pulling from."
+    faq:
+        - question: How do you install ArgoCD on Kubernetes?
+          answer: After creating a Kubernetes cluster, ArgoCD can be installed with two
+              simple commands. First, create a namespace to install the ArgoCD and run the
+              command `kubectl create namespace argocd`. Finally, apply the script `kubectl
+              apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
+              to finish the install.
+        - question: What are the benefits of using ArgoCD on Kubernetes?
+          answer: Because ArgoCD can apply git repository configurations to Kubernetes,
+              it assists in the lifecycle management and accelerated deployment of [cloud-native
+              applications](https://tanzu.vmware.com/cloud-native).
+        - question: How do you install ArgoCD CLI?
+          answer: On Mac, the ArgoCD CLI can be installed with `brew`, where there is a
+              tap for ArgoCD. Otherwise, the binary will need to be installed by navigating
+              to ArgoCD releases page, installing the correct version appropriate for your
+              platform, renaming the file, modifying the command, logging in, and deploying
+              your application.
+        - question: How do you deploy apps to ArgoCD in Kubernetes?
+          answer: After Installation of the ArgoCD CLI, to deploy your applications with
+              ArgoCD, first tell ArgoCD about your deployment target Kubernetes cluster using
+              the command `argocd cluster add target-k8s`, then configure ArgoCD to pull the
+              image using [spring-petclinic](https://github.com/spring-projects/spring-petclinic
+              ). Finally, push your container to DockerHub and create your own configuration
+              files, or [fork our repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+              into your own.
+        - question: How do you add a Kubernetes cluster to ArgoCD?
+          answer: Kubernetes clusters can be added to ArgoCD by installing the proper configuration
+              files, installing ArgoCD on a Kubernetes cluster, then starting both the target
+              cluster and the cluster in which you installed ArgoCD.
+        - question: What is ArgoCD sync?
+          answer: '“Sync” is the terminology ArgoCD uses to describe the application on
+              your target cluster as being up to date with the sources ArgoCD is pulling from.'
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 ---
@@ -71,11 +71,11 @@ Ready to get started? Here you go!
 
 Before you get started, you will need to do a number of things.
 
-- **Install [Minikube](https://minikube.sigs.k8s.io/docs/start/)**: You will use Minikube to build the Kubernetes clusters referenced in this guide. Other options for running local Kubernetes clusters may also work but have not been tested in this guide.
-- **Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)**: If you have worked with Kubernetes before, you likely already have kubectl installed. If not, you will need it to manage your clusters, as well as give ArgoCD a way to connect to them through the kubeconfig file.
-- **Install [Docker](https://docs.docker.com/desktop/#download-and-install) and log in (optional)**: If you choose, there are some optional steps in this guide for building your own demo application. To perform these steps, you will use Docker to build and push your container to Docker Hub.
-- **Have a [DockerHub](http://dockerhub.com/) account (optional)**: As discussed above, if you choose to go through the optional steps, you will need a Docker Hub account to push your container to.
-- **Set aside 10-15 minutes**: About how long this guide will take to complete unless you do the optional steps.
+-   **Install [Minikube](https://minikube.sigs.k8s.io/docs/start/)**: You will use Minikube to build the Kubernetes clusters referenced in this guide. Other options for running local Kubernetes clusters may also work but have not been tested in this guide.
+-   **Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)**: If you have worked with Kubernetes before, you likely already have kubectl installed. If not, you will need it to manage your clusters, as well as give ArgoCD a way to connect to them through the kubeconfig file.
+-   **Install [Docker](https://docs.docker.com/desktop/#download-and-install) and log in (optional)**: If you choose, there are some optional steps in this guide for building your own demo application. To perform these steps, you will use Docker to build and push your container to Docker Hub.
+-   **Have a [DockerHub](http://dockerhub.com/) account (optional)**: As discussed above, if you choose to go through the optional steps, you will need a Docker Hub account to push your container to.
+-   **Set aside 10-15 minutes**: About how long this guide will take to complete unless you do the optional steps.
 
 ## Create the Kubernetes clusters
 
@@ -185,10 +185,10 @@ Now that the `argocd` client is installed, you can log it into your ArgoCD insta
 ```
 argocd login localhost:8080
 ```
+
 {{% callout %}}
 **Note**: Again, as with the UI, you will need to accept the server certificate error.
 {{% /callout %}}
-
 
 **Optional step**: You can change your password at this stage if you like. This command will prompt you for your current password, your new password, then to confirm that new password.
 
@@ -283,10 +283,10 @@ Once completed, your target Kubernetes cluster will be creating the pod on which
 ```
 kubectl config use-context target-k8s
 ```
+
 {{% callout %}}
 **Note**: Since the argocd CLI client uses your kubectl context to connect to your cluster, any argocd commands you run from this point won’t work. You will need to change contexts back to your argocd-k8s cluster to manage ArgoCD.
 {{% /callout %}}
-
 
 Now simply forward the port as you did for the ArgoCD UI. Once completed, spring-petclinic will be available at [http://localhost:9090](http://localhost:9090).
 
@@ -297,4 +297,3 @@ kubectl port-forward svc/spring-petclinic -n default 9090:8080
 And there you have it! You have a running application deployed to Kubernetes with ArgoCD. For further learning, try setting up your own environment using the optional steps provided throughout this guide. Find out how to set up [automated triggers](https://argoproj.github.io/argo-cd/user-guide/auto_sync/), and maybe configure ArgoCD with your own custom Kubernetes application. Finally, look at adding ArgoCD into your CI/CD pipeline and deploying applications into external Kubernetes environments.
 
 For further learning, the [Operator Manual](https://argoproj.github.io/argo-cd/operator-manual/) from ArgoCD is a terrific resource. If you want to look at developing a third-party integration for ArgoCD, see the Developer [Guides](https://argoproj.github.io/argo-cd/developer-guide/).
-

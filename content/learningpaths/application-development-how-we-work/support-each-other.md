@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: We're Supported
 weight: 80
-oldPath: "/content/outcomes/application-development-how-we-work/support-each-other.md"
+oldPath: '/content/outcomes/application-development-how-we-work/support-each-other.md'
 aliases:
-- "/outcomes/application-development-how-we-work/support-each-other"
+    - '/outcomes/application-development-how-we-work/support-each-other'
 tags: []
 ---
 

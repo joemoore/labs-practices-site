@@ -1,32 +1,32 @@
 ---
 date: '2020-04-16'
 description: Learn the basics of Cloud Native Buildpacks and discover how they work
-  and how to use them to turn your code into OCI-compliant containers.
+    and how to use them to turn your code into OCI-compliant containers.
 lastmod: '2021-03-07'
 linkTitle: Cloud Native Buildpacks
 patterns:
-- Deployment
+    - Deployment
 subsection: Cloud Native Buildpacks
 tags:
-- Buildpacks
-- Containers
+    - Buildpacks
+    - Containers
 team:
-- Brian McClain
+    - Brian McClain
 title: What are Cloud Native Buildpacks?
-oldPath: "/content/guides/containers/cnb-what-is.md"
+oldPath: '/content/guides/containers/cnb-what-is.md'
 aliases:
-- "/guides/containers/cnb-what-is"
+    - '/guides/containers/cnb-what-is'
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
 
-[Cloud Native Buildpacks](https://buildpacks.io/) turn your code into OCI-compliant [containers](https://tanzu.vmware.com/containers). They examine your source code, build it, and create a container image with all the required dependencies to run your application. 
+[Cloud Native Buildpacks](https://buildpacks.io/) turn your code into OCI-compliant [containers](https://tanzu.vmware.com/containers). They examine your source code, build it, and create a container image with all the required dependencies to run your application.
 
-## Why Are They Important? 
+## Why Are They Important?
 
-There are two things to consider when discussing the value of Cloud Native Buildpacks: how the container is created, and how the container is maintained.  
+There are two things to consider when discussing the value of Cloud Native Buildpacks: how the container is created, and how the container is maintained.
 
-If you’ve created a container using Dockerfiles before, you’re already familiar with the decisions you need to make. You need to decide which base image to base your container on and which version of that image to use, and then ensure it has the proper versions of all the dependencies that your application relies on.  After that, you need to bring in the additional dependencies  and runtimes, build your application, and then slim down your container image to ensure it’s as lean and quick as possible. 
+If you’ve created a container using Dockerfiles before, you’re already familiar with the decisions you need to make. You need to decide which base image to base your container on and which version of that image to use, and then ensure it has the proper versions of all the dependencies that your application relies on. After that, you need to bring in the additional dependencies and runtimes, build your application, and then slim down your container image to ensure it’s as lean and quick as possible.
 
 Cloud Native Buildpacks know how to build and containerize your application. If it's a Java app, they will bring in the JVM. If it's a Ruby app, they will bring in the Ruby runtime.
 
@@ -36,7 +36,7 @@ Your container also needs to be maintained. Throughout the entire stack—from t
 
 ![Image Rebase](images/cnb-2.png#diagram)
 
-## How Do They Work? 
+## How Do They Work?
 
 Cloud Native Buildpacks are an abstract lifecycle, so they are more of a definition than an implementation (see the ["How Can I Use Them?"](#how-can-i-use-them) section below for something more concrete). That lifecycle is broken down into four steps:
 
@@ -47,10 +47,10 @@ Cloud Native Buildpacks are an abstract lifecycle, so they are more of a definit
 
 Let's walk through these steps in a couple of specific scenarios, one where we have a Spring Boot app that uses Maven, and another where we have an app written in Ruby. An implementation of the lifecycle would look something like the following:
 
-- Each buildpack's `detect` script is run against our codebase. If a `pom.xml` file is found, we determine that we're building a Java app with Maven. If a `Gemfile` is found, we know we need the Ruby buildpack.
-- If we've previously run a build with the buildpack, it will reuse those images that contain components such as the base run image, or the JDK in the case of a Java app, or the Ruby runtime for a Ruby application.
-- In the case of a Java app, the buildpack will use Maven to build our JAR. In the case of a Ruby application, the buildpack will use Bundler to pull down all of the application dependencies defined in our `Gemfile`.
-- All of these layers are then put together into a single container image that is ready to be run however we choose.
+-   Each buildpack's `detect` script is run against our codebase. If a `pom.xml` file is found, we determine that we're building a Java app with Maven. If a `Gemfile` is found, we know we need the Ruby buildpack.
+-   If we've previously run a build with the buildpack, it will reuse those images that contain components such as the base run image, or the JDK in the case of a Java app, or the Ruby runtime for a Ruby application.
+-   In the case of a Java app, the buildpack will use Maven to build our JAR. In the case of a Ruby application, the buildpack will use Bundler to pull down all of the application dependencies defined in our `Gemfile`.
+-   All of these layers are then put together into a single container image that is ready to be run however we choose.
 
 ## How Can I Use Them?
 

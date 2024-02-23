@@ -3,7 +3,7 @@ title: References
 weight: 200
 layout: single
 team:
-  - Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 ---
 
 Useful supporting documentation for students learning about cloud native

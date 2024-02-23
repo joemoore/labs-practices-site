@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Batch Processing
 weight: 150
-oldPath: "/content/outcomes/cloud-native-development/specific__batch_processing.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__batch_processing.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__batch_processing"
+    - '/outcomes/cloud-native-development/specific__batch_processing'
 tags: []
 ---
 
@@ -24,6 +24,6 @@ Refer to Spring Cloud Task's [Getting Started](https://docs.spring.io/spring-clo
 
 ## Homework
 
-- Read the [Spring Scheduler guide](https://spring.io/guides/gs/scheduling-tasks/).
+-   Read the [Spring Scheduler guide](https://spring.io/guides/gs/scheduling-tasks/).
 
-- Read the [Spring Cloud Task Getting Started guide](https://docs.spring.io/spring-cloud-task/docs/current/reference/htmlsingle/#getting-started).
+-   Read the [Spring Cloud Task Getting Started guide](https://docs.spring.io/spring-cloud-task/docs/current/reference/htmlsingle/#getting-started).

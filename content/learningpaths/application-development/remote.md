@@ -4,11 +4,11 @@ date: '2021-06-15'
 lastmod: '2021-06-15'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: Distributed, Remote, and Asynchronous Work
 weight: 90
-oldPath: "/content/outcomes/application-development/remote.md"
+oldPath: '/content/outcomes/application-development/remote.md'
 aliases:
-- "/outcomes/application-development/remote"
+    - '/outcomes/application-development/remote'
 tags: []
 ---

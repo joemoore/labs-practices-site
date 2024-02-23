@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-- Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 title: File Access
 weight: 160
-oldPath: "/content/outcomes/cloud-native-development/specific__file_access.md"
+oldPath: '/content/outcomes/cloud-native-development/specific__file_access.md'
 aliases:
-- "/outcomes/cloud-native-development/specific__file_access"
+    - '/outcomes/cloud-native-development/specific__file_access'
 tags: []
 ---
 
@@ -16,7 +16,6 @@ Applications running in VMware Tanzu Application Service live inside a temporary
 
 However, if file access is required (as an integration pattern with an external tool or team outside of your control), TAS provides "volume services" to map network folders to the twelve-factor concept of bound services. The [volume services documentation](https://docs.pivotal.io/application-service/2-11/devguide/services/using-vol-services.html) provides an overview, and a demo app for you to review to ensure volume services are available to you in your TAS environment.
 
-
 ## Homework
 
-- Read the [example to use an external file system](https://docs.pivotal.io/application-service/2-11/devguide/services/using-vol-services.html).
+-   Read the [example to use an external file system](https://docs.pivotal.io/application-service/2-11/devguide/services/using-vol-services.html).

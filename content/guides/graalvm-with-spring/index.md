@@ -2,36 +2,36 @@
 title: Getting Started with GraalVM and Spring Native
 linkTitle: Getting Started with GraalVM and Spring Native
 description: Learn how to use GraalVM for JIT and AOT compilations with Spring Boot 2.7 and Spring Native
-date: "2022-09-21"
-lastmod: "2022-09-21"
+date: '2022-09-21'
+lastmod: '2022-09-21'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 tags:
-- Spring Boot
-- GraalVM
-- Getting Started
-- Spring
+    - Spring Boot
+    - GraalVM
+    - Getting Started
+    - Spring
 languages:
-- java
+    - java
 langgettingstarted: true
 aliases:
-- "/guides/spring/graalvm-with-spring"
+    - '/guides/spring/graalvm-with-spring'
 subsection: Spring Boot
 # Author(s)
 team:
-- DaShaun Carter
+    - DaShaun Carter
 weight: 2
 ---
 
 In this guide, you will learn how to create native images with Spring and GraalVM.
-The resulting native executable will require less RAM, startup in milliseconds and be suitable for [serverless](https://tanzu.vmware.com/serverless) use cases. 
+The resulting native executable will require less RAM, startup in milliseconds and be suitable for [serverless](https://tanzu.vmware.com/serverless) use cases.
 
 ### What Is GraalVM?
 
 For the purpose of this guide, think of GraalVM as a JDK with two modes.
 
-* Just in time (JIT) compiling 
-* Ahead of time (AOT) compiling
+-   Just in time (JIT) compiling
+-   Ahead of time (AOT) compiling
 
 The [GraalVM documentation](https://www.graalvm.org/docs/introduction/) has more information if you are interested.
 
@@ -58,8 +58,9 @@ gu install native-image
 You are probably familiar with [start.spring.io](https://start.spring.io).
 
 If not, there are other guides that show you how to use the website.
-* [Building an API with Spring Boot](https://tanzu.vmware.com/developer/guides/spring-build-api/)
-* [Spring for GraphQL](https://tanzu.vmware.com/developer/guides/spring-for-graphql/)
+
+-   [Building an API with Spring Boot](https://tanzu.vmware.com/developer/guides/spring-build-api/)
+-   [Spring for GraphQL](https://tanzu.vmware.com/developer/guides/spring-for-graphql/)
 
 You can use the website or `curl` to initialize your project
 with the Spring Initializr Web API.
@@ -97,6 +98,7 @@ Note that Spring Initializr included the plugin and a usable version of Maven al
 ```bash
 ./mvnw spring-boot:run
 ```
+
 Example output:
 ![./mvnw spring-boot:run](images/run-with-jit.png)
 
@@ -116,9 +118,11 @@ GraalVM with JIT compiling, doesn't require any extra thought it works similar t
 #### Start up time
 
 From the last line of the image above:
+
 ```
 Started GraalvmWithSpringApplication in 1.531 seconds (JVM running for 1.821)
 ```
+
 You should see something similar.
 Note that the process ID (PID) of the application is included in each log line, after the log level.
 In the example above `INFO 24853` shows up on each log line.
@@ -176,9 +180,10 @@ In order to use the AOT compilation, you need to use the `native` profile.
 ```bash
 ./mvnw -Pnative clean package -DskipTests
 ```
+
 > The warnings can safely be ignored for this guide.
 
-You will see that this approach takes much longer, 
+You will see that this approach takes much longer,
 as AOT compiling evaluates all the accessible branches of code.
 
 ![AOT package](images/aot-package.png)
@@ -244,12 +249,12 @@ The statically linked binary is `62M` but includes everything it needs from the 
 
 #### Summary
 
-For some workloads, AOT compiling is the right choice 
+For some workloads, AOT compiling is the right choice
 even though it takes longer up front.
 The result is a statically linked binary
 that will consume less resources at runtime and starts up faster.
 
 #### Keep Learning
 
-* [Spring Native Documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/)
-* [GraalVM](https://www.graalvm.org/)
+-   [Spring Native Documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/)
+-   [GraalVM](https://www.graalvm.org/)

@@ -3,16 +3,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Platform Security
 team:
-- Farid Saad
+    - Farid Saad
 title: Platform Security
 weight: 62
-oldPath: "/content/guides/kubernetes/platform-security.md"
+oldPath: '/content/guides/kubernetes/platform-security.md'
 aliases:
-- "/guides/kubernetes/platform-security"
+    - '/guides/kubernetes/platform-security'
 level1: Securing Kubernetes
 level2: Access and Security
 tags:
-- Kubernetes
+    - Kubernetes
 ---
 
 ## Overview
@@ -71,14 +71,14 @@ The certificates generated with a kubeadm install rely on a single cluster CA
 for all certificates. You might want to manage your certificates differently in
 the following cases:
 
-- For finer-grained control over authentication, you might set up different
-  certificate authorities for server certificates and client certificates.
-- Your company’s policies might require TLS certificates that are issued by your
-  own PKI.
-- If you integrate with an OpenID Connect (OIDC) provider, you can use the OIDC CA.
-- Publicly facing workloads may require a Commercial or
-  [non-profit](https://en.wikipedia.org/wiki/Let%27s_Encrypt) certificate
-  bundle.
+-   For finer-grained control over authentication, you might set up different
+    certificate authorities for server certificates and client certificates.
+-   Your company’s policies might require TLS certificates that are issued by your
+    own PKI.
+-   If you integrate with an OpenID Connect (OIDC) provider, you can use the OIDC CA.
+-   Publicly facing workloads may require a Commercial or
+    [non-profit](https://en.wikipedia.org/wiki/Let%27s_Encrypt) certificate
+    bundle.
 
 ### If you issue your own certificates
 
@@ -168,16 +168,16 @@ of least privilege for humans and applications that access the Kubernetes API.
 
 To get the most benefit from RBAC, an appropriate configuration is required:
 
-- Run each component with the most restrictive permissions that still allow for
-  expected functionality. Most applications in a cluster will need little or no
-  access to the Kubernetes API. System components such as an ingress controller
-  or monitoring system may need more access, but can often be limited to
-  read-only access or access within a particular namespace.
-- Make sure that trusted components don’t act as pivots that allow less
-  privileged users to escalate privileges. The Kubernetes Dashboard and Helm
-  tiller daemon are examples that deserve special attention. Isolate these
-  components with application-level authentication/ authorization and network
-  access controls to prevent unauthorized access.
+-   Run each component with the most restrictive permissions that still allow for
+    expected functionality. Most applications in a cluster will need little or no
+    access to the Kubernetes API. System components such as an ingress controller
+    or monitoring system may need more access, but can often be limited to
+    read-only access or access within a particular namespace.
+-   Make sure that trusted components don’t act as pivots that allow less
+    privileged users to escalate privileges. The Kubernetes Dashboard and Helm
+    tiller daemon are examples that deserve special attention. Isolate these
+    components with application-level authentication/ authorization and network
+    access controls to prevent unauthorized access.
 
 When creating RBAC policies, prefer Roles and RoleBindings over ClusterRoles and
 ClusterRoleBindings whenever possible as they are scoped to namespaces by
@@ -287,13 +287,13 @@ applications is still a hard problem in Kubernetes.
 Network access controls have some limitations in dynamic environments like
 Kubernetes, which results in the following difficulties:
 
-- Federating Kubernetes network policy across multiple clusters.
-- Integrating Kubernetes network-level controls and granular network-level
-  controls expressed outside of the pod networking layer (for example, in AWS
-  EC2 Security Groups).
-- When services running in a Kubernetes cluster need to communicate with
-  services outside the cluster, NetworkPolicy is often unable to filter traffic
-  as expected due to source and destination IP address translation.
+-   Federating Kubernetes network policy across multiple clusters.
+-   Integrating Kubernetes network-level controls and granular network-level
+    controls expressed outside of the pod networking layer (for example, in AWS
+    EC2 Security Groups).
+-   When services running in a Kubernetes cluster need to communicate with
+    services outside the cluster, NetworkPolicy is often unable to filter traffic
+    as expected due to source and destination IP address translation.
 
 If you encounter any of these issues, we recommend that you define a more
 coarse-grained network policy and rely on the application layer for fine-grained
@@ -349,10 +349,10 @@ Kubernetes has a core primitive for managing application secrets, appropriately
 called a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 Applications typically need secrets for two reasons:
 
-- They need access to a credential that proves their identity to another system
-  (for example, a database password or third-party API token).
-- They need a cryptographic secret for some essential operation (for example, an
-  HMAC signing key for issuing signed HTTP cookies).
+-   They need access to a credential that proves their identity to another system
+    (for example, a database password or third-party API token).
+-   They need a cryptographic secret for some essential operation (for example, an
+    HMAC signing key for issuing signed HTTP cookies).
 
 ### Identity Secrets
 
@@ -383,11 +383,11 @@ the pod to the Kubernetes API.
 
 You should be aware of the following limitations:
 
-- Many standard components – for example, ingress controllers – require
-  permission to read all secrets in your cluster.
-- Secrets are not encrypted at rest by default. You can, however, configure,
-  etcd, to encrypt secret data at rest. For details, see [Encrypting Secret Data
-  at Rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/).
+-   Many standard components – for example, ingress controllers – require
+    permission to read all secrets in your cluster.
+-   Secrets are not encrypted at rest by default. You can, however, configure,
+    etcd, to encrypt secret data at rest. For details, see [Encrypting Secret Data
+    at Rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/).
 
 ## Auditing to support security
 
@@ -407,14 +407,14 @@ The Kubernetes API server does not perform audit logging by default. We
 recommend that you enable audit logging to a file by setting the following flags
 in the API server configuration:
 
-- `--audit-log-path` specifies the log file path that log backend uses to write
-  audit events.
-- `--audit-log-maxage` defines the maximum number of days to retain old audit log
-  files
-- `--audit-log-maxbackup` defines the maximum number of audit log files to retain
-- `--audit-log-maxsize` defines the maximum size in megabytes of the audit log
-  file before it gets rotated
-- `--audit-policy-file` specifies the Audit policy file to be used
+-   `--audit-log-path` specifies the log file path that log backend uses to write
+    audit events.
+-   `--audit-log-maxage` defines the maximum number of days to retain old audit log
+    files
+-   `--audit-log-maxbackup` defines the maximum number of audit log files to retain
+-   `--audit-log-maxsize` defines the maximum size in megabytes of the audit log
+    file before it gets rotated
+-   `--audit-policy-file` specifies the Audit policy file to be used
 
 Audit events can also be sent to a webhook backend, but we recommend logging to
 a file that can be aggregated. Audit data should be treated as a high priority,
@@ -442,30 +442,30 @@ Current container runtimes don’t provide the most reliable possible sandboxing
 but there are some steps you can take to help mitigate the risk of container
 escape vulnerabilities:
 
-- Segment your Kubernetes clusters by integrity level — a simple but very
-  effective way to limit your exposure to container escape vulnerabilities. For
-  example, your dev/test environments might be hosted in a different cluster
-  than your production environment.
-- Invest in streamlined host/kernel patching. Make sure that you have a way to
-  test new system updates (for example, a staging environment) and that your
-  applications can tolerate a rolling upgrade of the cluster without affecting
-  application availability.
-- Kubernetes shines at orchestrating these upgrades. Once you build confidence
-  in letting Kubernetes dynamically rebalance application pods, patch management
-  at the node level becomes relatively easy. You can automate a rolling upgrade
-  that gracefully drains each node and either upgrade it in place or (in an IaaS
-  environment) replaces it with a new node. Investments in this area also
-  improve your overall resiliency to node-level outages.
-- Run your applications as a non-root user. Root (UID 0) in a Linux container is
-  still the same user as root on the node. A combination of sandboxing
-  mechanisms restrict what code running in the container can do. Still, future
-  Linux kernel vulnerabilities are more likely to be exploitable by a root user
-  than by a non-privileged user.
-- Enable and configure extra Linux security modules like SELinux and AppArmor.
-  These tools let you enforce more restrictive sandboxing on particular
-  containers. They are valuable in many situations, but building and maintaining
-  appropriate configurations requires a time investment. They may not be
-  appropriate for every application or environment.
+-   Segment your Kubernetes clusters by integrity level — a simple but very
+    effective way to limit your exposure to container escape vulnerabilities. For
+    example, your dev/test environments might be hosted in a different cluster
+    than your production environment.
+-   Invest in streamlined host/kernel patching. Make sure that you have a way to
+    test new system updates (for example, a staging environment) and that your
+    applications can tolerate a rolling upgrade of the cluster without affecting
+    application availability.
+-   Kubernetes shines at orchestrating these upgrades. Once you build confidence
+    in letting Kubernetes dynamically rebalance application pods, patch management
+    at the node level becomes relatively easy. You can automate a rolling upgrade
+    that gracefully drains each node and either upgrade it in place or (in an IaaS
+    environment) replaces it with a new node. Investments in this area also
+    improve your overall resiliency to node-level outages.
+-   Run your applications as a non-root user. Root (UID 0) in a Linux container is
+    still the same user as root on the node. A combination of sandboxing
+    mechanisms restrict what code running in the container can do. Still, future
+    Linux kernel vulnerabilities are more likely to be exploitable by a root user
+    than by a non-privileged user.
+-   Enable and configure extra Linux security modules like SELinux and AppArmor.
+    These tools let you enforce more restrictive sandboxing on particular
+    containers. They are valuable in many situations, but building and maintaining
+    appropriate configurations requires a time investment. They may not be
+    appropriate for every application or environment.
 
 ## Image Security
 
@@ -505,10 +505,10 @@ malicious or malformed artifacts.
 Services and open source tools that provide image scanning include the
 following:
 
-- [Clair](https://github.com/coreos/clair)
-- [Falco](https://sysdig.com/opensource/falco/)
-- [Aqua Security](https://www.aquasec.com/)
-- [Twistlock](https://www.twistlock.com/)
+-   [Clair](https://github.com/coreos/clair)
+-   [Falco](https://sysdig.com/opensource/falco/)
+-   [Aqua Security](https://www.aquasec.com/)
+-   [Twistlock](https://www.twistlock.com/)
 
 We recommend integrating a container scan as part of a continuous delivery
 pipeline. In addition, we recommend running periodic scans against stored images
@@ -608,15 +608,15 @@ element in the broader security picture and spend some time upfront assessing
 how important it is to your needs overall. At a very high level, some of our
 recommendations fit nicely into larger best practices in deployment:
 
-- Automated deployment pipeline and scheduler. Lets you simplify host and
-  application patch management with rolling upgrades that are integrated into
-  the rest of your overall development cycle.
-- Integrated access controls at appropriate levels. (authz/authn with API
-  integration)
-- Integrated logging and monitoring. You log and monitor for performance and
-  reliability -- adding support for security-specific events and pod metadata is
-  non-trivial but vital. Precisely what to monitor depends as always on your
-  specific needs.
+-   Automated deployment pipeline and scheduler. Lets you simplify host and
+    application patch management with rolling upgrades that are integrated into
+    the rest of your overall development cycle.
+-   Integrated access controls at appropriate levels. (authz/authn with API
+    integration)
+-   Integrated logging and monitoring. You log and monitor for performance and
+    reliability -- adding support for security-specific events and pod metadata is
+    non-trivial but vital. Precisely what to monitor depends as always on your
+    specific needs.
 
 ### Planning for the future
 
@@ -624,15 +624,15 @@ Security is an increasing concern for everyone, and initiatives are well
 underway to improve the security landscape. Keep an eye out for developments on
 these fronts:
 
-- More strongly encrypted identity specific to your hardware or cloud provider
-- Stronger provenance for cryptographically signed binaries/images
-- Automatically updated inventories
-- More sophisticated alerts and monitoring
+-   More strongly encrypted identity specific to your hardware or cloud provider
+-   Stronger provenance for cryptographically signed binaries/images
+-   Automatically updated inventories
+-   More sophisticated alerts and monitoring
 
 ## Other Resources
 
-- [Securing a Cluster (Kubernetes documentation)](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/)
-- [Hacking and Hardening Kubernetes By Example (slides from Brad Geesaman)](https://docs.google.com/presentation/d/1xeagoDn-6kQ6FPdfX9IlD5MjWalW2o8PeCt20DEfFpg/edit)
+-   [Securing a Cluster (Kubernetes documentation)](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/)
+-   [Hacking and Hardening Kubernetes By Example (slides from Brad Geesaman)](https://docs.google.com/presentation/d/1xeagoDn-6kQ6FPdfX9IlD5MjWalW2o8PeCt20DEfFpg/edit)
 
 ## Popular Tooling and Approaches
 
@@ -646,11 +646,11 @@ malicious actor gaining access to the storage disk for etcd.
 
 **Pros:**
 
-- Adds a layer of protection for data contained in Secrets
+-   Adds a layer of protection for data contained in Secrets
 
 **Cons:**
 
-- Is compromised if attacker gains access to the encryption keys used by the API Server
+-   Is compromised if attacker gains access to the encryption keys used by the API Server
 
 ### Validating Admission Webhook Controllers
 
@@ -676,12 +676,12 @@ keeping logic up to date against changing Kubernetes API versions.
 
 **Pros:**
 
-- Flexible option for resource validation
+-   Flexible option for resource validation
 
 **Cons:**
 
-- Webhook is on the critical path for resource management in the cluster
-  - Development & maintenance overhead for the webhook
+-   Webhook is on the critical path for resource management in the cluster
+    -   Development & maintenance overhead for the webhook
 
 ### Open Policy Agent (OPA)
 
@@ -704,11 +704,11 @@ over a general purpose language.
 
 **Pros:**
 
-- Powerful validation framework
+-   Powerful validation framework
 
 **Cons:**
 
-- Requires learning a new policy definition language: Rego
+-   Requires learning a new policy definition language: Rego
 
 ### Network Policy
 
@@ -742,8 +742,8 @@ the Kubernetes API.
 
 **Pros:**
 
-- Essential network controls can be enforced
+-   Essential network controls can be enforced
 
 **Cons:**
 
-- Differences in implementation between CNI plugins can be a challenge
+-   Differences in implementation between CNI plugins can be a challenge

@@ -5,14 +5,14 @@ lastmod: '2021-02-09'
 linkTitle: Troubleshooting Applications
 parent: Developer Workflow
 tags:
-- Troubleshooting
-- Kubernetes
+    - Troubleshooting
+    - Kubernetes
 team:
-- John Harris
+    - John Harris
 title: Troubleshooting Applications on Kubernetes
-oldPath: "/content/guides/kubernetes/dev-workflow-troubleshooting.md"
+oldPath: '/content/guides/kubernetes/dev-workflow-troubleshooting.md'
 aliases:
-- "/guides/kubernetes/dev-workflow-troubleshooting"
+    - '/guides/kubernetes/dev-workflow-troubleshooting'
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -20,10 +20,10 @@ level2: Preparing and Deploying Kubernetes Workloads
 This guide lists common commands and approaches to troubleshoot applications on
 Kubernetes. In this guide we assume that:
 
-* You are familiar with `kubectl`, the Kubernetes command-line client.
-* You have access to the Kubernetes cluster you want to troubleshoot
-* You are familiar with the common Kubernetes resources, such as Deployments,
-  Services, Pods, etc.
+-   You are familiar with `kubectl`, the Kubernetes command-line client.
+-   You have access to the Kubernetes cluster you want to troubleshoot
+-   You are familiar with the common Kubernetes resources, such as Deployments,
+    Services, Pods, etc.
 
 Below is a list covering some common issues and how to troubleshoot them in a Kubernetes environment.
 
@@ -62,7 +62,7 @@ Containers:
     Restart Count:  3
     Environment:    <none>
     Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from 
+      /var/run/secrets/kubernetes.io/serviceaccount from
       default-token-dfl9d (ro)
   good:
     Container ID:   containerd://8a8ce59842cce4d8c98f...
@@ -76,7 +76,7 @@ Containers:
     Restart Count:  0
     Environment:    <none>
     Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from 
+      /var/run/secrets/kubernetes.io/serviceaccount from
       default-token-dfl9d (ro)
 ```
 
@@ -95,8 +95,8 @@ example   10.244.0.21:80,10.244.0.22:80   27s
 
 If the service does not have endpoints, verify the following:
 
-* The service's pod selector matches the labels on the desired pods.
-* The pods backing the service are passing their readiness probe.
+-   The service's pod selector matches the labels on the desired pods.
+-   The pods backing the service are passing their readiness probe.
 
 For more in depth troubleshooting, you can utilize a dnsutil pod described [here](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 
@@ -122,8 +122,8 @@ Events:
 
 The most common causes for this issue are:
 
-* Missing configmaps referenced in volume mounts
-* Missing secrets referenced in volume mounts
+-   Missing configmaps referenced in volume mounts
+-   Missing secrets referenced in volume mounts
 
 To diagnose this issue, use `kubectl describe` on the pod and look at the events
 at the bottom of the output. The following is an example that shows what to look
@@ -145,9 +145,9 @@ The `ErrImagePull` condition means that the node is unable to pull the container
 image from the container image registry (e.g. Harbor). Some potential causes of
 this issue:
 
-* The registry is unavailable or inaccessible from the node
-* The container image does not exist in the registry
-* The container image specified in the deployment manifest is incorrect
+-   The registry is unavailable or inaccessible from the node
+-   The container image does not exist in the registry
+-   The container image specified in the deployment manifest is incorrect
 
 Use the `kubectl describe` command on the pod to troubleshoot this issue. The
 events section at the bottom of the output should have useful context. The
@@ -248,6 +248,7 @@ kubectl exec -it example-pod -- ps -ef
 ```
 
 ---
+
 {{% callout %}}
 **Note**: Keep in mind that the container must have the binary you are trying to execute
 (`ps` in the above example). Otherwise, you will get an error.

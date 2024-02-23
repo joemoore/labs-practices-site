@@ -4,16 +4,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Container Networking
 team:
-- Josh Rosso
+    - Josh Rosso
 title: Container Networking
 tags:
-- Getting Started
-- Kubernetes
+    - Getting Started
+    - Kubernetes
 featured: true
 weight: 32
-oldPath: "/content/guides/kubernetes/container-networking.md"
+oldPath: '/content/guides/kubernetes/container-networking.md'
 aliases:
-- "/guides/kubernetes/container-networking"
+    - '/guides/kubernetes/container-networking'
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 description: An introduction to Container Network Interface (CNI) plugins
@@ -30,9 +30,9 @@ specific operations defined in the specification (e.g.
 [0.4.0](https://github.com/containernetworking/cni/blob/spec-v0.4.0/SPEC.md#parameters)).
 These operations include:
 
-- `ADD`: Add a container to the network.
-- `DEL`: Delete a container from the network.
-- `CHECK`: Check whether the container's network is as expected.
+-   `ADD`: Add a container to the network.
+-   `DEL`: Delete a container from the network.
+-   `CHECK`: Check whether the container's network is as expected.
 
 CNI Plugins are often only concerned with container to [container networking](/blog/a-container-is-a-linux-namespace-and-networking-basics/).
 Kubernetes constructs such as
@@ -66,9 +66,9 @@ Choosing a CNI Plugin comes down to your network topology, desired container
 networking features, and understanding of different routing protocols. Plugins
 that can be used in Kubernetes have all sorts of routing features such as:
 
-- BGP for route sharing
-- Tunneling protocols (VXLAN, GRE, IP-in-IP, and more)
-- Native routing (no encapsulation)
+-   BGP for route sharing
+-   Tunneling protocols (VXLAN, GRE, IP-in-IP, and more)
+-   Native routing (no encapsulation)
 
 ## Popular Tooling and Approaches
 
@@ -87,25 +87,25 @@ option. Antrea is the default and recomended option with Tanzu.
 
 **Pros:**
 
-- Support many encapsulation protocols.
-  - VXLAN
-  - Geneve
-  - GRE
-  - STT
-- Routed mode support.
-- Familiar to users of Open vSwitch.
-- Better integration with external Load Balancers using NodePortLocal.
-- Windows Support
-- Advanced Security and Network Policy
-- VMware NSX Integration.
-- Traffic Encryption with IPSec.
-- Performant network policy enforcement.
-- [Octant](https://github.com/vmware-tanzu/octant) UI support.
-- Break-fix support from VMware.
+-   Support many encapsulation protocols.
+    -   VXLAN
+    -   Geneve
+    -   GRE
+    -   STT
+-   Routed mode support.
+-   Familiar to users of Open vSwitch.
+-   Better integration with external Load Balancers using NodePortLocal.
+-   Windows Support
+-   Advanced Security and Network Policy
+-   VMware NSX Integration.
+-   Traffic Encryption with IPSec.
+-   Performant network policy enforcement.
+-   [Octant](https://github.com/vmware-tanzu/octant) UI support.
+-   Break-fix support from VMware.
 
 **Cons:**
 
-- Must have Open vSwitch kernel module.
+-   Must have Open vSwitch kernel module.
 
 ### Calico
 
@@ -143,27 +143,27 @@ CNI-plugin.
 
 **Pros:**
 
-- Diverse routing mode support.
-  - IP-in-IP
-  - Native
-  - VXLAN
-- Integrates with the Kubernetes API server.
-  - No direct etcd access required.
-- Native routing incurs minimal overhead.
-  - Supports cross-subnet only encapsulation.
-  - Uses native routing for all intra-subnet routing.
-- BGP route sharing enables advanced topologies.
-- Most capable network policy support.
-  - Includes Calico-specific GlobalNetworkPolicy.
-- Break-fix support offered by VMware.
-- External data store not required
-  - Uses Kubernetes API.
-  - Scales with [typha](https://github.com/projectcalico/typha).
+-   Diverse routing mode support.
+    -   IP-in-IP
+    -   Native
+    -   VXLAN
+-   Integrates with the Kubernetes API server.
+    -   No direct etcd access required.
+-   Native routing incurs minimal overhead.
+    -   Supports cross-subnet only encapsulation.
+    -   Uses native routing for all intra-subnet routing.
+-   BGP route sharing enables advanced topologies.
+-   Most capable network policy support.
+    -   Includes Calico-specific GlobalNetworkPolicy.
+-   Break-fix support offered by VMware.
+-   External data store not required
+    -   Uses Kubernetes API.
+    -   Scales with [typha](https://github.com/projectcalico/typha).
 
 **Cons:**
 
-- BGP might not be possible in your environment
-  - If so, Calico's VXLAN mode does not use BGP.
+-   BGP might not be possible in your environment
+    -   If so, Calico's VXLAN mode does not use BGP.
 
 ### NSX
 
@@ -179,15 +179,15 @@ With this in mind, we recommend using NSX as a CNI plugin with vSphere with Tanz
 
 **Pros:**
 
-- NSX is familiar to many VI Admins.
-- NSX makes container networking feel more like normal VM networking.
-  - e.g. Namespaces are assigned their own subnets.
+-   NSX is familiar to many VI Admins.
+-   NSX makes container networking feel more like normal VM networking.
+    -   e.g. Namespaces are assigned their own subnets.
 
 **Cons:**
 
-- Architecting, Deploying, and Operating NSX is a non-trivial task.
-- Unlike most plugins, you're not running the pod network on top of another.
-  - You're instead using the existing network to run the pod network.
+-   Architecting, Deploying, and Operating NSX is a non-trivial task.
+-   Unlike most plugins, you're not running the pod network on top of another.
+    -   You're instead using the existing network to run the pod network.
 
 ### Cilium
 
@@ -209,18 +209,18 @@ you may want to hold off a little longer.
 
 **Pros:**
 
-- BPF enables extremely fast routing decisions.
-  - Services
-  - Network Policy
-  - Routing
-- Community support and enthusiasm is growing.
-  - Likely to become a predominant CNI-plugin.
+-   BPF enables extremely fast routing decisions.
+    -   Services
+    -   Network Policy
+    -   Routing
+-   Community support and enthusiasm is growing.
+    -   Likely to become a predominant CNI-plugin.
 
 **Cons:**
 
-- Need to ensure BPF kernel support.
-  - Sometimes not possible in highly regulated environments.
-  - Especially with older versions of RHEL.
-- You cannot mix Cilium network policy with Kubernetes network policy.
-- Newer player in the ecosystem, still experiencing paper cuts.
-  - CRD-based backend not scalable yet.
+-   Need to ensure BPF kernel support.
+    -   Sometimes not possible in highly regulated environments.
+    -   Especially with older versions of RHEL.
+-   You cannot mix Cilium network policy with Kubernetes network policy.
+-   Newer player in the ecosystem, still experiencing paper cuts.
+    -   CRD-based backend not scalable yet.

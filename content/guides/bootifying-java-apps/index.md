@@ -3,18 +3,18 @@ date: '2021-02-24'
 lastmod: '2021-04-28'
 linkTitle: Bootifying Java Applications
 tags:
-- Spring Boot
-- Getting Started
-- Spring
-- Microservices
+    - Spring Boot
+    - Getting Started
+    - Spring
+    - Microservices
 featured: true
 team:
-- Marc Zottner
+    - Marc Zottner
 title: Bootifying Java Applications
 weight: 3
-oldPath: "/content/guides/spring/bootifying-java-apps.md"
+oldPath: '/content/guides/spring/bootifying-java-apps.md'
 aliases:
-- "/guides/spring/bootifying-java-apps"
+    - '/guides/spring/bootifying-java-apps'
 level1: Modernizing Legacy Applications
 level2: Packaging, Operating, and Outside Enhancements
 description: Transform your Java code into a full-fledged Spring Boot application
@@ -22,17 +22,17 @@ description: Transform your Java code into a full-fledged Spring Boot applicatio
 
 Spring Boot is a convention-over-configuration solution to create standalone, production-grade Spring-based applications that you can "just run". It is pre-configured with an opinionated view of the best configuration of the Spring platform, including third-party libraries, so that you can get started with minimum fuss. The Spring framework provides hundreds of features and modules, but knowing where to start and configure them can be challenging.
 
-Not every existing Java application can be deployed and operated as a Spring Boot application without modification. In particular, Java applications that leverage Java EE APIs (see [examples](https://github.com/javaee-samples)) or vendor-specific APIs may require some effort to migrate to Spring Boot. 
+Not every existing Java application can be deployed and operated as a Spring Boot application without modification. In particular, Java applications that leverage Java EE APIs (see [examples](https://github.com/javaee-samples)) or vendor-specific APIs may require some effort to migrate to Spring Boot.
 
 ## Guide
 
 Bootification is the process of changing the code and configuration of an application to transform it into a full-fledged [Spring Boot](https://spring.io/projects/spring-boot) application. Several factors impact the bootification journey that your applications should follow. For example:
 
-* Dependency and build management tools (i.e., Ant, Maven, Gradle)
-* Desired packaging (executable JAR/WAR or standalone WAR)
-* The acceptable amount of configuration refactoring (XML versus Java configuration)
-* Library version upgrade strategy
-* Nature of the application (frontend/backend/monolithic)
+-   Dependency and build management tools (i.e., Ant, Maven, Gradle)
+-   Desired packaging (executable JAR/WAR or standalone WAR)
+-   The acceptable amount of configuration refactoring (XML versus Java configuration)
+-   Library version upgrade strategy
+-   Nature of the application (frontend/backend/monolithic)
 
 This step-by-step guide walks you through the process of transforming existing Java applications into first-class Spring Boot citizens.
 
@@ -100,16 +100,16 @@ At this point, your application should be running as a standalone Spring Boot ap
 
 Moving forward, you might want to consider additional optimizations to your codebase to transform your application into a first-class Spring Boot citizen. These may encompass some of the following topics:
 
-* Externalizing environment variables
-* Optimizing logging with Spring Boot
-* Configuring actuator endpoints
-* Externalizing and caching state
-* Moving from Maven to Gradle
-* Removing Spring XML configuration
-* Converting legacy classes to Spring stereotypes
-* Integrating with Spring Cloud Data Flow (SCDF)
-* Removing boilerplate code using [Project Lombok](https://projectlombok.org/)
-* Tidying up unused components and dependencies
+-   Externalizing environment variables
+-   Optimizing logging with Spring Boot
+-   Configuring actuator endpoints
+-   Externalizing and caching state
+-   Moving from Maven to Gradle
+-   Removing Spring XML configuration
+-   Converting legacy classes to Spring stereotypes
+-   Integrating with Spring Cloud Data Flow (SCDF)
+-   Removing boilerplate code using [Project Lombok](https://projectlombok.org/)
+-   Tidying up unused components and dependencies
 
 If any of the options are relevant to your application, perform them one at a time. Validate that your application is running appropriately after each change.
 
@@ -118,33 +118,35 @@ If any of the options are relevant to your application, perform them one at a ti
 After your application is working and thoroughly tested, commit your code changes and put the application through the formal testing procedures along the (automated) path to production. You might have to collaborate with operations engineers to adjust your application's configuration and CI/CD pipelines.
 
 ## Keep Learning
-The Tanzu Developer Portal has a [series of guides](/topics/building-modern-applications/) on topics related to building modern applications using Spring and Spring Boot that can help you learn more and address a variety of needs. 
+
+The Tanzu Developer Portal has a [series of guides](/topics/building-modern-applications/) on topics related to building modern applications using Spring and Spring Boot that can help you learn more and address a variety of needs.
 
 ### References
-In addition to the links included in the text, the list below provides additional useful guides and tutorials related to the topics discussed. 
 
-* [Spring Boot](https://spring.io/projects/spring-boot) --- official landing page for Spring Boot
-* [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/) --- complete Spring Boot reference documentation
-* [Spring Guides](https://spring.io/guides) --- designed to get you productive as quickly as possible using the latest Spring project releases and techniques as recommended by the Spring team
-* [Spring Bootification Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html#howto-convert-an-existing-application-to-spring-boot) --- how to convert an existing application to Spring Boot
-* [Baeldung | Java, Spring and Web Development tutorials](http://www.baeldung.com/) --- useful tutorials, including many Spring and Spring Boot topics
-* [Mkyong Spring Boot Tutorials](http://www.mkyong.com/tutorials/spring-boot-tutorials/) --- tutorials covering many aspects of Spring Boot
-* [VMware Tanzu Developer Spring guides](/guides/spring/) --- hands-on guides from the VMware Tanzu Developer site
+In addition to the links included in the text, the list below provides additional useful guides and tutorials related to the topics discussed.
+
+-   [Spring Boot](https://spring.io/projects/spring-boot) --- official landing page for Spring Boot
+-   [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/) --- complete Spring Boot reference documentation
+-   [Spring Guides](https://spring.io/guides) --- designed to get you productive as quickly as possible using the latest Spring project releases and techniques as recommended by the Spring team
+-   [Spring Bootification Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html#howto-convert-an-existing-application-to-spring-boot) --- how to convert an existing application to Spring Boot
+-   [Baeldung | Java, Spring and Web Development tutorials](http://www.baeldung.com/) --- useful tutorials, including many Spring and Spring Boot topics
+-   [Mkyong Spring Boot Tutorials](http://www.mkyong.com/tutorials/spring-boot-tutorials/) --- tutorials covering many aspects of Spring Boot
+-   [VMware Tanzu Developer Spring guides](/guides/spring/) --- hands-on guides from the VMware Tanzu Developer site
 
 ### Videos
 
-* [Spring Developer YouTube channel](https://www.youtube.com/user/SpringSourceDev)
-* [Spring Accelerates Cloud-Native Java Application Development | Tanzu](https://tanzu.vmware.com/spring-app-framework)
-* [Building Microservices with Spring Boot LiveLessons (Video Training)](https://www.safaribooksonline.com/library/view/building-microservices-with/9780134192468/)
+-   [Spring Developer YouTube channel](https://www.youtube.com/user/SpringSourceDev)
+-   [Spring Accelerates Cloud-Native Java Application Development | Tanzu](https://tanzu.vmware.com/spring-app-framework)
+-   [Building Microservices with Spring Boot LiveLessons (Video Training)](https://www.safaribooksonline.com/library/view/building-microservices-with/9780134192468/)
 
 ### Books
 
-* [_Learning Spring Boot 2.0_](https://www.amazon.com/dp/B01LPRN0Z8)
-* [_Spring Boot in Action_](https://www.safaribooksonline.com/library/view/spring-boot-in/9781617292545/)
-* [_Cloud Native Java_](https://www.safaribooksonline.com/library/view/cloud-native-java/9781449374631/)
+-   [_Learning Spring Boot 2.0_](https://www.amazon.com/dp/B01LPRN0Z8)
+-   [_Spring Boot in Action_](https://www.safaribooksonline.com/library/view/spring-boot-in/9781617292545/)
+-   [_Cloud Native Java_](https://www.safaribooksonline.com/library/view/cloud-native-java/9781449374631/)
 
 ### Tools
 
-* [Spring Initializr](https://start.spring.io/) --- generate a Spring Boot project with just what you need to start quickly
-* [Spring Boot Starters](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters) --- one-stop-shop for convenient dependency descriptors that include all of the Spring and related technology that you need in your application
-* [Spring Tools](https://spring.io/tools) --- next-generation Spring tooling for your favorite coding environment
+-   [Spring Initializr](https://start.spring.io/) --- generate a Spring Boot project with just what you need to start quickly
+-   [Spring Boot Starters](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters) --- one-stop-shop for convenient dependency descriptors that include all of the Spring and related technology that you need in your application
+-   [Spring Tools](https://spring.io/tools) --- next-generation Spring tooling for your favorite coding environment

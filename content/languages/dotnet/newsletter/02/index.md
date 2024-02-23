@@ -1,16 +1,17 @@
 ---
 type: newsletter
-date: "2023-08-23"
+date: '2023-08-23'
 title: Hooked on .NET - August 2023 with Irina Scurtu
-description: The second edition with guest Irina Scurtu, includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch. 
+description: The second edition with guest Irina Scurtu, includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch.
 link: https://laylacodesit.substack.com/p/hooked-on-net-587
 canonical: https://laylacodesit.substack.com/p/hooked-on-net-587
-team: 
-- Layla Porter
+team:
+    - Layla Porter
 ---
+
 ## Welcome back 👋
 
-I hope you are all having a great August so far. For me, it's been quiet, which has been lovely. 
+I hope you are all having a great August so far. For me, it's been quiet, which has been lovely.
 I am delighted to have our very first newsletter guest this month, my good friend [Irina Scurtu!](https://twitter.com/irina_scurtu)
 
 Irina is a Microsoft MVP for Developer Technologies, a Software Architect, and a Microsoft Certified Trainer (MCT). In this role, she has provided more than 2000 hours of training, classes, workshops, and presentations. Twice annually, for five-month periods, she teaches .NET and C# to people who either want to get into software development or simply learn new things. Irina is passionate about Microsoft developer topics and is always on a quest to try out the latest trends and best practices in architecture, .NET, and the world around it. Irina is active in the community, having founded the DotNet Iasi User Group and the https://dotnetdays.ro conference where she brings together like-minded developers willing to share their knowledge with others. Her articles can be found at http://irina.codes.
@@ -31,17 +32,17 @@ Update: Irina’s [book](https://link.springer.com/book/10.1007/978-1-4842-9348-
 
 ### Irina's recommendations
 
-- [11ty](https://www.11ty.dev/)
-- [Microsoft static sites](https://azure.microsoft.com/en-us/products/app-service/static/)
-- [gRPC in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/?view=aspnetcore-7.0)
-- [Gui Ferreira's YouTube](https://www.youtube.com/@gui.ferreira)
-- [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3)
+-   [11ty](https://www.11ty.dev/)
+-   [Microsoft static sites](https://azure.microsoft.com/en-us/products/app-service/static/)
+-   [gRPC in .NET](https://learn.microsoft.com/en-us/aspnet/core/grpc/?view=aspnetcore-7.0)
+-   [Gui Ferreira's YouTube](https://www.youtube.com/@gui.ferreira)
+-   [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3)
 
 ## What's new and exciting?
 
-- [.NET 8 preview 7](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8-preview-7/) - Gosh, the releases are coming thick and fast. This is the final preview release, next up will be the release candidates!
-- [.NET MAUI keyboard accelerators](https://devblogs.microsoft.com/dotnet/announcing-dotnet-maui-in-dotnet-8-preview-7/) - also in this release, is the latest version of .NET MAUI which introduces keyboard accelerators along with a whole host of improvements and fixes. Keyboard accelerators enable you to assign keyboard shortcuts to any menu item, whether visible or not, and attach them to any UI element. Cool, huh?
-- [Unity Extension for VS Code](https://devblogs.microsoft.com/visualstudio/announcing-the-unity-extension-for-visual-studio-code/) - I have dabbled in a fair bit of Unity and having support in an editor such as VS Code is going to make a lot of people happy!
+-   [.NET 8 preview 7](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8-preview-7/) - Gosh, the releases are coming thick and fast. This is the final preview release, next up will be the release candidates!
+-   [.NET MAUI keyboard accelerators](https://devblogs.microsoft.com/dotnet/announcing-dotnet-maui-in-dotnet-8-preview-7/) - also in this release, is the latest version of .NET MAUI which introduces keyboard accelerators along with a whole host of improvements and fixes. Keyboard accelerators enable you to assign keyboard shortcuts to any menu item, whether visible or not, and attach them to any UI element. Cool, huh?
+-   [Unity Extension for VS Code](https://devblogs.microsoft.com/visualstudio/announcing-the-unity-extension-for-visual-studio-code/) - I have dabbled in a fair bit of Unity and having support in an editor such as VS Code is going to make a lot of people happy!
 
 ## What to read 📖
 
@@ -61,7 +62,7 @@ Update: Irina’s [book](https://link.springer.com/book/10.1007/978-1-4842-9348-
 
 [The BEST Moq Alternatives: NSubstitute vs FakeItEasy](https://youtu.be/hE1_ByNG2J0) - If you haven't already checked out Gui based on Irina's recommendations, here is another reminder. Gui has just celebrated one year of content creation and in this video he discusses the MOQ alternatives for use in your tests.
 
-[Beautiful UI Controls for .NET MAUI with Telerik UI](https://www.youtube.com/watch?v=DzD0ucPldeM&ab_channel=dotnet) - Sam Basu from Progress is on the On .NET  show to demo beautiful UI controls for .NET MAUI using Telerik UI.
+[Beautiful UI Controls for .NET MAUI with Telerik UI](https://www.youtube.com/watch?v=DzD0ucPldeM&ab_channel=dotnet) - Sam Basu from Progress is on the On .NET show to demo beautiful UI controls for .NET MAUI using Telerik UI.
 
 [The Blazor Power Hour: Static Rendering with .NET 8](https://youtu.be/BZW5Dd6L0y4) - and continuing with lovely folks from Progress, Ed Charbenaeu is showing us the latest .NET 8 and Blazor feature, static rendering.
 

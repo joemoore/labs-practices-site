@@ -3,7 +3,7 @@ title: Spring MVC with REST Endpoints
 weight: 40
 layout: single
 team:
-  - Pivotal/Tanzu Labs
+    - Pivotal/Tanzu Labs
 ---
 
 In this lab, you will build a service which will expose a
@@ -20,9 +20,9 @@ for building web services.
 
 After completing the lab, you will be able to:
 
-- Develop RESTful JSON APIs using Spring MVC controllers
-- Demonstrate the ability to manually test a JSON API
-- Describe when to use the `@Bean` annotation
+-   Develop RESTful JSON APIs using Spring MVC controllers
+-   Demonstrate the ability to manually test a JSON API
+-   Describe when to use the `@Bean` annotation
 
 ## Get started
 
@@ -34,7 +34,7 @@ After completing the lab, you will be able to:
     [Deployment pipelines lab](../pipelines/).
     You must have your `pal-tracker` application associated with the
     `pipeline-solution` codebase deployed and running on
-    *Tanzu Application Service*.
+    _Tanzu Application Service_.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker`
@@ -177,7 +177,7 @@ you will build out a REST service for time entries using a
 
 1.  Use the `TimeEntryControllerTest` unit test to guide the
     implementation of the `TimeEntryController`,
-    using a *Test First* approach:
+    using a _Test First_ approach:
 
     -   Lead with the tests -
         Start with the first test case `testCreate()`
@@ -249,7 +249,7 @@ signals to Spring that they are controllers.
     [previous section](#research-how-to-implement-the-rest-controller-with-spring).
     in the `TimeEntryController` controller.
 
-1.  Use a *Test First* approach:
+1.  Use a _Test First_ approach:
     Iterate through each `TimeEntryApiTest` test case,
     and add annotations only for the handler method being tested on
     the associated test case.
@@ -266,51 +266,51 @@ signals to Spring that they are controllers.
 1.  Start your application locally
 
 1.  Use the `curl` commands below to verify
-that your application behaves as expected.
+    that your application behaves as expected.
 
-    __Get all time entries__
+        __Get all time entries__
 
-    ```bash
-    curl -v localhost:8080/time-entries
-    ```
+        ```bash
+        curl -v localhost:8080/time-entries
+        ```
 
-    __Create a time entry__
+        __Create a time entry__
 
-    ```bash
-    curl -v -XPOST -H"Content-Type: application/json" localhost:8080/time-entries -d'{"projectId": 1, "userId": 2, "date": "2019-01-01", "hours": 8}'
-    ```
+        ```bash
+        curl -v -XPOST -H"Content-Type: application/json" localhost:8080/time-entries -d'{"projectId": 1, "userId": 2, "date": "2019-01-01", "hours": 8}'
+        ```
 
-    **Note:** On UNIX-like systems, you can set the shell variable
-    `TIME_ENTRY_ID` to the value of the ID that was created by the
-    previous command.
-    Assuming the ID value was 42, you would do that like this:
+        **Note:** On UNIX-like systems, you can set the shell variable
+        `TIME_ENTRY_ID` to the value of the ID that was created by the
+        previous command.
+        Assuming the ID value was 42, you would do that like this:
 
-    ```bash
-    TIME_ENTRY_ID=42
-    ```
+        ```bash
+        TIME_ENTRY_ID=42
+        ```
 
-    You can then cut and paste the commands in the following sections
-    directly.
-    Otherwise, replace the placeholder `${TIME_ENTRY_ID}` with the value
-    of the ID.
+        You can then cut and paste the commands in the following sections
+        directly.
+        Otherwise, replace the placeholder `${TIME_ENTRY_ID}` with the value
+        of the ID.
 
-    __Get a time entry by ID__
+        __Get a time entry by ID__
 
-    ```bash
-    curl -v localhost:8080/time-entries/${TIME_ENTRY_ID}
-    ```
+        ```bash
+        curl -v localhost:8080/time-entries/${TIME_ENTRY_ID}
+        ```
 
-    __Update a time entry by ID__
+        __Update a time entry by ID__
 
-    ```bash
-    curl -v -XPUT -H"Content-Type: application/json" localhost:8080/time-entries/${TIME_ENTRY_ID} -d'{"projectId": 88, "userId": 99, "date": "2019-01-01", "hours": 8}'
-    ```
+        ```bash
+        curl -v -XPUT -H"Content-Type: application/json" localhost:8080/time-entries/${TIME_ENTRY_ID} -d'{"projectId": 88, "userId": 99, "date": "2019-01-01", "hours": 8}'
+        ```
 
-    __Delete a time entry by ID__
+        __Delete a time entry by ID__
 
-    ```bash
-    curl -v -XDELETE -H"Content-Type: application/json" localhost:8080/time-entries/${TIME_ENTRY_ID}
-    ```
+        ```bash
+        curl -v -XDELETE -H"Content-Type: application/json" localhost:8080/time-entries/${TIME_ENTRY_ID}
+        ```
 
 1.  Move on when you have validated that your application behaves
     correctly on your local machine.
@@ -318,22 +318,22 @@ that your application behaves as expected.
 ## Deploy
 
 1.  Push your code to GitHub and let the pipeline deploy to your \
-    *Tanzu Application Service* environment.
+    _Tanzu Application Service_ environment.
 
 1.  Redo the [Exercise endpoints](#exercise-endpoints) section on
-    *Tanzu Application Service* by replacing `localhost:8080` with the
-    *Tanzu Application Service* environment route.
+    _Tanzu Application Service_ by replacing `localhost:8080` with the
+    _Tanzu Application Service_ environment route.
 
 1.  Make sure all the endpoints succeed in the
-    *Tanzu Application Service* environment before you move on.
+    _Tanzu Application Service_ environment before you move on.
 
 ## Wrap up
 
 Now that you have completed the lab, you should be able to:
 
-- Develop RESTful JSON APIs using Spring MVC controllers
-- Demonstrate the ability to manually test a JSON API
-- Describe when to use the `@Bean` annotation
+-   Develop RESTful JSON APIs using Spring MVC controllers
+-   Demonstrate the ability to manually test a JSON API
+-   Describe when to use the `@Bean` annotation
 
 ## Extras
 

@@ -2,16 +2,16 @@
 date: '2021-02-24'
 description: Configuring the Dex identity provider.
 keywords:
-- Kubernetes
+    - Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Configuring Dex
 parent: Identity and Access Control
 title: Configuring the Dex Identity Provider
 weight: 1600
 featured: true
-oldPath: "/content/guides/kubernetes/identity-dex.md"
+oldPath: '/content/guides/kubernetes/identity-dex.md'
 aliases:
-- "/guides/kubernetes/identity-dex"
+    - '/guides/kubernetes/identity-dex'
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []
@@ -58,28 +58,16 @@ accessing the URL, Dex will produce the following response
 ```yaml
 ## Sample '.well-known/openid-configuration' DEX response
 {
-  "issuer": "http://app.example.com",
-  "authorization_endpoint": "http://app.example.com/auth",
-  "token_endpoint": "http://app.example.com/token",
-  "jwks_uri": "http:/app.example.com/keys",
-  "response_types_supported": ["code"],
-  "subject_types_supported": ["public"],
-  "id_token_signing_alg_values_supported": ["RS256"],
-  "scopes_supported":
-    ["openid", "email", "groups", "profile", "offline_access"],
-  "token_endpoint_auth_methods_supported": ["client_secret_basic"],
-  "claims_supported":
-    [
-      "aud",
-      "email",
-      "email_verified",
-      "exp",
-      "iat",
-      "iss",
-      "locale",
-      "name",
-      "sub",
-    ],
+    'issuer': 'http://app.example.com',
+    'authorization_endpoint': 'http://app.example.com/auth',
+    'token_endpoint': 'http://app.example.com/token',
+    'jwks_uri': 'http:/app.example.com/keys',
+    'response_types_supported': ['code'],
+    'subject_types_supported': ['public'],
+    'id_token_signing_alg_values_supported': ['RS256'],
+    'scopes_supported': ['openid', 'email', 'groups', 'profile', 'offline_access'],
+    'token_endpoint_auth_methods_supported': ['client_secret_basic'],
+    'claims_supported': ['aud', 'email', 'email_verified', 'exp', 'iat', 'iss', 'locale', 'name', 'sub'],
 }
 ```
 
@@ -146,17 +134,17 @@ as follows
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: dex
+    name: dex
 data:
-  config.yaml: |
-    ...
-    staticClients: 
-    - id: {{Gangway Client Id}}
-      redirectURIs:
-      - '{{ Gangway Callback URL}}'
-      name: '{{Gangway Client Id}}'
-      secret: {{Decoded Gangway Client Secret}}
-    ....
+    config.yaml: |
+        ...
+        staticClients: 
+        - id: {{Gangway Client Id}}
+          redirectURIs:
+          - '{{ Gangway Callback URL}}'
+          name: '{{Gangway Client Id}}'
+          secret: {{Decoded Gangway Client Secret}}
+        ....
 ```
 
 ```yml
@@ -164,15 +152,15 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gangway
+    name: gangway
 type: Opaque
 data:
-  #! Key to generate secret session.
-  #! Command to run : openssl rand -base64 32 | pbcopy
-  sesssionKey: { { session key for dex } }
-  #! base64 encoded client secret , shoudl match with Dex config Client Secret
-  #! echo -n "$clientSecret" | base64
-  clientSecret: { { encoded Gangway Client Secret } }
+    #! Key to generate secret session.
+    #! Command to run : openssl rand -base64 32 | pbcopy
+    sesssionKey: { { session key for dex } }
+    #! base64 encoded client secret , shoudl match with Dex config Client Secret
+    #! echo -n "$clientSecret" | base64
+    clientSecret: { { encoded Gangway Client Secret } }
 ```
 
 ### Identity Federation
@@ -194,16 +182,16 @@ system for service to service call.
 ```json
 // Sample JWT claims response from Dex.
 {
-  "iss": "http://127.0.0.1:5556/dex",
-  "sub": "CgcyMzQyNzQ5EgZnaXRodWI",
-  "aud": "example-app",
-  "exp": 1492882042,
-  "iat": 1492795642,
-  "at_hash": "bi96gOXZShvlWYtal9Eqiw",
-  "email": "jane.doe@ldap.com",
-  "email_verified": true,
-  "groups": ["admins", "developers"],
-  "name": "Jane Doe"
+    "iss": "http://127.0.0.1:5556/dex",
+    "sub": "CgcyMzQyNzQ5EgZnaXRodWI",
+    "aud": "example-app",
+    "exp": 1492882042,
+    "iat": 1492795642,
+    "at_hash": "bi96gOXZShvlWYtal9Eqiw",
+    "email": "jane.doe@ldap.com",
+    "email_verified": true,
+    "groups": ["admins", "developers"],
+    "name": "Jane Doe"
 }
 ```
 
@@ -227,124 +215,124 @@ connectors can be defined as follows
 
 ```yml
 connectors:
-  - type: ldap
-    id: ldap
-    name: LDAP
-    config:
-      host: ldap.example.com:636
-      insecureNoSSL: true
-      insecureSkipVerify: true
-      startTLS: true
-      rootCA: /etc/dex/ldap.ca
-      bindDN: uid=serviceaccount,cn=users,dc=example,dc=com
-      bindPW: password
-      usernamePrompt: SSO Username
-      userSearch:
-        baseDN: cn=users,dc=example,dc=com
-        filter: "(objectClass=person)"
-        username: uid
-        idAttr: uid
-        emailAttr: mail
-        nameAttr: name
-      groupSearch:
-        baseDN: cn=groups,dc=freeipa,dc=example,dc=com
-        filter: "(objectClass=group)"
-        userMatchers:
-          - userAttr: uid
-            groupAttr: member
-        nameAttr: name
+    - type: ldap
+      id: ldap
+      name: LDAP
+      config:
+          host: ldap.example.com:636
+          insecureNoSSL: true
+          insecureSkipVerify: true
+          startTLS: true
+          rootCA: /etc/dex/ldap.ca
+          bindDN: uid=serviceaccount,cn=users,dc=example,dc=com
+          bindPW: password
+          usernamePrompt: SSO Username
+          userSearch:
+              baseDN: cn=users,dc=example,dc=com
+              filter: '(objectClass=person)'
+              username: uid
+              idAttr: uid
+              emailAttr: mail
+              nameAttr: name
+          groupSearch:
+              baseDN: cn=groups,dc=freeipa,dc=example,dc=com
+              filter: '(objectClass=group)'
+              userMatchers:
+                  - userAttr: uid
+                    groupAttr: member
+              nameAttr: name
 ```
 
 ##### _For OIDC Connector_
 
 ```yml
 connectors:
-  - type: oidc
-    id: oidcServer
-    name: oidcServer
-    config:
-      issuer: https://accounts.google.com
-      clientID: $CLIENT_ID
-      clientSecret: $CLIENT_SECRET
-      # Dex's issuer URL + "/callback"
-      redirectURI: http://127.0.0.1:5556/callback
+    - type: oidc
+      id: oidcServer
+      name: oidcServer
+      config:
+          issuer: https://accounts.google.com
+          clientID: $CLIENT_ID
+          clientSecret: $CLIENT_SECRET
+          # Dex's issuer URL + "/callback"
+          redirectURI: http://127.0.0.1:5556/callback
 
-      # Some providers require passing client_secret via POST parameters instead
-      # of basic auth, despite the OAuth2 RFC discouraging it. Many of these
-      # cases are caught internally, but some may need to uncomment the
-      # following field.
-      #
-      basicAuthUnsupported: true
+          # Some providers require passing client_secret via POST parameters instead
+          # of basic auth, despite the OAuth2 RFC discouraging it. Many of these
+          # cases are caught internally, but some may need to uncomment the
+          # following field.
+          #
+          basicAuthUnsupported: true
 
-      # List of additional scopes to request in token response
-      # Default is profile and email
-      # Full list at https://github.com/dexidp/dex/blob/master/Documentation/custom-scopes-claims-clients.md
-      scopes:
-        - profile
-        - email
-        - groups
-      insecureSkipEmailVerified: true
-      insecureEnableGroups: true
+          # List of additional scopes to request in token response
+          # Default is profile and email
+          # Full list at https://github.com/dexidp/dex/blob/master/Documentation/custom-scopes-claims-clients.md
+          scopes:
+              - profile
+              - email
+              - groups
+          insecureSkipEmailVerified: true
+          insecureEnableGroups: true
 
-      # When enabled, the OpenID Connector will query the UserInfo endpoint for additional claims. UserInfo claims
-      # take priority over claims returned by the IDToken. This option should be used when the IDToken doesn't contain
-      # all the claims requested.
-      # https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
-      getUserInfo: true
+          # When enabled, the OpenID Connector will query the UserInfo endpoint for additional claims. UserInfo claims
+          # take priority over claims returned by the IDToken. This option should be used when the IDToken doesn't contain
+          # all the claims requested.
+          # https://openid.net/specs/openid-connect-core-1_0.html#UserInfo
+          getUserInfo: true
 
-      # The set claim is used as user id.
-      # Default: sub
-      # Claims list at https://openid.net/specs/openid-connect-core-1_0.html#Claims
-      userIDKey: nickname
+          # The set claim is used as user id.
+          # Default: sub
+          # Claims list at https://openid.net/specs/openid-connect-core-1_0.html#Claims
+          userIDKey: nickname
 
-      # The set claim is used as user name.
-      # Default: name
-      userNameKey: nickname
+          # The set claim is used as user name.
+          # Default: name
+          userNameKey: nickname
 
-      # For offline_access, the prompt parameter is set by default to "prompt=consent".
-      # However this is not supported by all OIDC providers, some of them support different
-      # value for prompt, like "prompt=login" or "prompt=none"
-      promptType: consent
+          # For offline_access, the prompt parameter is set by default to "prompt=consent".
+          # However this is not supported by all OIDC providers, some of them support different
+          # value for prompt, like "prompt=login" or "prompt=none"
+          promptType: consent
 ```
 
 ##### _For SAML Connector_
 
 ```yml
 connectors:
-  - type: saml
-    # Required field for connector id.
-    id: saml
-    # Required field for connector name.
-    name: SAML
-    config:
-      # SSO URL used for POST value.
-      ssoURL: https://saml.example.com/sso
+    - type: saml
+      # Required field for connector id.
+      id: saml
+      # Required field for connector name.
+      name: SAML
+      config:
+          # SSO URL used for POST value.
+          ssoURL: https://saml.example.com/sso
 
-      # CA to use when validating the signature of the SAML response.
-      ca: /path/to/ca.pem
+          # CA to use when validating the signature of the SAML response.
+          ca: /path/to/ca.pem
 
-      # Dex's callback URL.
-      redirectURI: https://dex.example.com/callback
+          # Dex's callback URL.
+          redirectURI: https://dex.example.com/callback
 
-      # Name of attributes in the returned assertions to map to ID token claims.
-      usernameAttr: name
-      emailAttr: email
-      groupsAttr: groups # optional
+          # Name of attributes in the returned assertions to map to ID token claims.
+          usernameAttr: name
+          emailAttr: email
+          groupsAttr: groups # optional
 
-      # To skip signature validation, uncomment the following field. This should
-      # only be used during testing and may be removed in the future.
-      #
-      insecureSkipSignatureValidation: true
+          # To skip signature validation, uncomment the following field. This should
+          # only be used during testing and may be removed in the future.
+          #
+          insecureSkipSignatureValidation: true
 
-      # Optional: Manually specify dex's Issuer value.
-      entityIssuer: https://dex.example.com/callback
+          # Optional: Manually specify dex's Issuer value.
+          entityIssuer: https://dex.example.com/callback
 
-      # Optional: Issuer value expected in the SAML response.
-      ssoIssuer: https://saml.example.com/sso
+          # Optional: Issuer value expected in the SAML response.
+          ssoIssuer: https://saml.example.com/sso
 
-      # Optional: Delimiter for splitting groups returned as a single string.
-      groupsDelim: ", "
+          # Optional: Delimiter for splitting groups returned as a single string.
+          groupsDelim: ', '
 
-      # Optional: Requested format of the NameID.
-      nameIDPolicyFormat: persistent
+          # Optional: Requested format of the NameID.
+          nameIDPolicyFormat: persistent
 ```

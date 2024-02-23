@@ -1,37 +1,38 @@
 ---
 date: '2020-10-26'
 description: Looking to track requests as they come into an application? Zipkin offers
-  instrumentation for numerous frameworks, data services, and more.
+    instrumentation for numerous frameworks, data services, and more.
 lastmod: '2021-03-07'
 linkTitle: Zipkin
 patterns:
-- Observability
+    - Observability
 tags:
-- Spring Boot
-- REST
-- API
-- Zipkin
-- Observability
-- Spring
-- Microservices
+    - Spring Boot
+    - REST
+    - API
+    - Zipkin
+    - Observability
+    - Spring
+    - Microservices
 featured: true
 team:
-- Brian McClain
+    - Brian McClain
 title: Getting Started with Zipkin and Spring Boot
-oldPath: "/content/guides/spring/spring-zipkin.md"
+oldPath: '/content/guides/spring/spring-zipkin.md'
 aliases:
-- "/guides/spring/spring-zipkin"
+    - '/guides/spring/spring-zipkin'
 level1: Managing and Operating Applications
 level2: Metrics, Tracing, and Monitoring
 ---
 
-The moment you facilitate one application making a request to another over the network, you  introduce significant complexity. Maybe “significant” is relative, but ask yourself, “What could go wrong?” Because the more services you introduce that your application comes to rely on, the harder it becomes to diagnose any problems that crop up. Is the application slow because of the network? Or is it because one of the services is taking a long time to process? Or something else? 
+The moment you facilitate one application making a request to another over the network, you introduce significant complexity. Maybe “significant” is relative, but ask yourself, “What could go wrong?” Because the more services you introduce that your application comes to rely on, the harder it becomes to diagnose any problems that crop up. Is the application slow because of the network? Or is it because one of the services is taking a long time to process? Or something else?
 
 This is where tracing can help. Tracing, at the most basic level, tracks requests as they come into the application and flow through the system. It measures how long a request takes to move from point to point, as well as how long it spends in a specific service. Having this insight makes it easier to quickly home in on a problem, rather than guessing, hunting, or outright assuming where a problem may be.
 
-There are many tracing solutions out there, but in this post we will look at one of the more popular ones: [Zipkin](https://zipkin.io/). With a powerful community behind it, Zipkin offers instrumentation for numerous languages, frameworks, and data services, and in many cases  getting started is as simple as including a dependency or two and adding a few lines of code. As an example, we will run through  how you can take an existing Spring Boot application and implement Zipkin tracing into it.
+There are many tracing solutions out there, but in this post we will look at one of the more popular ones: [Zipkin](https://zipkin.io/). With a powerful community behind it, Zipkin offers instrumentation for numerous languages, frameworks, and data services, and in many cases getting started is as simple as including a dependency or two and adding a few lines of code. As an example, we will run through how you can take an existing Spring Boot application and implement Zipkin tracing into it.
 
 ## Standing Up Zipkin
+
 Before instrumenting your code and collecting traces, you must first stand up an instance of Zipkin to which you can send those collections. You have several options, all documented in the [Zipkin Quickstart](https://zipkin.io/pages/quickstart.html), with the easiest being to run it on Docker. If you have Docker running locally already, you can get Zipkin running with one command:
 
 ```bash
@@ -45,14 +46,16 @@ curl -sSL https://zipkin.io/quickstart.sh | bash -s
 java -jar zipkin.jar
 ```
 
-Whichever way you choose to run Zipkin, you’ll find it accessible on your machine at http://127.0.0.1:9411. If you open your browser to this address and see Zipkin running, you’re good to go! 
+Whichever way you choose to run Zipkin, you’ll find it accessible on your machine at http://127.0.0.1:9411. If you open your browser to this address and see Zipkin running, you’re good to go!
 
 ## Preparing the Demo
-How you instrument your code largely depends on the language, framework, and libraries that you use. For this post, we’ll look at an example [written in Java with Spring Boot](https://github.com/BrianMMcClain/spring-zipkin-demo). If you’re not a Java developer, they are more likely than not some [great examples for your language of choice](https://zipkin.io/pages/tracers_instrumentation.html). For this example, we’ll instrument a bare-bones Spring Boot application consisting of a frontend that calls a backend service, which will also be a Spring Boot application. 
+
+How you instrument your code largely depends on the language, framework, and libraries that you use. For this post, we’ll look at an example [written in Java with Spring Boot](https://github.com/BrianMMcClain/spring-zipkin-demo). If you’re not a Java developer, they are more likely than not some [great examples for your language of choice](https://zipkin.io/pages/tracers_instrumentation.html). For this example, we’ll instrument a bare-bones Spring Boot application consisting of a frontend that calls a backend service, which will also be a Spring Boot application.
 
 Let’s assume that both applications started as a basic [Spring Boot application built with the Spring Web dependency](/guides/spring/spring-build-api). The frontend has one endpoint located at `/`, which when called, reaches out to the backend. The backend also has a single endpoint, also located at `/`, that simply returns the string “backend.” Finally, the frontend sends a response to the user that reads, “Hello from the backend!”
 
 ## Instrumenting the Backend
+
 Let’s first start by instrumenting the backend. This can be done with two additions to the existing code. First, add the `spring-cloud-starter-zipkin` dependency to the `pom.xml` file:
 
 ```xml
@@ -74,6 +77,7 @@ This will tell Zipkin the name of the application while annotating the different
 That’s it! Much like many of the Spring Boot components, the rest is automatically taken care of for you. All that remains is to instrument the frontend!
 
 ## Instrumenting the Frontend
+
 You will need to add one additional piece to the frontend, but first, you’ll do the same work that you did with the backend. Start by adding the `spring-cloud-starter-zipkin` dependency:
 
 ```xml
@@ -104,32 +108,33 @@ import org.springframework.context.annotation.Bean;
 @RestController
 public class WebController {
 
-    @Autowired 
+    @Autowired
     RestTemplate restTemplate;
-    
+
     @GetMapping("/")
     public String helloWorld() {
         String response = restTemplate.getForObject("http://localhost:8082", String.class);
         return "<h1>Hello from the " + response + "!</h1>";
     }
 
-    @Bean 
+    @Bean
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
 }
 ```
 
- The `WebController` class is given the `@RestController` annotation, which tells our application that it will be the class that will handle the logic for HTTP requests as they come in. The class has a variable named `restTemplate` of type `RestTemplate` and given the `@Autowired` annotation that will automatically create the `RestTemplate`. It also has the `helloWorld` method with the `GetMapping(“/”)` annotation, which tells our code to invoke this method when the application receives requests on the `/` endpoint. This method sends the request to the backend, constructs the response, and sends it back to the user. Finally, the `restTemplate` bean of type `RestTemplate` is  what the Autowired `restTemplate` variable will look for when being created. In this case, the bean returns a new `RestTemplate` object, into which the `spring-cloud-starter-zipkin` dependency will hook.
+The `WebController` class is given the `@RestController` annotation, which tells our application that it will be the class that will handle the logic for HTTP requests as they come in. The class has a variable named `restTemplate` of type `RestTemplate` and given the `@Autowired` annotation that will automatically create the `RestTemplate`. It also has the `helloWorld` method with the `GetMapping(“/”)` annotation, which tells our code to invoke this method when the application receives requests on the `/` endpoint. This method sends the request to the backend, constructs the response, and sends it back to the user. Finally, the `restTemplate` bean of type `RestTemplate` is what the Autowired `restTemplate` variable will look for when being created. In this case, the bean returns a new `RestTemplate` object, into which the `spring-cloud-starter-zipkin` dependency will hook.
 
 ## Running the Demo
+
 With Zipkin already running, it’s now time to start up both the frontend and the backend applications. Because they are Spring Boot applications, you can open two terminals, navigate to the two code bases, and run the same command to start both of them:
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-This will start the frontend on port 8080 as well as start the backend on port 8082. Once both applications are up and running, send a request or two to the frontend application located at [http://localhost:8080](http://localhost:8080). For each request, you should be greeted with the phrase, “Hello from the backend!” After you’ve sent some traffic to the application, you can reach Zipkin running at [http://localhost:9411/zipkin/?serviceName=backend](http://localhost:9411/zipkin/?serviceName=backend), click “Run Query,” and will be greeted with all   your application’s recent traces:
+This will start the frontend on port 8080 as well as start the backend on port 8082. Once both applications are up and running, send a request or two to the frontend application located at [http://localhost:8080](http://localhost:8080). For each request, you should be greeted with the phrase, “Hello from the backend!” After you’ve sent some traffic to the application, you can reach Zipkin running at [http://localhost:9411/zipkin/?serviceName=backend](http://localhost:9411/zipkin/?serviceName=backend), click “Run Query,” and will be greeted with all your application’s recent traces:
 
 ![List of traces in Zipkin](images/zipkin-spring-1.png)
 

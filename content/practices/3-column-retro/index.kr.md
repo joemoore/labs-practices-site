@@ -2,8 +2,8 @@
 date: '2021-05-03'
 description: 효과적이었던 부분, 개선할 수 있는 부분, 걱정되는 부분을 되돌아봄으로써 팀워크를 향상하는 방안을 찾는 방법입니다.
 resources:
-- name: cover
-  src: images/retro-cover.png
+    - name: cover
+      src: images/retro-cover.png
 lastmod: '2021-05-03'
 length: 1시간
 linkTitle: 3열 회고
@@ -11,23 +11,23 @@ miro_template_url: https://miro.com/miroverse/atlassian-team-plays-retrospective
 participants: 핵심 제공 팀
 remote: false
 tags:
-- 범위 지정
-- 킥오프
-- 검색
-- 프레이밍
-- 인셉션
-- 전환
-- 최적화
-- 제공
+    - 범위 지정
+    - 킥오프
+    - 검색
+    - 프레이밍
+    - 인셉션
+    - 전환
+    - 최적화
+    - 제공
 title: 3열 회고
 what:
-- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-- 스티커 메모
-- 네임펜/마커
+    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+    - 스티커 메모
+    - 네임펜/마커
 when:
-- 이상적으로, 팀은 매주 회고를 진행해야 합니다.
+    - 이상적으로, 팀은 매주 회고를 진행해야 합니다.
 why:
-- 팀이 진정으로 되돌아볼 수 있으려면 팀원은 스스로를 비판할 수 있을 만큼 충분히 마음이 편안하다고 느껴야 합니다. 그러므로 높은 심리적인 편안함을 주는 것이 중요합니다.
+    - 팀이 진정으로 되돌아볼 수 있으려면 팀원은 스스로를 비판할 수 있을 만큼 충분히 마음이 편안하다고 느껴야 합니다. 그러므로 높은 심리적인 편안함을 주는 것이 중요합니다.
 ---
 
 <h2 id="how-to-use-this-method">이 방식을 활용하는
