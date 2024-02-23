@@ -39,7 +39,7 @@ Assumptions introduce risk for several reasons:
 - Assumptions are attractive and seem like facts. It’s easier to accept an assumption than it is to challenge it. For example, it’s easy to accept an assumption when it's a commonly shared belief on your team.
 - Assumptions preclude learning from customers. A team that shares assumptions about customers will not see a need to connect with those customers to learn about their needs.
 
-To identify assumptions, run an [Assumptions Exercise](https://tanzu.vmware.com/developer/practices/assumptions/). You can use the output from this exercise to generate ideas for tests to run that ensure we’re building the right product. The goal is to discover assumptions, then target the ones that pose the greatest risk to our business.
+To identify assumptions, run an [Assumptions Exercise](/practices/assumptions/). You can use the output from this exercise to generate ideas for tests to run that ensure we’re building the right product. The goal is to discover assumptions, then target the ones that pose the greatest risk to our business.
 
 An Assumptions Exercise is a simple way to:
 
@@ -121,10 +121,10 @@ Example:
 
 Test examples:
 
-- [A/B test](https://tanzu.vmware.com/developer/practices/lean-experiments/)
+- [A/B test](/practices/lean-experiments/)
 - [Paper Prototype](https://read.realstartupbook.com/6-evaluative-product-experiment/paper-prototyping)
-- [Concierge test](https://tanzu.vmware.com/developer/practices/lean-experiments/)
-- [Front Door test/Smoke test](https://tanzu.vmware.com/developer/practices/lean-experiments/)
+- [Concierge test](/practices/lean-experiments/)
+- [Front Door test/Smoke test](/practices/lean-experiments/)
 
 The **validation criteria** is the evidence that proves the hypothesis. This is what we _measure_.
 

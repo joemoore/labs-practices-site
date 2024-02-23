@@ -79,7 +79,7 @@ To install `kapp-controller`, follow the [Getting Started with kapp-controller g
 
 The Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) is an API object that provides routes for traffic (`HTTP` and `HTTPS`) from outside the cluster to services within the cluster.
 
-To satisfy an Ingress, you need an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). The repository that was added has a package for the [Contour](https://tanzu.vmware.com/developer/guides/service-routing-contour-to-ingress-and-beyond/) Ingress Controller.
+To satisfy an Ingress, you need an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/). The repository that was added has a package for the [Contour](/guides/service-routing-contour-to-ingress-and-beyond/) Ingress Controller.
 
 The Grafana package, which you will be installing in the next section, needs an Ingress Controller. Additionally, you will need this Ingress Controller for enabling TLS later.
 
@@ -131,7 +131,7 @@ You will use the Grafana dashboard for your website.
 
 ## Ingress
 
-First, you need an Ingress. This guide will use `nip.io`, which provides wildcard DNS for any IP address for the domain. If you’d like to use your own domain, follow the instructions in the guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](https://tanzu.vmware.com/developer/guides/harbor-gs/#set-up-dns) to set up DNS.
+First, you need an Ingress. This guide will use `nip.io`, which provides wildcard DNS for any IP address for the domain. If you’d like to use your own domain, follow the instructions in the guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](/guides/harbor-gs/#set-up-dns) to set up DNS.
 
 1. If you’re using `nip.io` (or another similar site), you’ll need to get the IP address for the Envoy load balancer.
 
@@ -443,5 +443,5 @@ Set up [Prometheus](https://prometheus.io/) for metrics collection so you can ac
 ## Resources
 
 - To discover the many rich use cases cert-manager supports, check out the [official docs](https://cert-manager.io/docs/) and [tutorials](https://cert-manager.io/docs/tutorials/).
-- Also, check out our guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](https://tanzu.vmware.com/developer/guides/kubernetes/harbor-gs/) if you haven’t already.
+- Also, check out our guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](/guides/kubernetes/harbor-gs/) if you haven’t already.
 - To learn more about Carvel, go to [carvel.dev](https://carvel.dev/).

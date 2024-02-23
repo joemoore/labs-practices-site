@@ -248,7 +248,7 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/futurespective">&lsquo;돛단배&rsquo;
+href="/practices/futurespective">&lsquo;돛단배&rsquo;
 형식의 미래 회고</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -282,7 +282,7 @@ rel="nofollow">Postfacto</a> - 오픈 소스로, 배포
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/3-column-retro/images/retro-3.png"
+src="/practices/3-column-retro/images/retro-3.png"
 alt="작업 중인 3열 회고"  /></p>
 
 <p>적극적으로 관리되고 개선되는 유료 툴을 사용하는 것도 괜찮습니다. 몇 가지 옵션은 다음과
@@ -418,7 +418,7 @@ id="real-world-examples">실제 예시</h3>
 <p>사용할 수 있는 무료 회고 툴이 많이 있습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/3-column-retro/images/retro-1.png"
+src="/practices/3-column-retro/images/retro-1.png"
 alt="작업 중인 3열 회고"  /></p>
 
 <h4
@@ -428,7 +428,7 @@ id="3-column-retro-with-fun-themes-using-miro">Miro를 사용하는
 <p>이러한 온라인 툴을 통해 사용자는 재미있는 테마로 참여율을 높일 수 있습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/3-column-retro/images/retro-2.png"
+src="/practices/3-column-retro/images/retro-2.png"
 alt="Miro의 3열 회고"  /></p>
 
 </div></div>

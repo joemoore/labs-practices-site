@@ -131,7 +131,7 @@ _Note: If done by a partner agency, prep the agency with a high-level overview o
             <ul>
                 <li>No discussion of users
                 <li>Can’t describe their process or it is <a href="https://en.wikipedia.org/wiki/Waterfall_model">waterfall</a> (big design with long feedback loops)
-                <li>Little desire to work in a <a href="https://tanzu.vmware.com/developer/learningpaths/application-development/balanced-teams/">balanced team</a>
+                <li>Little desire to work in a <a href="/learningpaths/application-development/balanced-teams/">balanced team</a>
             </ul>
         </td>
     </tr>

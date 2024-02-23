@@ -65,7 +65,7 @@ target="_blank">분자</a></strong> </div>
 <ul>
 
 <li>사용자 역할 - 지원 대상은 누구입니까? (<a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a> 사례 사용) 아직 생성하지 않았다면 사례를 진행합니다.</li>
 
 <li>문제 - 이들의 문제는 무엇입니까?</li>
@@ -75,7 +75,7 @@ href="https://tanzu.vmware.com/developer/practices/personas">사용자
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/molecule-map/images/step-1.png"
+src="/practices/molecule-map/images/step-1.png"
 alt="빈 분자 맵"  /></p>
 
 </li>
@@ -112,7 +112,7 @@ class="col-11"><p><strong>원격
 비출 수도 있습니다.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/molecule-map/images/step-2.png"
+src="/practices/molecule-map/images/step-2.png"
 alt="작성된 분자 맵"  /></p>
 
 </li>
@@ -145,12 +145,12 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/molecule-map/images/example-1.jpg"
-alt="화이트보드에 상세한 분자 맵이 그려져 있으며 중앙에 사용자 역할이 있는 사진" 
+src="/practices/molecule-map/images/example-1.jpg"
+alt="화이트보드에 상세한 분자 맵이 그려져 있으며 중앙에 사용자 역할이 있는 사진"
 /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/molecule-map/images/example-2.jpg"
+src="/practices/molecule-map/images/example-2.jpg"
 alt="화이트보드에 그려진 상세한 분자 맵"  /></p>
 
 </div></div>

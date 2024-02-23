@@ -23,7 +23,7 @@ VMware Marketplace solves these issues by providing an extensive and easily filt
 
 ## Who Uses VMware Marketplace?
 
-If you are a developer, you can utilize hundreds of free Helm charts, container solutions, machine images and more to build and quickly improve microservices on the Marketplace. These free solutions are published by Bitnami and other VMware entities. Moreover, you can use our catalog to discover and apply new cloud-native tools into your software development processes. To find out more about Bitnami, read the guide [here](https://tanzu.vmware.com/developer/guides/containers/what-is-bitnami/).
+If you are a developer, you can utilize hundreds of free Helm charts, container solutions, machine images and more to build and quickly improve microservices on the Marketplace. These free solutions are published by Bitnami and other VMware entities. Moreover, you can use our catalog to discover and apply new cloud-native tools into your software development processes. To find out more about Bitnami, read the guide [here](/guides/containers/what-is-bitnami/).
 
 If you are a DevOps manager, the Marketplace enables you and your team to quickly purchase, configure, and operate open source and third-party solutions compatible with your VMware environments. Also, the validation and certification details in the catalog let you swiftly define which services can and cannot be used by your developers, leading to a faster and smoother app development process.
 

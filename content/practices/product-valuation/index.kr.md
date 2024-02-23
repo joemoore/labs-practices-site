@@ -89,8 +89,8 @@ class="col-11"><p><strong>팁</strong>:
 발휘하십시오.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-1.png"
-alt="팀 가치를 나타내는 스티커 메모가 디지털 화이트보드에 모여 있는 모습" 
+src="/practices/product-valuation/images/step-1.png"
+alt="팀 가치를 나타내는 스티커 메모가 디지털 화이트보드에 모여 있는 모습"
 /></p>
 
 </li>
@@ -133,8 +133,8 @@ target="_blank" rel="nofollow">Miro 보드의 “가정 식별”
 섹션</a>을 참조하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-2.png"
-alt="글머리 기호가 지정된 개요에 팀의 가치 가정 식별이 표기되어 있는 모습" 
+src="/practices/product-valuation/images/step-2.png"
+alt="글머리 기호가 지정된 개요에 팀의 가치 가정 식별이 표기되어 있는 모습"
 /></p>
 
 </li>
@@ -167,7 +167,7 @@ target="_blank" rel="nofollow">Miro 보드의 “입력 숫자
 식별” 섹션</a>을 참조하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-3.png"
+src="/practices/product-valuation/images/step-3.png"
 alt="식별된 가치 가정 개요의 관련 부분으로 다시 매핑된 입력 숫자 예시"  /></p>
 
 </li>
@@ -202,26 +202,26 @@ d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16
 class=""></path></svg></div><div
 class="col-11"><p><strong>팁</strong>:
 가상의 제품 평가 <a
-href="https://tanzu.vmware.com/developer/files/PM-onomics-Examples.xlsx">샘플
+href="/files/PM-onomics-Examples.xlsx">샘플
 스프레드시트</a>를 마음껏 사용하여 샘플 수식을
 완성하십시오.</p></div></div>
 
 <p>예시는 다음과 같습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/api1.png"
+src="/practices/product-valuation/images/api1.png"
 alt="스프레드시트 1단계의 예시 계산 스크린샷"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/api2.png"
+src="/practices/product-valuation/images/api2.png"
 alt="스프레드시트 2단계의 예시 계산 스크린샷"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/api3.png"
+src="/practices/product-valuation/images/api3.png"
 alt="스프레드시트 3단계의 예시 계산 스크린샷"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-4.png"
+src="/practices/product-valuation/images/step-4.png"
 alt="스프레드시트 2단계의 예시 계산 스크린샷"  /></p>
 
 </li>
@@ -238,7 +238,7 @@ target="_blank" rel="nofollow">Miro 보드의 “팀의 ROI
 계산” 섹션</a>을 참조하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-5.png"
+src="/practices/product-valuation/images/step-5.png"
 alt="스프레드시트의 예시 ROI 계산 스크린샷"  /></p>
 
 </li>
@@ -267,7 +267,7 @@ target="_blank" rel="nofollow">Miro 보드의 “스토리
 공유” 섹션</a>을 참조하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/step-6.png"
+src="/practices/product-valuation/images/step-6.png"
 alt="예상 절감액의 달러 가치와 ROI 가치를 포함하여 팀이 생성하고 있는 가짜 API의 가치를 묘사하는 예시
 슬라이드"  /></p>
 
@@ -330,7 +330,7 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p>1 또는 2단계에서 <a
-href="https://tanzu.vmware.com/developer/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization">통찰력
 우선순위 지정</a>과 유사한 우선순위 지정 연습을 활용하고자 할 수
 있습니다.</div></div>
 
@@ -339,12 +339,12 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/example-1.png"
+src="/practices/product-valuation/images/example-1.png"
 alt="가정한 도입율을 기준으로 미래 예상치와 함께 일련의 사용자에 대해 MVP가 어떻게 문서당 60분의 시간을
 절약하는지 보여주는 가치 슬라이드 예시"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/product-valuation/images/example-2.png"
+src="/practices/product-valuation/images/example-2.png"
 alt="팀에 구축한 솔루션으로 얼마나 많은 개발자 시간을 아낄 수 있는지 보여주는 또 다른 가치 슬라이드
 예시"  /></p>
 
@@ -359,7 +359,7 @@ target="_blank" rel="nofollow">How to Measure
 Anything - Douglas W. Hubbard</a> &ndash; 서적</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/blog/measuring-the-immeasurable">측정
+href="/blog/measuring-the-immeasurable">측정
 불가능한 것의 측정</a> &ndash; 블로그 게시글</p>
 
 <p>특히 1단계에 유용한 자료</p>

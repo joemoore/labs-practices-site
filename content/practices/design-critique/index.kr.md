@@ -286,8 +286,8 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-critique/images/example-2.jpg"
-alt="스티커 메모를 사용하여 피드백이 부착된 설계 인쇄물" 
+src="/practices/design-critique/images/example-2.jpg"
+alt="스티커 메모를 사용하여 피드백이 부착된 설계 인쇄물"
 /></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

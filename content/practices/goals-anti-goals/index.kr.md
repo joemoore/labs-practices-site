@@ -131,6 +131,6 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/goals-anti-goals/images/example-3.jpg"
-alt="비즈니스, 제품, 프로젝트, 컨설팅 참여, 안티 목표가 작성된 화이트보드" 
+src="/practices/goals-anti-goals/images/example-3.jpg"
+alt="비즈니스, 제품, 프로젝트, 컨설팅 참여, 안티 목표가 작성된 화이트보드"
 /></div></div>

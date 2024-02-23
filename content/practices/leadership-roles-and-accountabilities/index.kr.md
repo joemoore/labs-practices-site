@@ -72,7 +72,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 추가합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/leadership-roles-and-accountabilities/images/brainstorm.png"
+src="/practices/leadership-roles-and-accountabilities/images/brainstorm.png"
 alt="브레인스토밍 세션 스티커 메모"  /></p>
 
 </li>
@@ -98,7 +98,7 @@ alt="브레인스토밍 세션 스티커 메모"  /></p>
 작성하는 일을 줄이기 위해 시작 시 지침을 제공할 수 있습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/leadership-roles-and-accountabilities/images/identify.png"
+src="/practices/leadership-roles-and-accountabilities/images/identify.png"
 alt="활동과 책임을 식별하는 스티커 메모"  /></p>
 
 </li>
@@ -110,7 +110,7 @@ alt="활동과 책임을 식별하는 스티커 메모"  /></p>
 <p>책임 아래에 기여하는 활동을 배열합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/leadership-roles-and-accountabilities/images/associate.png"
+src="/practices/leadership-roles-and-accountabilities/images/associate.png"
 alt="활동과 책임이 연결된 스티커 메모"  /></p>
 
 </li>
@@ -124,7 +124,7 @@ alt="활동과 책임이 연결된 스티커 메모"  /></p>
 두 가지 결과는 다음과 같습니다. 1) 새 책임을 활동과 연결 또는 2) 결과로 이어지지 않는 활동 파악</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/leadership-roles-and-accountabilities/images/create.png"
+src="/practices/leadership-roles-and-accountabilities/images/create.png"
 alt="더 많은 활동과 책임을 작성한 스티커 메모"  /></p>
 
 <div class="callout td-box--gray-darkest p-3 my-5
@@ -171,7 +171,7 @@ Liaison(파트너 연락)이라는 이름의 단일 역할로 그룹화하기로
 <p>책임 그룹의 위에 각 역할의 이름을 적습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/leadership-roles-and-accountabilities/images/group.png"
+src="/practices/leadership-roles-and-accountabilities/images/group.png"
 alt="관련 항목이 그룹화된 스티커 메모"  /></p>
 
 <div class="callout td-box--gray-darkest p-3 my-5

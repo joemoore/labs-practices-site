@@ -257,7 +257,7 @@ ytt -f k8s-add-global-label -v build_num=123
 
 ytt is purely a configuration tool. As you saw, ytt just outputs YAML files, but doesn’t apply or run them.
 Let’s use these in conjunction with Kubernetes.
-In order to deploy our applications to Kubernetes, we need to use tools like kubectl or [kapp (also part of the Carvel tool suite)](https://tanzu.vmware.com/developer/guides/kubernetes/kapp-gs/) with the output from ytt.
+In order to deploy our applications to Kubernetes, we need to use tools like kubectl or [kapp (also part of the Carvel tool suite)](/guides/kubernetes/kapp-gs/) with the output from ytt.
 
 We have seen a bunch of different things we can do with ytt, and the files in `playground/getting-started/example-overlay-on-templates` put a lot of them together. There is a README that explains everything that is happening here. You can also look at it on the playground:
 https://carvel.dev/ytt/#example:example-overlay-on-templates

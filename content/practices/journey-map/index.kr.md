@@ -36,7 +36,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <li>
 
 <p>팀이 매핑하는 사용자 여정을 식별합니다. 기존 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a>을 활용하고 사용자 역할이 여럿인 경우 시작할 가장 중요한 사용자 역할을 선택합니다.</p>
 
 </li>
@@ -53,7 +53,7 @@ href="https://tanzu.vmware.com/developer/practices/personas">사용자
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/journey-map/images/Step-1.png"
+src="/practices/journey-map/images/Step-1.png"
 alt="개별 사용자 여정"  /></p>
 
 </li>
@@ -70,7 +70,7 @@ alt="개별 사용자 여정"  /></p>
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/journey-map/images/Step-2.png"
+src="/practices/journey-map/images/Step-2.png"
 alt="모든 사용자 여정"  /></p>
 
 </li>
@@ -87,7 +87,7 @@ alt="모든 사용자 여정"  /></p>
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/journey-map/images/Step-3.png"
+src="/practices/journey-map/images/Step-3.png"
 alt="점 투표를 진행한 모든 사용자 여정"  /></p>
 
 </li>
@@ -108,7 +108,7 @@ alt="점 투표를 진행한 모든 사용자 여정"  /></p>
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/journey-map/images/Step-4.png"
+src="/practices/journey-map/images/Step-4.png"
 alt="통합된 사용자 여정"  /></p>
 
 </li>
@@ -161,9 +161,9 @@ id="facilitator-notes--tips">진행자 메모 및 팁</h3>
 <ul>
 
 <li>사용자 역할당 하나의 여정 맵을 작성합니다. 고려할 다른 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a>이 있는 경우, 이들을 단일 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a>의 관점에서 접점으로 매핑합니다.</li>
 
 <li>세부 사항과 복잡성을 이해하려면 서비스 Blueprint를 사용하여 개별 고객 여정에 제품/서비스의
@@ -180,11 +180,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/research-synthesis">연구
+href="/practices/research-synthesis">연구
 합성</a></li>
 
 </ul>
@@ -196,9 +196,9 @@ class="col-lg-9"><h3 id="following">다음
 단계</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/service-blueprint">서비스
+href="/practices/service-blueprint">서비스
 Blueprint</a> <a
-href="https://tanzu.vmware.com/developer/practices/scenario-writing">시나리오
+href="/practices/scenario-writing">시나리오
 작성</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -206,7 +206,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/journey-map/images/example-1.jpg"
+src="/practices/journey-map/images/example-1.jpg"
 alt="화이트보드의 여정 맵 예시"  /></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

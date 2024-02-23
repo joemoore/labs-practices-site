@@ -182,4 +182,4 @@ Notice that you have effectively deleted two commits from your code base (and yo
 
 Here I hope you have gained a better understanding of this powerful tool. It is not the tool for every situation. But it is one you should keep in your knowledge base in case you run into a scenario where it is the best fit, even if it’s just to impress your friends.
 
-Take a look at some of our other [git posts](https://tanzu.vmware.com/developer/tags/git/), and come back soon for more tricks!
+Take a look at some of our other [git posts](/tags/git/), and come back soon for more tricks!

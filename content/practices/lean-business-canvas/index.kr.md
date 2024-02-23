@@ -37,7 +37,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <p>화이트보드에 린 비즈니스 캔버스를 그립니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/lean-business-canvas/images/step-1.png"
+src="/practices/lean-business-canvas/images/step-1.png"
 alt="린 비즈니스 캔버스 템플릿"  /></p>
 
 </li>
@@ -130,7 +130,7 @@ class="col-11"><p><strong>팁</strong>:
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/lean-business-canvas/images/step-7.png"
+src="/practices/lean-business-canvas/images/step-7.png"
 alt="순서가 지정된 린 비즈니스 캔버스 템플릿"  /></p>
 
 </li>
@@ -173,11 +173,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/molecule-map">분자
+href="/practices/molecule-map">분자
 맵</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a></li>
 
 </ul>
@@ -189,7 +189,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/lean-business-canvas/images/example-1.jpg"
+src="/practices/lean-business-canvas/images/example-1.jpg"
 alt="샘플이 작성된 캔버스"  /></p>
 
 <h2 id="recommended-reading">권장 자료</h2>

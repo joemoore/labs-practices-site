@@ -59,7 +59,7 @@ target="_blank" rel="nofollow">오류
 <p>타임라인 예시:</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/postmortem/images/timeline.jpg"
+src="/practices/postmortem/images/timeline.jpg"
 alt="사후 분석 타임라인"  /></p>
 
 <p>사후 분석 세션에 적합한 사람들을 초대하십시오. 예를 들면 다음과 같습니다.</p>

@@ -15,7 +15,7 @@ Like any healthy relationship, your working relationship with your design system
 
 ### Good, gritty norming
 
-While some [team norms](https://tanzu.vmware.com/developer/practices/team-working-agreements/) can be defined as early as week one of an engagement (e.g. what are our rituals and when do they happen) the kind of gritty, granular norms we’re about to propose are usually best to discuss once your team has had a chance to get their legs under them a bit—it’s not always helpful to norm around story structure before you have a backlog. That being said, every team is different, and you will need to read your own tea leaves in order to know exactly what to norm around, and when the right time is to define, revisit, or refresh your norms.
+While some [team norms](/practices/team-working-agreements/) can be defined as early as week one of an engagement (e.g. what are our rituals and when do they happen) the kind of gritty, granular norms we’re about to propose are usually best to discuss once your team has had a chance to get their legs under them a bit—it’s not always helpful to norm around story structure before you have a backlog. That being said, every team is different, and you will need to read your own tea leaves in order to know exactly what to norm around, and when the right time is to define, revisit, or refresh your norms.
 
 Here are some things related to design systems that we’ve commonly found valuable to norm around:
 
@@ -36,13 +36,13 @@ Design systems are complex, ever-changing things. Even if you’re not using a s
 \
 As an offering of vulnerability, here are questions we’ve asked our teammates in the past:
 
-> Q: **What are design tokens?**  
+> Q: **What are design tokens?**
 > A: _A clever method of capturing everything from color values to border radii as variables that can be quickly updated, translated, and propagated across platforms._
 >
-> Q: **What does it mean to “pass a prop” into a component?**  
+> Q: **What does it mean to “pass a prop” into a component?**
 > A: _Many components can accept different types of data, or properties (“props”), and adapt their display or behavior dynamically based on these properties we pass into them._
 >
-> Q: **What’s a variant?**  
+> Q: **What’s a variant?**
 > A: _A variation of a component, with a consistent purpose but slightly different look or behavior (e.g. determinate vs indeterminate progress indicators)._
 
 **Story structure**
@@ -86,7 +86,7 @@ Regardless of which system you use, or whether you use one at all, there are ple
   _If we’re using an 8px grid, is a 7px measurement in Figma just a small mistake?_
 - **Responsive column grid layouts **
   _If we have a 12 column grid, what does it mean when something spans 6 columns on a XL screen and 12 on a small screen?_
-- **Alignment and positioning**  
+- **Alignment and positioning**
   _Am I saying this is 748 px from the top of the page, or am I saying this is bottom-aligned to a content element that has 16px padding?_\*\*
 - **Font classification and type scale**
   _Is this a 28px medium weight font used everywhere or, is this an H4?_

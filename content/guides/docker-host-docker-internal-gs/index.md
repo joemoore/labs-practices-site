@@ -24,7 +24,7 @@ level1: Building Modern Applications
 level2: Modern Development Practices
 ---
 
-Imagine you're working on a service within a [cloud native](https://tanzu.vmware.com/developer/guides/what-is-cloud-native/) distributed system, but acceptance testing is taking forever! You'd like to know if your changes work in harmony with other services, but running everything on your machine will potentially require numerous compilation tools and eat through your system's resources. You could deploy your service to a cloud-based environment, but that would take a long time. What should you do? You can't just skip testing, you're a responsible developer!
+Imagine you're working on a service within a [cloud native](/guides/what-is-cloud-native/) distributed system, but acceptance testing is taking forever! You'd like to know if your changes work in harmony with other services, but running everything on your machine will potentially require numerous compilation tools and eat through your system's resources. You could deploy your service to a cloud-based environment, but that would take a long time. What should you do? You can't just skip testing, you're a responsible developer!
 
 ## Approaches to developing in a multi-service ecosystem
 
@@ -37,7 +37,7 @@ There are a few approaches to solving this problem, each having their own tradeo
 
 This guide covers the hybrid of local and containerization using **Docker** as our virtual environment. You can use Docker to put your dependencies (e.g. compilers, runtimes, even entire databases) in a box, called a container, so that your only dependency is on Docker itself, and not the myriad of dependencies that each individual application service might have.
 
-Whether you're brand new to Docker, or have worked with it for decades, there are some questions you inevitably run into: how do I create these containers? And where can I put them? A popular method is to build the containers using an [automated CI/CD pipeline](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/what-is-ci-cd/), and then store them in a [container registry](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/container-registry/). Container Management is an extensive topic, and out of scope for this guide. This guide uses basic containers, with some basic build dependencies, and without any customization.
+Whether you're brand new to Docker, or have worked with it for decades, there are some questions you inevitably run into: how do I create these containers? And where can I put them? A popular method is to build the containers using an [automated CI/CD pipeline](/learningpaths/secure-software-supply-chain/what-is-ci-cd/), and then store them in a [container registry](/learningpaths/secure-software-supply-chain/container-registry/). Container Management is an extensive topic, and out of scope for this guide. This guide uses basic containers, with some basic build dependencies, and without any customization.
 
 This guide walks you through step-by-step instructions for using Docker to containerize inter-dependent services, and then confirming that communication is occurring between the services on your workstation and a service running within Docker.
 
@@ -197,7 +197,7 @@ Thanks to Amanda White, Brian Watkins, Will Sather, Al Bonney, and Chris Gunadi,
 
 [Docker Docs - I want to connect from a container to a service on the host](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
 
-[Labs Practices Site - Secure Software Supply Chains Learning Path](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/)
+[Labs Practices Site - Secure Software Supply Chains Learning Path](/learningpaths/secure-software-supply-chain/)
 
 [Podman - Installation Instructions](https://podman.io/docs/installation)
 

@@ -60,7 +60,7 @@ d="M176 80c-52.94 0-96 43.06-96 96 0 8.84 7.16 16 16 16s16-7.16
 260.85 352 220.37 352 176 352 78.8 273.2 0 176 0z"
 class=""></path></svg></div><div
 class="col-11"><p>팁: <a
-href="https://tanzu.vmware.com/developer/practices/journey-map">고객
+href="/practices/journey-map">고객
 여정 맵</a>의 단계를 끌어옵니다.</p></div></div>
 
 </li>
@@ -70,7 +70,7 @@ href="https://tanzu.vmware.com/developer/practices/journey-map">고객
 <p>워크숍을 진행합니다(1~2시간).</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/service-blueprint/images/image1.png"
+src="/practices/service-blueprint/images/image1.png"
 alt="서비스 Blueprint 예시"  /></p>
 
 <p>워크숍을 시작하기 전에 <strong>고객 여정을
@@ -283,16 +283,16 @@ Design 101</a>을 참조하십시오.</li>
 <h2 id="related-practices">관련 사례</h2>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/journey-map">고객
+href="/practices/journey-map">고객
 여정 맵</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/event-storming">이벤트
+href="/practices/event-storming">이벤트
 스토밍</a>은 비슷하지만 다릅니다.</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/event-storming/images/event-storming-vs-service-blueprint.png"><img
-src="https://tanzu.vmware.com/developer/practices/event-storming/images/event-storming-vs-service-blueprint.png"
+href="/practices/event-storming/images/event-storming-vs-service-blueprint.png"><img
+src="/practices/event-storming/images/event-storming-vs-service-blueprint.png"
 alt="이벤트 스토밍과 서비스 Blueprint 비교"  /></a></p>
 
 <h2 id="recommended-reading">권장 자료</h2>

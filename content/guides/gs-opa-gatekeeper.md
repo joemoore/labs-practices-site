@@ -42,7 +42,7 @@ Here are some useful resources for learning and understanding Rego:
 - [Rego Documentation](https://www.openpolicyagent.org/docs/latest/policy-language/)
 - [Rego playground to develop and test queries](https://play.openpolicyagent.org/)
 - [Testing locally using the `conftest` tool](https://github.com/open-policy-agent/conftest)
-- [Developing policies](https://tanzu.vmware.com/developer/guides/platform-security-opa/)
+- [Developing policies](/guides/platform-security-opa/)
 
 It is useful to understand the Rego language, but you can get started with OPA using the examples provided by the project, which cover a lot of use-cases.
 
@@ -141,7 +141,7 @@ Once created, the template can be used to create constraints that require a spec
 
 You can see the general structure of the template in the YAML below. The spec contains two main fields: `crd` and `targets`. The `targets` contains the Rego definition of the general constraint you want to use. You can find more information in the Rego documentation or you can use `kubectl explain` to explore the structure of the YAML used to define the templates.
 
-In the ‘targets’ section, you can see who the template refers to the Kubernetes specification of the resources to be reviewed by the policy, in this case `object.metadata.labels`.  
+In the ‘targets’ section, you can see who the template refers to the Kubernetes specification of the resources to be reviewed by the policy, in this case `object.metadata.labels`.
 You can define the message that you want to be reported if the constraint is violated in the template.
 
 Save the following YAML in a file named `example-constraint-template.yaml` for the next step.
@@ -458,7 +458,7 @@ Adding new constraint templates and new constraints will impact the cluster, and
 
 You can use the 'dry-run' capability by setting the `enforcementAction` property in the spec of the constraint to `dryrun`. Violations will then be logged, but will not be denied by the admission controller.
 
-For further details see:  
+For further details see:
 [Gatekeeper dry-run](https://open-policy-agent.github.io/gatekeeper/website/docs/next/violations/#dry-run-enforcement-action).
 
 ## Use Cases and Further Examples

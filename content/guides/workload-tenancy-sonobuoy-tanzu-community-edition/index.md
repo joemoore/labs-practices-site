@@ -199,7 +199,7 @@ With a Tanzu Community Edition cluster, Sonobuoy is built into the `tanzu` CLI, 
 
 # Learn more
 
-If you didn’t follow along, try [downloading](https://tanzucommunityedition.io/docs/latest/getting-started/) Tanzu Community Edition. You can also try Tanzu Community Edition locally with [unmanaged clusters](https://tanzucommunityedition.io/docs/latest/getting-started-unmanaged/), or you can try it out without spinning up your own clusters via free workshops on the [Labs Practices Site](https://tanzu.vmware.com/developer/workshops/).
+If you didn’t follow along, try [downloading](https://tanzucommunityedition.io/docs/latest/getting-started/) Tanzu Community Edition. You can also try Tanzu Community Edition locally with [unmanaged clusters](https://tanzucommunityedition.io/docs/latest/getting-started-unmanaged/), or you can try it out without spinning up your own clusters via free workshops on the [Labs Practices Site](/workshops/).
 
 To learn more about Sonobuoy and Kubernetes conformance testing, check out the following:
 

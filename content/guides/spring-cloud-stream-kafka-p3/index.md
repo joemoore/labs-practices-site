@@ -23,15 +23,15 @@ level1: Building Modern Applications
 level2: Services
 ---
 
-This tutorial is going to use the same example (Ordering System) from [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/), and craft it into a Stream Process with a modern Java Functional Programming Model by using `SCS` (Spring Cloud Stream Kafka).
+This tutorial is going to use the same example (Ordering System) from [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/), and craft it into a Stream Process with a modern Java Functional Programming Model by using `SCS` (Spring Cloud Stream Kafka).
 
-The Ordering System from [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/) may not be the perfect scenario for Streaming, but the purpose of this tutorial is to look at the problem with a Streaming approach and demonstrate how `SCS` can be helpful during this process.
+The Ordering System from [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/) may not be the perfect scenario for Streaming, but the purpose of this tutorial is to look at the problem with a Streaming approach and demonstrate how `SCS` can be helpful during this process.
 
 _Note: The complete running code for this tutorial is available in [Github](https://github.com/ehsaniara/scs-kafka-intro/tree/main/scs-100-2)._
 
 ## Introduction
 
-Looking back to the previous tutorial [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/), we see how it tracks the order status changes and overrides the status every time. However, there are some real-life use cases where you may need to know when the status changed (AKA change history).
+Looking back to the previous tutorial [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/), we see how it tracks the order status changes and overrides the status every time. However, there are some real-life use cases where you may need to know when the status changed (AKA change history).
 
 For example: If someone asks you “What time is it?”, or “What is the time now?, they actually want to know the current value of the time. They are not asking how time becomes the value.
 
@@ -45,11 +45,11 @@ Telematics or sensor data, app logs, and similar systems are the types of struct
 
 This document is written for those who:
 
-- Review and understand the previous tutorials [Part 1](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p1/) and [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/).
+- Review and understand the previous tutorials [Part 1](/guides/event-streaming/spring-cloud-stream-kafka-p1/) and [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/).
 - Have good knowledge of Java Functional Programming (preferably, Java 11).
 - Have a basic understanding of Kafka Stream and Topology, as well as [KStream](https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#streams_concepts_kstream), [Ktable](https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#streams_concepts_ktable), [Aggregation](https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#aggregating), [Joins](https://kafka.apache.org/20/documentation/streams/developer-guide/dsl-api.html#joining) and [State Store](https://kafka.apache.org/20/documentation/streams/architecture.html#streams_architecture_state).
 
-So, now it's the time to switch from what we used in [Part 1](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p1/) and [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/):
+So, now it's the time to switch from what we used in [Part 1](/guides/event-streaming/spring-cloud-stream-kafka-p1/) and [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/):
 
 ```xml
 <dependency>
@@ -69,13 +69,13 @@ Into this:
 
 By replacing the dependency to Spring Cloud Stream (`SCS`) for Kafka, we include new libraries that will help make the Kafka Topology. The library already has `rocksdbjni` and `org.apache.kafka:kafka-streams` where we need it for `KStream` and `KTable`.
 
-From [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/), here is the conversion of the Ordering System into what the Kafka Stream Topology will look like.
+From [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/), here is the conversion of the Ordering System into what the Kafka Stream Topology will look like.
 
 _Note: There are many ways to create the Topology for this problem. The following example is not the only solution._
 
 ![General Flow Diagram](images/kafka-events-intro-1002-2.svg)
 
-To overcome the [Known Issues](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/#known-issues) mentioned in the previous tutorial, we have a continued flow from the time the "order" is created and put in the Kafka topic through [`orderAggConsumer`](https://github.com/ehsaniara/scs-kafka-intro/blob/main/scs-100-2/src/main/java/com/ehsaniara/scs_kafka_intro/scs1002/OrderService.java#L69). This materializes the aggregate state value of the order per each `orderUuid`, so the temporary `HashMap` lookup can go away with it.
+To overcome the [Known Issues](/guides/event-streaming/spring-cloud-stream-kafka-p2/#known-issues) mentioned in the previous tutorial, we have a continued flow from the time the "order" is created and put in the Kafka topic through [`orderAggConsumer`](https://github.com/ehsaniara/scs-kafka-intro/blob/main/scs-100-2/src/main/java/com/ehsaniara/scs_kafka_intro/scs1002/OrderService.java#L69). This materializes the aggregate state value of the order per each `orderUuid`, so the temporary `HashMap` lookup can go away with it.
 
 Here is how we eventually manage our `StateStore`. Events are flowing through this `@Bean` every time it completes a step of it. All steps become an individual `@Bean`, where in the next tutorial they will become individual micro-services.
 
@@ -273,7 +273,7 @@ Now, run the test:
 ORDER_UUID=$(curl --silent -H 'Content-Type: application/json' -d "{\"itemName\":\"book\"}" http://localhost:8080/order | jq -r '.orderUuid') && for i in `seq 1 15`; do sleep 1; echo $(curl --silent "http://localhost:8080/order/status/"$ORDER_UUID); done;
 ```
 
-Similar to [Part 2](https://tanzu.vmware.com/developer/guides/event-streaming/spring-cloud-stream-kafka-p2/), you create an order and check its status every second for the next 15 seconds.
+Similar to [Part 2](/guides/event-streaming/spring-cloud-stream-kafka-p2/), you create an order and check its status every second for the next 15 seconds.
 
 ```text
 "PENDING"

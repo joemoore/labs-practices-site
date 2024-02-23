@@ -224,7 +224,7 @@ class="col-11"><p><strong>팁</strong>:
 <p>카드당 최대 4분까지 할애하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
+src="/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
 alt="현재, 단기, 장기 성과"  /></p>
 
 <div class="callout td-box--gray-darkest p-3 my-5
@@ -275,7 +275,7 @@ class="col-11"><p><strong>팁</strong>:
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/step-4.png"
+src="/practices/outcome-oriented-roadmap/images/step-4.png"
 alt="각 사분면에 스티커 메모가 붙여진 2x2 다이어그램"  /></p>
 
 <p>전체 팀과 함께 이 사분면에서 필요한 노력과 제공하는 가치에 따라 성과 카드를 구성합니다. 원형으로 한 바퀴
@@ -404,7 +404,7 @@ class="col-11"><p><strong>팁</strong>: 더
 느낄 수 있습니다.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
+src="/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
 alt="현재, 단기, 장기 성과"  /></p>
 
 </li>
@@ -525,7 +525,7 @@ id="successexpected-outcomes">성공/예상되는 성과</h3>
 됩니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
+src="/practices/outcome-oriented-roadmap/images/now-near-future-1.png"
 alt="현재, 단기, 장기 성과"  /></p>
 
 </div></div>
@@ -563,11 +563,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <p>비전, 임무, 전략 &ndash; 곧 제공 예정</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/lean-business-canvas">린
+href="/practices/lean-business-canvas">린
 비즈니스 캔버스</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+href="/practices/problem-prioritization">문제
 우선순위 지정</a></p>
 
 </div></div>
@@ -581,11 +581,11 @@ id="real-world-examples">실제 예시</h3>
 측정됨)이 있을 수 있습니다. 여기에 일부 예시가 나와 있으며, 최소한 성과와 우선순위는 있어야 합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/grid2.png"
+src="/practices/outcome-oriented-roadmap/images/grid2.png"
 alt="우선순위가 지정된 성과"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/outcome-oriented-roadmap/images/high-low.jpg"
+src="/practices/outcome-oriented-roadmap/images/high-low.jpg"
 alt="확실성 수준이 지정된 성과"  /></p>
 
 </div></div>

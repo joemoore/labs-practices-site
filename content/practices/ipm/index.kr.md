@@ -374,7 +374,7 @@ class="col-lg-9"><h3 id="preceding">이전
 단계</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/iteration-pre-planning">반복
+href="/practices/iteration-pre-planning">반복
 사전 계획</a>(선택 사항)</div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

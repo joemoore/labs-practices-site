@@ -67,7 +67,7 @@ Your role as a **Team Member**:
 
 ### Iteration Planning Meeting
 
-The Iteration Planning Meeting (IPM) is a regular meeting for the core team to understand and align on the work to be done. It is [similar but different to SCRUM Sprint Planning](https://tanzu.vmware.com/developer/practices/ipm/#sprint-planning-vs-iteration-planning),
+The Iteration Planning Meeting (IPM) is a regular meeting for the core team to understand and align on the work to be done. It is [similar but different to SCRUM Sprint Planning](/practices/ipm/#sprint-planning-vs-iteration-planning),
 
 Regular planning meetings help ensure the [product backlog](<https://en.wikipedia.org/wiki/Scrum_(software_development)#Product_backlog>) is well-understood by all team members and always reflects the current priorities. By discussing and sizing product backlog items, the team may align on the delivery impact of the work to be done.
 
@@ -76,7 +76,7 @@ Your role as a **Developer:**
 - Consider the technical feasibility of the [user stories](https://en.wikipedia.org/wiki/User_story#:~:text=In%20software%20development%20and%20product,digitally%20in%20project%20management%20software.) and raise any concerns.
 - Look for and suggest opportunities to break down large stories into smaller stories.
 - Ensure user stories describe the desired outcomes, and not the technical implementation.
-- [Estimate stories](https://tanzu.vmware.com/developer/practices/ipm/#estimation).
+- [Estimate stories](/practices/ipm/#estimation).
 
 Your role as a **Product Manager:**
 
@@ -90,7 +90,7 @@ Your role as a **Product Designer:**
 - Frame the supporting evidence (user research, testing results, etc.) for certain user flows
 - Clarify and walk through interaction patterns for certain user flows so it’s clear to the entire balanced team
 
-To learn more about IPMs and how to facilitate them, go [here](https://tanzu.vmware.com/developer/practices/ipm/).
+To learn more about IPMs and how to facilitate them, go [here](/practices/ipm/).
 
 ### Sponsor/Stakeholder Update and Demo
 
@@ -134,7 +134,7 @@ Your role as a **Meeting Participant**:
 - Identify action items to address issues raised.
 - Sign up for action items and be accountable for their completion.
 
-To learn more about Retrospectives and how to facilitate them, go [here](https://tanzu.vmware.com/developer/practices/3-column-retro/).
+To learn more about Retrospectives and how to facilitate them, go [here](/practices/3-column-retro/).
 
 ## In this article, you learned to:
 

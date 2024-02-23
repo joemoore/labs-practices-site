@@ -188,7 +188,7 @@ id="facilitator-notes--tips">진행자 메모 및 팁</h3>
 
 <p>필요에 따라 현재까지 확보한 사용자 역할 데이터를 기반으로 진행하십시오. 모든 새로운 사용자 통찰력을 취하고
 기존 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a>에 대한 가정을 검증 또는 실격 판정하거나, 이를 뒷받침할 새로운 정보를 찾는다면 새로운 사용자 역할을
 생성하십시오.</p>
 
@@ -199,7 +199,7 @@ href="https://tanzu.vmware.com/developer/practices/personas">사용자
 있습니다.</p>
 
 <p>또는 식별한 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a>에 대한 질문에서 카테고리를 생성할 수도 있습니다. 이러한 카테고리는 사용자 역할이 동일한 사용자에게만
 적용되는 경향이 있습니다. 예를 들어 합성 중에 사용자 인터뷰와 이해관계자 인터뷰를 혼합하지 마십시오.</p>
 
@@ -212,7 +212,7 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/assumptions">가정</a></li>
+href="/practices/assumptions">가정</a></li>
 
 </ul>
 

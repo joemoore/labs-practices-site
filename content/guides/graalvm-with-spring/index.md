@@ -59,8 +59,8 @@ You are probably familiar with [start.spring.io](https://start.spring.io).
 
 If not, there are other guides that show you how to use the website.
 
-- [Building an API with Spring Boot](https://tanzu.vmware.com/developer/guides/spring-build-api/)
-- [Spring for GraphQL](https://tanzu.vmware.com/developer/guides/spring-for-graphql/)
+- [Building an API with Spring Boot](/guides/spring-build-api/)
+- [Spring for GraphQL](/guides/spring-for-graphql/)
 
 You can use the website or `curl` to initialize your project
 with the Spring Initializr Web API.

@@ -167,7 +167,7 @@ class="col-11"><p><strong>팁</strong>:
 하십시오.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/risks-and-mitigations/images/step-3.png"
+src="/practices/risks-and-mitigations/images/step-3.png"
 alt="축에 레이블이 지정된 2x2 다이어그램"  /></p>
 
 </li>
@@ -236,6 +236,6 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/risks-and-mitigations/images/example-2.jpg"
-alt="한 열에는 리스크가 나와 있고 다른 열에는 이와 관련된 완화 전략이 나와 있는 화이트보드 표" 
+src="/practices/risks-and-mitigations/images/example-2.jpg"
+alt="한 열에는 리스크가 나와 있고 다른 열에는 이와 관련된 완화 전략이 나와 있는 화이트보드 표"
 /></div></div>

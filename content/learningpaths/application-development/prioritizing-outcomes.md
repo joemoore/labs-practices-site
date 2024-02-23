@@ -28,7 +28,7 @@ In this article, you will learn to:
 
 A user story is a short, simple description of a product feature told from the perspective of a user. It helps a team to understand what the feature is, who it is being built for and why it is valuable to build.
 
-Anyone on a team can contribute stories, although it is typically the product manager’s responsibility to maintain and prioritize a healthy backlog of user stories. This includes writing and prioritizing enough user stories for a team to work on during a 1 or 2 week sprint or iteration of work. Learn more about the product manager’s role on the team in our [Balanced Teams](https://tanzu.vmware.com/developer/outcomes/application-development/balanced-teams/) article.
+Anyone on a team can contribute stories, although it is typically the product manager’s responsibility to maintain and prioritize a healthy backlog of user stories. This includes writing and prioritizing enough user stories for a team to work on during a 1 or 2 week sprint or iteration of work. Learn more about the product manager’s role on the team in our [Balanced Teams](/outcomes/application-development/balanced-teams/) article.
 
 ### Why User Stories are Useful
 
@@ -148,7 +148,7 @@ Agile software teams use **estimation** to understand the relative complexity of
 - It allows the team to get to a shared understanding of the story and the risks or unknowns they could encounter.
 - Over time, estimates can be used to predict how long it will take to deliver a particular feature or release.
 
-When discussing a story, usually in an [iteration or sprint planning meeting](https://tanzu.vmware.com/developer/practices/ipm/), teams will estimate the size of a story in terms of **story points**. Story points measure a story’s complexity and risk. Teams use different scales. For example:
+When discussing a story, usually in an [iteration or sprint planning meeting](/practices/ipm/), teams will estimate the size of a story in terms of **story points**. Story points measure a story’s complexity and risk. Teams use different scales. For example:
 
 - A simple scale of 1, 2, or 3 points
 - "T-shirt sizing" as Small (S), Medium (M), Large (L), Extra Large (XL)
@@ -158,7 +158,7 @@ We use scales rather than time estimates because time estimates are known to be 
 
 **Relative complexity** means thinking about similar stories that the team has delivered in the past and making a relative estimate. This way, the team can build up a consistent, shared idea of what constitutes a small, medium or large-sized story.
 
-When team members give different estimates for a story, this can give rise to valuable conversations! Estimation prompts team members to talk about their assumptions and arrive at a shared understanding of what is involved in the work. Learn more in our [short guide to estimation](https://tanzu.vmware.com/developer/practices/ipm/#estimation).
+When team members give different estimates for a story, this can give rise to valuable conversations! Estimation prompts team members to talk about their assumptions and arrive at a shared understanding of what is involved in the work. Learn more in our [short guide to estimation](/practices/ipm/#estimation).
 
 ## Describe How Measuring Velocity Enables Teams to Predict Delivery{id=velocity}
 
@@ -186,7 +186,7 @@ If the number of story points a team delivers varies widely across multiple iter
 
 ## Keep Learning
 
-Find out how to run an [iteration planning meeting](https://tanzu.vmware.com/developer/practices/ipm/), where your team will estimate and discuss user stories.
+Find out how to run an [iteration planning meeting](/practices/ipm/), where your team will estimate and discuss user stories.
 
 Read our [blog post on how to write user stories that are easy to understand](https://tanzu.vmware.com/content/blog/be-good-to-your-devs-write-user-stories-that-are-easy-to-understand).
 

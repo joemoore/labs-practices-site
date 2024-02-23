@@ -81,8 +81,8 @@ In lesson 3 of this series, we’ll dive deeper into how a team might collaborat
 
 ## Resources
 
-[Event Storming | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/event-storming/)
+[Event Storming | VMware Labs Practices Site](/practices/event-storming/)
 
-[Boris | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/boris/)
+[Boris | VMware Labs Practices Site](/practices/boris/)
 
-[Ubiquitous Language | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/ubiquitous-language/)
+[Ubiquitous Language | VMware Labs Practices Site](/practices/ubiquitous-language/)

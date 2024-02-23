@@ -36,7 +36,7 @@ faqs:
       answer:
         Logs in Spring Boot can be managed by enabling logback in a POM, containing
         configuration details and other vital information about the project. Additionally,
-        [Prometheus](https://tanzu.vmware.com/developer/guides/spring/spring-prometheus/)
+        [Prometheus](/guides/spring/spring-prometheus/)
         and Grafana can also be utilized when trying to visualize data and metrics.
     - question:
         How do you capture both requests and responses when diagnosing bugs

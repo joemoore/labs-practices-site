@@ -72,7 +72,7 @@ class="col-11"><p><strong>팁</strong>:
 <p>화이트보드 공간이 제한적인 경우, 창문에 이 연습을 수행할 수 있습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/solution-prioritization/images/step-1.png"
+src="/practices/solution-prioritization/images/step-1.png"
 alt="빈 2x2 사분면"  /></p>
 
 </li>
@@ -110,7 +110,7 @@ class="col-11"><p><strong>팁</strong>:
 <p>이 기회를 활용하여 특히 비즈니스 기반인 제품에서 모든 부동의 요구 사항을 추출합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/solution-prioritization/images/step-2.png"
+src="/practices/solution-prioritization/images/step-2.png"
 alt="채워진 2x2 사분면"  /></p>
 
 </li>
@@ -147,7 +147,7 @@ class="col-11"><p><strong>팁</strong>:
 조정하십시오.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/solution-prioritization/images/step-3.png"
+src="/practices/solution-prioritization/images/step-3.png"
 alt="중첩된 2x2 사분면"  /></p>
 
 </li>
@@ -178,7 +178,7 @@ id="related-practices">관련 사례</h2>
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/2x2">2x2
+href="/practices/2x2">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -192,7 +192,7 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming">솔루션
 브레인스토밍</a></li>
 
 <li>솔루션 다듬기 - 곧 제공 예정</li>
@@ -210,7 +210,7 @@ class="col-lg-9"><h3 id="following">다음
 <li>시나리오 워크스루 &ndash; 곧 제공 예정</li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/design-studio">설계
+href="/practices/design-studio">설계
 스튜디오</a></li>
 
 </ul>
@@ -222,6 +222,6 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/solution-prioritization/images/example-6.jpg"
-alt="솔루션의 우선순위가 지정된 디지털 2x2 다이어그램" 
+src="/practices/solution-prioritization/images/example-6.jpg"
+alt="솔루션의 우선순위가 지정된 디지털 2x2 다이어그램"
 /></div></div>

@@ -148,7 +148,7 @@ Documentation can be anything that has been documented, so this is another place
 
 ### One final thought on terminology
 
-Knowing the impact that loaded terminology can have on communication, you may be tempted to align on team-specific definitions for these terms, via something like a [ubiquitous language workshop](https://tanzu.vmware.com/developer/practices/ubiquitous-language/). This could be a great solution to the problem. The word of caution we will share is this:
+Knowing the impact that loaded terminology can have on communication, you may be tempted to align on team-specific definitions for these terms, via something like a [ubiquitous language workshop](/practices/ubiquitous-language/). This could be a great solution to the problem. The word of caution we will share is this:
 
 > Language tends to be deeply embedded in people—dislodging or “correcting” internalized definitions from their minds might be very difficult, even if they have the best intentions of seeing them dislodged.
 
@@ -197,7 +197,7 @@ As discussed, a design system provides a common starting point in the form of so
 
 ## Common Challenges
 
-> “No matter how hard you fight the darkness, every light casts a shadow…”  
+> “No matter how hard you fight the darkness, every light casts a shadow…”
 > — Plato
 
 Design systems are no exception to Plato’s insightful observation of this basic reality. For all the value there is to be gained by using them, design systems do not come without some very real challenges. While some of these challenges are inherent, requiring vigilance and discipline to navigate, others are entirely avoidable. Let’s muse on some common challenges around design systems, and how you can approach navigating them.

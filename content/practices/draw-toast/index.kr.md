@@ -203,7 +203,7 @@ id="related-practices">관련 사례</h3>
 <p>디지털 그림 태블릿을 사용한 좋은 예시는 다음과 같습니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/draw-toast/images/example-6.jpg"
+src="/practices/draw-toast/images/example-6.jpg"
 alt="디지털 토스트 그림"  /></p>
 
 </div></div>
@@ -213,19 +213,19 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/draw-toast/images/example-5.jpg"
+src="/practices/draw-toast/images/example-5.jpg"
 alt="토스트 그림"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/draw-toast/images/example-3.jpg"
+src="/practices/draw-toast/images/example-3.jpg"
 alt="토스트 그림"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/draw-toast/images/example-4.jpg"
+src="/practices/draw-toast/images/example-4.jpg"
 alt="토스트 그림"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/draw-toast/images/example-1.jpg"
+src="/practices/draw-toast/images/example-1.jpg"
 alt="토스트 그림"  /></p>
 
 </div></div>

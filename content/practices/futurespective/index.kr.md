@@ -136,7 +136,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/futurespective/images/example.png"
+src="/practices/futurespective/images/example.png"
 alt="설계 스튜디오 예시"  /></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

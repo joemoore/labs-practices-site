@@ -68,7 +68,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <li>
 
 <p>사용자 여정, <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a> 또는 팀이 작성한 시나리오를 활용하여 해결하려는 문제가 무엇이며 누구를 위해 해결하려고 하는지
 정의합니다.</p>
 
@@ -108,7 +108,7 @@ class="col-11"><p><strong>팁</strong>:
 프레임 표시, 텍스트, 상자)을 수행합니다.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-1.png"
+src="/practices/design-studio/images/ds-1.png"
 alt="설계 스튜디오 1단계"  /></p>
 
 </li>
@@ -154,7 +154,7 @@ class="col-11"><p><strong>팁</strong>:
 피드백을 스티커 메모에 적고 시트에 붙이도록 합니다. 모두에게 공유할 기회가 주어지도록 하십시오.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-1.png"
+src="/practices/design-studio/images/ds-example-1.png"
 alt="설계 스튜디오 예시"  /></p>
 
 </li>
@@ -165,7 +165,7 @@ alt="설계 스튜디오 예시"  /></p>
 아이디어를 기반으로 생각을 발전시킵니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-2.png"
+src="/practices/design-studio/images/ds-2.png"
 alt="설계 스튜디오 2라운드"  /></p>
 
 </li>
@@ -175,7 +175,7 @@ alt="설계 스튜디오 2라운드"  /></p>
 <p>모든 사람이 다시 자신의 생각을 공유하도록 합니다(사람당 1~2분).</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-4.png"
+src="/practices/design-studio/images/ds-example-4.png"
 alt="설계 스튜디오 예시"  /></p>
 
 </li>
@@ -195,7 +195,7 @@ alt="설계 스튜디오 예시"  /></p>
 <strong>요소</strong>에 점을 부착하도록 합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-3.png"
+src="/practices/design-studio/images/ds-3.png"
 alt="설계 스튜디오 점 투표"  /></p>
 
 </li>
@@ -207,11 +207,11 @@ alt="설계 스튜디오 점 투표"  /></p>
 근거를 분류해 보라고 요청합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-4.png"
+src="/practices/design-studio/images/ds-4.png"
 alt="설계 스튜디오 논의"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-2.png"
+src="/practices/design-studio/images/ds-example-2.png"
 alt="설계 스튜디오 예시"  /></p>
 
 </li>
@@ -308,15 +308,15 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 역할</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/journey-map">여정
+href="/practices/journey-map">여정
 맵</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/scenario-writing">시나리오
+href="/practices/scenario-writing">시나리오
 작성</a></li>
 
 </ul>
@@ -328,15 +328,15 @@ class="col-lg-9"><h2
 id="real-world-examples">실제 예시</h2>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-3.png"
+src="/practices/design-studio/images/ds-example-3.png"
 alt="설계 스튜디오 예시"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-5.png"
+src="/practices/design-studio/images/ds-example-5.png"
 alt="설계 스튜디오 예시"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/design-studio/images/ds-example-6.png"
+src="/practices/design-studio/images/ds-example-6.png"
 alt="설계 스튜디오 예시"  /></p>
 
 </div></div>

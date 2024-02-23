@@ -91,7 +91,7 @@ class="col-11"><p><strong>팁</strong>:
 그룹/테마를 열로 추가합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/team-values/images/step-3.png"
+src="/practices/team-values/images/step-3.png"
 alt="그룹으로 분류된 팀 가치 스티커 메모 그림"  /></p>
 
 </li>
@@ -158,12 +158,12 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/team-values/images/example-1.png"
-alt="그룹화된 팀 가치의 목록이 타이핑되었으며 가 그룹의 가치 설명이 요약되어 있는 모습" 
+src="/practices/team-values/images/example-1.png"
+alt="그룹화된 팀 가치의 목록이 타이핑되었으며 가 그룹의 가치 설명이 요약되어 있는 모습"
 /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/team-values/images/example-2.jpeg"
+src="/practices/team-values/images/example-2.jpeg"
 alt="벽의 팀 프로젝트 공간에 부착된 가치 설명 요약"  /></p>
 
 </div></div>

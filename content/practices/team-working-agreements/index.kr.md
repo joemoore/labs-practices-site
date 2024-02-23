@@ -331,7 +331,7 @@ class="col-11"><p>팁: 합의 사항을 모두에게 e-메일로 발송하고 �
 있는 공간에 생각할 거리로 추가합니다.</p></div></div>
 
 <p>PDF 예시: <a
-href="https://tanzu.vmware.com/developer/practices/team-working-agreements/images/team-working-agreement-example.pdf">팀
+href="/practices/team-working-agreements/images/team-working-agreement-example.pdf">팀
 업무 합의 문서 예시</a></p>
 
 </li>
@@ -357,7 +357,7 @@ href="https://tanzu.vmware.com/developer/practices/team-working-agreements/image
 <h2 id="related-practices">관련 사례</h2>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/team-values">팀
+href="/practices/team-values">팀
 가치</a></p>
 
 <h2 id="real-world-examples">실제 예시</h2>
@@ -365,6 +365,6 @@ href="https://tanzu.vmware.com/developer/practices/team-values">팀
 <p>팀 업무 합의 문서 예시:</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/team-working-agreements/images/team-working-agreement-example.pdf"><img
-src="https://tanzu.vmware.com/developer/practices/team-working-agreements/images/team-working-agreement-large.png"
+href="/practices/team-working-agreements/images/team-working-agreement-example.pdf"><img
+src="/practices/team-working-agreements/images/team-working-agreement-large.png"
 alt="팀 업무 합의 문서 예시"  /></a></p>

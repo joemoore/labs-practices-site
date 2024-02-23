@@ -80,7 +80,7 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  지정합니다.</p>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/2x2/images/2x2-empty.png"
+ src="/practices/2x2/images/2x2-empty.png"
  alt="비어 있는 2x2 그리드"  /></p>
 
  <div class="callout td-box--gray-darkest p-3 my-5
@@ -178,7 +178,7 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  없어지고 우선순위를 결정하기가 더 쉬워집니다.</p></div></div>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/2x2/images/2x2-populated.png"
+ src="/practices/2x2/images/2x2-populated.png"
  alt="채워진 2x2 그리드"  /></p>
 
  </li>
@@ -206,7 +206,7 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  조정하십시오.</p>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/2x2/images/2x2-regrid.png"
+ src="/practices/2x2/images/2x2-regrid.png"
  alt="다시 그린 2x2 축 그리드"  /></p>
 
  </li>
@@ -251,15 +251,15 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  id="related-practices">관련 사례</h2>
 
  <p><a
- href="https://tanzu.vmware.com/developer/practices/insight-prioritization">통찰력
+ href="/practices/insight-prioritization">통찰력
  우선순위 지정</a></p>
 
  <p><a
- href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+ href="/practices/problem-prioritization">문제
  우선순위 지정</a></p>
 
  <p><a
- href="https://tanzu.vmware.com/developer/practices/solution-prioritization">솔루션
+ href="/practices/solution-prioritization">솔루션
  우선순위 지정</a></p>
 
  </div></div>
@@ -269,20 +269,20 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  id="real-world-examples">실제 예시</h2>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-2.jpg"
+ src="/practices/problem-prioritization/images/example-2.jpg"
  alt="빈도와 강도를 기준으로 하는 2x2 차트 문제 구성"  /></p>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-3.jpg"
- alt="화이트보드의 2x2 차트 앞에서 우선순위를 논의하는 여러 사람의 모습" 
+ src="/practices/problem-prioritization/images/example-3.jpg"
+ alt="화이트보드의 2x2 차트 앞에서 우선순위를 논의하는 여러 사람의 모습"
  /></p>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-5.jpg"
+ src="/practices/problem-prioritization/images/example-5.jpg"
  alt="최상위 문제에 대한 우선순위가 지정된 2x2 차트"  /></p>
 
  <p><img
- src="https://tanzu.vmware.com/developer/practices/solution-prioritization/images/example-6.jpg"
+ src="/practices/solution-prioritization/images/example-6.jpg"
  alt="솔루션의 우선 순위가 지정된 디지털 2x2 다이어그램"  /></p>
 
  </div></div>

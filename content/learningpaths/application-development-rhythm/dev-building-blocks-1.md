@@ -56,7 +56,7 @@ Pair programming addresses many of the challenges of modern application
 development,
 and is a top-level practice for your team to adopt.
 
-You can read more about it [here](https://tanzu.vmware.com/developer/outcomes/application-development/pair-programming/).
+You can read more about it [here](/outcomes/application-development/pair-programming/).
 
 If you work on a distributed team, a remote team,
 or work on an outsourcing arrangement,
@@ -74,7 +74,7 @@ through mature techniques and tools.
 
 _Test-Driven development_ is a test-first practice.
 You can read more about it
-[here](https://tanzu.vmware.com/developer/outcomes/application-development/test-driven-development/).
+[here](/outcomes/application-development/test-driven-development/).
 
 Test-first practices ultimately improve speed,
 safety and sustainability because they let you:
@@ -88,7 +88,7 @@ safety and sustainability because they let you:
 ## Continuous Integration Practices
 
 Read about
-[Continuous Integration here](https://tanzu.vmware.com/developer/guides/ci-cd/ci-cd-what-is/#what-is-ci).
+[Continuous Integration here](/guides/ci-cd/ci-cd-what-is/#what-is-ci).
 
 You may associate this with merging (_pushing_) your work to the
 team’s repository,

@@ -222,7 +222,7 @@ class="col-11"><p><strong>팁</strong>:
 <li>
 
 <p>이 페르소나가 대표하는 사람에 대한 접근 계획과 이 페르소나를 평가하기 위해 수행할 <a
-href="https://tanzu.vmware.com/developer/practices/user-research-introduction-session/">사용자
+href="/practices/user-research-introduction-session/">사용자
 연구 활동</a> 계획을 수립합니다. Tanzu Practices 센터에서 Discovery(탐색)로 레이블이
 지정된 활동을 확인하면 다른 옵션을 볼 수 있습니다.</p>
 
@@ -235,7 +235,7 @@ href="https://tanzu.vmware.com/developer/practices/user-research-introduction-se
 
 <p>통합된 프로토 페르소나를 생성했으며 회의실의 모든 사람이 이 페르소나가 대상 청중을 가장 잘 나타낸다고
 느낀다면 연습이 성공적인 것입니다. 중요한 다음 단계는 인터뷰를 비롯한 <a
-href="https://tanzu.vmware.com/developer/practices/user-research-introduction-session/">사용자
+href="/practices/user-research-introduction-session/">사용자
 연구</a>를 통해 이 페르소나를 검증하는 것이라는 사실을 기억하십시오.</p>
 
 <h3 id="variations">변형</h3>
@@ -292,17 +292,17 @@ href="https://tanzu.vmware.com/developer/practices/user-research-introduction-se
 <h3 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/personas/images/example-1.png"
+src="/practices/personas/images/example-1.png"
 alt="모든 사람이 보고 듣는 가운데 페르소나를 제시하는 팀원"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/personas/images/example-2.png"
+src="/practices/personas/images/example-2.png"
 alt="4개의 살아남은 사분면을 보여주는 종이 기반 페르소나의 예시"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/personas/images/example-3.png"
+src="/practices/personas/images/example-3.png"
 alt="종이 기반 페르소나의 예시"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/personas/images/example-5.jpg"
+src="/practices/personas/images/example-5.jpg"
 alt="디지털 페르소나 템플릿의 예시"  /></p>

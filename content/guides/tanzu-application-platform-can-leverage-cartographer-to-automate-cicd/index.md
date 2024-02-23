@@ -20,9 +20,9 @@ team:
   - Gowtham Shankar
 ---
 
-VMware Tanzu Application Platform is a modular, application-aware platform that gives developers a prepaved path to production for building and deploying software on any compliant public cloud or on-premises Kubernetes cluster. Designed to deliver a superior and secure developer experience, it makes the [software supply chain even more secure](https://tanzu.vmware.com/developer/guides/supply-chain-choreography/) with a suite of features, including vulnerability scanning, a software bill of materials, image signing, and more.
+VMware Tanzu Application Platform is a modular, application-aware platform that gives developers a prepaved path to production for building and deploying software on any compliant public cloud or on-premises Kubernetes cluster. Designed to deliver a superior and secure developer experience, it makes the [software supply chain even more secure](/guides/supply-chain-choreography/) with a suite of features, including vulnerability scanning, a software bill of materials, image signing, and more.
 
-In order to understand how Tanzu Application Platform leverages the supply chain to automate the CI/CD process, let’s start by looking at the basic steps involved in a cloud native [CI/CD process](https://tanzu.vmware.com/developer/guides/ci-cd-what-is/).
+In order to understand how Tanzu Application Platform leverages the supply chain to automate the CI/CD process, let’s start by looking at the basic steps involved in a cloud native [CI/CD process](/guides/ci-cd-what-is/).
 
 ![An example pipeline](images/image1.jpg)
 

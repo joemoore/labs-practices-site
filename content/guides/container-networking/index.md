@@ -19,7 +19,7 @@ level2: Building Your Kubernetes Platform
 description: An introduction to Container Network Interface (CNI) plugins
 ---
 
-[Kubernetes](https://tanzu.vmware.com/developer/guides/what-is-kubernetes/) uses the [Container Network
+[Kubernetes](/guides/what-is-kubernetes/) uses the [Container Network
 Interface](https://github.com/containernetworking/cni) (CNI) to provide
 networking functionality to [containers](https://tanzu.vmware.com/containers). Networking is implemented in CNI
 plugins. The interface / plugin model enables Kubernetes to support many

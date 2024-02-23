@@ -46,7 +46,7 @@ It currently[^2] contains the following tools:
 
 **Workshops**
 
-- [Getting Started with Carvel](https://tanzu.vmware.com/developer/workshops/lab-getting-started-with-carvel/)
+- [Getting Started with Carvel](/workshops/lab-getting-started-with-carvel/)
 
 [^1]: Formerly k14s
 [^2]: As of April 13, 2021

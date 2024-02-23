@@ -58,7 +58,7 @@ You’ll need stories ready for three main project phases:
    {{% /callout %}}
 
    {{% callout %}}
-   Tip: Your users don't have to be human! Sometimes the actors and consumers of a system are themselves other systems, or software, or devices. This can be common in event-based or internet-of-things systems. Please see our Tanzu guide for [Writing User Stories for Event-Based Systems](https://tanzu.vmware.com/developer/guides/writing-agile-user-stories/) for how to write stories for these systems.  
+   Tip: Your users don't have to be human! Sometimes the actors and consumers of a system are themselves other systems, or software, or devices. This can be common in event-based or internet-of-things systems. Please see our Tanzu guide for [Writing User Stories for Event-Based Systems](/guides/writing-agile-user-stories/) for how to write stories for these systems.
    {{% /callout %}}
 
 4. **Write acceptance criteria.** These are scenarios that the engineers will use to write automated tests during development, and the Product Manager will use for acceptance testing when the story is delivered. Acceptance criteria describe what “done” looks like from a user’s perspective. They help the team understand what needs to be done, identify blockers and dependencies, understand and estimate complexity, understand how the work will be tested and accepted, and think about a test-driven development approach.
@@ -160,6 +160,6 @@ Tip: A good sign that a story has gotten too big is when it has several blocks o
 
 ## Recommended Reading
 
-Tanzu Guide: [Writing User Stories for Event-Based Systems](https://tanzu.vmware.com/developer/guides/writing-agile-user-stories/)
+Tanzu Guide: [Writing User Stories for Event-Based Systems](/guides/writing-agile-user-stories/)
 
 Tanzu Learning Path - Foundations of Modern Application Development Practices: [Prioritizing Impactful Outcomes: User Stories, Estimation, and Velocity](/learningpaths/application-development/prioritizing-outcomes/)

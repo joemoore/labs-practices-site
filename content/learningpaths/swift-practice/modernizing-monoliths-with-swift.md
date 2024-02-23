@@ -62,10 +62,10 @@ In our experience after working with hundreds of organizations, Swift is a power
 
 ## Resources
 
-[Breaking Down a Monolith into Microservices](https://tanzu.vmware.com/developer/guides/deconstructing-the-monolith/)
+[Breaking Down a Monolith into Microservices](/guides/deconstructing-the-monolith/)
 
-[Event Storming | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/event-storming/)
+[Event Storming | VMware Labs Practices Site](/practices/event-storming/)
 
-[Boris | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/boris/)
+[Boris | VMware Labs Practices Site](/practices/boris/)
 
 [Modernize Monolithic Apps with Pivotal/Tanzu Labs](https://tanzu.vmware.com/content/infographics/modernize-monolithic-apps-with-vmware-tanzu-labs)

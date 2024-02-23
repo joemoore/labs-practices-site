@@ -83,7 +83,7 @@ class="col-11"><p><strong>팁</strong>:
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/insight-prioritization/images/step-3.png"
+src="/practices/insight-prioritization/images/step-3.png"
 alt="빈 2x2 다이어그램"  /></p>
 
 </li>
@@ -124,7 +124,7 @@ class="col-11"><p><strong>팁</strong>:
 </ol>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/insight-prioritization/images/step-4.png"
+src="/practices/insight-prioritization/images/step-4.png"
 alt="각 사분면에 스티커 메모가 붙여진 2x2 다이어그램"  /></p>
 
 </div></div>
@@ -142,7 +142,7 @@ id="related-practices">관련 사례</h3>
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/2x2">2x2
+href="/practices/2x2">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -156,11 +156,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+href="/practices/problem-prioritization">문제
 우선순위 지정</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/research-synthesis">연구
+href="/practices/research-synthesis">연구
 합성</a></li>
 
 </ul>
@@ -172,7 +172,7 @@ class="col-lg-9"><h3 id="parallel">동시
 진행</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+href="/practices/problem-prioritization">문제
 우선순위 지정</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -180,5 +180,5 @@ class="col-lg-9"><h3 id="following">다음
 단계</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming">솔루션
 브레인스토밍</a></div></div>

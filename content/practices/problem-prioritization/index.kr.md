@@ -82,7 +82,7 @@ class="col-11"><p><strong>팁</strong>:
 있습니다.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/step-3.png"
+src="/practices/problem-prioritization/images/step-3.png"
 alt="빈 2x2 다이어그램"  /></p>
 
 </li>
@@ -92,7 +92,7 @@ alt="빈 2x2 다이어그램"  /></p>
 <p>2x2 표에 문제/해결 과제를 표현합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/step-4.png"
+src="/practices/problem-prioritization/images/step-4.png"
 alt="각 사분면에 스티커 메모가 붙여진 2x2 다이어그램"  /></p>
 
 </li>
@@ -155,7 +155,7 @@ id="variations">변형</h3>
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/2x2">2x2
+href="/practices/2x2">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -169,7 +169,7 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/research-synthesis">연구
+href="/practices/research-synthesis">연구
 합성</a></li>
 
 </ul>
@@ -183,11 +183,11 @@ class="col-lg-9"><h3 id="following">다음
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization">통찰력
 우선순위 지정</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming">솔루션
 브레인스토밍</a></li>
 
 </ul>
@@ -199,16 +199,16 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-2.jpg"
+src="/practices/problem-prioritization/images/example-2.jpg"
 alt="빈도와 강도를 기준으로 하는 2x2 차트 문제 구성"  /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-3.jpg"
-alt="화이트보드의 2x2 차트 앞에서 우선순위를 논의하는 여러 사람의 모습" 
+src="/practices/problem-prioritization/images/example-3.jpg"
+alt="화이트보드의 2x2 차트 앞에서 우선순위를 논의하는 여러 사람의 모습"
 /></p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/problem-prioritization/images/example-5.jpg"
+src="/practices/problem-prioritization/images/example-5.jpg"
 alt="최상위 문제에 대한 우선순위가 지정된 2x2 차트"  /></p>
 
 </div></div>

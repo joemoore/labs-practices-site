@@ -91,7 +91,7 @@ The input for an Agile developer workflow is a single story.
 
 The output of the Agile developer's workflow is functioning software
 that is pulled into a downstream
-_[Continuous Delivery](https://tanzu.vmware.com/developer/guides/ci-cd/ci-cd-what-is/#what-is-cd)_
+_[Continuous Delivery](/guides/ci-cd/ci-cd-what-is/#what-is-cd)_
 _Pipeline_ for purposes of being able to deliver features or fixes to
 production at any time.
 
@@ -180,8 +180,8 @@ lifecycle.
 
 You can read more about it in the following articles:
 
-- [Team Rhythm](https://tanzu.vmware.com/developer/outcomes/application-development/team-rhythm/)
-- [Product Validation](https://tanzu.vmware.com/developer/outcomes/application-development/product-validation/)
+- [Team Rhythm](/outcomes/application-development/team-rhythm/)
+- [Product Validation](/outcomes/application-development/product-validation/)
 
 The developers daily workflow also includes a series of fine-grained
 feedback loops.

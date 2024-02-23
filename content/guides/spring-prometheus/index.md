@@ -49,7 +49,7 @@ faqs:
     - question: How do I set up Prometheus and Grafana?
       answer:
         Check out our thorough guide that walks through [how to set up Prometheus
-        and Grafana](https://tanzu.vmware.com/developer/guides/kubernetes/observability-prometheus-grafana-p1/)
+        and Grafana](/guides/kubernetes/observability-prometheus-grafana-p1/)
         for the first time.
     - question: Can you add custom metrics in Spring Boot Actuator and Prometheus?
       answer:

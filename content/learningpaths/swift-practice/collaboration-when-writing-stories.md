@@ -71,6 +71,6 @@ In the next lesson, we’ll look at collaboration amongst a balanced team while 
 
 ## Resources
 
-[Writing Agile User Stories for Event-Based Systems | VMware Labs Practices Site](https://tanzu.vmware.com/developer/guides/writing-agile-user-stories/)
+[Writing Agile User Stories for Event-Based Systems | VMware Labs Practices Site](/guides/writing-agile-user-stories/)
 
 [How to Write User Stories Without Users](https://tanzu.vmware.com/content/blog/how-to-write-user-stories-without-users)

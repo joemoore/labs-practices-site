@@ -261,6 +261,6 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/assumptions/images/example-2.jpg"
-alt="비즈니스 제거 가능성과 증거의 양을 기준으로 하는 2x2 차트 가정 계획 수립의 이미지" 
+src="/practices/assumptions/images/example-2.jpg"
+alt="비즈니스 제거 가능성과 증거의 양을 기준으로 하는 2x2 차트 가정 계획 수립의 이미지"
 /></div></div>

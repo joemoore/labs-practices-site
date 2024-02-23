@@ -39,7 +39,7 @@ Before you get started, you will need to do the following:
 - Create a Kubernetes cluster
 - Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/) locally
 - Install the **latest** `kapp`, `ytt`, and `imgpkg` CLIs via one of these options:
-  - [Homebrew](https://github.com/vmware-tanzu/homebrew-carvel)  
+  - [Homebrew](https://github.com/vmware-tanzu/homebrew-carvel)
     If you've installed them via `brew` previously, please run the following anyway to update:
     ```
     brew tap vmware-tanzu/carvel
@@ -128,12 +128,12 @@ roleRef:
   name: cluster-admin
 ```
 
-> ytt is the YAML Swiss Army knife!  
+> ytt is the YAML Swiss Army knife!
 > We'll need to create a lot of Namespaces, ServiceAccounts, and RoleBindings
-> -- ytt allows us to reuse the same code to do so with different options.  
+> -- ytt allows us to reuse the same code to do so with different options.
 > Check out the ytt program in the `./ns-rbac` directory.
 >
-> To learn more about [ytt](https://carvel.dev/ytt/), check out our [Getting Started with ytt guide](https://tanzu.vmware.com/developer/guides/kubernetes/ytt-gs/).
+> To learn more about [ytt](https://carvel.dev/ytt/), check out our [Getting Started with ytt guide](/guides/kubernetes/ytt-gs/).
 
 Now, deploy the `apps-mgmt` Namespace and RBAC with `ytt` and `kapp`:
 
@@ -204,7 +204,7 @@ spec:
     - kapp: {}
 ```
 
-We see in these two Apps that they fetch from the `ns-rbac` subPath of the [vmware-tanzu-labs/tdc-carvel-examples](https://github.com/vmware-tanzu-labs/tdc-carvel-examples) GitHub repo.  
+We see in these two Apps that they fetch from the `ns-rbac` subPath of the [vmware-tanzu-labs/tdc-carvel-examples](https://github.com/vmware-tanzu-labs/tdc-carvel-examples) GitHub repo.
 (If you forked the repo and did the find and replace, you should see your repo here instead.)
 
 The first App manages the `dev` Namespace and RBAC.

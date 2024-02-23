@@ -44,7 +44,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 주도 설계) 용어를 설명합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/event-storming/images/step-1.png"
+src="/practices/event-storming/images/step-1.png"
 alt="게임스토밍 흐름(작성자: Dave Gray)"  /></p>
 
 </li>
@@ -99,7 +99,7 @@ class="col-11"><p><strong>예시</strong>:
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/event-storming/images/example-2.jpg"
+src="/practices/event-storming/images/example-2.jpg"
 alt="샘플 경계 컨텍스트에 둘러싸인 여러 이벤트 스티커 메모"  /></p>
 
 </li>
@@ -131,7 +131,7 @@ alt="샘플 경계 컨텍스트에 둘러싸인 여러 이벤트 스티커 메�
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/event-storming/images/example-1.png"
+src="/practices/event-storming/images/example-1.png"
 alt="Boris용 서비스 노드 입력으로 이어지는 이벤트 스토밍 출력"  /></p>
 
 </li>
@@ -218,7 +218,7 @@ class="col-11"><p><strong>팁</strong>:
 
 <p>이러한 이벤트 덩어리 또는 공통 그룹은 개념적 서비스 후보(얼마나 팀이 견고하게 DDD 정의를 수립했는지에
 따라 행위자 또는 집합체)를 제공합니다. 이들은 <a
-href="https://tanzu.vmware.com/developer/practices/boris">Boris</a>
+href="/practices/boris">Boris</a>
 연습 중에 사용됩니다.</p>
 
 </li>
@@ -227,7 +227,7 @@ href="https://tanzu.vmware.com/developer/practices/boris">Boris</a>
 
 <p><strong>선택 사항:</strong> 사용자가 작업을 수행해야 할 다양한 뷰를
 식별하고 여러 사용자의 중요한 역할을 파악합니다. 밝은 노란색 스티커 메모를 사용하여 사용자 역할 또는 <a
-href="https://tanzu.vmware.com/developer/practices/personas">사용자
+href="/practices/personas">사용자
 유형</a>을 식별합니다. 스티커 메모를 사용하여 사용자 역할, 사용자 유형, 현금 또는 도메인에서 중요한 다른
 항목을 점증적으로 표시하여 이벤트 스토밍을 강화합니다.</p>
 
@@ -321,20 +321,20 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p>이벤트 스토밍은 <a
-href="https://tanzu.vmware.com/developer/practices/swift-method">Swift
+href="/practices/swift-method">Swift
 방식</a>에 포함된 활동입니다.</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/service-blueprint">서비스
+href="/practices/service-blueprint">서비스
 Blueprint</a>는 이와 유사하지만 다릅니다.</p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/event-storming/images/event-storming-vs-service-blueprint.png"><img
-src="https://tanzu.vmware.com/developer/practices/event-storming/images/event-storming-vs-service-blueprint.png"
+href="/practices/event-storming/images/event-storming-vs-service-blueprint.png"><img
+src="/practices/event-storming/images/event-storming-vs-service-blueprint.png"
 alt="이벤트 스토밍과 서비스 Blueprint 비교"  /></a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/boris">Boris</a>는
+href="/practices/boris">Boris</a>는
 종종 이벤트 스토밍을 따릅니다.</p>
 
 </div></div>

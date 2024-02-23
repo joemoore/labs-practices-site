@@ -238,11 +238,11 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/event-storming">이벤트
+href="/practices/event-storming">이벤트
 스토밍</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/service-blueprint">서비스
+href="/practices/service-blueprint">서비스
 Blueprint</a></p>
 
 </div></div>
@@ -260,7 +260,7 @@ id="real-world-examples">실제 예시</h3>
 <p><strong>제품 개발 수명주기</strong> 예시</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/value-stream-map/images/value-stream-map-3.jpg"
+src="/practices/value-stream-map/images/value-stream-map-3.jpg"
 alt="가치 스트림 맵 이미지"  /></p>
 
 </div></div>

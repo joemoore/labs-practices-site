@@ -110,7 +110,7 @@ class="col-11"><p><strong>팁</strong>:
 사항입니다.</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/ubiquitous-language/images/step-1.png"
+src="/practices/ubiquitous-language/images/step-1.png"
 alt="애플리케이션의 용어와 새로운 비즈니스 용어 간의 괴리를 나타낸 그림"  /></p>
 
 </li>
@@ -279,7 +279,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/ubiquitous-language/images/example-1.jpg"
+src="/practices/ubiquitous-language/images/example-1.jpg"
 alt="화이트보드의 보편적인 언어 워크샵"  /></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

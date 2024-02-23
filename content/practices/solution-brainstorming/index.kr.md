@@ -213,11 +213,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization">통찰력
 우선순위 지정</a></li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+href="/practices/problem-prioritization">문제
 우선순위 지정</a></li>
 
 </ul>
@@ -233,7 +233,7 @@ class="col-lg-9"><h3 id="following">다음
 <li>솔루션 다듬기 - 곧 제공 예정</li>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/solution-prioritization">솔루션
+href="/practices/solution-prioritization">솔루션
 우선순위 지정</a></li>
 
 </ul>

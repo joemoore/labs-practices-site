@@ -47,18 +47,18 @@ Some questions that product managers would be asking during this process include
 
 - What are the riskiest assumptions in our design that needs to be validated?
 - What is the lowest-hanging fruit that we can get user feedback on to validate our assumptions?
-- What are the trade-offs between [technical debt](https://tanzu.vmware.com/developer/guides/the-incremental-war-against-technical-debt/) and a foundation to enable smoother future development? And is this delay acceptable for the product?
+- What are the trade-offs between [technical debt](/guides/the-incremental-war-against-technical-debt/) and a foundation to enable smoother future development? And is this delay acceptable for the product?
 - How do these thin slices get us closer to achieving our business outcomes?
 - What are the metrics of success? How do we measure them?
 
-💁 Tip: Sometimes, conversations around the priority of the thin slices arise during [the Boris exercise](https://tanzu.vmware.com/developer/practices/swift-method/), or the team may discover ways to create a thinner slice from the existing thin slice. At this stage, the product manager should determine if existing priorities need to change in conjunction with a wider group (e.g., architects, product owners, portfolio managers, and developers).
+💁 Tip: Sometimes, conversations around the priority of the thin slices arise during [the Boris exercise](/practices/swift-method/), or the team may discover ways to create a thinner slice from the existing thin slice. At this stage, the product manager should determine if existing priorities need to change in conjunction with a wider group (e.g., architects, product owners, portfolio managers, and developers).
 
 Each thin slice should have a metric that tracks whether or not the development work is progressing toward the desired outcomes. For example, the time it takes for a restaurant to accept and deliver an order, or lower app response times. Other important metrics that could be discussed are:
 
 - What is the definition of success for this thin slice?
 - What kind of performance and load should the application(s) be able to operate under?
-- What are the [SLOs or SLAs](https://tanzu.vmware.com/developer/learningpaths/application-observability/monitoring-slis-and-slos/) for the application(s)?
-- What, if any, [SLIs](https://tanzu.vmware.com/developer/learningpaths/application-observability/monitoring-slis-and-slos/) should be set to ensure we are meeting our SLOs or SLAs?
+- What are the [SLOs or SLAs](/learningpaths/application-observability/monitoring-slis-and-slos/) for the application(s)?
+- What, if any, [SLIs](/learningpaths/application-observability/monitoring-slis-and-slos/) should be set to ensure we are meeting our SLOs or SLAs?
 
 💁 Tip: Discussions on operational standards, such as SLOs and SLAs, should be a team discussion led by developers and architects in order to determine both the needs of the business and the needs and technical capabilities or constraints of the system. If your organization has a platform team or system reliability engineering team, they should also be included in the discussion. Your architect can help facilitate.
 
@@ -66,6 +66,6 @@ In summary, architects and developers should provide recommendations that take a
 
 ## Resources
 
-[2x2 Prioritization | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/2x2/)
+[2x2 Prioritization | VMware Labs Practices Site](/practices/2x2/)
 
 [SRE fundamentals: SLI vs SLO vs SLA | Google Cloud Blog](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-sli-vs-slo-vs-sla)

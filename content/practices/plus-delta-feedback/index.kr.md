@@ -94,7 +94,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 </ul>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/plus-delta-feedback/images/example-1.png"
+src="/practices/plus-delta-feedback/images/example-1.png"
 alt="플러스/델타 예시"  /></p>
 
 </li>
@@ -122,7 +122,7 @@ alt="플러스/델타 예시"  /></p>
 <li>“내일은 오전 11시와 오후 3시에 10분간 휴식 시간을 갖도록 합시다.”</li>
 
 <li>“내일은 <a
-href="https://tanzu.vmware.com/developer/learningpaths/application-development/pair-programming/#describe-the-mechanics-of-the-drivernavigator-style-of-pair-programming">포모도로
+href="/learningpaths/application-development/pair-programming/#describe-the-mechanics-of-the-drivernavigator-style-of-pair-programming">포모도로
 기법</a>을 시도해 보고 보다 균형 잡힌 페어링 세션이 되는지 확인해 봅시다.”</li>
 
 <li>“회의가 연이어 있다면 다음 회의에 늦지 않도록 첫 번째 회의를 제 시간에 끝내도록
@@ -179,7 +179,7 @@ id="related-practices">관련 사례</h2>
 <ul>
 
 <li><a
-href="https://tanzu.vmware.com/developer/practices/speedback">스피드백
+href="/practices/speedback">스피드백
 피드백</a></li>
 
 </ul>

@@ -150,7 +150,7 @@ class="col-11"><p><strong>예</strong>:
 “사용자 만족도 향상”, “비즈니스 추진 요인에 대한 영향 감소”</p></div></div>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/stack-ranking/images/image1.png"
+src="/practices/stack-ranking/images/image1.png"
 alt="비어 있는 스티커 메모가 준비되어 있는 세로축"  /></p>
 
 </li>
@@ -173,7 +173,7 @@ target="_blank" rel="nofollow">버블 정렬</a>
 <p>옵션을 하나 임의로 선택하여 세로줄 중간에 배치합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/stack-ranking/images/image3.png"
+src="/practices/stack-ranking/images/image3.png"
 alt="중간에 스티커 메모가 하나 배치된 세로축"  /></p>
 
 </li>
@@ -184,8 +184,8 @@ alt="중간에 스티커 메모가 하나 배치된 세로축"  /></p>
 팀에 질문합니다. 팀의 우선순위 결정에 따라 두 번째 옵션을 첫 번째 옵션의 위나 아래에 배치합니다.</p>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/stack-ranking/images/image2.png"
-alt="두 번째 스티커 메모를 첫 번째 스티커 메모 위 또는 아래에 배치할지 결정" 
+src="/practices/stack-ranking/images/image2.png"
+alt="두 번째 스티커 메모를 첫 번째 스티커 메모 위 또는 아래에 배치할지 결정"
 /></p>
 
 </li>
@@ -282,25 +282,25 @@ id="variation---individual-ranking-and-group-comparison-3-9-options-and-situatio
 <h2 id="related-practices">관련 사례</h2>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization">통찰력
 우선순위 지정</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/problem-prioritization">문제
+href="/practices/problem-prioritization">문제
 우선순위 지정</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/solution-prioritization">솔루션
+href="/practices/solution-prioritization">솔루션
 우선순위 지정</a></p>
 
 <p><a
-href="https://tanzu.vmware.com/developer/practices/2x2">2x2
+href="/practices/2x2">2x2
 우선순위 지정</a></p>
 
 <h2 id="real-world-examples">실제 예시</h2>
 
 <p><img
-src="https://tanzu.vmware.com/developer/practices/stack-ranking/images/example.jpg"
+src="/practices/stack-ranking/images/example.jpg"
 alt="스티커 메모를 사용한 스택 랭킹"  /></p>
 
 <h2 id="recommended-reading">권장 자료</h2>
