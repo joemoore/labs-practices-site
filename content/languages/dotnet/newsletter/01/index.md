@@ -1,19 +1,18 @@
 ---
 type: newsletter
-date: '2023-07-19'
+date: "2023-07-19"
 title: Hooked on .NET - The inaugural edition
-description: The inaugural edition includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch.
+description: The inaugural edition includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch. 
 link: https://laylacodesit.substack.com/p/hooked-on-net?sd=pf
-canonical: https://laylacodesit.substack.com/p/hooked-on-net?sd=pf
-team:
-    - Layla Porter
+canonical: https://laylacodesit.substack.com/p/hooked-on-net?sd=pf 
+team: 
+- Layla Porter
 ---
-
 ## Welcome 🎉!
 
 This is the first edition of this newsletter, titled "Hooked on .NET", where every month we'll have a guest from the community share their current thoughts and views, and anything they've recently found interesting in the .NET ecosystem and supporting technologies. We'll cast our net wide to gain the thoughts and ideas of those in the community, including the excellent engineers working behind the scenes at VMware.
 
-My name's [Layla](https://layla.dev), but most peeps know me as _LaylaCodesIt_ on the interweb, and I'll be your editor on this endeavour. I'm a developer advocate at VMware Tanzu focused on the .NET community.
+My name's [Layla](https://layla.dev), but most peeps know me as *LaylaCodesIt* on the interweb, and I'll be your editor on this endeavour. I'm a developer advocate at VMware Tanzu focused on the .NET community.
 
 For my crimes, I'm a 5 times Microsoft MVP, GitHub Star, Progress Ninja, and the founder of the #WomenOfDotNet Initiative.
 
@@ -21,13 +20,13 @@ This newsletter will tend to enterprise software development, but we'll cover al
 
 ## What's new and exciting?
 
--   [Migrate .NET to chiselled Ubuntu containers](https://ubuntu.com/containers/chiselled/dotnet) - Martez Killens, a solution engineer at VMware, is excited by this as it brings Distroless concepts to the .NET ecosystem. Allowing for container images with a small memory footprint, faster load times and smaller security surface area.
+- [Migrate .NET to chiselled Ubuntu containers](https://ubuntu.com/containers/chiselled/dotnet) - Martez Killens, a solution engineer at VMware, is excited by this as it brings Distroless concepts to the .NET ecosystem.  Allowing for container images with a small memory footprint, faster load times and smaller security surface area.
 
--   [Improved F# hints in Visual Studio](https://devblogs.microsoft.com/dotnet/improved-fsharp-hints-in-visual-studio/) - F# enthusiast, [Mårten Rånge](https://twitter.com/range_marten) believes type-hints are perhaps extra useful in a language like F# where, thanks to type inference, explicit types can be and often are omitted.
+- [Improved F# hints in Visual Studio](https://devblogs.microsoft.com/dotnet/improved-fsharp-hints-in-visual-studio/) - F# enthusiast, [Mårten Rånge](https://twitter.com/range_marten) believes type-hints are perhaps extra useful in a language like F# where, thanks to type inference, explicit types can be and often are omitted.
 
--   [Announcing C# Dev Kit for Visual Studio Code](https://devblogs.microsoft.com/visualstudio/announcing-csharp-dev-kit-for-visual-studio-code/) - Community member [Shawn Vause](https://shawn.vause.us/) thinks this will help attract a broader audience to the .NET ecosystem.
+- [Announcing C# Dev Kit for Visual Studio Code](https://devblogs.microsoft.com/visualstudio/announcing-csharp-dev-kit-for-visual-studio-code/) - Community member [Shawn Vause](https://shawn.vause.us/) thinks this will help attract a broader audience to the .NET ecosystem.
 
--   [Improvements to the Caching Abstraction in ASP.NET Core](https://devblogs.microsoft.com/dotnet/caching-abstraction-improvements-in-aspnetcore/) - Caching is hugely important for performance in applications, these improvements make it much more easy to set up and with far less ceremony. I'm a fan!
+- [Improvements to the Caching Abstraction in ASP.NET Core](https://devblogs.microsoft.com/dotnet/caching-abstraction-improvements-in-aspnetcore/) - Caching is hugely important for performance in applications, these improvements make it much more easy to set up and with far less ceremony. I'm a fan!
 
 ## What to read 📖
 
@@ -64,3 +63,5 @@ If you have any comments or suggestions or just want to reach out then feel free
 Lastly, don't forget to subscribe to the newsletter and share it with your friends!
 
 Thanks for reading!
+
+

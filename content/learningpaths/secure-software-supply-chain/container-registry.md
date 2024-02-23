@@ -4,9 +4,9 @@ lastmod: '2021-06-15'
 layout: single
 title: How a Container Registry Can Help
 weight: 6
-oldPath: '/content/outcomes/secure-software-supply-chain/container-registry.md'
+oldPath: "/content/outcomes/secure-software-supply-chain/container-registry.md"
 aliases:
-    - '/outcomes/secure-software-supply-chain/container-registry'
+- "/outcomes/secure-software-supply-chain/container-registry"
 tags: []
 ---
 
@@ -20,7 +20,7 @@ A popular feature of container registry is the ability to automatically scan con
 
 ## Policy Enforcement
 
-Being the central point for gathering and distributing container images, the container registry has a lot of say in _who_ can push or pull an image. Every major container registry -- public or private -- supports requiring the user to be authenticated to interact with it. As such, the registry can then manage a list of actions the user (or group of users) can perform. For example, suppose we create a group called "developers" and they have access to an image that contains a collections of services that the require to perform their job. We can configure the registry to allow them to pull down the image to their workstation, but prevent them from pushing up new versions of the container.
+Being the central point for gathering and distributing container images, the container registry has a lot of say in _who_ can push or pull an image. Every major container registry -- public or private -- supports requiring the user to be authenticated to interact with it. As such, the registry can then manage a list of actions the user (or group of users) can perform. For example, suppose we create a group called "developers" and they have access to an image that contains a collections of services that the require to perform their job. We can configure the registry to allow them to pull down the image to their workstation, but prevent them from pushing up new versions of the container. 
 
 This all contributes to one of the most fundamental ideas of security: the principle of least privilege. That is, the user should have access to only the actions and resources that they absolutely require.
 
@@ -28,7 +28,7 @@ Finally, if your pipeline relies on container images published or hosted by othe
 
 ## Using a Container Registry in an Air-Gapped Environment
 
-In an air-gapped environment, your delivery pipeline may have no access to the internet at all. The good news is, you can still use a private container registry just as you would a public one. You can push and pull to it, manage permissions, even scan for vulnerabilities. Of course new security definitions and updates must be done manually, but this also means that your delivery pipeline is physically separated from public networks and the internet, giving an additional layer of protection for your process.
+In an air-gapped environment, your delivery pipeline may have no access to the internet at all. The good news is, you can still use a private container registry just as you would a public one. You can push and pull to it, manage permissions, even scan for vulnerabilities. Of course new security definitions and updates must be done manually, but this also means that your delivery pipeline is physically separated from public networks and the internet, giving an additional layer of protection for your process. 
 
 ## Additional Uses for a Registry
 

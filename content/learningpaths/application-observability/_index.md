@@ -7,33 +7,33 @@ layout: intro
 duration: 60
 experience: Beginner
 description: |
-    Reliability is one of the most important features of any application.
-    Here we discus various tools and techniques that can be used to ensure
-    that the state of your application can be quickly understood, no matter
-    how complex it may be.
+  Reliability is one of the most important features of any application.
+  Here we discus various tools and techniques that can be used to ensure
+  that the state of your application can be quickly understood, no matter
+  how complex it may be.
 aliases:
-    - '/patterns/observability/'
-    - '/outcomes/application-observability/'
-oldPath: '/content/outcomes/application-observability/_index.md'
+- "/patterns/observability/"
+- "/outcomes/application-observability/"
+oldPath: "/content/outcomes/application-observability/_index.md"
 tags: []
 ---
 
 ## Key Concepts
 
--   A strong observability culture is essential in order to reliably deliver new
-    features at today’s pace.
--   It’s critical to know your user and measure what matters to them.
--   When it comes to monitoring and alerting, a relentless focus on simplicity
-    will keep your team as effective as possible during incidents.
+- A strong observability culture is essential in order to reliably deliver new
+  features at today’s pace.
+- It’s critical to know your user and measure what matters to them.
+- When it comes to monitoring and alerting, a relentless focus on simplicity
+  will keep your team as effective as possible during incidents.
 
 ## Outcomes
 
 What we’ve heard from customers:
 
--   “We don’t want to find out about issues from our customers.”
--   “We need to reduce the cost of delivering our service.”
--   “Our monitoring often indicates that there may be an issue, but we are unsure
-    what, if any, customer impact there may be.”
+- “We don’t want to find out about issues from our customers.”
+- “We need to reduce the cost of delivering our service.”
+- “Our monitoring often indicates that there may be an issue, but we are unsure
+  what, if any, customer impact there may be.”
 
 ## Summary
 
@@ -55,9 +55,9 @@ complex systems.
 
 When we say observability, we're often referring to one or more of:
 
--   logging
--   metrics
--   tracing
+- logging
+- metrics
+- tracing
 
 ### Logging
 

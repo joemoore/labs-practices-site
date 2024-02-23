@@ -3,18 +3,18 @@ title: Scaling
 weight: 90
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 You will demonstrate how to scale your `pal-tracker` application
-running on _Tanzu Application Service_.
+running on *Tanzu Application Service*.
 
 ## Learning outcomes
 
 After completing the lab, you will be able to:
 
 -   Demonstrate the ability to use autoscaling for an application on
-    _Tanzu Application Service_.
+    *Tanzu Application Service*.
 
 ## Getting started
 
@@ -28,7 +28,7 @@ slides.
     [Availability lab](../availability/).
     You must have your `pal-tracker` application associated with the
     `scaling-availability-solution` codebase deployed and running on
-    _Tanzu Application Service_.
+    *Tanzu Application Service*.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -43,27 +43,27 @@ You can monitor the `pal-tracker` application through the following:
 
 -   Command line via the following `cf` commands:
 
-    -   `cf app pal-tracker`
-    -   `cf events pal-tracker`
+    - `cf app pal-tracker`
+    - `cf events pal-tracker`
 
--   [_Apps Manager_](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
+-   [*Apps Manager*](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
     user interface.
 
 If you choose to monitor via the command line you will need a minimum of
 four terminal windows open.
 
-If you choose to monitor with _Apps Manager_ you will need only one.
+If you choose to monitor with *Apps Manager* you will need only one.
 
 ## Scaling `pal-tracker`
 
-_Tanzu Application Service_ supports scaling the number of application
+*Tanzu Application Service* supports scaling the number of application
 instances in 3 ways:
 
 1.  Command line through the `cf scale -i <number of instances>` command.
 1.  Setting in the manifest `instances` parameter,
     and pushing it.
 1.  Through the
-    [_Tanzu Application Service_ Autoscaler](https://docs.pivotal.io/application-service/2-11/appsman-services/autoscaler/about-app-autoscaler.html).
+    [*Tanzu Application Service* Autoscaler](https://docs.pivotal.io/application-service/2-11/appsman-services/autoscaler/about-app-autoscaler.html).
 
 You have already used the second option to achieve better availability
 characteristics of your application.
@@ -135,7 +135,7 @@ and you have good insights into the runtime characteristics:
 
 ### Enable application autoscaling
 
-_Tanzu Application Service_ supports automatic horizontal scaling based
+*Tanzu Application Service* supports automatic horizontal scaling based
 on either pre-defined or custom rules.
 
 For request/response (blocking) web applications,
@@ -144,7 +144,7 @@ performance, stability, and scaling characteristics of your app.
 
 1.  If you are running the labs on your own development machine,
     you will need to
-    [install the _Tanzu Application Service_ Autoscaler CLI plugin](https://docs.pivotal.io/application-service/2-9/appsman-services/autoscaler/using-autoscaler-cli.html#install-the-app-autoscaler-cli-plugin).
+    [install the *Tanzu Application Service* Autoscaler CLI plugin](https://docs.pivotal.io/application-service/2-9/appsman-services/autoscaler/using-autoscaler-cli.html#install-the-app-autoscaler-cli-plugin).
 
 1.  You have been supplied with a set up script that will configure an
     autoscaling rule for you with the following characteristics:
@@ -171,7 +171,7 @@ performance, stability, and scaling characteristics of your app.
     ./scripts/setup-auto-scaling.sh
     ```
 
-1.  Run the following _autoscaler watch_ command:
+1.  Run the following *autoscaler watch* command:
 
     ```bash
     watch cf autoscaling-events pal-tracker
@@ -193,9 +193,7 @@ performance, stability, and scaling characteristics of your app.
     ```bash
     docker run -i -t --rm -e DURATION=300 -e NUM_USERS=100 -e REQUESTS_PER_SECOND=50 -e URL=http://pal-tracker-${UNIQUE_IDENTIFIER}.${DOMAIN} pivotaleducation/loadtest
 
-    ```
-
-1.  Observe both the _pal-tracker watch_ and _autoscaler watch_
+1.  Observe both the *pal-tracker watch* and *autoscaler watch*
     terminal windows.
 
     How long does it take before the autoscaler scales up to the
@@ -206,7 +204,7 @@ performance, stability, and scaling characteristics of your app.
 
 ### Turn off autoscaling
 
-1.  Observe both the _pal-tracker watch_ and _autoscaler watch_
+1.  Observe both the *pal-tracker watch* and *autoscaler watch*
     terminal windows.
 
     How long does it take before the autoscaler scales down to the
@@ -223,7 +221,7 @@ performance, stability, and scaling characteristics of your app.
 ### Autoscaling limitations
 
 You saw that the autoscaling behavior is not instantaneous.
-It is designed conservatively using a concept of a _Governor_,
+It is designed conservatively using a concept of a *Governor*,
 an algorithm that limits rate of change within the autoscaler to
 prevent potential outages if it is not tuned or used
 correctly.
@@ -248,10 +246,10 @@ autoscaler, as well as operate it.
 
 Another good read on the subject is
 [Release It! Second Edition](https://pragprog.com/titles/mnee2/release-it-second-edition/),
-_Chapter 4 - Stability Antipatterns &rarr; Force Multiplier_ and
-_Chapter 5 - Stability Patterns &rarr; Governor_
+*Chapter 4 - Stability Antipatterns &rarr; Force Multiplier* and
+*Chapter 5 - Stability Patterns &rarr; Governor*
 
-A specific limitation for the _Tanzu Application Service_ autoscaler
+A specific limitation for the *Tanzu Application Service* autoscaler
 is that the CPU rules are not reliable.
 See
 [this advisory](https://pvtl.force.com/s/article/PCF-Autoscaler-Advisory-for-Scaling-Apps-Based-on-the-CPU-utilization?language=en_US)
@@ -262,4 +260,4 @@ for more information.
 Now that you have completed the lab, you should be able to:
 
 -   Demonstrate the ability to use autoscaling for an application on
-    _Tanzu Application Service_.
+    *Tanzu Application Service*.

@@ -2,16 +2,16 @@
 date: '2021-02-24'
 description: A reference architecture for running the Calico CNI in Kubernetes
 keywords:
-    - Kubernetes
-    - Calico
+- Kubernetes
+- Calico
 lastmod: '2021-02-24'
 linkTitle: Calico Reference Architecture
 parent: Container Networking
 title: Calico Reference Architecture
 weight: 1600
-oldPath: '/content/guides/kubernetes/container-networking-calico-refarch.md'
+oldPath: "/content/guides/kubernetes/container-networking-calico-refarch.md"
 aliases:
-    - '/guides/kubernetes/container-networking-calico-refarch'
+- "/guides/kubernetes/container-networking-calico-refarch"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -29,14 +29,14 @@ Each section covers architectural recommendations and, at times, configuration
 for each concern in a Calico deployment. At a high-level, the key
 recommendations are:
 
--   Use the Kubernetes datastore.
--   Install Typha to ensure datastore scalability.
--   Use no encapsulation for single subnet clusters.
--   Use IP-in-IP in CrossSubnet mode for multi-subnet clusters.
--   Configure Calico MTU based on the network MTU and the chosen routing mode.
--   Add global route reflectors for clusters capable of growing above 50 nodes.
--   Use GlobalNetworkPolicy for cluster-wide ingress and egress rules. Modify the
-    policy by adding namespace-scoped `NetworkPolicy`.
+- Use the Kubernetes datastore.
+- Install Typha to ensure datastore scalability.
+- Use no encapsulation for single subnet clusters.
+- Use IP-in-IP in CrossSubnet mode for multi-subnet clusters.
+- Configure Calico MTU based on the network MTU and the chosen routing mode.
+- Add global route reflectors for clusters capable of growing above 50 nodes.
+- Use GlobalNetworkPolicy for cluster-wide ingress and egress rules. Modify the
+  policy by adding namespace-scoped `NetworkPolicy`.
 
 Solution design is complex and requires a multitude of considerations that a
 simple list cannot encapsulate. The sections below cover in detail the various
@@ -62,13 +62,13 @@ Here are some details and functionalities of each of the core components:
 The `calico-node` pod runs on every host. It is responsible for 2 pieces of
 functionality:
 
--   **Route programming**: Based on known routes to pods in the Kubernetes
-    cluster, configure the Linux host to facilitate routing accordingly.
+- **Route programming**: Based on known routes to pods in the Kubernetes
+  cluster, configure the Linux host to facilitate routing accordingly.
 
--   **Route sharing**: Based on pods running on this host, provide a mechanism to
-    share known routes with other hosts. Typically accomplished with [Border
-    Gateway Protocol
-    (BGP)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol).
+- **Route sharing**: Based on pods running on this host, provide a mechanism to
+  share known routes with other hosts. Typically accomplished with [Border
+  Gateway Protocol
+  (BGP)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol).
 
 To accomplish the above mentioned functionalities, the `calico-node` container
 runs 2 processes, [Felix](https://github.com/projectcalico/felix) and
@@ -102,12 +102,12 @@ The `calico-kube-controller` is responsible for recognizing changes in
 Kubernetes objects that impact routing. The controller contains multiple
 controllers inside of it, watching changes in the following:
 
--   Network Policies (used to program IPtables for network access enforcement)
--   Pods (e.g. labels)
--   Namespaces (used to determine if enforcement is needed for the new namespace)
--   Service Accounts (used for setting up Calico
-    [profiles](https://docs.projectcalico.org/v3.9/reference/resources/profile))
--   Nodes (used to determine the associated subnet and inform the routing topology)
+- Network Policies (used to program IPtables for network access enforcement)
+- Pods (e.g. labels)
+- Namespaces (used to determine if enforcement is needed for the new namespace)
+- Service Accounts (used for setting up Calico
+  [profiles](https://docs.projectcalico.org/v3.9/reference/resources/profile))
+- Nodes (used to determine the associated subnet and inform the routing topology)
 
 ![Calico kube-controller](images/calico-kube-controller.png#diagram)
 
@@ -138,68 +138,68 @@ Calico configuration, routing, policy, and other information. Calico supports 2
 datastore modes, Kubernetes and etcd. The types of resources you can expect in
 this datastore are:
 
--   [BGPConfiguration](https://docs.projectcalico.org/reference/resources/bgpconfig)
+- [BGPConfiguration](https://docs.projectcalico.org/reference/resources/bgpconfig)
 
-    -   Set global BGP configuration settings. Allows you to set an autonomous
-        system (AS) number for your network, deactivate node-to-node mesh (used when
-        peering with route reflectors or top of rack switches), and settings to
-        advertise clusterIPs.
+  - Set global BGP configuration settings. Allows you to set an autonomous
+    system (AS) number for your network, deactivate node-to-node mesh (used when
+    peering with route reflectors or top of rack switches), and settings to
+    advertise clusterIPs.
 
--   [BGPPeer](https://docs.projectcalico.org/reference/resources/bgppeer)
+- [BGPPeer](https://docs.projectcalico.org/reference/resources/bgppeer)
 
-    -   Represents each BGP peer containing the peer's IP and AS it's associated
-        with.
+  - Represents each BGP peer containing the peer's IP and AS it's associated
+    with.
 
--   [FelixConfiguration](https://docs.projectcalico.org/reference/resources/felixconfig)
+- [FelixConfiguration](https://docs.projectcalico.org/reference/resources/felixconfig)
 
-    -   Low-level Felix settings that impact these routing daemons. This is where
-        you alter IPtables settings, MTU sizes, and routing protocols.
+  - Low-level Felix settings that impact these routing daemons. This is where
+    you alter IPtables settings, MTU sizes, and routing protocols.
 
--   [GlobalNetworkPolicy](https://docs.projectcalico.org/reference/resources/globalnetworkpolicy)
+- [GlobalNetworkPolicy](https://docs.projectcalico.org/reference/resources/globalnetworkpolicy)
 
-    -   Network policy rules that are applied cluster-wide rather than namespace
-        wide.
+  - Network policy rules that are applied cluster-wide rather than namespace
+    wide.
 
--   [GlobalNetworkSet](https://docs.projectcalico.org/reference/resources/globalnetworkset)
+- [GlobalNetworkSet](https://docs.projectcalico.org/reference/resources/globalnetworkset)
 
-    -   List of external network IPs or CIDRs that can be executed on via a Calico
-        GlobalNetworkPolicy.
+  - List of external network IPs or CIDRs that can be executed on via a Calico
+    GlobalNetworkPolicy.
 
--   [HostEndpoint](https://docs.projectcalico.org/reference/resources/hostendpoint)
+- [HostEndpoint](https://docs.projectcalico.org/reference/resources/hostendpoint)
 
-    -   Represents the interfaces attached to each host running Calico.
+  - Represents the interfaces attached to each host running Calico.
 
--   [IPPool](https://docs.projectcalico.org/reference/resources/ippool)
+- [IPPool](https://docs.projectcalico.org/reference/resources/ippool)
 
-    -   Represents the pool(s) of IP addresses and their preferences from which
-        endpoint IPs will be assigned to pods. You can set the pool's encapsulation
-        protocol such as IP-in-IP, VXLAN, or Native. A cluster can have multiple
-        IPPools, each with its own configuration.
+  - Represents the pool(s) of IP addresses and their preferences from which
+    endpoint IPs will be assigned to pods. You can set the pool's encapsulation
+    protocol such as IP-in-IP, VXLAN, or Native. A cluster can have multiple
+    IPPools, each with its own configuration.
 
--   [NetworkPolicy](https://docs.projectcalico.org/reference/resources/networkpolicy)
+- [NetworkPolicy](https://docs.projectcalico.org/reference/resources/networkpolicy)
 
-    -   Namespace-scoped network policy that extends the functionality of Kubernetes
-        default network policy API.
+  - Namespace-scoped network policy that extends the functionality of Kubernetes
+    default network policy API.
 
--   [NetworkSet](https://docs.projectcalico.org/reference/resources/networkset)
+- [NetworkSet](https://docs.projectcalico.org/reference/resources/networkset)
 
-    -   List of external network IPs or CIDRs that can be executed on via a Calico
-        NetworkPolicy.
+  - List of external network IPs or CIDRs that can be executed on via a Calico
+    NetworkPolicy.
 
--   [Node](https://docs.projectcalico.org/reference/resources/node)
+- [Node](https://docs.projectcalico.org/reference/resources/node)
 
-    -   Represents a Kubernetes node and holds details on its IPv4/6 number, AS
-        association, and tunnel address (IP-in-IP or VXLAN).
+  - Represents a Kubernetes node and holds details on its IPv4/6 number, AS
+    association, and tunnel address (IP-in-IP or VXLAN).
 
--   [Profile](https://docs.projectcalico.org/reference/resources/profile)
+- [Profile](https://docs.projectcalico.org/reference/resources/profile)
 
-    -   Configuration to group multiple endpoints by auto-applying labels to them.
+  - Configuration to group multiple endpoints by auto-applying labels to them.
 
--   [WorkloadEndpoint](https://docs.projectcalico.org/reference/resources/workloadendpoint)
+- [WorkloadEndpoint](https://docs.projectcalico.org/reference/resources/workloadendpoint)
 
-    -   The association of an endpoint to a workload. Includes details such as what
-        the container ID is, pod name, MAC address, interface association (cali\*),
-        and IP network(s).
+  - The association of an endpoint to a workload. Includes details such as what
+    the container ID is, pod name, MAC address, interface association (cali\*),
+    and IP network(s).
 
 Some of the above resources are editable by administrators while others are
 automatically configured and updated by the `calico-kube-controllers`.
@@ -231,69 +231,69 @@ datastore mode and leveraging typha:
 1. Check the `kube-system/calico-config` configmap to verify the following is
    set.
 
-    ```yaml
-    kind: ConfigMap
-    apiVersion: v1
-    metadata:
-        name: calico-config
-        namespace: kube-system
-    data:
-        # other config removed for brevity.
+   ```yaml
+   kind: ConfigMap
+   apiVersion: v1
+   metadata:
+     name: calico-config
+     namespace: kube-system
+   data:
+     # other config removed for brevity.
 
-        typha_service_name: 'calico-typha'
+     typha_service_name: "calico-typha"
 
-        cni_network_config: |-
-            {
-              "name": "k8s-pod-network",
-              "cniVersion": "0.3.1",
-              "plugins": [
-                {
-                  "type": "calico",
-                  "log_level": "info",
-                  "datastore_type": "kubernetes",
-                  "nodename": "__KUBERNETES_NODE_NAME__",
-                  "mtu": __CNI_MTU__,
-                  "ipam": {
-                      "type": "calico-ipam"
-                  },
-                  "policy": {
-                      "type": "k8s"
-                  },
-                  "kubernetes": {
-                      "kubeconfig": "__KUBECONFIG_FILEPATH__"
-                  }
-                },
+     cni_network_config: |-
+       {
+         "name": "k8s-pod-network",
+         "cniVersion": "0.3.1",
+         "plugins": [
+           {
+             "type": "calico",
+             "log_level": "info",
+             "datastore_type": "kubernetes",
+             "nodename": "__KUBERNETES_NODE_NAME__",
+             "mtu": __CNI_MTU__,
+             "ipam": {
+                 "type": "calico-ipam"
+             },
+             "policy": {
+                 "type": "k8s"
+             },
+             "kubernetes": {
+                 "kubeconfig": "__KUBECONFIG_FILEPATH__"
+             }
+           },
 
-                # other config removed for brevity
-              ]
-            }
-    ```
+           # other config removed for brevity
+         ]
+       }
+   ```
 
-    The above has some configuration removed. But the attributes left should be
-    checked to ensure you're running in the Kubernetes datastore mode using
-    Typha.
+   The above has some configuration removed. But the attributes left should be
+   checked to ensure you're running in the Kubernetes datastore mode using
+   Typha.
 
 2. Check the `calico/node` container spec to ensure the following environment
    variables are being set:
 
-    ```yaml
-    env:
-        # Use Kubernetes API as the backing datastore.
-        - name: DATASTORE_TYPE
-          value: 'kubernetes'
-        # Typha support: controlled by the ConfigMap.
-        - name: FELIX_TYPHAK8SSERVICENAME
-          valueFrom:
-              configMapKeyRef:
-                  name: calico-config
-                  key: typha_service_name
-    ```
+   ```yaml
+   env:
+     # Use Kubernetes API as the backing datastore.
+     - name: DATASTORE_TYPE
+       value: "kubernetes"
+     # Typha support: controlled by the ConfigMap.
+     - name: FELIX_TYPHAK8SSERVICENAME
+       valueFrom:
+         configMapKeyRef:
+           name: calico-config
+           key: typha_service_name
+   ```
 
 3. Verify that the following Typha resources have been deployed:
 
-    1. Typha Service
-    2. Typha Deployment
-    3. Typha PodDisruptionBudget
+   1. Typha Service
+   2. Typha Deployment
+   3. Typha PodDisruptionBudget
 
 ### etcd Datastore Mode
 
@@ -325,19 +325,19 @@ for setting up `calicoctl` to connect to the Kubernetes datastore:
 
 2. Export the `DATASTORE_TYPE` variable to `kubernetes`.
 
-    ```bash
-    CALICO_DATASTORE_TYPE=kubernetes
-    ```
+   ```bash
+   CALICO_DATASTORE_TYPE=kubernetes
+   ```
 
 3. Export the `CALICO_KUBECONFIG` variable to the location of your kubeconfig.
 
-    ```bash
-    CALICO_KUBECONFIG=${LOCATION_OF_YOUR_KUBECONFIG}
-    ```
+   ```bash
+   CALICO_KUBECONFIG=${LOCATION_OF_YOUR_KUBECONFIG}
+   ```
 
-    The `CALICO` prefix is optional, but since it can conflict with the
-    `kubectl` CLI, it's best to add it and possibly persist this setting
-    somewhere such as `~/.bashrc`.
+   The `CALICO` prefix is optional, but since it can conflict with the
+   `kubectl` CLI, it's best to add it and possibly persist this setting
+   somewhere such as `~/.bashrc`.
 
 ## Routing Configuration
 
@@ -389,7 +389,7 @@ This routing mode can be problematic in environments that:
    determine the host it should route the packet to.
 
 2. Enforce source/destination checks for inbound packets.
-    - Some networks such as AWS allow you to deactivate these checks.
+   - Some networks such as AWS allow you to deactivate these checks.
 
 ![Calico Inbound Checks](images/calico-src-dst-check.png)
 
@@ -469,11 +469,11 @@ following is set in the `calico-node` container manifest:
 
 ```yaml
 env:
-    # other variables removed for brevity
+  # other variables removed for brevity
 
-    # Enable IPIP
-    - name: CALICO_IPV4POOL_IPIP
-      value: 'Never'
+  # Enable IPIP
+  - name: CALICO_IPV4POOL_IPIP
+    value: "Never"
 ```
 
 Using `calicoctl`, you can verify (or modify) the `IPPool` setting. The default
@@ -490,14 +490,14 @@ of these must be set to `Never` as shown below:
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-    name: default-ipv4-ippool
+  name: default-ipv4-ippool
 spec:
-    blockSize: 26
-    cidr: 192.168.0.0/16
-    ipipMode: Never
-    natOutgoing: true
-    nodeSelector: all()
-    vxlanMode: Never
+  blockSize: 26
+  cidr: 192.168.0.0/16
+  ipipMode: Never
+  natOutgoing: true
+  nodeSelector: all()
+  vxlanMode: Never
 ```
 
 ### Multi-Subnet Configuration
@@ -524,11 +524,11 @@ that the following is set in the `calico-node` container manifest.
 
 ```yaml
 env:
-    # other variables removed for brevity
+  # other variables removed for brevity
 
-    # Enable IPIP
-    - name: CALICO_IPV4POOL_IPIP
-      value: 'CrossSubnet'
+  # Enable IPIP
+  - name: CALICO_IPV4POOL_IPIP
+    value: "CrossSubnet"
 ```
 
 Using `calicoctl`, you can verify (or modify) the `IPPool` setting. The default
@@ -545,14 +545,14 @@ The output should show the current setting for `ipipMode` as `CrossSubnet` and
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-    name: default-ipv4-ippool
+  name: default-ipv4-ippool
 spec:
-    blockSize: 26
-    cidr: 192.168.0.0/16
-    ipipMode: CrossSubnet
-    natOutgoing: true
-    nodeSelector: all()
-    vxlanMode: Never
+  blockSize: 26
+  cidr: 192.168.0.0/16
+  ipipMode: CrossSubnet
+  natOutgoing: true
+  nodeSelector: all()
+  vxlanMode: Never
 ```
 
 ### Full IP-in-IP Configuration
@@ -565,11 +565,11 @@ manifest:
 
 ```yaml
 env:
-    # other variables removed for brevity
+  # other variables removed for brevity
 
-    # Enable IPIP
-    - name: CALICO_IPV4POOL_IPIP
-      value: 'Always'
+  # Enable IPIP
+  - name: CALICO_IPV4POOL_IPIP
+    value: "Always"
 ```
 
 Using `calicoctl`, you can verify (or modify) the `IPPool` setting. The default
@@ -586,14 +586,14 @@ The output should show the current setting for `ipipMode` as `Always` and
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-    name: default-ipv4-ippool
+  name: default-ipv4-ippool
 spec:
-    blockSize: 26
-    cidr: 192.168.0.0/16
-    ipipMode: Always
-    natOutgoing: true
-    nodeSelector: all()
-    vxlanMode: Never
+  blockSize: 26
+  cidr: 192.168.0.0/16
+  ipipMode: Always
+  natOutgoing: true
+  nodeSelector: all()
+  vxlanMode: Never
 ```
 
 IP-in-IP and Native both require BGP to distribute routes amongst nodes. In some
@@ -611,60 +611,60 @@ should deactivate BGP peering to reduce overhead**:
 
 1. The `calico-config` configmap has `backend` set to `vxlan` as shown below:
 
-    ```yaml
-    kind: ConfigMap
-    apiVersion: v1
-    metadata:
-        name: calico-config
-        namespace: kube-system
-    data:
-        # other settings removed for brevity
+   ```yaml
+   kind: ConfigMap
+   apiVersion: v1
+   metadata:
+     name: calico-config
+     namespace: kube-system
+   data:
+     # other settings removed for brevity
 
-        # value changed from bird to vxlan
-        calico_backend: “vxlan”
-    ```
+     # value changed from bird to vxlan
+     calico_backend: “vxlan”
+   ```
 
 1. The `calico-node` manifest has `CALICO_IPVPOOL_VXLAN` set to `Always` as
    shown below:
 
-    ```yaml
-    env:
-        # other variables removed for brevity
+   ```yaml
+   env:
+     # other variables removed for brevity
 
-        # Enable VXLAN
-        - name: CALICO_IPV4POOL_VXLAN
-          value: 'Always'
-    ```
+     # Enable VXLAN
+     - name: CALICO_IPV4POOL_VXLAN
+       value: "Always"
+   ```
 
 1. The `calico-node` manifest is not setting `CALICO_IPVPOOL_IPIP`.
 
 1. The `calico-node` manifest has all BIRD-related liveness and readiness checks
    deactivated as shown below:
 
-    ```yaml
-    livenessProbe:
-    exec:
-        command:
-            - /bin/calico-node
-            - -felix-live
+   ```yaml
+   livenessProbe:
+   exec:
+     command:
+       - /bin/calico-node
+       - -felix-live
 
-        # deactivate bird liveness test
-        # - -bird-live
+     # deactivate bird liveness test
+     # - -bird-live
 
-    periodSeconds: 10
-    initialDelaySeconds: 10
-    failureThreshold: 6
-    readinessProbe:
-        exec:
-            command:
-                - /bin/calico-node
-                - -felix-ready
+   periodSeconds: 10
+   initialDelaySeconds: 10
+   failureThreshold: 6
+   readinessProbe:
+     exec:
+       command:
+         - /bin/calico-node
+         - -felix-ready
 
-            # deactivate bird readiness test
-            #- -bird-ready
+       # deactivate bird readiness test
+       #- -bird-ready
 
-        periodSeconds: 10
-    ```
+     periodSeconds: 10
+   ```
 
 If the above is true, Calico will operate in VXLAN mode for all traffic.
 
@@ -673,9 +673,9 @@ If the above is true, Calico will operate in VXLAN mode for all traffic.
 MTU calculation is done by determining the Network MTU and then subtracting
 based on your routing configuration:
 
--   Native: Subtract by `0`.
--   IP-in-IP: Subtract by `20`.
--   VXLAN: Subtract by `50`.
+- Native: Subtract by `0`.
+- IP-in-IP: Subtract by `20`.
+- VXLAN: Subtract by `50`.
 
 The following table shows 2 sets of example calculation:
 
@@ -692,13 +692,13 @@ To set the MTU, the `calico-config` configmap can be set as follows:
 kind: ConfigMap
 apiVersion: v1
 metadata:
-    name: calico-config
-    namespace: kube-system
+  name: calico-config
+  namespace: kube-system
 data:
-    # other config omitted for brevity
+  # other config omitted for brevity
 
-    # SET THE MTU based on routing mode and network MTU
-    veth_mtu: '1440'
+  # SET THE MTU based on routing mode and network MTU
+  veth_mtu: "1440"
 ```
 
 If this is set after deployment, **only new pods will respect the MTU change**.
@@ -742,18 +742,18 @@ plan to scale into hundreds of nodes, route reflectors should be leveraged.
 
 There are two types of targets Calico may be configured to peer routes with:
 
--   `calico-node` configured reflector:
+- `calico-node` configured reflector:
 
-    -   In this model, nodes run dedicated `calico-node` instances responsible for
-        acting as reflectors. The configuration of this model is demonstrated in
-        the Global Route Reflection section below.
+  - In this model, nodes run dedicated `calico-node` instances responsible for
+    acting as reflectors. The configuration of this model is demonstrated in
+    the Global Route Reflection section below.
 
--   Top of rack (ToR) switch or router:
+- Top of rack (ToR) switch or router:
 
-    -   In this model, Calico is configured to peer with existing network gear that
-        supports BGP. This is a valid approach for making pod `IPPools` routable to
-        the network fabric. The configuration of this model is demonstrated in the
-        Node-Specific Route Reflection section below.
+  - In this model, Calico is configured to peer with existing network gear that
+    supports BGP. This is a valid approach for making pod `IPPools` routable to
+    the network fabric. The configuration of this model is demonstrated in the
+    Node-Specific Route Reflection section below.
 
 ### Global Route Reflection
 
@@ -786,17 +786,17 @@ the Calico `Node` CRD is altered to include a label representing the instance of
 apiVersion: projectcalico.org/v3
 kind: Node
 metadata:
-    name: k8s-node-z
+  name: k8s-node-z
 
-    # Set to represent this node is a reflector
-    labels:
-        route-reflector: true
+  # Set to represent this node is a reflector
+  labels:
+    route-reflector: true
 
 spec:
-    bgp:
-        ipv4Address: 10.30.0.13/22
-        ipv4IPIPTunnelAddr: 192.168.0.1
-        routeReflectorClusterID: 1.0.0.1
+  bgp:
+    ipv4Address: 10.30.0.13/22
+    ipv4IPIPTunnelAddr: 192.168.0.1
+    routeReflectorClusterID: 1.0.0.1
 ```
 
 With nodes labeled via the `Node` CRD, `BGPPeer` CRDs are added for peering
@@ -809,10 +809,10 @@ Worker-to-reflector `BGPPeer` configuration:
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
-    name: node-peer-to-rr
+  name: node-peer-to-rr
 spec:
-    nodeSelector: !has(route-reflector)
-    peerSelector: has(route-reflector)
+  nodeSelector: !has(route-reflector)
+  peerSelector: has(route-reflector)
 ```
 
 Reflector-to-reflector `BGPPeer` configuration:
@@ -821,10 +821,10 @@ Reflector-to-reflector `BGPPeer` configuration:
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
-    name: rr-to-rr-peer
+  name: rr-to-rr-peer
 spec:
-    nodeSelector: has(route-reflector)
-    peerSelector: has(route-reflector)
+  nodeSelector: has(route-reflector)
+  peerSelector: has(route-reflector)
 ```
 
 With peering for the route reflectors setup, the cluster has the node-to-node
@@ -834,14 +834,14 @@ BGP mesh deactivated by modifying the `BGPConfiguration` CRD.
 apiVersion: projectcalico.org/v3
 kind: BGPConfiguration
 metadata:
-    name: default
+  name: default
 spec:
-    logSeverityScreen: Info
+  logSeverityScreen: Info
 
-    # Set to deactivate node mesh and leverage route reflectors
-    nodeToNodeMeshEnabled: false
+  # Set to deactivate node mesh and leverage route reflectors
+  nodeToNodeMeshEnabled: false
 
-    asNumber: 63400
+  asNumber: 63400
 ```
 
 The cluster's new peer table looks as follows from the perspective of any node:
@@ -881,17 +881,17 @@ representing the part of the network it runs in.
 apiVersion: projectcalico.org/v3
 kind: Node
 metadata:
-    name: k8s-node-z
+  name: k8s-node-z
 
-    # Add rack label; used for BGPPeer
-    labels:
-        rack: a
+  # Add rack label; used for BGPPeer
+  labels:
+    rack: a
 
 spec:
-    bgp:
-        ipv4Address: 10.30.0.13/22
-        ipv4IPIPTunnelAddr: 192.168.0.1
-        routeReflectorClusterID: 1.0.0.1
+  bgp:
+    ipv4Address: 10.30.0.13/22
+    ipv4IPIPTunnelAddr: 192.168.0.1
+    routeReflectorClusterID: 1.0.0.1
 ```
 
 With nodes labeled via the `Node` CRD, `BGPPeer` CRDs are added for each target
@@ -904,14 +904,14 @@ Here is a Worker-to-ToR `BGPPeer` configuration:
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
-    name: node-peer-rack-a
+  name: node-peer-rack-a
 spec:
-    # peer all nodes with label rack: a with peerIP
-    nodeSelector: rack == 'a'
-    peerIP: 192.168.1.1
+  # peer all nodes with label rack: a with peerIP
+  nodeSelector: rack == 'a'
+  peerIP: 192.168.1.1
 
-    # remote AS number of the peer
-    asNumber: 64400
+  # remote AS number of the peer
+  asNumber: 64400
 ```
 
 With peering for the switch or router setup, the cluster's node-to-node
@@ -921,14 +921,14 @@ BGP mesh is deactivated by modifying the `BGPConfiguration` CRD as follows:
 apiVersion: projectcalico.org/v3
 kind: BGPConfiguration
 metadata:
-    name: default
+  name: default
 spec:
-    logSeverityScreen: Info
+  logSeverityScreen: Info
 
-    # Set to deactivate node mesh and leverage route reflectors
-    nodeToNodeMeshEnabled: false
+  # Set to deactivate node mesh and leverage route reflectors
+  nodeToNodeMeshEnabled: false
 
-    asNumber: 63400
+  asNumber: 63400
 ```
 
 ### Routable Pod and Service Networks
@@ -940,18 +940,18 @@ should be considered carefully. In many architectures, an external load balancer
 paired with an ingress controller can achieve a more idiomatic network topology
 for Kubernetes. Making these networks routable can come with some downsides:
 
--   Reliance on routing directly to Pod IPs.
+- Reliance on routing directly to Pod IPs.
 
-    -   Kubernetes treats pod IPs ephemerally. Assuming a pod's IP will stay
-        consistent is generally an anti-pattern.
+  - Kubernetes treats pod IPs ephemerally. Assuming a pod's IP will stay
+    consistent is generally an anti-pattern.
 
--   Service IPs, when routable, are still backed by `kube-proxy`.
+- Service IPs, when routable, are still backed by `kube-proxy`.
 
-    -   `kube-proxy` implements simple round-robin load balancing with IPtables.
-        The limited routing capabilities and scalability of IPtables may be a
-        concern.
+  - `kube-proxy` implements simple round-robin load balancing with IPtables.
+    The limited routing capabilities and scalability of IPtables may be a
+    concern.
 
--   Routing pod networks can consume a large chunk of an organization's IPv4 space.
+- Routing pod networks can consume a large chunk of an organization's IPv4 space.
 
 If your use case justifies routable pods, the following sections discuss how to
 setup various topologies:
@@ -972,14 +972,14 @@ An example peering configuration to accomplish the above is as follows:
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
-    name: node-peer-router
+  name: node-peer-router
 spec:
-    # peer all nodes containing label network-node with ToR
-    nodeSelector: has('network-node')
-    peerIP: 192.168.1.1
+  # peer all nodes containing label network-node with ToR
+  nodeSelector: has('network-node')
+  peerIP: 192.168.1.1
 
-    # remote AS number of the peer
-    asNumber: 64400
+  # remote AS number of the peer
+  asNumber: 64400
 ```
 
 Node-to-node meshing should be deactivated.
@@ -1007,17 +1007,17 @@ to only apply the default IPPool to specific nodes (based on label).
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-    name: default-ipv4-ippool
+  name: default-ipv4-ippool
 spec:
-    blockSize: 26
-    cidr: 192.168.0.0/16
-    ipipMode: Never
-    natOutgoing: true
+  blockSize: 26
+  cidr: 192.168.0.0/16
+  ipipMode: Never
+  natOutgoing: true
 
-    # Use IPs from this pool for all non-routable nodes.
-    nodeSelector: network-type == 'non-routable'
+  # Use IPs from this pool for all non-routable nodes.
+  nodeSelector: network-type == 'non-routable'
 
-    vxlanMode: Never
+  vxlanMode: Never
 ```
 
 A second IPPool is added to represent the routable pod pool.
@@ -1026,20 +1026,20 @@ A second IPPool is added to represent the routable pod pool.
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-    name: default-ipv4-ippool
+  name: default-ipv4-ippool
 spec:
-    blockSize: 26
+  blockSize: 26
 
-    # Introduce a smaller routable pod CIDR
-    cidr: 192.168.100.0/24
+  # Introduce a smaller routable pod CIDR
+  cidr: 192.168.100.0/24
 
-    ipipMode: Never
-    natOutgoing: true
+  ipipMode: Never
+  natOutgoing: true
 
-    # Use IPs from this pool for all routable nodes.
-    nodeSelector: network-type == 'routable'
+  # Use IPs from this pool for all routable nodes.
+  nodeSelector: network-type == 'routable'
 
-    vxlanMode: Never
+  vxlanMode: Never
 ```
 
 This would apply to worker-AA and worker-BB in the diagram above.
@@ -1054,13 +1054,13 @@ nodes featuring routable pods looks as follows:
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
-    name: node-peer-router
+  name: node-peer-router
 spec:
-    nodeSelector: network-type == 'routable'
-    peerIP: 192.168.1.1
+  nodeSelector: network-type == 'routable'
+  peerIP: 192.168.1.1
 
-    # remote AS number of the peer
-    asNumber: 64400
+  # remote AS number of the peer
+  asNumber: 64400
 ```
 
 With the above in place, there is now an internally routable (default) `IPPool`
@@ -1078,10 +1078,10 @@ configured.
 apiVersion: projectcalico.org/v3
 kind: BGPConfiguration
 metadata:
-    name: default
+  name: default
 spec:
-    serviceClusterIPs:
-        - cidr: 172.34.12.0/24
+  serviceClusterIPs:
+    - cidr: 172.34.12.0/24
 ```
 
 It is important that ToR components support ECMP load balancing. If they do not,
@@ -1116,42 +1116,42 @@ CRD. The example below enforces a global default deny-all policy:
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-    name: global-deny-all
+  name: global-deny-all
 spec:
-    # order controls the precedence. Calico applies the policy with the lowest value first.
-    # Kubernetes NetworkPolicy does not support order. They are automatically converted to an order
-    # value of 1000 by Calico. Setting this value to 2000, provides flexibility for 999 additional
-    # GlobalNetworkPolicies to be added and ensures Kubernetes namespace-scoped policies always take
-    # precedence.
-    order: 2000
-    types:
-        - Ingress
-        - Egress
+  # order controls the precedence. Calico applies the policy with the lowest value first.
+  # Kubernetes NetworkPolicy does not support order. They are automatically converted to an order
+  # value of 1000 by Calico. Setting this value to 2000, provides flexibility for 999 additional
+  # GlobalNetworkPolicies to be added and ensures Kubernetes namespace-scoped policies always take
+  # precedence.
+  order: 2000
+  types:
+    - Ingress
+    - Egress
 
-    # egress network rules
-    egress:
-        # Allow all egress traffic from kube-system.
-        - action: Allow
-          destination: {}
-          source:
-              namespaceSelector: name == 'kube-system'
+  # egress network rules
+  egress:
+    # Allow all egress traffic from kube-system.
+    - action: Allow
+      destination: {}
+      source:
+        namespaceSelector: name == 'kube-system'
 
-        # Allow egress DNS traffic to any destination.
-        - action: Allow
-          protocol: UDP
-          destination:
-              nets:
-                  - 0.0.0.0/0
-              ports:
-                  - 53
+    # Allow egress DNS traffic to any destination.
+    - action: Allow
+      protocol: UDP
+      destination:
+        nets:
+          - 0.0.0.0/0
+        ports:
+          - 53
 
-    # ingress network rules
-    ingress:
-        # Allow all ingress traffic for the kube-system namespace.
-        - action: Allow
-          destination:
-              namespaceSelector: name == 'kube-system'
-          source: {}
+  # ingress network rules
+  ingress:
+    # Allow all ingress traffic for the kube-system namespace.
+    - action: Allow
+      destination:
+        namespaceSelector: name == 'kube-system'
+      source: {}
 ```
 
 The policy above denies all pod network traffic by default, except for workloads
@@ -1163,19 +1163,19 @@ adding the following `NetworkPolicy`:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-    name: team-netpol
-    namespace: org-1
+  name: team-netpol
+  namespace: org-1
 spec:
-    podSelector: {}
-    policyTypes:
-        - Ingress
-        - Egress
-    ingress:
-        # allow all inbound traffic on port 80
-        - from:
-          ports:
-              - protocol: TCP
-                port: 80
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    # allow all inbound traffic on port 80
+    - from:
+      ports:
+        - protocol: TCP
+          port: 80
 ```
 
 With appropriate admission control, the above model can provide powerful policy

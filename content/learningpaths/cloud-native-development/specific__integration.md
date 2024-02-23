@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: Enterprise Integration
 weight: 140
-oldPath: '/content/outcomes/cloud-native-development/specific__integration.md'
+oldPath: "/content/outcomes/cloud-native-development/specific__integration.md"
 aliases:
-    - '/outcomes/cloud-native-development/specific__integration'
+- "/outcomes/cloud-native-development/specific__integration"
 tags: []
 ---
 
@@ -20,7 +20,8 @@ Replacing an ESB is less common in a [replatforming project](https://tanzu.vmwar
 
 Another, newer option builds on top of [Spring Integration](https://spring.io/projects/spring-integration) and [Spring Cloud Stream](https://spring.io/projects/spring-cloud-stream) to provide a high-level abstraction for weaving multiple microservices and batch processes together. As it provides more extensive functionalities and covers a range of data processing use cases, [Spring Cloud Data Flow](https://spring.io/projects/spring-cloud-dataflow) is often the best choice to replace an ESB. However, it is more complex to get running and requires additional components to manage the state of your pipelines. Read [this Baeldung guide](https://www.baeldung.com/spring-cloud-data-flow-stream-processing) to understand how it addresses similar use cases but differs in its execution from Spring Integration.
 
+
 ## Homework
 
--   Read the [Integrating Data](https://spring.io/guides/gs/integration/) guide to getting some experience with Spring integration.
--   Read the [Baeldung guide to Spring Cloud Data Flow](https://www.baeldung.com/spring-cloud-data-flow-stream-processing).
+- Read the [Integrating Data](https://spring.io/guides/gs/integration/) guide to getting some experience with Spring integration.
+- Read the [Baeldung guide to Spring Cloud Data Flow](https://www.baeldung.com/spring-cloud-data-flow-stream-processing).

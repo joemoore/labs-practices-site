@@ -3,21 +3,20 @@ layout: single
 title: 사용자 리서치 소개 세션
 linkTitle: 사용자 리서치 소개 세션
 description: 사용자 리서치 모범 사례에 관한 수준을 설정합니다.
-tags: ['검색']
+tags: ["검색"]
 length: 45~60분
 participants: 핵심 팀
-lastmod: '2021-05-14'
+lastmod: "2021-05-14"
 why:
-    - 지속적인 연구를 통해 각 단계에서 가치 있는 무언가를 구축할 수 있습니다. 사람들 사이에서 필요와 문제는 늘 발생하기 때문에 가치를 창출하려면 이러한 문제를 얼마나 잘 해결하고 있는지에 대한 깊은 이해가 필요합니다. 이 세션은 팀이 수행하는 첫 번째 이해관계자 또는 사용자 인터뷰에 앞서 팀을 조정하기 위한 연구 모범 사례에 대한 개요를 제공합니다.
+- 지속적인 연구를 통해 각 단계에서 가치 있는 무언가를 구축할 수 있습니다. 사람들 사이에서 필요와 문제는 늘 발생하기 때문에 가치를 창출하려면 이러한 문제를 얼마나 잘 해결하고 있는지에 대한 깊은 이해가 필요합니다. 이 세션은 팀이 수행하는 첫 번째 이해관계자 또는 사용자 인터뷰에 앞서 팀을 조정하기 위한 연구 모범 사례에 대한 개요를 제공합니다.
 when:
-    - 프로젝트 초기 연구의 중요성을 고려하여 이 세션은 일반적으로 시작 후 이해관계자 인터뷰나 탐색을 위한 사용자 연구보다 먼저, 가능한 한 빨리 이루어집니다.
+- 프로젝트 초기 연구의 중요성을 고려하여 이 세션은 일반적으로 시작 후 이해관계자 인터뷰나 탐색을 위한 사용자 연구보다 먼저, 가능한 한 빨리 이루어집니다.
 what:
-    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-    - 화이트보드용 마커
+- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+- 화이트보드용 마커
 remote: false
-miro_template_url: ''
+miro_template_url: ""
 ---
-
 <h2 id="how-to-use-this-method">이 방식을 활용하는 방법</h2>
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div class="col-lg-9"><p>이 슬라이드 자료를 자유롭게 활용하여 사용자 연구에 대해 여러분이 속한 그룹에 알려주십시오.</p><iframe src="//www.slideshare.net/slideshow/embed_code/key/iYAC2Vhv0ZEIml" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""></iframe><div style="margin-bottom:5px"><strong><a href="//www.slideshare.net/VMwareTanzu/user-research-at-vmware-tanzu-labs" title="Pivotal/Tanzu Labs에서 실시하는 사용자 연구" target="_blank">Pivotal/Tanzu Labs에서 실시하는 사용자 연구</a></strong>(<strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Labs Practices Site 슬라이드</a></strong>에서 발췌)</div>
 <h3 id="sample-agenda--prompts">샘플 안건 및 메시지</h3>

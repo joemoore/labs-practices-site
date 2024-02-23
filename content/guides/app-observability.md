@@ -3,16 +3,16 @@ date: '2021-02-16'
 lastmod: '2021-02-26'
 subsection: Application Observability
 team:
-    - John Harris
+- John Harris
 title: Application Observability
 weight: 22
-oldPath: '/content/guides/kubernetes/app-observability.md'
+oldPath: "/content/guides/kubernetes/app-observability.md"
 aliases:
-    - '/guides/kubernetes/app-observability'
+- "/guides/kubernetes/app-observability"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 tags:
-    - Kubernetes
+- Kubernetes
 ---
 
 The term "[observability](https://tanzu.vmware.com/what-is-observability)" in control theory states that the system is observable
@@ -77,20 +77,20 @@ example.
 
 ## Popular Tooling & Approaches
 
-### Health checks
+### Health checks 
 
 Kubernetes exposes the following health probes:
 
--   Readiness - whether application is considered 'Ready' to a cluster.
--   Liveness - safety check to ensure that application hasn't halted operation unexpectedly.
--   Startup - for applications that require a larger amount of time for their initial startup.
+* Readiness -  whether application is considered 'Ready' to a cluster.
+* Liveness - safety check to ensure that application hasn't halted operation unexpectedly.
+* Startup - for applications that require a larger amount of time for their initial startup.
 
 Use above health endpoints based on application's requirements.
 
 For implementation details, see [the guide on Probing Application
 State](../app-enhancements-probing-app-state).
 
-### Metrics
+### Metrics 
 
 [Prometheus](https://prometheus.io/) is an open-source systems monitoring and
 alerting toolkit. It works well for recording any purely numeric time series. It
@@ -103,10 +103,10 @@ lifecycle of prometheus and comes with many sensible defaults.
 
 Managing Prometheus could become challenging overtime:
 
--   Data retention - ability to efficiently store data for longer periods of time.
--   High-Cardinality Metrics - metrics with dimensions that have many different
-    values can cause performance degradation.
--   Dynamic service scraping - could cause performance degradation.
+* Data retention - ability to efficiently store data for longer periods of time.
+* High-Cardinality Metrics - metrics with dimensions that have many different
+  values can cause performance degradation.
+* Dynamic service scraping - could cause performance degradation.
 
 We recommend the reader to check with their platform team if any metrics
 scraping services are available in the platform.
@@ -169,29 +169,29 @@ Typical Distributed Tracing stack:
 
 #### ZOP stack (Zipkin, OpenTracing, Prometheus)
 
--   [Zipkin](https://zipkin.io/) - distributed tracing system. Applications need
-    to be "instrumented" to report trace data to Zipkin. This usually means
-    configuration of a [tracer or instrumentation
-    library](https://zipkin.io/pages/tracers_instrumentation).
--   [OpenTracing](https://opentracing.io/) - vendor-neutral APIs and
-    instrumentation for distributed tracing.
--   [Prometheus](https://prometheus.io/) - open-source systems monitoring and alerting toolkit. Before
-    you can monitor your services, you need to add instrumentation to their code
-    via one of the [client
-    libraries](https://prometheus.io/docs/instrumenting/clientlibs/).
-
+* [Zipkin](https://zipkin.io/) - distributed tracing system. Applications need
+  to be "instrumented" to report trace data to Zipkin. This usually means
+  configuration of a [tracer or instrumentation
+  library](https://zipkin.io/pages/tracers_instrumentation).
+* [OpenTracing](https://opentracing.io/) - vendor-neutral APIs and
+  instrumentation for distributed tracing.
+* [Prometheus](https://prometheus.io/) - open-source systems monitoring and alerting toolkit. Before
+  you can monitor your services, you need to add instrumentation to their code
+  via one of the [client
+  libraries](https://prometheus.io/docs/instrumenting/clientlibs/).
+  
 #### JOP stack (Jaeger, OpenTracing, Prometheus)
 
--   [Jaeger](https://www.jaegertracing.io/) - distributed tracing system. It is
-    used for monitoring and troubleshooting microservices-based distributed
-    systems. Applications must be instrumented before they can send tracing data
-    to Jaeger backend. Check the [Client
-    Libraries](https://www.jaegertracing.io/docs/1.16/client-libraries/) section
-    for information about how to use the OpenTracing API and how to initialize and
-    configure Jaeger tracers.
--   [OpenTracing](https://opentracing.io/) - vendor-neutral APIs and
-    instrumentation for distributed tracing.
--   [Prometheus](https://prometheus.io/) - open-source systems monitoring and alerting toolkit. Before
-    you can monitor your services, you need to add instrumentation to their code
-    via one of the [client
-    libraries](https://prometheus.io/docs/instrumenting/clientlibs/).
+* [Jaeger](https://www.jaegertracing.io/) - distributed tracing system. It is
+  used for monitoring and troubleshooting microservices-based distributed
+  systems. Applications must be instrumented before they can send tracing data
+  to Jaeger backend. Check the [Client
+  Libraries](https://www.jaegertracing.io/docs/1.16/client-libraries/) section
+  for information about how to use the OpenTracing API and how to initialize and
+  configure Jaeger tracers.
+* [OpenTracing](https://opentracing.io/) - vendor-neutral APIs and
+  instrumentation for distributed tracing.
+* [Prometheus](https://prometheus.io/) - open-source systems monitoring and alerting toolkit. Before
+  you can monitor your services, you need to add instrumentation to their code
+  via one of the [client
+  libraries](https://prometheus.io/docs/instrumenting/clientlibs/).

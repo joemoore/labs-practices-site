@@ -3,16 +3,16 @@ date: '2021-02-16'
 lastmod: '2021-02-26'
 subsection: Application Enhancements
 team:
-    - John Harris
+- John Harris
 title: Application Enhancements
 weight: 12
-oldPath: '/content/guides/kubernetes/app-enhancements.md'
+oldPath: "/content/guides/kubernetes/app-enhancements.md"
 aliases:
-    - '/guides/kubernetes/app-enhancements'
+- "/guides/kubernetes/app-enhancements"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 tags:
-    - Kubernetes
+- Kubernetes
 ---
 
 Kubernetes does not demand specifics about the applications that run on top of
@@ -23,11 +23,11 @@ are aspects of your application you may wish to reconsider.
 Kubernetes is a distributed system that has behaviors different from what many
 are used to in a traditional environment. These include:
 
--   Workloads must be packaged in a container.
--   Workloads may be moved (stopped and recreated) based on the needs of the
-    system.
--   Workload IP addresses are [generally] ephemeral.
--   Workloads have no affinity to hosts.
+* Workloads must be packaged in a container.
+* Workloads may be moved (stopped and recreated) based on the needs of the
+  system.
+* Workload IP addresses are [generally] ephemeral.
+* Workloads have no affinity to hosts.
 
 Aside from the above constraints, how your application is developed and run is
 up to you. There are multiple considerations you can make to comply with more
@@ -120,7 +120,7 @@ practice guide](../app-enhancements-logging-practices).
 When exposing metrics about your application, it is a common practice to use
 an exporter. This allows you to introduce metrics to your application and a
 scraping system, such as [prometheus](https://prometheus.io), to gather those
-metrics over time. There are exporter libraries for most languages. See the
+metrics over time.  There are exporter libraries for most languages. See the
 [Client Library](https://prometheus.io/docs/instrumenting/clientlibs/)
 documentation for a list of examples.
 

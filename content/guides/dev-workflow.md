@@ -3,16 +3,16 @@ date: '2021-02-09'
 lastmod: '2021-02-26'
 subsection: Developer Workflow
 team:
-    - John Harris
+- John Harris
 title: Developer Workflow
 weight: 37
-oldPath: '/content/guides/kubernetes/dev-workflow.md'
+oldPath: "/content/guides/kubernetes/dev-workflow.md"
 aliases:
-    - '/guides/kubernetes/dev-workflow'
+- "/guides/kubernetes/dev-workflow"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 tags:
-    - Kubernetes
+- Kubernetes
 ---
 
 The developer workflow typically involves writing code, executing automated
@@ -72,9 +72,9 @@ environments hosted on-prem or with a cloud provider.
 
 The following tools provide developers with a local Kubernetes environment:
 
--   [Kind](https://kind.sigs.k8s.io/)
--   [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
--   [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Kind](https://kind.sigs.k8s.io/)
+- [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 As the development model matures, on-prem or hosted clusters are used together
 with CI/CD tooling to standardize environments and workflows.

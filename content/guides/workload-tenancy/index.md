@@ -3,16 +3,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Workload Tenancy
 team:
-    - Josh Rosso
+- Josh Rosso
 title: Workload Tenancy
 weight: 82
-oldPath: '/content/guides/kubernetes/workload-tenancy.md'
+oldPath: "/content/guides/kubernetes/workload-tenancy.md"
 aliases:
-    - '/guides/kubernetes/workload-tenancy'
+- "/guides/kubernetes/workload-tenancy"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags:
-    - Kubernetes
+- Kubernetes
 ---
 
 Kubernetes is an inherently multi-tenant system. The term tenant can
@@ -27,11 +27,11 @@ are pods in different namespaces will run together on the same host.
 With multiple tenants running on hosts, there are several concerns to account
 for.
 
--   Resource isolation between pods.
--   Workload scheduling decisions based on resource requests.
--   Workload scheduling decisions based on host properties.
--   Priority of workloads (e.g. removing workloads for more important ones).
--   Preventing cross-workload access to memory or data.
+- Resource isolation between pods.
+- Workload scheduling decisions based on resource requests.
+- Workload scheduling decisions based on host properties.
+- Priority of workloads (e.g. removing workloads for more important ones).
+- Preventing cross-workload access to memory or data.
 
 Kubernetes provides constructs to ensure workloads run well side-by-side. These
 configuration options have significant depth and can be especially challenging
@@ -50,18 +50,18 @@ as follows.
 apiVersion: v1
 kind: Pod
 metadata:
-    name: frontend
+  name: frontend
 spec:
-    containers:
-        - name: db
-          image: mysql
-          resources:
-              requests:
-                  memory: '64Mi'
-                  cpu: '250m'
-              limits:
-                  memory: '128Mi'
-                  cpu: '500m'
+  containers:
+    - name: db
+      image: mysql
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
 ```
 
 ### Limits
@@ -117,15 +117,15 @@ unless the host comes under contention.
 
 **Pros:**
 
--   Improved stability
-    -   Eliminates resource contention between workloads
+- Improved stability
+  - Eliminates resource contention between workloads
 
 **Cons:**
 
--   Reduced infra utilization
-    -   May result in underutilized compute resources
--   Can lead to CPU throttling and OOM kills
-    -   Important to understand resource consumption profile of workloads
+- Reduced infra utilization
+  - May result in underutilized compute resources
+- Can lead to CPU throttling and OOM kills
+  - Important to understand resource consumption profile of workloads
 
 ### Burstable Pods
 
@@ -148,11 +148,11 @@ contention.
 
 **Pros:**
 
--   Possibly improved infra resource utilization
+- Possibly improved infra resource utilization
 
 **Cons:**
 
--   Potential for resource contention
+- Potential for resource contention
 
 ### Pod Disruption Budgets
 
@@ -167,13 +167,13 @@ recommended.
 
 **Pros:**
 
--   Improved stability through availability guarantees
+- Improved stability through availability guarantees
 
 **Cons:**
 
--   Potential to stall upgrades
-    -   If cluster resources are under contention, an upgrade may stall to respect
-        the disruption budget
+- Potential to stall upgrades
+  - If cluster resources are under contention, an upgrade may stall to respect
+    the disruption budget
 
 ### Limit Ranges
 
@@ -185,11 +185,11 @@ limit per-pod.
 
 **Pros:**
 
--   Provides "guardrails" for development teams
+- Provides "guardrails" for development teams
 
 **Cons:**
 
--   Possibly confusing for tenants that don't know how resource values are being set
+- Possibly confusing for tenants that don't know how resource values are being set
 
 ### Resource Quotas
 
@@ -200,24 +200,24 @@ as object count quota.
 
 Below are some of the resources that can be placed under object count quota:
 
--   count/persistentvolumeclaims
--   count/services
--   count/secrets
--   count/configmaps
--   count/replicationcontrollers
--   count/deployments.apps
--   count/replicasets.apps
--   count/statefulsets.apps
--   count/jobs.batch
--   count/cronjobs.batch
--   count/deployments.extensions
+- count/persistentvolumeclaims
+- count/services
+- count/secrets
+- count/configmaps
+- count/replicationcontrollers
+- count/deployments.apps
+- count/replicasets.apps
+- count/statefulsets.apps
+- count/jobs.batch
+- count/cronjobs.batch
+- count/deployments.extensions
 
 For multi-team environments, these constraints can be beneficial to enforce.
 
 **Pros:**
 
--   Provides controls over resource consumption
+- Provides controls over resource consumption
 
 **Cons:**
 
--   Can be over-restrictive in single-tenant environments
+- Can be over-restrictive in single-tenant environments

@@ -1,5 +1,5 @@
 ---
-contentPage: '/guides/tanzu-network-gs/index.md'
+contentPage: "/guides/tanzu-network-gs/index.md"
 date: '2022-01-23'
 lastmod: '2022-01-23'
 layout: single

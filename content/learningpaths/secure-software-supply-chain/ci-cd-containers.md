@@ -4,9 +4,9 @@ lastmod: '2021-06-15'
 layout: single
 title: Building Containers in CI/CD Pipelines
 weight: 5
-oldPath: '/content/outcomes/secure-software-supply-chain/ci-cd-containers.md'
+oldPath: "/content/outcomes/secure-software-supply-chain/ci-cd-containers.md"
 aliases:
-    - '/outcomes/secure-software-supply-chain/ci-cd-containers'
+- "/outcomes/secure-software-supply-chain/ci-cd-containers"
 tags: []
 ---
 
@@ -22,7 +22,7 @@ The upside to using Dockerfiles to build your containers is that it makes your C
 
 Kaniko and other tools that rely on reactively spinning up pods on Kubernetes present a different challenge of how you construct your CI/CD pipeline. Your tool of choice may have a plugin or feature to enable either the use of Kaniko directly or allow you to run a pod and wait for its outcome. If it doesn't however, not all is lost, the solution just becomes more of a structural one.
 
-The solution, again, can take many forms. You can have one pipeline that tests your code and spins up a Kaniko pod, then a second pipeline that is triggered when a newer version of a container image is uploaded to your registry. Alternatively, you could feed the details of the pod running your build into a step in your pipeline that's responsible for watching that pod and waiting for it to complete. Any way you go about it, you can still leverage solutions such as Kaniko in case you don't have access to a dedicated Docker daemon but do have a Kubernetes cluster that you can use.
+The solution, again, can take many forms. You can have one pipeline that tests your code and spins up a Kaniko pod, then a second pipeline that is triggered when a newer version of a container image is uploaded to your registry. Alternatively, you could feed the details of the pod running your build into a step in your pipeline that's responsible for watching that pod and waiting for it to complete. Any way you go about it, you can still leverage solutions such as Kaniko in case you don't have access to a dedicated Docker daemon but do have a Kubernetes cluster that you can use.  
 
 ## Tanzu Build Service
 

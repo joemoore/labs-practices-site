@@ -2,16 +2,16 @@
 date: '2021-02-24'
 description: A workflow for tuning Kubernetes clusters
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Cluster Tuning Guide
 parent: Workload Tenancy
 title: Cluster Tuning Guide
 weight: 1800
 featured: true
-oldPath: '/content/guides/kubernetes/workload-tenancy-cluster-tuning.md'
+oldPath: "/content/guides/kubernetes/workload-tenancy-cluster-tuning.md"
 aliases:
-    - '/guides/kubernetes/workload-tenancy-cluster-tuning'
+- "/guides/kubernetes/workload-tenancy-cluster-tuning"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -54,11 +54,11 @@ Disruptions are classified into two
 involuntary and voluntary. _Involuntary_ _disruptions_ are any case of an
 unavoidable hardware or software failure. Examples of this include:
 
--   physical hardware failure
--   cloud provider or hypervisor failure
--   kernel panic
--   network partition
--   pod eviction caused by resource contention
+- physical hardware failure
+- cloud provider or hypervisor failure
+- kernel panic
+- network partition
+- pod eviction caused by resource contention
 
 Among these examples, pod eviction is the only one unique to Kubernetes, and it
 is discussed in-depth throughout this guide. The other types of involuntary
@@ -72,16 +72,16 @@ manager. Unlike involuntary disruptions, voluntary disruptions are actions
 performed to Kubernetes. Examples of disruptions caused by an application owner
 include:
 
--   deleting the controller responsible for managing a pod
--   updating a deployment’s pod template
--   directly deleting a pod
+- deleting the controller responsible for managing a pod
+- updating a deployment’s pod template
+- directly deleting a pod
 
 Examples of disruptions caused by a cluster manager include:
 
--   draining a node for a repair or upgrade
--   scaling the cluster up or down (can also be caused by an
-    [autoscaler](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#cluster-autoscaling))
--   removal of a pod to permit another one to schedule on a node
+- draining a node for a repair or upgrade
+- scaling the cluster up or down (can also be caused by an
+  [autoscaler](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#cluster-autoscaling))
+- removal of a pod to permit another one to schedule on a node
 
 A cluster manager, application owner, automation, or an underlying hosting
 provider can all cause the above listed voluntary disruptions. Fortunately,
@@ -98,24 +98,24 @@ on the rest of your cluster.
 
 **Managed by application owners:**
 
--   [Disruption-Tolerant Applications](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#how-to-perform-disruptive-actions-on-your-cluster)
--   [Limits](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
--   [Requests](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
--   [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)
--   [Affinity & Anti-Affinity](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity)
--   [Pod Priority & Preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
+- [Disruption-Tolerant Applications](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#how-to-perform-disruptive-actions-on-your-cluster)
+- [Limits](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+- [Requests](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+- [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)
+- [Affinity & Anti-Affinity](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity)
+- [Pod Priority & Preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
 
 **Managed by cluster operators:**
 
--   [Live Restore](https://docs.docker.com/config/containers/live-restore/)
--   [PodsPerCore](https://docs.openshift.com/container-platform/4.1/nodes/nodes/nodes-nodes-managing-max-pods.html)
--   [LimitRanges](https://kubernetes.io/docs/concepts/policy/limit-range/#enabling-limit-range)
--   [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
--   [Soft Eviction](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#soft-eviction-thresholds)
--   [Hard Eviction](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#hard-eviction-thresholds)
--   [Kube Reserved](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/#kube-reserved)
--   [System Reserved](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/#system-reserved)
--   [Housekeeping Interval](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#eviction-monitoring-interval)
+- [Live Restore](https://docs.docker.com/config/containers/live-restore/)
+- [PodsPerCore](https://docs.openshift.com/container-platform/4.1/nodes/nodes/nodes-nodes-managing-max-pods.html)
+- [LimitRanges](https://kubernetes.io/docs/concepts/policy/limit-range/#enabling-limit-range)
+- [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+- [Soft Eviction](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#soft-eviction-thresholds)
+- [Hard Eviction](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#hard-eviction-thresholds)
+- [Kube Reserved](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/#kube-reserved)
+- [System Reserved](https://kubernetes.io/docs/tasks/administer-cluster/reserve-compute-resources/#system-reserved)
+- [Housekeeping Interval](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#eviction-monitoring-interval)
 
 For both audiences, topics are listed top-to-bottom by their relative
 impact-to-risk. The top-most items will have the greatest impact on your
@@ -123,10 +123,10 @@ environment while introducing minimal risk. As you approach the bottom of the
 list, parameters have less of an impact (relative to the others) and/or
 introduce risk if implemented incorrectly. Examples of misconfigured parameters:
 
--   for Application Owners, misconfigured or “abuse” of pod priority can
-    negatively impact scheduling of other teams' workloads
--   for Cluster Operators, misconfigured Kubernetes & System reserved flags can cause
-    significant instability in the cluster.
+- for Application Owners, misconfigured or “abuse” of pod priority can
+  negatively impact scheduling of other teams' workloads
+- for Cluster Operators, misconfigured Kubernetes & System reserved flags can cause
+  significant instability in the cluster.
 
 ## Application Owner
 
@@ -348,15 +348,15 @@ begin the [eviction
 process.](https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource/#evicting-end-user-pods)
 
 {{< table "table" >}}
-| Eviction Order | QoS | Priority | Utilization | Usage / Request | Pod Label |
+| Eviction Order | QoS        | Priority | Utilization | Usage / Request | Pod Label |
 | -------------- | ---------- | -------- | ----------- | --------------- | --------- |
-| 1 | BestEffort | 1 | 2% | N/A | D |
-| 2 | BestEffort | 2 | 5% | N/A | C |
-| 3 | BestEffort | 3 | 20% | N/A | A |
-| 4 | BestEffort | 3 | 10% | N/A | B |
-| 5 | Burstable | 3 | N/A | 2 | F |
-| 6 | Burstable | 2 | N/A | 0.5 | E |
-| 7 | Guaranteed | 1 | N/A | 1 | G |
+| 1              | BestEffort | 1        | 2%          | N/A             | D         |
+| 2              | BestEffort | 2        | 5%          | N/A             | C         |
+| 3              | BestEffort | 3        | 20%         | N/A             | A         |
+| 4              | BestEffort | 3        | 10%         | N/A             | B         |
+| 5              | Burstable  | 3        | N/A         | 2               | F         |
+| 6              | Burstable  | 2        | N/A         | 0.5             | E         |
+| 7              | Guaranteed | 1        | N/A         | 1               | G         |
 {{</ table >}}
 **Table 3: Eviction prioritization of pods from Figure 7**
 
@@ -726,15 +726,15 @@ A simple version of calculating this value is shown in Figure 22, with sample
 input and output shown in Table 2. Calculating maximum utilization with this
 function makes the following assumptions:
 
--   allocatable constraints (eviction threshold, kube & system reserved) == 0
--   number of failures is 1
+- allocatable constraints (eviction threshold, kube & system reserved) == 0
+- number of failures is 1
 
 {{< table "table" >}}
 | # of nodes (n) | maxUtilization(n) |
 | -------------- | ----------------- |
-| 2 | 50% |
-| 3 | 66% |
-| 10 | 90% |
+| 2              | 50%               |
+| 3              | 66%               |
+| 10             | 90%               |
 {{</ table >}}
 **Table 4: Example calculations of maximum node utilization with function from Figure 22**
 
@@ -752,12 +752,12 @@ output for this function.
 {{< table "table" >}}
 | # of nodes (n) | max # of node failures | node allocatable constraints | max utilization of nodes |
 | -------------- | ---------------------- | ---------------------------- | ------------------------ |
-| 2 | 1 | 0 | 50% |
-| 3 | 1 | 0 | 66% |
-| 10 | 1 | 0 | 90% |
-| 2 | 1 | 0.2 | 40% |
-| 3 | 1 | 0.3 | 56% |
-| 10 | 2 | 0.5 | 75% |
+| 2              | 1                      | 0                            | 50%                      |
+| 3              | 1                      | 0                            | 66%                      |
+| 10             | 1                      | 0                            | 90%                      |
+| 2              | 1                      | 0.2                          | 40%                      |
+| 3              | 1                      | 0.3                          | 56%                      |
+| 10             | 2                      | 0.5                          | 75%                      |
 {{</ table >}}
 **Table 5: Example calculation of maximum node utilization with function from Figure 23**
 

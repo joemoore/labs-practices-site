@@ -6,8 +6,8 @@ linkTitle: Running a Technical Discovery
 subsection: Spring Cloud
 featured: true
 team:
-    - Gagandeep Kaur
-    - Luke Malcher
+- Gagandeep Kaur
+- Luke Malcher
 title: Running a Technical Discovery
 level1: Agile Transformation and Practices
 level2: Agile Development
@@ -17,9 +17,9 @@ Running a technical discovery before software development can help to set your t
 
 Typical goals you might aim for in a technical discovery are:
 
--   Be ready to start building on day one
--   Have a clear path to production
--   Understand how technical constraints might impact the product
+- Be ready to start building on day one
+- Have a clear path to production
+- Understand how technical constraints might impact the product
 
 Ideally technical discovery can happen while [product research](https://tanzu.vmware.com/developer/guides/guide-to-discovery-and-framing/) is taking place. This way product and engineering streams can inform each other without delaying delivery.
 
@@ -37,9 +37,9 @@ Speaking to stakeholders in the organization can also help uncover risks and opp
 
 With some agreement on the biggest assumption and risks, you are now in a good position to agree on some goals for your technical discovery. Some of the most common goals you might aim for are:
 
--   Be ready to start building on day one
--   Have a clear path to production
--   Understand how technical constraints might impact the product
+- Be ready to start building on day one
+- Have a clear path to production
+- Understand how technical constraints might impact the product
 
 We’ll dig into the details of these in a section at the bottom of this article.
 
@@ -62,7 +62,6 @@ Make sure you communicate technical discovery findings. Make sure the team knows
 Don’t forget that engineering also has an important role to play in product discovery work, so make sure to balance this with your technical discovery. During user interviews or prototype testing an engineer can identify technical concerns, or notice an opportunity that a less technical team member might miss.
 
 ## How to approach typical technical discovery goals
-
 Let's break down our goals to make them more achievable.
 
 ### Goal: Be ready to start building on day one
@@ -73,12 +72,13 @@ This means you can push code, that tests will run, and if successful it will be 
 
 Pick the goals relevant to your situation:
 
--   Get access to systems
--   Make key technical choices
--   Decide where to deploy
--   Set up CI/CD, tools, platform, etc.
--   Ramp up on unfamiliar tech
--   Investigate potential integrations and get access to them e.g. API keys
+- Get access to systems
+- Make key technical choices
+- Decide where to deploy
+- Set up CI/CD, tools, platform, etc.
+- Ramp up on unfamiliar tech
+- Investigate potential integrations and get access to them e.g. API keys
+
 
 ### Goal: Have a clear path to production
 
@@ -94,12 +94,12 @@ You might want to try deploying a steel thread app after you’ve mapped the Pat
 
 Pick the goals relevant to your situation:
 
--   Understand the existing path to production
--   Propose a suitable path to production for a new platform
--   Identify and understand regulations that you have to follow
--   Identify stakeholders who 'sign off' and build relationships with them
--   Identify pain points in the existing path to production and come up with strategies to avoid them
--   Build confidence within the team via delivery, especially for teams who were skeptical or unfamiliar with pushing to production early in a project’s life cycle
+- Understand the existing path to production
+- Propose a suitable path to production for a new platform
+- Identify and understand regulations that you have to follow
+- Identify stakeholders who 'sign off' and build relationships with them
+- Identify pain points in the existing path to production and come up with strategies to avoid them
+- Build confidence within the team via delivery, especially for teams who were skeptical or unfamiliar with pushing to production early in a project’s life cycle
 
 ### Goal: Understand how technical constraints might impact the product
 
@@ -109,37 +109,38 @@ This means you can assess the feasibility of potential solutions and share any t
 
 Pick the goals relevant to your situation:
 
--   Aim to understand the domain
--   What’s off the table? What can’t we do?
--   Understand technical complexity of potential solutions
--   What technical or security requirements are there?
+- Aim to understand the domain
+- What’s off the table? What can’t we do?
+- Understand technical complexity of potential solutions
+- What technical or security requirements are there?
+
 
 ## Advice from our team
 
 We asked around at Pivotal/Tanzu Labs to find out what tips people had for Technical Discovery. This is what people told us:
 
--   Discovery is a lot more chaotic than the delivery phase so don’t expect to move as quickly. This is the start, you will gain momentum later.
--   Reach out to practitioners that have worked on similar projects for advice.
--   When building a Proof-of-Concept: make it look rough and temporary so that it will be thrown away. If the code is of low quality but the proof of concept looks good stakeholders may want to use it!
--   If you can't get access to people or information you need, raise this as a risk to your project sponsor.
--   Keep product and design informed about Technical Discovery findings.
--   Get the whole team involved in the decision making and planning to encourage a sense of shared ownership.
--   Have a schedule and make it visible to the whole team.
--   Focus on outcome/goals.
--   Focus on things that you cannot continue without.
--   Focus on things that are unlikely to change e.g. don’t start a walking skeleton before the tech stack is established.
--   Don’t stress if things take longer than planned, anything you get done will save time later and you can still do the remaining work in the delivery phase (be sure to raise this as a risk to the team).
--   If you get stuck, ask yourself what decision your team is trying to make. You can often work backwards from that to the things you need to find out.
+- Discovery is a lot more chaotic than the delivery phase so don’t expect to move as quickly. This is the start, you will gain momentum later.
+- Reach out to practitioners that have worked on similar projects for advice.
+- When building a Proof-of-Concept: make it look rough and temporary so that it will be thrown away. If the code is of low quality but the proof of concept looks good stakeholders may want to use it!
+- If you can't get access to people or information you need, raise this as a risk to your project sponsor.
+- Keep product and design informed about Technical Discovery findings.
+- Get the whole team involved in the decision making and planning to encourage a sense of shared ownership.
+- Have a schedule and make it visible to the whole team.
+- Focus on outcome/goals.
+- Focus on things that you cannot continue without.
+- Focus on things that are unlikely to change e.g. don’t start a walking skeleton before the tech stack is established.
+- Don’t stress if things take longer than planned, anything you get done will save time later and you can still do the remaining work in the delivery phase (be sure to raise this as a risk to the team).
+- If you get stuck, ask yourself what decision your team is trying to make. You can often work backwards from that to the things you need to find out.
 
 ## Practices you might try during Technical Discovery
 
 Review and apply these practices and workshops to help your technical discovery become more successful.
 
--   [Risks and Mitigations](https://tanzu.vmware.com/developer/practices/risks-and-mitigations/) - Brainstorm what could cause project delay or failure and think of ways to avoid this
--   [Path to Production Mapping](https://tanzu.vmware.com/developer/practices/path-to-production-mapping/) - The team collaboratively maps out the Path to Production.
--   [Ubiquitous language](https://tanzu.vmware.com/developer/practices/ubiquitous-language/) - a session to establish a common set of terms understood by the core team
--   [Event Storming](https://tanzu.vmware.com/developer/practices/event-storming/) - session to map out events in a system and or domain
--   [Service Blueprint](https://tanzu.vmware.com/developer/practices/service-blueprint/) - a session to map out the technological and human interactions that take place in a customer journey- Steel thread - Also known as a tracer bullet or walking skeleton, a steel thread is an app with no functionality that is pushed to production to de-risk the process and integrations.
--   [Architectural decision records](https://tanzu.vmware.com/developer/guides/architectural-design-records-what-were-the-engineers-thinking/) - a process for keeping track of decisions for sharing context with the current and future team
--   [C4 architecture diagrams](https://c4model.com/) - a model for mapping out software architecture
--   Proofs of concept - quick experiments to check if an idea is feasible
+- [Risks and Mitigations](https://tanzu.vmware.com/developer/practices/risks-and-mitigations/) - Brainstorm what could cause project delay or failure and think of ways to avoid this
+- [Path to Production Mapping](https://tanzu.vmware.com/developer/practices/path-to-production-mapping/) - The team collaboratively maps out the Path to Production.
+- [Ubiquitous language](https://tanzu.vmware.com/developer/practices/ubiquitous-language/) - a session to establish a common set of terms understood by the core team
+- [Event Storming](https://tanzu.vmware.com/developer/practices/event-storming/) - session to map out events in a system and or domain
+- [Service Blueprint](https://tanzu.vmware.com/developer/practices/service-blueprint/) - a session to map out the technological and human interactions that take place in a customer journey- Steel thread - Also known as a tracer bullet or walking skeleton, a steel thread is an app with no functionality that is pushed to production to de-risk the process and integrations.
+- [Architectural decision records](https://tanzu.vmware.com/developer/guides/architectural-design-records-what-were-the-engineers-thinking/) - a process for keeping track of decisions for sharing context with the current and future team
+- [C4 architecture diagrams](https://c4model.com/) - a model for mapping out software architecture
+- Proofs of concept - quick experiments to check if an idea is feasible

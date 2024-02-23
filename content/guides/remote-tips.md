@@ -3,15 +3,15 @@ date: '2021-01-29'
 lastmod: '2021-02-22'
 subsection: Remote Tips
 tags:
-    - Agile
-    - Getting Started
+- Agile
+- Getting Started
 featured: true
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: Remote Tips
-oldPath: '/content/guides/agile/remote-tips.md'
+oldPath: "/content/guides/agile/remote-tips.md"
 aliases:
-    - '/guides/agile/remote-tips'
+- "/guides/agile/remote-tips"
 level1: Agile Transformation and Practices
 level2: Team Tips
 description: Tips for remote and distributed teams
@@ -19,7 +19,7 @@ description: Tips for remote and distributed teams
 
 The transition to working remotely due to COVID-19 has proven to be quite a challenge—including for those of us at Pivotal/Tanzu Labs. While remotely communicating and collaborating using digital tools is not new to us, doing so in an entirely distributed environment for the foreseeable future is.
 
-The challenges have been especially daunting when we’ve had to apply the principles of Extreme Programming (XP), namely constant communication, intense collaboration, and ongoing reflection. On top of all that, we engage with new customers on a regular basis to kick off projects multiple times throughout the course of a year. In this new normal, our practitioners must not only quickly bootstrap burgeoning relationships and get up to speed on unfamiliar domains, but build customer-based teams that feature all these new ways of working and in the process, re-define a set of previously shared norms.
+The challenges have been especially daunting when we’ve had to apply the principles of Extreme Programming (XP), namely constant communication, intense collaboration, and ongoing reflection. On top of all that, we engage with new customers on a regular basis to kick off projects multiple times throughout the course of a year. In this new normal, our practitioners must not only quickly bootstrap burgeoning relationships and get up to speed on unfamiliar  domains, but build customer-based teams that feature all these new ways of working and in the process, re-define a set of previously shared norms.
 
 There are undoubtedly more challenges left for us to face in our new, all-remote set-up. In the meantime, however, we set out to identify the most pressing problems and come up with the best possible solutions to address them. The result is a series of remote working tips that we are thrilled to share with you.
 

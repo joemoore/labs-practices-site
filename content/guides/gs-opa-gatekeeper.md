@@ -1,20 +1,20 @@
 ---
-title: 'Getting Started with OPA Gatekeeper'
-linkTitle: 'Getting Started with OPA Gatekeeper'
-description: 'An Introduction to the Open Policy Agent on Kubernetes using OPA Gatekeeper'
-date: '2022-08-26'
-lastmod: '2022-08-26'
+title: "Getting Started with OPA Gatekeeper"
+linkTitle:  "Getting Started with OPA Gatekeeper"
+description: "An Introduction to the Open Policy Agent on Kubernetes using OPA Gatekeeper"
+date: "2022-08-26"
+lastmod: "2022-08-26"
 level1: Securing Kubernetes
 level2: Access and Security
 tags:
-    - Kubernetes
-    - Security
+- Kubernetes
+- Security
 # Author(s)
 team:
-    - Tony Scully
-    - Tiffany Jernigan
+- Tony Scully
+- Tiffany Jernigan
 topics:
-    - Kubernetes
+- Kubernetes
 ---
 
 ## Introduction
@@ -25,59 +25,61 @@ One of the tools that can be used for this assurance is the [Open Policy Agent (
 
 ## What Is OPA?
 
-Open Policy Agent (OPA) is an Open Source Software project that is managed by the Cloud Native Computing Foundation (CNCF). OPA has achieved ‘graduated’ maturity level in the CNCF landscape.
-
-OPA is a general purpose policy engine that allows for unified policy enforcement across platforms and across the software stack. OPA uses a high-level declarative language that lets you specify policy-as-code and APIs to offload policy decision-making from your software, providing a clear separation of concerns.
-
-In OPA a policy is a set of rules that govern the behavior of a software service. Policies can be used to encode information about how to achieve compliance with these rules, and to define an action to take when these rules are violated.
+Open Policy Agent (OPA) is an Open Source Software project that is managed by the Cloud Native Computing Foundation (CNCF).  OPA has achieved ‘graduated’ maturity level in the CNCF landscape.
+ 
+OPA is a general purpose policy engine that allows for unified policy enforcement across platforms and across the software stack.  OPA uses a high-level declarative language that lets you specify policy-as-code and APIs to offload policy decision-making from your software, providing a clear separation of concerns.
+ 
+In OPA a policy is a set of rules that govern the behavior of a software service.  Policies can be used to encode information about how to achieve compliance with these rules, and to define an action to take when these rules are violated.
 
 There are often multiple ways to build the type of controls that policy can be used to define, but as with security in general, it is useful to be able to apply controls in layers, so that the failure or misconfiguration of one layer does not lead to a failure of enforcement.
 
-OPA policies are created in a domain specific language called Rego. Rego is a declarative language for defining queries, so you can focus on the value returned by the queries rather than on how the query is executed.
+OPA policies are created in a domain specific language called Rego.  Rego is a declarative language for defining queries, so you can focus on the value returned by the queries rather than on how the query is executed.
 
-Rego is based on the Datalog language and extends Datalog to structured document formats like YAML or JSON. Rego queries are assertions on data that is stored in OPA. These queries can be used to define policies that enumerate instances of data that violate the expected state of the system, for example a query could check that a particular field in a YAML document has been set to one of a range of acceptable values.
-
+Rego is based on the Datalog language and extends Datalog to structured document formats like YAML or JSON.  Rego queries are assertions on data that is stored in OPA.  These queries can be used to define policies that enumerate instances of data that violate the expected state of the system, for example a query could check that a particular field in a YAML document has been set to one of a range of acceptable values.
+ 
 Here are some useful resources for learning and understanding Rego:
-
--   [Rego Documentation](https://www.openpolicyagent.org/docs/latest/policy-language/)
--   [Rego playground to develop and test queries](https://play.openpolicyagent.org/)
--   [Testing locally using the `conftest` tool](https://github.com/open-policy-agent/conftest)
--   [Developing policies](https://tanzu.vmware.com/developer/guides/platform-security-opa/)
+- [Rego Documentation](https://www.openpolicyagent.org/docs/latest/policy-language/)
+- [Rego playground to develop and test queries](https://play.openpolicyagent.org/)
+- [Testing locally using the `conftest` tool](https://github.com/open-policy-agent/conftest)
+- [Developing policies](https://tanzu.vmware.com/developer/guides/platform-security-opa/)
 
 It is useful to understand the Rego language, but you can get started with OPA using the examples provided by the project, which cover a lot of use-cases.
 
 ## What is Gatekeeper?
-
-[OPA Gatekeeper](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/#what-is-opa-gatekeeper) is a specialized implementation of OPA that provides integration with Kubernetes using _Dynamic Admission Control_ and custom resource definitions to allow the Kubernetes cluster administrator and other users to create policy templates and specific policy instances, as outlined below.
+ 
+[OPA Gatekeeper](https://www.openpolicyagent.org/docs/latest/kubernetes-introduction/#what-is-opa-gatekeeper) is a specialized implementation of OPA that provides integration with Kubernetes using *Dynamic Admission Control* and custom resource definitions to allow the Kubernetes cluster administrator and other users to create policy templates and specific policy instances, as outlined below.
+ 
 
 ## What is admission control?
-
-In Kubernetes, OPA policies are evaluated at the Admission Control phase of a request being processed by the Kubernetes API. Generally requests to the Kubernetes API go through three broad phases before they are accepted or rejected:
-
--   **Authentication** - checking the identity of the user or service making the request, for example by presenting a valid token to the API
--   **Authorization** - checking that the identity has the required access to perform the request, for example has appropriate role bound
--   **Admission Control** - checking that the request passes any built-in validation or any checks implemented by the cluster administrator
-
+ 
+In Kubernetes, OPA policies are evaluated at the Admission Control phase of a request being processed by the Kubernetes API.  Generally requests to the Kubernetes API go through three broad phases before they are accepted or rejected:
+ 
+- **Authentication** - checking the identity of the user or service making the request, for example by presenting a valid token to the API
+- **Authorization** - checking that the identity has the required access to perform the request, for example has appropriate role bound
+- **Admission Control** - checking that the request passes any built-in validation or any checks implemented by the cluster administrator
+ 
 If the request successfully completes the above stages, the changes specified in the request are applied to the cluster.
-
+ 
 Policy decisions like those defined in OPA are implemented at the admission control stage, and the OPA project provides an admission controller plugin called Gatekeeper to perform this function in a Kubernetes cluster.
-
+ 
 The Kubernetes API has a number of built-in admission controllers, for example the controllers that implement `LimitRange` and `ResourceQuota.Admission` control in Kubernetes is also dynamically extensible using webhooks.
 
-This means that once Gatekeeper is deployed and running in a cluster, each request to the Kubernetes API will be evaluated against `specifiedOPA` rules, without having to reconfigure the Kubernetes API itself. This is managed by Gatekeeper, registering with the Kubernetes API as both a validating webhook and a mutating webhook.
+This means that once Gatekeeper is deployed and running in a cluster, each request to the Kubernetes API will be evaluated against `specifiedOPA` rules, without having to reconfigure the Kubernetes API itself.  This is managed by Gatekeeper, registering with the Kubernetes API as both a validating webhook and a mutating webhook. 
 
 The Kubernetes API calls any validating admission webhooks that match the request resource specification; these webhooks can respond by allowing or denying the request. If any webhook responds with a denial message, the API request is rejected.
 
-When called by the Kubernetes API, mutating admission webhooks can allow a request and additionally respond with a `patch` to the original resource, the patch contains the changes that should be applied to the resource before the request is completed.
-
+When called by the Kubernetes API, mutating admission webhooks can allow a request and additionally respond with a `patch` to the original resource, the patch contains the changes that should be applied to the resource before the request is completed. 
+ 
 See the [Kubernetes docs](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) for more details on dynamic admission control.
+
+
+
 
 ## Install Gatekeeper
 
 First, you need a cluster with Kubernetes v1.16 or later.
 
 Next, ensure that you have cluster admin RBAC permissions:
-
 ```
 kubectl create clusterrolebinding cluster-admin-binding \
 --clusterrole cluster-admin \
@@ -85,16 +87,14 @@ kubectl create clusterrolebinding cluster-admin-binding \
 ```
 
 In this guide we will just deploy Gatekeeper using a prebuilt image:
-
 ```
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
 ```
 
 To see other ways to install Gatekeeper, such as with a Helm chart, check out the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/install#installation). If you are unfamiliar with and interested to learn about Helm, check out [Getting Started with Helm](/guides/helm-gs/).
-
 ## Using Gatekeeper
 
-Now that Gatekeeper has been installed, there are some new components running in the cluster. You can examine the content of the `gatekeeper-system` namespace:
+Now that Gatekeeper has been installed, there are some new components running in the cluster.  You can examine the content of the `gatekeeper-system` namespace:
 
 ```
 kubectl -n gatekeeper-system get deployments,services
@@ -108,8 +108,9 @@ service/gatekeeper-webhook-service   ClusterIP   10.96.212.9   <none>        443
 
 These two deployments create the pods that run the Gatekeeper controllers:
 
--   **gatekeeper-controller-manager** implements the webhooks that the Kubernetes API will call for validation and mutation
--   **gatekeeper-audit** checks for policy compliance on objects that already exist in the cluster
+- **gatekeeper-controller-manager** implements the webhooks that the Kubernetes API will call for validation and mutation
+- **gatekeeper-audit** checks for policy compliance on objects that already exist in the cluster
+
 
 And also see these new custom resource definitions (CRDs) that have been created in the cluster:
 
@@ -129,17 +130,17 @@ providers.externaldata.gatekeeper.sh                 2022-07-13T10:16:21Z
 
 Using the `constrainttemplates.templates.gatekeeper.sh` CRD you can create general policy definitions that Gatekeeper will use.
 
-Once you have created a template, you can create specific constraint instances for each use-case you want to define.
+Once you have created a template, you can create specific constraint instances for each use-case you want to define. 
 
 ### Creating a constraint template
 
 As an example of constraint templates, the cluster admin can create a template to require labels on objects.
 
-This template defines a general constraint that checks for the existence of labels. Note that there are no specific cases (label names or object types) defined in the template.
+This template defines a general constraint that checks for the existence of labels.  Note that there are no specific cases (label names or object types) defined in the template.
 
 Once created, the template can be used to create constraints that require a specific label or set of labels to be defined on an object.
 
-You can see the general structure of the template in the YAML below. The spec contains two main fields: `crd` and `targets`. The `targets` contains the Rego definition of the general constraint you want to use. You can find more information in the Rego documentation or you can use `kubectl explain` to explore the structure of the YAML used to define the templates.
+You can see the general structure of the template in the YAML below.  The spec contains two main fields: `crd` and `targets`.  The `targets` contains the Rego definition of the general constraint you want to use.   You can find more information in the Rego documentation or you can use `kubectl explain` to explore the structure of the YAML used to define the templates.
 
 In the ‘targets’ section, you can see who the template refers to the Kubernetes specification of the resources to be reviewed by the policy, in this case `object.metadata.labels`.  
 You can define the message that you want to be reported if the constraint is violated in the template.
@@ -242,16 +243,16 @@ In this case, the constraint defines that any `namespace` objects that are creat
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sRequiredLabels
 metadata:
-    name: all-ns-must-have-owner-label
+  name: all-ns-must-have-owner-label
 spec:
-    match:
-        kinds:
-            - apiGroups: ['']
-              kinds: ['Namespace']
-    parameters:
-        message: 'All namespaces must have an `owner` label'
-        labels:
-            - key: owner
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
+    message: "All namespaces must have an `owner` label"
+    labels:
+      - key: owner
 ```
 
 When this is applied a specific instance of the constraint template `K8sRequiredLabels` is created:
@@ -294,9 +295,9 @@ Modify the YAML as shown here and attempting to create with the label added:
 apiVersion: v1
 kind: Namespace
 metadata:
-    name: test-opa
-    labels:
-        owner: opa-tester
+  name: test-opa
+  labels:
+    owner: opa-tester
 spec: {}
 ```
 
@@ -311,7 +312,7 @@ test-opa   Active   17s
 
 ## Adding another constraint using the same template
 
-Once a constraint template exists, it can be used for multiple use-cases.
+Once a constraint template exists, it can be used for multiple use-cases.  
 
 For example, this constraint would check that a label named `stage` is set on any pod spec that is sent to the Kubernetes API:
 
@@ -319,23 +320,23 @@ For example, this constraint would check that a label named `stage` is set on an
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sRequiredLabels
 metadata:
-    name: all-pods-must-have-stage-label
+  name: all-pods-must-have-stage-label
 spec:
-    match:
-        kinds:
-            - apiGroups: ['']
-              kinds: ['Pod']
-    parameters:
-        message: 'All pods must have a `stage` label'
-        labels:
-            - key: stage
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+  parameters:
+    message: "All pods must have a `stage` label"
+    labels:
+      - key: stage
 ```
 
 ## Checking the status of constraints
 
 One thing to note is that once a constraint has been put in place, using `kubectl describe` will show violation of the constraint by objects that already exist in the cluster.
 
-The existing objects will not be affected, for example a running pod that violates a constraint will not be evicted, but updates to those objects will fail. For example in the cluster deployed earlier:
+The existing objects will not be affected, for example a running pod that violates a constraint will not be evicted, but updates to those objects will fail.  For example in the cluster deployed earlier:
 
 ```
 kubectl describe  constraint all-ns-must-have-owner-label
@@ -456,10 +457,11 @@ error: namespaces "default" could not be patched: admission webhook "validation.
 
 Adding new constraint templates and new constraints will impact the cluster, and may produce unwanted side-effects, so testing is key.
 
-You can use the 'dry-run' capability by setting the `enforcementAction` property in the spec of the constraint to `dryrun`. Violations will then be logged, but will not be denied by the admission controller.
+You can use the 'dry-run' capability by setting the `enforcementAction` property in the spec of the constraint to `dryrun`.  Violations will then be logged, but will not be denied by the admission controller.
 
 For further details see:  
 [Gatekeeper dry-run](https://open-policy-agent.github.io/gatekeeper/website/docs/next/violations/#dry-run-enforcement-action).
+
 
 ## Use Cases and Further Examples
 
@@ -467,26 +469,27 @@ Now you have seen the basic structure of a constraint template and how you can c
 
 Uses-cases could include:
 
--   enforcing a minimum number of replicas on each deployment
--   enforcing the use of a SHA in image references rather than the use of a tag
--   enforcing the setting of requests and limits for containers in pod specifications
--   implement a denylist for disallowed registries
+- enforcing a minimum number of replicas on each deployment
+- enforcing the use of a SHA in image references rather than the use of a tag
+- enforcing the setting of requests and limits for containers in pod specifications
+- implement a denylist for disallowed registries
 
 There are many examples in the Gatekeeper library, here: [ Gatekeeper Library](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/general)
 
 This is also a great resource for learning about Gatekeeper.
 
+
 ## Using Mutation with Gatekeeper
 
-So far you have seen Gatekeeper acting a _validating_ admission controller, that is, the Kubernetes API sends a request to the Gatekeeper webhook endpoint to query the state of some value, and the webhook provides a response that the query satisfies a constraint, or that the constraint is violated.
+So far you have seen Gatekeeper acting a *validating* admission controller, that is, the Kubernetes API sends a request to the Gatekeeper webhook endpoint to query the state of some value, and the webhook provides a response that the query satisfies a constraint, or that the constraint is violated.
 
-Kubernetes also provides a mechanism where the admission controller can _mutate_ (that is, update) the contents of the request to the Kubernetes API in order to satisfy the constraint.
+Kubernetes also provides a mechanism where the admission controller can *mutate* (that is, update) the contents of the request to the Kubernetes API in order to satisfy the constraint.
 
 Mutation of this sort can be a solution to the issue of having Kubernetes API requests rejected at the admission stage, which then requires the requesting entity to modify and re-submit the request.
 
-While this is true, the use of mutation should be carefully considered, as making changes to the request at admission time means that the specification of the resource that is created or updated in the cluster is not identical to what was specified in the initial request. This can lead to configuration drift, for example if you are using source code control for the specification of your resources, the source code control system should be a ‘single source of truth’ and should accurately reflect the running state of the cluster.
+While this is true, the use of mutation should be carefully considered, as making changes to the request at admission time means that the specification of the resource that is created or updated in the cluster is not identical to what was specified in the initial request.  This can lead to configuration drift, for example if you are using source code control for the specification of your resources, the source code control system should be a ‘single source of truth’ and should accurately reflect the running state of the cluster.
 
-The mutating webhook uses some of the other customer resources that were shown earlier in this guide. They are:
+The mutating webhook uses some of the other customer resources that were shown earlier in this guide.  They are:
 
 ```
 kubectl get crd -l gatekeeper.sh/system=yes  |grep -i mutation
@@ -494,78 +497,76 @@ assign.mutations.gatekeeper.sh                       2022-07-13T10:16:20Z
 assignmetadata.mutations.gatekeeper.sh               2022-07-13T10:16:21Z
 modifyset.mutations.gatekeeper.sh                    2022-07-13T10:16:20Z
 ```
-
 The function of these CRDs is:
 
--   `AssignMetadata` - defines changes to the metadata section of a resource
--   `Assign` - any change outside the metadata section
--   `ModifySet` - adds or removes entries from a list, such as the arguments to a container
+- `AssignMetadata` - defines changes to the metadata section of a resource
+- `Assign` - any change outside the metadata section
+- `ModifySet` - adds or removes entries from a list, such as the arguments to a container
 
-Each of these CRDs applies to a different use-case.
-
-As an example, in use-case earlier in this guide, where Gatekeeper was used to deny the creation of a namespace without the `owner` label set, you can use the `AssignMetadata` CRD to set the label to a specific value.
-
-Here is the YAML for this CRD instance. This will cause any attempt to create a namespace without a value for the label `owner` to have that label set to the value `cluster-admin`. Save it to the file `example-assign-metadata.yaml`.
-
+Each of these CRDs applies to a different use-case. 
+ 
+As an example, in use-case earlier in this guide, where Gatekeeper was used to deny the creation of a namespace without the `owner` label set, you can use the `AssignMetadata` CRD to set the label to a specific value.  
+ 
+Here is the YAML for this CRD instance.  This will cause any attempt to create a namespace without a value for the label `owner` to have that label set to the value `cluster-admin`. Save it to the file `example-assign-metadata.yaml`.
+ 
 ```yaml
 apiVersion: mutations.gatekeeper.sh/v1alpha1
 kind: AssignMetadata
 metadata:
-    name: ns-label-owner
+ name: ns-label-owner
 spec:
-    match:
-        kinds:
-            - apiGroups: ['*']
-              kinds: ['Namespace']
-    location: 'metadata.labels.owner'
-    parameters:
-        assign:
-            value: 'cluster-admin'
+   match:
+     kinds:
+       - apiGroups: ["*"]
+         kinds: ["Namespace"]
+   location: "metadata.labels.owner"
+   parameters:
+     assign:
+       value:  "cluster-admin"
 ```
-
+ 
 Apply that YAML to the cluster and it will create an instance of the CRD:
-
+ 
 ```
 kubectl apply -f example-assign-metadata.yaml
 assignmetadata.mutations.gatekeeper.sh/ns-label-owner created
-
+ 
 kubectl get assignmetadata.mutations.gatekeeper
 NAME             AGE
 ns-label-owner   14s
 ```
-
+ 
 The constraint that requires a value to exist for the label `owner` on a namespace is still in place, but now creating a namespace without the label set will succeed.
-
+ 
 Create a file called `test-opa-mutation.yaml` with the following:
-
+ 
 ```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
-    name: test-opa-mutation
+ name: test-opa-mutation
 spec: {}
 status: {}
 ```
-
+ 
 Apply it:
-
 ```
 kubectl apply -f test-opa-mutation.yaml
 namespace/test-opa-mutation created
 ```
-
+ 
 And check:
-
+ 
 ```
 kubectl get namespaces test-opa-mutation --show-labels
 NAME                STATUS   AGE   LABELS
 test-opa-mutation   Active   14s   kubernetes.io/metadata.name=test-opa-mutation,owner=cluster-admin
 ```
+ 
+*NOTE:*  if the label is already set to a value, the mutating webhook will have no effect and the value will remain as specified in the original request.
 
-_NOTE:_ if the label is already set to a value, the mutating webhook will have no effect and the value will remain as specified in the original request.
 
 ## Cleanup
-
 ```
 kubectl delete -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
 ```

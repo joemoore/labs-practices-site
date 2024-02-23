@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Using Sonobuoy for cluster conformance testing
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Cluster Acceptance Testing
 parent: Workload Tenancy
 title: Automated Cluster Acceptance Testing
 weight: 1400
-oldPath: '/content/guides/kubernetes/workload-tenancy-conformance-test.md'
+oldPath: "/content/guides/kubernetes/workload-tenancy-conformance-test.md"
 aliases:
-    - '/guides/kubernetes/workload-tenancy-conformance-test'
+- "/guides/kubernetes/workload-tenancy-conformance-test"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -27,17 +27,17 @@ any Kubernetes cluster.
 [Sonobuoy](https://sonobuoy.io/) is a tool for cluster owners to ensure their
 cluster conforms to CNCF guidelines via these tests. It does the following:
 
--   Integrated end-to-end (e2e) conformance testing
--   Workload debugging
--   Custom data collection via extensible plugins
+- Integrated end-to-end (e2e) conformance testing
+- Workload debugging
+- Custom data collection via extensible plugins
 
 The support for custom plugins means that you can write and integrate any logic
 into the workflow that you need. For example:
 
--   Ensuring your cluster meets regulatory and security requirements
--   Checking availability and connectivity of private, custom resources
--   Performing cluster benchmarking
--   Testing custom objects and APIs
+- Ensuring your cluster meets regulatory and security requirements
+- Checking availability and connectivity of private, custom resources
+- Performing cluster benchmarking
+- Testing custom objects and APIs
 
 Pivotal/Tanzu Labs recommends Sonobuoy to evaluate cluster conformance. Tests can
 be selected based on the [SIG](https://github.com/kubernetes-sigs) or test type
@@ -45,23 +45,23 @@ at execution time.
 
 A conformance-passing cluster provides the following guarantees:
 
--   Recommended configuration: The Kubernetes cluster is properly configured
-    following correct practices. This is useful to have confirmed, whether you are
-    running a vendor maintained distribution of Kubernetes, or handling your own
-    custom setup. _This does not imply your cluster is fully secured or fostering
-    best-practices specific to your organization_.
+- Recommended configuration: The Kubernetes cluster is properly configured
+  following correct practices. This is useful to have confirmed, whether you are
+  running a vendor maintained distribution of Kubernetes, or handling your own
+  custom setup. _This does not imply your cluster is fully secured or fostering
+  best-practices specific to your organization_.
 
--   Predictability: The tested Kubernetes cluster behavior is consistent and
-    performs as expected. Available features in the official Kubernetes
-    documentation can be taken as a given. Unexpected bugs should be rare, because
-    distribution-specific issues are weeded out during the conformance tests.
+- Predictability: The tested Kubernetes cluster behavior is consistent and
+  performs as expected. Available features in the official Kubernetes
+  documentation can be taken as a given. Unexpected bugs should be rare, because
+  distribution-specific issues are weeded out during the conformance tests.
 
--   Interoperability: Workloads from other conforming clusters can be ported into
-    your cluster, or vice versa. This standardization of Kubernetes is a key
-    advantage of open source software, and allows you to avoid vendor lock-in. It
-    is recommended to review the requirements and assumptions for the [e2e
-    conformance
-    tests](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/conformance-tests.md).
+- Interoperability: Workloads from other conforming clusters can be ported into
+  your cluster, or vice versa. This standardization of Kubernetes is a key
+  advantage of open source software, and allows you to avoid vendor lock-in. It
+  is recommended to review the requirements and assumptions for the [e2e
+  conformance
+  tests](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/conformance-tests.md).
 
 `Sonobuoy` also has a plugin architecture that allows implementors to write
 additional tests. These plugins include the `kube-hunter` project (and it’s
@@ -83,10 +83,10 @@ on cluster lifecycle events.
 
 Examples of these events might be:
 
--   Whenever there are major changes to cluster software version, policies, or configuration.
--   Whenever a new cluster is built and deployed.
--   Whenever minor software or configuration changes.
--   Whenever there are changes in the control plane.
+- Whenever there are major changes to cluster software version, policies, or configuration.
+- Whenever a new cluster is built and deployed.
+- Whenever minor software or configuration changes.
+- Whenever there are changes in the control plane.
 
 The first phase in this effort would be manually running `sonobuoy` against test
 clusters in certified-conformance mode. This will establish a baseline of
@@ -95,10 +95,10 @@ adopt a strategy that follows the list of events above.
 
 Some examples include:
 
--   Major cluster change - Sonobuoy run in certified-conformance mode
--   New cluster build - Sonobuoy run in non-disruptive-conformance mode
--   Minor changes to conformant cluster - Sonobuoy run in quick mode
--   Change in control plane - Sonobuoy run in non-disruptive-conformance mode on a deployed test cluster
+- Major cluster change - Sonobuoy run in certified-conformance mode
+- New cluster build - Sonobuoy run in non-disruptive-conformance mode
+- Minor changes to conformant cluster - Sonobuoy run in quick mode
+- Change in control plane - Sonobuoy run in non-disruptive-conformance mode on a deployed test cluster
 
 ## Options
 
@@ -135,17 +135,17 @@ resources. There have been instances in the past where disruption occurred.
 The [required prerequisites](https://github.com/vmware-tanzu/sonobuoy) for
 Sonobuoy are:
 
--   Access to a Kubernetes cluster. If you do not have a cluster, we recommend
-    following the [AWS Quickstart for Kubernetes
-    instructions](https://aws.amazon.com/quickstart/architecture/vmware-kubernetes/).
--   An admin `kubeconfig` file.
--   For some advanced workflows it may be required to have `kubectl` installed.
-    See [installing via Homebrew
-    (MacOS)](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
-    or [building the binary
-    (Linux)](https://kubernetes.io/docs/tasks/tools/install-kubectl/#tabset-1).
--   The `sonobuoy images` subcommand requires [Docker](https://www.docker.com/) to
-    be installed.
+- Access to a Kubernetes cluster. If you do not have a cluster, we recommend
+  following the [AWS Quickstart for Kubernetes
+  instructions](https://aws.amazon.com/quickstart/architecture/vmware-kubernetes/).
+- An admin `kubeconfig` file.
+- For some advanced workflows it may be required to have `kubectl` installed.
+  See [installing via Homebrew
+  (MacOS)](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-homebrew-on-macos)
+  or [building the binary
+  (Linux)](https://kubernetes.io/docs/tasks/tools/install-kubectl/#tabset-1).
+- The `sonobuoy images` subcommand requires [Docker](https://www.docker.com/) to
+  be installed.
 
 ### Installation Steps
 

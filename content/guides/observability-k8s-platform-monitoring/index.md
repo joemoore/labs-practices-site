@@ -1,17 +1,17 @@
 ---
 date: '2021-02-24'
 description: Considerations, guidance, and best practices for monitoring Kubernetes
-    clusters.
+  clusters.
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Kubernetes Platform Monitoring
 parent: Platform Observability
 title: Kubernetes Platform Monitoring
 weight: 1600
-oldPath: '/content/guides/kubernetes/observability-k8s-platform-monitoring.md'
+oldPath: "/content/guides/kubernetes/observability-k8s-platform-monitoring.md"
 aliases:
-    - '/guides/kubernetes/observability-k8s-platform-monitoring'
+- "/guides/kubernetes/observability-k8s-platform-monitoring"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags: []
@@ -35,12 +35,12 @@ by CoreOS (Red Hat). This project allows an administrator to deploy and tune an
 end-to-end Prometheus solution within a Kubernetes cluster. It contains the
 following components:
 
--   Prometheus operator
--   Highly available `alert-manager`
--   Prometheus node-exporter
--   Prometheus Adapter for Kubernetes Metrics APIs
--   `kube-state-metrics`
--   Grafana
+- Prometheus operator
+- Highly available `alert-manager`
+- Prometheus node-exporter
+- Prometheus Adapter for Kubernetes Metrics APIs
+- `kube-state-metrics`
+- Grafana
 
 ### `kube-state-metrics`
 
@@ -137,59 +137,59 @@ therefore the following objects can be created:
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-    annotations:
-    name: ui
-    namespace: monitoring
+  annotations:
+  name: ui
+  namespace: monitoring
 spec:
-    routes:
-        - conditions:
-              - prefix: /
-          enableWebsockets: true
-          loadBalancerPolicy:
-              strategy: Cookie
-          services:
-              - name: prometheus-k8s
-                port: 9090
-    virtualhost:
-        fqdn: ui-monitoring.example.com
+  routes:
+    - conditions:
+        - prefix: /
+      enableWebsockets: true
+      loadBalancerPolicy:
+        strategy: Cookie
+      services:
+        - name: prometheus-k8s
+          port: 9090
+  virtualhost:
+    fqdn: ui-monitoring.example.com
 ---
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-    annotations:
-    name: grafana
-    namespace: monitoring
+  annotations:
+  name: grafana
+  namespace: monitoring
 spec:
-    routes:
-        - conditions:
-              - prefix: /
-          enableWebsockets: true
-          loadBalancerPolicy:
-              strategy: Cookie
-          services:
-              - name: grafana
-                port: 3000
-    virtualhost:
-        fqdn: grafana-monitoring.example.com
+  routes:
+    - conditions:
+        - prefix: /
+      enableWebsockets: true
+      loadBalancerPolicy:
+        strategy: Cookie
+      services:
+        - name: grafana
+          port: 3000
+  virtualhost:
+    fqdn: grafana-monitoring.example.com
 ---
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-    annotations:
-    name: alertmanager
-    namespace: monitoring
+  annotations:
+  name: alertmanager
+  namespace: monitoring
 spec:
-    routes:
-        - conditions:
-              - prefix: /
-          enableWebsockets: true
-          loadBalancerPolicy:
-              strategy: Cookie
-          services:
-              - name: alertmanager-main
-                port: 9093
-    virtualhost:
-        fqdn: alertmanager-monitoring.example.com
+  routes:
+    - conditions:
+        - prefix: /
+      enableWebsockets: true
+      loadBalancerPolicy:
+        strategy: Cookie
+      services:
+        - name: alertmanager-main
+          port: 9093
+  virtualhost:
+    fqdn: alertmanager-monitoring.example.com
 ```
 
 ![Prometheus](images/prometheus.png)
@@ -241,41 +241,41 @@ kubectl get secret alertmanager-main -n monitoring --template '{{ index .data "a
 ```
 
 ```yaml
-'global':
-    'resolve_timeout': '5m'
-'inhibit_rules':
-    - 'equal':
-          - 'namespace'
-          - 'alertname'
-      'source_match':
-          'severity': 'critical'
-      'target_match_re':
-          'severity': 'warning|info'
-    - 'equal':
-          - 'namespace'
-          - 'alertname'
-      'source_match':
-          'severity': 'warning'
-      'target_match_re':
-          'severity': 'info'
-'receivers':
-    - 'name': 'Default'
-    - 'name': 'Watchdog'
-    - 'name': 'Critical'
-'route':
-    'group_by':
-        - 'namespace'
-    'group_interval': '5m'
-    'group_wait': '30s'
-    'receiver': 'Default'
-    'repeat_interval': '12h'
-    'routes':
-        - 'match':
-              'alertname': 'Watchdog'
-          'receiver': 'Watchdog'
-        - 'match':
-              'severity': 'critical'
-          'receiver': 'Critical'
+"global":
+  "resolve_timeout": "5m"
+"inhibit_rules":
+  - "equal":
+      - "namespace"
+      - "alertname"
+    "source_match":
+      "severity": "critical"
+    "target_match_re":
+      "severity": "warning|info"
+  - "equal":
+      - "namespace"
+      - "alertname"
+    "source_match":
+      "severity": "warning"
+    "target_match_re":
+      "severity": "info"
+"receivers":
+  - "name": "Default"
+  - "name": "Watchdog"
+  - "name": "Critical"
+"route":
+  "group_by":
+    - "namespace"
+  "group_interval": "5m"
+  "group_wait": "30s"
+  "receiver": "Default"
+  "repeat_interval": "12h"
+  "routes":
+    - "match":
+        "alertname": "Watchdog"
+      "receiver": "Watchdog"
+    - "match":
+        "severity": "critical"
+      "receiver": "Critical"
 ```
 
 Downstream services that receive alerts will need to be specified in the
@@ -312,16 +312,16 @@ would normally expect from a Prometheus config file.
 kind: ServiceMonitor
 apiVersion: monitoring.coreos.com/v1
 metadata:
-    name: sample-app
-    labels:
-        app: sample-app
+  name: sample-app
+  labels:
+    app: sample-app
 spec:
-    selector:
-        matchLabels:
-            app: sample-app
-    endpoints:
-        - port: http
-          interval: 5s
+  selector:
+    matchLabels:
+      app: sample-app
+  endpoints:
+    - port: http
+      interval: 5s
 ```
 
 The above resource will monitor a Service `sample-app` and the Prometheus
@@ -362,22 +362,22 @@ The following is an example `HorizontalPodAutoScaler` that watches the
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2beta2
 metadata:
-    name: sample-app
+  name: sample-app
 spec:
-    scaleTargetRef:
-        apiVersion: apps/v1
-        kind: Deployment
-        name: sample-app
-    minReplicas: 1
-    maxReplicas: 10
-    metrics:
-        - type: Pods
-          pods:
-              metric:
-                  name: http_requests
-              target:
-                  type: AverageValue
-                  averageValue: 500m
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sample-app
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Pods
+      pods:
+        metric:
+          name: http_requests
+        target:
+          type: AverageValue
+          averageValue: 500m
 ```
 
 Behind the scenes, the HPA controller detects the presence of this object, and
@@ -389,16 +389,16 @@ The metrics endpoint is specified by an `APIService` resource:
 apiVersion: apiregistration.k8s.io/v1beta1
 kind: APIService
 metadata:
-    name: v1beta1.custom.metrics.k8s.io
+  name: v1beta1.custom.metrics.k8s.io
 spec:
-    service:
-        name: prometheus-adapter
-        namespace: monitoring
-    group: custom.metrics.k8s.io
-    version: v1beta1
-    insecureSkipTLSVerify: true
-    groupPriorityMinimum: 100
-    versionPriority: 100
+  service:
+    name: prometheus-adapter
+    namespace: monitoring
+  group: custom.metrics.k8s.io
+  version: v1beta1
+  insecureSkipTLSVerify: true
+  groupPriorityMinimum: 100
+  versionPriority: 100
 ```
 
 The above resource is what ties the custom API endpoint to the Kubernetes

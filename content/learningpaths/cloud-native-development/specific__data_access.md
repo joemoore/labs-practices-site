@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: Data Access
 weight: 130
-oldPath: '/content/outcomes/cloud-native-development/specific__data_access.md'
+oldPath: "/content/outcomes/cloud-native-development/specific__data_access.md"
 aliases:
-    - '/outcomes/cloud-native-development/specific__data_access'
+- "/outcomes/cloud-native-development/specific__data_access"
 tags: []
 ---
 
@@ -22,4 +22,4 @@ For apps that do not require significant refactoring, we change just enough of t
 
 ## Homework
 
--   Read the [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) guide.
+- Read the [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/) guide.

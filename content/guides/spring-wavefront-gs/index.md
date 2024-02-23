@@ -1,34 +1,34 @@
 ---
 date: '2020-05-20'
 description: VMware Tanzu Observability by Wavefront offers a free tier for Spring
-    Boot developers. Get started today and walk through the basics of Wavefront for
-    Spring Boot.
+  Boot developers. Get started today and walk through the basics of Wavefront for
+  Spring Boot.
 lastmod: '2021-03-07'
 linkTitle: Wavefront for Spring Boot
 patterns:
-    - Observability
+- Observability
 tags:
-    - Spring
-    - Wavefront
-    - Observability
-    - Getting Started
+- Spring
+- Wavefront
+- Observability
+- Getting Started
 team:
-    - Brian McClain
+- Brian McClain
 title: Getting Started with Wavefront for Spring Boot
-oldPath: '/content/guides/spring/spring-wavefront-gs.md'
+oldPath: "/content/guides/spring/spring-wavefront-gs.md"
 aliases:
-    - '/guides/spring/spring-wavefront-gs'
+- "/guides/spring/spring-wavefront-gs"
 level1: Managing and Operating Applications
 level2: Metrics, Tracing, and Monitoring
 tanzu:
-    label: to
-    featured: true
-    featuredweight: 1
-    gettingstarted: true
-    gettingstartedweight: 1
+  label: to
+  featured: true
+  featuredweight: 1
+  gettingstarted: true
+  gettingstartedweight: 1
 ---
 
-[VMware Tanzu Observability by Wavefront](https://www.wavefront.com/) offers a [free tier](https://tanzu.vmware.com/content/blog/byo-spring-boot-apps-tanzu-observability-for-free-no-sign-up-needed) for Spring Boot developers. If you're unfamiliar with Wavefront, it provides a SaaS-based platform for real-time metrics, monitoring, and alerting. It has integrations for many languages, frameworks, and platforms. Simply put, you send Wavefront your metrics, and it handles visualization and analysis. Additionally, [Wavefront for Spring Boot](https://docs.wavefront.com/wavefront_springboot.html) helps Spring developers to integrate with Wavefront while still using solutions they’re used to, such as Micrometer and Sleuth.
+[VMware Tanzu Observability by Wavefront](https://www.wavefront.com/) offers a [free tier](https://tanzu.vmware.com/content/blog/byo-spring-boot-apps-tanzu-observability-for-free-no-sign-up-needed) for Spring Boot developers. If you're unfamiliar with Wavefront, it provides a SaaS-based platform for real-time metrics, monitoring, and alerting. It has integrations for many languages, frameworks, and platforms. Simply put, you send Wavefront your metrics, and it handles visualization and analysis. Additionally, [Wavefront for Spring Boot](https://docs.wavefront.com/wavefront_springboot.html) helps Spring developers to integrate with Wavefront while still using solutions they’re used to, such as Micrometer and Sleuth. 
 
 In this guide, you’ll take an existing application and add Wavefront for Spring Boot, which will start sending metrics and traces to Wavefront. Additionally, you'll see how custom metrics added via Micrometer are reflected in Wavefront.
 
@@ -36,14 +36,14 @@ In this guide, you’ll take an existing application and add Wavefront for Sprin
 
 Before you get started, you will need the following tools:
 
--   Your text editor or IDE of choice
--   [JDK 1.8](https://adoptopenjdk.net/) or newer
--   [Gradle 4+](https://gradle.org/install/) or [Maven 3.2+](https://maven.apache.org/download.cgi)
+- Your text editor or IDE of choice
+- [JDK 1.8](https://adoptopenjdk.net/) or newer
+- [Gradle 4+](https://gradle.org/install/) or [Maven 3.2+](https://maven.apache.org/download.cgi)
 
 If you want to see the whole demo put together, you can find the [complete code on GitHub](https://github.com/BrianMMcClain/spring-petclinic-wavefront). This guide will also link to specific commits if you want to see the code changes done along the way, but if you want the short version, make sure to check out these commits:
 
--   [Enabling Wavefront for metrics and Sleuth for tracing](https://github.com/BrianMMcClain/spring-petclinic-wavefront/commit/3e99b9ece141179385ab28069ea381dd8b35bb94)
--   [Adding your own custom metrics](https://github.com/BrianMMcClain/spring-petclinic-wavefront/commit/b9a60f71ef26e6ace615b99a8a5e7afc5e4ae30c)
+- [Enabling Wavefront for metrics and Sleuth for tracing](https://github.com/BrianMMcClain/spring-petclinic-wavefront/commit/3e99b9ece141179385ab28069ea381dd8b35bb94)
+- [Adding your own custom metrics](https://github.com/BrianMMcClain/spring-petclinic-wavefront/commit/b9a60f71ef26e6ace615b99a8a5e7afc5e4ae30c)
 
 These commits will also be denoted along the way.
 
@@ -66,7 +66,7 @@ If you're curious how this application works, feel free to build and run it. You
 
 After a few moments, the application will be up and running, available at [http://localhost:8080](http://localhost:8080/). Poke around, check it out, and when you're done, stop the application.
 
-To get started with Wavefront for Spring Boot in the most basic form, there are actually no code changes required. You may be familiar with [Micrometer](https://micrometer.io/), which not only provides basic metrics for Spring applications by default but also offers an interface for providing custom metrics. The Wavefront Spring Boot starter takes this Micrometer data and ships it to Wavefront automatically, allowing you to continue to instrument your code the way you're used to doing. There's one other dependency that you can include, which is [Sleuth](https://spring.io/projects/spring-cloud-sleuth). Much like Micrometer, Sleuth can provide some automated instrumentation for your code, but in this case it will enable tracing requests in your application. That means you can follow requests all the way through your code to find problem spots.
+To get started with Wavefront for Spring Boot in the most basic form, there are actually no code changes required. You may be familiar with [Micrometer](https://micrometer.io/), which not only provides basic metrics for Spring applications by default but also offers an interface for providing custom metrics. The Wavefront Spring Boot starter takes this Micrometer data and ships it to Wavefront automatically, allowing you to continue to instrument your code the way you're used to doing. There's one other dependency that you can include, which is [Sleuth](https://spring.io/projects/spring-cloud-sleuth). Much like Micrometer, Sleuth can provide some automated instrumentation for your code, but in this case it will enable tracing requests in your application. That means you can follow requests all the way through your code to find problem spots. 
 
 Add these two dependencies to your `pom.xml` file:
 
@@ -83,7 +83,7 @@ Add these two dependencies to your `pom.xml` file:
 </dependency>
 ```
 
-There's just one other thing you'll need to do, which is to tell Wavefront a bit about your application. Luckily, this can be done in just a couple of configuration values in your `src/main/resources/application.properties` file:
+There's just one other thing you'll need to do, which is to tell Wavefront  a bit about your application. Luckily, this can be done in just a couple of configuration values in your `src/main/resources/application.properties` file:
 
 ```
 wavefront.application.name=spring-petclinic
@@ -101,6 +101,7 @@ With the changes to your `pom.xml` file and your `application.properties` file, 
 ```
 
 You'll notice some new information in the log output. Specifically, once the application is running, keep an eye out for a line that reads:
+
 
 ```
 Connect to your Wavefront dashboard using this one-time use link:
@@ -139,4 +140,4 @@ You'll then see all of the requests to all of the owners that you sent traffic t
 
 ## Keep Learning
 
-You can find much more information in the [Wavefront documentation](https://docs.wavefront.com/micrometer.html). If you're looking to learn more about Micrometer and how you can instrument your Spring applications, make sure to check out the [Micrometer concepts](https://micrometer.io/docs/concepts) and the different types of tools provided there in order to get better insight into your code.
+You can find much more information in the [Wavefront documentation](https://docs.wavefront.com/micrometer.html). If you're looking to learn more about Micrometer and how you can instrument your Spring applications, make sure to check out the [Micrometer concepts](https://micrometer.io/docs/concepts) and the different types of tools provided there  in order to get better insight into your code.

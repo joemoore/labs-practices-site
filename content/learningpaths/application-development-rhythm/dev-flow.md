@@ -3,17 +3,16 @@ title: Development Flow
 weight: 20
 layout: single
 team:
-    - Pivotal/Tanzu Labs
-oldPath: '/content/outcomes/application-development-rhythm/dev-flow.md'
+- Pivotal/Tanzu Labs
+oldPath: "/content/outcomes/application-development-rhythm/dev-flow.md"
 aliases:
-    - '/outcomes/application-development-rhythm/dev-flow'
+- "/outcomes/application-development-rhythm/dev-flow"
 tags: []
 ---
-
 This article is the second in a five-part series.
 
 A healthy, lean, modern application team has a strong and consistent
-_Development Rhythm_.
+*Development Rhythm*.
 
 Developers who apply modern principles, practices,
 methods, and tools to software are able to
@@ -48,7 +47,7 @@ practices:
 1. Pull-based work model -- downstream consumers pull work from upstream.
 1. Batch sizes are small.
 1. Use of short, feedback loops to iterate on the work.
-1. Integrate work with the team _at least daily_.
+1. Integrate work with the team *at least daily*.
 
 It is necessary to understand how the Agile developer's flow fits into
 the overall software delivery cycle.
@@ -57,25 +56,25 @@ Let's talk about upstream dependencies to the developer flow next.
 
 ## Backlog
 
-The _Backlog_ is a curated list from which the developer will pull their
+The *Backlog* is a curated list from which the developer will pull their
 work.
 Before a developer starts work,
 the work must be specified and prioritized in a backlog.
 
-The work is specified as discrete [_User Stories_](/learningpaths/application-development/prioritizing-outcomes/#stories) that are:
+The work is specified as discrete [*User Stories*](/learningpaths/application-development/prioritizing-outcomes/#stories) that are:
 
--   Specifications of _what_ to build (or fix).
--   Estimated by the team.
--   Independent of each other.
--   Prioritized.
--   Sized small enough to be integrated daily.
+- Specifications of *what* to build (or fix).
+- Estimated by the team.
+- Independent of each other.
+- Prioritized.
+- Sized small enough to be integrated daily.
 
 Product teams typically organize work around features or fixes.
 Either may comprise work that is not small enough
 to fit in the confines of a single story.
 
-Agile frameworks specify course grained work as an _Epic_ or
-as a _Theme_, but neither the Epic or Theme directly specify
+Agile frameworks specify course grained work as an *Epic* or
+as a *Theme*, but neither the Epic or Theme directly specify
 the work done by the developer.
 Stories may be tied to Epics (or Themes) to keep the work to
 a specific feature or fix.
@@ -91,11 +90,11 @@ The input for an Agile developer workflow is a single story.
 
 The output of the Agile developer's workflow is functioning software
 that is pulled into a downstream
-_[Continuous Delivery](https://tanzu.vmware.com/developer/guides/ci-cd/ci-cd-what-is/#what-is-cd)_
-_Pipeline_ for purposes of being able to deliver features or fixes to
+*[Continuous Delivery](https://tanzu.vmware.com/developer/guides/ci-cd/ci-cd-what-is/#what-is-cd)*
+*Pipeline* for purposes of being able to deliver features or fixes to
 production at any time.
 
-The _Continuous Delivery Pipeline_ may involve various manual and/or
+The *Continuous Delivery Pipeline* may involve various manual and/or
 automated steps for testing,
 verification,
 oversight compliance,
@@ -103,7 +102,7 @@ staging,
 or perhaps a
 [secure pipeline towards production](https://www.thoughtworks.com/insights/articles/towards-a-secure-path-to-production).
 
-_Note_:
+*Note*:
 There is much more to this topic that is outside the scope of this
 article.
 
@@ -132,15 +131,15 @@ An Agile developer's daily flow is similar to this:
     is not well known.
     If the story is investigative,
     the developer may use a
-    _[Spike](https://www.leadingagile.com/2016/09/whats-a-spike-who-should-enter-it-how-to-word-it/)_
+    *[Spike](https://www.leadingagile.com/2016/09/whats-a-spike-who-should-enter-it-how-to-word-it/)*
     as a way to timebox effort to better understand a problem and/or its
     solution.
-1.  Iterate on a series of steps using one or more _feedback loops_ to
+1.  Iterate on a series of steps using one or more *feedback loops* to
     achieve the outcome of the story.
     Developers spend much of their time writing code,
     using methods such as
-    [_Test Driven Development_](../../application-development/test-driven-development/),
-    _Refactoring_ and/or the _Mikado Method_.
+    [*Test Driven Development*](../../application-development/test-driven-development/),
+    *Refactoring* and/or the *Mikado Method*.
 1.  Document the work as appropriate and merge it to the source control
     repository once you complete all the steps.
 1.  Verify the work is successfully integrated.
@@ -154,7 +153,7 @@ and ideally multiple times per day to satisfy the goals of
 
 Although there are only five steps listed in the developer flow,
 there are many activities going on within it.
-It is important for the developer to keep _focus_ during the workflow to
+It is important for the developer to keep *focus* during the workflow to
 work efficiently and effectively,
 yet also with the flexibility to change directions,
 as needed.
@@ -165,7 +164,7 @@ Agile approaches compress the design,
 construction and part of the test scope into the development flow by the
 same developer.
 This places a burden on the developer to be more focused and disciplined
-to craft quality software quickly _and_ safely.
+to craft quality software quickly *and* safely.
 
 Discipline requires a set of clear,
 repeatable processes to be sustainable.
@@ -173,29 +172,29 @@ repeatable processes to be sustainable.
 ## Feedback Loops
 
 A common theme in modern application teams and their practices are use
-of _feedback loops_ at varying levels in the application development
+of *feedback loops* at varying levels in the application development
 lifecycle.
 
 ![Feedback Loop Cycle](/images/outcomes/application-development-rhythm/feedback-loop.jpeg)
 
 You can read more about it in the following articles:
 
--   [Team Rhythm](https://tanzu.vmware.com/developer/outcomes/application-development/team-rhythm/)
--   [Product Validation](https://tanzu.vmware.com/developer/outcomes/application-development/product-validation/)
+- [Team Rhythm](https://tanzu.vmware.com/developer/outcomes/application-development/team-rhythm/)
+- [Product Validation](https://tanzu.vmware.com/developer/outcomes/application-development/product-validation/)
 
 The developers daily workflow also includes a series of fine-grained
 feedback loops.
-A single story might have _hundreds_ of steps spanning multiple feedback
+A single story might have *hundreds* of steps spanning multiple feedback
 loops to complete the story outcome.
 
 While some of the steps are identified up-front when building and
 estimating the story,
 many of the steps are discovered during the workflow process
-in the form of multiple _feedback loops_ that include a hypothesis and
+in the form of multiple *feedback loops* that include a hypothesis and
 an associated experiment to verify that hypothesis.
 
 It is necessary to keep each step in a feedback loop small in duration,
-measured _in minutes, at a maximum_, to run.
+measured *in minutes, at a maximum*, to run.
 
 There are two reasons for this:
 
@@ -217,15 +216,15 @@ development,
 testing and deployment become more complicated.
 
 Another term you may see that relates to this subject is
-_Development Inner Loop_.
+*Development Inner Loop*.
 
 The idea is that the developer will iterate in their development
-environment (the _Inner Loop_),
-and then integrate their work in a _DevOps Cycle_
-(the _Outer Loop_)
+environment (the *Inner Loop*),
+and then integrate their work in a *DevOps Cycle*
+(the *Outer Loop*)
 for continuous integration automated verification,
-and automation to support _Continuous Delivery_ or
-_Continuous Deployment_.
+and automation to support *Continuous Delivery* or
+*Continuous Deployment*.
 
 ## Summary
 

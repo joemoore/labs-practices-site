@@ -5,14 +5,14 @@ lastmod: '2021-02-09'
 linkTitle: Getting Started with Tilt
 parent: Developer Workflow
 tags:
-    - Tilt
-    - Kubernetes
+- Tilt
+- Kubernetes
 team:
-    - John Harris
+- John Harris
 title: Getting Started with Tilt
-oldPath: '/content/guides/kubernetes/dev-workflow-tilt.md'
+oldPath: "/content/guides/kubernetes/dev-workflow-tilt.md"
 aliases:
-    - '/guides/kubernetes/dev-workflow-tilt'
+- "/guides/kubernetes/dev-workflow-tilt"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -118,8 +118,8 @@ func main() {
         ReadTimeout:  5 * time.Second,
         WriteTimeout: 5 * time.Second,
     }
-    // Make a channel to listen for errors coming from the listener.
-    // Use a buffered channel so the goroutine can exit if we don't
+    // Make a channel to listen for errors coming from the listener. 
+    // Use a buffered channel so the goroutine can exit if we don't 
     // collect this error.
     serverErrors := make(chan error, 1)
     // Start the service listening for requests.
@@ -127,8 +127,8 @@ func main() {
         log.Printf("main : API listening on %s", api.Addr)
         serverErrors <- api.ListenAndServe()
     }()
-    // Make a channel to listen for an interrupt or terminate signal
-    // from the OS. Use a buffered channel because the signal package
+    // Make a channel to listen for an interrupt or terminate signal 
+    // from the OS. Use a buffered channel because the signal package 
     // requires it.
     shutdown := make(chan os.Signal, 1)
     signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
@@ -148,13 +148,13 @@ func main() {
         err := api.Shutdown(ctx)
         if err != nil {
             log.Printf(
-                "main : Graceful shutdown did not complete in %v : %v",
+                "main : Graceful shutdown did not complete in %v : %v", 
                 timeout, err)
             err = api.Close()
         }
         if err != nil {
             log.Fatalf(
-                "main : could not stop server gracefully : %v",
+                "main : could not stop server gracefully : %v", 
                 err)
         }
     }
@@ -212,28 +212,28 @@ ENTRYPOINT ["/app/hello-world"]
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: hello-world
+  name: hello-world
 spec:
-    selector:
-        matchLabels:
-            app: hello-world
-    replicas: 1
-    template:
-        metadata:
-            labels:
-                app: hello-world
-        spec:
-            imagePullSecrets:
-                # Reference the Secret described in the .yaml found below
-                - name: regcred
-            containers:
-                - name: hello-world
-                  image: hub.docker.com/example_repository/hello-world
-                  imagePullPolicy: Always
-                  ports:
-                      - name: hello-world
-                        containerPort: 8080
-                  resources: {}
+  selector:
+    matchLabels:
+      app: hello-world
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      imagePullSecrets:
+        # Reference the Secret described in the .yaml found below
+        - name: regcred 
+      containers:
+      - name: hello-world
+        image: hub.docker.com/example_repository/hello-world
+        imagePullPolicy: Always
+        ports:
+        - name: hello-world
+          containerPort: 8080
+        resources: {}
 ```
 
 During development, you will likely use a personal or shared image repository
@@ -247,11 +247,11 @@ object that Kubernetes relies on to authenticate with a Docker image registry.
 ---
 apiVersion: v1
 data:
-    .dockerconfigjson: <B64_ENCODED_CREDENTIALS>
+  .dockerconfigjson: <B64_ENCODED_CREDENTIALS>
 kind: Secret
 metadata:
-    creationTimestamp: null
-    name: regcred
+  creationTimestamp: null
+  name: regcred
 type: kubernetes.io/dockerconfigjson
 ```
 
@@ -273,7 +273,7 @@ Configure tilt by adding the following two files:
 ```json
 // tilt_option.json
 {
-    "default_registry": "hub.docker.com/example_repository"
+  "default_registry": "hub.docker.com/example_repository"
 }
 ```
 

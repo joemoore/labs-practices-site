@@ -3,16 +3,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Platform Observability
 team:
-    - Alexander Brand
+- Alexander Brand
 title: Platform Observability
 weight: 57
-oldPath: '/content/guides/kubernetes/observability.md'
+oldPath: "/content/guides/kubernetes/observability.md"
 aliases:
-    - '/guides/kubernetes/observability'
+- "/guides/kubernetes/observability"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags:
-    - Kubernetes
+- Kubernetes
 ---
 
 [Observability](https://tanzu.vmware.com/what-is-observability) is crucial for successfully operating a complex software system
@@ -94,17 +94,17 @@ for container log aggregation, search and analytics.
 
 **Pros:**
 
--   Built for scale
--   Automated failover handling
--   Distributed by design
--   Widely tested
--   Commonly used and known as part of the ELK/EFK stack
+- Built for scale
+- Automated failover handling
+- Distributed by design
+- Widely tested
+- Commonly used and known as part of the ELK/EFK stack
 
 **Cons:**
 
--   Geographic distribution of nodes not recommended
--   Relatively large memory footprint
--   The difficulty configuring and tuning it is considerable
+- Geographic distribution of nodes not recommended
+- Relatively large memory footprint
+- The difficulty configuring and tuning it is considerable
 
 It's worth considering buying and paying support for an alternative hosted
 platform such as vRealize Log Insight.
@@ -119,13 +119,13 @@ process and forward them to the storage engine.
 
 **Pros:**
 
--   Commonly used
--   Flexible
+- Commonly used
+- Flexible
 
 **Cons:**
 
--   Performance and resource consumption can be problematic
--   Written in JRuby (java runtime required)
+- Performance and resource consumption can be problematic
+- Written in JRuby (java runtime required)
 
 #### Fluentd
 
@@ -145,15 +145,15 @@ logs to external entities such as Splunk as well.
 
 **Pros:**
 
--   Part of CNCF
--   Wide ecosystem of plugins out of the box provided
-    by the Ruby community
--   Excellent support for Elastic
--   Written in CRuby (No java runtime required)
+- Part of CNCF
+- Wide ecosystem of plugins out of the box provided
+  by the Ruby community
+- Excellent support for Elastic
+- Written in CRuby (No java runtime required)
 
 **Cons:**
 
--   Partly written in Ruby make it slower than other options
+- Partly written in Ruby make it slower than other options
 
 #### Fluent Bit
 
@@ -163,14 +163,14 @@ fully written in C, but significantly fewer plugins are available for it.
 
 **Pros:**
 
--   Created with a highly distributed use case in mind
--   Super light memory footprint
--   Extensible
--   Fully written in C, zero dependencies
+- Created with a highly distributed use case in mind
+- Super light memory footprint
+- Extensible
+- Fully written in C, zero dependencies
 
 **Cons:**
 
--   Smaller number of plugins available compared to Fluentd
+- Smaller number of plugins available compared to Fluentd
 
 Fluent Bit should be your first choice for Kubernetes, unless you find a
 specific need or missing plugin to consider Fluentd.
@@ -191,13 +191,13 @@ It is usually paired with [Grafana](#grafana) for visualization and
 
 **Pros:**
 
--   Considerably easier to use and operate than Elasticsearch
--   Offloads indexing and log storage to reliable external services
--   Allows you to use Grafana for both logs and metrics
+- Considerably easier to use and operate than Elasticsearch
+- Offloads indexing and log storage to reliable external services
+- Allows you to use Grafana for both logs and metrics
 
 **Cons:**
 
--   Less sophisticated search capabilities than Elasticsearch
+- Less sophisticated search capabilities than Elasticsearch
 
 #### Promtail
 
@@ -212,18 +212,18 @@ dashboards, sophisticated analytics and broad third-party extensibility.
 
 **Pros:**
 
--   A Fluentd plugin exists for vRLI
--   Scalability. Supports up to 15,000 events / second by scaling out appliances
--   Automatic visualizations based on existing data
--   Integration with vRealize Operations Manager
--   Accepts rsyslog, syslog-ng, log4j agents or through API ingestion
+- A Fluentd plugin exists for vRLI
+- Scalability. Supports up to 15,000 events / second by scaling out appliances
+- Automatic visualizations based on existing data
+- Integration with vRealize Operations Manager
+- Accepts rsyslog, syslog-ng, log4j agents or through API ingestion
 
 **Cons:**
 
--   Requires a licenses to be purchased
-    -   The version that's bundled with NSX-T can only be used for NSX-T or vSphere
-        logs.
--   Must be deployed in a virtual environment through an appliance.
+- Requires a licenses to be purchased
+  - The version that's bundled with NSX-T can only be used for NSX-T or vSphere
+    logs.
+- Must be deployed in a virtual environment through an appliance.
 
 ### Visualization
 
@@ -238,7 +238,7 @@ the applications running in it.
 
 **Pros:**
 
--   Integrates seamlessly with Elasticsearch
+- Integrates seamlessly with Elasticsearch
 
 #### Grafana
 
@@ -254,7 +254,7 @@ It's typically installed as an application in the cluster it will operate on.
 
 **Pros:**
 
--   Integrates seamlessly with Prometheus
+- Integrates seamlessly with Prometheus
 
 ### Monitoring
 
@@ -277,14 +277,14 @@ taking advantage of it when installing Prometheus.
 
 **Pros:**
 
--   Part of CNCF
--   Easy installation
--   Well documented
+- Part of CNCF
+- Easy installation
+- Well documented
 
 **Cons:**
 
--   Long term storage is limited
--   Often requires addon solutions
+- Long term storage is limited
+- Often requires addon solutions
 
 #### Datadog
 
@@ -303,13 +303,13 @@ and custom visualizations.
 
 **Pros:**
 
--   Platform administrators have less to worry about
+- Platform administrators have less to worry about
 
 **Cons:**
 
--   Agent is not open source
--   Agent configuration not properly documented
--   Cost $$$
+- Agent is not open source
+- Agent configuration not properly documented
+- Cost $$$
 
 If customers aren't price sensitive, this is a good option and offloads from the
 platform administrator duties.
@@ -330,24 +330,24 @@ and clusters.
 
 Wavefront integrates with many different platforms including:
 
--   Kubernetes
--   Pivotal Cloud Foundry
--   VMware vSphere
--   Amazon Web Services
--   Microsoft Azure
--   Google Cloud Platform
+- Kubernetes
+- Pivotal Cloud Foundry
+- VMware vSphere
+- Amazon Web Services
+- Microsoft Azure
+- Google Cloud Platform
 
 VMware Tanzu Kubernetes Grid Integrated has an integration built in to enable
 the Wavefront functionality.
 
 Wavefront also integrates with application services including:
 
--   Apache HTTP
--   Envoy
--   Istio
--   Elasticsearch
--   NGINX
--   WebSphere
+- Apache HTTP
+- Envoy
+- Istio
+- Elasticsearch
+- NGINX
+- WebSphere
 
 Wavefront can also ingest data from other monitoring tools such as: Fluentd,
 Logstash, Splunk, vROps, Jaeger, and Prometheus.
@@ -357,10 +357,10 @@ PagerDuty, ServiceNow, or a Webhook for custom alerts.
 
 **Pros:**
 
--   Platform administrators have less to worry about
--   Wavefront can scale to manage large numbers of clusters simultaneously
--   Built in Integrations for platforms, applications, and alerts
+- Platform administrators have less to worry about
+- Wavefront can scale to manage large numbers of clusters simultaneously
+- Built in Integrations for platforms, applications, and alerts
 
 **Cons:**
 
--   Data is stored outside the customer's data center
+- Data is stored outside the customer's data center

@@ -3,16 +3,15 @@ title: Building Blocks, Part 2
 weight: 40
 layout: single
 team:
-    - Pivotal/Tanzu Labs
-oldPath: '/content/outcomes/application-development-rhythm/dev-building-blocks-2.md'
+- Pivotal/Tanzu Labs
+oldPath: "/content/outcomes/application-development-rhythm/dev-building-blocks-2.md"
 aliases:
-    - '/outcomes/application-development-rhythm/dev-building-blocks-2'
+- "/outcomes/application-development-rhythm/dev-building-blocks-2"
 tags: []
 ---
-
 This article is the fourth in a five-part series.
 
-A healthy _Developer Rhythm_ starts with a disciplined workflow.
+A healthy *Developer Rhythm* starts with a disciplined workflow.
 The only way you can successfully achieve this type of workflow
 is to learn how to use modern developer tools much in the same
 way that a carpenter has to learn how to use the tools of their trade.
@@ -29,14 +28,14 @@ goals.
 
 In this article, you will learn to:
 
--   List and describe techniques and methods that facilitate the developer flow.
--   List and describe general tools that facilitate the developer flow.
+- List and describe techniques and methods that facilitate the developer flow.
+- List and describe general tools that facilitate the developer flow.
 
 ## Methods and Techniques
 
 ### Private Branch Method
 
-Distributed Source Code Version Systems like _Git_ or _Mercurial_
+Distributed Source Code Version Systems like *Git* or *Mercurial*
 allow you to work independently from the team source control repository.
 
 To get started, copy the complete repository,
@@ -88,7 +87,7 @@ It contains a distinct process of setting a goal,
 performing experiments,
 visualizing the goal,
 and achieving the goal.
-It also includes the steps for _undoing_ or reverting from failed
+It also includes the steps for *undoing* or reverting from failed
 experiments.
 
 The Mikado Method is commonly used in combination with refactoring and
@@ -98,7 +97,7 @@ test-first practices.
 
 If you work on a remote team or in an organization where you cannot pair,
 you might be lonely,
-especially _when you get stuck_.
+especially *when you get stuck*.
 Sometimes,
 you will get stuck in a problem,
 with no other developers to consult.
@@ -119,8 +118,8 @@ two popular learning trends that support the
 modern platforms where most new applications
 run today.
 
--   Virtualization technologies
--   Container technologies (like Docker)
+- Virtualization technologies
+- Container technologies (like Docker)
 
 ## Developer Tools
 
@@ -152,12 +151,12 @@ You may work in an organization that lets you pick the
 technologies for your products.
 If not, your choice could be restricted by:
 
--   The platforms where your software is run.
--   The tools your organization chooses for you.
+- The platforms where your software is run.
+- The tools your organization chooses for you.
 
 ### Frameworks
 
-*[Software Frameworks](https://en.wikipedia.org/wiki/Software*framework)\*
+*[Software Frameworks](https://en.wikipedia.org/wiki/Software*framework)*
 are common tools in a developer's toolkit that sheds some of the burden of
 software development.
 When you use a framework,
@@ -170,13 +169,13 @@ See [Spring Framework](https://spring.io/projects/spring-framework) for an examp
 
 ### Interactive Development Environment
 
-_Interactive Development Environment_ (IDE) is a popular
+*Interactive Development Environment* (IDE) is a popular
 developer tool for writing software that you can also use to.
 
--   Debug software.
--   Integrate source control system clients.
--   Write documentation.
--   Orchestrate a developer’s workflow (in some cases).
+- Debug software.
+- Integrate source control system clients.
+- Write documentation.
+- Orchestrate a developer’s workflow (in some cases).
 
 Some IDEs are modular,
 meaning they can be extended and customized for a particular developer
@@ -195,7 +194,7 @@ ecosystem.
 
 ### Accelerators
 
-_Accelerators_ are specialized tools used at specific points in the
+*Accelerators* are specialized tools used at specific points in the
 development workflow,
 typically at the beginning of a new project.
 
@@ -229,7 +228,7 @@ development,
 refactoring or the Mikado Method.
 
 Or,
-you can use it to become proficient with the features of your IDEs,
+you can use it  to become proficient with the features of your IDEs,
 source control or other tooling.
 
 ## Summary
@@ -241,7 +240,7 @@ After reading this article, you can now:
 -   List and describe general tools that facilitate the developer
     flow.
 
-If you have followed the _Modern Application Development_ series this
+If you have followed the *Modern Application Development* series this
 far,
 you now have a high level idea of what a daily developer workflow
 might look like,
@@ -251,5 +250,5 @@ methods and tools a developer might use.
 
 ## Keep Learning
 
--   [Refactoring Large Software Systems](http://www.methodsandtools.com/archive/archive.php?id=98)
--   [Docker](https://docker.io)
+- [Refactoring Large Software Systems](http://www.methodsandtools.com/archive/archive.php?id=98)
+- [Docker](https://docker.io)

@@ -1,26 +1,26 @@
 ---
 date: '2020-04-16'
 description: Explore this Spring Cloud Gateway guide to look at the code that goes
-    around defining a gateway and running a gateway with a Spring Boot application.
+  around defining a gateway and running a gateway with a Spring Boot application.
 lastmod: '2021-03-07'
 parent: Spring Cloud Gateway
 patterns:
-    - API
+- API
 tags:
-    - Spring Cloud Gateway
-    - Getting Started
-    - Spring
-    - Microservices
-    - Messaging and Integration
+- Spring Cloud Gateway
+- Getting Started
+- Spring
+- Microservices
+- Messaging and Integration
 team:
-    - Brian McClain
+- Brian McClain
 languages:
-    - java
+- java
 langgettingstarted: true
 title: Getting Started with Spring Cloud Gateway
-oldPath: '/content/guides/spring/scg-gs.md'
+oldPath: "/content/guides/spring/scg-gs.md"
 aliases:
-    - '/guides/spring/scg-gs'
+- "/guides/spring/scg-gs"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -33,10 +33,10 @@ In this guide, you'll stand up a bare-bones gateway using Spring Cloud Gateway, 
 
 There are a few things you need to do before getting started with Spring Cloud Gateway:
 
--   About 15 minutes
--   Your text editor or IDE of choice
--   [JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer
--   [Gradle 4+](https://gradle.org/install/) or [Maven 3.2+](https://maven.apache.org/download.cgi)
+- About 15 minutes
+- Your text editor or IDE of choice
+- [JDK 1.8](https://www.oracle.com/java/technologies/javase-downloads.html) or newer
+- [Gradle 4+](https://gradle.org/install/) or [Maven 3.2+](https://maven.apache.org/download.cgi)
 
 ## Using Spring Cloud Gateway
 
@@ -54,7 +54,7 @@ The easiest way to get started with a new Spring application is at [start.spring
 
 Finally, you'll just need one dependency for our application:
 
--   Gateway
+- Gateway
 
 Click "Generate" and you'll download a zip file of the generated code.
 
@@ -120,18 +120,18 @@ You've sent a `GET` request to your application, adding a custom header of `MyHe
 < Access-Control-Allow-Credentials: true
 
 {
-  "args": {},
+  "args": {}, 
   "headers": {
-    "Accept": "*/*",
-    "Content-Length": "0",
-    "Forwarded": "proto=http;host=\"localhost:8080\";for=\"127.0.0.1:58158\"",
-    "Hello": "World",
-    "Host": "httpbin.org",
-    "Myheader": "MyValue",
-    "User-Agent": "curl/7.65.3",
+    "Accept": "*/*", 
+    "Content-Length": "0", 
+    "Forwarded": "proto=http;host=\"localhost:8080\";for=\"127.0.0.1:58158\"", 
+    "Hello": "World", 
+    "Host": "httpbin.org", 
+    "Myheader": "MyValue", 
+    "User-Agent": "curl/7.65.3", 
     "X-Forwarded-Host": "localhost:8080"
-  },
-  "origin": "127.0.0.1",
+  }, 
+  "origin": "127.0.0.1", 
   "url": "http://localhost:8080/get"
 }
 ```

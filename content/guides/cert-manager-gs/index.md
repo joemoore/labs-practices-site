@@ -3,10 +3,10 @@ date: '2021-12-01'
 lastmod: '2021-12-01'
 description: TLS in Kubernetes can be complicated. Projects like cert-manager aim to help with the process by automating the certificate process. Learn how to get started with cert-manager in this guide!
 tags:
-    - cert-manager
+- cert-manager
 team:
-    - Tiffany Jernigan
-    - Leigh Capili
+- Tiffany Jernigan
+- Leigh Capili
 title: Getting Started with cert-manager
 level1: Building Modern Applications
 level2: Services
@@ -28,10 +28,10 @@ Alright, you're sold on cert-manager. How do you get started with it? In the fol
 
 ## Prerequisites
 
--   A Kubernetes cluster
--   [Docker](https://docs.docker.com/get-docker/) installed – or have a tool like `getent` to get an IP address from a load balancer.
+* A Kubernetes cluster
+* [Docker](https://docs.docker.com/get-docker/) installed –  or have a tool like `getent` to get an IP address from a load balancer.
 
-Add the package repository with your cluster. To install it, you will need the Carvel tool, [kapp-controller](https://carvel.dev/kapp-controller/).
+Add the package repository with your cluster. To install it, you will need the Carvel tool, [kapp-controller](https://carvel.dev/kapp-controller/). 
 
 To install `kapp-controller`, follow the [Getting Started with kapp-controller guide](/guides/kubernetes/kapp-controller-gs/) and use the [Package Consumption section](/guides/kubernetes/kapp-controller-gs/) for the packages you install in this guide.
 
@@ -83,7 +83,7 @@ To satisfy an Ingress, you need an [Ingress Controller](https://kubernetes.io/do
 
 The Grafana package, which you will be installing in the next section, needs an Ingress Controller. Additionally, you will need this Ingress Controller for enabling TLS later.
 
-1. List the available packages in your repository.
+1. List the available packages in your repository. 
 
     ```sh
     tanzu package available list contour.community.tanzu.vmware.com
@@ -107,7 +107,7 @@ You will use the Grafana dashboard for your website.
     tanzu package available list grafana.community.tanzu.vmware.com
     ```
 
-2. Install [Grafana](https://grafana.com/) to get a metrics dashboard. You will configure Grafana to serve `HTTPS` using a Certificate object.
+2. Install [Grafana](https://grafana.com/) to get a metrics dashboard. You will configure Grafana to serve `HTTPS` using a Certificate object. 
 
     ```sh
     tanzu package install grafana \
@@ -121,7 +121,7 @@ You will use the Grafana dashboard for your website.
     kubectl -n grafana get service grafana -w
     ```
 
-4. Go to the `EXTERNAL-IP` path in your web browser.
+5. Go to the `EXTERNAL-IP` path in your web browser. 
 
     ```sh
     kubectl -n grafana get service grafana -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
@@ -144,11 +144,11 @@ First, you need an Ingress. This guide will use `nip.io`, which provides wildcar
 
 2. Now create the Ingress. If you’re using your own domain, you’d substitute it here instead of `${LBIP}.nip.io`.
 
-    ```sh
+    ```sh 
     kubectl -n grafana create ingress grafana --class=contour  "--rule=grafana.${LBIP}.nip.io/*=grafana:80,tls=grafana.${LBIP}.nip.io"
     ```
 
-3. Do a `get` on the Ingress.
+3. Do a `get` on the Ingress. 
 
     ```sh
     kubectl -n grafana get ingress grafana -o yaml
@@ -189,7 +189,7 @@ First, you need an Ingress. This guide will use `nip.io`, which provides wildcar
         - hostname: a0a28d9b7f348457bafc05dd74e4e992-1884336594.us-east-2.elb.amazonaws.com
     ```
 
-4. Go to the following host path in a web browser to reach Grafana.
+1. Go to the following host path in a web browser to reach Grafana.
 
     ```sh
     INGRESS=$(kubectl -n grafana get ingress grafana -o jsonpath='{.spec.rules[0].host}')
@@ -198,7 +198,7 @@ First, you need an Ingress. This guide will use `nip.io`, which provides wildcar
 
     You will see the following where it says Not Secure.
 
-    ![Browser URL bar](images/image5.png 'Notice the lock icon in the URL bar.')
+    ![Browser URL bar](images/image5.png "Notice the lock icon in the URL bar.")
 
 Next, you will make it so you can use `HTTPS`.
 
@@ -210,9 +210,9 @@ In order to issue certificates, you need to [configure an Issuer](https://cert-m
 
 Create an ACME Issuer using [Let’s Encrypt](https://letsencrypt.org/), a nonprofit Certificate Authority.
 
-Let’s Encrypt recommends starting with the [staging](https://letsencrypt.org/docs/staging-environment/https://letsencrypt.org/docs/staging-environment/) server to verify you have things right first and avoid rate limiting.
+Let’s Encrypt recommends starting with the [staging](https://letsencrypt.org/docs/staging-environment/https://letsencrypt.org/docs/staging-environment/) server to verify you have things right first and avoid rate limiting. 
 
-This Cluster Issuer uses a single challenge `HTTP01` solver with Contour, your Ingress Controller.
+This Cluster Issuer uses a single challenge `HTTP01` solver with Contour, your Ingress Controller. 
 
 Check out the docs to see more about [Issuer Configuration](https://cert-manager.io/docs/configuration/). Here is an example of a resource definition for the Let’s Encrypt staging issuer.
 
@@ -257,7 +257,7 @@ Check out the docs to see more about [Issuer Configuration](https://cert-manager
     ```
 
 5. Once you have an Issuer configured properly, you can create a Certificate object.
-   Certificates specify a `secretName` that cert-manager will either create or update with your new crypto identity. In your case, it’ll be the secret name in the Ingress you created, which is the value of `$INGRESS`.
+Certificates specify a `secretName` that cert-manager will either create or update with your new crypto identity. In your case, it’ll be the secret name in the Ingress you created, which is the value of `$INGRESS`.
 
 6. Check the secret name.
 
@@ -296,11 +296,11 @@ Check out the docs to see more about [Issuer Configuration](https://cert-manager
     kubectl apply -f cm-certificate-staging.yaml
     ```
 
-    {{% callout %}}
+    {{% callout %}} 
     You could instead add an annotation, and the certificate would be created for you.
 
     kubectl annotate ingress grafana -n grafana \
-     "cert-manager.io/cluster-issuer=letsencrypt-staging"
+      "cert-manager.io/cluster-issuer=letsencrypt-staging"
     {{% /callout %}}
 
 10. Wait for the certificate to be ready. Run `Ctrl-C` to terminate it when it’s ready.
@@ -315,10 +315,10 @@ Check out the docs to see more about [Issuer Configuration](https://cert-manager
     kubectl get secret | grep grafana
     ```
 
-12. Now, back in your web browser, change your URL to be `https://` instead. You should see something similar to this where it issued a certificate, but it’s not valid. This is expected as you are still using the Let’s Encrypt staging issuer.
+12. Now, back in your web browser, change your URL to be `https://` instead. You should see something similar to this where it issued a certificate, but it’s not valid. This is expected as you are still using the Let’s Encrypt staging issuer. 
 
-    ![Browser window](images/image8.png 'Notice the connection is not secure.')
-    ![Certificate window](images/image2.png 'You are using a self signed certificate.')
+    ![Browser window](images/image8.png "Notice the connection is not secure.")
+    ![Certificate window](images/image2.png "You are using a self signed certificate.")
 
 13. Create another `ClusterIssuer`, but this time with the production server.
 
@@ -342,7 +342,7 @@ Check out the docs to see more about [Issuer Configuration](https://cert-manager
     EOF
     ```
 
-14. Apply the file.
+14. Apply the file. 
 
     ```sh
     kubectl apply -f cm-clusterissuer-prod.yaml
@@ -375,20 +375,19 @@ Check out the docs to see more about [Issuer Configuration](https://cert-manager
 
 17. Refresh your browser. Your HTTPS connection will be secure and have a valid certificate.
 
-    ![Browser window](images/image6.png 'Notice the connection is now secure.')
-    ![Certificate window](images/image7.png 'You are using a production certificate.')
+    ![Browser window](images/image6.png "Notice the connection is now secure.")
+    ![Certificate window](images/image7.png "You are using a production certificate.")
 
 ## Wrap-up
 
-Congrats, you did it!
+Congrats, you did it! 
 
 In a nutshell, you used cert-manager to make your web page secure by using HTTPS instead of just HTTP. Here's what you just did. You...
-
--   Installed cert-manager
--   Installed Contour as your Ingress Controller
--   Created a web page (Grafana)
--   Created an Ingress
--   Created (ACME) Issuers and Certificates using Let’s Encrypt
+* Installed cert-manager
+* Installed Contour as your Ingress Controller
+* Created a web page (Grafana)
+* Created an Ingress
+* Created (ACME) Issuers and Certificates using Let’s Encrypt
 
 Now if you have your own web pages running on Kubernetes, you can make them secure as well!
 
@@ -412,36 +411,36 @@ Set up [Prometheus](https://prometheus.io/) for metrics collection so you can ac
     --version <VERSION>
     ```
 
-3. Make sure Prometheus is up and running.
+2. Make sure Prometheus is up and running.
 
     ```sh
     kubectl -n prometheus get pods
     ```
 
-4. Now go back to Grafana in the browser.
-
+3. Now go back to Grafana in the browser.
+   
     ```sh
     echo https://$INGRESS
     ```
 
-5. If you haven’t already logged in, the default username and password are `admin`.
+4. If you haven’t already logged in, the default username and password are `admin`.
 
-6. Click on the word `General` in the top left corner
+5. Click on the word `General` in the top left corner
 
-    ![Setting up Grafana](images/image3.png 'The General icon.')
+    ![Setting up Grafana](images/image3.png "The General icon.")
 
-7. Click on the second one that mentions Prometheus.
+6. Click on the second one that mentions Prometheus.
 
-    ![Setting up Grafana](images/image4.png 'The Grafana GUI.')
+    ![Setting up Grafana](images/image4.png "The Grafana GUI.")
 
     You should now see a large dashboard with a bunch of charts and data to poke around in, such as the following.
 
-    ![Setting up Grafana](images/image1.png 'A graph in Grafana.')
+    ![Setting up Grafana](images/image1.png "A graph in Grafana.")
 
     You can also create your own dashboards.
 
 ## Resources
 
--   To discover the many rich use cases cert-manager supports, check out the [official docs](https://cert-manager.io/docs/) and [tutorials](https://cert-manager.io/docs/tutorials/).
--   Also, check out our guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](https://tanzu.vmware.com/developer/guides/kubernetes/harbor-gs/) if you haven’t already.
--   To learn more about Carvel, go to [carvel.dev](https://carvel.dev/).
+* To discover the many rich use cases cert-manager supports, check out the [official docs](https://cert-manager.io/docs/) and [tutorials](https://cert-manager.io/docs/tutorials/).
+* Also, check out our guide [Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s Encrypt](https://tanzu.vmware.com/developer/guides/kubernetes/harbor-gs/) if you haven’t already.
+* To learn more about Carvel, go to [carvel.dev](https://carvel.dev/).

@@ -1,17 +1,18 @@
 ---
 title: Forwarding Client Certificates with NGINX Ingress
 description: A look at annotations to configure Kubernetes NGINX Ingress for forwarding
-    client certificates
+  client certificates
 date: 2021-05-17
 tags:
-    - Kubernetes
+- Kubernetes
 team:
-    - Ray Chuan Tay
+- Ray Chuan Tay
 topic:
-    - Kubernetes
+- Kubernetes
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 ---
+
 
 ## Introduction
 
@@ -25,9 +26,11 @@ What advantage do client certificates offer compared to API keys? As Cloudflare[
 **Note**: Client certificates offer a layer of security that API keys cannot provide. If an API key gets compromised mid-connection, it can be reused to fire its own valid, trusted requests to the backend infrastructure. However, the private key of the client certificate is used to create a digital signature in every TLS connection, and so even if the certificate is sniffed mid-connection, new requests can’t be instantiated with it.
 {{% /callout %}}
 
+
 [^Cloudflare]: https://blog.cloudflare.com/introducing-tls-client-auth/
 
 In this post, we'll look at how to configure NGINX Ingress to forward or pass-through client certificates to your application service without NGINX Ingress performing client certificate validation of its own. This is useful if you already have your client certificate validation logic in your application, and you'd like to deploy that application on a Kubernetes cluster using NGINX Ingress.
+
 
 ## Kubernetes Setup
 
@@ -54,15 +57,15 @@ In this post, we'll look at how to configure NGINX Ingress to forward or pass-th
     apiVersion: networking.k8s.io/v1beta1
     kind: Ingress
     metadata:
-        annotations:
-            # Specify the secret containing CA certificates in the form <namespace>/<secret name>
-            nginx.ingress.kubernetes.io/auth-tls-secret: 'default/ca-secret'
-            # Specify that certificates are to be passed on
-            nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: 'true'
-            # Do not fail request if no or an otherwise invalid certificate is provided
-            nginx.ingress.kubernetes.io/auth-tls-verify-client: 'optional'
-        name: my-ingress
-        namespace: default
+      annotations:
+        # Specify the secret containing CA certificates in the form <namespace>/<secret name>
+        nginx.ingress.kubernetes.io/auth-tls-secret: "default/ca-secret"
+        # Specify that certificates are to be passed on
+        nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
+        # Do not fail request if no or an otherwise invalid certificate is provided
+        nginx.ingress.kubernetes.io/auth-tls-verify-client: "optional"
+      name: my-ingress
+      namespace: default
     ```
 
 With this configuration, if the client does not send certificates in their request, NGINX Ingress still allows the request to your application. Whereas with the following configuration, the client must send certificates in their requests to your application. When the client does not send certificates in their requests, NGINX Ingress responds with a 400 Bad Request error.
@@ -71,14 +74,15 @@ With this configuration, if the client does not send certificates in their reque
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-    annotations:
-        # Specify the secret containing CA certificates in the form <namespace>/<secret name>
-        nginx.ingress.kubernetes.io/auth-tls-secret: 'default/ca-secret'
-        # Specify that certificates are to be passed on
-        nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: 'true'
-    name: my-ingress
-    namespace: default
+  annotations:
+    # Specify the secret containing CA certificates in the form <namespace>/<secret name>
+    nginx.ingress.kubernetes.io/auth-tls-secret: "default/ca-secret"
+    # Specify that certificates are to be passed on
+    nginx.ingress.kubernetes.io/auth-tls-pass-certificate-to-upstream: "true"
+  name: my-ingress
+  namespace: default
 ```
+
 
 ## Application Setup
 
@@ -88,8 +92,10 @@ This corresponds to the NGINX variable `$ssl_client_escaped_cert`[^nginx_ssl_cer
 
 [^nginx_ssl_cert_docs]: http://nginx.org/en/docs/http/ngx_http_ssl_module.html#var_ssl_client_escaped_cert
 
+
 ## Closing
 
 For other values to `auth-tls-verify-client`, as well as additional verification configurations such as validation depth, refer to the [NGINX Ingress documentation on client certificate authentication](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#client-certificate-authentication).
+
 
 ## Endnotes

@@ -3,11 +3,11 @@ title: Harden your app
 weight: 80
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 You will demonstrate how to harden your `pal-tracker` application
-running on _Tanzu Application Service_ for scaling and availability
+running on *Tanzu Application Service* for scaling and availability
 characteristics.
 
 ## Learning outcomes
@@ -26,7 +26,7 @@ After completing the lab, you will be able to:
     [Health Monitoring lab](../health-monitoring/).
     You must have your `pal-tracker` application associated with the
     `actuator-solution` codebase deployed and running on
-    _Tanzu Application Service_.
+    *Tanzu Application Service*.
 
 1.  In a terminal window,
     make sure you start in the `~/workspace/pal-tracker` directory.
@@ -89,16 +89,16 @@ You can monitor the `pal-tracker` application through the following:
 
 -   Command line via the following `cf` commands:
 
-    -   `cf app pal-tracker`
-    -   `cf events pal-tracker`
+    - `cf app pal-tracker`
+    - `cf events pal-tracker`
 
--   [_Apps Manager_](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
+-   [*Apps Manager*](https://docs.pivotal.io/application-service/2-11/console/dev-console.html)
     user interface.
 
 If you choose to monitor via the command line you will need a minimum of
 four terminal windows open.
 
-If you choose to monitor with _Apps Manager_ you will need only one.
+If you choose to monitor with *Apps Manager* you will need only one.
 
 ## Review the current state of your application
 
@@ -111,7 +111,7 @@ git show scaling-availability-start:manifest.yml
 ```
 
 Notice the new parameters added,
-they reflect the defaults the _Tanzu Application Service_ sets on your
+they reflect the defaults the *Tanzu Application Service* sets on your
 behalf:
 
 1.  [`java_buildpack_offline`](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#buildpack):
@@ -127,8 +127,8 @@ behalf:
 
 1.  [`memory`](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#memory):
     `1G` is the default container memory allocation quota.
-    This is _not_ the Java heap size.
-    You will see shortly the _Memory Calculator_ will configure your
+    This is *not* the Java heap size.
+    You will see shortly the *Memory Calculator* will configure your
     Java options for you automatically.
 
 1.  [`disk_quota`](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html#disk-quota):
@@ -163,7 +163,7 @@ behalf:
     endpoint you will use in this lab.
 
 You can see the entire list of
-[_Tanzu Application Service_ manifest attributes](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html).
+[*Tanzu Application Service* manifest attributes](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html).
 
 ### Push and monitor the state of your app
 
@@ -188,7 +188,7 @@ For the remainder of the lab you will monitor the state of the
 `pal-tracker` application.
 
 You can navigate to the `pal-tracker` application overview page in
-_Apps Manager_,
+*Apps Manager*,
 or you can monitor from command line:
 
 1.  In a separate terminal window, run the following command,
@@ -271,7 +271,7 @@ Keep both these windows open and running for the rest of the lab.
     -   `REQUESTS_PER_SECOND` option value is the number of requests per
         second.
 
-1.  In either _Apps Manager_ or the `cf app` Watch window,
+1.  In either *Apps Manager* or the `cf app` Watch window,
     monitor the amount of CPU, memory and disk resources taken for the
     test.
 
@@ -316,7 +316,7 @@ is it optimally tuned for production?
     health check?
 
 1.  What about CPU resources?
-    How does _Tanzu Application Service_ handle that?
+    How does *Tanzu Application Service* handle that?
 
 ## Production hardening
 
@@ -340,7 +340,6 @@ Configure the following in the `manifest.yml` file:
 1.  Configure 3 instances.
 
 1.  Configure a `http` health check type:
-
     -   Change the `health-check-type` from `port` to `http`
     -   Add a new manifest attribute `health-check-http-endpoint` with
         a value configured to the associated endpoint of the
@@ -370,13 +369,13 @@ git show scaling-availability-solution:manifest.yml
 ```
 
 Notice that you are not configuring CPU resource allocation.
-[Read about how _Tanzu Application Service_ works with CPU](https://www.cloudfoundry.org/blog/better-way-split-cake-cpu-entitlements/).
+[Read about how *Tanzu Application Service* works with CPU](https://www.cloudfoundry.org/blog/better-way-split-cake-cpu-entitlements/).
 
 ## Wrap up
 
 Review the
 [Scaling slides](https://docs.google.com/presentation/d/1CAHQc2DPZHGGoS7cyYkzSchQgDQsd4UKg_olQs6LpUk/present#slide=id.ge9cac6b4b4_0_0)
-about how scaling is handled on _Tanzu Application Service_.
+about how scaling is handled on *Tanzu Application Service*.
 
 Now that you have completed the lab, you should be able to:
 

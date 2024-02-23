@@ -1,12 +1,11 @@
 ---
-title: Getting Acquainted with Design Systems
+title: Getting Acquainted with Design Systems 
 weight: 10
 layout: single
 team:
-    - Carolyn Haines
-    - Lauren Manuel
+- Carolyn Haines
+- Lauren Manuel
 ---
-
 ![A close crop of a designers working on a tablet](https://user-images.githubusercontent.com/105306536/186534692-9d8727de-18fe-4db6-8477-9368c6453146.jpg)
 
 ## A Brief and Unofficial History
@@ -21,19 +20,19 @@ Design systems have tons of value to provide, so it’s no wonder they’re havi
 
 **Organizational Value**
 
--   Organizations can use open-source design systems and get legit-looking apps quickly.
--   Design systems help build familiarity with consistent patterns, behaviors, and styles.
--   Design systems create a common starting point across teams and products.
--   Organizations can employ more junior folks and still get polished-looking products.
+* Organizations can use open-source design systems and get legit-looking apps quickly.
+* Design systems help build familiarity with consistent patterns, behaviors, and styles.
+* Design systems create a common starting point across teams and products.
+* Organizations can employ more junior folks and still get polished-looking products.
 
 **Team Value**
 
--   Teams spend less time figuring out and/or getting stakeholder buy-in on look and feel.
--   Design systems can result in screaming fast delivery.
--   Design systems help designers and developers speak the same language.
+* Teams spend less time figuring out and/or getting stakeholder buy-in on look and feel.
+* Design systems can result in screaming fast delivery.
+* Design systems help designers and developers speak the same language.
 
 **Individual Practitioner Value**
 
--   No more redlines.
--   Practitioners can gain relevant skills with modern tools.
--   Practitioners can spend less time designing minutiae and more time solving meaty user problems.
+* No more redlines.
+* Practitioners can gain relevant skills with modern tools.
+* Practitioners can spend less time designing minutiae and more time solving meaty user problems. 

@@ -3,7 +3,7 @@ title: Deploy a Distributed System
 weight: 110
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 In this lab you will see an evolution of the `pal-tracker`
@@ -12,7 +12,7 @@ the
 [App Continuum](https://courses.education.pivotal.io/appcontinuum).
 You will then use
 [GitHub Actions](https://github.com/features/actions) to
-deploy that system of four applications to _Tanzu Application Service_.
+deploy that system of four applications to *Tanzu Application Service*.
 
 ## Learning outcomes
 
@@ -136,7 +136,7 @@ Next, make sure that you can run the project locally.
 
 You can run each application individually in a separate terminal window
 by targeting the `bootRun` task for a specific Gradle subproject.
-For example, you can run the _registration service_ with the following
+For example, you can run the *registration service* with the following
 command:
 
 ```bash
@@ -177,64 +177,64 @@ Keep these commands handy, as they will be useful to test your system in
 future labs.
 
 Note that (on UNIX/Linux) if you define shell variables
-_USER_ID, PROJECT_ID_ and _ACCOUNT_ID_ with the values that you receive
+*USER_ID, PROJECT_ID* and *ACCOUNT_ID* with the values that you receive
 back at different stages then you will be able to cut and paste these
 commands directly.
 For example, the first `curl` command will produce something like this:
 
 ```json
-{ "id": 1, "name": "Pete", "info": "registration info" }
+{"id":1,"name":"Pete","info":"registration info"}
 ```
 
 From this you can see that the generated user ID is 1,
-and you can then set the shell variable _USER_ID_ as follows:
+and you can then set the shell variable *USER_ID* as follows:
 
 ```bash
 USER_ID=1
 ```
 
-**Users**
+__Users__
 
 ```bash
 curl -v -XPOST -H"Content-Type: application/json" localhost:8083/registration -d'{"name": "Pete"}'
 curl -v localhost:8083/users/${USER_ID}
 ```
 
-**Accounts**
+__Accounts__
 
 ```bash
 curl -v localhost:8083/accounts?ownerId=${USER_ID}
 ```
 
-**Projects**
+__Projects__
 
 ```bash
 curl -v -XPOST -H"Content-Type: application/json" localhost:8083/projects -d"{\"name\": \"Basket Weaving\", \"accountId\": ${ACCOUNT_ID}}"
 curl -v localhost:8083/projects?accountId=${ACCOUNT_ID}
 ```
 
-**Allocations**
+__Allocations__
 
 ```bash
 curl -v -XPOST -H"Content-Type: application/json" localhost:8081/allocations -d"{\"projectId\": ${PROJECT_ID}, \"userId\": ${USER_ID}, \"firstDay\": \"2015-05-17\", \"lastDay\": \"2015-05-18\"}"
 curl -v localhost:8081/allocations?projectId=${PROJECT_ID}
 ```
 
-**Stories**
+__Stories__
 
 ```bash
 curl -v -XPOST -H"Content-Type: application/json" localhost:8082/stories -d"{\"projectId\": ${PROJECT_ID}, \"name\": \"Find some reeds\"}"
 curl -v localhost:8082/stories?projectId=${PROJECT_ID}
 ```
 
-**Time Entries**
+__Time Entries__
 
 ```bash
 curl -v -XPOST -H"Content-Type: application/json" localhost:8084/time-entries/ -d"{\"projectId\": ${PROJECT_ID}, \"userId\": ${USER_ID}, \"date\": \"2015-05-17\", \"hours\": 6}"
 curl -v localhost:8084/time-entries?userId=${USER_ID}
 ```
 
-## Set up _GitHub Actions_ for continuous integration
+## Set up *GitHub Actions* for continuous integration
 
 ### Get the pipeline
 
@@ -248,7 +248,7 @@ git cherry-pick pipeline
 
 Your new `.github/workflows/pipeline.yml` file configures the pipeline
 to build all four applications,
-deploy them to _Tanzu Application Service_,
+deploy them to *Tanzu Application Service*,
 and migrate all four databases.
 
 Take a few minutes to review the pipeline.
@@ -300,7 +300,7 @@ other people's applications.
     Expect the build and deploy to succeed this time.
 
 1.  For each application, visit its root page on
-    _Tanzu Application Service_ and test manually.
+    *Tanzu Application Service* and test manually.
     Each one should display `Noop!`.
 
 1.  Manually trigger a few requests to the various controllers to verify
@@ -312,7 +312,7 @@ other people's applications.
 
 You will note that a code change to any part of the codebase will cause
 all of the applications to be rebuilt, tested and pushed to
-_Tanzu Application Service_.
+*Tanzu Application Service*.
 This means that you have the highest degree of confidence that all
 the microservices will continue to work together,
 without having to worry about issues such as API compatibility between

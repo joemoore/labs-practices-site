@@ -3,8 +3,8 @@ title: Swift Method Overview
 weight: 1
 layout: single
 team:
-    - Marc Zottner
-    - Lizz Smullen
+- Marc Zottner
+- Lizz Smullen
 tags: []
 ---
 
@@ -18,11 +18,12 @@ The information that the stakeholders share is going to prove instrumental in he
 Swift jumpstarts the work of turning an idea or a monolith application into a highly distributed, modern application. In the case of a legacy system, you decompose and rewrite a monolith from the ground up by figuring out how it wants to behave. Old and new systems co-exist while the legacy system is progressively broken down and its parts rebuilt.
 This method has been developed over time by Pivotal/Tanzu Labs practitioners, especially by Shaun Anderson.
 
+
 ## How Does Swift Work?
 
 Swift helps you to successfully plan projects that significantly reduce development time using a series of activities including Event Storming Light, Thin Slice definition, a Boris Exercise, and SNAP.
 
-These activities are opinionated and well defined: they have been fine tuned through dozens of conducted real-world projects. While it’s best to stick to defined activities for your first try, the Swift approach is meant to be adapted to the needs of your endeavor.
+These activities are opinionated and well defined: they have been fine tuned through dozens of conducted real-world projects. While it’s  best to stick to defined activities for your first try, the Swift approach is meant to be adapted to the needs of your endeavor.
 
 The success formula of Swift lies in its highly-collaborative nature (intrinsic alignment), while focussing on the future (and not the past) of the app by quickly shaping its notional architecture, and just getting started (constructive laziness).
 
@@ -32,7 +33,8 @@ The success formula of Swift lies in its highly-collaborative nature (intrinsic 
 
 -   **Future over past**
 
-    Swift focuses fully on the desired application, and the future rather than its past. While many learnings on functionality and user experience originate from previous insights, spending too much time on the past is a trap that often prevents any progress. In the engineering process, you spend most of your time considering how the application would be built from scratch today by a fast-paced tech startup, rather than by capitalizing on the entirety of existing code and specifications.
+    Swift focuses fully on the desired application,  and the future rather than its past. While many learnings on functionality and user experience originate from previous insights, spending too much time on the past is a trap that often prevents any progress. In the engineering process, you spend most of your time considering how the application would be built from scratch today by a fast-paced tech startup, rather than by capitalizing on the entirety of existing code and specifications.
+
 
 -   **Collaboration first**
 
@@ -41,6 +43,7 @@ The success formula of Swift lies in its highly-collaborative nature (intrinsic 
 -   **Constructive laziness**
 
     Constructive laziness recognizes that it’s OK to not know everything upfront about an enterprise system, especially in the case of large systems that are constantly evolving. No one can know everything. In the end, perfect is the enemy of good. How do you escape the analysis-paralysis trap aiming to craft the perfect meta-architecture with completely detailed specifications? By taking a leap of faith, and accepting that a realistic way forward implies starting small, working on one scenario part of the big picture first, and evolving incrementally.
+
 
 ## Sequence of Activities
 
@@ -58,7 +61,7 @@ It’s OK to leverage each practice individually, but you’ll get better result
 
 The steps come together, as depicted in the following diagram:
 
-![Prioritizing the issues to test](/learningpaths/swift-monolith-modernization/images/swift_process.png#center)
+  ![Prioritizing the issues to test](/learningpaths/swift-monolith-modernization/images/swift_process.png#center)
 
 The following sections describe the purpose of each practice, how long each practice takes to complete, group activities for the stakeholders, and the positive outcomes to expect.
 
@@ -108,6 +111,7 @@ The following sections describe the purpose of each practice, how long each prac
   </tbody>
 </table>
 
+
 ### 3. Identify business capabilities as service candidates {id=three}
 
 <table class="table table-striped">
@@ -131,6 +135,7 @@ The following sections describe the purpose of each practice, how long each prac
   </tbody>
 </table>
 
+
 ### 4. Select a meaningful starting point: a thin slice of functionality {id=four}
 
 <table class="table table-striped">
@@ -153,6 +158,7 @@ The following sections describe the purpose of each practice, how long each prac
     </tr>
   </tbody>
 </table>
+
 
 ### 5. Use Boris notional architecture to find out how the system wants to be designed {id=five}
 
@@ -200,6 +206,7 @@ The following sections describe the purpose of each practice, how long each prac
   </tbody>
 </table>
 
+
 ### 7. Explore and match technical patterns {id=seven}
 
 <table class="table table-striped">
@@ -222,6 +229,7 @@ The following sections describe the purpose of each practice, how long each prac
     </tr>
   </tbody>
 </table>
+
 
 ### 8. Create a prioritized work backlog {id=eight}
 
@@ -246,6 +254,7 @@ The following sections describe the purpose of each practice, how long each prac
   </tbody>
 </table>
 
+
 ### 9. Develop iteratively tested and working code {id=nine}
 
 <table class="table table-striped">
@@ -268,6 +277,7 @@ The following sections describe the purpose of each practice, how long each prac
     </tr>
   </tbody>
 </table>
+
 
 ## Next
 

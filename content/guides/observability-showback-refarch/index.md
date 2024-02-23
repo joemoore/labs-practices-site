@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Considerations for showback in large Kubernetes environments
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Showback Reference Architecture
 parent: Platform Observability
 title: Showback Reference Architecture
 weight: 2000
-oldPath: '/content/guides/kubernetes/observability-showback-refarch.md'
+oldPath: "/content/guides/kubernetes/observability-showback-refarch.md"
 aliases:
-    - '/guides/kubernetes/observability-showback-refarch'
+- "/guides/kubernetes/observability-showback-refarch"
 level1: Managing and Operating Kubernetes
 level2: Monitoring and Observing Kubernetes
 tags: []
@@ -23,11 +23,11 @@ showback in large enterprise Kubernetes environments.
 
 At a high level, the key observations and recommendations are:
 
--   Use resource requests to represent a tenant's resource consumption
--   Overlay resource usage and resource requests to find workloads that have
-    requested too many resources
--   Enforce a consistent label across workloads to map pods to tenants
--   Persist showback metrics in long-term storage for reporting and analytics
+- Use resource requests to represent a tenant's resource consumption
+- Overlay resource usage and resource requests to find workloads that have
+  requested too many resources
+- Enforce a consistent label across workloads to map pods to tenants
+- Persist showback metrics in long-term storage for reporting and analytics
 
 ## Background
 

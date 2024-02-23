@@ -3,12 +3,12 @@ date: '2021-02-24'
 lastmod: '2021-02-24'
 linkTitle: Spring Session
 tags:
-    - Spring Session
-    - Spring
+- Spring Session
+- Spring
 title: Offload HTTP Sessions with Spring Session and Redis
-oldPath: '/content/guides/spring/offload-http-sessions-spring-session.md'
+oldPath: "/content/guides/spring/offload-http-sessions-spring-session.md"
 aliases:
-    - '/guides/spring/offload-http-sessions-spring-session'
+- "/guides/spring/offload-http-sessions-spring-session"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -25,6 +25,7 @@ By default, an [Apache Tomcat](http://tomcat.apache.org) web server instance is 
 
 The Tanzu Application Service GO Router uses the `jsessionid` plus a `vcap_id` to establish sticky sessions. Session replication breaks with sticky sessions at the GO router which is one of the reasons Spring Session is used. By default Spring Session creates a custom `SESSION` cookie to house an application’s HTTP session. See the [documentation](https://docs.pivotal.io/pivotalcf/concepts/http-routing.html)).
 
+
 {{% callout %}}
 **Note**: Ensure your session object implements [java.io.Serializable](https://docs.oracle.com/javase/tutorial/jndi/objects/serial.html).
 {{% /callout %}}
@@ -33,13 +34,16 @@ The Tanzu Application Service GO Router uses the `jsessionid` plus a `vcap_id` t
 **Note**: This guide was customized for Spring 3.2.18 and XML Configuration. It is highly recommended to [bootify your application](/guides/spring/bootifying-java-apps) and leverage the Spring Boot Starter modules to help stay current with Spring versions.
 {{% /callout %}}
 
+
 ### Cloud Foundry Platform and Redis Service Creation
 
-To enable _Redis-based session replication_, simply bind a Redis service containing a name, label, or tag that has `session-replication` as a substring in Cloud Foundry. To utilize the Redis service [follow the corresponding instructions](https://docs.pivotal.io/redis/2-2/using.html).
+To enable *Redis-based session replication*, simply bind a Redis service containing a name, label, or tag that has `session-replication` as a substring in Cloud Foundry. To utilize the Redis service [follow the corresponding instructions](https://docs.pivotal.io/redis/2-2/using.html).
+
 
 ### Manual Definition for Session Replication with Redis
 
 Spring Session can better handle the object’s marshalling/unmarshalling than the Tomcat HttpSession. This requires the following dependencies.
+
 
 ```xml
 <dependency>
@@ -70,6 +74,7 @@ Spring Session can better handle the object’s marshalling/unmarshalling than t
 For the session replication to work with Apache Struts, you need to place the spring session filter above the Struts filter.
 {{% /callout %}}
 
+
 **2. Define the following in your Spring `application-context.xml`:**
 
 ```xml
@@ -80,10 +85,10 @@ For the session replication to work with Apache Struts, you need to place the sp
   <util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP"/>
 ```
 
-That’s it. With the Redis service bound and session replication defined, sessions are automatically persisted in Redis.
+That’s it. With the Redis service bound and session replication defined, sessions are automatically persisted in Redis. 
+
 
 ## Keep Learning
-
 The Spring Session documentation provides a number of [sample applications](https://docs.spring.io/spring-session/docs/current/reference/html5/#samples) showing how to use Spring Session with Redis and JDBC as well as other use cases. Several more examples, including an HttpSession Quick Start guide, can be found [here](https://spring.io/projects/spring-session-data-redis#samples).
 
 Baeldung’s [Guide to Spring Session](https://www.baeldung.com/spring-session) provides an additional example combining the use of Spring Session and Redis in Spring Boot and Spring environments.

@@ -6,15 +6,15 @@ lastmod: '2022-01-11'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 tags:
-    - Spring Boot
-    - Spring WebFlux
-    - API
-    - Getting Started
-    - Spring
-    - Microservices
+  - Spring Boot
+  - Spring WebFlux
+  - API
+  - Getting Started
+  - Spring
+  - Microservices
 # Author(s)
 team:
-    - Eric Standley
+  - Eric Standley
 ---
 
 ## What Is Spring WebClient?
@@ -25,9 +25,9 @@ The Spring WebClient is a reactive HTTP library; it's the follow-up to the Sprin
 
 Things you need to do before getting started
 
--   JDK 11 (JDK 17 if you want to use the Records in the GitHub example code)
--   Spring Boot 2
--   Basic understanding of how Spring Boot apps work
+- JDK 11 (JDK 17 if you want to use the Records in the GitHub example code)
+- Spring Boot 2
+- Basic understanding of how Spring Boot apps work
 
 This code and a sample test service to call [up on GitHub](https://github.com/estand64/reactive).
 

@@ -1,58 +1,55 @@
 ---
-title: 'STIG Compliant Tanzu Kubernetes Grid 1-click install into an air-gapped environment'
-description: This blog post walks you through installing a Security Technical Implementation Guide–hardened Tanzu Kubernetes Grid for multi-cloud clusters with Federal Information Processing Standards enabled on Amazon Web Services.
+title: "STIG Compliant Tanzu Kubernetes Grid 1-click install into an air-gapped environment"
+description: This blog post walks you through installing a Security Technical Implementation Guide–hardened Tanzu Kubernetes Grid for multi-cloud clusters with Federal Information Processing Standards enabled on Amazon Web Services. 
 date: 2022-02-24
 lastmod: 2022-02-24
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags:
-    - Tanzu
-    - Tanzu Kubernetes Grid
+- Tanzu
+- Tanzu Kubernetes Grid
 tanzu:
-    label: tkg
+  label: tkg
 # Author(s)
 team:
-    - Nitin Ravindran
-    - Brian Rieger
+- Nitin Ravindran
+- Brian Rieger
 ---
 
 This blog post walks you through installing a Security Technical Implementation Guide (STIG)–hardened VMware Tanzu Kubernetes Grid for multi-cloud clusters with Federal Information Processing Standards (FIPS) enabled on Amazon Web Services(AWS). After all of the prerequisites are met, it is as simple as exporting some environment variables and running one script to deploy.
 
 ## Prerequisites
-
 In order to install Tanzu Kubernetes Grid for multi-cloud into an air-gapped environment with one click, there are numerous prerequisites that are outlined below.
 
 1. A preexisting `AirGapped` Virtual Private Connection (VPC) in AWS. This AWS VPC should have VPC endpoints enabled to allow access within the VPC to the following AWS services:
-
-    - STS
-    - SSM
-    - EC2
-    - ec2messages
-    - elasticloadbalancing
-    - secretsmanager
-    - ssmmessages
-    - S3
+    * STS
+    * SSM
+    * EC2
+    * ec2messages
+    * elasticloadbalancing
+    * secretsmanager
+    * ssmmessages
+    * S3
 
 2. An AWS S3 bucket that is in the same AWS region as your `AirGapped` VPC. This will be used to store and retrieve the Tanzu Kubernetes Grid `1click` dependencies.
 
 3. A portable media device with the following:
-    - The Tanzu Kubernetes Grid `1click` dependencies
-    - `1click` installer repo
+    * The Tanzu Kubernetes Grid `1click` dependencies
+    * `1click` installer repo
 4. A bastion VM with ssh access to the air-gapped environment that has:
-
-    - Docker
-    - AWS
-    - `jq`
-    - `make` (build-essential)
-    - Terraform
-
-    ![](images/debs-to-usb.png)
+    * Docker
+    * AWS
+    * `jq`
+    * `make` (build-essential)
+    * Terraform
+ 
+    ![](images/debs-to-usb.png) 
 
 ## Installing Tanzu Kubernetes Grid
 
 1. Copy the contents of the portable media to the bastion VM.
 
-    ![](images/debs-to-bastion.png)
+    ![](images/debs-to-bastion.png) 
 
 2. Copy `1click` dependencies to the AWS S3 bucket by executing the below inside the `1click` dependencies directory.
 
@@ -60,7 +57,7 @@ In order to install Tanzu Kubernetes Grid for multi-cloud into an air-gapped env
     aws s3 cp . s3://<BUCKET_NAME> --recursive
     ```
 
-    ![](images/copy-deps.png)
+    ![](images/copy-deps.png) 
 
 3. Export the following environment variables.
 
@@ -138,16 +135,17 @@ The 1-click script has the following flow by default.
     /home/ubuntu/tkg-1click
     Harbor still starting waiting 60 seconds
     ```
-
+    
     If you would like to follow the Harbor logs, you can SSH into the private DNS returned by Terraform as `ec2-user` and run the below.
-
+    
     ```sh
     sudo tail -f /var/log/cloud-init-output.log
     ```
-
+    
     You will see `Harbor still starting waiting 60 seconds` every minute until Harbor starts.
 
-    ![](images/install-harbor.png)
+    ![](images/install-harbor.png) 
+
 
 2. Creates a Tanzu Kubernetes Grid Bootstrap Amazon Machine Image (AMI) using the contents of AWS S3 bucket containing `1click` dependencies.
 
@@ -280,7 +278,7 @@ The 1-click script has the following flow by default.
         aws-tkg-bootstrap-builder: Adding tag: "Name": "Packer Builder"
         aws-tkg-bootstrap-builder: Instance ID: i-0664f98bc22e66519
     ==> aws-tkg-bootstrap-builder: Waiting for instance (i-0664f98bc22e66519) to become ready...
-    ```
+    ```         
 
     You will see the following upon completion.
 
@@ -310,13 +308,13 @@ The 1-click script has the following flow by default.
     us-east-1: ami-071cb2e44a2055ef0
     ```
 
-    ![](images/create-bootstrap-ami.png)
+    ![](images/create-bootstrap-ami.png) 
 
-3. Creates a STIG AMI with FIPS enabled using the contents of AWS S3 bucket containing `1click` dependencies.
+ 3. Creates a STIG AMI with FIPS enabled using the contents of AWS S3 bucket containing `1click` dependencies.
 
     ```sh
     make[1]: Leaving directory '/home/ubuntu/tkg-1click/ami/tkg-bootstrap' /home/ubuntu/tkg-1click pushd ami/stig; \
-    make docker-aws-offline; \
+	make docker-aws-offline; \
     popd
     /home/ubuntu/tkg-1click/ami/stig /home/ubuntu/tkg-1click
     make[1]: Entering directory '/home/ubuntu/tkg-1click/ami/stig'
@@ -402,7 +400,7 @@ The 1-click script has the following flow by default.
     ```
 
     You will see the following upon completion.
-
+    
     ```sh
     ==> ubuntu-18.04: Waiting for AMI to become ready...
     ==> ubuntu-18.04: Modifying attributes on AMI (ami-043b4588f5f0f1396)...
@@ -439,8 +437,8 @@ The 1-click script has the following flow by default.
     --> ubuntu-18.04: AMIs were created:
     us-east-1: ami-043b4588f5f0f1396
     ```
-
-    ![](images/create-STIG-ami.png)
+    
+    ![](images/create-STIG-ami.png) 
 
 4. Create Tanzu Kubernetes Grid Bootstrap instance using the Tanzu Kubernetes Grid Bootstrap AMI which deploys a Tanzu Kubernetes Grid Management Cluster into the `AirGapped` VPC.
 
@@ -477,30 +475,30 @@ The 1-click script has the following flow by default.
     private_dns = "ip-10-0-10-207.ec2.internal"
     ```
 
-    ![](images/create-bootstrap-vm.png)
+    ![](images/create-bootstrap-vm.png) 
 
-    Once this has finished you should be able to ssh to the Tanzu Kubernetes Grid bootstrap server, private DNS returned by Terraform, using the provided ssh key name with the user `ubuntu`. Once there you can run
-
-    ```sh
+    Once this has finished you should be able to ssh to the Tanzu Kubernetes Grid bootstrap server, private DNS returned by Terraform, using the provided ssh key name with the user `ubuntu`. Once there you can run 
+    
+    ```sh 
     sudo tail -f /var/log/cloud-init-output.log
-    ```
-
+    ````
+    
     to see the status of your management cluster deploy.
 
     ![](images/create-stig-tkg.png)
 
+
 ## Using an existing registry
 
 ### Prerequisites
-
 Using an existing registry is possible as long as you follow the steps documented below:
 
 1. Create a project within your registry called `tkg` so that images can be pushed to `<REGISTRY NAME>/tkg`
 2. Make the `tkg` project publicly readable within the air-gapped environment. I.E. no authorization needed
 3. Install the following onto the machine used to upload to your registry
-    - Docker
-    - AWS
-    - `imgpkg`
+    * Docker
+    * AWS
+    * `imgpkg` 
 4. An S3 VPC endpoint for your air-gapped VPC
 5. Create a bucket policy on your AWS S3 bucket that allows access from within your VPC via a VPC endpoint. The policy should look like the below:
 
@@ -524,7 +522,7 @@ Using an existing registry is possible as long as you follow the steps documente
     }
     ```
 
-6. Download the scripts and images from the Tanzu Kubernetes Grid dependencies bucket and run the publish scripts to push the images to the Tanzu Kubernetes Grid project in your registry. To upload these images run the below commands on a machine that has at least 20GB of free space and `awscli` access to your bucket:
+6. Download the scripts and images from the Tanzu Kubernetes Grid dependencies bucket and run the publish scripts to push the images to the Tanzu Kubernetes Grid project in your registry.  To upload these images run the below commands on a machine that has at least 20GB of free space and `awscli` access to your bucket:
 
     ```sh
     docker login <REGISTRY_NAME> -u <USERNAME> -p <PASSWORD>
@@ -542,7 +540,7 @@ Using an existing registry is possible as long as you follow the steps documente
     rm -rf images
     ```
 
-7. Download the image builder tars in the harbor folder within your bucket and use imgpkg to push them to your registry.
+7. Download the image builder tars in the harbor folder within your bucket and use imgpkg to push them to your registry. 
 
     ```sh
     mkdir image-builder
@@ -554,9 +552,9 @@ Using an existing registry is possible as long as you follow the steps documente
     ```
 
 8. On your bastion VM where you will run 1click.sh you need to place your registry's certificate authority into the below directories so they will be added to your AMI's:
-    - `ami/tkg-bootstrap/roles/bootstrap/files/ca/`
-    - `ami/stig/roles/canonical-ubuntu-18.04-lts-stig-hardening/files/ca`
-
+    * `ami/tkg-bootstrap/roles/bootstrap/files/ca/` 
+    * `ami/stig/roles/canonical-ubuntu-18.04-lts-stig-hardening/files/ca`
+  
 ### Additional Environment Variables
 
 In addition to the variables outlined in [Installing Tanzu Kubernetes Grid](#installing-tanzu-kubernetes-grid), when using an existing registry, the following needs to be exported.

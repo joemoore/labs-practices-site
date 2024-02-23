@@ -3,13 +3,13 @@ date: '2021-05-06'
 lastmod: '2021-06-15'
 layout: single
 team:
-    - Howard Yoo
-    - Zac Bergquist
+- Howard Yoo
+- Zac Bergquist
 title: Detecting Abnormal Behavior with Tanzu Observability
 weight: 99
-oldPath: '/content/outcomes/application-observability/automation-abnormal-behavior-detection.md'
+oldPath: "/content/outcomes/application-observability/automation-abnormal-behavior-detection.md"
 aliases:
-    - '/outcomes/application-observability/automation-abnormal-behavior-detection'
+- "/outcomes/application-observability/automation-abnormal-behavior-detection"
 tags: []
 ---
 
@@ -42,8 +42,8 @@ This query produces the following graph:
 Next, we form a query to calculate how much the current value of the metric differs from the
 standard deviation over some time window (1 day in this example):
 
--   `data = ts(cpu.usage.idle, not cpu=cpu-total)`
--   `deviation = (${data} - mavg(1d, ${data})) / sqrt(mvar(1d, ${data}))`
+- `data = ts(cpu.usage.idle, not cpu=cpu-total)`
+- `deviation = (${data} - mavg(1d, ${data})) / sqrt(mvar(1d, ${data}))`
 
 ![Metric with Standard Deviation](/images/outcomes/app-observability/anomoly-stdev.png)
 
@@ -76,9 +76,9 @@ used to simplify this process. The syntax of the function is:
 anomalous(testWindow, confidence, expression)
 ```
 
--   `testWindow` is the length of the moving time window to check for anomalous points.
--   `confidence` is a number from 0.0 to 1.0 that expresses the confidence factor
-    for determining the range of expected values.
+- `testWindow` is the length of the moving time window to check for anomalous points.
+- `confidence` is a number from 0.0 to 1.0 that expresses the confidence factor
+  for determining the range of expected values.
 
 Using this knowledge, we can improve upon our previous query:
 
@@ -103,11 +103,11 @@ number of metrics without investing large amounts of time understanding each
 individual metric and defining what normal operation looks like. This is
 especially useful in cases where:
 
--   large amounts of trial and error are required to determine when an alert
-    should be raised
--   you need to apply alerts to a system where there are a many metrics and you
-    have limited knowledge about how they should behave
--   the definition of "normal" changes over time
+- large amounts of trial and error are required to determine when an alert
+  should be raised
+- you need to apply alerts to a system where there are a many metrics and you
+  have limited knowledge about how they should behave
+- the definition of "normal" changes over time
 
 As with any technology, this solution shouldn't be used in all cases, as the
 results will vary with the query parameters and patterns in the data. If you are

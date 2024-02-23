@@ -3,13 +3,13 @@ date: '2021-05-19'
 lastmod: '2021-06-15'
 layout: single
 related:
-    - '/guides/containers/cnb-gs-pack'
-    - '/guides/containers/cnb-gs-kpack'
+- "/guides/containers/cnb-gs-pack"
+- "/guides/containers/cnb-gs-kpack"
 title: Building a Container
 weight: 3
-oldPath: '/content/outcomes/secure-software-supply-chain/building-a-container.md'
+oldPath: "/content/outcomes/secure-software-supply-chain/building-a-container.md"
 aliases:
-    - '/outcomes/secure-software-supply-chain/building-a-container'
+- "/outcomes/secure-software-supply-chain/building-a-container"
 tags: []
 ---
 
@@ -40,7 +40,7 @@ ADD ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 ```
 
-Let's start with the two new instructions added here. Since our container will be running a web application running on port 8080, we can inform the container runtime of this by using the `EXPOSE` instruction. Additionally, from the `ADD` instruction, you might have noticed that this Dockerfile is expecting a prebuilt JAR. If you're a Java developer, you may know that different build tools, such as Maven and Gradle, build their applications differently. The `ARG` instruction defines a variable that can be used in the Dockerfile, with the option to override it when building the container. In this case, we set the default value of `JAR_FILE` to `target/my-application.jar` with the assumption that we're building this application with Maven outside the context of the Docker build process. If this is the case, the container could then just be built with the following command:
+Let's start with the two new instructions added here. Since our container will be running a web application running on port 8080, we can inform the container runtime of this by using the `EXPOSE` instruction. Additionally, from the `ADD` instruction, you might have noticed that this Dockerfile is expecting a prebuilt JAR. If you're a Java developer, you may know that different build tools, such as Maven and Gradle, build their applications differently. The `ARG` instruction defines a variable that can be used in the Dockerfile, with the option to override it when building the container. In this case, we set the default value of `JAR_FILE` to `target/my-application.jar` with the assumption that we're  building this application with Maven outside the context of the Docker build process. If this is the case, the container could then just be built with the following command:
 
 ```bash
 docker build -t USERNAME/my-application .
@@ -74,6 +74,7 @@ From there, you'll notice a second `FROM` command. This tells Docker to start a 
 
 There's many more instructions that a Dockerfile may contain. To learn more, please refer to the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) and the [best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 
+
 A Dockerfile requires the most hands-on maintenance as you're handling both the instructions to build the container (writing the Dockerfile), as well as the responsibility of actually running the `docker build` command in your pipeline. If you're using a CI/CD solution that provides access to a running Docker daemon that you can trust to be secure, this may not be a big deal. Be sure to consult the documentation for your CI/CD tools.
 
 ## Kaniko
@@ -86,23 +87,25 @@ Consider the following Kubernetes pod definition:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: kaniko
+  name: kaniko
 spec:
-    containers:
-        - name: kaniko
-          image: gcr.io/kaniko-project/executor:latest
-          args: ['--dockerfile=Dockerfile', '--context=git://github.com/ORG/REPO.git#refs/heads/main', '--destination==<DOCKER USERNAME>/<CONTAINER NAME>']
-          volumeMounts:
-              - name: kaniko-secret
-                mountPath: /kaniko/.docker
-    restartPolicy: Never
-    volumes:
-        - name: kaniko-secret
-          secret:
-              secretName: regcred
-              items:
-                  - key: .dockerconfigjson
-                    path: config.json
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:latest
+    args: ["--dockerfile=Dockerfile",
+            "--context=git://github.com/ORG/REPO.git#refs/heads/main",
+            "--destination==<DOCKER USERNAME>/<CONTAINER NAME>"]
+    volumeMounts:
+      - name: kaniko-secret
+        mountPath: /kaniko/.docker
+  restartPolicy: Never
+  volumes:
+    - name: kaniko-secret
+      secret:
+        secretName: regcred
+        items:
+          - key: .dockerconfigjson
+            path: config.json
 ```
 
 In this case, a pod will be spun up in Kubernetes using the Kaniko executor image, which will pull down the latest commit in the `main` branch of the GitHub repository defined in the `--context` argument, build it using the Dockerfile in the repository, and upload it to the container registry defined in the `--destination` argument. This build process, and the build process of other similar tools, makes it much easier to integrate a container build into your CI/CD pipelines.
@@ -117,11 +120,11 @@ While a solution such as this still requires you to provide a Dockerfile, you're
 
 ## Tanzu Build Service
 
-The final step you can take when deciding how to build your container is a fully-automated build service such as [Tanzu Build Service](https://tanzu.vmware.com/build-service). While you can tie tools such as Kaniko into a CI/CD pipeline that you run and manage, tools such as Tanzu Build Service aim to provide that automated build-scan-publish pipeline in a single solution.
+The final step you can take when deciding how to build your container is a fully-automated build service such as [Tanzu Build Service](https://tanzu.vmware.com/build-service).  While you can tie tools such as Kaniko into a CI/CD pipeline that you run and manage, tools such as Tanzu Build Service aim to provide that automated build-scan-publish pipeline in a single solution. 
 
 Since tools such as Kaniko do not include features such as security scanning, you will need to independently support a scanning solution. This becomes another component to be managed within your build environment.
 
-Tanzu Build Service leverages [Cloud Native Buildpacks](/guides/containers/cnb-what-is/), which contain all of the logic on how to build an application, removing the need to write your own Dockerfile. Additionally, Cloud Native Buildpacks provide a standardized base for all of your container images, meaning that if there's a vulnerability found in the Java runtime for example, you only need to update the buildpack. Tanzu Build Service can then take this new buildpack image and rebase your application containers automatically, ensuring these security fixes are implemented across your infrastructure.
+Tanzu Build Service leverages [Cloud Native Buildpacks](/guides/containers/cnb-what-is/), which contain all of the logic on how to build an application, removing the need to write your own Dockerfile. Additionally, Cloud Native Buildpacks provide a standardized base for all of your container images, meaning that if there's a vulnerability found in the Java runtime for example, you only need to update the buildpack. Tanzu Build Service can then take this new buildpack image and rebase your application containers automatically, ensuring these security fixes are implemented across your infrastructure. 
 While a primary use case for Tanzu Build Service is to manage the creation of newly built images, it is also a valuable tool for ensuring that images remain in compliance. When building a secure supply chain, we need to close the loop, by quickly leveraging our investment in these build tools to remediate our production environments. Tanzu Build Service may be a valuable component towards achieving that goal.```
 
 {{< youtube IMmUjUjBzes >}}

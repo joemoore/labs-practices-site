@@ -3,16 +3,16 @@ date: '2021-02-24'
 lastmod: '2021-02-26'
 subsection: Identity and Access Control
 team:
-    - Craig Tracey
+- Craig Tracey
 title: Identity and Access Control
 tags:
-    - Getting Started
-    - Kubernetes
+- Getting Started
+- Kubernetes
 featured: true
 weight: 42
-oldPath: '/content/guides/kubernetes/identity.md'
+oldPath: "/content/guides/kubernetes/identity.md"
 aliases:
-    - '/guides/kubernetes/identity'
+- "/guides/kubernetes/identity"
 level1: Securing Kubernetes
 level2: Access and Security
 description: Lock down your Kubernetes cluster by implementing the principle of least privilege
@@ -71,16 +71,16 @@ A sample JWT may look like the following:
 
 ```json
 {
-    "iss": "https://auth.example.com",
-    "sub": "Ch5hdXRoMHwMTYzOTgzZTdjN2EyNWQxMDViNjESBWF1N2Q2",
-    "aud": "dDblg7xO7dks1uG6Op976jC7TjUZDCDz",
-    "exp": 1517266346,
-    "iat": 1517179946,
-    "at_hash": "OjgZQ0vauibNVcXP52CtoQ",
-    "username": "marysmith",
-    "email": "marysmith@example.com",
-    "email_verified": true,
-    "groups": ["qa", "infrastructure"]
+  "iss": "https://auth.example.com",
+  "sub": "Ch5hdXRoMHwMTYzOTgzZTdjN2EyNWQxMDViNjESBWF1N2Q2",
+  "aud": "dDblg7xO7dks1uG6Op976jC7TjUZDCDz",
+  "exp": 1517266346,
+  "iat": 1517179946,
+  "at_hash": "OjgZQ0vauibNVcXP52CtoQ",
+  "username": "marysmith",
+  "email": "marysmith@example.com",
+  "email_verified": true,
+  "groups": ["qa", "infrastructure"]
 }
 ```
 
@@ -93,16 +93,16 @@ as subjects for RoleBinding and ClusterRoleBinding resources:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-    name: web-rw-deployment
-    namespace: some-web-app-ns
+  name: web-rw-deployment
+  namespace: some-web-app-ns
 roleRef:
-    kind: Role
-    name: web-rw-deployment
-    apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: web-rw-deployment
+  apiGroup: rbac.authorization.k8s.io
 subjects:
-    - kind: User
-      name: marysmith
-      apiGroup: rbac.authorization.k8s.io
+  - kind: User
+    name: marysmith
+    apiGroup: rbac.authorization.k8s.io
 ```
 
 or...
@@ -111,18 +111,18 @@ or...
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-    name: web-infra
+  name: web-infra
 roleRef:
-    kind: Role
-    name: web-infra
-    apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: web-infra
+  apiGroup: rbac.authorization.k8s.io
 subjects:
-    - kind: Group
-      name: 'infrastructure'
-      apiGroup: rbac.authorization.k8s.io
+  - kind: Group
+    name: "infrastructure"
+    apiGroup: rbac.authorization.k8s.io
 ```
 
-{{% aside title="What about other protocols?" %}}
+{{% aside title="What about other protocols?" %}} 
 There are no direct LDAP or Active Directory integrations, but it is possible to
 integrate these systems with tools that will act as identity brokers.
 
@@ -169,7 +169,7 @@ tools, this is still not possible. Fortunately, Kubernetes affords a number of
 alternative means of identity and access control. Each of these, while capable,
 may have drawbacks that make it a less favorable approach.
 
-{{% aside title="Why choose one?" %}}
+{{% aside title="Why choose one?" %}} 
 Identity in Kubernetes is not mutually exclusive. It allows for multiple
 identity configurations simultaneously. While you are not likely in a scenario
 where it will be hard to choose the best integration, you will want to consider

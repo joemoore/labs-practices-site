@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: Caching
 weight: 120
-oldPath: '/content/outcomes/cloud-native-development/specific__caching.md'
+oldPath: "/content/outcomes/cloud-native-development/specific__caching.md"
 aliases:
-    - '/outcomes/cloud-native-development/specific__caching'
+- "/outcomes/cloud-native-development/specific__caching"
 tags: []
 ---
 
@@ -24,4 +24,4 @@ If your app already interacts with a caching layer, refer to the [Caching Data w
 
 ## Homework
 
--   Read the [Caching Data with Spring](https://spring.io/guides/gs/caching/) guide.
+- Read the [Caching Data with Spring](https://spring.io/guides/gs/caching/) guide.

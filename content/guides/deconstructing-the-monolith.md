@@ -1,24 +1,24 @@
 ---
 date: '2020-05-06'
 description: Looking to decompose a monolith? This guide provides expert tricks and
-    tips to break down monoliths into microservices.
+  tips to break down monoliths into microservices.
 lastmod: '2021-03-07'
 linkTitle: Breaking Down a Monolith
 metaTitle: Breaking Down a Monolith
 patterns:
-    - API
+- API
 tags:
-    - Microservices
-    - API
-    - Getting Started
+- Microservices
+- API
+- Getting Started
 featured: true
 team:
-    - Nate Schutta
+- Nate Schutta
 title: Breaking Down a Monolith into Microservices
 weight: 3
-oldPath: '/content/guides/microservices/deconstructing-the-monolith.md'
+oldPath: "/content/guides/microservices/deconstructing-the-monolith.md"
 aliases:
-    - '/guides/microservices/deconstructing-the-monolith'
+- "/guides/microservices/deconstructing-the-monolith"
 level1: Modernizing Legacy Applications
 level2: Deconstruction
 ---
@@ -29,11 +29,12 @@ There is a pretty good chance more than a few people in your organization are ta
 
 ## What is a microservice?
 
-There are nearly as many definitions of a microservice as there are developers touting them as miracle cures. Before delving further, the key definition is the one inside the walls of _your_ organization. Whether it adheres to the Platonic ideal form of a microservice isn’t nearly as important as getting everyone on the same page. There is a reason why a glossary is often one of the most important artifacts in any project room.
+There are nearly as many definitions of a microservice as there are developers touting them as miracle cures. Before delving further, the key definition is the one inside the walls of *your* organization. Whether it adheres to the Platonic ideal form of a microservice isn’t nearly as important as getting everyone on the same page. There is a reason why a glossary is often one of the most important artifacts in any project room.
 
 {{% callout %}}
 **Note**: If you’ve already debated tabs vs spaces, consider touching off a [discussion around the definition](https://mobile.twitter.com/littleidea/status/500005289241108480) of a microservice. Consider removing sharp objects, it may devolve rapidly. Microservices really are in the eye of the beholder!
 {{% /callout %}}
+
 
 Ultimately, microservices are a reaction to monoliths and heavyweight [service oriented architectures](https://martinfowler.com/bliki/ServiceOrientedAmbiguity.html) as well as the capabilities of cloud environments. The issues with poorly structured monolithic architectures are legion, from low developer productivity caused by massive code bases to the inability to target compute resources to the bits that need more performance, there are no shortage of headaches. Software is not immune to the [second law of thermodynamics](https://www.grc.nasa.gov/WWW/K-12/airplane/thermo2.html), over time, the modularity of the monolith breaks down and it takes longer and longer to add new features and functionality.
 

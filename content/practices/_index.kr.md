@@ -1,5 +1,5 @@
 ---
-title: 'Tanzu 사례'
+title: "Tanzu 사례"
 linkTitle: Tanzu 사례
 description: >
     지난 30년 동안 [Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs)는<br/>
@@ -7,7 +7,7 @@ description: >
     여러분과 이러한 내용을 공유할 수 있어서 기쁩니다.
 menu:
     main:
-        parent: 'sections'
+        parent: "sections"
         params:
             split: right
             section: type

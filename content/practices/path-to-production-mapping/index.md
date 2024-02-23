@@ -32,25 +32,25 @@ miro_template_url:
 
 1. Provide a starting event like “Story picked up from Backlog” or “Somebody had an idea” and a final event which will probably be “Customer used the new feature”.
 
-1. Ask everyone to brainstorm all of the "events" in the path to production and write each one on a sticky note.
+1. Ask everyone to brainstorm all of the "events" in the path to production and write each one on a sticky note. 
 
-    If people are struggling to come up with events, provide example events such as “code review completed”, “deployed to the production-staging environment”, “signed off by…”
+   If people are struggling to come up with events, provide example events such as “code review completed”, “deployed to the production-staging environment”, “signed off by…”
 
-    {{< callout >}}
-    **Tip:** Events should be in past tense to make the final map consistent.
-    {{< /callout >}}
+   {{< callout >}}
+   **Tip:** Events should be in past tense to make the final map consistent.
+   {{< /callout >}}
 
 1. Ask everyone to put all the events from left (earliest) to right (latest) on the shared board. At this stage it will probably be messy with lots of duplicates.
 
 1. Walk through the board, deleting duplicates and clarifying order when there are differing opinions. When there is misalignment the people most involved in that part of the process should be able to provide clarity.
 
-    {{< callout >}}
-    **Tip:** Some tasks will often happen in parallel, but you should still try to define an order. If the team says two things can happen simultaneously, then the order does not matter, but still set an order and see if anybody objects. This will help you spot if there is a hidden dependency.
-    {{< /callout >}}
+   {{< callout >}}
+   **Tip:** Some tasks will often happen in parallel, but you should still try to define an order. If the team says two things can happen simultaneously, then the order does not matter, but still set an order and see if anybody objects.  This will help you spot if there is a hidden dependency.
+   {{< /callout >}}
 
-    {{< callout >}}
-    **Tip:** Asking a pair of teammates to lead this step can help everyone to feel more engaged.
-    {{< /callout >}}
+   {{< callout >}}
+   **Tip:** Asking a pair of teammates to lead this step can help everyone to feel more engaged.
+   {{< /callout >}}
 
 1. For each stage, ask people to create stickies (use a different color) for which systems and tools are involved. Add them below the relevance events on the map.
 
@@ -60,17 +60,17 @@ miro_template_url:
 
 1. Discuss with the group how long it usually takes to complete each part of the process. It may be easier to add an estimate to a group of 2–3 steps rather than each one individually.
 
-    {{< callout >}}
-    **Tip:** If timings are hard to provide, try "T-shirt" sizing and assigning each section a Small, Medium or Large label.
-    {{< /callout >}}
+   {{< callout >}}
+   **Tip:** If timings are hard to provide, try "T-shirt" sizing and assigning each section a Small, Medium or Large label.
+   {{< /callout >}}
 
 1. If there are any blank areas or places where there are outstanding questions, assign actions to people to find out the answers.
 
-1. Set a time to follow up and clearly state what you will be doing with the output.
+1. Set a time to follow up and clearly state what you will be doing with the output. 
 
-    Depending on your situation this might be to start improving the path to production, or to mitigate risks as you plan how to release the first version of your application, or a mixture of the two.
+   Depending on your situation this might be to start improving the path to production, or to mitigate risks as you plan how to release the first version of your application, or a mixture of the two.
 
-1. After the session, if there are areas with pain points, or long time scales, see if you can improve them or get to them as soon as possible. Make sure you have access to all the tools and systems mentioned and if there are any teams or people involved that you have not met, connect with them and find out early what they need to help move your product through the process.
+1.  After the session, if there are areas with pain points, or long time scales, see if you can improve them or get to them as soon as possible. Make sure you have access to all the tools and systems mentioned and if there are any teams or people involved that you have not met, connect with them and find out early what they need to help move your product through the process.
 
 {{% /section %}}
 

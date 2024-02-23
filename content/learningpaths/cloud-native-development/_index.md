@@ -7,13 +7,13 @@ duration: 60
 experience: Beginner
 layout: intro
 description: Learn the basics of cloud native development with Spring. This developer
-    preparation guide helps you to get the most of a project following the Pivotal/Tanzu Labs
-    methodology.
+  preparation guide helps you to get the most of a project following the Pivotal/Tanzu Labs
+  methodology.
 team:
-    - Pivotal/Tanzu Labs
-oldPath: '/content/outcomes/cloud-native-development/_index.md'
+- Pivotal/Tanzu Labs
+oldPath: "/content/outcomes/cloud-native-development/_index.md"
 aliases:
-    - '/outcomes/cloud-native-development/'
+- "/outcomes/cloud-native-development/"
 tags: []
 ---
 

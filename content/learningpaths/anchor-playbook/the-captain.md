@@ -3,17 +3,16 @@ date: '2021-11-04'
 lastmod: '2021-11-04'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: The Captain
 weight: 60
 tags:
-    - Teams
-    - Roles
-    - Agile
+- Teams
+- Roles
+- Agile
 aliases:
-    - '/outcomes/anchor-playbook/the-captain'
+- "/outcomes/anchor-playbook/the-captain"
 ---
-
 > RARELY USED, AUTHORITATIVE VERSION OF THE ANCHOR
 
 {{% callout %}}
@@ -26,19 +25,17 @@ team ownership. This is a delicate line to walk, and requires care/skill in doin
 ![The captain running a meeting](/learningpaths/anchor-playbook/images/meeting1.jpg)
 
 ### Responsibilities
+- Make a decision for a team that cannot or will not move forward
+- Be willing to stand alone to do the right thing
+- Rally a divided team on a common goal
 
--   Make a decision for a team that cannot or will not move forward
--   Be willing to stand alone to do the right thing
--   Rally a divided team on a common goal
 
 ### Considerations
-
--   May make it difficult to challenge and change the decisions that were made
--   Observe for a while. You can be right and still be wrong
--   Consider co-ownership as an anchor pair as a way to alleviate the burden and get in front of problems
+- May make it difficult to challenge and change the decisions that were made
+- Observe for a while. You can be right and still be wrong
+- Consider co-ownership as an anchor pair as a way to alleviate the burden and get in front of problems
 
 ### Challenges
-
--   Being unnecessarily vocal can impose dominance and have negative consequences
--   Making unilateral decisions leaves you open to being the single point of failure
--   Anchor will need to teach the team to sustain their own buy-in
+- Being unnecessarily vocal can impose dominance and have negative consequences
+- Making unilateral decisions leaves you open to being the single point of failure
+- Anchor will need to teach the team to sustain their own buy-in

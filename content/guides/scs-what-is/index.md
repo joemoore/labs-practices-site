@@ -1,23 +1,23 @@
 ---
 date: '2020-05-06'
 description: Discover how to use Spring Cloud Stream, a framework for building highly
-    scalable, event-driven microservices connected with shared messaging systems.
+  scalable, event-driven microservices connected with shared messaging systems.
 lastmod: '2021-03-07'
 linkTitle: Spring Cloud Stream
 patterns:
-    - Eventing
+- Eventing
 subsection: Spring Cloud Stream
 tags:
-    - Spring Cloud Stream
-    - Spring
-    - Microservices
-    - Messaging and Integration
+- Spring Cloud Stream
+- Spring
+- Microservices
+- Messaging and Integration
 team:
-    - Brian McClain
+- Brian McClain
 title: What is Spring Cloud Stream?
-oldPath: '/content/guides/event-streaming/scs-what-is.md'
+oldPath: "/content/guides/event-streaming/scs-what-is.md"
 aliases:
-    - '/guides/event-streaming/scs-what-is'
+- "/guides/event-streaming/scs-what-is"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -44,7 +44,7 @@ Consider the following scenario of an application that has one input and one out
 
 In this scenario, you can see that there are two logical bindings—one for input and another for output—that communicate with the binder. The binder then handles communication with the message broker directly. All of this happens outside of your code, so rather than connecting to the broker, creating the channels, and defining how everything gets routed, Spring will abstract away as much as possible.
 
-Out of the box, Spring Cloud Stream will automatically create channels if they don’t already exist and use auto-generated names if they aren’t provided, and will serialize your data the best it can. This is all configurable and customizable, however, and as is the case with much of Spring, it makes the best decisions that it can given the data it has.
+Out of the box, Spring Cloud Stream will automatically create channels if they don’t already exist and use auto-generated names if they aren’t provided, and will serialize your data the best it can. This is all configurable and customizable, however, and as is the case with much of Spring, it makes the best decisions that it can given the data it has.  
 
 ## How Can I Use It?
 

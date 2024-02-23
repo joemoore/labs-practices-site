@@ -1,7 +1,7 @@
 ---
 aliases:
-    - guides/kubernetes/k8s-secrets-sa-what-is/
-    - '/guides/kubernetes/platform-security-secrets-sa-what-is'
+- guides/kubernetes/k8s-secrets-sa-what-is/
+- "/guides/kubernetes/platform-security-secrets-sa-what-is"
 date: '2021-02-24'
 description: Learn how to create and manage Kubernetes secrets for service accounts. Explore platform security best practices in our developer guide.
 lastmod: '2021-03-07'
@@ -9,15 +9,15 @@ linkTitle: Secrets and Service Accounts
 metaTitle: Create Kubernetes Secrets for Service Accounts
 parent: Platform Security
 patterns:
-    - Deployment
+- Deployment
 tags:
-    - Kubernetes
+- Kubernetes
 team:
-    - Brian McClain
-    - Tiffany Jernigan
+- Brian McClain
+- Tiffany Jernigan
 title: How to Create Kubernetes Secrets and Service Accounts
 weight: 2
-oldPath: '/content/guides/kubernetes/platform-security-secrets-sa-what-is.md'
+oldPath: "/content/guides/kubernetes/platform-security-secrets-sa-what-is.md"
 level1: Securing Kubernetes
 level2: Access and Security
 ---
@@ -50,11 +50,11 @@ you may expect, this can be done by defining an object of kind `Secret`:
 apiVersion: v1
 kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
 type: Opaque
 data:
-    username: bXl1c2VybmFtZQo= #Base64 encoded value of "myusername"
-    password: bXlwYXNzd29yZAo= #Base64 encoded value of "mypassword"
+  username: bXl1c2VybmFtZQo= #Base64 encoded value of "myusername"
+  password: bXlwYXNzd29yZAo= #Base64 encoded value of "mypassword"
 ```
 
 Secrets in Kubernetes are, at their most basic form, a collection of keys and
@@ -79,7 +79,7 @@ $ kubectl describe secret mysecret
 Name:         mysecret
 Namespace:    default
 Labels:       <none>
-Annotations:
+Annotations:  
 Type:         Opaque
 
 Data
@@ -111,19 +111,19 @@ mounting them as files in a volume:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: secret-as-file
+  name: secret-as-file
 spec:
-    containers:
-        - name: secret-as-file
-          image: nginx
-          volumeMounts:
-              - name: mysecretvol
-                mountPath: '/etc/mysecret'
-                readOnly: true
-    volumes:
-        - name: mysecretvol
-          secret:
-              secretName: mysecret
+  containers:
+  - name: secret-as-file
+    image: nginx
+    volumeMounts:
+    - name: mysecretvol
+      mountPath: "/etc/mysecret"
+      readOnly: true
+  volumes:
+  - name: mysecretvol
+    secret:
+      secretName: mysecret
 ```
 
 Here, a new pod named `secret-as-file` is created from the
@@ -176,22 +176,22 @@ variables. Consider the following YAML:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: secret-as-env
+  name: secret-as-env
 spec:
-    containers:
-        - name: secret-as-env
-          image: nginx
-          env:
-              - name: SECRET_USERNAME
-                valueFrom:
-                    secretKeyRef:
-                        name: mysecret
-                        key: username
-              - name: SECRET_PASSWORD
-                valueFrom:
-                    secretKeyRef:
-                        name: mysecret
-                        key: password
+  containers:
+  - name: secret-as-env
+    image: nginx
+    env:
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: mysecret
+          key: username
+    - name: SECRET_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysecret
+          key: password
 ```
 
 Here, instead of defining volumes that reference your secret, two environment
@@ -268,33 +268,33 @@ with a wider set of permissions. This is demonstrated in the following YAML:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-    namespace: default
-    name: pod-read-role
+  namespace: default
+  name: pod-read-role
 rules:
-    - apiGroups: [''] # "" indicates the core API group
-      resources: ['pods']
-      verbs: ['get', 'watch', 'list']
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
 
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-    name: pod-read-sa
+  name: pod-read-sa
 
 ---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-    name: pod-read-rolebinding
-    namespace: default
+  name: pod-read-rolebinding
+  namespace: default
 subjects:
-    - kind: ServiceAccount
-      name: pod-read-sa
-      apiGroup: ''
+- kind: ServiceAccount
+  name: pod-read-sa
+  apiGroup: ""
 roleRef:
-    kind: Role
-    name: pod-read-role
-    apiGroup: ''
+  kind: Role
+  name: pod-read-role
+  apiGroup: ""
 ```
 
 Here, three things are created: a `Role` named “pod-read-role”, a

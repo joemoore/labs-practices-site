@@ -1,29 +1,29 @@
 ---
 date: '2020-05-05'
 description: Learn how to quickly develop a REST API from start to finish to build
-    a microservice from scratch with this Spring Boot guide.
+  a microservice from scratch with this Spring Boot guide.
 lastmod: '2021-03-07'
 linkTitle: Spring Boot API
 patterns:
-    - API
+- API
 subsection: Spring Boot
 tags:
-    - Spring Boot
-    - REST
-    - API
-    - Getting Started
-    - Spring
-    - Microservices
+- Spring Boot
+- REST
+- API
+- Getting Started
+- Spring
+- Microservices
 team:
-    - Brian McClain
+- Brian McClain
 languages:
-    - java
+- java
 langgettingstarted: true
 title: Building an API with Spring Boot
 weight: 2
-oldPath: '/content/guides/spring/spring-build-api.md'
+oldPath: "/content/guides/spring/spring-build-api.md"
 aliases:
-    - '/guides/spring/spring-build-api'
+- "/guides/spring/spring-build-api"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -36,17 +36,19 @@ For this example, you’ll build an API to interact with an inventory system. Th
 
 If you’re familiar with the basics of REST, much of this should look pretty much as you would expect. If you’re a bit newer, or just want a refresher, make sure to check out [Basics of REST](/guides/microservices/basics-of-rest), which discusses different aspects of REST such as verbs, status codes, and more. For this API, there will be just a handful of endpoints and verbs supported.
 
--   `GET /items/{id}`: The endpoint that likely first comes to mind is getting information about an item in the inventory. This endpoint will take in an item ID (for example, `/items/1`), look it up by that ID, and return all the relevant information about that specific item.
--   `GET /items`: If providing an ID returns one item, explicitly omitting an ID could return _all_ items. In a production application, a lot of care should be taken when implementing operations that return an entire database worth of content. It’s expensive to both gather that information from the database as well as transmit it to the requester. In this case, the database will only contain a few items, so it’s not too expensive to perform.
--   `POST /items`: If you can get items from the inventory, you should probably also be able to create new items in the inventory. Here’s where proper and clear documentation really helps your developer,.as the existence of this endpoint alone does not tell them what they need to provide. In this case, the endpoint will take in a JSON object, and expect an item’s name, price, and count. The API will handle generating an ID for the new item.
--   `PUT /items/{id}`: An inventory system would be pretty useless if you couldn’t change the price or count of any of the items. In this case, the endpoint expects a JSON object containing either the price, count, or both.
--   `DELETE /items/{id}`: Not every product is carried forever. You could simply keep the count at zero, but to keep the inventory clean, deleting it from the database will prove to be useful.
+- `GET /items/{id}`:  The endpoint that likely first comes to mind is getting information about an item in the inventory. This endpoint will take in an item ID (for example, `/items/1`), look it up by that ID, and return all the relevant information about that specific item.
+- `GET /items`: If providing an ID returns one item, explicitly omitting an ID could return _all_ items. In a production application, a lot of care should be taken when implementing operations that return an entire database worth of content. It’s expensive to both gather that information from the database as well as transmit it to the requester. In this case, the database will only contain a few items, so it’s not too expensive to perform.
+- `POST /items`: If you can get items from the inventory, you should probably also be able to create new items in the inventory. Here’s where proper and clear documentation really helps your developer,.as the existence of this endpoint alone does not tell them what they need to provide. In this case, the endpoint will take in a JSON object, and expect an item’s  name, price, and count. The API will handle generating an ID for the new item.
+- `PUT /items/{id}`: An inventory system would be pretty useless if you couldn’t change the price or count of any of the items. In this case, the endpoint expects a JSON object containing either the price, count, or both.
+- `DELETE /items/{id}`: Not every product is carried forever. You could simply keep the count at zero, but to keep the inventory clean, deleting it from the database will prove to be useful.
+
 
 With all of the endpoints planned out, we can now begin implementation!
 
 ## Building the Application
 
 One of the easiest ways to start a Spring Boot application is to use [start.spring.io](https://start.spring.io/). It will allow you to define the configuration and choose the dependencies specific to your application, then generate all of the boilerplate that surrounds a Spring application. This application assumes that it will be built and run with [Maven](http://maven.apache.org/) as well as the default choice of Java and Spring Boot version. What you choose for the group, artifact, name, and description fields doesn’t matter; what does matter is that you add the **Spring Web** dependency.
+
 
 ![img](images/spring-build-api-01.png)
 
@@ -62,7 +64,7 @@ The best place to start is by defining what an Item is. In the same directory as
 
 ```java
 public class Item {
-
+ 
   private final long id;
   private String name;
   private double price;
@@ -98,7 +100,7 @@ public class Item {
   public void setCount(int count) {
       this.count = count;
   }
-
+ 
 }
 ```
 
@@ -178,14 +180,14 @@ Next, take a look at the `GET /items/{id}` endpoint. This endpoint will return a
 @GetMapping("/items/{id}")
 public Item getItem(@PathVariable("id") Long id) {
     Item item = findItem(id);
-
+  
     if (item == null) {
         // If the item does not exist, return 404
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item Not Found");
     } else {
         return item;
     }
-
+  
 }
 ```
 
@@ -216,6 +218,7 @@ public Item createItem(@RequestBody Item req) {
 
 If a `GET` request uses the `@GetMapping` annotation, then a `POST` request uses the `@PostMappint` annotation. Since this is responding to a different HTTP verb, there’s no issue mapping to the same path that was mapped to earlier. There’s one new annotation for the method arguments:
 
+
 ```
 @RequestBody Item req
 ```
@@ -228,7 +231,7 @@ $ curl -XPOST http://localhost:8080/items -H "Content-Type: application/json" -d
 {"id":6,"name":"Speakers","price":49.99,"count":30}
 ```
 
-This `cURL` request specifically sets the `Content-Type` header to let our application know that it’s being sent JSON, so make sure your client of choice is doing the same.
+This `cURL` request specifically sets the `Content-Type` header to let our application know that it’s being sent JSON, so make sure your client of choice is doing the same. 
 
 ### Update An Existing Item
 
@@ -321,7 +324,7 @@ The first thing to do is to tell Spring that this class contains tests, as well 
 @SpringBootTest
 @AutoConfigureMockMvc
 public class HttpRequestsTest {
-
+ 
    @Autowired
    private MockMvc mockMvc;
 
@@ -351,7 +354,7 @@ public void postWithoutIdShouldCreate() throws Exception {
         .andExpect(jsonPath("$.id").value(6))
         .andExpect(jsonPath("$.name").value("Speakers"))
         .andExpect(jsonPath("$.price").value(39.99))
-        .andExpect(jsonPath("$.count").value(33));
+        .andExpect(jsonPath("$.count").value(33));       
 }
 ```
 

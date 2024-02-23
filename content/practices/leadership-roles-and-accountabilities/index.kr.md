@@ -3,26 +3,26 @@ title: 리더십 역할 및 책임
 linkTitle: 리더십 역할 및 책임
 description: 중복 작업을 줄이고, 충족되지 않은 격차를 파악하고, 팀으로서의 효율성을 개선할 수 있도록 협업하는 그룹의 역할과 책임을 명확히 하고 정리하는 워크숍입니다. 이 방법은 균형이 잡힌 제품 팀보다는 리더십 팀에서 가장 일반적으로 사용하는 방법입니다.
 # Note: remove any tags that are not relevant.
-tags: ['확장']
+tags: ["확장"]
 length: 2시간
 participants: 경영진
-lastmod: '2022-01-03'
-date: '2022-01-03'
-why:
-    - 우리는 동료들이 어떤 책임을 지고 있는지 알고 있다고 간주하며, 이로 인해 목표를 달성하지 못하거나 일을 중복해서 하기도 합니다. 이 워크숍은 제품 팀보다 책임이 명확하지 않은 경영진에 특히 유용합니다.
+lastmod: "2022-01-03"
+date: "2022-01-03"
+why: 
+- 우리는 동료들이 어떤 책임을 지고 있는지 알고 있다고 간주하며, 이로 인해 목표를 달성하지 못하거나 일을 중복해서 하기도 합니다. 이 워크숍은 제품 팀보다 책임이 명확하지 않은 경영진에 특히 유용합니다.
 when:
-    - 경영진의 구성을 변경하거나 역할 및 책임을 마지막으로 명시한 후 1년 이상 지난 경우입니다.
+- 경영진의 구성을 변경하거나 역할 및 책임을 마지막으로 명시한 후 1년 이상 지난 경우입니다.
 what:
-    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-    - 화이트보드용 마커
-    - 스티커 메모
-    - 네임펜
+- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+- 화이트보드용 마커
+- 스티커 메모
+- 네임펜
 
 # If this practice or workshop has a Miro template: remote: true
 remote: false
-miro_template_url: 'URL for related Miro template'
----
+miro_template_url: "URL for related Miro template" 
 
+---
 <h2 id="how-to-use-this-method">이 방식을 활용하는
 방법</h2>
 

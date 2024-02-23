@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Approaches and best practices for secret management in Kubernetes
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Secret Management
 parent: Platform Security
 title: Secret Management
 weight: 3
-oldPath: '/content/guides/kubernetes/platform-security-secret-management.md'
+oldPath: "/content/guides/kubernetes/platform-security-secret-management.md"
 aliases:
-    - '/guides/kubernetes/platform-security-secret-management'
+- "/guides/kubernetes/platform-security-secret-management"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []
@@ -25,21 +25,21 @@ in large enterprise Kubernetes environments.
 Each section covers architectural recommendations and, at times, configuration
 for each concern. At a high-level, the key recommendations are:
 
--   To support secrets, encryption should be active at the application, transport,
-    and filesystem levels.
--   Prefer external secret management solutions, such as
-    [Vault](https://www.vaultproject.io) over using Kubernetes as a secret store.
-    -   _While Vault is the most mature, weigh it against what you're most familiar
-        with._
--   If using Kubernetes as a secret store, prefer using a Key Management Service
-    (KMS)-plugin to achieve envelope encryption.
-    -   _KMS-plugins are largely immature, unless using a managed offering._
--   If using Kubernetes as a secret store and a KMS-plugin is a non-option,
-    configure encryption at rest using a static key.
--   If storing secrets declaratively is desired (e.g. in git) use sealed-secrets.
--   Expose secrets in volumes; not environment variables.
--   Keep applications unaware of secret providers (Vault, Kubernetes, or
-    otherwise).
+- To support secrets, encryption should be active at the application, transport,
+  and filesystem levels.
+- Prefer external secret management solutions, such as
+  [Vault](https://www.vaultproject.io) over using Kubernetes as a secret store.
+  - _While Vault is the most mature, weigh it against what you're most familiar
+    with._
+- If using Kubernetes as a secret store, prefer using a Key Management Service
+  (KMS)-plugin to achieve envelope encryption.
+  - _KMS-plugins are largely immature, unless using a managed offering._
+- If using Kubernetes as a secret store and a KMS-plugin is a non-option,
+  configure encryption at rest using a static key.
+- If storing secrets declaratively is desired (e.g. in git) use sealed-secrets.
+- Expose secrets in volumes; not environment variables.
+- Keep applications unaware of secret providers (Vault, Kubernetes, or
+  otherwise).
 
 ## Encryption Layers
 
@@ -76,27 +76,27 @@ verified with the following flags.
 
 ```yaml
 spec:
-    containers:
-        - command:
-              - kube-apiserver
-              - --client-ca-file=/etc/kubernetes/pki/ca.crt
-              - --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
-              - --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
-              - --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key
-              - --etcd-servers=https://127.0.0.1:2379
-              - --insecure-port=0 # deactivated and set to 0
-              - --kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.crt
-              - --kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client.key
-              - --proxy-client-cert-file=/etc/kubernetes/pki/front-proxy-client.crt
-              - --proxy-client-key-file=/etc/kubernetes/pki/front-proxy-client.key
-              - --secure-port=6443
-              - --service-account-key-file=/etc/kubernetes/pki/sa.pub
-              - --tls-cert-file=/etc/kubernetes/pki/apiserver.crt
-              - --tls-private-key-file=/etc/kubernetes/pki/apiserver.key
+  containers:
+    - command:
+        - kube-apiserver
+        - --client-ca-file=/etc/kubernetes/pki/ca.crt
+        - --etcd-cafile=/etc/kubernetes/pki/etcd/ca.crt
+        - --etcd-certfile=/etc/kubernetes/pki/apiserver-etcd-client.crt
+        - --etcd-keyfile=/etc/kubernetes/pki/apiserver-etcd-client.key
+        - --etcd-servers=https://127.0.0.1:2379
+        - --insecure-port=0 # deactivated and set to 0
+        - --kubelet-client-certificate=/etc/kubernetes/pki/apiserver-kubelet-client.crt
+        - --kubelet-client-key=/etc/kubernetes/pki/apiserver-kubelet-client.key
+        - --proxy-client-cert-file=/etc/kubernetes/pki/front-proxy-client.crt
+        - --proxy-client-key-file=/etc/kubernetes/pki/front-proxy-client.key
+        - --secure-port=6443
+        - --service-account-key-file=/etc/kubernetes/pki/sa.pub
+        - --tls-cert-file=/etc/kubernetes/pki/apiserver.crt
+        - --tls-private-key-file=/etc/kubernetes/pki/apiserver.key
 
-          ##### Additional flags removed for brevity #####
+      ##### Additional flags removed for brevity #####
 
-          image: k8s.gcr.io/kube-apiserver:v1.17.3
+      image: k8s.gcr.io/kube-apiserver:v1.17.3
 ```
 
 Proper transport encryption between etcd members can be verified with the
@@ -104,29 +104,29 @@ following flags.
 
 ```yaml
 spec:
-    containers:
-        - command:
-              - etcd
-              # should use https:
-              - --advertise-client-urls=https://192.168.201.0:2379
-              # should be set for tls cert
-              - --cert-file=/etc/kubernetes/pki/etcd/server.crt
-              - --client-cert-auth=true
-              - --initial-advertise-peer-urls=https://192.168.201.0:2380
-              - --initial-cluster=master-0=https://192.168.201.0:2380
-              - --key-file=/etc/kubernetes/pki/etcd/server.key
-              - --listen-client-urls=https://127.0.0.1:2379,https://192.168.201.0:2379
-              - --listen-metrics-urls=http://127.0.0.1:2381
-              - --listen-peer-urls=https://192.168.201.0:2380
-              - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt
-              - --peer-client-cert-auth=true
-              - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key
-              - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
-              - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+  containers:
+    - command:
+        - etcd
+        # should use https:
+        - --advertise-client-urls=https://192.168.201.0:2379
+        # should be set for tls cert
+        - --cert-file=/etc/kubernetes/pki/etcd/server.crt
+        - --client-cert-auth=true
+        - --initial-advertise-peer-urls=https://192.168.201.0:2380
+        - --initial-cluster=master-0=https://192.168.201.0:2380
+        - --key-file=/etc/kubernetes/pki/etcd/server.key
+        - --listen-client-urls=https://127.0.0.1:2379,https://192.168.201.0:2379
+        - --listen-metrics-urls=http://127.0.0.1:2381
+        - --listen-peer-urls=https://192.168.201.0:2380
+        - --peer-cert-file=/etc/kubernetes/pki/etcd/peer.crt
+        - --peer-client-cert-auth=true
+        - --peer-key-file=/etc/kubernetes/pki/etcd/peer.key
+        - --peer-trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
+        - --trusted-ca-file=/etc/kubernetes/pki/etcd/ca.crt
 
-          ##### Additional flags removed for brevity #####
+      ##### Additional flags removed for brevity #####
 
-          image: k8s.gcr.io/etcd:3.4.3-0
+      image: k8s.gcr.io/etcd:3.4.3-0
 ```
 
 ### Application
@@ -162,9 +162,9 @@ present in every Kubernetes cluster under the [v1 core
 APIs](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#secret-v1-core).
 The two primary fields supported by this API are:
 
--   `data`: data that is base64 encoded and unencrypted.
--   `stringData`: data unencoded and unencrypted. It is stored and retrieved
-    encoded (base64).
+- `data`: data that is base64 encoded and unencrypted.
+- `stringData`: data unencoded and unencrypted. It is stored and retrieved
+  encoded (base64).
 
 In summary, the following manifests produce equivalent objects once processed by
 the `kube-apiserver`.
@@ -173,22 +173,22 @@ the `kube-apiserver`.
 apiVersion: v1
 kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
 type: Opaque
 data:
-    dbuser: aGVwdGlvCg==
-    dbkey: YmVhcmNhbm9lCg==
+  dbuser: aGVwdGlvCg==
+  dbkey: YmVhcmNhbm9lCg==
 ```
 
 ```yaml
 apiVersion: v1
 kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
 type: Opaque
 stringData:
-    dbuser: heptio
-    dbkey: bearcanoe
+  dbuser: heptio
+  dbkey: bearcanoe
 ```
 
 Technically, the annotation `kubectl.kubernetes.io/last-applied-configuration`
@@ -217,14 +217,14 @@ to encrypt all secret objects before sending them to etcd.
 
 The supported encryption providers are
 
--   `secretbox`: XSalsa20 and Poly1305; **Recommended**
--   `aescbc`: Uses [Advanced Encryption
-    Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
-    (AES) [Cipher Block
-    Chaining](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29)
-    (CBC)
-    -   Assumes [PKCS#7](https://tools.ietf.org/html/rfc5652#section-1) or PKCS#5 padding; [they are interchangeable](https://en.wikipedia.org/wiki/Padding_%28cryptography%29#PKCS#5_and_PKCS#7).
--   `aesgcm`: AES-GCM with random nonce
+- `secretbox`: XSalsa20 and Poly1305; **Recommended**
+- `aescbc`: Uses [Advanced Encryption
+  Standard](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+  (AES) [Cipher Block
+  Chaining](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29)
+  (CBC)
+  - Assumes [PKCS#7](https://tools.ietf.org/html/rfc5652#section-1) or PKCS#5 padding; [they are interchangeable](https://en.wikipedia.org/wiki/Padding_%28cryptography%29#PKCS#5_and_PKCS#7).
+- `aesgcm`: AES-GCM with random nonce
 
 As of Kubernetes `1.17`, the documentation recommends using `aescbc`. However,
 this should be considered carefully. This provider is vulnerable to
@@ -267,15 +267,15 @@ following example assumes the configuration is stored at
 apiVersion: apiserver.config.k8s.io/v1
 kind: EncryptionConfiguration
 resources:
-    - resources:
-          - secrets
-      providers:
-          - secretbox:
-                keys:
-                    - name: secret-key-1
-                      secret: u7mcOcHKbFh9eVluB18hbFIsVfwpvgbXv650QacDYXA=
-          # identity is a required (default) provider
-          - identity: {}
+  - resources:
+      - secrets
+    providers:
+      - secretbox:
+          keys:
+            - name: secret-key-1
+              secret: u7mcOcHKbFh9eVluB18hbFIsVfwpvgbXv650QacDYXA=
+      # identity is a required (default) provider
+      - identity: {}
 ```
 
 Placed inside of a
@@ -286,30 +286,30 @@ this would look as follows.
 kind: KubeadmControlPlane
 apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
 metadata:
-    name: k8s-capa
+  name: k8s-capa
 spec:
-    infrastructureTemplate:
-        apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
-        kind: AWSMachineTemplate
-        name: k8s-capa-controlplane
-    kubeadmConfigSpec:
-        files:
-            - content: |
-                  apiVersion: apiserver.config.k8s.io/v1
-                  kind: EncryptionConfiguration
-                  resources:
-                    - resources:
-                      - secrets
-                      providers:
-                      - secretbox:
-                          keys:
-                          - name: secret-key-1
-                            secret: u7mcOcHKbFh9eVluB18hbFIsVfwpvgbXv650QacDYXA= 
-                      # identity is a required (default) provider
-                      - identity: {}
-              owner: 'root:root'
-              path: '/etc/kubernetes/etcd-encryption/encryption.yaml'
-              permissions: '0644'
+  infrastructureTemplate:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
+    kind: AWSMachineTemplate
+    name: k8s-capa-controlplane
+  kubeadmConfigSpec:
+    files:
+      - content: |
+          apiVersion: apiserver.config.k8s.io/v1
+          kind: EncryptionConfiguration
+          resources:
+            - resources:
+              - secrets
+              providers:
+              - secretbox:
+                  keys:
+                  - name: secret-key-1
+                    secret: u7mcOcHKbFh9eVluB18hbFIsVfwpvgbXv650QacDYXA= 
+              # identity is a required (default) provider
+              - identity: {}
+        owner: "root:root"
+        path: "/etc/kubernetes/etcd-encryption/encryption.yaml"
+        permissions: "0644"
 ```
 
 The list of providers above are ordered. Meaning encryption will always occur
@@ -443,12 +443,12 @@ There can be some variance in how the above works, based on a KMS provider, but
 generally this demonstrates how envelope encryption functions. There are
 multiple benefits to the above model.
 
--   KMS is external to Kubernetes; increasing security via isolation.
--   Centralization of KEKs enables easy rotation of keys.
--   Separation of DEK and KEK means secret data is never sent to or known by the KMS
-    -   KMS is only concerned with decrypting DEKs.
--   Encryption of DEKs means they are easy to store alongside their secret,
-    making management of keys in relation to their secrets easy.
+- KMS is external to Kubernetes; increasing security via isolation.
+- Centralization of KEKs enables easy rotation of keys.
+- Separation of DEK and KEK means secret data is never sent to or known by the KMS
+  - KMS is only concerned with decrypting DEKs.
+- Encryption of DEKs means they are easy to store alongside their secret,
+  making management of keys in relation to their secrets easy.
 
 The provider plugins work by running a privileged container [implementing a gRPC
 server that can communicate with a remote
@@ -462,16 +462,16 @@ communicate with the KMS plugin.
 apiVersion: apiserver.config.k8s.io/v1
 kind: EncryptionConfiguration
 resources:
-    - resources:
-    - secrets
+  - resources:
+  - secrets
 providers:
-    - kms:
-          name: myKmsPlugin
-          endpoint: unix:///tmp/socketfile.sock
-          cachesize: 100
-          timeout: 3s
-    # required, but not used for encryption
-    - identity: {}
+  - kms:
+      name: myKmsPlugin
+      endpoint: unix:///tmp/socketfile.sock
+      cachesize: 100
+      timeout: 3s
+  # required, but not used for encryption
+  - identity: {}
 ```
 
 Assuming the above is saved on each master node at
@@ -558,40 +558,40 @@ To facilitate mutation via the `vault-agent-injector`, a
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
-    labels:
-        app.kubernetes.io/instance: vault
-        app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/name: vault-agent-injector
-    name: vault-agent-injector-cfg
+  labels:
+    app.kubernetes.io/instance: vault
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: vault-agent-injector
+  name: vault-agent-injector-cfg
 webhooks:
-    - admissionReviewVersions:
-          - v1beta1
-      clientConfig:
-          caBundle: REDACTED
-          service:
-              name: vault-agent-injector-svc
-              namespace: default
-              path: /mutate
-              port: 443
-      failurePolicy: Ignore
-      matchPolicy: Exact
-      name: vault.hashicorp.com
-      namespaceSelector: {}
-      objectSelector: {}
-      reinvocationPolicy: Never
-      rules:
-          - apiGroups:
-                - ''
-            apiVersions:
-                - v1
-            operations:
-                - CREATE
-                - UPDATE
-            resources:
-                - pods
-            scope: '*'
-      sideEffects: Unknown
-      timeoutSeconds: 30
+  - admissionReviewVersions:
+      - v1beta1
+    clientConfig:
+      caBundle: REDACTED
+      service:
+        name: vault-agent-injector-svc
+        namespace: default
+        path: /mutate
+        port: 443
+    failurePolicy: Ignore
+    matchPolicy: Exact
+    name: vault.hashicorp.com
+    namespaceSelector: {}
+    objectSelector: {}
+    reinvocationPolicy: Never
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - pods
+        scope: "*"
+    sideEffects: Unknown
+    timeoutSeconds: 30
 ```
 
 The mutating webhook is invoked on **every** pod `CREATE` or `UPDATE` event.
@@ -599,38 +599,38 @@ While evaluation will occur on every pod, not every pod will be mutated, or
 injected with a `vault-agent`. The `vault-agent-injector` is looking for 2
 annotations in every pod spec.
 
--   `vault.hashicorp.com/agent-inject: "true"`: Instructs the injector to include
-    a `vault-agent` `initContainer`, which retrieves secrets and writes them to
-    the pod's filesystem, prior to other containers starting.
--   `vault.hashicorp.com/agent-inject-status: "update"`: Instructs the injector to
-    include a `vault-agent` sidecar, which runs alongside the workload. It will
-    update the secret, should it change in Vault. The `initContainer` still runs
-    in this mode. This parameter is optional and when it is not included, the
-    sidecar is not added.
+- `vault.hashicorp.com/agent-inject: "true"`: Instructs the injector to include
+  a `vault-agent` `initContainer`, which retrieves secrets and writes them to
+  the pod's filesystem, prior to other containers starting.
+- `vault.hashicorp.com/agent-inject-status: "update"`: Instructs the injector to
+  include a `vault-agent` sidecar, which runs alongside the workload. It will
+  update the secret, should it change in Vault. The `initContainer` still runs
+  in this mode. This parameter is optional and when it is not included, the
+  sidecar is not added.
 
 When the `vault-agent-injector` does a mutation based on
 `vault.hashicorp.com/agent-inject: "true"`, the following is added.
 
 ```yaml
 initContainers:
-    - args:
-          - echo ${VAULT_CONFIG?} | base64 -d > /tmp/config.json && vault agent -config=/tmp/config.json
-      command:
-          - /bin/sh
-          - -ec
-      env:
-          - name: VAULT_CONFIG
-            value: eyJhd
-      image: vault:1.3.2
-      imagePullPolicy: IfNotPresent
-      name: vault-agent-init
-      securityContext:
-          runAsGroup: 1000
-          runAsNonRoot: true
-          runAsUser: 100
-      volumeMounts:
-          - mountPath: /vault/secrets
-            name: vault-secrets
+  - args:
+      - echo ${VAULT_CONFIG?} | base64 -d > /tmp/config.json && vault agent -config=/tmp/config.json
+    command:
+      - /bin/sh
+      - -ec
+    env:
+      - name: VAULT_CONFIG
+        value: eyJhd
+    image: vault:1.3.2
+    imagePullPolicy: IfNotPresent
+    name: vault-agent-init
+    securityContext:
+      runAsGroup: 1000
+      runAsNonRoot: true
+      runAsUser: 100
+    volumeMounts:
+      - mountPath: /vault/secrets
+        name: vault-secrets
 ```
 
 Note: Some configuration was removed for brevity.
@@ -640,27 +640,27 @@ When the `vault-agent-injector` sees the annotation
 
 ```yaml
 containers:
-    #
-    # ORIGINAL WORKLOAD CONTAINER REMOVED FOR BREVITY
-    #
-    - name: vault-agent
-      args:
-          - echo ${VAULT_CONFIG?} | base64 -d > /tmp/config.json && vault agent -config=/tmp/config.json
-      command:
-          - /bin/sh
-          - -ec
-      env:
-          - name: VAULT_CONFIG
-            value: asdfasdfasd
-      image: vault:1.3.2
-      imagePullPolicy: IfNotPresent
-      securityContext:
-          runAsGroup: 1000
-          runAsNonRoot: true
-          runAsUser: 100
-      volumeMounts:
-          - mountPath: /vault/secrets
-            name: vault-secrets
+  #
+  # ORIGINAL WORKLOAD CONTAINER REMOVED FOR BREVITY
+  #
+  - name: vault-agent
+    args:
+      - echo ${VAULT_CONFIG?} | base64 -d > /tmp/config.json && vault agent -config=/tmp/config.json
+    command:
+      - /bin/sh
+      - -ec
+    env:
+      - name: VAULT_CONFIG
+        value: asdfasdfasd
+    image: vault:1.3.2
+    imagePullPolicy: IfNotPresent
+    securityContext:
+      runAsGroup: 1000
+      runAsNonRoot: true
+      runAsUser: 100
+    volumeMounts:
+      - mountPath: /vault/secrets
+        name: vault-secrets
 ```
 
 Note: Some configuration was removed for brevity.
@@ -699,16 +699,16 @@ JDBC connection string, the following template can be applied to a secret named
 
 ```yaml
 spec:
-    template:
-        metadata:
-            annotations:
-                vault.hashicorp.com/agent-inject: 'true'
-                vault.hashicorp.com/agent-inject-status: 'update'
-                vault.hashicorp.com/agent-inject-secret-db-creds: 'secrets/db/creds'
-                vault.hashicorp.com/agent-inject-template-db-creds: |
-                    {{- with secret "secrets/db/creds" -}}
-                    jdbc:oracle:thin:{{ .Data.data.username }}/{{ .Data.data.password }}@//192.168.34.212:4464/app
-                    {{- end }}
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-inject-status: "update"
+        vault.hashicorp.com/agent-inject-secret-db-creds: "secrets/db/creds"
+        vault.hashicorp.com/agent-inject-template-db-creds: |
+          {{- with secret "secrets/db/creds" -}}
+          jdbc:oracle:thin:{{ .Data.data.username }}/{{ .Data.data.password }}@//192.168.34.212:4464/app
+          {{- end }}
 ```
 
 If using Vault's sidecar injector, be sure to review [the available
@@ -819,19 +819,19 @@ developers can then consume with details about the specific secret they need.
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
 kind: SecretProviderClass
 metadata:
-    name: db-creds
+  name: db-creds
 spec:
-    provider: vault
-    parameters:
-        roleName: 'my-role'
-        vaultAddress: 'http://192.32.122.111:8000'
-        vaultSkipTLSVerify: 'true'
-        objects: |
-            array:
-              - |
-                objectPath: "/secret/db"
-                objectName: "creds"
-                objectVersion: ""
+  provider: vault
+  parameters:
+    roleName: "my-role"
+    vaultAddress: "http://192.32.122.111:8000"
+    vaultSkipTLSVerify: "true"
+    objects: |
+      array:
+        - |
+          objectPath: "/secret/db"
+          objectName: "creds"
+          objectVersion: ""
 ```
 
 Workloads can then consume the secret as a `volume`.
@@ -840,22 +840,22 @@ Workloads can then consume the secret as a `volume`.
 kind: Pod
 apiVersion: v1
 metadata:
-    name: busybox
+  name: busybox
 spec:
-    containers:
-        - image:
-          name: busybox
-          volumeMounts:
-              - name: secrets-store-inline
-                mountPath: '/vault/secrets'
-                readOnly: true
-    volumes:
+  containers:
+    - image:
+      name: busybox
+      volumeMounts:
         - name: secrets-store-inline
-          csi:
-              driver: secrets-store.csi.k8s.com
-              readOnly: true
-              volumeAttributes:
-                  secretProviderClass: 'db-creds'
+          mountPath: "/vault/secrets"
+          readOnly: true
+  volumes:
+    - name: secrets-store-inline
+      csi:
+        driver: secrets-store.csi.k8s.com
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: "db-creds"
 ```
 
 Ideally, this approach will be the future of external secret store integration.
@@ -933,11 +933,11 @@ Developers can start with a Kubernetes secret, like any other.
 apiVersion: v1
 kind: Secret
 metadata:
-    name: mysecret
+  name: mysecret
 type: Opaque
 data:
-    dbuser: aGVwdGlvCg==
-    dbkey: YmVhcmNhbm9lCg==
+  dbuser: aGVwdGlvCg==
+  dbkey: YmVhcmNhbm9lCg==
 ```
 
 To "seal" the secret, a developer may run `kubeseal` against the above secret
@@ -949,15 +949,26 @@ kubeseal mysecret.yaml
 
 ```yaml
 {
-    'kind': 'SealedSecret',
-    'apiVersion': 'bitnami.com/v1alpha1',
-    'metadata': { 'name': 'mysecret', 'namespace': 'default', 'creationTimestamp': null },
-    'spec':
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata":
+    { "name": "mysecret", "namespace": "default", "creationTimestamp": null },
+  "spec":
+    {
+      "template":
         {
-            'template': { 'metadata': { 'name': 'mysecret', 'namespace': 'default', 'creationTimestamp': null }, 'type': 'Opaque' },
-            'encryptedData': { 'dbkey': 'gCHJL+3bTRLw6vL4Gf......', 'dbuser': 'AgCHJL+3bT......' },
+          "metadata":
+            {
+              "name": "mysecret",
+              "namespace": "default",
+              "creationTimestamp": null,
+            },
+          "type": "Opaque",
         },
-    'status': {},
+      "encryptedData":
+        { "dbkey": "gCHJL+3bTRLw6vL4Gf......", "dbuser": "AgCHJL+3bT......" },
+    },
+  "status": {},
 }
 ```
 
@@ -975,11 +986,11 @@ corresponding `SealedSecret` CRD.
 
 ```yaml
 ownerReferences:
-    - apiVersion: bitnami.com/v1alpha1
-      controller: true
-      kind: SealedSecret
-      name: mysecret
-      uid: 49ce4ab0-3b48-4c8c-8450-d3c90aceb9ee
+  - apiVersion: bitnami.com/v1alpha1
+    controller: true
+    kind: SealedSecret
+    name: mysecret
+    uid: 49ce4ab0-3b48-4c8c-8450-d3c90aceb9ee
 ```
 
 This means if the SealedSecret is deleted, its corresponding `Secret` object
@@ -998,8 +1009,8 @@ secrets are not re-encrypted**.
 
 In the event of a leaked key, you should:
 
--   Immediately renew your secret.
--   Rotate all existing secrets.
+- Immediately renew your secret.
+- Rotate all existing secrets.
 
 Remember that just re-encrypting isn't good enough. For example, someone could
 easily go into git history, find the old encrypted asset, and use the
@@ -1017,15 +1028,15 @@ this default behavior is the most secure and should just be left as is. However
 there are additional access policies for those that need more flexibility. The
 following scopes can be set on the controller.
 
--   `strict` (default): the secret must be sealed with exactly the same name and
-    namespace. These attributes become part of the encrypted data and thus
-    changing name and/or namespace would lead to "decryption error".
+- `strict` (default): the secret must be sealed with exactly the same name and
+  namespace. These attributes become part of the encrypted data and thus
+  changing name and/or namespace would lead to "decryption error".
 
--   `namespace-wide`: you can freely rename the sealed secret within a given
-    namespace.
+- `namespace-wide`: you can freely rename the sealed secret within a given
+  namespace.
 
--   `cluster-wide`: the secret can be unsealed in any namespace and can be given
-    any name.
+- `cluster-wide`: the secret can be unsealed in any namespace and can be given
+  any name.
 
 ## Application Considerations
 

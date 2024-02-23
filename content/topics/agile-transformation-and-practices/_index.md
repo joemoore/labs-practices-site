@@ -2,19 +2,19 @@
 title: Agile Transformation and Practices
 linktitle: Agile Transformation and Practices
 topic: Agile Transformation and Practices
-topicgroups: 'Modern Applications'
-grouptitle: 'Transform'
+topicgroups: "Modern Applications"
+grouptitle: "Transform"
 layout: topic
 weight: 3
 icon: agile
 description: >
     How you work is just as important as the work you do
 menu:
-    main:
-        parent: sections
-        params:
-            split: left
-        weight: 3
+  main:
+    parent: sections
+    params:
+      split: left
+    weight: 3
 ---
 
 Agile software development is a set of methods that result in fast and frequent delivery of value to your customers. It promotes well-planned, small iterations by highly collaborative, cross-functional teams. Agile methodologies provide an alternative to the sequential development and long release cycles traditionally associated with Waterfall.

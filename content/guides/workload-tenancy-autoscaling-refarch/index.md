@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Guidance for autoscaling application workloads and cluster compute resources
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Autoscaling Reference Architecture
 parent: Workload Tenancy
 title: Autoscaling Reference Architecture
 weight: 1600
-oldPath: '/content/guides/kubernetes/workload-tenancy-autoscaling-refarch.md'
+oldPath: "/content/guides/kubernetes/workload-tenancy-autoscaling-refarch.md"
 aliases:
-    - '/guides/kubernetes/workload-tenancy-autoscaling-refarch'
+- "/guides/kubernetes/workload-tenancy-autoscaling-refarch"
 level1: Building Kubernetes Runtime
 level2: Building Your Kubernetes Platform
 tags: []
@@ -26,49 +26,49 @@ workloads.
 
 If the following conditions are present, autoscaling may be advisable:
 
--   Workloads can readily scale: The architectural nature of the application
-    workload lends itself to scaling by:
-    -   Adding replicated instances
-    -   Taking advantage of added compute resources
--   Compute can scale: In environments such as the public cloud where new compute
-    resources can be brought online programmatically, the capacity of the
-    underlying infrastructure can be dynamically managed.
--   Bursting usage: If the load on your application is prone to sharp increases,
-    such as eCommerce workloads, the ability to respond immediately using
-    automated systems may be important.
--   High utilization needs: If cost management and efficient utilization are
-    important for a workload with varying load, using automated scaling mechanisms
-    may provide the most cost-effective solution.
+- Workloads can readily scale: The architectural nature of the application
+  workload lends itself to scaling by:
+  - Adding replicated instances
+  - Taking advantage of added compute resources
+- Compute can scale: In environments such as the public cloud where new compute
+  resources can be brought online programmatically, the capacity of the
+  underlying infrastructure can be dynamically managed.
+- Bursting usage: If the load on your application is prone to sharp increases,
+  such as eCommerce workloads, the ability to respond immediately using
+  automated systems may be important.
+- High utilization needs: If cost management and efficient utilization are
+  important for a workload with varying load, using automated scaling mechanisms
+  may provide the most cost-effective solution.
 
 Where autoscaling may be less effective or inadvisable:
 
--   Predictable: In the situation where you have predictable load, the underlying
-    purpose for autoscaling is absent.
--   Utilization is low priority: If high utilization is not a priority and cost
-    constraints are not present, you may be better served by sufficiently
-    over-provisioning software and hardware resources to accommodate increases in
-    load.
--   Resource constrained environment: In an environment where you cannot readily
-    provision more compute, scaling of workloads may be possible within those
-    compute constraints but will have hard limits that cannot be dynamically
-    moved.
--   Not failure tolerant: autoscaling workloads involves removing or restarting
-    application units so if your application does not handle termination signals
-    or otherwise handle shut-downs well, it will not be well-suited.
+- Predictable: In the situation where you have predictable load, the underlying
+  purpose for autoscaling is absent.
+- Utilization is low priority: If high utilization is not a priority and cost
+  constraints are not present, you may be better served by sufficiently
+  over-provisioning software and hardware resources to accommodate increases in
+  load.
+- Resource constrained environment: In an environment where you cannot readily
+  provision more compute, scaling of workloads may be possible within those
+  compute constraints but will have hard limits that cannot be dynamically
+  moved.
+- Not failure tolerant: autoscaling workloads involves removing or restarting
+  application units so if your application does not handle termination signals
+  or otherwise handle shut-downs well, it will not be well-suited.
 
 ### General Trade-Offs
 
 Pros:
 
--   lower operational toil in managing capacity
--   ability to better utilize compute
--   dynamic responsiveness to changing load and consumption
+- lower operational toil in managing capacity
+- ability to better utilize compute
+- dynamic responsiveness to changing load and consumption
 
 Cons:
 
--   added complexity
--   potentially unpredictable behavior
--   may overspend if not tuned well or capped appropriately
+- added complexity
+- potentially unpredictable behavior
+- may overspend if not tuned well or capped appropriately
 
 ### Horizontal Scaling
 
@@ -145,35 +145,35 @@ the HPA will have no effect.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: sample
+  name: sample
 spec:
-    selector:
-        matchLabels:
-            app: sample
-    template:
-        metadata:
-            labels:
-                app: sample
-        spec:
-            containers:
-                - name: sample
-                  image: sample-image:1.0
-                  resources:
-                      requests:
-                          cpu: '100m' # must be set
+  selector:
+    matchLabels:
+      app: sample
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+        - name: sample
+          image: sample-image:1.0
+          resources:
+            requests:
+              cpu: "100m" # must be set
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-    name: sample
+  name: sample
 spec:
-    scaleTargetRef:
-        apiVersion: apps/v1
-        kind: Deployment
-        name: sample
-    minReplicas: 1 # will not scale below this value
-    maxReplicas: 3 # will not scale above this value
-    targetCPUUtilizationPercentage: 50 # will scale based on this percentage of usage
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sample
+  minReplicas: 1 # will not scale below this value
+  maxReplicas: 3 # will not scale above this value
+  targetCPUUtilizationPercentage: 50 # will scale based on this percentage of usage
 ```
 
 The formula used to determine replica count is:
@@ -200,38 +200,38 @@ In order to illustrate how the replicas will scale, consider these examples:
 1. There is one replica running. The HPA controller queries the PodMetrics for
    that pod and finds the currentMetricValue is 120m.
 
-    ```
-    ceil( 1 * (120/50) ) = 3
-    ```
+   ```
+   ceil( 1 * (120/50) ) = 3
+   ```
 
-    In this case, it will scale the replicas out to the maximum of 3.
+   In this case, it will scale the replicas out to the maximum of 3.
 
 2. There is one replica running. The HPA controller queries the PodMetrics for
    that pod and finds the currentMetricValue is 52m.
 
-    ```
-    ceil( 1 * (52/50) ) = 2
-    ```
+   ```
+   ceil( 1 * (52/50) ) = 2
+   ```
 
-    In this case, the recommendation from the formula output will _not_ be used
-    since the ratio `52/50` is less than the default tolerance of 0.1. This
-    tolerance prevents scaling when the amount of CPU usage change doesn't
-    warrant it. This default tolerance can be adjusted with the
-    `--horizontal-pod-autoscaler-tolerance` flag on the kube-controller-manager.
+   In this case, the recommendation from the formula output will _not_ be used
+   since the ratio `52/50` is less than the default tolerance of 0.1. This
+   tolerance prevents scaling when the amount of CPU usage change doesn't
+   warrant it. This default tolerance can be adjusted with the
+   `--horizontal-pod-autoscaler-tolerance` flag on the kube-controller-manager.
 
 3. There are two replicas running. The HPA controller queries the PodMetrics
    for them and finds the currentMetricValues are 15m and 25m (40m combined).
 
-    ```
-    ceil( 2 * (40/100) ) = 1
-    ```
+   ```
+   ceil( 2 * (40/100) ) = 1
+   ```
 
-    In this case, it will scale the replicas in to 1 _if_ a scaledown has been
-    the calculated outcome for the last 5 minutes. This 5 minute period prevents
-    scaledowns due to temporary drops in metric values. This default
-    stabilization period can be adjusted with the
-    `--horizontal-pod-autoscaler-downscale-stabilization` flag on the
-    kube-controller-manager.
+   In this case, it will scale the replicas in to 1 _if_ a scaledown has been
+   the calculated outcome for the last 5 minutes. This 5 minute period prevents
+   scaledowns due to temporary drops in metric values. This default
+   stabilization period can be adjusted with the
+   `--horizontal-pod-autoscaler-downscale-stabilization` flag on the
+   kube-controller-manager.
 
 #### Custom Metrics
 
@@ -255,22 +255,22 @@ usage metrics.
 
 Components:
 
--   Recommender: recommends CPU and/or memory request values based on observed
-    consumption. Fetches metrics once a minute by default which can be adjusted
-    with the `--recommender-interval` flag. Is the core component that is active
-    in all modes.
--   Admission Plugin: sets resource requests on new pods as determined by the
-    Recommender. Is active in all modes except the `Off` mode.
--   Updater: evicts pods that have requested resources that differ significantly
-    from the values determined by the Recommender. Is active in `Recreate` and
-    `Auto` modes; dormant in `Off` and `Initial` modes.
+- Recommender: recommends CPU and/or memory request values based on observed
+  consumption. Fetches metrics once a minute by default which can be adjusted
+  with the `--recommender-interval` flag. Is the core component that is active
+  in all modes.
+- Admission Plugin: sets resource requests on new pods as determined by the
+  Recommender. Is active in all modes except the `Off` mode.
+- Updater: evicts pods that have requested resources that differ significantly
+  from the values determined by the Recommender. Is active in `Recreate` and
+  `Auto` modes; dormant in `Off` and `Initial` modes.
 
 CustomResources:
 
--   VerticalPodAutoscaler: the resource where you provide the desired state for
-    your vertical autoscaling.
--   VerticalPodAutoscalerCheckpoint: used internally by the Recommender to
-    checkpoint VPA state. It is used for recovery if the Recommender restarts.
+- VerticalPodAutoscaler: the resource where you provide the desired state for
+  your vertical autoscaling.
+- VerticalPodAutoscalerCheckpoint: used internally by the Recommender to
+  checkpoint VPA state. It is used for recovery if the Recommender restarts.
 
 ![Vertical Pod Autoscaler](images/autoscaling-vpa-0.png)
 
@@ -278,24 +278,24 @@ There are different modes the VPA can run in. Technically there are four modes,
 but in effect there are just three since two are functionally equivalent at this
 time:
 
--   `Off`: The dry-run mode. Recommendations are calculated and can be queried
-    using `kubectl describe` for the VPA resource in question, but are never
-    applied.
+- `Off`: The dry-run mode. Recommendations are calculated and can be queried
+  using `kubectl describe` for the VPA resource in question, but are never
+  applied.
 
--   `Initial`: The safe mode. Recommendations are calculated and can be queried.
-    They are applied when new pods are created, but running pods are never evicted
-    in order to update them.
+- `Initial`: The safe mode. Recommendations are calculated and can be queried.
+  They are applied when new pods are created, but running pods are never evicted
+  in order to update them.
 
--   `Recreate`: The active mode. Recommendations are calculated and are applied
-    when they differ significantly from the current requested resources. The
-    recommendations are applied by evicting the running pods so that the new pod
-    gets the recommendations. Only use this mode if your pods can safely be
-    evicted and restarted when the VPA determines they should be updated. If
-    using this mode, and when availability is important, you should also apply a
-    PodDisruptionBudget to ensure _all_ of your pods are not evicted at once.
+- `Recreate`: The active mode. Recommendations are calculated and are applied
+  when they differ significantly from the current requested resources. The
+  recommendations are applied by evicting the running pods so that the new pod
+  gets the recommendations. Only use this mode if your pods can safely be
+  evicted and restarted when the VPA determines they should be updated. If
+  using this mode, and when availability is important, you should also apply a
+  PodDisruptionBudget to ensure _all_ of your pods are not evicted at once.
 
--   `Auto`: Is currently (in v1) equivalent to `Recreate`. May take advantage of
-    restart-free updates in future.
+- `Auto`: Is currently (in v1) equivalent to `Recreate`. May take advantage of
+  restart-free updates in future.
 
 The sample manifests below represent a Deployment that will create 4 pods and a
 VerticalPodAutoscaler that will vertically scale the pods if resource usage
@@ -308,56 +308,56 @@ PodDisruptionBudget will ensure that only one pod at a time is evicted.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: sample
+  name: sample
 spec:
-    selector:
-        matchLabels:
-            app: sample
-    replicas: 4
-    template:
-        metadata:
-            labels:
-                app: sample
-        spec:
-            containers:
-                - name: sample
-                  image: sample-image:1.0
-                  resources:
-                      requests:
-                          cpu: 100m
-                          memory: 50Mi
+  selector:
+    matchLabels:
+      app: sample
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+        - name: sample
+          image: sample-image:1.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
 ---
-apiVersion: 'autoscaling.k8s.io/v1beta2'
+apiVersion: "autoscaling.k8s.io/v1beta2"
 kind: VerticalPodAutoscaler
 metadata:
-    name: sample
+  name: sample
 spec:
-    targetRef:
-        apiVersion: 'apps/v1'
-        kind: Deployment
-        name: sample
-    resourcePolicy:
-        containerPolicies:
-            - containerName: '*'
-              minAllowed:
-                  cpu: 100m
-                  memory: 50Mi
-              maxAllowed:
-                  cpu: 1
-                  memory: 500Mi
-              controlledResources: ['cpu', 'memory']
-    updatePolicy:
-        updateMode: Recreate
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: sample
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "*"
+        minAllowed:
+          cpu: 100m
+          memory: 50Mi
+        maxAllowed:
+          cpu: 1
+          memory: 500Mi
+        controlledResources: ["cpu", "memory"]
+  updatePolicy:
+    updateMode: Recreate
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-    name: sample
+  name: sample
 spec:
-    minAvailable: 3
-    selector:
-        matchLabels:
-            app: sample
+  minAvailable: 3
+  selector:
+    matchLabels:
+      app: sample
 ```
 
 #### Limit:Request Ratio
@@ -529,38 +529,38 @@ workload's scaling requirements.
 
 At this time, Cluster Autoscaler supports the following cloud providers:
 
--   [Google Compute Engine](https://cloud.google.com/compute/)
--   [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/)
--   [Amazon Web Services](https://aws.amazon.com/)
--   [Microsoft Azure](https://azure.microsoft.com/en-us/)
--   [Alibaba Cloud](https://us.alibabacloud.com/)
--   [OpenStack Magnum](https://wiki.openstack.org/wiki/Magnum)
--   [Digital Ocean](https://www.digitalocean.com/)
--   [Cluster API](https://cluster-api.sigs.k8s.io/)
+- [Google Compute Engine](https://cloud.google.com/compute/)
+- [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/)
+- [Amazon Web Services](https://aws.amazon.com/)
+- [Microsoft Azure](https://azure.microsoft.com/en-us/)
+- [Alibaba Cloud](https://us.alibabacloud.com/)
+- [OpenStack Magnum](https://wiki.openstack.org/wiki/Magnum)
+- [Digital Ocean](https://www.digitalocean.com/)
+- [Cluster API](https://cluster-api.sigs.k8s.io/)
 
 Note: Cluster Autoscaler uses specific resource types in the infrastructure
 provider that will need to be in use in order to leverage CA. If your cluster
 infra management does not use these resource types, you will not be able to
 leverage CA. For example:
 
--   Amazon Web Services: Autoscaling Groups (ASGs) are used for scaling worker
-    nodes in AWS. So if you leverage ASGs to manage your worker node pool, CA may
-    be a viable option. On the other hand, if you are provisioning individual EC2
-    instances for worker nodes, CA will not work.
--   Azure: Virtual Machine Scale Sets (VMSS) are used in Azure. So in order to use
-    CA in a cluster running in Azure, you'll need to use VMSS to manage your node
-    pools.
+- Amazon Web Services: Autoscaling Groups (ASGs) are used for scaling worker
+  nodes in AWS. So if you leverage ASGs to manage your worker node pool, CA may
+  be a viable option. On the other hand, if you are provisioning individual EC2
+  instances for worker nodes, CA will not work.
+- Azure: Virtual Machine Scale Sets (VMSS) are used in Azure. So in order to use
+  CA in a cluster running in Azure, you'll need to use VMSS to manage your node
+  pools.
 
 An important consideration when deploying Cluster Autoscaler is ensuring it does
 not get evicted or that the node it's running on does not get decommissioned
 during a scaling event. Consider:
 
--   Run on Master Node: When using CA, worker nodes may be decommissioned to scale
-    in. Running the CA itself on a master node solves this potential problem.
--   Run in `kube-system`: CA doesn't decommission nodes with non-mirrored
-    `kube-system` pods running on them.
--   Use a Priority Class: Set `priorityClassName: system-cluster-critical` on the
-    CA to prevent eviction.
+- Run on Master Node: When using CA, worker nodes may be decommissioned to scale
+  in. Running the CA itself on a master node solves this potential problem.
+- Run in `kube-system`: CA doesn't decommission nodes with non-mirrored
+  `kube-system` pods running on them.
+- Use a Priority Class: Set `priorityClassName: system-cluster-critical` on the
+  CA to prevent eviction.
 
 #### Cluster API
 
@@ -600,47 +600,47 @@ groups is scaled. If using a single node group, the expander is irrelevant.
 Supply the `--expander` flag to denote the expander you need to use. The
 available expanders are:
 
--   `random` - The node group will be selected at random. This is the default and
-    is not very useful. If using multiple node groups, use a more useful expander.
+- `random` - The node group will be selected at random. This is the default and
+  is not very useful. If using multiple node groups, use a more useful expander.
 
--   `most-pods` - The node group that will allow for the most pods to be
-    scheduled. For example, if the unschedulable pods use `nodeSelector` this
-    expander will scale the node group that will allow for the pods to be
-    scheduled.
+- `most-pods` - The node group that will allow for the most pods to be
+  scheduled. For example, if the unschedulable pods use `nodeSelector` this
+  expander will scale the node group that will allow for the pods to be
+  scheduled.
 
--   `least-waste` - Will scale the node group that is the best fit for the
-    unschedulable pods and will have the least idle resources once provisioned and
-    the pods scheduled.
+- `least-waste` - Will scale the node group that is the best fit for the
+  unschedulable pods and will have the least idle resources once provisioned and
+  the pods scheduled.
 
--   `price` - Chooses the most effective option. Currently only compatible with
-    GCE and GKE providers.
+- `price` - Chooses the most effective option. Currently only compatible with
+  GCE and GKE providers.
 
--   `priority` - Uses a priority configuration supplied as a configmap which must
-    be named `cluster-autoscaler-priority-expander` and run in the same namespace
-    as the CA. The configmap is watched by the CA and can be dynamically updated.
-    The CA will load configuration changes on the fly. The following example
-    includes three priority groups. Each group accepts a list of regular
-    expressions. The group with the highest value with a match is used. In the
-    following example, if there is a m4.4xlarge node group, it will be used and is
-    the most preferred. Failing that, the t2.large or t3.large nodes will be used.
-    If no node group name matches any of these, the lowest priority is _any_ other
-    group.
-    ```
-    apiVersion: v1
-    kind: ConfigMap
-    metadata:
-      name: cluster-autoscaler-priority-expander
-      namespace: kube-system
-    data:
-      priorities: |-
-        1:
-          - .*
-        10:
-          - .*t2\.large.*
-          - .*t3\.large.*
-        50:
-        - .*m4\.4xlarge.*
-    ```
+- `priority` - Uses a priority configuration supplied as a configmap which must
+  be named `cluster-autoscaler-priority-expander` and run in the same namespace
+  as the CA. The configmap is watched by the CA and can be dynamically updated.
+  The CA will load configuration changes on the fly. The following example
+  includes three priority groups. Each group accepts a list of regular
+  expressions. The group with the highest value with a match is used. In the
+  following example, if there is a m4.4xlarge node group, it will be used and is
+  the most preferred. Failing that, the t2.large or t3.large nodes will be used.
+  If no node group name matches any of these, the lowest priority is _any_ other
+  group.
+  ```
+  apiVersion: v1
+  kind: ConfigMap
+  metadata:
+    name: cluster-autoscaler-priority-expander
+    namespace: kube-system
+  data:
+    priorities: |-
+      1:
+        - .*
+      10:
+        - .*t2\.large.*
+        - .*t3\.large.*
+      50:
+      - .*m4\.4xlarge.*
+  ```
 
 When Cluster Autoscaler finds nodes that have been under-utilized for a
 significant amount of time, the CA will remove that node. Nodes that are removed
@@ -710,10 +710,10 @@ default that will be used if one is not specified:
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
-    name: default
+  name: default
 value: 0
 globalDefault: true
-description: 'This priority class will be used by all pods that do not specify one.'
+description: "This priority class will be used by all pods that do not specify one."
 ```
 
 Next create a PriorityClass for your overprovisioner. This priority class will
@@ -726,10 +726,10 @@ of -1.
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
-    name: overprovisioner
+  name: overprovisioner
 value: -1
 globalDefault: false
-description: 'This priority class will be used the overprovisioner to create standby worker nodes.'
+description: "This priority class will be used the overprovisioner to create standby worker nodes."
 ```
 
 Now Create a deployment that acts as the placeholder workload:
@@ -738,26 +738,26 @@ Now Create a deployment that acts as the placeholder workload:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: overprovisioner
+  name: overprovisioner
 spec:
-    strategy:
-        type: Recreate
-    replicas: 3 # helps determine standby nodes
-    selector:
-        matchLabels:
-            app: overprovisioner
-    template:
-        metadata:
-            labels:
-                app: overprovisioner
-        spec:
-            priorityClassName: overprovisioner # specifies priority class
-            containers:
-                - name: overprovisioner
-                  image: k8s.gcr.io/pause:3.1 # workload consumes no resources
-            resources:
-                requests:
-                    cpu: 31 # helps determine standby nodes
+  strategy:
+    type: Recreate
+  replicas: 3 # helps determine standby nodes
+  selector:
+    matchLabels:
+      app: overprovisioner
+  template:
+    metadata:
+      labels:
+        app: overprovisioner
+    spec:
+      priorityClassName: overprovisioner # specifies priority class
+      containers:
+        - name: overprovisioner
+          image: k8s.gcr.io/pause:3.1 # workload consumes no resources
+      resources:
+        requests:
+          cpu: 31 # helps determine standby nodes
 ```
 
 An important consideration with this strategy is the relationship between this

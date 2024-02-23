@@ -4,47 +4,46 @@ lastmod: '2021-02-22'
 linkTitle: Tools and Tips
 parent: Remote Tips
 tags:
-    - Agile
+- Agile
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: 'Remote Tips: Tools and Tips'
-oldPath: '/content/guides/agile/remote-tips-tools-and-tips.md'
+oldPath: "/content/guides/agile/remote-tips-tools-and-tips.md"
 aliases:
-    - '/guides/agile/remote-tips-tools-and-tips'
+- "/guides/agile/remote-tips-tools-and-tips"
 level1: Agile Transformation and Practices
 level2: Team Tips
 ---
 
 ## Agreeing on the tool stack
 
--   Try to minimize your tool stack!
--   Agree with your team on which tools you’ll use for certain tasks:
+- Try to minimize your tool stack!
+- Agree with your team on which tools you’ll use for certain tasks:
+  - Conversations via video/audio
+  - Collaborate/ideate/whiteboard
+  - Messaging/chat
+  - Pair programming
+  - Scheduling and recording events
+  - Retros
+  - Sharing documents
+  - Product backlog
+  - Team TODOs
 
-    -   Conversations via video/audio
-    -   Collaborate/ideate/whiteboard
-    -   Messaging/chat
-    -   Pair programming
-    -   Scheduling and recording events
-    -   Retros
-    -   Sharing documents
-    -   Product backlog
-    -   Team TODOs
-
--   When working with other teams (e.g., clients, collaborators) understand their tooling limitations and find the best alternatives you can.
--   Ensure everyone knows how to use the chosen tools before the project.
+- When working with other teams (e.g., clients, collaborators) understand their tooling limitations and find the best alternatives you can.
+- Ensure everyone knows how to use the chosen tools before the project.
 
 ## Learning Miro
 
--   [Work smarter, not harder](https://help.miro.com/hc/en-us/articles/360018109574-Work-Smarter-not-Harder) (Miro blog).
--   Structure sections in the board from left to right.
--   Add running communications and updates at the top of the board.
--   Lock things that you don’t want to be moved before the session! Select immovable items and click the padlock icon in the context menu.
--   Use standard S / M / L sticky note sizes to keep sizing consistent; select a sticky note to see the size option alongside the color.
--   Voting can be done using emojis, colored circles, or with the Miro Vote feature.
--   Use large, brightly colored headings as waypoints to help people navigate the board.
--   Use the ‘Bring everyone to me’ feature to gather participants around your cursor - click your avatar in the top right.
--   Put content inside frames, and give frames useful names; use the frames tab to quickly overview and navigate the board by clicking the frames button in the bottom-left corner menu.
--   Low-fi visuals in Miro can encourage participation; if it’s too polished people can feel intimidated.
+- [Work smarter, not harder](https://help.miro.com/hc/en-us/articles/360018109574-Work-Smarter-not-Harder) (Miro blog).
+- Structure sections in the board from left to right.
+- Add running communications and updates at the top of the board.
+- Lock things that you don’t want to be moved before the session! Select immovable items and click the padlock icon in the context menu.
+- Use standard S / M / L sticky note sizes to keep sizing consistent; select a sticky note to see the size option alongside the color.
+- Voting can be done using emojis, colored circles, or with the Miro Vote feature.
+- Use large, brightly colored headings as waypoints to help people navigate the board.
+- Use the ‘Bring everyone to me’ feature to gather participants around your cursor - click your avatar in the top right.
+- Put content inside frames, and give frames useful names; use the frames tab to quickly overview and navigate the board by clicking the frames button in the bottom-left corner menu.
+- Low-fi visuals in Miro can encourage participation; if it’s too polished people can feel intimidated.
 
 ## Using Miro templates
 
@@ -70,19 +69,19 @@ We can save each other time if we create templates on Miro and share them with e
 
 ## Learning Zoom
 
--   Create easy-to-remember bit.ly links for Zoom rooms.
--   In the participants window, you will see options to:
-    -   Raise hand
-    -   Reply “yes” or “no”
-    -   Request to go slower or faster
-    -   Thumbs up/down
-    -   Clap
-    -   Request a break
--   Practice features with other facilitators or close team members first.
+- Create easy-to-remember bit.ly links for Zoom rooms.
+- In the participants window, you will see options to:
+  - Raise hand
+  - Reply “yes” or “no”
+  - Request to go slower or faster
+  - Thumbs up/down
+  - Clap
+  - Request a break
+- Practice features with other facilitators or close team members first.
 
 ## Breakout Rooms
 
--   Make sure a facilitator is present in each breakout room to guide conversations, or otherwise leave time for a single facilitator to visit each break out room to guide and do time checks.
--   Spend the time to set up breakout rooms before or during the session; people may need to be manually assigned to rooms; a co-facilitator helps!
--   When the time is up, everyone will be automatically kicked back to the main room - this can be an abrupt and jarring experience; advise participants how long you will break out for, and for how long an extension could be, if needed (e.g., 10 minutes, with the possibility of an extra 2 minutes).
--   Zoom will automatically maintain breakout rooms with the same participants in a single session - it helps to break into the same groups to maintain the rapport.
+- Make sure a facilitator is present in each breakout room to guide conversations, or otherwise leave time for a single facilitator to visit each break out room to guide and do time checks.
+- Spend the time to set up breakout rooms before or during the session; people may need to be manually assigned to rooms; a co-facilitator helps!
+- When the time is up, everyone will be automatically kicked back to the main room - this can be an abrupt and jarring experience; advise participants how long you will break out for, and for how long an extension could be, if needed (e.g., 10 minutes, with the possibility of an extra 2 minutes).
+- Zoom will automatically maintain breakout rooms with the same participants in a single session - it helps to break into the same groups to maintain the rapport.

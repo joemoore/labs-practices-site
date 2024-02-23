@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: Messaging
 weight: 170
-oldPath: '/content/outcomes/cloud-native-development/specific__messaging.md'
+oldPath: "/content/outcomes/cloud-native-development/specific__messaging.md"
 aliases:
-    - '/outcomes/cloud-native-development/specific__messaging'
+- "/outcomes/cloud-native-development/specific__messaging"
 tags: []
 ---
 
@@ -20,7 +20,8 @@ Even if your application currently does not use some form of pub/sub, we often a
 
 Read the [Introduction](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) and [Quick Start](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) guide for SCS to get a feel for working with the library.
 
+
 ## Homework
 
--   Read the [Introduction](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing).
--   Read the [Quick Start](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) guide for Spring Cloud Stream.
+- Read the [Introduction](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing).
+- Read the [Quick Start](https://docs.spring.io/spring-cloud-stream/docs/current/reference/html/spring-cloud-stream.html#spring-cloud-stream-overview-introducing) guide for Spring Cloud Stream.

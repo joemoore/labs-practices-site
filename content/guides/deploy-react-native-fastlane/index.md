@@ -5,18 +5,18 @@ date: '2021-10-12'
 level1: Deploying Modern Applications
 level2: CI/CD, Release Pipelines
 tags:
-    - Mobile
+- Mobile
 team:
-    - Lee Zhen Jie
+- Lee Zhen Jie
 ---
 
-React Native has been a popular mobile user interface (UI) development framework for years, primarily because it gives developers the ability to build once, and have that framework be deployable onto both Android and iOS platforms. This saves time and reduces complexity.
+React Native has been a popular mobile user interface (UI) development framework for years, primarily because it gives developers the ability to build once, and have that framework be  deployable onto both Android and iOS platforms. This saves time and reduces complexity.
 
-However, this simplicity has not been available for deployment pipelines. Developers have still been required to version, compile, sign, and submit their applications separately for these two platforms. But recently, I came across a new, open source tool that helps automate this process, called [Fastlane](https://fastlane.tools/). This post is to help you get started using Fastlane for your projects.
+However, this simplicity has not been available for deployment pipelines. Developers have still been required to version, compile, sign, and submit their applications separately for these two platforms. But recently, I came across a new, open source tool that helps automate this process, called [Fastlane](https://fastlane.tools/). This post is to help you get started using Fastlane for your projects. 
 
 This is an overview of what a typical deployment process for these app store platforms looks like:
 
-![A standard mobile deployment pipeline](images/image1.jpeg 'A standard mobile deployment pipeline')
+![A standard mobile deployment pipeline](images/image1.jpeg "A standard mobile deployment pipeline")
 
 1. Based on the target build (beta, production, etc.), the relevant environment file is injected into the React Native app.
 2. The application version number is bumped up (versioning strategy varies by project).
@@ -26,16 +26,16 @@ This is an overview of what a typical deployment process for these app store pla
 6. If there’s a need to deploy to a different environment, the process will start all over again with a production environment file.
 
 This process includes many risks and inefficiencies, including:
-
--   Human error, e.g., accidentally supplying a production environment file to the dev build, or vice versa
--   Accidentally bumping the version number, or bumping the version number incorrectly
--   Lost time waiting between stages
+* Human error, e.g., accidentally supplying a production environment file to the dev build, or vice versa
+* Accidentally bumping the version number, or bumping the version number incorrectly
+* Lost time waiting between stages
 
 It is not uncommon for the deployment process for these two app store platforms alone to take an hour—and that is assuming everything goes well. If there are any errors in the process, the whole process must be restarted. All of this is time that could be better spent on other tasks, such as developing new features or fixing bugs.
 
 With Fastlane, this process can be templated. Once set up, this allows the process to be done automatically in sequence, leaving developers more time to focus on their work.
 
 Next, I’ll show you how to set up a deployment.
+
 
 ## Prerequisites
 
@@ -44,13 +44,15 @@ Next, I’ll show you how to set up a deployment.
 3. [Google Play Developer account](https://play.google.com/console/about/) – This enables you to publish and manage your apps on the Google Play Store.
 4. [Apple Developer account](https://developer.apple.com/) – This enables you to publish and manage your apps on the Apple Store
 
+
 ### Directory structure
 
 Your React Native project structure should look like this:
 
-![A sample directory structure](images/image2.png 'A sample directory structure')
+![A sample directory structure](images/image2.png "A sample directory structure")
 
 There are two folders you need to take note of: `iOS` and `Android`. This is where you need to set up the Fastlane configurations.
+
 
 ### Prepare your Android project
 
@@ -68,6 +70,7 @@ There are two folders you need to take note of: `iOS` and `Android`. This is whe
 2. Create a keystore file. If you do not have one, refer [here](https://developer.android.com/studio/publish/app-signing) for more information.
 3. Create a google-service-account.json file inside the folder; instructions can be found [here](https://docs.fastlane.tools/getting-started/android/setup/).
 
+
 ### Prepare your iOS project
 
 1. Execute the workspace project in the `iOS` folder of the project, this will open up the Xcode.
@@ -76,14 +79,14 @@ There are two folders you need to take note of: `iOS` and `Android`. This is whe
     1. Click on the project name at the top, and select “New Scheme”.
     2. Input the name of the scheme.
 
-![Create a new scheme in Xcode](images/image3.png 'Create a new scheme in Xcode')
+![Create a new scheme in Xcode](images/image3.png "Create a new scheme in Xcode")
+
 
 ## Set up Fastlane
 
-Now you need to set up the automation Fastlane will use to deploy your applications.
-
+Now you need to set up the automation Fastlane will use to deploy your applications. 
 1. Change directories to the root of your Android project.
-2. Initialize the project with Fastlane.
+2. Initialize the project with Fastlane. 
 
     ```bash
     fastlane init
@@ -91,9 +94,10 @@ Now you need to set up the automation Fastlane will use to deploy your applicati
 
 From here, Fastlane will automatically detect your project, and ask for any missing information.
 
-![Sample Fastlane output](images/image4.png 'Sample Fastlane output')
+![Sample Fastlane output](images/image4.png "Sample Fastlane output")
 
 3. Repeat the steps in this section for your iOS project.
+
 
 ## What just happened?
 
@@ -167,6 +171,7 @@ platform :android do
 end
 ```
 
+
 ### iOS `fastlane.rb`
 
 ```json
@@ -224,11 +229,13 @@ platform :ios do
 end
 ```
 
+
 ## Deploy your applications
 
-The deployment pipelines for your Android and iOS applications have now been templated. The manual, tedious, and error-prone steps I discussed earlier in this post have now been automated.
+The deployment pipelines for your Android and iOS applications have now been templated. The manual, tedious, and error-prone steps I discussed earlier in this post have now been automated. 
 
 The only thing left to do now is deploy your applications and watch Fastlane do its thing!
+
 
 ### Deploy your Android build
 
@@ -244,6 +251,7 @@ The only thing left to do now is deploy your applications and watch Fastlane do 
     fastlane android deploy_production
     ```
 
+
 ### Deploy your iOS build
 
 1. In a very similar way as you tested your Android project, deploy your iOS project first to your “Dev” environment.
@@ -251,6 +259,7 @@ The only thing left to do now is deploy your applications and watch Fastlane do 
     ```bash
     fastlane ios deploy_internal
     ```
+
 
 2. And finally, once you are satisfied, deploy to “Prod”.
 
@@ -260,8 +269,9 @@ The only thing left to do now is deploy your applications and watch Fastlane do 
 
 That's it! You now have a fully automated deployment template for your Android and iOS projects.
 
+
 ## What’s next?
 
 As you can see, Fastlane is able to deploy mobile apps in an automated fashion. It works for not just React Native, but also for native counterpart (which is what it was intended for in the first place).
 
-This can also be integrated into the CI/CD pipeline where it involves unit and end-to-end testing, in which the deployment will happen at the last stage of the pipeline. Fastlane also comes with various plug-ins that could be used to meet specific needs of developers. For example, `git_commit`, `add_git_tag`, and `push_to_git_remote` are custom plug-ins that help with pushing committed changes to the git repository. You can learn more about Fastlane plug-ins [here](http://docs.fastlane.tools/plugins/using-plugins/#fastlane-plugins).
+This can also be integrated into the CI/CD pipeline where it involves unit and end-to-end testing, in which the deployment will happen at the last stage of the pipeline. Fastlane also comes with various plug-ins that could be used to meet specific needs of developers. For example, `git_commit`,  `add_git_tag`, and `push_to_git_remote` are custom plug-ins that help with pushing committed changes to the git repository. You can learn more about Fastlane plug-ins [here](http://docs.fastlane.tools/plugins/using-plugins/#fastlane-plugins).

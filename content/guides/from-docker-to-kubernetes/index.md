@@ -6,35 +6,35 @@ parent: What is Kubernetes?
 title: Getting Started with Deploying Docker Containers to Kubernetes
 metaTitle: How to Deploy Docker Containers to Kubernetes
 tags:
-    - Getting Started
-    - Kubernetes
-    - Containers
-    - Microservices
-oldPath: '/content/guides/kubernetes/from-docker-to-kubernetes.md'
+- Getting Started
+- Kubernetes
+- Containers
+- Microservices
+oldPath: "/content/guides/kubernetes/from-docker-to-kubernetes.md"
 aliases:
-    - '/guides/kubernetes/from-docker-to-kubernetes'
+- "/guides/kubernetes/from-docker-to-kubernetes"
 level1: Modern App Basics
 level2: Kubernetes Platform
 description: Explore how to containerize a simple application with Docker and deploy it on Kubernetes. Discover the basics today.
 faqs:
-    faq:
-        - question: What is Docker?
-          answer: Docker is an open source container platform that utilizes OS-level virtualization
-              to package software in isolated containers. Applications in Docker containers
-              can be built, ran, and distributed almost anywhere, on-premise or in the cloud.
-        - question: What is a Docker container image?
-          answer: A Docker container image is a lightweight, isolated, executable software
-              package that includes all the necessary components needed to run an application,
-              including code, runtime, system tools, system libraries, and settings.
-        - question: What are Docker pods?
-          answer: A Docker pod is a similar group of containers with shared namespaces and
-              filesystem volumes.
-        - question: Can Kubernetes run Docker containers?
-          answer: <a href='https://tanzu.vmware.com/kubernetes-vs-docker'>Kubernetes can run Docker containers</a> and 'docker build' images, but it
-              is important to note that Kubernetes has depreciated support for Docker as a
-              container runtime.
-        - question: How do you run Kubernetes on Docker?
-          answer: You can run Kubernetes on Docker by enabling Kubernetes in your preferences.
+  faq:
+  - question: What is Docker?
+    answer: Docker is an open source container platform that utilizes OS-level virtualization
+      to package software in isolated containers. Applications in Docker containers
+      can be built, ran, and distributed almost anywhere, on-premise or in the cloud.
+  - question: What is a Docker container image?
+    answer: A Docker container image is a lightweight, isolated, executable software
+      package that includes all the necessary components needed to run an application,
+      including code, runtime, system tools, system libraries, and settings.
+  - question: What are Docker pods?
+    answer: A Docker pod is a similar group of containers with shared namespaces and
+      filesystem volumes.
+  - question: Can Kubernetes run Docker containers?
+    answer: <a href='https://tanzu.vmware.com/kubernetes-vs-docker'>Kubernetes can run Docker containers</a> and 'docker build' images, but it
+      is important to note that Kubernetes has depreciated support for Docker as a
+      container runtime.
+  - question: How do you run Kubernetes on Docker?
+    answer: You can run Kubernetes on Docker by enabling Kubernetes in your preferences.
 ---
 
 Once you understand what [containers](/guides/containers/what-are-containers) and [Kubernetes](/guides/kubernetes/what-is-kubernetes) are, the next step is to learn how the two work together. This guide provides an example of containerizing a simple application using Docker and deploying it on Kubernetes.
@@ -43,13 +43,13 @@ Once you understand what [containers](/guides/containers/what-are-containers) an
 
 Docker is an open source container platform that uses OS-level virtualization to package your software in units called containers. Containers are isolated from each other and are designed to be easily portable. You can build, run and distribute applications in Docker containers to run on Linux, Windows, Macs and almost anywhere else--both on-premises and in the cloud. The Docker environment also includes a container runtime as well as build and image management.
 
-## Docker Containers
+## Docker Containers 
 
 A **Docker container image** is a lightweight, standalone, executable software package that includes everything needed to run an application: code, runtime, system tools, system libraries and settings. Docker provides a standard format for packaging and porting software, much like ISO containers define a standard for shipping freight. A runtime instance of a Docker image consists of three parts:
 
--   The Docker image
--   The environment in which the image is executed
--   A set of instructions for running the image
+* The Docker image
+* The environment in which the image is executed
+* A set of instructions for running the image
 
 ## How to Run a Docker Container in Kubernetes
 
@@ -57,8 +57,8 @@ A containerized application image along with a set of declarative instructions c
 
 Here’s what it takes to move a Docker container to a Kubernetes cluster.
 
--   Create a container image from a Dockerfile
--   Build a corresponding YAML file to define how Kubernetes deploys the app
+* Create a container image from a Dockerfile
+* Build a corresponding YAML file to define how Kubernetes deploys the app
 
 ### Dockerfile to Create a Hello World Container Image
 
@@ -74,7 +74,7 @@ When you give this Dockerfile to a local instance of Docker by using the `docker
 
 ### Creating a Kubernetes Deployment for Hello World
 
-Next you need to define a deployment manifest, commonly done with a YAML or JSON file, to tell Kubernetes how to run "Hello World" based on the container image:
+Next you need to  define a deployment manifest, commonly done with a YAML or JSON file, to tell Kubernetes how to run "Hello World" based on the container image:
 
 ```yaml
 # Hello World Deployment YAML
@@ -99,10 +99,9 @@ spec:
         	memory: "128Mi"
         	cpu: "500m"
 ```
+To deploy the application on a Kubernetes cluster, you can submit a YAML file using a `kubectl` command similar to the following. 
 
-To deploy the application on a Kubernetes cluster, you can submit a YAML file using a `kubectl` command similar to the following.
-
-`kubectl apply -f https://yourdomain.ext/application/helloworld.yaml --record`
+```kubectl apply -f https://yourdomain.ext/application/helloworld.yaml --record```
 
 Once that’s done, the hello world container is deployed in a Kubernetes pod.
 
@@ -124,7 +123,7 @@ At the heart of Kubernetes is a `pod.` A pod contains running instances of one o
 
 #### Services
 
-`Services` enable Kubernetes to route traffic to pods. Pods in Kubernetes are deployed on an overlay network. Pods across Kubernetes nodes cannot access each other nor can any external/ingress traffic access pods unless a `Service` type resource is defined. A service is routed to the correct app using a label. So when a service gets created with label `login,`the service will send traffic to pods that contain the `login` app based on the label match. Services are needed for both East-West communication, when two pods from different apps need to talk to each other, and for North-South communication, when external traffic \( outside of the Kubernetes cluster\) needs to talk to a pod. Kubernetes has different service types to address both scenarios. Some common services are listed below:
+`Services` enable Kubernetes to route traffic to pods. Pods in Kubernetes are deployed on an overlay network. Pods across Kubernetes nodes cannot access each other nor can any external/ingress traffic access pods unless a `Service` type resource is defined.  A service is routed to the correct app using a label. So when a service gets created with label `login,`the service will send traffic to pods that contain the `login` app based on the label match. Services are needed for both East-West communication, when two pods from different apps need to talk to each other, and for North-South communication, when external traffic \( outside of the Kubernetes cluster\) needs to talk to a pod. Kubernetes has different service types to address both scenarios. Some common services are listed below:
 
 {{< table "table" >}}
 | Service Type | Depends on | What it Does | Traffic Type Handled |
@@ -134,7 +133,7 @@ At the heart of Kubernetes is a `pod.` A pod contains running instances of one o
 | **Load Balancer** | Cluster IP/Node Port | Creates an External Load Balancer that maps to either a Cluster IP/Node Port | External |
 {{</ table >}}
 
-The `services` resource constructs in Kubernetes may be a microservice or other HTTP services.
+The `services` resource constructs in Kubernetes may be a microservice or other HTTP services. 
 
 ### Hello World service definition
 
@@ -157,16 +156,15 @@ spec:
 
 Because of label matching, there is no need to understand the IP addressing of pods to load balance traffic. As a result:
 
--   **Load balancing** traffic across multiple pods is simplified.
--   **Updating an app** \(in a pod\) can be as simple as:
-    -   Deploying apps with new version labels \( e.g, v.1.5\)
-    -   Waiting for all deployments to complete
-    -   Updating the corresponding Service's labels to match the new pods.
--   **Traffic shaping**: Using [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), incoming app traffic can be split between multiple labels, making it simple to do things like A/B testing.
+* **Load balancing** traffic across multiple pods is simplified.
+* **Updating an app** \(in a pod\) can be as simple as:
+  *  Deploying apps with new version labels \( e.g, v.1.5\)
+  * Waiting for all deployments to complete
+  * Updating the corresponding Service's labels to match the new pods.
+* **Traffic shaping**: Using [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), incoming app traffic can be split between multiple labels, making it simple to do things like A/B testing.
 
 ## Keep Learning
-
-This guide explained how a few simple tools can create powerful services. Microservices in application development allow for expedited development, test, deployment and upgrade and, when combined with Kubernetes, can make you fast and efficient. The video below breaks down some of the key Kubernetes concepts in five minutes:
+This guide explained how a few  simple tools can create powerful services. Microservices in application development allow for expedited development, test, deployment and upgrade and, when combined with Kubernetes, can make you fast and efficient. The video below breaks down some of the key Kubernetes concepts in five minutes:
 
 {{< youtube PH-2FfFD2PU >}}
 

@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: We Consult Through Empathy
 weight: 20
-oldPath: '/content/outcomes/application-development-how-we-work/empathy.md'
+oldPath: "/content/outcomes/application-development-how-we-work/empathy.md"
 aliases:
-    - '/outcomes/application-development-how-we-work/empathy'
+- "/outcomes/application-development-how-we-work/empathy"
 tags: []
 ---
 
@@ -24,4 +24,4 @@ Very few of us walk in the door with these skills. Getting there means learning 
 
 Therefore, first and foremost, at Pivotal/Tanzu Labs we must develop ourselves as consultants. "Consultant" is a loaded word in our industry, and not all the connotations are positive. Google Dictionary defines "consultant" as _"a person who provides expert advice professionally."_
 
-Although that definition certainly applies to us in Pivotal/Tanzu Labs, when we say consultant, we really mean this: **_a deeply empathetic human being committed to helping others._**
+Although that definition certainly applies to us in Pivotal/Tanzu Labs, when we say consultant, we really mean this: ***a deeply empathetic human being committed to helping others.***

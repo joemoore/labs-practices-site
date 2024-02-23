@@ -20,9 +20,9 @@ team:
 
 There are a few things you need to do before getting started with {{ replace (replace .Name "-" " " | title) " Gs" "" }}:
 
--   Step 1
+- Step 1
 
--   Step 2
+- Step 2
 
 ### Using {{ replace (replace .Name "-" " " | title) " Gs" "" }}
 

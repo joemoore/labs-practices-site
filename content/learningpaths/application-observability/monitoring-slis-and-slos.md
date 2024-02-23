@@ -3,14 +3,14 @@ date: '2021-04-21'
 lastmod: '2021-06-15'
 layout: single
 related:
-    - '/guides/kubernetes/app-observability-exporting-metrics'
+- "/guides/kubernetes/app-observability-exporting-metrics"
 team:
-    - Zac Bergquist
+- Zac Bergquist
 title: Monitoring SLIs and SLOs
 weight: 1
-oldPath: '/content/outcomes/application-observability/monitoring-slis-and-slos.md'
+oldPath: "/content/outcomes/application-observability/monitoring-slis-and-slos.md"
 aliases:
-    - '/outcomes/application-observability/monitoring-slis-and-slos'
+- "/outcomes/application-observability/monitoring-slis-and-slos"
 tags: []
 ---
 
@@ -86,8 +86,8 @@ We can use the `mcount` and `msum`
 to build the queries. For a metric named `gauge.up`, we would have the following
 queries:
 
--   Attempts: `mcount(28d, ts("guage.up"))`
--   Successes: `msum(28d, ts("gauge.up"))`
+- Attempts: `mcount(28d, ts("guage.up"))`
+- Successes: `msum(28d, ts("gauge.up"))`
 
 With this in place, the current SLO attainment is simply the ratio of
 successful attempts to total attempts. We can also plot the target SLO to make
@@ -129,8 +129,8 @@ sum of those increases over our 28 day window to get the total number of
 attempts (or successes). For counters named `probe.attempts.total` and
 `probe.successes.total` we would have the following queries:
 
--   Attempts: `msum(28d, ratediff(ts("probe.attempts.total")))`
--   Successes: `msum(28d, ratediff(ts("probe.successes.total")))`
+- Attempts: `msum(28d, ratediff(ts("probe.attempts.total")))`
+- Successes: `msum(28d, ratediff(ts("probe.successes.total")))`
 
 ![Availability with Counters](/images/outcomes/app-observability/availability-counters.png)
 

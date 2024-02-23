@@ -1,26 +1,26 @@
 ---
 date: '2020-11-02'
 description: Looking to run a private container image for self-hosting or enterprise
-    purposes? This guide walks through deploying Harbor to Kubernetes.
+  purposes? This guide walks through deploying Harbor to Kubernetes.
 lastmod: '2021-03-07'
 linkTitle: Harbor
 metaTitle: Deploying Harbor to Kubernetes
 patterns:
-    - Deployment
+- Deployment
 subsection: Harbor
 tags:
-    - Kubernetes
-    - Containers
-    - Getting Started
+- Kubernetes
+- Containers
+- Getting Started
 team:
-    - Tony Vetter
-    - Paul Czarkowski
+- Tony Vetter
+- Paul Czarkowski
 title: Installing Harbor on Kubernetes with Project Contour, Cert Manager, and Let’s
-    Encrypt
+  Encrypt
 weight: 7
-oldPath: '/content/guides/kubernetes/harbor-gs.md'
+oldPath: "/content/guides/kubernetes/harbor-gs.md"
 aliases:
-    - '/guides/kubernetes/harbor-gs'
+- "/guides/kubernetes/harbor-gs"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -79,43 +79,43 @@ access over the internet!
 
 Before you get started, you’ll need to do the following:
 
--   **Install Helm 3**: Helm is used in this guide to install Contour and Harbor.
-    A guide for installing Helm can be found
-    [here](https://helm.sh/docs/intro/install/).
+- **Install Helm 3**: Helm is used in this guide to install Contour and Harbor.
+  A guide for installing Helm can be found
+  [here](https://helm.sh/docs/intro/install/).
 
--   **Create a Kubernetes cluster**: This guide was built using Google Kubernetes
-    Engine (GKE) with Kubernetes version 1.17. Any Kubernetes cluster with access
-    to the internet should work fine, but your results may vary depending on the
-    version you use. Initial testing with 1.16 resulted in errors during the
-    Harbor install. For a guide on creating a GKE cluster, see
-    [this page](https://cloud.google.com/kubernetes-engine/docs/quickstart) from
-    Google. Ensure your
-    [`kubectl` context](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-    is using this cluster.
+- **Create a Kubernetes cluster**: This guide was built using Google Kubernetes
+  Engine (GKE) with Kubernetes version 1.17. Any Kubernetes cluster with access
+  to the internet should work fine, but your results may vary depending on the
+  version you use. Initial testing with 1.16 resulted in errors during the
+  Harbor install. For a guide on creating a GKE cluster, see
+  [this page](https://cloud.google.com/kubernetes-engine/docs/quickstart) from
+  Google. Ensure your
+  [`kubectl` context](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+  is using this cluster.
 
--   **Install watch**: watch is a small command-line utility that continually
-    shows the output of a command being run. This allows you to monitor
-    `kubectl get pods`, for example, without explicitly re-running the command
-    multiple times. Instructions for installing on macOS are
-    [here](https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/).
+- **Install watch**: watch is a small command-line utility that continually
+  shows the output of a command being run. This allows you to monitor
+  `kubectl get pods`, for example, without explicitly re-running the command
+  multiple times. Instructions for installing on macOS are
+  [here](https://osxdaily.com/2010/08/22/install-watch-command-on-os-x/).
 
--   **About 30 minutes**: It could take more time than that; it will depend on how
-    long the Let’s Encrypt servers take to issue certificates. But in most of my
-    testing for writing this post, it took about 30 minutes.
+- **About 30 minutes**: It could take more time than that; it will depend on how
+  long the Let’s Encrypt servers take to issue certificates. But in most of my
+  testing for writing this post, it took about 30 minutes.
 
--   _Optional - buy a domain name_: You can use `.xip.io` (a
-    [service](http://xip.io) that provides dynamic DNS based on IP address)
-    addresses to avoid needing to buy a domain. Otherwise you will need a domain
-    name that you control in order to configure DNS. This guide uses a
-    Google-managed domain and DNS zone, but instructions can be modified for other
-    providers. Note: if you do decide to use `.xip.io`, you may experience issues
-    using the `letsencrypt-prod` ClusterIssuer later in the demo due to rate
-    limiting. Often you can just wait a few hours and it'll eventually work. For
-    best results, we recommend using your own domain.
+- *Optional - buy a domain name*: You can use `.xip.io` (a
+  [service](http://xip.io) that provides dynamic DNS based on IP address)
+  addresses to avoid needing to buy a domain. Otherwise you will need a domain
+  name that you control in order to configure DNS. This guide uses a
+  Google-managed domain and DNS zone, but instructions can be modified for other
+  providers. Note: if you do decide to use `.xip.io`, you may experience issues
+  using the `letsencrypt-prod` ClusterIssuer later in the demo due to rate
+  limiting. Often you can just wait a few hours and it'll eventually work. For
+  best results, we recommend using your own domain.
 
 ## Prepare the Environment
 
-Create a Kubernetes cluster. In GKE this can be as simple as running:
+Create a Kubernetes cluster.  In GKE this can be as simple as running:
 
 ```bash
 gcloud container clusters create jan8 --num-nodes 3
@@ -133,7 +133,6 @@ mkdir harbor-install && cd $_
 While you are going to use Helm to install Project Contour, Helm will not create
 the namespace for you. So the first step in this installation is to create that
 namespace.
-
 ```
 $ kubectl create namespace projectcontour
 ```
@@ -166,6 +165,7 @@ Now simply wait for the Pods to become `READY`.
 watch kubectl get pods -n projectcontour
 ```
 
+
 Then define some environment variables for your proposed Harbor domain and your
 email address. It is recommended that you use a subdomain under the domain
 procured in the prerequisites section (e.g., harbor.example.com). This way you
@@ -196,6 +196,8 @@ Set your email address for cert-manager:
 export EMAIL_ADDRESS=username@example.com
 ```
 
+
+
 ## Set Up DNS
 
 {{% aside type="warning" title="You may skip this section" %}}
@@ -220,17 +222,17 @@ watch kubectl get service ingress-contour-envoy -n projectcontour -o wide
 
 2. Now set up a DNS zone within your cloud provider.
 
--   For GCP, this can be found in the GCP web UI, under Networking Services,
+  - For GCP, this can be found in the GCP web UI, under Networking Services,
     Cloud DNS. Click `Create Zone` and follow the instructions to give the zone
     a descriptive name, as well as provide the DNS name. The DNS name will be
     whatever domain you have registered (e.g., `example.com`).
 
--   For AWS, this is done via a service called
+  - For AWS, this is done via a service called
     [Route 53](https://aws.amazon.com/route53/faqs/), and for Azure,
     [this is done](https://docs.microsoft.com/en-us/azure/dns/dns-getstarted-portal_)
     by creating a resource in the Azure Portal.
 
--   Once completed, the important part is that you now have a list of name
+  - Once completed, the important part is that you now have a list of name
     servers. For example, one or more of the format
     `ns-cloud-x1.googledomains.com.` Record these for a future step.
 
@@ -242,30 +244,30 @@ watch kubectl get service ingress-contour-envoy -n projectcontour -o wide
    Envoy, then be routed to its final destination based on the specific
    subdomain requested.
 
--   For GCP, click into the DNS zone you just created and select `Add Record Set`.
-    From here, add a `*` as the DNS name field so the full DNS name reads
-    `*.example.com`. In the IPv4 address field, enter the `EXTERNAL_IP` of the
-    Envoy service recorded earlier in Step 1. Then click create.
+- For GCP, click into the DNS zone you just created and select `Add Record Set`.
+  From here, add a `*` as the DNS name field so the full DNS name reads
+  `*.example.com`. In the IPv4 address field, enter the `EXTERNAL_IP` of the
+  Envoy service recorded earlier in Step 1. Then click create.
 
--   For AWS and Azure, this is done via the respective services listed in the previous step.
+- For AWS and Azure, this is done via the respective services listed in the previous step.
 
--   Once completed, your DNS zone should have an A record set up for any subdomain
-    (`*`) to be mapped to the IP address of the Envoy service running in
-    Kubernetes.
+- Once completed, your DNS zone should have an A record set up for any subdomain
+  (`*`) to be mapped to the IP address of the Envoy service running in
+  Kubernetes.
 
 4. For the last of the somewhat confusing UI-based steps, you need to add the
    list of name servers from Step 2 to your personal domain. This will allow any
    HTTP/HTTPS requests for your domain to reference the records you set up
    previously in your DNS zone.
 
--   For Google-managed domains, in the Google Domains UI, click `manage` next to
-    the domain you want to modify. Then click on `DNS`. In the Name Servers
-    section at the top, click `edit`. Now, one at a time, simply paste in the list
-    of name servers recorded in Step 2. There should be four name server
-    addresses. Then click `Save`.
+- For Google-managed domains, in the Google Domains UI, click `manage` next to
+  the domain you want to modify. Then click on `DNS`. In the Name Servers
+  section at the top, click `edit`. Now, one at a time, simply paste in the list
+  of name servers recorded in Step 2. There should be four name server
+  addresses. Then click `Save`.
 
--   For other domain name registrars, the process is similar. Contact your
-    registrar if you require further assistance with this process.
+- For other domain name registrars, the process is similar. Contact your
+  registrar if you require further assistance with this process.
 
 That's it for configuring DNS. Now you need to wait for all the new records to
 propagate. Run the following command and wait for the output to show that your

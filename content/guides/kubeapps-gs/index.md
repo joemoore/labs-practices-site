@@ -1,22 +1,22 @@
 ---
 date: '2020-04-23'
 description: Walk through the process of deploying Kubeapps for your cluster and installing
-    an example application with this step-by-step Kubeapps guide.
+  an example application with this step-by-step Kubeapps guide.
 lastmod: '2021-03-07'
 parent: Packaging
 patterns:
-    - Deployment
+- Deployment
 tags:
-    - Kubeapps
-    - Getting Started
-    - Kubernetes
+- Kubeapps
+- Getting Started
+- Kubernetes
 team:
-    - Tiffany Jernigan
+- Tiffany Jernigan
 title: Getting Started with Kubeapps
 weight: 6
-oldPath: '/content/guides/kubernetes/kubeapps-gs.md'
+oldPath: "/content/guides/kubernetes/kubeapps-gs.md"
 aliases:
-    - '/guides/kubernetes/kubeapps-gs'
+- "/guides/kubernetes/kubeapps-gs"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -145,7 +145,7 @@ Kubeapps dashboard for Kubernetes.
 
 ![Dashboard main page](images/dashboard-home.png)
 
-**_Note:_** If you are setting up Kubeapps for other people to access, you will
+***Note:*** If you are setting up Kubeapps for other people to access, you will
 want to use a different service type or setup Ingress rather than using the
 above `kubectl port-forward`. For detailed information on installing,
 configuring and upgrading Kubeapps, checkout the
@@ -156,29 +156,29 @@ configuring and upgrading Kubeapps, checkout the
 Once you have the Kubeapps Dashboard up and running, you can start deploying
 applications into your cluster.
 
--   Use the "Deploy App" or click on the "Catalog" page in the Dashboard to select
-    an application from the list of charts in any of the configured Helm chart
-    repositories. This example assumes you want to deploy WordPress.
+- Use the "Deploy App" or click on the "Catalog" page in the Dashboard to select
+  an application from the list of charts in any of the configured Helm chart
+  repositories. This example assumes you want to deploy WordPress.
 
-    ![WordPress chart](images/wordpress-search.png)
+  ![WordPress chart](images/wordpress-search.png)
 
--   Click the "Deploy" button.
+- Click the "Deploy" button.
 
-    ![WordPress chart](images/wordpress-chart.png)
+  ![WordPress chart](images/wordpress-chart.png)
 
--   You will be prompted for the release name and values for the application. The
-    form is populated by the values (YAML), which you can see in the adjacent tab.
+- You will be prompted for the release name and values for the application. The
+  form is populated by the values (YAML), which you can see in the adjacent tab.
 
-    ![WordPress installation](images/wordpress-installation.png)
+  ![WordPress installation](images/wordpress-installation.png)
 
--   Click the "Submit" button. The application will be deployed. You will be able
-    to track the new Helm deployment directly from the browser. The status will be
-    shown at the top and you can also look at the individual resources lower in
-    the page. It will also show the number of ready pods. If you run your cursor
-    over the status, you can see the workloads and number of ready and total pods
-    within them.
+- Click the "Submit" button. The application will be deployed. You will be able
+  to track the new Helm deployment directly from the browser. The status will be
+  shown at the top and you can also look at the individual resources lower in
+  the page. It will also show the number of ready pods. If you run your cursor
+  over the status, you can see the workloads and number of ready and total pods
+  within them.
 
-    ![WordPress deployment](images/wordpress-deployment.png)
+  ![WordPress deployment](images/wordpress-deployment.png)
 
 To access your new WordPress site, you can run the commands in the "Notes"
 section to get the URLs or simply click a URL (HTTP and HTTPS) shown.
@@ -191,6 +191,7 @@ to run `minikube tunnel` in your terminal in order for an IP address to be
 assigned to your application.
 {{% /callout %}}
 
+
 ![WordPress deployment notes](images/wordpress-url.png)
 
 To get the credentials for logging into your WordPress account, refer to the
@@ -200,7 +201,6 @@ To get the credentials for logging into your WordPress account, refer to the
 ![WordPress deployment notes](images/wordpress-credentials.png)
 
 ## [Optional] Step 5: Uninstall/Delete WordPress
-
 If you want to uninstall/delete your WordPress application, you can do so by
 clicking the "Delete" button. You can choose to click the checkbox for "Purge
 Release" (default action with the Helm 3 CLI). If you do not click it, the Helm
@@ -214,8 +214,8 @@ namespace.
 
 Learn more about Kubeapps with the links below:
 
--   [Detailed installation instructions](https://github.com/kubeapps/kubeapps/blob/master/chart/kubeapps/README.md)
--   [Deploying Operators](https://github.com/kubeapps/kubeapps/blob/master/docs/user/operators.md)
--   [Kubeapps Dashboard documentation](https://github.com/kubeapps/kubeapps/blob/master/docs/user/dashboard.md)
--   [Kubeapps components](https://github.com/kubeapps/kubeapps/blob/master/docs/architecture/overview.md)
--   [Roadmap](https://github.com/kubeapps/kubeapps/wiki/Roadmap)
+- [Detailed installation instructions](https://github.com/kubeapps/kubeapps/blob/master/chart/kubeapps/README.md)
+- [Deploying Operators](https://github.com/kubeapps/kubeapps/blob/master/docs/user/operators.md)
+- [Kubeapps Dashboard documentation](https://github.com/kubeapps/kubeapps/blob/master/docs/user/dashboard.md)
+- [Kubeapps components](https://github.com/kubeapps/kubeapps/blob/master/docs/architecture/overview.md)
+- [Roadmap](https://github.com/kubeapps/kubeapps/wiki/Roadmap)

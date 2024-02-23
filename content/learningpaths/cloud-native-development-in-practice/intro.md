@@ -3,7 +3,7 @@ title: Introduction
 weight: 5
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 This lab will walk you through steps necessary to set up your lab
@@ -18,8 +18,8 @@ proceeding.
 After completing the lab, you will have an environment with the
 following:
 
--   Your lab codebase set up on a local workstation
--   Your GitHub repository will be set up with a Personal Access Token.
+- Your lab codebase set up on a local workstation
+- Your GitHub repository will be set up with a Personal Access Token.
 
 You will also be able to navigate the lab codebase start and solution
 points,
@@ -109,7 +109,7 @@ You will do some setup to prepare:
 
     You can make the repository public or private,
     but
-    **do NOT select any of the _initialize this repository with_**
+    **do NOT select any of the *initialize this repository with***
     **options.**
 
 1.  Before your push your local repository to the remote,
@@ -174,14 +174,14 @@ You will use Gradle as your build and dependency management system.
     git commit -m'added gradle wrapper to initial project'
     ```
 
-## _Tanzu Application Service_ (_Tanzu Application Service_) command line interface (CLI)
+## *Tanzu Application Service* (*Tanzu Application Service*) command line interface (CLI)
 
-You will interact with _Tanzu Application Service_ is via the _Tanzu
+You will interact with *Tanzu Application Service* is via the _Tanzu
 Application Services CLI_.
 This command-line interface is common to all products,
-like _Tanzu Application Service_,
+like *Tanzu Application Service*,
 based on the (open source) Cloud Foundry technology.
-For this reason it is usually known as the _Cloud Foundry CLI_.
+For this reason it is usually known as the *Cloud Foundry CLI*.
 
 1.  Verify the CLI is installed correctly by running
 
@@ -208,13 +208,13 @@ For this reason it is usually known as the _Cloud Foundry CLI_.
 ### CF target
 
 The CF CLI can interact with multiple installations of
-_Tanzu Application Service_ so you need to _target_ a specific
+*Tanzu Application Service* so you need to *target* a specific
 installation (also called a foundation).
 Targeting means telling your CLI about the API endpoint for a
 foundation.
 
 1.  Use the `login` command to log in to your
-    _Tanzu Application Service_ foundation's API endpoint.
+    *Tanzu Application Service* foundation's API endpoint.
 
 1.  Verify the CLI has targeted the correct foundation by using the
     `target` command.
@@ -316,9 +316,9 @@ you will encounter in this learning path.
 
 1.  This file tells Git to ignore certain files that should not be
     stored in version control such as:
-    -   built artifacts
-    -   temporary files
-    -   editor or IDE generated files
+    - built artifacts
+    - temporary files
+    - editor or IDE generated files
 
 ### View a solution
 
@@ -422,15 +422,15 @@ make sure you are using the following workflow when making and pushing
 changes to your remote:
 
 1.  Verify the state of your workspace with the `git status` command.
-    Unstaged changes will be highlighted in _red_,
-    staged changes will be highlighted in _green_.
+    Unstaged changes will be highlighted in *red*,
+    staged changes will be highlighted in *green*.
     Everything else in your workspace is either ignored
     (recorded in the `.gitignore` file),
     or already committed in your local repository.
 
 1.  Stage your changes with the `git add` command.
 
-    Run `git status` to verify your staged changes appear in _green_.
+    Run `git status` to verify your staged changes appear in *green*.
 
 1.  Commit your changes with the `git commit` command.
     Add the `-m` option with the commit message in single or double
@@ -441,7 +441,7 @@ changes to your remote:
 
 ### Fast-forward
 
-In this learning path you will be directed to _fast-forward_ in some of
+In this learning path you will be directed to *fast-forward* in some of
 the labs by "cherry picking" Git commits or tags.
 
 In most cases,
@@ -507,7 +507,6 @@ solution files that you will not have to author.
         ```
 
         You will see:
-
         -   4 new commits on a divergent branch from those
             associated with the start and solution points.
 
@@ -555,4 +554,4 @@ solution files that you will not have to author.
 
     Note that the fast-forward is the for the codebase only,
     you will also have to push your application to
-    _Tanzu Application Service_.
+    *Tanzu Application Service*.

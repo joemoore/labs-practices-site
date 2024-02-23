@@ -6,9 +6,9 @@ experience: Beginner
 layout: intro
 description: The Swift Method, developed by Pivotal/Tanzu Labs, is a set of lightweight techniques that reduce the burdens and risks of modernization. In this series, we’ll dive into how a balanced team of architects, developers, and product managers approach modernizing monoliths using the Swift Method.
 team:
-    - Matthew Wei
-    - Asif Sajjad
-    - Tyson McNulty
+- Matthew Wei
+- Asif Sajjad
+- Tyson McNulty
 tags: []
 ---
 
@@ -17,6 +17,7 @@ When embarking on a journey to break up a monolith and modernize it into microse
 As if these challenges weren’t enough, you often want to also change the way teams work to be more aligned with agile practices. You're modernizing not only the code, but also the way that people work. With all of these challenges, it's no wonder that teams only embark on these journeys when they are forced to do so by external forces.
 
 What if there were a method that teams could employ to lighten the burden and risks of modernization? There is!
+
 
 ### The Swift Method
 

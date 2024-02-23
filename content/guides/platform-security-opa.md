@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Implementing Open Policy Agent in Kubernetes
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Developing OPA Policies
 parent: Platform Security
 title: Developing OPA Policies
 weight: 1600
-oldPath: '/content/guides/kubernetes/platform-security-opa.md'
+oldPath: "/content/guides/kubernetes/platform-security-opa.md"
 aliases:
-    - '/guides/kubernetes/platform-security-opa'
+- "/guides/kubernetes/platform-security-opa"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []
@@ -31,9 +31,9 @@ The guide assumes you understand policy management, admission webhooks, and the
 Rego programming language. You can use the following resources if you need to
 review these topics:
 
--   **Policy Management Philosophy**: https://www.openpolicyagent.org/docs/latest/philosophy/
--   **Admission Webhooks**: https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/
--   **Rego Policy Language**: https://www.openpolicyagent.org/docs/latest/#rego
+- **Policy Management Philosophy**: https://www.openpolicyagent.org/docs/latest/philosophy/
+- **Admission Webhooks**: https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/
+- **Rego Policy Language**: https://www.openpolicyagent.org/docs/latest/#rego
 
 ## Install OPA in your local machine
 
@@ -389,11 +389,11 @@ The output should be similar to this:
 ```yaml
 kind: ConfigMap
 metadata:
-    annotations:
-        openpolicyagent.org/policy-status: '{"status":"ok"}'
-    creationTimestamp: '2020-04-03T14:20:52Z'
-    name: cpulimits
-    namespace: opa
+  annotations:
+    openpolicyagent.org/policy-status: '{"status":"ok"}'
+  creationTimestamp: "2020-04-03T14:20:52Z"
+  name: cpulimits
+  namespace: opa
 ```
 
 **Pro-Tip** Before you try to create the Deployment, delete the OPA pods in the
@@ -414,29 +414,29 @@ a valid Deployment and the other with an invalid Deployment.
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-        namespace: default
-        name: nginx-good
-        labels:
-            app: nginx
+      namespace: default
+      name: nginx-good
+      labels:
+        app: nginx
     spec:
-        replicas: 1
-        selector:
-            matchLabels:
-                app: nginx
-        template:
-            metadata:
-                labels:
-                    app: nginx
-            spec:
-                containers:
-                    - name: nginx
-                      image: nginx
-                      ports:
-                          - containerPort: 80
-                      resources:
-                          limits:
-                              cpu: '200m'
-                              memory: '256Mi'
+      replicas: 1
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: nginx
+            ports:
+            - containerPort: 80
+            resources:
+              limits:
+                cpu: "200m"
+                memory: "256Mi"
     ```
 
 2. Create a file called `PolicyA-bad.yaml`. This manifest contains a Deployment
@@ -447,23 +447,23 @@ a valid Deployment and the other with an invalid Deployment.
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-        namespace: default
-        name: nginx-bad
+      namespace: default
+      name: nginx-bad
     spec:
-        replicas: 1
-        selector:
-            matchLabels:
-                app: nginx
-        template:
-            metadata:
-                labels:
-                    app: nginx
-            spec:
-                containers:
-                    - name: nginx
-                      image: nginx
-                      ports:
-                          - containerPort: 80
+      replicas: 1
+      selector:
+        matchLabels:
+          app: nginx
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: nginx
+            ports:
+            - containerPort: 80
     ```
 
 Now that you have the Kubernetes manifests, lets verify that OPA is working as
@@ -476,19 +476,19 @@ expected.
    returned. It should be the same message that you defined in the `reason`
    statement in the policy.
 
-    ```text
-    Error from server (container nginx is missing CPU limits): error when creating "PolicyA-bad.yaml": admission webhook "validating-webhook.openpolicyagent.org" denied the request: container nginx is missing CPU limits
-    ```
+   ```text
+   Error from server (container nginx is missing CPU limits): error when creating "PolicyA-bad.yaml": admission webhook "validating-webhook.openpolicyagent.org" denied the request: container nginx is missing CPU limits
+   ```
 
 ### Summary
 
 In this guide, you completed the following:
 
--   Installed OPA into your local environment
--   Developed an OPA policy that blocks Deployments without CPU limits
--   Tested the policy locally with mock data
--   Reviewed sample OPA policies for different use-cases
--   Installed OPA into a Kubernetes cluster
--   Deployed your policy into the Kubernetes cluster as a ConfigMap
--   Verified that the policy works as expected using `kubectl` and sample
-    Deployment manifests
+- Installed OPA into your local environment
+- Developed an OPA policy that blocks Deployments without CPU limits
+- Tested the policy locally with mock data
+- Reviewed sample OPA policies for different use-cases
+- Installed OPA into a Kubernetes cluster
+- Deployed your policy into the Kubernetes cluster as a ConfigMap
+- Verified that the policy works as expected using `kubectl` and sample
+  Deployment manifests

@@ -3,7 +3,7 @@ title: Build a Spring Boot Application
 weight: 10
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+  - Pivotal/Tanzu Labs
 ---
 
 This lab will walk you through setting up a Java application using
@@ -21,9 +21,9 @@ and an application for allocating people to projects.
 
 After completing the lab, you will be able to:
 
--   Describe how to create runnable Spring Boot application
--   Describe how to create a controller that responds to HTTP requests
--   Use `gradle` to run Gradle tasks
+- Describe how to create runnable Spring Boot application
+- Describe how to create a controller that responds to HTTP requests
+- Use `gradle` to run Gradle tasks
 
 ## Getting started
 
@@ -201,7 +201,7 @@ you can begin building a Spring Boot _Hello World_ application.
 ## Create a controller
 
 In the same package you will now create a controller class that returns
-`hello` when the app receives a **GET** request at `/`.
+`hello` when the app receives a __GET__ request at `/`.
 
 Following labs will go in to more detail about what is happening here,
 but for now, just follow along.
@@ -233,15 +233,15 @@ but for now, just follow along.
 
     You now have a small working web application.
     In the next lab,
-    you will push this application to _Tanzu Application Service_.
+    you will push this application to *Tanzu Application Service*.
 
 ## Wrap up
 
 Now that you have completed the lab, you should be able to:
 
--   Describe how to create runnable Spring Boot application
--   Describe how to create a controller that responds to HTTP requests
--   Use the Gradle wrapper to run Gradle tasks
+- Describe how to create runnable Spring Boot application
+- Describe how to create a controller that responds to HTTP requests
+- Use the Gradle wrapper to run Gradle tasks
 
 ## Extra
 

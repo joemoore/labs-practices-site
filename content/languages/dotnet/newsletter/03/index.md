@@ -1,13 +1,13 @@
 ---
 type: newsletter
-date: '2023-09-30'
-lastmod: '2023-09-30'
-title: 'Hooked on .NET - September 2023 with Rachel Appel'
+date: "2023-09-30"
+lastmod: "2023-09-30"
+title: "Hooked on .NET - September 2023 with Rachel Appel"
 description: This edition features guest Rachel Appel discussing dark patterns. Includes suggestions for the latest blogs to read, podcasts to listen to and videos to watch.
 link: https://open.substack.com/pub/laylacodesit/p/hooked-on-net-0f9
 canonical: https://open.substack.com/pub/laylacodesit/p/hooked-on-net-0f9
-team:
-    - Layla Porter
+team: 
+- Layla Porter
 ---
 
 ## Welcome back 👋
@@ -26,15 +26,15 @@ At this point, you might ask yourself, "As a developer, what can I do so that my
 
 ### Rachel's recommendations
 
--   [Dark patterns, the tricks websites use to make you say yes, explained](https://www.vox.com/recode/22351108/dark-patterns-ui-web-design-privacy)
--   [Deceptive Design | Everything about dark patterns](https://www.deceptive.design/)
--   [What are dark patterns](https://www.ionos.com/digitalguide/websites/web-development/what-are-dark-patterns/)
--   [Dark Patterns Examples - Recognizing Manipulative Marketing and Design](https://raidboxes.io/en/blog/security/dark-patterns/)
+- [Dark patterns, the tricks websites use to make you say yes, explained](https://www.vox.com/recode/22351108/dark-patterns-ui-web-design-privacy)
+- [Deceptive Design | Everything about dark patterns](https://www.deceptive.design/)
+- [What are dark patterns](https://www.ionos.com/digitalguide/websites/web-development/what-are-dark-patterns/)
+- [Dark Patterns Examples - Recognizing Manipulative Marketing and Design](https://raidboxes.io/en/blog/security/dark-patterns/)
 
 ## What's new and exciting?
 
--   [Announcing .NET 8 RC1](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8-rc1/) - As I said last month, the releases are coming quick!
--   [Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/) - Stephen Toub's annual run down of all the enhancements the latest .NET release entails is always a good read!
+- [Announcing .NET 8 RC1](https://devblogs.microsoft.com/dotnet/announcing-dotnet-8-rc1/) - As I said last month, the releases are coming quick!
+- [Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/) - Stephen Toub's annual run down of all the enhancements the latest .NET release entails is always a good read!
 
 ## What to read 📖
 

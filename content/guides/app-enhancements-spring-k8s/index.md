@@ -3,52 +3,52 @@ date: '2021-02-16'
 lastmod: '2021-02-25'
 parent: Application Enhancements
 tags:
-    - Kubernetes
-    - Spring
-    - Java
-    - Microservices
+- Kubernetes
+- Spring
+- Java
+- Microservices
 team:
-    - Andriy Kalashnykov
+- Andriy Kalashnykov
 title: A Microservices Guide for Spring Cloud Kubernetes Reference Architecture
 metaTitle: Spring Cloud Kubernetes Reference Architecture Guide
 description: Discover how to enhance your Spring applications for Kubernetes. Get the most out of your deployments with our expert developer guide.
-oldPath: '/content/guides/kubernetes/app-enhancements-spring-k8s.md'
+oldPath: "/content/guides/kubernetes/app-enhancements-spring-k8s.md"
 aliases:
-    - '/guides/kubernetes/app-enhancements-spring-k8s'
+- "/guides/kubernetes/app-enhancements-spring-k8s"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 faqs:
-    faq:
-        - question: What is Spring Cloud Kubernetes?
-          answer: Spring Cloud Kubernetes is a Kubernetes API server integration that allows
-              for service discovery, configuration, and load balancing used by Spring Cloud;
-              it provides Spring Cloud implementations of common interfaces that consume Kubernetes.
-        - question: How do you enable Spring Cloud Kubernetes?
-          answer: Spring Cloud Kubernetes can be enabled by adding a dependency that contains
-              modules for service discovery, configuration, and Ribbon load balancing to the
-              Spring Cloud Kubernetes in your project
-        - question: What are the best practices for the design, development, and deployment
-              of Spring Boot microservices on Kubernetes?
-          answer: Best practices for Spring Boot microservices on Kubernetes include using
-              the [twelve-factor](https://12factor.net/) methodology, keeping each microservice
-              in a separate [Maven](https://maven.apache.org/) or [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
-              project, using dependencies when inheriting form parent project instead of using
-              relative path, and using [Spring Initializr](https://start.spring.io/) to generate
-              project structure, fill in project details, pick your options, and download
-              a bundled up project.
-        - question: What are the main concerns addressed by the Spring Cloud Kubernetes
-              reference architecture?
-          answer: The main concerns addressed by the Spring Cloud Kubernetes reference architecture
-              include externalized configurations, Kubernetes API server access, health checks,
-              reporting application state using Spring Boot Actuator, service discovery, exposing
-              API documentation, building docker images with best practices, layering JARs,
-              and observing the application.
-        - question: How do you configure Spring Cloud Kubernetes to access Kubernetes API?
-          answer: The simplest way to configure Spring Cloud Kubernetes to access Kubernetes
-              API is to define a ClusterRole with a list of resources and verbs, create a
-              YAML file in the default namespace, create service accounts, bind service accounts
-              from each namespace to ClusterRole, and finally, make sure that deployment manifests
-              for the correct microservices service account.
+  faq:
+  - question: What is Spring Cloud Kubernetes?
+    answer: Spring Cloud Kubernetes is a Kubernetes API server integration that allows
+      for service discovery, configuration, and load balancing used by Spring Cloud;
+      it provides Spring Cloud implementations of common interfaces that consume Kubernetes.
+  - question: How do you enable Spring Cloud Kubernetes?
+    answer: Spring Cloud Kubernetes can be enabled by adding a dependency that contains
+      modules for service discovery, configuration, and Ribbon load balancing to the
+      Spring Cloud Kubernetes in your project
+  - question: What are the best practices for the design, development, and deployment
+      of Spring Boot microservices on Kubernetes?
+    answer: Best practices for Spring Boot microservices on Kubernetes include using
+      the [twelve-factor](https://12factor.net/) methodology, keeping each microservice
+      in a separate [Maven](https://maven.apache.org/) or [Gradle](https://docs.gradle.org/current/userguide/userguide.html)
+      project, using dependencies when inheriting form parent project instead of using
+      relative path, and using [Spring Initializr](https://start.spring.io/) to generate
+      project structure, fill in project details, pick your options, and download
+      a bundled up project.
+  - question: What are the main concerns addressed by the Spring Cloud Kubernetes
+      reference architecture?
+    answer: The main concerns addressed by the Spring Cloud Kubernetes reference architecture
+      include externalized configurations, Kubernetes API server access, health checks,
+      reporting application state using Spring Boot Actuator, service discovery, exposing
+      API documentation, building docker images with best practices, layering JARs,
+      and observing the application.
+  - question: How do you configure Spring Cloud Kubernetes to access Kubernetes API?
+    answer: The simplest way to configure Spring Cloud Kubernetes to access Kubernetes
+      API is to define a ClusterRole with a list of resources and verbs, create a
+      YAML file in the default namespace, create service accounts, bind service accounts
+      from each namespace to ClusterRole, and finally, make sure that deployment manifests
+      for the correct microservices service account.
 ---
 
 This Reference Architecture demonstrates design, development, and deployment of
@@ -58,31 +58,31 @@ for each concern when applicable.
 
 High-level key recommendations:
 
--   Consider Best Practices in Cloud Native Applications and [The 12
-    Factor App](https://12factor.net/)
--   Keep each microservice in a separate [Maven](https://maven.apache.org/) or
-    [Gradle](https://docs.gradle.org/current/userguide/userguide.html) project
--   Prefer using dependencies when inheriting from parent project instead of using
-    relative path
--   Use [Spring Initializr](https://start.spring.io/) a web application that can
-    generate a Spring Boot project structure, fill in your project details, pick
-    your options, and download a bundled up project
+- Consider Best Practices in Cloud Native Applications and [The 12
+  Factor App](https://12factor.net/)
+- Keep each microservice in a separate [Maven](https://maven.apache.org/) or
+  [Gradle](https://docs.gradle.org/current/userguide/userguide.html) project
+- Prefer using dependencies when inheriting from parent project instead of using
+  relative path
+- Use [Spring Initializr](https://start.spring.io/) a web application that can
+  generate a Spring Boot project structure, fill in your project details, pick
+  your options, and download a bundled up project
 
 This architecture demonstrates a complex Cloud Native application that
 addresses following concerns:
 
--   Externalized configuration using ConfigMaps, Secrets, and PropertySource
--   Kubernetes API server access using ServiceAccounts, Roles, and RoleBindings
--   Health checks using Application Probes
-    -   readinessProbe
-    -   livenessProbe
-    -   startupProbe
--   Reporting application state using Spring Boot Actuators
--   Service discovery across namespaces using DiscoveryClient
--   Exposing API documentation using Swagger UI
--   Building a Docker image using best practices
--   Layering JARs using the Spring Boot plugin
--   Observing the application using Prometheus exporters
+- Externalized configuration using ConfigMaps, Secrets, and PropertySource
+- Kubernetes API server access using ServiceAccounts, Roles, and RoleBindings
+- Health checks using Application Probes
+  - readinessProbe
+  - livenessProbe
+  - startupProbe
+- Reporting application state using Spring Boot Actuators
+- Service discovery across namespaces using DiscoveryClient
+- Exposing API documentation using Swagger UI
+- Building a Docker image using best practices
+- Layering JARs using the Spring Boot plugin
+- Observing the application using Prometheus exporters
 
 ## Reference Architecture
 
@@ -102,25 +102,25 @@ The application implemented in this Reference Architecture is built with several
 open source components, commonly found in most Spring Boot microservices
 deployments. These include:
 
--   [Spring Cloud
-    Kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes#discoveryclient-for-kubernetes):
-    Provides integration with the Kubernetes API server to allow service discovery,
-    configuration and load balancing used by Spring Cloud.
+- [Spring Cloud
+  Kubernetes](https://github.com/spring-cloud/spring-cloud-kubernetes#discoveryclient-for-kubernetes):
+  Provides integration with the Kubernetes API server to allow service discovery,
+  configuration and load balancing used by Spring Cloud.
 
--   [Spring Cloud](https://github.com/spring-cloud): provides tools for developers
-    to quickly build common patterns in distributed systems.
+- [Spring Cloud](https://github.com/spring-cloud): provides tools for developers
+  to quickly build common patterns in distributed systems.
 
-    -   [OpenFeign](https://github.com/OpenFeign/feign) - Java to HTTP client binder
-    -   Ribbon (via Kubernetes services) - client-side load balancing in calls to
-        another microservice
-    -   [Zuul](https://github.com/Netflix/zuul) - routing and filtering requests to
-        a microservice
-    -   [Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth) - a
-        distributed tracing tool
-    -   [Swagger](https://swagger.io/) - a set of open-source tools built around the
-        OpenAPI Specification that can design, build, document and consume REST APIs
-    -   [Swagger UI](https://swagger.io/tools/swagger-ui/) - provides interaction
-        and visualization of API resources without writing custom logic.
+  - [OpenFeign](https://github.com/OpenFeign/feign) - Java to HTTP client binder
+  - Ribbon (via Kubernetes services) - client-side load balancing in calls to
+    another microservice
+  - [Zuul](https://github.com/Netflix/zuul) - routing and filtering requests to
+    a microservice
+  - [Sleuth](https://github.com/spring-cloud/spring-cloud-sleuth) - a
+    distributed tracing tool
+  - [Swagger](https://swagger.io/) - a set of open-source tools built around the
+    OpenAPI Specification that can design, build, document and consume REST APIs
+  - [Swagger UI](https://swagger.io/tools/swagger-ui/) - provides interaction
+    and visualization of API resources without writing custom logic.
 
 ![Microservices Landscape](images/spring-boot-micro-services-landscape.png)
 
@@ -143,11 +143,11 @@ Spring Cloud Kubernetes integrates with the Kubernetes API and allows service
 discovery, configuration, and load balancing. This Reference Architecture
 demonstrates the use of the following Spring Cloud Kubernetes features:
 
--   Discovering services across all namespaces using the Spring Cloud
-    DiscoveryClient
--   Using ConfigMap and Secrets as Spring Boot property sources with Spring Cloud
-    Kubernetes Config
--   Implementing health checks using Spring Cloud Kubernetes pod health indicator
+- Discovering services across all namespaces using the Spring Cloud
+  DiscoveryClient
+- Using ConfigMap and Secrets as Spring Boot property sources with Spring Cloud
+  Kubernetes Config
+- Implementing health checks using Spring Cloud Kubernetes pod health indicator
 
 ## Get source code
 
@@ -246,10 +246,10 @@ to be set to `true`
 kind: ConfigMap
 apiVersion: v1
 metadata:
-    name: department
+  name: department
 data:
-    spring.cloud.kubernetes.discovery.all-namespaces: 'true'
-    # other config removed for brevity.
+  spring.cloud.kubernetes.discovery.all-namespaces: "true"
+  # other config removed for brevity.
 ```
 
 Feign is a declarative web service client. In order to communicate with
@@ -297,12 +297,12 @@ list of resources and verbs.
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-    namespace: default
-    name: microservices-kubernetes-namespace-reader
+  namespace: default
+  name: microservices-kubernetes-namespace-reader
 rules:
-    - apiGroups: [''] # "" indicates the core API group
-      resources: ['configmaps', 'pods', 'services', 'endpoints', 'secrets']
-      verbs: ['get', 'list', 'watch']
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["configmaps", "pods", "services", "endpoints", "secrets"]
+    verbs: ["get", "list", "watch"]
 ```
 
 Then create it in the `default` namespace
@@ -335,14 +335,14 @@ kubectl create clusterrolebinding service-pod-reader-mongo --clusterrole=microse
 and make sure that deployment manifests for microservices reference service account
 `api-service-account`
 
--   `/spring-microservices-k8s/k8s/department-deployment.yaml`
--   `/spring-microservices-k8s/k8s/employee-deployment.yaml`
--   `/spring-microservices-k8s/k8s/organization-deployment.yaml`
+- `/spring-microservices-k8s/k8s/department-deployment.yaml`
+- `/spring-microservices-k8s/k8s/employee-deployment.yaml`
+- `/spring-microservices-k8s/k8s/organization-deployment.yaml`
 
-    ```yaml
-    # other config removed for brevity.
-    serviceAccountName: api-service-account
-    ```
+  ```yaml
+  # other config removed for brevity.
+  serviceAccountName: api-service-account
+  ```
 
 ## Kubernetes Service Naming
 
@@ -367,62 +367,62 @@ and read the Secret to get `database-user` and `database-password`
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: mongodb
-    labels:
-        app: mongodb
+  name: mongodb
+  labels:
+    app: mongodb
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: mongodb
-    template:
-        metadata:
-            labels:
-                app: mongodb
-        spec:
-            containers:
-                - name: mongodb
-                  image: mongo:4.2.3
-                  ports:
-                      - containerPort: 27017
-                  env:
-                      - name: MONGO_INITDB_DATABASE
-                        valueFrom:
-                            configMapKeyRef:
-                                name: mongodb
-                                key: database-name
-                      - name: MONGO_INITDB_ROOT_USERNAME
-                        valueFrom:
-                            secretKeyRef:
-                                name: mongodb
-                                key: database-user
-                      - name: MONGO_INITDB_ROOT_PASSWORD
-                        valueFrom:
-                            secretKeyRef:
-                                name: mongodb
-                                key: database-password
-                  resources:
-                      requests:
-                          cpu: '0.2'
-                          memory: 300Mi
-                      limits:
-                          cpu: '1.0'
-                          memory: 300Mi
-                  readinessProbe:
-                      tcpSocket:
-                          port: 27017
-                      initialDelaySeconds: 50
-                      timeoutSeconds: 2
-                      periodSeconds: 20
-                      failureThreshold: 5
-                  livenessProbe:
-                      tcpSocket:
-                          port: 27017
-                      initialDelaySeconds: 50
-                      timeoutSeconds: 2
-                      periodSeconds: 20
-                      failureThreshold: 5
-        serviceAccountName: api-service-account
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: mongo:4.2.3
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mongodb
+                  key: database-name
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: database-user
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: database-password
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: 300Mi
+            limits:
+              cpu: "1.0"
+              memory: 300Mi
+          readinessProbe:
+            tcpSocket:
+              port: 27017
+            initialDelaySeconds: 50
+            timeoutSeconds: 2
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            tcpSocket:
+              port: 27017
+            initialDelaySeconds: 50
+            timeoutSeconds: 2
+            periodSeconds: 20
+            failureThreshold: 5
+    serviceAccountName: api-service-account
 ```
 
 ### MongoDB ConfigMap
@@ -433,9 +433,9 @@ In a ConfigMap the name of the Mongo database is set under `database-name`.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: mongodb
+  name: mongodb
 data:
-    database-name: admin
+  database-name: admin
 ```
 
 ### MongoDB Secret
@@ -447,11 +447,11 @@ respectively. Since this is a Secret object, the values must be base64 encoded.
 apiVersion: v1
 kind: Secret
 metadata:
-    name: mongodb
+  name: mongodb
 type: Opaque
 data:
-    database-user: bW9uZ28tYWRtaW4=
-    database-password: bW9uZ28tYWRtaW4tcGFzc3dvcmQ=
+  database-user: bW9uZ28tYWRtaW4=
+  database-password: bW9uZ28tYWRtaW4tcGFzc3dvcmQ=
 ```
 
 ## Use Spring Cloud Kubernetes ConfigMap PropertySource
@@ -477,35 +477,35 @@ The default behavior is based on `metadata.name` inside ConfigMap or Secret,
 which has to be the same as an application name defined by `spring.application.name` property.
 For example, the `department-service` breaks down as follows.
 
--   `/spring-microservices-k8s/department-service/src/resources/bootstrap.yml`
+- `/spring-microservices-k8s/department-service/src/resources/bootstrap.yml`
 
-    ```yaml
-    spring:
-        application:
-            name: department
-    # other config removed for brevity.
-    ```
+  ```yaml
+  spring:
+    application:
+      name: department
+  # other config removed for brevity.
+  ```
 
--   `/spring-microservices-k8s/k8s/department-configmap.yaml`
+- `/spring-microservices-k8s/k8s/department-configmap.yaml`
 
-    ```yaml
-    kind: ConfigMap
-    apiVersion: v1
-    metadata:
-        name: department
-    data:
-        logging.pattern.console: '%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n'
-        spring.cloud.kubernetes.discovery.all-namespaces: 'true'
-        spring.data.mongodb.database: 'admin'
-        spring.data.mongodb.host: 'mongodb.mongo.svc.cluster.local'
-        spring.output.ansi.enabled: 'ALWAYS'
-    ```
+  ```yaml
+  kind: ConfigMap
+  apiVersion: v1
+  metadata:
+    name: department
+  data:
+    logging.pattern.console: "%clr(%d{yy-MM-dd E HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%8.15t]){cyan} %clr(%-40.40logger{0}){blue} %clr(:){red} %clr(%m){faint}%n"
+    spring.cloud.kubernetes.discovery.all-namespaces: "true"
+    spring.data.mongodb.database: "admin"
+    spring.data.mongodb.host: "mongodb.mongo.svc.cluster.local"
+    spring.output.ansi.enabled: "ALWAYS"
+  ```
 
-    -   `data.logging.pattern.console`: define log pattern
-    -   `data.spring.cloud.kubernetes.discovery.all-namespaces` : allow multi-namespace discovery
-    -   `spring.data.mongodb.database`: Mongo DB name
-    -   `spring.data.mongodb.host`: Mongo DB location
-    -   `spring.output.ansi.enabled`: Enforce ANSI output
+  - `data.logging.pattern.console`: define log pattern
+  - `data.spring.cloud.kubernetes.discovery.all-namespaces` : allow multi-namespace discovery
+  - `spring.data.mongodb.database`: Mongo DB name
+  - `spring.data.mongodb.host`: Mongo DB location
+  - `spring.output.ansi.enabled`: Enforce ANSI output
 
 ## Use Secret through mounted volume
 
@@ -524,23 +524,23 @@ NOTE: secrets are not secure, they are merely an obfuscation
 {{% /aside %}}
 
 In this example, a secret named `department` is mounted to the file
-`/etc/secretspot` via volume `mongodb` for the following microservices:
-`department-service`, `employee-service`, `organization-service`.
+  `/etc/secretspot` via volume `mongodb` for the following microservices:
+  `department-service`, `employee-service`, `organization-service`.
 
 `/spring-microservices-k8s/department-service/src/main/resources/bootstrap.yaml`
 
 ```yaml
 spring:
 application:
-    name: department
+  name: department
 cloud:
-    kubernetes:
-        secrets:
-            enabled: true
-            paths:
-                - /etc/secretspot
-            enableApi: false
-            # other config removed for brevity.
+  kubernetes:
+    secrets:
+      enabled: true
+      paths:
+        - /etc/secretspot
+      enableApi: false
+      # other config removed for brevity.
 ```
 
 `/spring-microservices-k8s/k8s/department-deployment.yaml`
@@ -549,42 +549,42 @@ cloud:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: department
-    labels:
-        app: department
+  name: department
+  labels:
+    app: department
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: department
-    template:
-        metadata:
-            labels:
-                app: department
-        spec:
-            containers:
-                volumeMounts:
-                    - name: mongodb
-                      mountPath: /etc/secretspot
-            volumes:
-                - name: mongodb
-                  secret:
-                      secretName: department
-            # other config removed for brevity.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: department
+  template:
+    metadata:
+      labels:
+        app: department
+    spec:
+      containers:
+        volumeMounts:
+          - name: mongodb
+            mountPath: /etc/secretspot
+      volumes:
+        - name: mongodb
+          secret:
+            secretName: department
+      # other config removed for brevity.
 ```
 
 Mongo credentials are defined inside Secret object `/spring-microservices-k8s/k8s/department-secret.yaml`
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
+  ```yaml
+  apiVersion: v1
+  kind: Secret
+  metadata:
     name: department
-type: Opaque
-data:
+  type: Opaque
+  data:
     spring.data.mongodb.username: bW9uZ28tYWRtaW4=
     spring.data.mongodb.password: bW9uZ28tYWRtaW4tcGFzc3dvcmQ=
-```
+  ```
 
 ## Use Spring Boot Actuator to export metrics for Prometheus
 
@@ -621,9 +621,9 @@ kind: ConfigMap
 apiVersion: v1
 # removed for brevity
 data:
-    # removed for brevity
-    management.endpoints.web.exposure.include: 'health,info,metrics,prometheus'
-    management.metrics.enable.all: 'true'
+  # removed for brevity
+  management.endpoints.web.exposure.include: "health,info,metrics,prometheus"
+  management.metrics.enable.all: "true"
 ```
 
 and add `MeterRegistryCustomizer` for Grafana [Spring Boot 2.1
@@ -694,10 +694,10 @@ The commands above will produce the following output and create the
 following directories.
 they should be added:
 
--   dependencies
--   snapshot-dependencies
--   spring-boot-loader
--   application
+- dependencies
+- snapshot-dependencies
+- spring-boot-loader
+- application
 
 ![Layered JAR List](images/spring-boot-micro-services-layered-jar-list.png)
 
@@ -706,13 +706,13 @@ they should be added:
 To create images compliant with best practices, `Dockerfile`s must
 consider the following.
 
--   Removing build dependencies from runtime
-    -   via multi-stage builds
--   Putting dependencies (JARs) in their own layer
--   Layering the application JAR
-    -   Ensuring image pushes only contain changed files
--   Running as non-root and using a minimal runtime image
-    -   via use of the distroless image
+- Removing build dependencies from runtime
+  - via multi-stage builds
+- Putting dependencies (JARs) in their own layer
+- Layering the application JAR
+  - Ensuring image pushes only contain changed files
+- Running as non-root and using a minimal runtime image
+  - via use of the distroless image
 
 ```Dockerfile
 ARG MVN_VERSION=3.6.3
@@ -814,48 +814,48 @@ Docker images in previous steps.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: department
-    labels:
-        app: department
+  name: department
+  labels:
+    app: department
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: department
-    template:
-        metadata:
-            labels:
-                app: department
-        spec:
-            containers:
-                - name: department
-                  image: vmware/department:1.1
-                  ports:
-                      - containerPort: 8080
-                  resources:
-                      requests:
-                          cpu: '0.2'
-                          memory: 300Mi
-                      limits:
-                          cpu: '1.0'
-                          memory: 300Mi
-                  readinessProbe:
-                      httpGet:
-                          port: 8080
-                          path: /actuator/health
-                      initialDelaySeconds: 60
-                      timeoutSeconds: 2
-                      periodSeconds: 20
-                      failureThreshold: 5
-                  livenessProbe:
-                      httpGet:
-                          port: 8080
-                          path: /actuator/info
-                      initialDelaySeconds: 60
-                      timeoutSeconds: 2
-                      periodSeconds: 20
-                      failureThreshold: 5
-            serviceAccountName: api-service-account
+  replicas: 1
+  selector:
+    matchLabels:
+      app: department
+  template:
+    metadata:
+      labels:
+        app: department
+    spec:
+      containers:
+        - name: department
+          image: vmware/department:1.1
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "0.2"
+              memory: 300Mi
+            limits:
+              cpu: "1.0"
+              memory: 300Mi
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health
+            initialDelaySeconds: 60
+            timeoutSeconds: 2
+            periodSeconds: 20
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/info
+            initialDelaySeconds: 60
+            timeoutSeconds: 2
+            periodSeconds: 20
+            failureThreshold: 5
+      serviceAccountName: api-service-account
 ```
 
 Workloads should always explicitly specify
@@ -867,29 +867,29 @@ compressible resource like CPU.
 
 Application probes recommendations:
 
--   `readinessProbe`: Always; makes app available to traffic after checks pass.
--   `livenessProbe`: Usually; should only check for conditions where restarting
-    the application is an appropriate solution. Be sure to not link this check
-    to external dependencies, such as database connectivity, or it may
-    introduce cascading failures. A good check can be hitting an endpoint,
-    allocating some memory (e.g. byte array) and returning `200`.
--   `startupProbe`: Rarely; Readiness and liveness probes (with a delay) can typically solve
-    the use case startupProbes attempt to solve for. If a specific check is appropriate
-    for an application that has a slow startup **and** the check should never be run again,
-    a `startupProbe` may be justified.
+- `readinessProbe`: Always; makes app available to traffic after checks pass.
+- `livenessProbe`: Usually; should only check for conditions where restarting
+  the application is an appropriate solution. Be sure to not link this check
+  to external dependencies, such as database connectivity, or it may
+  introduce cascading failures. A good check can be hitting an endpoint,
+  allocating some memory (e.g. byte array) and returning `200`.
+- `startupProbe`: Rarely; Readiness and liveness probes (with a delay) can typically solve
+  the use case startupProbes attempt to solve for. If a specific check is appropriate
+  for an application that has a slow startup **and** the check should never be run again,
+  a `startupProbe` may be justified.
 
 Kubernetes leverages probes to determine if the app is ready to accept
 traffic and whether the app is alive
 
--   If `readinessProbe` does not return code 200 - no traffic will be routed to it
--   If `livenessProbe` does not return code 200 - Kubernetes restarts the Pod
+- If `readinessProbe` does not return code 200 - no traffic will be routed to it
+- If `livenessProbe` does not return code 200 - Kubernetes restarts the Pod
 
 Spring Boot has a built-in set of endpoints from the
 [Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
 module:
 
--   /actuator/health : provides basic application health information
--   /actuator/info: provides arbitrary application info
+- /actuator/health : provides basic application health information
+- /actuator/info: provides arbitrary application info
 
 To add the Actuator to a Maven based project, add the following 'Starter'
 dependency.
@@ -928,16 +928,16 @@ We use port 8080 and NodePort type to expose all microservices. The following se
 apiVersion: v1
 kind: Service
 metadata:
-    name: department
-    labels:
-        app: department
+  name: department
+  labels:
+    app: department
 spec:
-    ports:
-        - port: 8080
-          protocol: TCP
-    selector:
-        app: department
-    type: NodePort
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    app: department
+  type: NodePort
 ```
 
 ## Configure Gateway service
@@ -983,13 +983,13 @@ Discovery.
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: gateway
+  name: gateway
 data:
-    logging.pattern.console: '%d{HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n'
-    spring.cloud.kubernetes.discovery.all-namespaces: 'true'
-    zuul.routes.department.path: '/department/**'
-    zuul.routes.employee.path: '/employee/**'
-    zuul.routes.organization.path: '/organization/**'
+  logging.pattern.console: "%d{HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  spring.cloud.kubernetes.discovery.all-namespaces: "true"
+  zuul.routes.department.path: "/department/**"
+  zuul.routes.employee.path: "/employee/**"
+  zuul.routes.organization.path: "/organization/**"
 ```
 
 Since Zuul proxy is automatically integrated with DiscoveryClient it is easy to
@@ -1097,29 +1097,29 @@ microservices architecture, Ingress has a role of an API gateway.
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-    name: gateway-ingress
-    annotations:
-        nginx.ingress.kubernetes.io/rewrite-target: /
+  name: gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-    backend:
-        serviceName: default-http-backend
-        servicePort: 80
-    rules:
-        - host: microservices-cluster.info
-          http:
-              paths:
-                  - path: /employee
-                    backend:
-                        serviceName: employee
-                        servicePort: 8080
-                  - path: /department
-                    backend:
-                        serviceName: department
-                        servicePort: 8080
-                  - path: /organization
-                    backend:
-                        serviceName: organization
-                        servicePort: 8080
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+    - host: microservices-cluster.info
+      http:
+        paths:
+          - path: /employee
+            backend:
+              serviceName: employee
+              servicePort: 8080
+          - path: /department
+            backend:
+              serviceName: department
+              servicePort: 8080
+          - path: /organization
+            backend:
+              serviceName: organization
+              servicePort: 8080
 ```
 
 Execute the following commands to apply the configuration above to the Kubernetes

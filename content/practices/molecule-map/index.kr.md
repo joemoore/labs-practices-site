@@ -2,26 +2,26 @@
 date: '2021-02-09'
 description: 사용자가 누구이며 어떤 문제가 있는지 파악한 후 가능한 여러 솔루션을 신속하게 만듭니다.
 resources:
-    - name: cover
-      src: images/cover.png
+- name: cover
+  src: images/cover.png
 lastmod: '2021-03-24'
 length: 45~60분
 miro_template_url: https://miro.com/miroverse/molecule-map/
 participants: 핵심 팀, 이해관계자
 remote: true
 tags:
-    - 킥오프
-    - 인셉션
-    - 원격
+- 킥오프
+- 인셉션
+- 원격
 title: 분자 맵
 what:
-    - 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
-    - 네임펜
-    - 8.5"" x 11” 이상 A4 종이
+- 화이트보드 또는 [Miro](https://miro.com/)와 같은 디지털 버전
+- 네임펜
+- 8.5"" x 11” 이상 A4 종이
 when:
-    - 프로젝트 초기, 즉 일반적으로 킥오프 및 인셉션 시에 수행합니다.
+- 프로젝트 초기, 즉 일반적으로 킥오프 및 인셉션 시에 수행합니다.
 why:
-    - 분자 맵을 통해 팀원은 사용자의 요구 사항에 대해 가능한 솔루션이 여러 가지가 있다는 점과 해당 사용자 및 요구 사항의 관계와 함께 솔루션을 잘 이해할 수 있습니다.
+- 분자 맵을 통해 팀원은 사용자의 요구 사항에 대해 가능한 솔루션이 여러 가지가 있다는 점과 해당 사용자 및 요구 사항의 관계와 함께 솔루션을 잘 이해할 수 있습니다.
 ---
 
 <h2 id="how-to-use-this-method">이 방식을 활용하는

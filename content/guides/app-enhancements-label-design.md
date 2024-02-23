@@ -3,13 +3,13 @@ date: '2021-02-16'
 lastmod: '2021-02-24'
 parent: Application Enhancements
 tags:
-    - Kubernetes
+- Kubernetes
 team:
-    - John Harris
+- John Harris
 title: Label Best Practices
-oldPath: '/content/guides/kubernetes/app-enhancements-label-design.md'
+oldPath: "/content/guides/kubernetes/app-enhancements-label-design.md"
 aliases:
-    - '/guides/kubernetes/app-enhancements-label-design'
+- "/guides/kubernetes/app-enhancements-label-design"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -35,13 +35,14 @@ Here's an example of some labels attached to a pod manifest:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: my_app
-    namespace: my_app
-    labels:
-        app: my_app
-        version: 1.0.0
-        component: frontend
-spec: ...
+  name: my_app
+  namespace: my_app
+  labels:
+    app: my_app
+    version: 1.0.0
+    component: frontend
+spec:
+  ...
 ```
 
 ### Labels with Selectors
@@ -64,22 +65,22 @@ labels.
 apiVersion: v1
 kind: Service
 metadata:
-    name: myapp_db_svc
-    namespace: my_app
-    labels:
-        app: my_app_db
-        version: 1.0.0
-        component: backend
+  name: myapp_db_svc
+  namespace: my_app
+  labels:
+    app: my_app_db
+    version: 1.0.0
+    component: backend
 spec:
-    selector:
-        app: my_app_db
-        version: 1.0.0
-        component: backend
-    type: ClusterIP
-    ports:
-        - protocol: TCP
-          port: 3306
-          targetPort: 3306
+  selector:
+    app: my_app_db
+    version: 1.0.0
+    component: backend
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
 ```
 
 ### Identifying Application Components with Labels
@@ -91,11 +92,10 @@ perform these queries: `=`, `==`, and `!=`.
 {{< table "table" >}}
 | Operator | Description |
 | -------- | ----------- |
-| = | equal to or is |
-| == | equal to or is |
-| != | not equal to or is not |
+| =        | equal to or is |
+| ==       | equal to or is |
+| !=       | not equal to or is not |
 {{< table />}}
-
 #### Label Query Examples
 
 Find all components in Kubernetes that are related to running MySQL
@@ -107,14 +107,14 @@ kubectl get all -l name==mysql,environment!=production -A
 
 In the command above:
 
--   `get`: lists the API objects
--   `all`: is equivalent to all component/API object types
--   `-l`: label(s) to query/filter on
--   `name==mysql`: label with key `name` is/equals `mysql`
--   `,`: comma separator for multiple label queries
--   `environment!=production`: label with key `environment` is not/not equal to
-    `production`
--   `-A`: from all namespaces in Kubernetes.
+- `get`: lists the API objects
+- `all`: is equivalent to all component/API object types
+- `-l`: label(s) to query/filter on
+- `name==mysql`: label with key `name` is/equals `mysql`
+- `,`: comma separator for multiple label queries
+- `environment!=production`: label with key `environment` is not/not equal to
+  `production`
+- `-A`: from all namespaces in Kubernetes.
 
 ### Considerations when Creating Labeling Standards
 

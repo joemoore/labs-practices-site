@@ -14,11 +14,11 @@ team:
 
 Intro text...
 
-## Why Is It Important?
+## Why Is It Important? 
 
 ...
 
-## How Does It Work?
+## How Does It Work? 
 
 ...
 

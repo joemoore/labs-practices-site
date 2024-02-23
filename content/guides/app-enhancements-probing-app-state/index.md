@@ -3,13 +3,13 @@ date: '2021-02-16'
 lastmod: '2021-02-24'
 parent: Application Enhancements
 tags:
-    - Kubernetes
+- Kubernetes
 team:
-    - John Harris
+- John Harris
 title: Probing Application State
-oldPath: '/content/guides/kubernetes/app-enhancements-probing-app-state.md'
+oldPath: "/content/guides/kubernetes/app-enhancements-probing-app-state.md"
 aliases:
-    - '/guides/kubernetes/app-enhancements-probing-app-state'
+- "/guides/kubernetes/app-enhancements-probing-app-state"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -83,12 +83,12 @@ configuration is as follows.
 
 ```yaml
 readinessProbe:
-    httpGet:
-        path: /ready
-        port: 8080
-    initialDelaySeconds: 5
-    periodSeconds: 10
-    failureThreshold: 2
+  httpGet:
+    path: /ready
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  failureThreshold: 2
 ```
 
 The following diagram demonstrates the impact of this `readinessProbe`.
@@ -107,12 +107,12 @@ halting traffic. An example configuration is as follows.
 
 ```yaml
 livenessProbe:
-    httpGet:
-        path: /healthz
-        port: 8080
-    initialDelaySeconds: 60
-    periodSeconds: 10
-    failureThreshold: 10
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 10
+  failureThreshold: 10
 ```
 
 The following diagram demonstrates the impact of this `livenessProbe`.
@@ -124,6 +124,7 @@ The following diagram demonstrates the impact of this `livenessProbe`.
 {{% callout %}}
 **Note**: Startup Probes are not enabled by default until Kubernetes 1.18. Until then, they need to be enabled via `--feature-gates` on the `kube-apiserver` and the `kubelet` in each node.
 {{% /callout %}}
+
 
 Sometimes a `livenessProbe` might be ideal as an ongoing check,
 but not necessarily for initialization time.
@@ -145,18 +146,18 @@ Our previous example could be modified to look as follows.
 
 ```yaml
 livenessProbe:
-    httpGet:
-        path: /healthz
-        port: 8080
-    periodSeconds: 10
-    failureThreshold: 10
+  httpGet:
+    path: /healthz
+    port: 8080
+  periodSeconds: 10
+  failureThreshold: 10
 
 startupProbe:
-    httpGet:
-        path: /cache/healthz
-        port: 8080
-    periodSeconds: 10
-    failureThreshold: 30
+  httpGet:
+    path: /cache/healthz
+    port: 8080
+  periodSeconds: 10
+  failureThreshold: 30
 ```
 
 Note that `initialDelaySeconds` can be removed from the

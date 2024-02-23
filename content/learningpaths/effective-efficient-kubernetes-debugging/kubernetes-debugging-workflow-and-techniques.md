@@ -2,36 +2,35 @@
 date: '2022-02-23'
 layout: single
 team:
-    - David Wu
-    - Carlos Nunez
+- David Wu
+- Carlos Nunez
 title: Kubernetes debugging workflow and techniques
 weight: 10
 tags:
-    - Debugging
-    - Kubernetes
+- Debugging
+- Kubernetes
 ---
 
 A fundamental skill needed by all practitioners deploying to Kubernetes is
-debugging issues as they arise on the Kubernetes Platform. Issues can range
+debugging issues as they arise on the Kubernetes Platform.  Issues can range
 from application deployment issues, to Kubernetes system issues, or to network issues.
 The problem is, what is a good starting point for debugging?
 
 ## What You Will Learn
 
 In this section, you will learn:
-
--   The general workflow and Kubernetes commands to debug an issue.
--   How to access containers.
--   How to access the Kubernetes nodes.
+- The general workflow and Kubernetes commands to debug an issue.
+- How to access containers.
+- How to access the Kubernetes nodes.
 
 ## Tools
 
 To help solidify your learning, it is recommended that you learn
-these commands, because they work on vanilla and a majority of Kubernetes releases.
+these commands, because they work on vanilla and a majority of Kubernetes releases. 
 
 Note: A discussion about ephemeral debug containers is further in this section. It is
 recommended that you use Kubernetes version 1.23 for the beta release of this feature,
-enabled by default. If your Kubernetes versions is less than 1.23, you must manually
+enabled by default. If your Kubernetes versions is less than 1.23, you must manually 
 enable this feature.
 
 ## The General Kubernetes Debugging Workflow and Techniques
@@ -41,72 +40,69 @@ then get the pod logs. If these steps do not provide sufficient information,
 further steps are needed. For example, checking the application
 configuration and network connectivity within a container.
 
-1.  Always run:
+1. Always run:
 
     ```sh
     kubectl get events -n <namespace> --sort-by .lastTimestamp [-w]
     ```
+    
+    This provides a list of events that occur in a namespace. The most 
+  recent event is at the bottom of the list. Adding the optional `-w` flag 
+  will allow the output to be watched. 
 
-    This provides a list of events that occur in a namespace. The most
-    recent event is at the bottom of the list. Adding the optional `-w` flag
-    will allow the output to be watched.
-
-2.  Run:
+2. Run:
 
     ```sh
     kubectl describe pod/<pod-name> -n <namespace>
     ```
 
-    to get more details of a pod.
+    to get more details of a pod. 
 
-3.  Run:
+3. Run:
 
-        ```sh
-        kubectl logs <pod-name> -n <namespace> [name-of-container, if multiple] [-f]
-        ```
+    ```sh
+    kubectl logs <pod-name> -n <namespace> [name-of-container, if multiple] [-f]
+    ```
 
-        This gets logs from a pod. Adding the optional `-f` flag enables
+    This gets logs from a pod. Adding the optional `-f` flag enables
+tailing of the logs. Note that logs only work with the pod API, but you
+can still selects a pod to get logs from a deployment/daemonset perspective. For example, 
 
-    tailing of the logs. Note that logs only work with the pod API, but you
-    can still selects a pod to get logs from a deployment/daemonset perspective. For example,
+    ```sh
+    kubectl logs ds/<daemonset-name> -n <namespace> [name-of-container, if multiple] [-f]
+    ```
 
-        ```sh
-        kubectl logs ds/<daemonset-name> -n <namespace> [name-of-container, if multiple] [-f]
-        ```
+    A useful command line tool is [stern](https://github.com/wercker/stern) because
+it allows tailing of logs from multiple pods and containers. Stern can also
+apply regular expressions to filter specific logs. [Kail](https://github.com/boz/kail) 
+is another similar log helper tool. For most debugging purposes, try to limit the logging scope to avoid
+cognitive overload that may distract you from finding the real problem.  
 
-        A useful command line tool is [stern](https://github.com/wercker/stern) because
+    If you cannot access the cluster, check the log aggregation
+platform, if the cluster is connected to one. For example, Splunk or ELK if they 
+are setup. From the log platforms, try searching by the node name/IP and/or 
+components such as `kubelet` and `kube-proxy`.  If the cluster is not accessible 
+because `kubectl` commands do not work, you must access the cluster nodes to 
+find more details. See ["Accessing nodes"](#accessing-nodes) for more information.
 
-    it allows tailing of logs from multiple pods and containers. Stern can also
-    apply regular expressions to filter specific logs. [Kail](https://github.com/boz/kail)
-    is another similar log helper tool. For most debugging purposes, try to limit the logging scope to avoid
-    cognitive overload that may distract you from finding the real problem.
+4. If the cluster is still accessible and existing logs pinpoints to another
+system issue, it is possible to access the pod container to perform tests such
+as validating the state of a running process, it's configuration, or to check a
+container's network connectivity. See ["Accessing containers"](#accessing-containers) 
+for more information.
 
-        If you cannot access the cluster, check the log aggregation
-
-    platform, if the cluster is connected to one. For example, Splunk or ELK if they
-    are setup. From the log platforms, try searching by the node name/IP and/or
-    components such as `kubelet` and `kube-proxy`. If the cluster is not accessible
-    because `kubectl` commands do not work, you must access the cluster nodes to
-    find more details. See ["Accessing nodes"](#accessing-nodes) for more information.
-
-4.  If the cluster is still accessible and existing logs pinpoints to another
-    system issue, it is possible to access the pod container to perform tests such
-    as validating the state of a running process, it's configuration, or to check a
-    container's network connectivity. See ["Accessing containers"](#accessing-containers)
-    for more information.
-
-The above is a good general workflow to start debugging. The documentation
-on [Kubernetes Monitoring, Logging and Debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/)
-provides a good outline of other debugging approaches and techniques that could be
-utilized.
+  The above is a good general workflow to start debugging. The documentation 
+  on [Kubernetes Monitoring, Logging and Debugging](https://kubernetes.io/docs/tasks/debug-application-cluster/) 
+  provides a good outline of other debugging approaches and techniques that could be
+utilized. 
 
 ## Accessing Containers
 
 The goal here is to access the container that an application is running on and
 view log files and/or perform further debugging commands, such as validating
-running configuration.
+running configuration.  
 
-The following are some techniques to get on containers.
+The following are some techniques to get on containers.  
 
 ### Use `kubectl exec`
 
@@ -119,7 +115,7 @@ kubectl exec -it -n <namespace> <pod-name> [-c <container-name>] "--" sh -c "cle
 ```
 
 Note: The above exec command is from [Lens](https://k8slens.dev/). Using
-tools like [Lens](https://k8slens.dev/), can make this a lot easier via a GUI.
+tools like [Lens](https://k8slens.dev/), can make this a lot easier via a GUI. 
 
 Sometimes there is no accessible shell. One other method is to
 start a pod with a container having all the network debugging tools. The
@@ -142,8 +138,8 @@ the next learning path on Heuristic Approach.
 As discussed in the previous section, using `kubectl exec` may be insufficient
 due to the target container having no shell, or if the container has already
 crashed and is inaccessible. To overcome this, use a different image
-deployed via `kubectl run`. This should be a different pod that is not sharing
-the process namespace of the pod of interest for debugging. This means you
+deployed via `kubectl run`. This should be a different pod that is not sharing 
+the process namespace of the pod of interest for debugging. This means you 
 cannot access the process details or its filesystem in a different pod. To alleviate
 this limitation, use debug ephemeral containers.
 
@@ -152,18 +148,18 @@ Introduced as an alpha in Kubernetes 1.16 and currently as a [beta in Kubernetes
 ephemeral containers are helpful for troubleshooting issues. By default, the
 `EphemeralContainer` feature-gate [is
 enabled](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/)
-as a beta in Kubernetes 1.23. Otherwise, you must enable the feature-gate first before it can be used.
+as a beta in Kubernetes 1.23. Otherwise, you must enable the feature-gate first before it can be used. 
 The documentation for [debug containers](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/#ephemeral-container)
-show usage examples demonstrating how to use `debug containers`. It is included
+show usage examples demonstrating how to use `debug containers`.  It is included 
 as follows, along with content aligning to this article.
 
 Ephemeral containers are similar to regular containers. The difference is that they are
-limited in functionality. For example, ephemeral containers have no restart capability,
+limited in functionality. For example, ephemeral containers have no restart capability, 
 no ports, no scheduling guarantees, and no startup/liveness probes. To view a list of
-limitations, see [What is an Ephemeral Container?](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/#what-is-an-ephemeral-container).
+limitations, see [What is an Ephemeral Container?](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/#what-is-an-ephemeral-container). 
 
 Compared to what was previously done with `netshoot` and `kubectl exec`, the key
-feature here is that an ephemeral container can be attached to a pod that you
+feature here is that an ephemeral container can be attached to a pod that you 
 want to debug. For example, the target pod, by [sharing it's process
 namespace](https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/).
 This means that it is possible to see a target pod container's processes
@@ -176,7 +172,7 @@ after exit and needs to be manually deleted. For example, `kubectl delete pod
 #### The Target Container is Running, But Does Not Have a Shell
 
 A no shell container means that it is not possible to add `kubectl exec` into a
-container using a shell command, such as `sh` and `bash`. For this scenario,
+container using a shell command, such as `sh` and `bash`.  For this scenario,
 the follow command can be run:
 
 ```sh
@@ -187,12 +183,12 @@ This utilizes the `netshoot` image, with all the network debugging utilities
 as a separate ephemeral container running in the existing pod named
 `<name-of-existing-pod>`. It also opens an interactive command prompt using
 `-it`. `--target` lets you target the existing process namespace of the
-other existing running container. This is usually the same name as the pod.
+other existing running container. This is usually the same name as the pod. 
 
 #### The Target Container Has Crashed or Completed and/or Does Not Have a Shell
 
-This scenario introduces the problem where a container has crashed or completed
-and it is not possible to `kubectl exec` into a container because the container
+This scenario introduces the problem where a container has crashed or completed 
+and it is not possible to `kubectl exec` into a container because the container 
 no longer exists. You can address this by making a
 copy of the target pod attached with an ephemeral container to inspect its
 process and filesystem. Use the following command.
@@ -207,13 +203,13 @@ namespace in a new pod, named `<new-name-of-existing-pod>` as a copy of
 
 #### The Target Container Has Crashed or Completed, and the Container Start Command Needs to be Changed
 
-This scenario is different from the previous one, in that the startup command
+This scenario is different from the previous one, in that the startup command 
 needs to be changed to ensure that a container remains running or additional information is
 extracted. This is achieved through a copied target pod without affecting the original
 target pod. One situation where this is particularly useful is when a target container
 has crashed or ends immediately on startup and the goal is to interactively
 tryout the process or review its filesystem. To do this, the startup
-command requires a change that does not end the container, or a command
+command requires a change that does not end the container, or a command 
 that helps to provide more information. For example, changing the debug verbosity
 parameter to an application, issuing a long sleep command, or run as a shell.
 You can achieve this with the following command:
@@ -247,7 +243,7 @@ existing container images, specified by `*`, with the new image
 The goal of accessing the nodes is to ascertain why a pod running on the node is
 failing, or why a particular node is failing. Two areas that you can check are the
 log files of the pods, and the process status of Kubernetes static pods and
-services. You can also perform debugging commands, such as `netcat`,
+services. You can also perform debugging commands, such as `netcat`, 
 and `curl` to debug network connectivity issues if these tools exists within
 the host.
 
@@ -260,12 +256,12 @@ container logs in `/var/logs/pods`.
 
 Key Kubernetes components, such as Kubelet and containerd (for containerd
 container runtime), use `systemd` in most distributions to initialize Kubernetes
-components. To retrieve logs so that you can inspect the journals of these components,
+components. To retrieve logs so that you can inspect the journals of these components, 
 run the following command:
 
-```sh
-journalctl -u <name-of-component>
-```
+   ```sh
+   journalctl -u <name-of-component>
+   ```
 
 Usually, `<name-of-component>` is just `kubelet`. If that doesn't work, you can
 find the `systemd` unit for kubelet by `grep`ing for `kubelet` inside of
@@ -274,9 +270,9 @@ find the `systemd` unit for kubelet by `grep`ing for `kubelet` inside of
 If the Kubernetes components were not started by `systemd`, use `lsof` against
 the `kubelet` process to see where the logs are getting written to:
 
-```sh
-pgrep -i kubelet | xargs lsof
-```
+   ```sh
+   pgrep -i kubelet | xargs lsof
+   ```
 
 In some Kubernetes distributions, the Kubernetes components run as Docker
 containers. If they are not running in `systemd`, use `docker ps` or `crictl ps`
@@ -287,12 +283,12 @@ their logs to `syslog`, which is usually written to `/var/log/messages`.
 
 ### Different Ways to Get on a Node
 
-For readers unfamiliar with how to access nodes, this section describes three methods
+For readers unfamiliar with how to access nodes, this section describes three methods 
 of how to get on a node.
 
 1. Use SSH.
 
-    SSH access is performed via SSH keys. To access the nodes via SSH keys,
+    SSH access is performed via SSH keys. To access the nodes via SSH keys, 
     run the following command:
 
     ```sh
@@ -305,7 +301,7 @@ of how to get on a node.
     ssh <username>@<ip/fqdn of node>
     ```
 
-    and enter the password thereafter, when prompted.
+    and enter the password thereafter, when prompted. 
 
 2. Accessing the nodes via `kubectl exec`.
 

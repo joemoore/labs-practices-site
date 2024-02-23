@@ -4,16 +4,16 @@ weight: -2
 layout: intro
 duration: 120
 tags:
-    - All Roles
-    - Applications
+- All Roles
+- Applications
 experience: Beginner
 description: Learn how we approach developer productivity practices at Tanzu
-    Labs.
+  Labs.
 team:
-    - Pivotal/Tanzu Labs
-oldPath: '/content/outcomes/application-development-rhythm/_index.md'
+- Pivotal/Tanzu Labs
+oldPath: "/content/outcomes/application-development-rhythm/_index.md"
 aliases:
-    - '/outcomes/application-development-rhythm/'
+- "/outcomes/application-development-rhythm/"
 ---
 
 ## Why is this important?

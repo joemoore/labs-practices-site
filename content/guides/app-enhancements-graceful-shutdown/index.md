@@ -3,13 +3,13 @@ date: '2021-02-16'
 lastmod: '2021-02-26'
 parent: Application Enhancements
 tags:
-    - Kubernetes
+- Kubernetes
 team:
-    - John Harris
+- John Harris
 title: Graceful Shutdown
-oldPath: '/content/guides/kubernetes/app-enhancements-graceful-shutdown.md'
+oldPath: "/content/guides/kubernetes/app-enhancements-graceful-shutdown.md"
 aliases:
-    - '/guides/kubernetes/app-enhancements-graceful-shutdown'
+- "/guides/kubernetes/app-enhancements-graceful-shutdown"
 level1: Managing and Operating Kubernetes
 level2: Preparing and Deploying Kubernetes Workloads
 ---
@@ -122,14 +122,14 @@ The following YAML snippet shows how to set the grace period to 60 seconds.
 apiVersion: v1
 kind: Pod
 metadata:
-    labels:
-        run: nginx
-    name: nginx
+  labels:
+    run: nginx
+  name: nginx
 spec:
-    terminationGracePeriodSeconds: 60
-    containers:
-        - image: nginx
-          name: nginx
+  terminationGracePeriodSeconds: 60
+  containers:
+  - image: nginx
+    name: nginx
 ```
 
 ### Implement a Pre-stop Hook
@@ -146,15 +146,15 @@ script called `pre-stop.sh`.
 apiVersion: v1
 kind: Pod
 metadata:
-    labels:
-        run: nginx
-    name: nginx
+  labels:
+    run: nginx
+  name: nginx
 spec:
-    containers:
-        - image: nginx
-          name: nginx
-          lifecycle:
-              preStop:
-                  exec:
-                      command: ['/pre-stop.sh']
+  containers:
+  - image: nginx
+    name: nginx
+    lifecycle:
+      preStop:
+        exec:
+          command: ["/pre-stop.sh"]
 ```

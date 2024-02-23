@@ -3,17 +3,17 @@ date: '2021-02-26'
 lastmod: '2021-02-26'
 linkTitle: Manage and Secure Container Images in a Registry
 patterns:
-    - Deployment
+- Deployment
 tags:
-    - Harbor
-    - Containers
-    - Kubernetes
-    - Microservices
+- Harbor
+- Containers
+- Kubernetes
+- Microservices
 title: Managing and Securing Container Images in a Registry
 weight:
-oldPath: '/content/guides/containers/managing-container-images-registry.md'
+oldPath: "/content/guides/containers/managing-container-images-registry.md"
 aliases:
-    - '/guides/containers/managing-container-images-registry'
+- "/guides/containers/managing-container-images-registry"
 level1: Deploying Modern Applications
 level2: Packaging and Publishing
 ---
@@ -24,22 +24,22 @@ Container images present some security challenges. Images are usually built by l
 
 Container image registries with the following functionality can reduce these risks:
 
--   Scan images for vulnerabilities found in the Common Vulnerabilities and Exploits (CVE) database.
--   Sign images as known and trusted by using a notary.
--   Set up secure, encrypted channels for connecting to the registry.
--   Authenticate users and control access by using existing enterprise accounts managed in a standard directory service, such as Active Directory.
--   Tightly control access to the registry using the principles of least privilege and separation of duties.
--   Enact policies that let users consume only those images that meet your organization's thresholds for vulnerabilities.
+* Scan images for vulnerabilities found in the Common Vulnerabilities and Exploits (CVE) database.
+* Sign images as known and trusted by using a notary.
+* Set up secure, encrypted channels for connecting to the registry.
+* Authenticate users and control access by using existing enterprise accounts managed in a standard directory service, such as Active Directory.
+* Tightly control access to the registry using the principles of least privilege and separation of duties.
+* Enact policies that let users consume only those images that meet your organization's thresholds for vulnerabilities.
 
 ## Harbor: A Secure Image Registry
 
 [Harbor](https://goharbor.io/) is an open source registry that secures artifacts with policies and role-based access control, ensures images are scanned and free from vulnerabilities, and signs images as trusted. A CNCF Graduated project, Harbor delivers compliance, performance and interoperability to help you consistently and securely manage artifacts across cloud native compute platforms like Kubernetes and Docker. Harbor provides all the functionality mentioned above, including:
 
--   Scans images for CVEs in conjunction with a number of scan providers including CentOS/Clair, Aqua/Trivy, Anchore/Engine, and DoSec to detect container images with vulnerabilities.
+* Scans images for CVEs in conjunction with a number of scan providers including CentOS/Clair, Aqua/Trivy, Anchore/Engine, and DoSec to detect container images with vulnerabilities. 
 
--   Integrates with Active Directory/LDAP and OIDC to provide role-based access control so that you can securely store images behind your firewall.
+* Integrates with Active Directory/LDAP and OIDC to provide role-based access control so that you can securely store images behind your firewall.
 
--   Signs images as trusted by using [Notary](https://github.com/theupdateframework/notary). You can also set policies that prevent vulnerable or untrusted images from being used in production.
+* Signs images as trusted by using [Notary](https://github.com/theupdateframework/notary). You can also set policies that prevent vulnerable or untrusted images from being used in production.
 
 ### Vulnerability Scanning
 

@@ -5,20 +5,20 @@ title: How To Implement a Spring Distributed Lock
 linkTitle: Working With the Spring Distributed Lock
 description: Run through a simple demonstration of how to implement a Spring Distributed Lock within your Spring application.
 patterns:
-    - API
+  - API
 tags:
-    - Spring Boot
-    - Spring Integration
-    - API
-    - Getting Started
-    - Spring
-    - Microservices
+  - Spring Boot
+  - Spring Integration
+  - API
+  - Getting Started
+  - Spring
+  - Microservices
 team:
-    - Eric Standley
+  - Eric Standley
 weight: 2
 oldPath: '/content/guides/spring/spring-distributed-lock.md'
 aliases:
-    - '/guides/spring/spring-distributed-lock'
+  - '/guides/spring/spring-distributed-lock'
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -31,10 +31,10 @@ Thankfully, Spring has done a lot of the hard work. All you need to do is provid
 
 Before you begin, you are going to need the following:
 
--   [Postgres](https://www.postgresql.org/) or [Redis](https://redis.io/)
--   A text editor or IDE of choice.
-    [JDK 16+](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.(if you don't want to use the records that are setup in the example code Java 11+ will work)
--   An understanding of Spring Boot and dependency injection.
+- [Postgres](https://www.postgresql.org/) or [Redis](https://redis.io/)
+- A text editor or IDE of choice.
+  [JDK 16+](https://www.oracle.com/java/technologies/javase-downloads.html) or newer.(if you don't want to use the records that are setup in the example code Java 11+ will work)
+- An understanding of Spring Boot and dependency injection.
 
 Here is a [completed example on GitHub](https://github.com/estand64/distributed-lock) for you to view.
 
@@ -45,63 +45,63 @@ To package imports, do the following:
 1. Import the necessary Spring Integration packages into your `pom.xml` file.
 2. Ensure all versions include the following:
 
-    ```xml
-    <dependency\>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-integration</artifactId>
-    </dependency>
-    ```
+   ```xml
+   <dependency\>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-integration</artifactId>
+   </dependency>
+   ```
 
 3. Do one of the following:
 
-    - If you are using `Redis`, import the following:
+   - If you are using `Redis`, import the following:
 
-    ```xml
-     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-redis</artifactId>
-     </dependency>
+   ```xml
+    <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    <dependency>
+       <groupId>org.springframework.integration</groupId>
+       <artifactId>spring-integration-redis</artifactId>
+    </dependency>
+    <dependency>
+       <groupId>io.lettuce</groupId>
+       <artifactId>lettuce-core</artifactId>
+    </dependency>
+   ```
+
+   - If you are using `JDBC`, import the following:
+
+     ```xml
      <dependency>
         <groupId>org.springframework.integration</groupId>
-        <artifactId>spring-integration-redis</artifactId>
+        <artifactId>spring-integration-jdbc</artifactId>
      </dependency>
      <dependency>
-        <groupId>io.lettuce</groupId>
-        <artifactId>lettuce-core</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
      </dependency>
-    ```
+     <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+     </dependency>
+     ```
 
-    - If you are using `JDBC`, import the following:
+     The JDBC version of the distributed lock needs the database to have some tables and indexes set up in order to work. If you do not set these up the first time you attempt to obtain the lock, a JDBC Exception will be thrown. The current collection of SQL files for this can be found in the [Spring Integration JDBC github repo](https://github.com/spring-projects/spring-integration/tree/e901c89fef3eea00ddf6d503ae9926667a1d6972/spring-integration-jdbc/src/main/resources/org/springframework/integration/jdbc).
 
-        ```xml
-        <dependency>
-           <groupId>org.springframework.integration</groupId>
-           <artifactId>spring-integration-jdbc</artifactId>
-        </dependency>
-        <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-           <groupId>org.postgresql</groupId>
-           <artifactId>postgresql</artifactId>
-        </dependency>
-        ```
+     In the following example, [Flyway](https://flywaydb.org/) runs the SQL script automatically. If you want to use this, you'll need to add the following dependency:
 
-        The JDBC version of the distributed lock needs the database to have some tables and indexes set up in order to work. If you do not set these up the first time you attempt to obtain the lock, a JDBC Exception will be thrown. The current collection of SQL files for this can be found in the [Spring Integration JDBC github repo](https://github.com/spring-projects/spring-integration/tree/e901c89fef3eea00ddf6d503ae9926667a1d6972/spring-integration-jdbc/src/main/resources/org/springframework/integration/jdbc).
+     ```xml
+     <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
+     </dependency>
+     ```
 
-        In the following example, [Flyway](https://flywaydb.org/) runs the SQL script automatically. If you want to use this, you'll need to add the following dependency:
+     If you don't run the script to populate the table, the following SQL exception will appear:
 
-        ```xml
-        <dependency>
-           <groupId>org.flywaydb</groupId>
-           <artifactId>flyway-core</artifactId>
-        </dependency>
-        ```
-
-        If you don't run the script to populate the table, the following SQL exception will appear:
-
-        ![img](images/sql_error.png)
+     ![img](images/sql_error.png)
 
 ## Create a Lock Repository
 
@@ -176,43 +176,43 @@ It's OK if you don't understand everything that's happening here. The important 
 
 1. Create a simple interface to match the methods that we have in our controller, created in the above section.
 
-    ```java
-        public interface LockService {
-        String lock();
-        void failLock();
-        String properLock();
-    }
-    ```
+   ```java
+       public interface LockService {
+       String lock();
+       void failLock();
+       String properLock();
+   }
+   ```
 
 2. Set up the service class that will contain the logic that you want to lock. To do this, create a new class that implements `LockService`. Make sure it looks similar to the following:
 
-    - Redis:
+   - Redis:
 
-        ```java
-        @Service
-        public class RedisLockService implements LockService{
-            private static final String MY_LOCK_KEY = "someLockKey";
-            private final LockRegistry lockRegistry;
+     ```java
+     @Service
+     public class RedisLockService implements LockService{
+         private static final String MY_LOCK_KEY = "someLockKey";
+         private final LockRegistry lockRegistry;
 
-            public RedisLockService(LockRegistry redisLockRegistry) {
-                this.lockRegistry = redisLockRegistry;
-            }
-        }
-        ```
+         public RedisLockService(LockRegistry redisLockRegistry) {
+             this.lockRegistry = redisLockRegistry;
+         }
+     }
+     ```
 
-    - JDBC:
+   - JDBC:
 
-        ```java
-        @Service
-        public class JDBCLockService implements LockService{
-            private static final String MY_LOCK_KEY = "someLockKey";
-            private final LockRegistry lockRegistry;
+     ```java
+     @Service
+     public class JDBCLockService implements LockService{
+         private static final String MY_LOCK_KEY = "someLockKey";
+         private final LockRegistry lockRegistry;
 
-            public JDBCLockService(JdbcLockRegistry jdbcLockRegistry) {
-                this.lockRegistry = jdbcLockRegistry;
-            }
-        }
-        ```
+         public JDBCLockService(JdbcLockRegistry jdbcLockRegistry) {
+             this.lockRegistry = jdbcLockRegistry;
+         }
+     }
+     ```
 
 Now, you might be wondering why you are injecting a 'LockRegistry' for the Redis implementation, but injecting a specific 'JDBCLockRegistry' for the JDBC implementation. In the case of the `RedisLockRegistry`, the class itself is `final`. If we inject that, we would have a hard time with most mocking frameworks when writing tests.
 
@@ -243,9 +243,9 @@ public String lock(){
 
 Let's go over the key parts here.
 
--   `lock = lockRegistry.obtain(MY_LOCK_KEY)`. Obtains the specific lock we want from the database. The documentation for the registry interface list the key as an `Object` but both the `RedisLockRegistry` and `JDBCLockRegistry` enforce that this must be a `String`. This also makes it easy to add an identifier to the key in the case where you only care about other instances running the same process for a specific item.
--   `lock.tryLock()`. Locks up the lock object. It stops other instances from processing what we want to process.
--   `lock.unlock()`. Unlocks the lock to prevent a deadlock.
+- `lock = lockRegistry.obtain(MY_LOCK_KEY)`. Obtains the specific lock we want from the database. The documentation for the registry interface list the key as an `Object` but both the `RedisLockRegistry` and `JDBCLockRegistry` enforce that this must be a `String`. This also makes it easy to add an identifier to the key in the case where you only care about other instances running the same process for a specific item.
+- `lock.tryLock()`. Locks up the lock object. It stops other instances from processing what we want to process.
+- `lock.unlock()`. Unlocks the lock to prevent a deadlock.
 
 Once you do this, run the code and call the endpoint. Everything should look the same.
 ![img](images/lockOutput.png)

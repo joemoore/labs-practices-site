@@ -3,12 +3,12 @@ date: '2021-07-12'
 lastmod: '2021-07-12'
 layout: single
 team:
-    - Pivotal/Tanzu Labs
+- Pivotal/Tanzu Labs
 title: User Interfaces
 weight: 180
-oldPath: '/content/outcomes/cloud-native-development/specific__user_interfaces.md'
+oldPath: "/content/outcomes/cloud-native-development/specific__user_interfaces.md"
 aliases:
-    - '/outcomes/cloud-native-development/specific__user_interfaces'
+- "/outcomes/cloud-native-development/specific__user_interfaces"
 tags: []
 ---
 
@@ -20,5 +20,5 @@ Regarding other technologies such as Portlets or thick-client desktop applicatio
 
 ## Homework
 
--   List and evaluate the user interface and view technologies your applications use now.
--   Have a team conversation on your vision, teaming, and technologies for future user experiences.
+- List and evaluate the user interface and view technologies your applications use now.
+- Have a team conversation on your vision, teaming, and technologies for future user experiences.

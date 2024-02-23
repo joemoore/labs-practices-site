@@ -5,20 +5,20 @@ lastmod: '2022-08-11'
 linkTitle: RSocket Security with Spring Boot
 metaTitle: RSocket Security with Spring Boot via Spring Security
 patterns:
-    - API
+- API
 tags:
-    - Security
-    - Getting Started
-    - Kotlin
-    - Reactive
-    - Spring Boot
-    - Spring Security
+- Security
+- Getting Started
+- Kotlin
+- Reactive
+- Spring Boot
+- Spring Security
 team:
-    - Mario Gray
+- Mario Gray
 title: Implementing Secure RSocket services with Spring Boot
-oldPath: '/content/guides/spring/reactive-rsocket-security-spring-boot-pt1.md'
+oldPath: "/content/guides/spring/reactive-rsocket-security-spring-boot-pt1.md"
 aliases:
-    - '/guides/spring/reactive-distributed-tracing'
+- "/guides/spring/reactive-distributed-tracing"
 level1: Building Modern Applications
 level2: Frameworks and Languages
 ---
@@ -70,7 +70,7 @@ interface TreeControllerMapping : TreeService {
 
     @MessageMapping("status")
     fun status(@AuthenticationPrincipal user: Mono<UserDetails>): Mono<String> =
-            user.hasElement().map (Boolean::toString)
+            user.hasElement().map (Boolean::toString)    
 }
 ```
 
@@ -113,12 +113,11 @@ class App {
     }
 }
 ```
-
 Here are the steps in enabling Reactive method, and RSocket security:
 
-1. Enable the [RSocketSecurity](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/RSocketSecurity.java) bean by decorating a configuration class with [@EnableRSocketSecurity](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/EnableRSocketSecurity.java). What this does is as stated in documentation - it allows configuring RSocket based security.
-2. Enable security-specific annotations on Reactive Streams (return types of [Publisher](https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/org/reactivestreams/Publisher.html?is-external=true)) with the @[EnableReactiveMethodSecurity](https://github.com/spring-projects/spring-security/blob/210693eb6bd0cba51874ce150c73090c95d4e08b/docs/modules/ROOT/pages/reactive/authorization/method.adoc) annotation to the main configuration class.
-3. The RSocket messaging controller is fully configured here.
+1) Enable the [RSocketSecurity](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/RSocketSecurity.java) bean by decorating a configuration class with [@EnableRSocketSecurity](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/EnableRSocketSecurity.java). What this does is as stated in documentation -  it allows configuring RSocket based security. 
+2) Enable security-specific annotations on Reactive Streams (return types of [Publisher](https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/org/reactivestreams/Publisher.html?is-external=true)) with the @[EnableReactiveMethodSecurity](https://github.com/spring-projects/spring-security/blob/210693eb6bd0cba51874ce150c73090c95d4e08b/docs/modules/ROOT/pages/reactive/authorization/method.adoc) annotation to the main configuration class. 
+3) The RSocket messaging controller is fully configured here. 
 
 ## Review of User Management
 
@@ -150,13 +149,13 @@ class App {
 
 The above code sample reads well, but there is some nuance with the password specification:
 
-1.  The builder supports the algorithm hint using curly braces. Here we specify `noop` (plaintext) password encoding. In the background, Spring Security uses an [DelegatingPasswordEncoder](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/crypto/password/DelegatingPasswordEncoder.html) to determine the proper encoder to use such as pbkdf2, scrypt, sha256, etc...
+ 1) The builder supports the algorithm hint using curly braces. Here we specify `noop` (plaintext) password encoding. In the background, Spring Security uses an [DelegatingPasswordEncoder](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/crypto/password/DelegatingPasswordEncoder.html) to determine the proper encoder to use such as pbkdf2, scrypt, sha256, etc...
 
-> **_WARNING:_** Please do not use plaintext `{noop}` in production! A good write-up describing the evolution of password storage and hints for what you can do to prevent tampering can be found in [the Spring Security docs](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html)
+> **_WARNING:_**  Please do not use plaintext `{noop}` in production! A good write-up describing the evolution of password storage and hints for what you can do to prevent tampering can be found in [the Spring Security docs](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html)
 
 ### About User Resolution
 
-Spring Security uses a [ReactiveSecurityContextHolder](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/context/ReactiveSecurityContextHolder.html) to manage a [SecurityContext](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/context/SecurityContext.html) in [Reactor's Context](https://projectreactor.io/docs/core/release/reference/#context). Spring Security (or the developer) can then use a [AuthenticationPrincipalArgumentResolver](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/method/annotation/AuthenticationPrincipalArgumentResolver.html) by way of an [RSocketMessageHandler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/rsocket/annotation/support/RSocketMessageHandler.html) to access this context, and resolve the logged in user at method level.
+Spring Security uses a [ReactiveSecurityContextHolder](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/context/ReactiveSecurityContextHolder.html) to manage a [SecurityContext](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/core/context/SecurityContext.html) in  [Reactor's Context](https://projectreactor.io/docs/core/release/reference/#context). Spring Security (or the developer) can then use a [AuthenticationPrincipalArgumentResolver](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/method/annotation/AuthenticationPrincipalArgumentResolver.html) by way of an [RSocketMessageHandler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/messaging/rsocket/annotation/support/RSocketMessageHandler.html) to access this context, and resolve the logged in user at method level. 
 
 There is a nice to know informal example that describes how one would resolve a custom `User` object with the [AuthenticationPrincipalArgumentResolver](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/method/annotation/AuthenticationPrincipalArgumentResolver.html) docs.
 
@@ -164,18 +163,18 @@ There is a nice to know informal example that describes how one would resolve a 
 
 By using `@EnableRSocketSecurity`, we gain RSocket security through [Payload Interceptors](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/rsocket/api/PayloadInterceptor.html). Interceptors themselves are cross-cutting, and Spring Security uses them to work on processing at various parts of an interaction such as:
 
--   Transport level
--   At the level of accepting new connections
--   Performing requests
--   Responding to requests
+* Transport level
+* At the level of accepting new connections
+* Performing requests
+* Responding to requests
 
 Since a payload can have many metadata formats to confer credential exchange, Spring's [RSocketSecurity](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/RSocketSecurity.java) bean provides a fluent builder for configuring [Simple](https://github.com/rsocket/rsocket/blob/master/Extensions/Security/Simple.md), Basic, [JWT](https://docs.spring.io/spring-security/reference/reactive/integrations/rsocket.html#rsocket-authentication-jwt), and custom authentication methods, in addition to RBAC authorization.
 
-The `RSocketSecurity` provided builder will describe a set of [AuthenticationPayloadInterceptors](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/authentication/AuthenticationPayloadInterceptor.java) that converts payload metadata into an [Authentication](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/core/Authentication.java) instances inside the `SecurityContext`.
+The `RSocketSecurity` provided builder will describe a set of [AuthenticationPayloadInterceptors](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/authentication/AuthenticationPayloadInterceptor.java) that converts payload metadata into an [Authentication](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/core/Authentication.java) instances inside the `SecurityContext`. 
 
 To further our understanding of the configuration, lets examine the [SecuritySocketAcceptorInterceptorConfiguration](https://github.com/spring-projects/spring-security/blob/main/config/src/main/java/org/springframework/security/config/annotation/rsocket/SecuritySocketAcceptorInterceptorConfiguration.java) class, which sets up the default security configuration for RSocket.
 
-This class, imported by `@EnableRSocketSecurty`, will configure a [PayloadSocketAcceptorInterceptor](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/core/PayloadSocketAcceptorInterceptor.java) for [Simple](https://github.com/rsocket/rsocket/blob/master/Extensions/Security/Simple.md) and basic authentications. The [PayloadExchangeMatchers](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/util/matcher/PayloadExchangeMatcher.java) describe which exchanges require authentication:
+ This class, imported by `@EnableRSocketSecurty`, will configure a [PayloadSocketAcceptorInterceptor](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/core/PayloadSocketAcceptorInterceptor.java) for [Simple](https://github.com/rsocket/rsocket/blob/master/Extensions/Security/Simple.md) and basic authentications. The [PayloadExchangeMatchers](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/util/matcher/PayloadExchangeMatcher.java) describe which exchanges require authentication:
 
 ```java
 package org.springframework.security.config.annotation.rsocket;
@@ -196,38 +195,38 @@ class SecuritySocketAcceptorInterceptorConfiguration {
 
 The `authorizePayload` method decides how we can apply authorization at connection `setup` and `request` exchanges. The configuration above include:
 
-1. Basic credential passing for backwards compatibility; this is deprecated in favor of #2
-2. [Simple](https://github.com/rsocket/rsocket/blob/master/Extensions/Security/Simple.md) credential passing is supported by default; this is the winning spec and supersedes Basic.
-3. Access control rules that specifies which exchanges must be authenticated before being granted access to the server.
-4. Builds a PayloadExchangeMatcher to ensures that `SETUP` exchanges require authentication metadata.
-5. Builds another PayloadExchangeMatcher for `request` exchanges requiring authentication.
-6. This custom matcher matches everything, and permits access.
+1) Basic credential passing for backwards compatibility; this is deprecated in favor of #2
+2) [Simple](https://github.com/rsocket/rsocket/blob/master/Extensions/Security/Simple.md) credential passing is supported by default; this is the winning spec and supersedes Basic.
+3) Access control rules that specifies which exchanges must be authenticated before being granted access to the server. 
+4) Builds a PayloadExchangeMatcher to ensures that `SETUP` exchanges require authentication metadata.
+5) Builds another PayloadExchangeMatcher for `request` exchanges requiring authentication.
+6) This custom matcher matches everything, and permits access.
 
 > **_Request vs Setup:_** The [PayloadExchangeType](https://github.com/spring-projects/spring-security/blob/main/rsocket/src/main/java/org/springframework/security/rsocket/api/PayloadExchangeType.java) defines any `request` exchange as one of the following internal [RSocket Protocol](https://github.com/rsocket/rsocket/blob/master/Protocol.md#terminology) units of operation; FIRE_AND_FORGET, REQUEST_RESPONSE, REQUEST_STREAM, REQUEST_CHANNEL and METADATA_PUSH. SETUP and PAYLOAD (payload frames can have metadata) units are considered `SETUP` exchanges.
 
 ## Review of Reactive Method Security
 
-With the usage of `@EnableReactiveMethodSecurity` in our main class, we gained the ability to annotate reactive streams with rules for authorization. This happens mainly in the [ReactiveAuthorizationManager](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/authorization/ReactiveAuthorizationManager.java) instances for specific use cases. Out of the box, we get the support for a variety of expressions with [@PreAuthorize](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/access/prepost/PostAuthorize.java) to introspect the authenticated user for necessary privileges. There are a variety of built-in expressions that we can use.
+With the usage of `@EnableReactiveMethodSecurity` in our main class, we gained the ability to annotate reactive streams with rules for authorization. This happens mainly in the [ReactiveAuthorizationManager](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/authorization/ReactiveAuthorizationManager.java) instances for specific use cases. Out of the box, we get the support for a variety of expressions with [@PreAuthorize](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/access/prepost/PostAuthorize.java) to introspect the authenticated user for necessary privileges. There are a variety of built-in expressions that we can use. 
 
 Here are built-in expressions supported as defined in [SecurityExpressionOperations](https://github.com/spring-projects/spring-security/blob/main/core/src/main/java/org/springframework/security/access/expression/SecurityExpressionOperations.java) and described in [the Docs](https://docs.spring.io/spring-security/reference/servlet/authorization/expression-based.html):
 
-| Expression                                                                                                                                                                                                     | Description                                                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hasRole(role: String)                                                                                                                                                                                          | Returns true if the current principal has the specified role.                                                                                                          |
-| For example, hasRole('admin') By default if the supplied role does not start with 'ROLE\_' it will be added. This can be customized by modifying the defaultRolePrefix on DefaultWebSecurityExpressionHandler. |
-| hasAnyRole(vararg roles: String)                                                                                                                                                                               | Returns true if the current principal has any of the supplied roles (given as a comma-separated list of strings)                                                       |
-| hasAuthority(authority: String)                                                                                                                                                                                | Returns true if the current principal has the specified authority. For example, `hasAuthority('read')`                                                                 |
-| hasAnyAuthority(vararg authorities: String)                                                                                                                                                                    | Returns true if the current principal has any of the supplied authorities (given as a comma-separated list of strings) For example, `hasAnyAuthority('read', 'write')` |
-| principal                                                                                                                                                                                                      | Allows direct access to the principal object representing the current user                                                                                             |
-| authentication                                                                                                                                                                                                 | Allows direct access to the current Authentication object obtained from the SecurityContext                                                                            |
-| permitAll                                                                                                                                                                                                      | Always evaluates to true                                                                                                                                               |
-| denyAll                                                                                                                                                                                                        | Always evaluates to false                                                                                                                                              |
-| isAnonymous()                                                                                                                                                                                                  | Returns true if the current principal is an anonymous user                                                                                                             |
-| isRememberMe()                                                                                                                                                                                                 | Returns true if the current principal is a remember-me user                                                                                                            |
-| isAuthenticated()                                                                                                                                                                                              | Returns true if the user is not anonymous                                                                                                                              |
-| isFullyAuthenticated()                                                                                                                                                                                         | Returns true if the user is not an anonymous or a remember-me user                                                                                                     |
-| hasPermission(target: Any, permission: Any)                                                                                                                                                                    | Returns true if the user has access to the provided target for the given permission. For example, `hasPermission(domainObject, 'read')`                                |
-| hasPermission(targetId: Any, targetType: String, permission: Any)                                                                                                                                              | Returns true if the user has access to the provided target for the given permission. For example, `hasPermission(1, 'com.example.domain.Message', 'read'`)             |
+| Expression | Description |
+|------------|-------------|
+|hasRole(role: String) | Returns true if the current principal has the specified role.
+For example, hasRole('admin') By default if the supplied role does not start with 'ROLE_' it will be added. This can be customized by modifying the defaultRolePrefix on DefaultWebSecurityExpressionHandler. |
+|hasAnyRole(vararg roles: String)|	Returns true if the current principal has any of the supplied roles (given as a comma-separated list of strings)|
+|hasAuthority(authority: String)|Returns true if the current principal has the specified authority. For example, `hasAuthority('read')`|
+|hasAnyAuthority(vararg authorities: String)|Returns true if the current principal has any of the supplied authorities (given as a comma-separated list of strings) For example, `hasAnyAuthority('read', 'write')`|
+|principal|	Allows direct access to the principal object representing the current user|
+|authentication|	Allows direct access to the current Authentication object obtained from the SecurityContext|
+|permitAll	|Always evaluates to true|
+|denyAll|	Always evaluates to false|
+|isAnonymous()|	Returns true if the current principal is an anonymous user|
+|isRememberMe()|	Returns true if the current principal is a remember-me user|
+|isAuthenticated()|	Returns true if the user is not anonymous|
+|isFullyAuthenticated()|	Returns true if the user is not an anonymous or a remember-me user|
+|hasPermission(target: Any, permission: Any)| Returns true if the user has access to the provided target for the given permission. For example, `hasPermission(domainObject, 'read')`|
+|hasPermission(targetId: Any, targetType: String, permission: Any)|Returns true if the user has access to the provided target for the given permission. For example, `hasPermission(1, 'com.example.domain.Message', 'read'`)|
 
 To gain fundamental understanding of the underpinnings of Authorization, I encourage you to read the [Spring Docs](https://docs.spring.io/spring-security/reference/servlet/authorization/architecture.html). This documentation is robust and does well in describing exactly how Authorization operates under the hood - especially for situations where you have legacy framework code and want to customize.
 
@@ -237,7 +236,7 @@ To gain fundamental understanding of the underpinnings of Authorization, I encou
 
 Spring RSocket creates a [RSocketRequesterBuilder](https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/rsocket/RSocketRequester.java#L164) bean at startup. This bean provides a builder for creating new [RSocketRequesters](https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/rsocket/RSocketRequester.java). An `RSocketRequester` provides a single connection interface to RSocket operations usually across a network.
 
-RSocket Security can be applied at the `setup` and or `request` levels. We will discuss both methods next.
+RSocket Security can be applied at the `setup` and or `request` levels. We will discuss both methods next.  
 
 ## Authentication Styles on the Client
 
@@ -260,14 +259,13 @@ open class RequesterFactory(private val port: String) {
                     .connectTcp("localhost", port.toInt())
                     .block()!!
  //..
-}
+}    
 ```
-
 The lines of code we want to inspect here relate to the specifics for `setup` frame authentication metadata:
 
-1. Requester needs to know how to encode our `Simple` authentication metadata.
-2. Which needs to be registered as an encoder in Spring's [RSocketStrategies](https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/rsocket/RSocketStrategies.java).
-3. Then use `setupMetadata` to encode credentials going into the setup frame.
+1) Requester needs to know how to encode our `Simple` authentication metadata.
+2) Which needs to be registered as an encoder in Spring's [RSocketStrategies](https://github.com/spring-projects/spring-framework/blob/main/spring-messaging/src/main/java/org/springframework/messaging/rsocket/RSocketStrategies.java).
+3) Then use `setupMetadata` to encode credentials going into the setup frame.
 
 Next, we need a non-authenticated requester:
 
@@ -307,13 +305,12 @@ class RequesterFactoryTests {
     }
 
 ```
-
 Lets inspect what this test means:
 
-1. Using `@SpringBootTest` ensures we get full autowiring of our production code to configure the RSocket server.
-2. Create a requester that omits authentication metadata in the `setup` frame.
-3. The test site is simple and merely sends a request to the `status` route that returns whether we are authenticated or not.
-4. The 'status' route is not locked down, but our server configuration states that connection setup must be authenticated. Thus, we will expect a [RejectedSetupExeption](https://github.com/rsocket/rsocket-java/blob/master/rsocket-core/src/main/java/io/rsocket/exceptions/RejectedSetupException.java) error upon request.
+1) Using `@SpringBootTest` ensures we get full autowiring of our production code to configure the RSocket server.
+2) Create a requester that omits authentication metadata in the `setup` frame.
+3) The test site is simple and merely sends a request to the `status` route that returns whether we are authenticated or not.
+4) The 'status' route is not locked down, but our server configuration states that connection setup must be authenticated. Thus, we will expect a [RejectedSetupExeption](https://github.com/rsocket/rsocket-java/blob/master/rsocket-core/src/main/java/io/rsocket/exceptions/RejectedSetupException.java) error upon request.
 
 Next, we will test when we send authenticated requests without sending the authentication `setup` frame:
 
@@ -335,8 +332,8 @@ Next, we will test when we send authenticated requests without sending the authe
 
 This test case is very similar to the previous one except:
 
-1. We only authenticate the request alone with `Simple` authentication.
-2. This still wont work, and will result with RejectedSetupException since our server expects authentication in the `setup` frame.
+1) We only authenticate the request alone with `Simple` authentication. 
+2) This still wont work, and will result with RejectedSetupException since our server expects authentication in the `setup` frame.
 
 ### Authorization Tests
 
@@ -357,15 +354,15 @@ Next, we will perform proper `setup`, and test for route authorization. Recall e
 
 This test will:
 
-1. Create the authenticated requester. Remember; this sends authentication in the `setup` frame. Thus, requests will be allowed.
-2. Send a request to the 'shake' route. This service method is `@PreAuthorized` protected for users having 'SHAKE' role.
-3. Since we don't have this kind of permission for the 'raker' user, we will get [ApplicationErrorException](https://github.com/rsocket/rsocket-java/blob/master/rsocket-core/src/main/java/io/rsocket/exceptions/ApplicationErrorException.java) with the message 'Denied'.
+1) Create the authenticated requester. Remember; this sends authentication in the `setup` frame. Thus, requests will be allowed.
+2) Send a request to the 'shake' route. This service method is `@PreAuthorized` protected for users having 'SHAKE' role.
+3) Since we don't have this kind of permission for the 'raker' user, we will get [ApplicationErrorException](https://github.com/rsocket/rsocket-java/blob/master/rsocket-core/src/main/java/io/rsocket/exceptions/ApplicationErrorException.java) with the message 'Denied'.
 
 > **_NOTE:_** To ensure safer communication while using `Simple` authentication, you might apply TLS security across the transport. This way, no one can snoop the network for unencrypted authentication payloads.
 
 ## Method Security Tests
 
-We can get better test unit isolation by removing or ignoring the RSocketServer, and issuing requests directly to the service instance. This can be done using a compliment of [method testing supports](https://docs.spring.io/spring-security/reference/servlet/test/method.html) provided out of the box by Spring Security.
+We can get better test unit isolation by removing or ignoring the RSocketServer, and issuing requests directly to the service instance.  This can be done using a compliment of [method testing supports](https://docs.spring.io/spring-security/reference/servlet/test/method.html) provided out of the box by Spring Security.
 
 For example, we want to test that authorization on the `shakeForLeaves()` service method which requires Users with the 'shake' role. We can actually mock a user in tests by decorating our test method using the [@WithMockUser](https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/test/context/support/WithMockUser.html) annotation:
 
@@ -410,7 +407,7 @@ There is more to testing secure methods in reactive environments. To learn more 
 
 This guide introduced you to Spring Boot and Spring Security with RSocket. One key take-away, that Spring Security configuration can allow `Simple` or other authentication schemes such as JWT and Kerberos. Understanding how permissions work out of the box in Spring Security, and applying authorization to Reactive Methods helps when custom logic is needed. Furthermore, it is safer to use some form of transport security when implementing `simple` RSocket security because authentication frames are transmitted plaintext. We will discuss securing RSocket connections with TLS in another guide.
 
-Then next step on this topic will take advantage of Spring Security's JWT interface. For in-depth implementation details on that topic now, please see the [Spring Security Samples](https://github.com/spring-projects/spring-security-samples) project on Github.
+Then next step on this topic will take advantage of Spring Security's JWT interface. For in-depth implementation details on that topic now, please see the [Spring Security Samples](https://github.com/spring-projects/spring-security-samples) project on Github. 
 
 ## Informational and Learning Material
 

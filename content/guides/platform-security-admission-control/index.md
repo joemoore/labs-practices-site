@@ -2,15 +2,15 @@
 date: '2021-02-24'
 description: Considerations for implementing admission control in Kubernetes
 keywords:
-    - Kubernetes
+- Kubernetes
 lastmod: '2021-02-24'
 linkTitle: Admission Control
 parent: Platform Security
 title: Admission Control
 weight: 1
-oldPath: '/content/guides/kubernetes/platform-security-admission-control.md'
+oldPath: "/content/guides/kubernetes/platform-security-admission-control.md"
 aliases:
-    - '/guides/kubernetes/platform-security-admission-control'
+- "/guides/kubernetes/platform-security-admission-control"
 level1: Securing Kubernetes
 level2: Access and Security
 tags: []
@@ -25,12 +25,12 @@ Kubernetes environments.
 Each section covers architectural recommendations and, at times, configuration
 for each concern. At a high-level, the key recommendations are:
 
--   Unless mutation or external interaction is required, OPA Gatekeeper can often
-    be the best solution.
--   Be aware that admission controllers sit in the critical path to the API
-    server, so consider this bottleneck carefully.
--   If writing a controller, consider the trade-off between frameworks and
-    familiar language stacks.
+- Unless mutation or external interaction is required, OPA Gatekeeper can often
+  be the best solution.
+- Be aware that admission controllers sit in the critical path to the API
+  server, so consider this bottleneck carefully.
+- If writing a controller, consider the trade-off between frameworks and
+  familiar language stacks.
 
 ## Architecture
 
@@ -43,11 +43,11 @@ flow is illustrated below.
 There are many admission controllers that are built in to Kubernetes to provide
 common functionality. These include:
 
--   `ServiceAccount` - Responsible for injecting the default service account into
-    pods where necessary.
--   `ResourceQuota` - Responsible for enforcing resource quotas on workloads.
--   `NamespaceLifecycle` - Responsible for preventing new objects being created in
-    a namespace that is currently in a `terminating` state.
+- `ServiceAccount` - Responsible for injecting the default service account into
+  pods where necessary.
+- `ResourceQuota` - Responsible for enforcing resource quotas on workloads.
+- `NamespaceLifecycle` - Responsible for preventing new objects being created in
+  a namespace that is currently in a `terminating` state.
 
 There are a set of admission controllers that are [enabled by
 default](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#which-plugins-are-enabled-by-default).
@@ -104,38 +104,38 @@ webhooks. Below is an annotated example describing all of the relevant sections:
 apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
-    name: 'test-mutating-hook'
+  name: "test-mutating-hook"
 webhooks:
-    - name: 'test-mutating-hook'
-      # Matching rules. What API / kind / version / operations should this webhook be sent.
-      rules:
-          - apiGroups: ['']
-            apiVersions: ['v1']
-            # The operation that should trigger a call to the webhook.
-            operations: ['CREATE']
-            # Which kind to target.
-            resources: ['pods']
-            # Whether Namespace-scoped or cluster-scoped resources should be targeted.
-            scope: 'Namespaced'
-      # Describes how the API server should connect to the webhook. In this case it's in cluster at `test-service.test-ns.svc`.
-      clientConfig:
-          service:
-              namespace: test-ns
-              name: test-service
-              path: /test-path
-              port: 8443
-          # A PEM encoded CA bundle which will be used to validate the webhook's server certificate.
-          caBundle: 'Ci0tLS0tQk...tLS0K'
-      # Declare the admissionReviewVersions that the webhook supports.
-      admissionReviewVersions: ['v1', 'v1beta1']
-      # Describes whether the webhook has external side effects (calls / dependencies to external systems).
-      sideEffects: None
-      # How long to wait until triggering the failurePolicy.
-      timeoutSeconds: 5
-      # Whether this webhook can be re-invoked (this may happen after other webhooks have been called).
-      reinvocationPolicy: IfNeeded
-      # Whether the webhook should fail 'open' or 'closed. This has security implications.
-      failurePolicy: Fail
+  - name: "test-mutating-hook"
+    # Matching rules. What API / kind / version / operations should this webhook be sent.
+    rules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        # The operation that should trigger a call to the webhook.
+        operations: ["CREATE"]
+        # Which kind to target.
+        resources: ["pods"]
+        # Whether Namespace-scoped or cluster-scoped resources should be targeted.
+        scope: "Namespaced"
+    # Describes how the API server should connect to the webhook. In this case it's in cluster at `test-service.test-ns.svc`.
+    clientConfig:
+      service:
+        namespace: test-ns
+        name: test-service
+        path: /test-path
+        port: 8443
+      # A PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+      caBundle: "Ci0tLS0tQk...tLS0K"
+    # Declare the admissionReviewVersions that the webhook supports.
+    admissionReviewVersions: ["v1", "v1beta1"]
+    # Describes whether the webhook has external side effects (calls / dependencies to external systems).
+    sideEffects: None
+    # How long to wait until triggering the failurePolicy.
+    timeoutSeconds: 5
+    # Whether this webhook can be re-invoked (this may happen after other webhooks have been called).
+    reinvocationPolicy: IfNeeded
+    # Whether the webhook should fail 'open' or 'closed. This has security implications.
+    failurePolicy: Fail
 ```
 
 ## Design Considerations
@@ -201,34 +201,34 @@ following could be applied:
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-    name: k8srequiredlabels
+  name: k8srequiredlabels
 spec:
-    crd:
-        spec:
-            names:
-                kind: K8sRequiredLabels
-                listKind: K8sRequiredLabelsList
-                plural: k8srequiredlabels
-                singular: k8srequiredlabels
-            validation:
-                # Schema for the `parameters` field
-                openAPIV3Schema:
-                    properties:
-                        labels:
-                            type: array
-                            items: string
-    targets:
-        - target: admission.k8s.gatekeeper.sh
-          rego: |
-              package k8srequiredlabels
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredLabels
+        listKind: K8sRequiredLabelsList
+        plural: k8srequiredlabels
+        singular: k8srequiredlabels
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          properties:
+            labels:
+              type: array
+              items: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredlabels
 
-              violation[{"msg": msg, "details": {"missing_labels": missing}}] {
-                provided := {label | input.review.object.metadata.labels[label]}
-                required := {label | label := input.parameters.labels[_]}
-                missing := required - provided
-                count(missing) > 0
-                msg := sprintf("you must provide labels: %v", [missing])
-              }
+        violation[{"msg": msg, "details": {"missing_labels": missing}}] {
+          provided := {label | input.review.object.metadata.labels[label]}
+          required := {label | label := input.parameters.labels[_]}
+          missing := required - provided
+          count(missing) > 0
+          msg := sprintf("you must provide labels: %v", [missing])
+        }
 ```
 
 The `ConstraintTemplate` contains Rego code that can refer to input parameters
@@ -239,14 +239,14 @@ use of the template to enforce the constraint:
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sRequiredLabels
 metadata:
-    name: ns-must-have-gk
+  name: ns-must-have-gk
 spec:
-    match:
-        kinds:
-            - apiGroups: ['']
-              kinds: ['Namespace']
-    parameters:
-        labels: ['gatekeeper']
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Namespace"]
+  parameters:
+    labels: ["gatekeeper"]
 ```
 
 The above selects all `Namespace` objects and ensures they have the `gatekeeper`
@@ -268,20 +268,20 @@ specified resources:
 apiVersion: config.gatekeeper.sh/v1alpha1
 kind: Config
 metadata:
-    name: config
-    namespace: 'gatekeeper-system'
+  name: config
+  namespace: "gatekeeper-system"
 spec:
-    sync:
-        syncOnly:
-            - group: 'extensions'
-              version: 'v1beta1'
-              kind: 'Ingress'
-            - group: 'networking.k8s.io'
-              version: 'v1beta1'
-              kind: 'Ingress'
-            - group: ''
-              version: 'v1'
-              kind: 'Namespace'
+  sync:
+    syncOnly:
+      - group: "extensions"
+        version: "v1beta1"
+        kind: "Ingress"
+      - group: "networking.k8s.io"
+        version: "v1beta1"
+        kind: "Ingress"
+      - group: ""
+        version: "v1"
+        kind: "Namespace"
 ```
 
 The `ConstraintTemplate` uses the `data.inventory...` object to look up items
@@ -291,33 +291,33 @@ from the sync cache:
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-    name: limitnamespaceingress
+  name: limitnamespaceingress
 spec:
-    crd:
-        spec:
-            names:
-                kind: LimitNamespaceIngress
-                listKind: LimitNamespaceIngressList
-                plural: limitnamespaceingresss
-                singular: limitnamespaceingress
-            validation:
-                # Schema for the `parameters` field in the constraint
-                openAPIV3Schema:
-                    properties:
-                        annotation:
-                            type: string
-    targets:
-        - target: admission.k8s.gatekeeper.sh
-          rego: |
-              package limitnamespaceingress
+  crd:
+    spec:
+      names:
+        kind: LimitNamespaceIngress
+        listKind: LimitNamespaceIngressList
+        plural: limitnamespaceingresss
+        singular: limitnamespaceingress
+      validation:
+        # Schema for the `parameters` field in the constraint
+        openAPIV3Schema:
+          properties:
+            annotation:
+              type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package limitnamespaceingress
 
-              violation[{"msg": msg}] {
-                regex :=
-                data.inventory.cluster.v1.Namespace[input.review.object.metadata.namespace].metadata.annotations[input.parameters.annotation]
-                hosts := input.review.object.spec.rules[_].host
-                not re_match(regex, hosts)
-                msg := sprintf("Only ingresses with host matching %v are allowed in namespace %v", [regex ,input.review.object.metadata.namespace])
-              }
+        violation[{"msg": msg}] {
+          regex :=
+          data.inventory.cluster.v1.Namespace[input.review.object.metadata.namespace].metadata.annotations[input.parameters.annotation]
+          hosts := input.review.object.spec.rules[_].host
+          not re_match(regex, hosts)
+          msg := sprintf("Only ingresses with host matching %v are allowed in namespace %v", [regex ,input.review.object.metadata.namespace])
+        }
 ```
 
 The `annotation` in the custom input parameters allows the user to specify the
@@ -335,14 +335,14 @@ customizable input parameter).
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: LimitNamespaceIngress
 metadata:
-    name: limit-namespace-ingress
+  name: limit-namespace-ingress
 spec:
-    match:
-        kinds:
-            - apiGroups: ['extensions', 'networking.k8s.io']
-              kinds: ['Ingress']
-    parameters:
-        annotation: allowed-ingress-pattern
+  match:
+    kinds:
+      - apiGroups: ["extensions", "networking.k8s.io"]
+        kinds: ["Ingress"]
+  parameters:
+    annotation: allowed-ingress-pattern
 ```
 
 Finally the Namespace object itself is applied with the custom annotation &
@@ -352,10 +352,10 @@ pattern:
 apiVersion: v1
 kind: Namespace
 metadata:
-    annotations:
-        # Note regex special character escaping
-        allowed-ingress-pattern: \w\.my-namespace\.com
-    name: ingress-test
+  annotations:
+    # Note regex special character escaping
+    allowed-ingress-pattern: \w\.my-namespace\.com
+  name: ingress-test
 ```
 
 Now the setup is complete the ingress objects are applied and rules evaluated
@@ -366,31 +366,31 @@ against them:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-    name: test-1
-    namespace: ingress-test
+  name: test-1
+  namespace: ingress-test
 spec:
-    rules:
-        - host: foo.other-namespace.com
-          http:
-              paths:
-                  - backend:
-                        serviceName: service1
-                        servicePort: 80
+  rules:
+    - host: foo.other-namespace.com
+      http:
+        paths:
+          - backend:
+              serviceName: service1
+              servicePort: 80
 ---
 # SUCCEEDS as the pattern matches
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-    name: test-2
-    namespace: ingress-test
+  name: test-2
+  namespace: ingress-test
 spec:
-    rules:
-        - host: foo.my-namespace.com
-          http:
-              paths:
-                  - backend:
-                        serviceName: service2
-                        servicePort: 80
+  rules:
+    - host: foo.my-namespace.com
+      http:
+        paths:
+          - backend:
+              serviceName: service2
+              servicePort: 80
 ```
 
 The second ingress above will succeed as the `spec.rules.host` matches the regex
@@ -404,18 +404,18 @@ Error from server ([denied by limit-namespace-ingress] Only ingresses with host 
 
 Advantages:
 
--   Extensible `ConstraintTemplate` model allows admins to define common policies
-    and share / re-use them as libraries.
--   Doesn't require any custom coding (outside of Rego policies).
--   Fairly mature, community-supported project.
--   Easy to install.
+- Extensible `ConstraintTemplate` model allows admins to define common policies
+  and share / re-use them as libraries.
+- Doesn't require any custom coding (outside of Rego policies).
+- Fairly mature, community-supported project.
+- Easy to install.
 
 Disadvantages:
 
--   Only supports validating (not mutating) admission control.
--   Rego can get unwieldy when writing non-trivial evaluation logic.
--   Care needs to be taken with the defaults (e.g. `failurePolicy` is set to
-    `Ignore`).
+- Only supports validating (not mutating) admission control.
+- Rego can get unwieldy when writing non-trivial evaluation logic.
+- Care needs to be taken with the defaults (e.g. `failurePolicy` is set to
+  `Ignore`).
 
 {{% aside title="Alternate deprecated approach: `OPA with kube-mgmt`" %}}
 Before Gatekeeper was released, there was an alternative approach to use OPA with
@@ -493,38 +493,38 @@ The example above generates the following:
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:
-    name: 'vpod.kb.io'
+  name: "vpod.kb.io"
 webhooks:
-    - name: 'vpod.kb.io'
-      rules:
-          - apiGroups: ['']
-            apiVersions: ['v1']
-            operations: ['CREATE', 'UPDATE']
-            resources: ['pods']
-            scope: 'Namespaced'
-      clientConfig:
-          service:
-              name: vpod
-              path: /validate-v1-pod
-              port: 8443
-          caBundle: 'Ci0tLS0tQk...tLS0K'
-      failurePolicy: Fail
+  - name: "vpod.kb.io"
+    rules:
+      - apiGroups: [""]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["pods"]
+        scope: "Namespaced"
+    clientConfig:
+      service:
+        name: vpod
+        path: /validate-v1-pod
+        port: 8443
+      caBundle: "Ci0tLS0tQk...tLS0K"
+    failurePolicy: Fail
 ```
 
 Advantages:
 
--   Supports both mutating and validating admission control.
--   Use of high-level programming language allows huge flexibility / & extensibility.
--   Abstracts underlying request handling and message parsing with convenience
-    interfaces and methods.
--   Can have more tightly-scoped RBAC privileges.
+- Supports both mutating and validating admission control.
+- Use of high-level programming language allows huge flexibility / & extensibility.
+- Abstracts underlying request handling and message parsing with convenience
+  interfaces and methods.
+- Can have more tightly-scoped RBAC privileges.
 
 Disadvantages:
 
--   Requires Go programming knowledge.
--   Requires knowledge of some Kubernetes API server behaviors.
--   Admission logic is contained in code rather than being readable in CRDs or
-    ConfigMaps.
+- Requires Go programming knowledge.
+- Requires knowledge of some Kubernetes API server behaviors.
+- Admission logic is contained in code rather than being readable in CRDs or
+  ConfigMaps.
 
 ### Agnostic HTTP Handler
 
@@ -576,10 +576,10 @@ headers, etc...
 
 Advantages:
 
--   Maximum flexibility for different languages / stacks.
--   Supports both mutating and validating hooks.
+- Maximum flexibility for different languages / stacks.
+- Supports both mutating and validating hooks.
 
 Disadvantages:
 
--   Almost all functionality must be written from scratch.
--   More complex to maintain.
+- Almost all functionality must be written from scratch.
+- More complex to maintain.
