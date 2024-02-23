@@ -8,15 +8,14 @@
     <header>
       {{ partial "navbar.html" . }}
     </header>
-    
+
     <div class="container-fluid td-outer">
-        {{ partial "live-notify.html" . }}
         <div class="td-main ">
             {{ $class := replace .Params.linkTitle "." "-" | lower }}
             {{ $class := replace $class " " "" }}
             <section id="hero" class="language-hero td-box td-box--primary position-relative td-box--height-auto overflow-hidden">
                 <div class="container row py-lg-5 py-0 px-0 align-items-center">
-                    <div class="col-12 mx-auto col-lg-6">                        
+                    <div class="col-12 mx-auto col-lg-6">
                         <h1 class="h1"> {{- .Params.herotitle | markdownify }}</h1>
                         <div class="lead px-0"><p>{{- .Content | markdownify }}</p></div>
                     </div>
@@ -35,7 +34,7 @@
                         <div class="row pb-5">
                             <a href="https://steeltoe.io/" class="w-100 py-0">
                                 <div class="col-12 text-center d-flex align-items-center justify-content-center steeltoe-banner py-2">
-                                    <img src='{{ "images/languages/dotnet/steeltoe.png" | relURL }}' class="mx-2 h-100"> 
+                                    <img src='{{ "images/languages/dotnet/steeltoe.png" | relURL }}' class="mx-2 h-100">
                                     <span class="h4 mb-0">Get started with Steeltoe</span>
                                 </div>
                             </a>
@@ -47,13 +46,13 @@
 
                 <!-- Newsletter -->
                 {{ range .Sections }}
-                    {{ if (strings.Contains .CurrentSection.File.Dir "newsletter") }} 
+                    {{ if (strings.Contains .CurrentSection.File.Dir "newsletter") }}
                         <div class="container py-5">
                             <div class="container mb-5 newsletter">
                                 <h2 class="mb-4">{{ print .Title }}</h2>
                                 <a href='https://{{ print .Params.substack }}.substack.com/'><h4 class="mb-4">See All</h4></a>
                                 <div class='row justify-content-between'>
-                                    {{ range first 2 .Pages }} 
+                                    {{ range first 2 .Pages }}
                                         {{ $rendered = $rendered | append . }}
                                         <a class='td-box--gray-dark subtopic mr-0 mb-4 flex-315 transition-all position-relative' href="{{ .RelPermalink }}">
                                             <img alt="{{ .Title }}" src='{{ print .Parent.RelPermalink "images/" .Parent.Params.banner }}' />
@@ -110,7 +109,7 @@
                     </div>
                 </div>
                 {{ end }}
-               
+
                 <!-- Optional Show -->
                 {{ if .Params.show }}
                     {{ $langeps := slice }}
@@ -228,7 +227,7 @@
                     </div>
                 </div>
                 {{ end }}
-                
+
             </section>
       </div>
       {{ partial "footer.html" . }}

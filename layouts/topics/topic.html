@@ -15,9 +15,8 @@
     {{ range $guides }}
         {{ $subtopics = union $subtopics ( slice .Params.level2 )}}
     {{ end }}
-    
+
     <div class="container-fluid td-outer">
-        {{ partial "live-notify.html" . }}
         <div class="td-main ">
             <div id="hero" class="td-box--primary mt-lg-5 mt-0 py-lg-5">
                 <div class='container'>
@@ -35,7 +34,7 @@
                                             <h2 class="link mt-3 h4 pt-0 mw-100">{{ $subtopic.Title }}</h2>
                                             <p>{{ $subtopic.Description }}</p>
                                         </a>
-                                    </div>   
+                                    </div>
                                 {{ end }}
                             </div>
                         </div>
