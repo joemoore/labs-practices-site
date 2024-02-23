@@ -192,7 +192,7 @@ Thanks to Amanda White, Brian Watkins, Will Sather, Al Bonney, and Chris Gunadi,
 
 [Docker Docs - I want to connect from a container to a service on the host](https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host)
 
-[Tanzu Developer Center - Secure Software Supply Chains Learning Path](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/)
+[Labs Practices Site - Secure Software Supply Chains Learning Path](https://tanzu.vmware.com/developer/learningpaths/secure-software-supply-chain/)
 
 [Podman - Installation Instructions](https://podman.io/docs/installation)
 

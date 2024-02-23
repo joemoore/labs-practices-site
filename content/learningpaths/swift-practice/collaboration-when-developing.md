@@ -83,6 +83,6 @@ In the upcoming lesson, we’ll conclude this series with releasing the thin sli
 
 ## Resources
 
-[Lean Experiments | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/practices/lean-experiments/)
+[Lean Experiments | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/lean-experiments/)
 
-[The Lean Startup](http://theleanstartup.com/) 
+[The Lean Startup](http://theleanstartup.com/)

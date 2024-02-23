@@ -1,7 +1,7 @@
 # ![VMware](./assets/icons/logo.svg)[![Netlify Status](https://api.netlify.com/api/v1/badges/b28c2754-da62-4450-951b-d4dbd97710d1/deploy-status)](https://app.netlify.com/sites/tanzu-dev-portal/deploys)
 
 - [About The Project](#about-the-project)
-- [Getting Started Building a Local Deployment of the Tanzu Developer Center](#getting-started-building-a-local-deployment-of-the-tanzu-developer-center)
+- [Getting Started Building a Local Deployment of the Labs Practices Site](#getting-started-building-a-local-deployment-of-the-tanzu-developer-center)
   - [Using the Dev Container](#option-1-using-the-dev-container)
   - [Local Build Environment Setup](#option-2-setup-a-local-build-environment)
 - [Troubleshooting](#troubleshooting)
@@ -13,34 +13,34 @@
   - [Contributing Code](#contributing-code)
   - [Contributing Content](#contributing-content)
 - [Code of Conduct](#code-of-conduct)
-- [Tanzu Developer Center Open Source License](#tanzu-developer-center-open-source-license)
+- [Labs Practices Site Open Source License](#tanzu-developer-center-open-source-license)
 
 ## About The Project
 
-![Tanzu Developer Center Screen Shot](static/images/github/homepage-screenshot.png)
+![Labs Practices Site Screen Shot](static/images/github/homepage-screenshot.png)
 
-The Tanzu Developer Center is a site specifically built to be a great resource for software development teams. The contributions on the Tanzu Developer Center are from teams across VMware, as well as individuals without.
+The Labs Practices Site is a site specifically built to be a great resource for software development teams. The contributions on the Labs Practices Site are from teams across VMware, as well as individuals without.
 
-Our guiding principle is to ensure readers have free, immediate access to all the content on the Tanzu Developer Center. No purchase is ever necessary to access content on the Tanzu Developer Center because it is either open source or an easily accessible trial.
+Our guiding principle is to ensure readers have free, immediate access to all the content on the Labs Practices Site. No purchase is ever necessary to access content on the Labs Practices Site because it is either open source or an easily accessible trial.
 
-## Getting Started Building a Local Deployment of the Tanzu Developer Center
+## Getting Started Building a Local Deployment of the Labs Practices Site
 
 ### Clone this repository
 
 ```sh
-    git clone --recurse-submodules https://github.com/joemoore/tanzu-dev-portal.git
+    git clone --recurse-submodules https://github.com/joemoore/labs-practices-site.git
 ```
 
 _These options help speed up the repo setup by initializing submodules during the clone process._
 
-There are two available options for building and running a local preview of the Tanzu Developer Center:
+There are two available options for building and running a local preview of the Labs Practices Site:
 
 1. [Using the dev container](#option-1-using-the-dev-container)
 2. [Setup a local build environment](#option-2-setup-a-local-build-environment)
 
 ### Option 1: Using The Dev Container
 
-The Dev Container is offered to simplify a local environment setup for those working with and contributing to the Tanzu Developer Center.
+The Dev Container is offered to simplify a local environment setup for those working with and contributing to the Labs Practices Site.
 
 This method requires the following software be installed:
 
@@ -59,7 +59,7 @@ make dev-container
 
 This will connect to a bash shell in the container immediately after it has finished the build process.
 
-The default working directory in the shell will be the Tanzu Developer Center git repo directory _(it is mounted as a volume in the container)_. All file edits/additions made from within the container are persistent and saved on the host system.
+The default working directory in the shell will be the Labs Practices Site git repo directory _(it is mounted as a volume in the container)_. All file edits/additions made from within the container are persistent and saved on the host system.
 
 The container is configured to replicate a fully functional local developer setup.
 From within the Dev Container shell prompt, run `make help` to see a list of available actions.
@@ -93,7 +93,7 @@ make preview
 
 ### Option 2: Setup A Local Build Environment
 
-These are the software prerequisites needed to build a local preview of the Tanzu Developer Center site.
+These are the software prerequisites needed to build a local preview of the Labs Practices Site site.
 
 - [Hugo](https://gohugo.io)
 - [Netlify](https://www.netlify.com)
@@ -106,7 +106,7 @@ These are the software prerequisites needed to build a local preview of the Tanz
 
 _Note: These instructions were designed for Mac users. Linux and Windows users without access to `make` and `brew` will need to manually install the prerequisites._
 
-- **Install Hugo** — The Tanzu Developer Center uses [Hugo](https://gohugo.io/) to build the site from Markdown files. You'll need to [get Hugo](https://gohugo.io/getting-started/installing/) if you want to build and run the site locally. Make sure you install the extended version with support for SCSS/SASS. This site pins `hugo` to a specific version (currently **0.107.0**) to build so if you're using a different version, your experience may vary. To install `hugo`, follow the instructions for your specific environment as detailed in the [hugo documentation](https://gohugo.io/installation/). Ultimately, you have two main options:
+- **Install Hugo** — The Labs Practices Site uses [Hugo](https://gohugo.io/) to build the site from Markdown files. You'll need to [get Hugo](https://gohugo.io/getting-started/installing/) if you want to build and run the site locally. Make sure you install the extended version with support for SCSS/SASS. This site pins `hugo` to a specific version (currently **0.107.0**) to build so if you're using a different version, your experience may vary. To install `hugo`, follow the instructions for your specific environment as detailed in the [hugo documentation](https://gohugo.io/installation/). Ultimately, you have two main options:
 
   - Download the correct **extended** binary for your OS from [gohugo GitHub releases page for 0.107.0](https://github.com/gohugoio/hugo/releases/tag/v0.107.0) and then move the `hugo` binary to an appropriate location (ie. `sudo cp hugo /usr/local/bin`) and/or add it to your `PATH`.
   - Use `brew install hugo` and `brew pin hugo` to pin it to the correct version (0.107.0). (MacOS only.)
@@ -119,7 +119,7 @@ _Note: These instructions were designed for Mac users. Linux and Windows users w
 
 _Note: The reason the .nvmrc is required even though the default should already be v16 for default image that Netlify is set to use - [Ubuntu Focal 20.04](https://github.com/netlify/build-image/blob/focal/included_software.md) - when the site repository was originally linked Netlify, it was using an older image that defaulted to v12, so it must be specified explicitly in the .nvmrc file. (See [this article](https://answers.netlify.com/t/please-read-end-of-support-for-trusty-build-image-everything-you-need-to-know/39004#how-can-i-make-my-site-work-with-the-new-image-6) for more details._
 
-- **Install [act](https://github.com/nektos/act)** — The Tanzu Developer Center uses GitHub Actions to perform automated testing periodically, and on pull requests. If you plan to run these tests locally, you will need `act`. Follow [these instructions](https://github.com/nektos/act#installation) to install `act`, or use `brew`:
+- **Install [act](https://github.com/nektos/act)** — The Labs Practices Site uses GitHub Actions to perform automated testing periodically, and on pull requests. If you plan to run these tests locally, you will need `act`. Follow [these instructions](https://github.com/nektos/act#installation) to install `act`, or use `brew`:
 
      ```sh
      brew install act
@@ -174,7 +174,7 @@ On Windows, you may need to use `hugo server -D` to start the application. The s
 
 ## Open Projects, Issues, and Content Backlog
 
-See the [open issues](https://github.com/joemoore/tanzu-dev-portal/issues) and [project boards](https://github.com/joemoore/tanzu-dev-portal/projects) for a list of proposed features, content backlog, and known issues.
+See the [open issues](https://github.com/joemoore/labs-practices-site/issues) and [project boards](https://github.com/joemoore/labs-practices-site/projects) for a list of proposed features, content backlog, and known issues.
 
 ## Contributing
 
@@ -182,16 +182,16 @@ Content contributions are what make open source and the developer community such
 
 ### Contributing Code
 
-The code contribution process is documented in [CONTRIBUTING.md](https://github.com/joemoore/tanzu-dev-portal/blob/main/CONTRIBUTING.md).
+The code contribution process is documented in [CONTRIBUTING.md](https://github.com/joemoore/labs-practices-site/blob/main/CONTRIBUTING.md).
 
 ### Contributing Content
 
-The content contribution process is documented fully on our GitHub [wiki site](https://github.com/joemoore/tanzu-dev-portal/wiki) and includes methods for both VMware employees as well as non-employees to contribute to content or bug fixes.
+The content contribution process is documented fully on our GitHub [wiki site](https://github.com/joemoore/labs-practices-site/wiki) and includes methods for both VMware employees as well as non-employees to contribute to content or bug fixes.
 
 ## Code of Conduct
 
-We, the Admin team of the Tanzu Developer Center adhere to a code of conduct available here: [CODE_OF_CONDUCT.md](https://github.com/joemoore/tanzu-dev-portal/blob/main/CODE_OF_CONDUCT.md).
+We, the Admin team of the Labs Practices Site adhere to a code of conduct available here: [CODE_OF_CONDUCT.md](https://github.com/joemoore/labs-practices-site/blob/main/CODE_OF_CONDUCT.md).
 
-## Tanzu Developer Center Open Source License
+## Labs Practices Site Open Source License
 
-The Tanzu Developer Center is distributed under the Apache License. For more information, see [LICENSE](https://github.com/joemoore/tanzu-dev-portal/blob/main/LICENSE).
+The Labs Practices Site is distributed under the Apache License. For more information, see [LICENSE](https://github.com/joemoore/labs-practices-site/blob/main/LICENSE).

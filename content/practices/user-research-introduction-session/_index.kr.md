@@ -18,7 +18,7 @@ remote: false
 miro_template_url: ""
 ---
 <h2 id="how-to-use-this-method">이 방식을 활용하는 방법</h2>
-<div class="bg-gray-dark p-lg-5 p-3 mb-4"><div class="col-lg-9"><p>이 슬라이드 자료를 자유롭게 활용하여 사용자 연구에 대해 여러분이 속한 그룹에 알려주십시오.</p><iframe src="//www.slideshare.net/slideshow/embed_code/key/iYAC2Vhv0ZEIml" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""></iframe><div style="margin-bottom:5px"><strong><a href="//www.slideshare.net/VMwareTanzu/user-research-at-vmware-tanzu-labs" title="Pivotal/Tanzu Labs에서 실시하는 사용자 연구" target="_blank">Pivotal/Tanzu Labs에서 실시하는 사용자 연구</a></strong>(<strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Tanzu Developer Center 슬라이드</a></strong>에서 발췌)</div>
+<div class="bg-gray-dark p-lg-5 p-3 mb-4"><div class="col-lg-9"><p>이 슬라이드 자료를 자유롭게 활용하여 사용자 연구에 대해 여러분이 속한 그룹에 알려주십시오.</p><iframe src="//www.slideshare.net/slideshow/embed_code/key/iYAC2Vhv0ZEIml" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""></iframe><div style="margin-bottom:5px"><strong><a href="//www.slideshare.net/VMwareTanzu/user-research-at-vmware-tanzu-labs" title="Pivotal/Tanzu Labs에서 실시하는 사용자 연구" target="_blank">Pivotal/Tanzu Labs에서 실시하는 사용자 연구</a></strong>(<strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Labs Practices Site 슬라이드</a></strong>에서 발췌)</div>
 <h3 id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <ol>
 <li>

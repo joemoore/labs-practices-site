@@ -134,7 +134,7 @@ For more information on cloud native apps check out the free e-book [Beyond the 
 To deepen your understanding, check out the following resources:
 
 ### Cloud Native
-* [What is Cloud Native? ](https://tanzu.vmware.com/developer/guides/microservices/what-is-cloud-native/) - VMware Tanzu Developer Center article
+* [What is Cloud Native? ](https://tanzu.vmware.com/developer/guides/microservices/what-is-cloud-native/) - VMware Labs Practices Site article
 * [How to think Cloud Native?](https://tanzu.vmware.com/content/white-papers/how-to-think-cloud-native) - Whitepaper by Joe Beda
 * [Cloud Native Computing Foundation (CNCF) ](https://www.cncf.io/) - Home page of an organization aiming to advance cloud native and container technology while aligning the tech industry around their evolution.
 	* [CNCF definition of “Cloud Native”](https://github.com/cncf/toc/blob/main/DEFINITION.md) - GitHub

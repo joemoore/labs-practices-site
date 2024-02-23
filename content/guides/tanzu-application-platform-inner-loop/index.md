@@ -140,7 +140,7 @@ You are now ready to do some development on your application. Here, you will uti
     ```sh
     code $PROJECT_PATH/src/main/java/com/example/springboot/HelloController.java
     ```
-    Update the line `return "Greetings from Spring Bot + Tanzu!";` to read anything else you want the web UI to reflect. Example: `return "Greetings from the Tanzu Developer Center!";`. Then save your changes.
+    Update the line `return "Greetings from Spring Bot + Tanzu!";` to read anything else you want the web UI to reflect. Example: `return "Greetings from the Labs Practices Site!";`. Then save your changes.
 
     Once saved, you should see the logs start streaming again for the application booting.
 
@@ -154,7 +154,7 @@ Throughout this series, you have gone from zero familiarity with VMware Tanzu to
 
 There is a lot more to explore now that your environment is ready and functional. Perhaps getting a local environment up and running? Or maybe setting up DNS so others can collaborate without updating `/etc/hosts`. Of course, you will want to deploy your own projects to Tanzu Application Platform and try this flow out again.
 
-I hope going through this process has been beneficial to you and helped you get started developing with VMware Tanzu. Please check out our [documentation](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-overview.html) for additional questions. Or feel free to [reach out to us](https://github.com/joemoore/tanzu-dev-portal/issues/new?assignees=&labels=feedback&template=feedback.md&title=) if you have any questions, or want to find out more.
+I hope going through this process has been beneficial to you and helped you get started developing with VMware Tanzu. Please check out our [documentation](https://docs.vmware.com/en/Tanzu-Application-Platform/1.0/tap/GUID-overview.html) for additional questions. Or feel free to [reach out to us](https://github.com/joemoore/labs-practices-site/issues/new?assignees=&labels=feedback&template=feedback.md&title=) if you have any questions, or want to find out more.
 
 Finally, check out this video demo of onboarding an application to Tanzu Application Platform and using the Live Update feature! It uses an environment very similar to the one you just set up, and goes through many of the same processes.
 

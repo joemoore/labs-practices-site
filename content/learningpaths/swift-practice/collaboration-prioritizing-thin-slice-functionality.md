@@ -22,7 +22,7 @@ While it is ultimately up to product management to prioritize work, they shouldn
 
 ## Architects
 
-Architects have a unique role in prioritizing a thin slice of functionality. Because architects focus on the big picture, the "systems of systems," they have a wider context of what each team is working on. This means that architects are aware of integrations and dependencies between teams that each team may not be aware of. As needed, the architect can help the product manager understand these dependencies and prioritize them. 
+Architects have a unique role in prioritizing a thin slice of functionality. Because architects focus on the big picture, the "systems of systems," they have a wider context of what each team is working on. This means that architects are aware of integrations and dependencies between teams that each team may not be aware of. As needed, the architect can help the product manager understand these dependencies and prioritize them.
 
 The architect advocates for the system as a whole, not just the software the team is working on. By taking a system-level view, the architect doesn’t necessarily have the most up-to-date perspective on what’s valuable to a product team working in a more bounded scope. For example, a team building a UI application may want to prioritize certain aspects of that work that help them get important feedback about their design from their users. That work may be less valuable to the system design as a whole: the new work won’t add new capabilities to the system, but that’s OK. The system-level perspective is just one way of examining the value of new activities.
 
@@ -33,18 +33,18 @@ On the other hand, when a product team has a set of features that they consider 
 
 When prioritizing thin slices of functionality, developers help by providing the feasibility perspective and how much effort a team might expect to complete the work. The amount of effort required does not have to be completely accurate in terms of time required to complete. The amount of effort should be described in relative terms in relation to other thin slices. Using the 2x2 prioritization matrix will help the team figure out which thin slice they should prioritize.
 
-📌  Example: If there are five defined thin slices, create a 2x2 diagram, write one of the thin slices on a sticky and put it in the middle of the axis for effort. Write another one of the thin slices on another sticky and put it along the axis of effort in relation to the first sticky. Repeat this process until all your thin slices have been estimated in terms of the expected effort. 
+📌  Example: If there are five defined thin slices, create a 2x2 diagram, write one of the thin slices on a sticky and put it in the middle of the axis for effort. Write another one of the thin slices on another sticky and put it along the axis of effort in relation to the first sticky. Repeat this process until all your thin slices have been estimated in terms of the expected effort.
 
-A development team may have its own goals to deliver value to the end user for a component they have developed. This team-level goal may not be known to architects. For example, the team may want to add feedback mechanisms and UI tracking to give them data about how people use their app in order to fine-tune the UI. When architects come to the team with the next service or slice to be developed, it may conflict with the team’s goals. That work may be less valuable to the system design as a whole. While the work planned by the team won’t add new capabilities to the system as a whole, it is OK to continue the work if the team feels it is of the same relative value. 
+A development team may have its own goals to deliver value to the end user for a component they have developed. This team-level goal may not be known to architects. For example, the team may want to add feedback mechanisms and UI tracking to give them data about how people use their app in order to fine-tune the UI. When architects come to the team with the next service or slice to be developed, it may conflict with the team’s goals. That work may be less valuable to the system design as a whole. While the work planned by the team won’t add new capabilities to the system as a whole, it is OK to continue the work if the team feels it is of the same relative value.
 
-💁 Tip: When a similar situation arises where the team deems that their own work is of the same relative value as the system-level work, be sure to communicate to architects and the product team about why the team has made this decision and what the impact will be for the team to prioritize their backlog. 
+💁 Tip: When a similar situation arises where the team deems that their own work is of the same relative value as the system-level work, be sure to communicate to architects and the product team about why the team has made this decision and what the impact will be for the team to prioritize their backlog.
 
 
 ## Product
 
 At this stage, the main focus of a product manager is to determine the priority of each of the thin slices to be developed. The priority is determined based on a few factors, such as desirability from the user, which thin slice should be built as a prerequisite for future slices, technical feasibility, and value to the business. This process is a collaborative effort with architects, developers, and business leaders.
 
-📌 Example: The first thin slice of functionality could be a successful end-to-end process, transaction, or user journey with no exceptions, errors, or edge cases—the proverbial "happy path" of the system. 
+📌 Example: The first thin slice of functionality could be a successful end-to-end process, transaction, or user journey with no exceptions, errors, or edge cases—the proverbial "happy path" of the system.
 
 Some questions that product managers would be asking during this process include:
 
@@ -74,6 +74,6 @@ In summary, architects and developers should provide recommendations that take a
 
 ## Resources
 
-[2x2 Prioritization | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/practices/2x2/)
+[2x2 Prioritization | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/2x2/)
 
-[SRE fundamentals: SLI vs SLO vs SLA | Google Cloud Blog](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-sli-vs-slo-vs-sla) 
+[SRE fundamentals: SLI vs SLO vs SLA | Google Cloud Blog](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-sli-vs-slo-vs-sla)

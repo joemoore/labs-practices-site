@@ -22,46 +22,46 @@ why:
 ---
 
 ## How to Use this Method
-It is recommended that a person outside the team facilitates the Speedback sessions. This person’s responsibilities include introducing the Speedback concept (including emphasizing the prep work involved) ahead of time, planning rooms and rounds (who talks to who when and where), keeping time/enforcing switches, and being available to help facilitate feedback sessions if asked. By default, this person does not sit in on any feedback sessions. 
+It is recommended that a person outside the team facilitates the Speedback sessions. This person’s responsibilities include introducing the Speedback concept (including emphasizing the prep work involved) ahead of time, planning rooms and rounds (who talks to who when and where), keeping time/enforcing switches, and being available to help facilitate feedback sessions if asked. By default, this person does not sit in on any feedback sessions.
 
    {{< callout >}}
    **Tip**: 10 minutes per pair is a good starting point but can be adjusted. Subsequent Speedback sessions with mature, experienced teams might get it down to 5 minutes.
 
-   **Remote Tip:** For distributed teams, use video calls and "breakout rooms" for these feedback sessions. 
-   
+   **Remote Tip:** For distributed teams, use video calls and "breakout rooms" for these feedback sessions.
+
    **[More remote tips below in the Variations section](#for-remote-teams).**
    {{% /callout %}}
 
 
 {{% section %}}
 ### Sample Agenda & Prompts
-1. If needed, host a 15 minute session to explain Speedback in person using this deck. This is especially helpful if it’s the first time the team has participated in a Speedback style feedback session. 
+1. If needed, host a 15 minute session to explain Speedback in person using this deck. This is especially helpful if it’s the first time the team has participated in a Speedback style feedback session.
 
-   <iframe src="//www.slideshare.net/slideshow/embed_code/key/l1X1Whim0OkaH7" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/speedback-245008157" title="Speedback" target="_blank">Speedback</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Tanzu Developer Center Slides</a></strong> </div>
+   <iframe src="//www.slideshare.net/slideshow/embed_code/key/l1X1Whim0OkaH7" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/speedback-245008157" title="Speedback" target="_blank">Speedback</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Labs Practices Site Slides</a></strong> </div>
 
-1. Let the team know a Speedback session is happening, and tell them how to prepare. 
+1. Let the team know a Speedback session is happening, and tell them how to prepare.
 
    {{< callout >}}
    **Tip**: Feel free to modify and use the [**email template** in the Facilitator Notes & Tips](#email-template) section.
    {{< /callout >}}
 
 1. Send out calendar invites to block out times and rooms. If remote, include video-call sessions. Since people will be paired up, you'll need half as many rooms or video call sessions as number of participants.
-   
+
    {{< callout >}}
    **Example**: For a team of 8, book 4 rooms or set up 4 dedicated video call sessions.
    {{< /callout >}}
 
 1. Prior to the Speedback session, send a reminder for participants to make sure they have their feedback prepared.
-   
+
    {{< callout >}}
-   **Tip**: It is _highly encouraged_ that every team member prepare written feedback for every other team member prior to the session. This helps sessions move quickly and smoothly, and shows respect to one’s teammates. 
+   **Tip**: It is _highly encouraged_ that every team member prepare written feedback for every other team member prior to the session. This helps sessions move quickly and smoothly, and shows respect to one’s teammates.
    {{< /callout >}}
-      
+
    Feedback should ideally contain both positive and at least one constructive thought. Consider using one of the feedback frameworks described in the linked Speedback slide deck, such as the Actionable, Specific, and Kind framework (ASK).
 
 1. Set up a schedule. For example, on a team of 4 participants, you could set it up in the following way:
-   
-   * 1:00 PM - 1:05 PM: Room 1: Kick off together, time for any questions - all participants 
+
+   * 1:00 PM - 1:05 PM: Room 1: Kick off together, time for any questions - all participants
    * 1:05 PM - 1:15 PM Room 1: Participants A and B
    * 1:05 PM - 1:15 PM Room 2: Participants C and D
    * 1:15 PM - 1:25 PM Room 1: Participants A and C
@@ -84,7 +84,7 @@ It is recommended that a person outside the team facilitates the Speedback sessi
 
 {{% section %}}
 ### Success/Expected Outcomes
-At the end of all one-on-one interactions, gather the team together and perform a quick debrief about how the Speedback session went, anything they learned that they would like to share, suggestions for improving the session, when to schedule the next one, and whatever else is on their minds. 
+At the end of all one-on-one interactions, gather the team together and perform a quick debrief about how the Speedback session went, anything they learned that they would like to share, suggestions for improving the session, when to schedule the next one, and whatever else is on their minds.
 
 Speedback can be intense and overwhelming and some restorative or reflection time afterwards is important. Individuals can either do their own thing, or the team can go out for a coffee or ice cream - they can decide during the wrap up.
 
@@ -117,7 +117,7 @@ One disadvantage of Speedback is that due to its timeboxed nature, it can be dif
 Speedback can be very effective when teams are going through a rough patch or if there are indications that the team’s health is taking a downturn. But if the team health or morale is already low, or if a subset of interpersonal relationships have truly deteriorated, Speedback is not the right format to resolve those issues.
 
 #### Email Template
-Feel free to use the following email template, modifying it as needed based on the size of your Speedback session. 
+Feel free to use the following email template, modifying it as needed based on the size of your Speedback session.
 
 > Hi [name of team],
 >
@@ -128,7 +128,7 @@ Feel free to use the following email template, modifying it as needed based on t
 >
 > **How does it work?**
 >
-> Folks will pair up and spend 10 minutes with each other (each person does about 5 minutes of giving feedback, and 5 minutes of receiving), then switch pairs. Since this team has 4 team members, that means each of you will speak to 3 others for 10m each. I'll facilitate and act as time-keeper. I've put 45m on the calendar because switching rooms and answering questions can take more time. 
+> Folks will pair up and spend 10 minutes with each other (each person does about 5 minutes of giving feedback, and 5 minutes of receiving), then switch pairs. Since this team has 4 team members, that means each of you will speak to 3 others for 10m each. I'll facilitate and act as time-keeper. I've put 45m on the calendar because switching rooms and answering questions can take more time.
 >
 > **Should I prepare anything ahead of time?**
 >
@@ -153,17 +153,17 @@ Feel free to use the following email template, modifying it as needed based on t
 If the entire team is co-located, try hosting Speedback in person. But if the team is even partially remote, set up the entire session as remote with video calls.
 
    {{% callout %}}
-   **Tip:** Avoid a mix of in-person and video-call based sessions. Pairs will waste time switching formats. If one person is remote, treat the session as if everyone is remote. 
+   **Tip:** Avoid a mix of in-person and video-call based sessions. Pairs will waste time switching formats. If one person is remote, treat the session as if everyone is remote.
    {{% /callout %}}
 
-With some clever video-call preparation and facilitation over chat, you can have people virtually enter rooms to give and receive feedback, and the facilitator can use chat apps or the video conferencing tool itself to notify people to switch. 
+With some clever video-call preparation and facilitation over chat, you can have people virtually enter rooms to give and receive feedback, and the facilitator can use chat apps or the video conferencing tool itself to notify people to switch.
 
    {{% callout %}}
-   **Remote Tip:** Many video call systems support "breakout rooms" or similar means to temporarily divide large groups into smaller groups for closer collaboration. 
+   **Remote Tip:** Many video call systems support "breakout rooms" or similar means to temporarily divide large groups into smaller groups for closer collaboration.
    {{% /callout %}}
 
 #### How do I make this work in a large team of 8 or more participants?
-It can be logistically challenging to set up Speedback with a large group. Some teams also may benefit from discipline-specific sessions, such as an engineering-only group. 
+It can be logistically challenging to set up Speedback with a large group. Some teams also may benefit from discipline-specific sessions, such as an engineering-only group.
 
 Try having two or more smaller sessions. Try to keep them somewhat close together (within a week of each other).
 
@@ -176,5 +176,5 @@ At any given time, one person will end up sitting out during each round. They ca
 
 [Interpersonal Feedback - Talk and Workshop](https://tanzu.vmware.com/content/vmware-tanzu-developer-center-slides/interpersonal-feedback-talk-and-workshop) -- Presentation
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/uJ5WGVfjWpdrL1" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/interpersonal-feedback-talk-and-workshop" title="Interpersonal feedback talk and workshop" target="_blank">Interpersonal feedback talk and workshop</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Tanzu Developer Center Slides</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/uJ5WGVfjWpdrL1" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/interpersonal-feedback-talk-and-workshop" title="Interpersonal feedback talk and workshop" target="_blank">Interpersonal feedback talk and workshop</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Labs Practices Site Slides</a></strong> </div>
 {{% /section %}}

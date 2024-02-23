@@ -77,7 +77,7 @@ border-width:1px; margin-bottom:5px; max-width: 100%;"
 allowfullscreen> </iframe> <div
 style="margin-bottom:5px"> <strong><a
 href="https://www.slideshare.net/VMwareTanzu"
-target="_blank">VMware Tanzu Developer Center
+target="_blank">VMware Labs Practices Site
 슬라이드의</a></strong> <strong><a
 href="//www.slideshare.net/VMwareTanzu/speedback-245008157"
 title="스피드백"

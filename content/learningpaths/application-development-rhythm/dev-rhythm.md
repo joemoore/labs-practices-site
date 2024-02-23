@@ -14,7 +14,7 @@ tags: []
 To view a demo on a developer daily workflow that follows Test Driven Development practices, Continuous Integration practices, uses the Red/Green/Refactor Cycle, the [Mikado Method](http://mikadomethod.info/) and private branching techniques, do one of the following:
 
 
-- Watch the video, [coming soon](https://github.com/joemoore/tanzu-dev-portal/issues/1097).
-- Run through the Developer Flow Workshop, [coming soon](https://github.com/joemoore/tanzu-dev-portal/issues/1098)
+- Watch the video, [coming soon](https://github.com/joemoore/labs-practices-site/issues/1097).
+- Run through the Developer Flow Workshop, [coming soon](https://github.com/joemoore/labs-practices-site/issues/1098)
 
 ![Developer Rhythm](/images/outcomes/application-development-rhythm/developer-rhythm-programmer.jpg)

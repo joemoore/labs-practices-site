@@ -1,7 +1,7 @@
 {
     "name": "tanzu-dev-portal",
     "version": "0.1.0",
-    "description": "Tanzu Developer Center",
+    "description": "Labs Practices Site",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/joemoore/tanzu-dev-portal.git"
+        "url": "git+https://github.com/joemoore/labs-practices-site.git"
     },
     "author": "VMware, Inc.",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/joemoore/tanzu-dev-portal/issues"
+        "url": "https://github.com/joemoore/labs-practices-site/issues"
     },
-    "homepage": "https://github.com/joemoore/tanzu-dev-portal#readme",
+    "homepage": "https://github.com/joemoore/labs-practices-site#readme",
     "engines": {
         "node": ">=16 <17"
     },

@@ -106,7 +106,7 @@ With a Tanzu Community Edition cluster, Sonobuoy is built into the `tanzu` CLI, 
 
     Sonobuoy is still running. Runs can take 60 minutes or more depending on cluster and plugin configuration.
     ```
-      
+
     If you check early enough, there may not be any progress listed.
 
     Come back in about an hour and check again :).
@@ -152,7 +152,7 @@ With a Tanzu Community Edition cluster, Sonobuoy is built into the `tanzu` CLI, 
       | jq -r '.  | select(.status == "failed") | .details' \
       | sed 's/\\n/\n/g' | sed 's/\\t/\t/g'
     ```
-    The `sed` commands are to change new line and tab characters to their actual form. 
+    The `sed` commands are to change new line and tab characters to their actual form.
 
     You can also find all of this in the zipped tarball.
     ```
@@ -173,9 +173,9 @@ With a Tanzu Community Edition cluster, Sonobuoy is built into the `tanzu` CLI, 
 
 # Learn more
 
-If you didn’t follow along, try [downloading](https://tanzucommunityedition.io/docs/latest/getting-started/) Tanzu Community Edition. You can also try Tanzu Community Edition locally with [unmanaged clusters](https://tanzucommunityedition.io/docs/latest/getting-started-unmanaged/), or you can try it out without spinning up your own clusters via free workshops on the [Tanzu Developer Center](https://tanzu.vmware.com/developer/workshops/).
+If you didn’t follow along, try [downloading](https://tanzucommunityedition.io/docs/latest/getting-started/) Tanzu Community Edition. You can also try Tanzu Community Edition locally with [unmanaged clusters](https://tanzucommunityedition.io/docs/latest/getting-started-unmanaged/), or you can try it out without spinning up your own clusters via free workshops on the [Labs Practices Site](https://tanzu.vmware.com/developer/workshops/).
 
-To learn more about Sonobuoy and Kubernetes conformance testing, check out the following: 
+To learn more about Sonobuoy and Kubernetes conformance testing, check out the following:
 - [Certified Kubernetes page](https://www.cncf.io/certification/software-conformance/)
 - [Sonobuoy docs](https://sonobuoy.io/docs/)
 - [Sonobuoy blogs](https://sonobuoy.io/blog/)

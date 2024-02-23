@@ -13,8 +13,8 @@ For a new practice: a short summary, a few sentences at most.
 For changes to an already-published practice: provide the link and describe your proposed change.
 
 ## Progress and Publication Status
-- [ ] Already published on the Tanzu Developer Center.
-- [ ] Published internally or elsewhere; needs review for Tanzu Developer Center publication
+- [ ] Already published on the Labs Practices Site.
+- [ ] Published internally or elsewhere; needs review for Labs Practices Site publication
 - [ ] Partially written and/or draft in progress
 - [x] Not yet written
 
@@ -31,4 +31,4 @@ List anything here that might be helpful for writing this article.
 - Links to presentations, videos, books, etc.
 
 ## Contribution Guide
-Please refer to the [Tanzu Practices Contrition Guide](https://github.com/joemoore/tanzu-dev-portal/wiki/Tanzu-Labs-Practices-Contribution-Guide) for detailed instructions.
+Please refer to the [Tanzu Practices Contrition Guide](https://github.com/joemoore/labs-practices-site/wiki/Tanzu-Labs-Practices-Contribution-Guide) for detailed instructions.

@@ -18,6 +18,6 @@ We're transforming the way the world builds software by catalyzing enterprise tr
 
 We're continuously inspired and humbled to work with the amazing people that join our organization, and the amazing clients we have the opportunity to work with.
 
-We hope you've learned that our way of doing this really quite simple, and that you can adopt these simple ideas, with or without working with us. We hope you saw your organization and yourselves in these words. [Feedback welcomed!](https://github.com/joemoore/tanzu-dev-portal/issues) 🔬
+We hope you've learned that our way of doing this really quite simple, and that you can adopt these simple ideas, with or without working with us. We hope you saw your organization and yourselves in these words. [Feedback welcomed!](https://github.com/joemoore/labs-practices-site/issues) 🔬
 
 Now, let's go build something amazing!

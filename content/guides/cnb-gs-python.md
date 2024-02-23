@@ -31,7 +31,7 @@ For Python developers, there are currently two implementations of the Buildpack 
 
 There are a few things you need to do before getting started with Python Buildpacks:
 
-- Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally. 
+- Install [Docker Desktop](https://hub.docker.com/search?type=edition&offering=community). The `pack` CLI requires the Docker daemon, so you'll need to have that installed and running locally.
 
 - Check out [Containers 101](https://kube.academy/courses/containers-101) on KubeAcademy, particularly if you've never worked with containers or Docker before.
 
@@ -56,7 +56,7 @@ Download the sample Python application from Github and make the sample applicati
 
 In the folder you will notice three text files, `web.py`, `requirements.txt`, and `Procfile`.
 
-The file `web.py` contains a hello-world web application written in `Python3` using the `Flask` and `MarkupSafe` libraries. 
+The file `web.py` contains a hello-world web application written in `Python3` using the `Flask` and `MarkupSafe` libraries.
 
 ```python
 from flask import Flask
@@ -93,7 +93,7 @@ web: FLASK_APP=web.py python3 -m flask run --host=0.0.0.0 --port=$PORT
 
 ### Get The List Of Suggested Builders
 
-There are many implementations of the [Buildpacks][bp-website] standard. These implementations are called 'builders'. To discover the very latest list of suggested builders, use the `pack suggest-builders` command as follows: 
+There are many implementations of the [Buildpacks][bp-website] standard. These implementations are called 'builders'. To discover the very latest list of suggested builders, use the `pack suggest-builders` command as follows:
 
 ```bash
 > pack suggest-builders
@@ -105,7 +105,7 @@ Suggested builders:
         ...
 ```
 
-As you can see, both [Heroku][heroku-python-bp] and [Google Cloud Platform][google-buildpacks] offer open-source Python compatible builders. For this exercise, you'll use the Heroku builder, but you could just as easily use Google's. 
+As you can see, both [Heroku][heroku-python-bp] and [Google Cloud Platform][google-buildpacks] offer open-source Python compatible builders. For this exercise, you'll use the Heroku builder, but you could just as easily use Google's.
 
 ### Set Heroku As Your Default Builder
 
@@ -211,7 +211,7 @@ You can stop and remove the container from Docker as follows:
 
 ### Keep Learning
 
-Learn more about buildpacks right here on the Tanzu Developer Center with these great guides:
+Learn more about buildpacks right here on the Labs Practices Site with these great guides:
 
 - [Buildpacks: What Are They?](/guides/containers/cnb-what-is)
 
@@ -219,7 +219,7 @@ Learn more about buildpacks right here on the Tanzu Developer Center with these 
 
 - [Getting Started With Automated Builds Using `kpack`](/guides/containers/cnb-gs-kpack)
 
-Find out more about what the `pack` tool can do by using the `--help` command and browsing the [Buildpacks.io][bp-website] website. 
+Find out more about what the `pack` tool can do by using the `--help` command and browsing the [Buildpacks.io][bp-website] website.
 
 If you liked this guide, you might find these others in our 'Python Like A Pro' series useful:
 

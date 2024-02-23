@@ -355,5 +355,5 @@ If you'd like to learn more about how Pivotal/Tanzu Labs approaches modern appli
 - [Cloud Native Application Development with Spring](/learningpaths/application-development-rhythm/)
 - [Cloud Native Development in Practice](/learningpaths/cloud-native-development-in-practice/)
 
-If you are a [Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs) team member, please [submit your updates to this FAQ!](https://github.com/joemoore/tanzu-dev-portal/issues)
+If you are a [Tanzu Labs](https://en.wikipedia.org/wiki/Pivotal_Labs) team member, please [submit your updates to this FAQ!](https://github.com/joemoore/labs-practices-site/issues)
 

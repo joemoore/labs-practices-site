@@ -27,7 +27,7 @@ The architect naturally takes an abstract, system-level view to the design. Duri
 * Are real-world constraints pushing the high-level design in a new direction?
 * Is everyone using the same terms, jargon, and definitions to communicate so that we're establishing a shared language and understanding of the system?
 
-When analyzing particularly complex parts of the system, an architect and a developer might “zoom in” to that subdomain or subsystem and work closely with developers. The architect then takes that deeper understanding and explores how changes will affect the design of the overall system. 
+When analyzing particularly complex parts of the system, an architect and a developer might “zoom in” to that subdomain or subsystem and work closely with developers. The architect then takes that deeper understanding and explores how changes will affect the design of the overall system.
 
 The developer then brings that understanding into a team-level work planning session to ensure they're doing the proper integrations with other parts of the system.
 
@@ -89,8 +89,8 @@ The outcome you are aiming for in doing the event storm and Boris exercises is f
 
 
 
-* Be confident in explaining the business process 
-* How to support that process with a new, notional architecture 
+* Be confident in explaining the business process
+* How to support that process with a new, notional architecture
 * Actionable next steps for each person involved
 
 What you are working toward is a shared understanding of the business process and problem, ubiquitous language, and agreement on the notional solution or architecture.
@@ -100,8 +100,8 @@ In lesson 3 of this series, we’ll dive deeper into how a team might collaborat
 
 ## Resources
 
-[Event Storming | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/practices/event-storming/)
+[Event Storming | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/event-storming/)
 
-[Boris | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/practices/boris/)
+[Boris | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/boris/)
 
-[Ubiquitous Language | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/practices/ubiquitous-language/)
+[Ubiquitous Language | VMware Labs Practices Site](https://tanzu.vmware.com/developer/practices/ubiquitous-language/)

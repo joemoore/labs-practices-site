@@ -1018,7 +1018,7 @@ Finally, check out this video demonstrating the deployment of an application to 
 [tanzunet]: https://network.tanzu.vmware.com/
 
 [dev-gs-innerloop]: /guides/tanzu-application-platform-inner-loop
-[feedback]: https://github.com/joemoore/tanzu-dev-portal/issues/new?assignees=&labels=feedback&template=feedback.md&title=
+[feedback]: https://github.com/joemoore/labs-practices-site/issues/new?assignees=&labels=feedback&template=feedback.md&title=
 [tap-hol]: https://via.vmw.com/TAP-HOL
 
 [hyperv]: https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/

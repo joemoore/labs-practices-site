@@ -23,7 +23,7 @@ miro_template_url: ""
 {{% section %}}
 Feel free to use this slide deck to help introduce your group to User Research.
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/iYAC2Vhv0ZEIml" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/user-research-at-vmware-tanzu-labs" title="User research at Pivotal/Tanzu Labs" target="_blank">User research at Pivotal/Tanzu Labs</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Tanzu Developer Center Slides</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/iYAC2Vhv0ZEIml" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/VMwareTanzu/user-research-at-vmware-tanzu-labs" title="User research at Pivotal/Tanzu Labs" target="_blank">User research at Pivotal/Tanzu Labs</a> </strong> from <strong><a href="https://www.slideshare.net/VMwareTanzu" target="_blank">VMware Labs Practices Site Slides</a></strong> </div>
 
 ### Sample Agenda & Prompts
 1. Write the agenda on the whiteboard or shared digital workspace:

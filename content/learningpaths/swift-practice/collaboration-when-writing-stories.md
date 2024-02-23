@@ -25,7 +25,7 @@ Stories are usually written by a product manager or product owner. While this is
 * Spotting any discrepancies from the Boris and SNAP diagrams
 * Identifying potential parallel efforts that we can take advantage of during the modernization effort, for example, adding in a shared biometric authentication service
 
-Oftentimes, new details and complexities arise when providing more context for the user story. This may trigger the architects to pair with developers to come up with a solution. Sometimes the complexities are outside of our control, for instance, if it is dependent on another team or because of a technical limitation. In these cases, an architect can be helpful by thinking through how the team can address the complexities in the short term while also building out a long-term solution. 
+Oftentimes, new details and complexities arise when providing more context for the user story. This may trigger the architects to pair with developers to come up with a solution. Sometimes the complexities are outside of our control, for instance, if it is dependent on another team or because of a technical limitation. In these cases, an architect can be helpful by thinking through how the team can address the complexities in the short term while also building out a long-term solution.
 
 💁  Tip: Make sure to update the Boris and SNAP diagrams when changes happen, including temporary and short-term solutions so that the team has an accurate representation of the decisions made.
 
@@ -34,7 +34,7 @@ During the process of writing stories, the architects should be involved to help
 
 ## Developers
 
-Developers contribute to the story writing process by providing implementation details that would help make the development process smoother. These details can range from small details that only certain individuals know to patterns that may help make the coding smoother. 
+Developers contribute to the story writing process by providing implementation details that would help make the development process smoother. These details can range from small details that only certain individuals know to patterns that may help make the coding smoother.
 
 Some examples of these implementation details can include:
 
@@ -60,7 +60,7 @@ Product owners or product managers should be writing stories that represent the 
 
 The Boris diagram shows the different service candidates and how services relate to each other. Following the lines between the services, create a thin vertical slice of functionality that can be independently shipped to production. The SNAP exercise will include the functionality that the service will need. These functionalities will be the stories that have to be written.
 
-📌 Example: A thin vertical slice story should cover the UI inputs that call a service, which in turn calls the database or data layer to retrieve the data and return to the user on the UI. 
+📌 Example: A thin vertical slice story should cover the UI inputs that call a service, which in turn calls the database or data layer to retrieve the data and return to the user on the UI.
 
 While writing stories, product managers may be asking themselves the following questions:
 
@@ -83,6 +83,6 @@ In the next lesson, we’ll look at collaboration amongst a balanced team while 
 
 ## Resources
 
-[Writing Agile User Stories for Event-Based Systems | VMware Tanzu Developer Center](https://tanzu.vmware.com/developer/guides/writing-agile-user-stories/)
+[Writing Agile User Stories for Event-Based Systems | VMware Labs Practices Site](https://tanzu.vmware.com/developer/guides/writing-agile-user-stories/)
 
 [How to Write User Stories Without Users](https://tanzu.vmware.com/content/blog/how-to-write-user-stories-without-users)
