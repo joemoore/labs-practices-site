@@ -41,7 +41,7 @@
             </div>
             <p class="text-center col-lg-9 col-12 mx-auto">{{ .Params.description }}</p>
             <div class="container py-5 px-0">
-                <h5 class="text-center h5">Indexes of All The Things</h5>
+                <h5 class="text-center h5">Collections of Labs-Oriented Content</h5>
                 <div class="row mt-4">
                     {{ range .Params.indexes }}
                     {{ with $.Site.GetPage (print .) }}
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="container py-5 px-0">
-                <h5 class="text-center h5">Featured</h5>
+                <h5 class="text-center h5">Popular Resources</h5>
                 <div class="row mt-4">
                     {{ range .Params.featured }}
                     {{ with $.Site.GetPage (print .) }}

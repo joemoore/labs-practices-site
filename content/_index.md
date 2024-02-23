@@ -5,8 +5,8 @@ description: 'Labs Practices Site'
 tagline: 'Do what works. Do the right thing. Be kind.'
 indexes:
     - 'practices'
-    - 'guides'
     - 'learningpaths'
+    - 'guides'
 featured:
     - 'learningpaths/application-development-how-we-work'
     - 'guides/tanzu-labs-engineer-faq'
