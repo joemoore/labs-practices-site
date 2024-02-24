@@ -8,6 +8,7 @@ indexes:
   - "learningpaths"
   - "guides"
 featured:
+  - "topics/about-this-site"
   - "learningpaths/application-development-how-we-work"
   - "guides/tanzu-labs-engineer-faq"
   - "learningpaths/application-development"

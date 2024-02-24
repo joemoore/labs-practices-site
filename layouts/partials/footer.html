@@ -14,9 +14,9 @@
           {{ with .Site.Params.california_privacy_rights }}<small class="mr-1"><a href="{{ . }}" target="_blank">{{ T "footer_california_privacy_rights" }}</a></small>{{ end }}
           <small><a href="javascript:void(0);" class="ot-sdk-show-settings" style="cursor:pointer;">Cookie Settings</a></small>
         </div>
-<!--       	{{ if not .Site.Params.ui.footer_about_disable }}
-      		{{ with .Site.GetPage "about" }}<p class="mt-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>{{ end }}
-      	{{ end }} -->
+      	{{ if not .Site.Params.ui.footer_about_disable }}
+      		{{ with .Site.GetPage "topics/about-this-site" }}<p class="mt-2"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>{{ end }}
+      	{{ end }}
       </div>
 
     </div>
