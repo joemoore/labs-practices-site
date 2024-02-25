@@ -18,4 +18,5 @@ featured:
   - "practices/2x2"
   - "practices/3-column-retro"
   - "practices/journey-map"
+  - "topics/pivotal-workstation-setup"
 ---
