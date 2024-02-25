@@ -261,27 +261,27 @@ if (query) {
 	// Filter results if one is selected
 	if (window.location.search.indexOf('blog') > -1) {
 		document.getElementById("blog-link").classList.add('active-tab');
-		var blogFilter = "&siteSearch=tanzu.vmware.com/developer/blog&siteSearchFilter=i"
+		var blogFilter = "&siteSearch=labspractices.com/blog&siteSearchFilter=i"
 		search(blogFilter);
 	} else if (window.location.search.indexOf('guides') > -1) {
 		document.getElementById("guides-link").classList.add('active-tab');
-		var guidesFilter = "&siteSearch=tanzu.vmware.com/developer/guides&siteSearchFilter=i"
+		var guidesFilter = "&siteSearch=labspractices.com/guides&siteSearchFilter=i"
 		search(guidesFilter);
 	} else if (window.location.search.indexOf('ttv') > -1) {
 		document.getElementById("ttv-link").classList.add('active-tab');
-		var ttvFilter = "&siteSearch=tanzu.vmware.com/developer/tv&siteSearchFilter=i"
+		var ttvFilter = "&siteSearch=labspractices.com/tv&siteSearchFilter=i"
 		search(ttvFilter);
 	} else if (window.location.search.indexOf('videos') > -1) {
 		document.getElementById("videos-link").classList.add('active-tab');
-		var videosFilter = "&siteSearch=tanzu.vmware.com/developer/videos&siteSearchFilter=i"
+		var videosFilter = "&siteSearch=labspractices.com/videos&siteSearchFilter=i"
 		search(videosFilter);
 	} else if (window.location.search.indexOf('samples') > -1) {
 		document.getElementById("samples-link").classList.add('active-tab');
-		var samplesFilter = "&siteSearch=tanzu.vmware.com/developer/samples&siteSearchFilter=i"
+		var samplesFilter = "&siteSearch=labspractices.com/samples&siteSearchFilter=i"
 		search(samplesFilter);
 	} else {
 		document.getElementById("all-link").classList.add('active-tab');
-		var noFilter = '&siteSearch=tanzu.vmware.com/developer';
+		var noFilter = '&siteSearch=labspractices.com';
 		search(noFilter);
 	} 
 }//end if query
