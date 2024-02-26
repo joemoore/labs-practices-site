@@ -430,25 +430,29 @@ limitations under the License.
       });
     });
 
-    // Link Clicks (Guides, Tanzu.TV, Blog, Patterns, Videos)
-    $(
-      "body.guide a, body.guides a, body.tanzu-tv a, body.tv-show a, body.tv-episode a, body.blog a, body.pattern a, a.youtube-container"
-    ).click(function () {
-      var linkTitle = this.innerHTML;
-      if (linkTitle.includes("navbar-logo")) linkTitle = "Home";
-      else if (linkTitle.startsWith("<")) linkTitle = this.innerText;
-      if (!this.href.endsWith("#"))
-        sendAmplitudeEvent("link clicked", {
-          "link title": linkTitle,
-          "link url": this.href,
-          "url path": window.location.pathname,
-        });
-    });
+    // Link Clicks (Guides, Blog, Patterns)
+    $("body.guide a, body.guides a, body.blog a, body.pattern a").click(
+      function () {
+        var linkTitle = this.innerHTML;
+        if (linkTitle.includes("navbar-logo")) linkTitle = "Home";
+        else if (linkTitle.startsWith("<")) linkTitle = this.innerText;
+        if (!this.href.endsWith("#"))
+          sendAmplitudeEvent("link clicked", {
+            "link title": linkTitle,
+            "link url": this.href,
+            "url path": window.location.pathname,
+          });
+      }
+    );
 
     // Track scroll depth on guides and blogs
     var scrollDepthCurrent = -1;
     $(window).scroll(function () {
-      if ($("body.guide").length > 0 || $("div.blog").length > 0 || $("div.practices").length > 0) {
+      if (
+        $("body.guide").length > 0 ||
+        $("div.blog").length > 0 ||
+        $("div.practices").length > 0
+      ) {
         var totalScrollHeight =
           document.querySelector("body").scrollHeight - window.innerHeight;
         var percentScrolled = window.scrollY / totalScrollHeight;
@@ -491,7 +495,9 @@ limitations under the License.
           document.title.indexOf("|") - 1
         );
         if (player != null) {
-          var currentTime = !player.getCurrentTime ? 0.0 : player.getCurrentTime();
+          var currentTime = !player.getCurrentTime
+            ? 0.0
+            : player.getCurrentTime();
           var duration = !player.getDuration ? 0.0 : player.getDuration();
           var elapsedPercentage = currentTime / duration;
           var percentageCompleted;
