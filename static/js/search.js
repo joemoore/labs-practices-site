@@ -216,7 +216,7 @@ if (query) {
   searchLinks.appendChild(practicesLink);
 
   var practicesText = document.createElement("span");
-  practicesText.innerHTML = "Practices";
+  practicesText.innerHTML = "Practices and Workshops";
   practicesLink.appendChild(practicesText);
 
   practicesLink.onclick = practicesClick;
@@ -257,28 +257,8 @@ if (query) {
     window.location.search = filterLink + "&tbm=guides";
   }
 
-  // Blog Filter
-  var blogLink = document.createElement("div");
-  blogLink.setAttribute("id", "blog-link");
-  blogLink.setAttribute("class", "gsc-tabHeader gsc-inline-block");
-  searchLinks.appendChild(blogLink);
-
-  var blogText = document.createElement("span");
-  blogText.innerHTML = "Blogs";
-  blogLink.appendChild(blogText);
-
-  blogLink.onclick = blogClick;
-
-  function blogClick() {
-    window.location.search = filterLink + "&tbm=blog";
-  }
-
   // Filter results if one is selected
-  if (window.location.search.indexOf("blog") > -1) {
-    document.getElementById("blog-link").classList.add("active-tab");
-    var blogFilter = "&siteSearch=labspractices.com/blog&siteSearchFilter=i";
-    search(blogFilter);
-  } else if (window.location.search.indexOf("guides") > -1) {
+  if (window.location.search.indexOf("guides") > -1) {
     document.getElementById("guides-link").classList.add("active-tab");
     var guidesFilter =
       "&siteSearch=labspractices.com/guides&siteSearchFilter=i";
