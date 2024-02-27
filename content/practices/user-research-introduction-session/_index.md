@@ -88,7 +88,7 @@ Feel free to use this slide deck to help introduce your group to User Research.
    **Tip**: Drawing these four steps on the board showing a progression can be really helpful to visualize how they flow together
    {{< /callout >}}
 
-1. Share **biases** to be aware of and key **“dos”** and **“don’ts”** when conducting research by printing out or projecting this [User Research Dos & Don'ts Guide](/practices/user-research-introduction-session/dos-and-donts).
+1. Share **biases** to be aware of and key **“dos”** and **“don’ts”** when conducting research by printing out or projecting this [User Research Dos & Don'ts Guide](/topics/user-research-dos-and-donts).
 
 1. Finally, spend the remaining time **role playing** to get a feel for what actual research will be like:
 

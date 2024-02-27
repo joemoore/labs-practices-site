@@ -1,8 +1,7 @@
 ---
 title: "User Research: Biases, DOs & DON’Ts"
-layout: single
-type: blog
 lastmod: "2021-06-09"
+linkTitle: "About"
 ---
 
 Biases to be aware of during interviews as well as several “dos & don’ts” to consider while conducting research.
@@ -223,7 +222,7 @@ These questions are asked generally during Validation and Usability Research.
 
 ### Wrap Up Questions
 
-- We've been talking about \_\_\_ for awhile, has this brought up anything you’ve been thinking lately?
+- We've been talking about **\_\_\_** for awhile, has this brought up anything you’ve been thinking lately?
 - What were the top 2 things that worked well and didn’t work well?
 - What was not clear? What would you change?
 - What impact would this have given your situation?
