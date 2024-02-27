@@ -1,4 +1,6 @@
-var searchresultscontainermain = document.getElementById('search-results-container');
+var searchresultscontainermain = document.getElementById(
+  "search-results-container"
+);
 if (searchresultscontainermain != null) {
   var searchLinks = document.createElement("div");
   searchLinks.setAttribute("class", "search-links");
@@ -23,7 +25,8 @@ if (searchresultscontainermain != null) {
   document.body.appendChild(cssElm);
 }
 
-var searchEngineID = "3hzywhss5ik";
+var apiKey = "AIzaSyBLTO2KoWLhmiKC1StbCnxYvtFP2EgzoU4";
+var searchEngineID = "444c01bc8645f4cbc";
 var searchResultsText = "Search results for ";
 
 function getQueryStringValue(key) {
@@ -156,12 +159,13 @@ if (query) {
 
     // make the script element load file
     jsElm.src =
-      "https://www.googleapis.com/customsearch/v1?key=AIzaSyD_aVlrRn-KnfbfaikuKvwc1iJh5bOiLGk&cx=012029519579280034868:" +
+      "https://customsearch.googleapis.com/customsearch/v1?cx=" +
       searchEngineID +
-      "&start=" +
-      start +
+      "&key=" +
+      apiKey +
       "&q=" +
       query +
+      "&filter=1" + // remove duplicates
       "&callback=hndlr" +
       filter;
 
@@ -258,24 +262,24 @@ if (query) {
   }
 
   // Filter results if one is selected
-  if (window.location.search.indexOf("guides") > -1) {
+  https: if (window.location.search.indexOf("guides") > -1) {
     document.getElementById("guides-link").classList.add("active-tab");
     var guidesFilter =
-      "&siteSearch=labspractices.com/guides&siteSearchFilter=i";
+      "&siteSearch=labspractices.com%2Fguides&siteSearchFilter=i";
     search(guidesFilter);
   } else if (window.location.search.indexOf("practices") > -1) {
     document.getElementById("practices-link").classList.add("active-tab");
-    var guidesFilter =
-      "&siteSearch=labspractices.com/practices&siteSearchFilter=i";
-    search(guidesFilter);
+    var practicesFilter =
+      "&siteSearch=labspractices.com%2Fpractices&siteSearchFilter=i";
+    search(practicesFilter);
   } else if (window.location.search.indexOf("learningpaths") > -1) {
-    document.getElementById("learningpaths-link").classList.add("active-tab");
-    var guidesFilter =
-      "&siteSearch=labspractices.com/learningpaths&siteSearchFilter=i";
-    search(guidesFilter);
+    document.getElementById("learningPaths-link").classList.add("active-tab");
+    var lpFilter =
+      "&siteSearch=labspractices.com%2Flearningpaths&siteSearchFilter=i";
+    search(lpFilter);
   } else {
     document.getElementById("all-link").classList.add("active-tab");
     var noFilter = "&siteSearch=labspractices.com";
     search(noFilter);
   }
-}//end if query
+} //end if query
