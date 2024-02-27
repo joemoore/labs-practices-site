@@ -25,7 +25,7 @@ if (searchresultscontainermain != null) {
   document.body.appendChild(cssElm);
 }
 
-var apiKey = "AIzaSyBLTO2KoWLhmiKC1StbCnxYvtFP2EgzoU4";
+var apiKey = "AIzaSyAOmLC2tdbeNETWdQGYEF16j8MeuZCIPW4";
 var searchEngineID = "444c01bc8645f4cbc";
 var searchResultsText = "Search results for ";
 
