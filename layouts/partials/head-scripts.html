@@ -39,7 +39,7 @@ function getCookie(name) {
       params.delete('filters')
       const constructedParams = Array.from(params).length > 0 ? "&" + params.toString() : ''
       window.history.pushState('', '', '?filters=' + activeFilters.join(",") + constructedParams);
-      
+
       Array.from(document.getElementsByClassName("filter-item")).forEach(el => {
         el.hidden = true
         for (f of activeFilters) {

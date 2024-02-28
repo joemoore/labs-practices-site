@@ -151,14 +151,14 @@ limitations under the License.
       if (this.classList.contains("active")) {
         this.classList.remove("active");
       } else {
-        this.classList.add("active")
-        if($(this).attr("filter") === "all") {
-          $(this).siblings().removeClass("active")
+        this.classList.add("active");
+        if ($(this).attr("filter") === "all") {
+          $(this).siblings().removeClass("active");
         } else {
-          $("[filter=all]").removeClass("active")
+          $("[filter=all]").removeClass("active");
         }
       }
-      updateFilters()
+      updateFilters();
     });
 
     //Newsletter
@@ -169,7 +169,7 @@ limitations under the License.
     $(".scroll-to-bottom").click(function () {
       $("html, body").animate({ scrollTop: $(document).height() }, "slow");
     });
-    $(".click-to-show").keydown(function(event){
+    $(".click-to-show").keydown(function (event) {
       if (event.which == 13 || event.which == 32) {
         $(this).hide();
         $(".hidden").slideToggle();
@@ -186,10 +186,12 @@ limitations under the License.
     });
 
     // Theme Toggle Section
-    $("#theme-toggle").click(()=>{toggleTheme()})
+    $("#theme-toggle").click(() => {
+      toggleTheme();
+    });
     $("#theme-toggle").keyup((e) => {
       if (e.which == 13 || e.which == 32) {
-        toggleTheme()
+        toggleTheme();
         $("header + .container-fluid").removeClass("dim");
       }
     });
@@ -198,7 +200,11 @@ limitations under the License.
         if ($(".promo-nav-banner a[href]").length) {
           $(".promo-nav-banner a[href]").focus();
         } else {
-          $("header").nextAll().find("a[href]:not([href*='#'])").first().focus();
+          $("header")
+            .nextAll()
+            .find("a[href]:not([href*='#'])")
+            .first()
+            .focus();
         }
       }
     });
@@ -209,15 +215,14 @@ limitations under the License.
 
     // External link notification on tab
     const blankTargets = document.querySelectorAll("a[target*='blank']");
-    blankTargets.forEach(function(elem) {
-      elem.addEventListener("keyup", function(event) {
-          $(event.target).addClass("external-link");
+    blankTargets.forEach(function (elem) {
+      elem.addEventListener("keyup", function (event) {
+        $(event.target).addClass("external-link");
       });
-      elem.addEventListener("keydown", function(event) {
-          $(event.target).removeClass("external-link");
+      elem.addEventListener("keydown", function (event) {
+        $(event.target).removeClass("external-link");
       });
     });
-
 
     //Open youtube links with class 'lightbox' in lightbox
     $("a.lightbox[href*=youtube]").click(function () {
@@ -249,19 +254,20 @@ limitations under the License.
 
     //Adjust styles on embedded Marketo contact form on rabbmq-vs-kafka blog
     if (location.href.indexOf("rabbitmq-vs-kafka") > -1) {
-      var checkContactFormExistsConsent = setInterval(function(){
-        if ($('#contact .mktoForm input[id*=First]').length) {
-          $('#contact .mktoForm select#Country').change(function(){
-            if ($('#contact .mktoForm input[name=Phone_Consent__c]').length) {
-              $("#contact .mktoForm input[type=checkbox]").parents("#contact .mktoForm .mktoFormCol").attr('style', 'width: auto');
-              $(".fancybox-inner").attr('style','overflow-x: hidden');
+      var checkContactFormExistsConsent = setInterval(function () {
+        if ($("#contact .mktoForm input[id*=First]").length) {
+          $("#contact .mktoForm select#Country").change(function () {
+            if ($("#contact .mktoForm input[name=Phone_Consent__c]").length) {
+              $("#contact .mktoForm input[type=checkbox]")
+                .parents("#contact .mktoForm .mktoFormCol")
+                .attr("style", "width: auto");
+              $(".fancybox-inner").attr("style", "overflow-x: hidden");
             }
           });
           clearInterval(checkContactFormExistsConsent);
         }
       }, 100);
     }
-
 
     //Copy videos index iframe embed URLs to parent for lightbox
     $(".youtube-container").each(function () {
@@ -296,7 +302,7 @@ limitations under the License.
     $("#menu-toggle").click(function () {
       $("#mobile-nav, #menu-toggle, body, nav").toggleClass("isOpen");
     });
-    $("#menu-bars").keydown(function(event){
+    $("#menu-bars").keydown(function (event) {
       if (event.which == 13 || event.which == 32) {
         $("#mobile-nav, #menu-toggle, body, nav").toggleClass("isOpen");
         $("#menu-close").focus();
@@ -306,11 +312,15 @@ limitations under the License.
         if ($(".promo-nav-banner a[href]").length) {
           $(".promo-nav-banner a[href]").focus();
         } else {
-          $("header").nextAll().find("a[href]:not([href*='#'])").first().focus();
+          $("header")
+            .nextAll()
+            .find("a[href]:not([href*='#'])")
+            .first()
+            .focus();
         }
       }
     });
-    $("#menu-close").keydown(function(event){
+    $("#menu-close").keydown(function (event) {
       if (event.which == 13 || event.which == 32) {
         $("#mobile-nav, #menu-toggle, body, nav").toggleClass("isOpen");
         $("#menu-bars").focus();
@@ -319,7 +329,7 @@ limitations under the License.
 
     //Capture shift+tab from main content to menu
     if ($(".promo-nav-banner a[href]").length) {
-      $(".promo-nav-banner a[href]").keydown(function(e){
+      $(".promo-nav-banner a[href]").keydown(function (e) {
         if (e.shiftKey && e.which == "9") {
           e.preventDefault();
           $("#theme-select").focus();
