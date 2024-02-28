@@ -34,14 +34,12 @@
         } else {
             newTheme = "dark"
         }
-        sendAmplitudeUserProps({ "latest saved theme": currentTheme });
         localStorage.setItem("tdc-theme-setting", newTheme)
         if (newTheme === "light") {
             setLightMode()
         } else {
             setDarkMode()
         }
-        sendAmplitudeEvent("toggled theme", { "mode": newTheme });
     }
 
     setTheme();

@@ -203,9 +203,10 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
     urls = ['.*']
 
 [outputs]
-  home = ["HTML", "RSS", "_Redirects"]
+  home = ["HTML", "RSS"]
+#  home = ["HTML", "RSS", "_Redirects"]
 
-[outputFormats._Redirects]
-  baseName = "_redirects"
-  isPlainText = true
-  notAlternative = true
+# [outputFormats._Redirects]
+#   baseName = "_redirects"
+#   isPlainText = true
+#   notAlternative = true

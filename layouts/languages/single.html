@@ -4,7 +4,6 @@
     {{ partial "head.html" . }}
   </head>
   <body id='{{ replaceRE "(\\s)" "" (lower .Title) }}'class="td-{{ .Kind }}">
-    {{ partial "amplitude.html" (dict "context" . "event" "language viewed") }}
     <header>
       {{ partial "navbar.html" . }}
     </header>
