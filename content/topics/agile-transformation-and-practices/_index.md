@@ -5,7 +5,7 @@ topic: Agile Transformation and Practices
 topicgroups: "Modern Applications"
 grouptitle: "Transform"
 layout: topic
-weight: 3
+weight: 1
 icon: agile
 description: >
   How you work is just as important as the work you do

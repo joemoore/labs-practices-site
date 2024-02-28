@@ -3,8 +3,8 @@ title: "A Balanced Team Approach to Reliability"
 description: Learn how to embrace reliability on your team, one step at a time.
 date: "2022-06-02"
 lastmod: "2022-09-27"
-level1: Building Modern Applications
-level2: Modern Development Practices
+level1: Agile Transformation and Practices
+level2: Agile Development
 tags:
   -
 # Author(s)
