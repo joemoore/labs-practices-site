@@ -73,11 +73,11 @@ if (query) {
       document.getElementById("searchResultsMore").innerHTML = "No Results";
       if (tbm) {
         window.location.href.replace(
-          "search?start=" + (start - 10) + "&q=" + query + tbm
+          "search/?start=" + (start - 10) + "&q=" + query + tbm
         );
       } else {
         window.location.href.replace(
-          "search?start=" + (start - 10) + "&q=" + query
+          "search/?start=" + (start - 10) + "&q=" + query
         );
       }
       return;
