@@ -40,64 +40,6 @@
                     <div id="theme-toggle" aria-label="Theme toggle" tabindex="0"></div>
 				</li>
 			</ul>
-
-			<div id="dropdown-menus" class="position-absolute">
-				<div id='scope'></div>
-				<ul class="mb-0 p-0 position-relative w-100">
-					{{ range .Site.Menus.main }}
-						{{ if .HasChildren }}
-						<li id={{ lower (replace .Name "." "") }} class="nav-item dropdown d-lg-block mb-0 position-absolute">
-							<div id="{{ lower (replace .Name "." "") }}-target" class="drop-target"></div>
-							<div class="drop-menu m-0" aria-labelledby="navbarDropdownMenuLink">
-								{{ $split := false }}
-								{{ if ne (len (where .Children ".Params.split" "right")) 0 }}
-									{{ $split = true }}
-								{{ end }}
-								{{ if $split }}
-									<div class="row justify-content-between">
-									<div>
-										<p class="h5 cursor-intial fs-75">By Category</p>
-										{{ $menuitems := where .Children ".Params.split" "left" }}
-										<!-- Group topic by topic group -->
-										{{ $topicgroups := (slice) }}
-										{{ range $menuitems }}
-											{{ $topicgroups = union $topicgroups (slice .Page.Params.topicgroups) }}
-										{{ end }}
-										{{ $topicgroups := uniq $topicgroups }}
-										{{ range $topicgroups }}
-											{{ $topicgroup := . }}
-											<div class="topic-title"><b class="cursor-intial">{{ $topicgroup }}</b></div>
-											{{ range $menuitems }}
-												{{ if eq .Page.Params.topicgroups $topicgroup }}
-													<a class="dropdown-item menu-split-left" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-												{{ end }}
-											{{ end }}
-										{{ end }}
-									</div>
-									<div>
-										<p id="by-type" class="h5 cursor-intial fs-75">By Type</p>
-										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}
-											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-										{{ end }}
-										<p id="by-type" class="h5 cursor-intial fs-75">By Language</p>
-										{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}
-											<a class="dropdown-item menu-split-right" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-										{{ end }}
-									</div>
-									</div>
-								{{ else }}
-									{{ range .Children }}
-										<a class="dropdown-item" href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a>
-									{{ end }}
-								{{ end }}
-							</div>
-						</li>
-						{{ else }}
-
-						{{ end }}
-					{{ end }}
-				</ul>
-			</div>
 		</div>
 
 		<div id="search-nav" role="search">
@@ -117,49 +59,6 @@
 	</div>
 	<div id="mobile-nav" class="bg-dark">
 		<ul class="list-unstyled">
-			{{ range .Site.Menus.main }}
-				{{ if .HasChildren }}
-					{{ $split := false }}
-					{{ if ne (len (where .Children ".Params.split" "right")) 0 }}
-						{{ $split = true }}
-					{{ end }}
-					{{ if $split }}
-						<li class="mobile-nav-title font-weight-bold mb-3">{{ .Name }}</li>
-						<li class="h5 cursor-intial fs-75">By Category</li>
-						{{ $menuitems := where .Children ".Params.split" "left" }}
-						<!-- Group topic by topic group -->
-						{{ $topicgroups := (slice) }}
-						{{ range $menuitems }}
-							{{ $topicgroups = union $topicgroups (slice .Page.Params.topicgroups) }}
-						{{ end }}
-						{{ $topicgroups := uniq $topicgroups }}
-						{{ range $topicgroups }}
-							{{ $topicgroup := . }}
-							<li class="font-weight-bold">{{ $topicgroup }}</li>
-							{{ range $menuitems }}
-								{{ if eq .Page.Params.topicgroups $topicgroup }}
-									<li class="pl-2"><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-								{{ end }}
-							{{ end }}
-						{{ end }}
-						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Type</p>
-						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "type") }}
-							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-						{{ end }}
-						<p id="by-type" class="px-0 h5 cursor-intial fs-75">By Language</p>
-						{{ range (where (where .Children ".Params.split" "right") ".Params.section" "language") }}
-							<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-						{{ end }}
-				{{ else }}
-					<li class="mobile-nav-title font-weight-bold mt-4">{{ .Name }}</li>
-					{{ range .Children }}
-						<li><a href="{{ with .Page }}{{ .RelPermalink }}{{ else }}{{ .RelPermalink | relLangURL }}{{ end }}" {{ if ne $url.Host $baseurl.Host }}target="_blank" {{ end }}>{{ .Name }}</a></li>
-					{{ end }}
-				{{ end }}
-				{{ else }}
-				{{ end }}
-			{{ end }}
-			<br>
 			<li><a tabindex=-1 href="/search/">Search</a></li>
 		</ul>
 	</div>
