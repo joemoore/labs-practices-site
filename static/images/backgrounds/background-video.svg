@@ -20,13 +20,13 @@
     <linearGradient id="d" x1="153.69" y1="107.71" x2="326.1" y2="107.71" xlink:href="#c"/>
     <linearGradient id="e" x1="61.1" y1="-1.95" x2="189.8" y2="-1.95" xlink:href="#c"/>
     <linearGradient id="f" x1="173.2" y1="81.58" x2="306.47" y2="-51.69" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#1bbfd3"/>
-      <stop offset="0.16" stop-color="#1ebfcf"/>
-      <stop offset="0.33" stop-color="#26bfc2"/>
-      <stop offset="0.5" stop-color="#33bfae"/>
-      <stop offset="0.67" stop-color="#46bf91"/>
-      <stop offset="0.84" stop-color="#5ebf6c"/>
-      <stop offset="1" stop-color="#79bf43"/>
+      <stop offset="0" stop-color="#0f735f"/>
+      <stop offset="0.16" stop-color="#149379"/>
+      <stop offset="0.33" stop-color="#18af91"/>
+      <stop offset="0.5" stop-color="#1abe9e"/>
+      <stop offset="0.67" stop-color="#18af91"/>
+      <stop offset="0.84" stop-color="#1bc4a3"/>
+      <stop offset="1" stop-color="#22f5cb"/>
     </linearGradient>
     <linearGradient id="g" x1="154.91" y1="60.74" x2="154.91" y2="154.46" xlink:href="#f"/>
     <linearGradient id="j" x1="232.17" y1="63.35" x2="232.17" y2="154.34" xlink:href="#c"/>
