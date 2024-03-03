@@ -4,18 +4,18 @@
       <rect width="415.95" height="181.63" style="fill: none"/>
     </clipPath>
     <linearGradient id="b" x1="61.95" y1="247.27" x2="356.04" y2="-46.83" gradientUnits="userSpaceOnUse">
-      <stop offset="0.21" stop-color="#747376" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#747376" stop-opacity="0.2"/>
-      <stop offset="0.75" stop-color="#747376" stop-opacity="0"/>
+      <stop offset="0.21" stop-color="#18af91" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#1abe9e"/>
+      <stop offset="0.75" stop-color="#149379" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="c" x1="76.47" y1="14.96" x2="326.11" y2="14.96" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#79bf43"/>
-      <stop offset="0.16" stop-color="#5ebf6c"/>
-      <stop offset="0.33" stop-color="#46bf91"/>
-      <stop offset="0.5" stop-color="#33bfae"/>
-      <stop offset="0.67" stop-color="#26bfc2"/>
-      <stop offset="0.84" stop-color="#1ebfcf"/>
-      <stop offset="1" stop-color="#1bbfd3"/>
+      <stop offset="0" stop-color="#22f5cb"/>
+      <stop offset="0.16" stop-color="#1bc4a3"/>
+      <stop offset="0.33" stop-color="#18af91"/>
+      <stop offset="0.5" stop-color="#1abe9e"/>
+      <stop offset="0.67" stop-color="#18af91"/>
+      <stop offset="0.84" stop-color="#149379"/>
+      <stop offset="1" stop-color="#0f735f"/>
     </linearGradient>
     <linearGradient id="d" x1="77.68" y1="-15.65" x2="324.91" y2="-15.65" xlink:href="#c"/>
     <linearGradient id="e" x1="91.92" y1="169.75" x2="310.39" y2="169.75" xlink:href="#c"/>
