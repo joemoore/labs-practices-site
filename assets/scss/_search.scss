@@ -1,4 +1,5 @@
 // Search Input
+@import "variables_project";
 
 .search_icon {
     margin: 0;
@@ -274,7 +275,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
   }
 
   .gsc-tabHeader.gsc-tabHeader:hover span {
-    color: #49AFD9;
+    color: $dark-green;
   }
 
   .gsc-tabHeader.active-tab span {
@@ -342,7 +343,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
   .gsc-control-cse .gs-spelling,
   .gsc-control-cse .gs-result .gs-title,
   .gsc-control-cse .gs-result .gs-title * {
-    color: #0f735f;
+    color: $dark-green;
     text-shadow: none !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -352,7 +353,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
 
   .gs-webResult div.gs-visibleUrl,
   .gs-imageResult div.gs-visibleUrl {
-    color: #0f735f !important;
+    color: $dark-green !important;
     font-weight: 400;
   }
 
@@ -455,7 +456,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
   .gs-webResult.gs-result a.gs-title:hover b,
   .gs-imageResult a.gs-title:hover,
   .gs-imageResult a.gs-title:hover b {
-    color: #2588B1 !important;
+    color: #0f735f !important;
   }
 
   .gsc-result .gs-title {

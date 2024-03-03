@@ -1,6 +1,7 @@
 ---
 title: "What is the Labs Practices Site?"
 linkTitle: "About and how to Contribute"
+class: "topic"
 ---
 
 ## Purpose

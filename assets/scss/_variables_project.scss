@@ -76,9 +76,9 @@ $colors: map-merge(
   $colors
 );
 
-$link-color: darken($blue, 15%) !default;
+$link-color: darken($bright-green, 15%) !default;
 $link-decoration: none !default;
-$link-hover-color: #5ACFFF !default;
+$link-hover-color: $bright-green !default;
 $link-hover-decoration: none !default;
 
 // Fonts
