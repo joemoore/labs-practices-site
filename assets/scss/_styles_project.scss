@@ -947,6 +947,9 @@ body {
   .td-sidebar-nav .td-sidebar-link__page,
   .td-sidebar-nav .td-sidebar-link__subsection {
     color: $light;
+    &:hover {
+        color: $bright-green;
+    }
   }
 
   .breadcrumb-item {

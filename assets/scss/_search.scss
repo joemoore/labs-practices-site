@@ -275,7 +275,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
   }
 
   .gsc-tabHeader.gsc-tabHeader:hover span {
-    color: $dark-green;
+    color: $bright-green;
   }
 
   .gsc-tabHeader.active-tab span {
@@ -456,7 +456,7 @@ input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
   .gs-webResult.gs-result a.gs-title:hover b,
   .gs-imageResult a.gs-title:hover,
   .gs-imageResult a.gs-title:hover b {
-    color: #0f735f !important;
+    color: $bright-green !important;
   }
 
   .gsc-result .gs-title {

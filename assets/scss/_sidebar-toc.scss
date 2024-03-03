@@ -28,10 +28,10 @@
     }
 
     a {
-      color: $bright-green;
+      color: $light;
 
       &:hover, &:focus {
-        color: $dark-green;
+        color: $bright-green;
         text-decoration: none;
       }
     }
@@ -80,10 +80,10 @@
     }
 
     a {
-      color: $bright-green;
+      color: $light;
 
       &:hover, &:focus {
-        color: $dark-green;
+        color: $bright-green;
         text-decoration: none;
       }
     }
