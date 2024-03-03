@@ -118,8 +118,11 @@
       &.community-hero {
         background-image: url('{{ "images/backgrounds/background-community.svg" | relURL }}');
       }
-      &.tanzupractices-hero {
+      &.practicesandworkshops-hero {
         background-image: url('{{ "images/backgrounds/background-practices.svg" | relURL }}');
+      }
+      &.aboutandhowtocontribute-hero {
+        background-image: url('{{ "images/backgrounds/background-community.svg" | relURL }}');
       }
       &.team-hero,
       &.advocates-hero {
