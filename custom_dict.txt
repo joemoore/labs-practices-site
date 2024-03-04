@@ -529,6 +529,7 @@ CTF
 CTFs
 CTO
 CTRL-C
+curation
 currentClientConnections
 currentMetricValue(s)?
 CustomEntryConcurrentHashMap

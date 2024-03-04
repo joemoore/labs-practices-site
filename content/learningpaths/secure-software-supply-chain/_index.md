@@ -5,7 +5,7 @@ description: |
   securely is the most critical component for bringing value to your customers.
   Here we explore the components that drive successful outcomes through mature
   software delivery practices.
-weight: 1
+weight: 120
 featured: true
 featuredspot: 3
 duration: 60

@@ -2,6 +2,7 @@
 title: "Developer Toil: The Hidden Tech Debt"
 description: How to use the Developer Toil Audit to speed up software release cycles, make developers more productive, and increase the business value of your apps
 duration: 60
+weight: 90
 experience: Beginner
 layout: intro
 team:

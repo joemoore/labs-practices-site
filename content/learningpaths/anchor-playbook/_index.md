@@ -1,7 +1,7 @@
 ---
 title: The Anchor Playbook
 subtitle: Workshop
-weight: -2
+weight: 10
 featured: true
 featuredspot: 2
 level1: Building Modern Applications

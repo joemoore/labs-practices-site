@@ -2,6 +2,7 @@
 title: "Consulting Around Design Systems"
 description: "Understand the complexities involved in working with design systems, so that you can navigate common challenges and make good decisions."
 duration: 45
+weight: 70
 experience: Beginner
 layout: intro
 team:

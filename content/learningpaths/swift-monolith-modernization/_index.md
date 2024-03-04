@@ -1,6 +1,6 @@
 ---
 title: Swift Monolith Modernization
-weight: 1
+weight: 80
 layout: intro
 duration: 60
 tags:

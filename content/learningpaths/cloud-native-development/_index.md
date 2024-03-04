@@ -1,6 +1,6 @@
 ---
 title: Cloud Native Application Development with Spring
-weight: -1
+weight: 60
 featured: true
 featuredspot: 2
 duration: 60

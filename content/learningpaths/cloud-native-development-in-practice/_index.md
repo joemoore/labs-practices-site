@@ -1,6 +1,6 @@
 ---
 title: Cloud Native Development in Practice
-weight: -1
+weight: 50
 layout: intro
 description: |
   Build a Cloud Native App.

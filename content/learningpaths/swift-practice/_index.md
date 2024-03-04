@@ -1,6 +1,6 @@
 ---
 title: SWIFT Practices
-weight: -1
+weight: 70
 duration: 30
 experience: Beginner
 layout: intro

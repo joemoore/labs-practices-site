@@ -1,6 +1,6 @@
 ---
 title: Modern Application Development Rhythm
-weight: -2
+weight: 40
 layout: intro
 duration: 120
 tags:

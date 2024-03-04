@@ -1,6 +1,6 @@
 ---
 title: Application Observability
-weight: 2
+weight: 130
 featured: true
 featuredspot: 4
 layout: intro

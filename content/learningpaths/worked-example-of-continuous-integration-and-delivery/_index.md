@@ -1,6 +1,6 @@
 ---
 title: Worked Example of Continuous Integration and Delivery
-weight: -1
+weight: 110
 duration: 180
 experience: Intermediate
 layout: intro
@@ -30,9 +30,9 @@ These are the items in the diagram above:
     <li>Jenkins namespace hosting a Jenkins instance</li>
     <li>Source code for the application stored in the Github repository</li>
     <li>Namespace for the test environment</li>
-    <li>Namespace for the production environment</li>   
+    <li>Namespace for the production environment</li>
     <li>Image repository where your container images are stored. You can use a free account on [Docker Hub](http://hub.docker.com) for your repository, but we’ll discuss alternatives later in this article.</li>
-    <li>Kpack installation: kpack builds the container images for your application</li> 
+    <li>Kpack installation: kpack builds the container images for your application</li>
     <li>Database instances for test and production environments</li>
 </ol>
 

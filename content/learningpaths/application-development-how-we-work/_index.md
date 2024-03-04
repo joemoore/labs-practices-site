@@ -1,6 +1,6 @@
 ---
 title: How Pivotal/Tanzu Labs Works and Why
-weight: 1
+weight: 30
 featured: true
 featuredspot: 5
 layout: intro
