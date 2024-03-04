@@ -6,27 +6,25 @@ labels: content
 assignees: ""
 ---
 
-Please fill out the section for either [Guide, Learning Path, or Article](#guide) OR [Labs Practice or Workshop](#practice) below
-
-<a name="guide"></a>
+Please fill out the section for either **Guide, Learning Path, or Article** OR **Labs Practice or Workshop** below
 
 ## Guide, Learning Path, or Article
 
 ### Summary of content
 
-_A short summary of the content to be proposed. A few sentences at most._
+A short summary of the content to be proposed. A few sentences at most.
 
 ### Summary of audiences
 
-_A short summary of the audience. Include:_
+A short summary of the audience. Include:
 
-- _Professional area of audience_
-- _General expertise in their area_
-- _Expertise in the particular topic to be discussed_
+- Professional area of audience
+- General expertise in their area
+- Expertise in the particular topic to be discussed
 
 ### Level of content
 
-_Level of content as it pertains to the topic proposed. Delete those not applicable._
+Level of content as it pertains to the topic proposed. Delete those not applicable.
 
 - [x] 101: "Awareness / Exploration / Overview"
 - [ ] 201: "Practical, pragmatic knowledge useful to one's work"
@@ -34,15 +32,13 @@ _Level of content as it pertains to the topic proposed. Delete those not applica
 
 ---
 
-<a name="practice"></a>
-
 ## Labs Practice or Workshop
 
 ### Summary
 
-_For a new practice or workshop: a short summary, a few sentences at most._
+For a new practice or workshop: a short summary, a few sentences at most.
 
-_For changes to an already-published practice or workshop: provide the link and describe your proposed change._
+For changes to an already-published practice or workshop: provide the link and describe your proposed change.
 
 ### Maturity of this Practice or Workshop
 
@@ -53,7 +49,7 @@ _For changes to an already-published practice or workshop: provide the link and 
 
 ### Resources
 
-_List anything here that might be helpful for writing this article._
+List anything here that might be helpful for writing this article.
 
-- _Links to articles and blog posts_
-- _Links to presentations, videos, books, etc._
+- Links to articles and blog posts
+- Links to presentations, videos, books, etc.
