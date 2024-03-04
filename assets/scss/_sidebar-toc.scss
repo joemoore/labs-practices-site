@@ -1,7 +1,8 @@
 // TODO: reconcile this with the below
 // (we don't want the 12rem top padding
 // but want to avoid breaking other pages)
-.outcomes-toc {
+.outcomes-toc,
+.learningpaths-toc {
   a {
     display: block;
     font-weight: $font-weight-light;
