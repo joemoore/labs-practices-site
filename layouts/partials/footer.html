@@ -8,9 +8,20 @@
           {{ with .Site.Params.copyright }}<small class="text-white">Copyright &copy; {{ now.Year}} <span class='year'></span> labspractices.com. All Rights Reserved.</small><br/>{{ end }}
           {{ with .Site.Params.copyright }}<small class="text-white">Copyright &copy; 2005&ndash;{{ now.Year}} <span class='year'></span> Broadcom. All Rights Reserved. The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries. </small><br/>{{ end }}
         </div>
-      	{{ if not .Site.Params.ui.footer_about_disable }}
-      		{{ with .Site.GetPage "topics/about-this-site" }}<p class="mt-2"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></p>{{ end }}
-      	{{ end }}
+        <div>
+          {{ if not .Site.Params.ui.footer_about_disable }}
+            {{ with .Site.GetPage "topics/about-this-site" }}
+              <p class="mt-2">
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+              </p>
+            {{ end }}
+          {{ end }}
+          {{ with $links }}
+            {{ with index . "developer"}}
+            {{ template "footer-links-block"  . }}
+            {{ end }}
+          {{ end }}
+        </div>
       </div>
     </div>
   </div>

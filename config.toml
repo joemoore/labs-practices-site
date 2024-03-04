@@ -159,31 +159,31 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 	icon = "fa fa-envelope"
         desc = "Discussion and help from your fellow users"
 # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
-[[params.links.developer]]
-	name ="Twitter"
-	url = "https://twitter.com/VMwareTanzu"
-	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter for all the latest news."
-[[params.links.developer]]
-	name = "YouTube"
-	url = "https://www.youtube.com/VMwareTanzu"
-	icon = "fab fa-youtube"
-    desc = "See demos of modern app technologies in action."
-[[params.links.developer]]
-	name = "Stack Overflow"
-	url = "https://stackoverflow.com/questions/tagged/vmware-tanzu"
-	icon = "fab fa-stack-overflow"
-        desc = "Ask practical questions and get curated answers."
-[[params.links.developer]]
-	name = "GitHub"
-	url = "https://github.com/vmware-tanzu"
-	icon = "fab fa-github"
-        desc = "Explore our open source projects and sample code."
-[[params.links.developer]]
-	name = "Twitch"
-	url = "https://twitch.com/vmwaretanzu"
-	icon = "fab fa-twitch"
-        desc = "Watch our modern app development live stream."
+# [[params.links.developer]]
+# 	name ="Twitter"
+# 	url = "https://twitter.com/VMwareTanzu"
+# 	icon = "fab fa-twitter"
+#         desc = "Follow us on Twitter for all the latest news."
+# [[params.links.developer]]
+# 	name = "YouTube"
+# 	url = "https://www.youtube.com/VMwareTanzu"
+# 	icon = "fab fa-youtube"
+#     desc = "See demos of modern app technologies in action."
+# [[params.links.developer]]
+# 	name = "Stack Overflow"
+# 	url = "https://stackoverflow.com/questions/tagged/vmware-tanzu"
+# 	icon = "fab fa-stack-overflow"
+#         desc = "Ask practical questions and get curated answers."
+ [[params.links.developer]]
+ 	name = "GitHub"
+ 	url = "https://github.com/joemoore/labs-practices-site"
+ 	icon = "fab fa-github"
+         desc = "Explore our open source projects and sample code."
+# [[params.links.developer]]
+# 	name = "Twitch"
+# 	url = "https://twitch.com/vmwaretanzu"
+# 	icon = "fab fa-twitch"
+#         desc = "Watch our modern app development live stream."
 
 [frontmatter]
   lastmod = ["lastmod", ":git", "date"]
