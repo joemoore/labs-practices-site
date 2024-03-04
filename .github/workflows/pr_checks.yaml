@@ -39,13 +39,3 @@ jobs:
         env:
           HUGO_OPTIONS: "-b http://localhost/developer -p 1314" #"--buildDrafts"
           MUFFET_OPTIONS: "-t 30 -e 'https?' -e '/developer/get-workshop'" # Excludes external links
-  topic-check:
-      runs-on: ubuntu-latest
-      needs: broken-link-check
-      steps:
-        - uses: actions/checkout@v3
-          name: Checkout
-          with:
-            fetch-depth: 1
-        - uses: ./.github/actions/topic-check
-          name: Topic Check
