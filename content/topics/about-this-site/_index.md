@@ -8,7 +8,7 @@ class: "topic"
 
 The Labs Practices Site is a resource for people who want their project teams to become as high-performing as possible. The project team might be a software development team, a management team, or even a group of doctors in a medical group.
 
-Though the [practices and workshops](/practices), pragmatic and practical [guides](/guides), and [in-depth learning content](/learningpaths) originated from agile software development consulting projects, most are relevant for almost any team.
+Though the [practices and workshops](/practices/), pragmatic and practical [guides](/guides/), and [in-depth learning content](/learningpaths/) originated from agile software development consulting projects, most are relevant for almost any team.
 
 ## Who Owns This?
 
