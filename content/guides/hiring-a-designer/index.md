@@ -19,7 +19,7 @@ team:
   - Joe Moore
 ---
 
-We highly recommend your product team be a [balanced team](/learningpaths/application-development/balanced-teams) made up of a product manager, designer, and some number of engineers. Sometimes, however, your team may not have a dedicated designer who is able to [design in an agile environment](https://tanzu.vmware.com/design), think through user experiences, [facilitate and synthesize research](/practices/research-synthesis), and develop designs for the team to implement—but it may want one. This guide will help teams who’d like to bring on a design contractor or vendor and need help interviewing, evaluating, and onboarding a designer but aren’t sure how to go about doing that.
+We highly recommend your product team be a [balanced team](/learningpaths/application-development/balanced-teams/) made up of a product manager, designer, and some number of engineers. Sometimes, however, your team may not have a dedicated designer who is able to [design in an agile environment](https://tanzu.vmware.com/design/), think through user experiences, [facilitate and synthesize research](/practices/research-synthesis/), and develop designs for the team to implement—but it may want one. This guide will help teams who’d like to bring on a design contractor or vendor and need help interviewing, evaluating, and onboarding a designer but aren’t sure how to go about doing that.
 
 _If you need help convincing your team or leadership to contract with a designer on a time-and-materials basis vs. a fixed-deliverable basis, check back soon for our upcoming blog post on **Advocating for Outcome-Oriented Vendor Contracts** with tips on how to approach this conversation._
 
@@ -352,7 +352,7 @@ Here are a few questions the team can ask to help identify upcoming work that co
 
 - Is there a problem or solution you identified during a [Discovery and Framing](/practices/?filters=discovery,framing) that wasn’t a priority then but is quickly becoming the next priority now?
 - Is there a feature set you’ve already implemented in a lean way that you need to extend to make even more impactful?
-- Were there any recent [research learnings](/practices/research-synthesis) that the team has found particularly compelling but which have taken a back seat to other in-flight priorities?
-- Is there another [persona](/practices/personas) whose experience the team is ready to investigate further?
+- Were there any recent [research learnings](/practices/research-synthesis/) that the team has found particularly compelling but which have taken a back seat to other in-flight priorities?
+- Is there another [persona](/practices/personas/) whose experience the team is ready to investigate further?
 - Are there mobile/tablet considerations that the team is ready to optimize for?
-- Is there anything lingering in the “unprioritized” section of the [team road map](/practices/outcome-oriented-roadmap) that is worth digging into via some sort of research?
+- Is there anything lingering in the “unprioritized” section of the [team road map](/practices/outcome-oriented-roadmap/) that is worth digging into via some sort of research?

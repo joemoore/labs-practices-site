@@ -90,9 +90,9 @@ why:
 
    You can also crowd-source identification of the nouns present on the event-storming board and place them to the side. Clumping these nouns together into related trees of data can help you form your aggregates.
 
-1. These event clumps or common groupings give us our notional service candidates (actors or aggregates depending on how rigid the team is with DDD definitions) These will be used during the [Boris](/practices/boris) exercise.
+1. These event clumps or common groupings give us our notional service candidates (actors or aggregates depending on how rigid the team is with DDD definitions) These will be used during the [Boris](/practices/boris/) exercise.
 
-1. **Optional:** Identify the various views that your users will need to carry out their actions, and important roles for various users. Use bright yellow stickies to identify user roles or [personas](/practices/personas). Enrich the event storming with incremental notations using stickies for user roles, personas, money, or whatever is important in the domain.
+1. **Optional:** Identify the various views that your users will need to carry out their actions, and important roles for various users. Use bright yellow stickies to identify user roles or [personas](/practices/personas/). Enrich the event storming with incremental notations using stickies for user roles, personas, money, or whatever is important in the domain.
 
 1. At the conclusion, be sure to take a lot of pictures so you can capture the output for later use
    {{% /section %}}
@@ -131,13 +131,13 @@ You know you’ve finished when you have:
 
 ### Related Practices
 
-Event Storming is an activity within the [Swift Method](/practices/swift-method).
+Event Storming is an activity within the [Swift Method](/practices/swift-method/).
 
-[Service Blueprint](/practices/service-blueprint) is similar but different.
+[Service Blueprint](/practices/service-blueprint/) is similar but different.
 
 [![Event Storming vs. Service Blueprint](images/event-storming-vs-service-blueprint.png)](images/event-storming-vs-service-blueprint.png)
 
-[Boris](/practices/boris) often follows Event Storming.
+[Boris](/practices/boris/) often follows Event Storming.
 
 {{% /section %}}
 

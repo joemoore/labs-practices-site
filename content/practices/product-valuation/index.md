@@ -156,7 +156,7 @@ Our advice is to remember that:
 
 ### Related Practices
 
-In step 1 or 2, you may want to use a prioritization exercise similar to [Insight Prioritization](/practices/insight-prioritization).
+In step 1 or 2, you may want to use a prioritization exercise similar to [Insight Prioritization](/practices/insight-prioritization/).
 {{% /section %}}
 
 {{% section %}}

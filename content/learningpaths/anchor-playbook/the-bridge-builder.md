@@ -35,7 +35,7 @@ Many teams, in order to be empowered, must rely upon the work of others outside 
 
 - Bring stakeholders into more of the technical conversations to inform them of decisions being made
 - Carry context and collaborate across teams in a portfolio of multiple teams and projects
-- While this anchortype is similar to [the Shield](/learningpaths/anchor-playbook/the-shield), it emphasizes collaboration other with teams rather than firefighting and protecting the team
+- While this anchortype is similar to [the Shield](/learningpaths/anchor-playbook/the-shield/), it emphasizes collaboration other with teams rather than firefighting and protecting the team
 
 ### Challenges
 

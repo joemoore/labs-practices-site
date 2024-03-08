@@ -36,7 +36,7 @@ Before the activity, identify a specific date in the future (deadline) for an im
 
 At the end of the activity, the team will also have generated some potential actions that can be taken in order to avoid or reduce the likelihood of the issues happening.
 
-This activity is similar to [Risks & Mitigations](/practices/risks-and-mitigations), with the main difference that it uses a specific scenario where the team imagines the project has failed. Additionally, you could also “couple the premortem with an optimistic test.” [\(2\)](#sources)
+This activity is similar to [Risks & Mitigations](/practices/risks-and-mitigations/), with the main difference that it uses a specific scenario where the team imagines the project has failed. Additionally, you could also “couple the premortem with an optimistic test.” [\(2\)](#sources)
 
 {{% /section %}}
 

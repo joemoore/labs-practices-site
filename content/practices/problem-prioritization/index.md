@@ -72,22 +72,22 @@ The timing of this activity varies along with the number of problems identified 
 
 ### Variations
 
-- [2x2 Prioritization](/practices/2x2)
+- [2x2 Prioritization](/practices/2x2/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Preceding
 
-- [Research Synthesis](/practices/research-synthesis)
+- [Research Synthesis](/practices/research-synthesis/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Following
 
-- [Insight Prioritization](/practices/insight-prioritization)
-- [Solution Brainstorming](/practices/solution-brainstorming)
+- [Insight Prioritization](/practices/insight-prioritization/)
+- [Solution Brainstorming](/practices/solution-brainstorming/)
   {{% /section %}}
 
 {{% section %}}

@@ -11,7 +11,7 @@ participants: "Product managers, 1-2 engineers"
 lastmod: "2021-07-15"
 date: "2021-07-14"
 why:
-  - If a team finds that an excessive amount of time in the [Iteration Planning Meeting (IPM)](/practices/ipm) is spent on revising stories before estimation, editing or grooming them in a smaller group beforehand can help the larger meeting produce better results.
+  - If a team finds that an excessive amount of time in the [Iteration Planning Meeting (IPM)](/practices/ipm/) is spent on revising stories before estimation, editing or grooming them in a smaller group beforehand can help the larger meeting produce better results.
 when:
   - Shortly before IPM
   - Only when it is needed
@@ -25,7 +25,7 @@ miro_template_url: "URL for related Miro template"
 
 ## How to Use this Method
 
-1. Before you begin, decide as a team whether the outcomes of your [iteration planning meetings (IPMs)](/practices/ipm) even make iteration pre-planning necessary.
+1. Before you begin, decide as a team whether the outcomes of your [iteration planning meetings (IPMs)](/practices/ipm/) even make iteration pre-planning necessary.
    Common indications include:
 
    - IPM often ends with fewer stories estimated than needed to keep up with velocity
@@ -79,7 +79,7 @@ None at the moment.
 
 ### Following
 
-[Iteration Planning Meeting (IPM)](/practices/ipm)
+[Iteration Planning Meeting (IPM)](/practices/ipm/)
 
 ## Real World Examples
 

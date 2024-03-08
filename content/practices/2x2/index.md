@@ -98,11 +98,11 @@ You know you are done when your group has decided on an option (or options) to f
 
 ## Related Practices
 
-[Insight Prioritization](/practices/insight-prioritization)
+[Insight Prioritization](/practices/insight-prioritization/)
 
-[Problem Prioritization](/practices/problem-prioritization)
+[Problem Prioritization](/practices/problem-prioritization/)
 
-[Solution Prioritization](/practices/solution-prioritization)
+[Solution Prioritization](/practices/solution-prioritization/)
 {{% /section %}}
 
 {{% section %}}

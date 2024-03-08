@@ -40,7 +40,7 @@ why:
 
 1. Draw an example molecule on the physical or digital whiteboard
 
-   - Persona — Who are we helping? (use the [Personas](/practices/personas) practice) practice if you haven't created one yet)
+   - Persona — Who are we helping? (use the [Personas](/practices/personas/) practice) practice if you haven't created one yet)
    - Problem — What is one of their problems?
    - Solution — What is our solution?
 

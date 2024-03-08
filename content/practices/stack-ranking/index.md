@@ -106,13 +106,13 @@ You know you are done when your group has a prioritized stack of options in desc
 
 ## Related Practices
 
-[Insight Prioritization](/practices/insight-prioritization)
+[Insight Prioritization](/practices/insight-prioritization/)
 
-[Problem Prioritization](/practices/problem-prioritization)
+[Problem Prioritization](/practices/problem-prioritization/)
 
-[Solution Prioritization](/practices/solution-prioritization)
+[Solution Prioritization](/practices/solution-prioritization/)
 
-[2x2 Prioritization](/practices/2x2)
+[2x2 Prioritization](/practices/2x2/)
 
 ## Real World Examples
 

@@ -45,7 +45,7 @@ why:
 
 ### Sample Agenda & Prompts
 
-1. Leveraging any user journeys, [personas](/practices/personas), or scenarios your team has made, define what problem you are trying to solve and for whom.
+1. Leveraging any user journeys, [personas](/practices/personas/), or scenarios your team has made, define what problem you are trying to solve and for whom.
 
    **_What are the biggest pain points?_**
 
@@ -138,9 +138,9 @@ While many on-line collaboration solutions have drawing features, we suggest kee
 
 ### Preceding
 
-- [Personas](/practices/personas)
-- [Journey Map](/practices/journey-map)
-- [Scenario Writing](/practices/scenario-writing)
+- [Personas](/practices/personas/)
+- [Journey Map](/practices/journey-map/)
+- [Scenario Writing](/practices/scenario-writing/)
   {{% /section %}}
 
 {{% section %}}

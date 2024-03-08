@@ -90,8 +90,8 @@ Success is when you have agreement and understanding of the product market fit, 
 
 ### Preceding
 
-- [Molecule Map](/practices/molecule-map)
-- [Personas](/practices/personas)
+- [Molecule Map](/practices/molecule-map/)
+- [Personas](/practices/personas/)
   {{% /section %}}
 
 {{% section %}}

@@ -83,7 +83,7 @@ why:
    **Tip**: Try framing assumptions in the positive (users will feel safe getting into a stranger’s car) rather than the negative (no one will want to get in a stranger’s car). This will make it easier to reflect on how much evidence we have/need.
    {{< /callout >}}
 
-   If you end up with more than a few leap-of-faith assumptions, prioritize one to focus on first. Use the [Assumptions](/practices/assumptions) practice or consider a 2x2 with “more likely to stop the project” vs. “less likely to stop the project” on the Y-axis and “needs more evidence” vs. “have lots of evidence” on the X-axis. High likelihood of stopping the project assumptions that need more evidence are the target.
+   If you end up with more than a few leap-of-faith assumptions, prioritize one to focus on first. Use the [Assumptions](/practices/assumptions/) practice or consider a 2x2 with “more likely to stop the project” vs. “less likely to stop the project” on the Y-axis and “needs more evidence” vs. “have lots of evidence” on the X-axis. High likelihood of stopping the project assumptions that need more evidence are the target.
 
 1. **Explain that an assumption needs to be converted into a falsifiable hypothesis:**
 
@@ -188,14 +188,14 @@ If there are many assumptions to validate, consider following up with a hypothes
 
 ### Related Practices
 
-[Assumptions](/practices/assumptions)
+[Assumptions](/practices/assumptions/)
 {{% /section %}}
 
 {{% section %}}
 
 ### Preceding
 
-[Assumptions](/practices/assumptions)
+[Assumptions](/practices/assumptions/)
 {{% /section %}}
 
 {{% section %}}

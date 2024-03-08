@@ -37,7 +37,7 @@ why:
 
 ### Sample Agenda & Prompts
 
-1. Identify which users journey the team is mapping. Leverage existing [Personas](/practices/personas) and if multiple choose the most important one to start
+1. Identify which users journey the team is mapping. Leverage existing [Personas](/practices/personas/) and if multiple choose the most important one to start
 
 1. Map alone, together (10 minutes)
 
@@ -85,8 +85,8 @@ At the end of a Journey Map the team will have a shared holistic view of a Perso
 
 ### Facilitator Notes & Tips
 
-- Create one Journey Map per Persona. If there are other [Personas](/practices/personas)
-  to consider, map them as touch points from a single [Personas](/practices/personas) perspective.
+- Create one Journey Map per Persona. If there are other [Personas](/practices/personas/)
+  to consider, map them as touch points from a single [Personas](/practices/personas/) perspective.
 - To understand more detail and complexity consider using a Service Blueprint to map a product/service’s “backstage actions” and “support processes” to an individual customer journey.
   {{% /section %}}
 
@@ -94,16 +94,16 @@ At the end of a Journey Map the team will have a shared holistic view of a Perso
 
 ### Preceding
 
-- [Personas](/practices/personas)
-- [Research Synthesis](/practices/research-synthesis)
+- [Personas](/practices/personas/)
+- [Research Synthesis](/practices/research-synthesis/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Following
 
-[Service Blueprint](/practices/service-blueprint)
-[Scenario Writing](/practices/scenario-writing)
+[Service Blueprint](/practices/service-blueprint/)
+[Scenario Writing](/practices/scenario-writing/)
 {{% /section %}}
 
 {{% section %}}

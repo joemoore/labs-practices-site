@@ -126,7 +126,7 @@ You can also use this slide deck (embedded above) for your sessions: [User Resea
 
 If the team feels like they want more practice conducting research before they do it with actual users, don’t hesitate to schedule a follow-up session or two. Role playing can do wonders to prep people who haven’t done a lot of research before but are excited to learn how.
 
-Read through and use the [User Research Dos & Don'ts Guide](/practices/user-research-introduction-session/dos-and-donts).
+Read through and use the [User Research Dos & Don'ts Guide](/topics/user-research-dos-and-donts/).
 {{% /section %}}
 
 {{% section %}}

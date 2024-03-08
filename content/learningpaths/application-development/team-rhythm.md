@@ -67,7 +67,7 @@ Your role as a **Team Member**:
 
 ### Iteration Planning Meeting
 
-The Iteration Planning Meeting (IPM) is a regular meeting for the core team to understand and align on the work to be done. It is [similar but different to SCRUM Sprint Planning](/practices/ipm/#sprint-planning-vs-iteration-planning),
+The Iteration Planning Meeting (IPM) is a regular meeting for the core team to understand and align on the work to be done. It is [similar but different to SCRUM Sprint Planning](/practices/ipm/#sprint-planning-vs-iteration-planning/),
 
 Regular planning meetings help ensure the [product backlog](<https://en.wikipedia.org/wiki/Scrum_(software_development)#Product_backlog>) is well-understood by all team members and always reflects the current priorities. By discussing and sizing product backlog items, the team may align on the delivery impact of the work to be done.
 

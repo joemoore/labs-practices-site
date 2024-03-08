@@ -33,7 +33,7 @@ miro_template_url: "URL for related Miro template"
    **Invite stakeholders** and actors to the workshop. If the actor is a digital service then invite the subject-matter expert (SME).
 
    {{% callout %}}
-   TIP: Pull steps from a [customer journey map](/practices/journey-map)
+   TIP: Pull steps from a [customer journey map](/practices/journey-map/)
    {{% /callout %}}
 
 2. Running the workshop (1-2 hours).
@@ -109,9 +109,9 @@ Create blueprints asynchronously from a workshop when synthesizing with many sma
 
 ## Related Practices
 
-[Customer Journey Map](/practices/journey-map)
+[Customer Journey Map](/practices/journey-map/)
 
-[Event Storming](/practices/event-storming) is similar but different.
+[Event Storming](/practices/event-storming/) is similar but different.
 
 [![Event Storming vs. Service Blueprint](/practices/event-storming/images/event-storming-vs-service-blueprint.png)](/practices/event-storming/images/event-storming-vs-service-blueprint.png)
 

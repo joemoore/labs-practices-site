@@ -214,9 +214,9 @@ Additional resources:
 
 Vision, mission, strategy -- coming soon!
 
-[Lean Business Canvas](/practices/lean-business-canvas)
+[Lean Business Canvas](/practices/lean-business-canvas/)
 
-[Problem Prioritization](/practices/problem-prioritization)
+[Problem Prioritization](/practices/problem-prioritization/)
 {{% /section %}}
 
 {{% section %}}

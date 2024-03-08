@@ -14,14 +14,14 @@ tags:
 title: Solution Grooming
 what:
   - Whiteboard or digital version like [Miro](https://miro.com/)
-  - Sticky notes with solution ideas (from [Solution Brainstorming](/practices/solution-brainstorming),
+  - Sticky notes with solution ideas (from [Solution Brainstorming](/practices/solution-brainstorming/),
     still attached to tabloid sheets)
   - Large sticky notes
   - Sharpies
   - Expo markers
   - Painter’s tape
 when:
-  - When you've come up with a huge number of ideas during [Solution Brainstorming](/practices/solution-brainstorming)
+  - When you've come up with a huge number of ideas during [Solution Brainstorming](/practices/solution-brainstorming/)
     and you have so many you need to understand and organize them.
 why:
   - Unless you have a systematic way to approach your pile of solutions, you may find
@@ -92,12 +92,12 @@ If needed, you can also lead the team in expanding / consolidating clusters to t
 
 ### Preceding
 
-[Solution Brainstorming](/practices/solution-brainstorming)
+[Solution Brainstorming](/practices/solution-brainstorming/)
 {{% /section %}}
 
 {{% section %}}
 
 ### Following
 
-[Solution Prioritization](/practices/solution-prioritization)
+[Solution Prioritization](/practices/solution-prioritization/)
 {{% /section %}}

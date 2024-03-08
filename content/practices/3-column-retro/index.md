@@ -105,7 +105,7 @@ Success is when the core team has a shared understanding of:
 
 ### Related Practices
 
-["Sailboat" Futurespective](/practices/futurespective)
+["Sailboat" Futurespective](/practices/futurespective/)
 {{% /section %}}
 
 {{% section %}}

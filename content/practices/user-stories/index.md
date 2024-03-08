@@ -23,7 +23,7 @@ miro_template_url: "URL for related Miro template"
 
 You’ll need stories ready for three main project phases:
 
-- User stories groomed and ready for the next [Iteration Planning Meeting](/practices/ipm) (1-2 weeks out)
+- User stories groomed and ready for the next [Iteration Planning Meeting](/practices/ipm/) (1-2 weeks out)
 - User stories ready for high-fidelity design, but not all details finalized (2-4 weeks out)
 - User stories sketched out with a rough idea, to signal where the product is headed and help inform research efforts (1-3 months out)
 
@@ -51,7 +51,7 @@ You’ll need stories ready for three main project phases:
    **SO THAT** _I can email it to a prospective customer_
    {{% /callout %}}
 
-   The description helps your team understand who we are building for, why that user wants this feature in the software, and what it will help them accomplish. If you use a name in your description, the name should represent a [persona](/practices/personas) your team has created, such as "Alex the sales rep", and not a random name, and should be consistent across all stories where that persona is the intended user.
+   The description helps your team understand who we are building for, why that user wants this feature in the software, and what it will help them accomplish. If you use a name in your description, the name should represent a [persona](/practices/personas/) your team has created, such as "Alex the sales rep", and not a random name, and should be consistent across all stories where that persona is the intended user.
 
    {{% callout %}}
    Tip: Try making the “so that …” portion of your story about something that happens outside your app. This can help you ensure you’re understanding the value to the user. If you’re having trouble writing the “so that …” portion, ask yourself if the story is really valuable.
@@ -113,7 +113,7 @@ You’ll need stories ready for three main project phases:
 You’ll know you’ve got good user stories when:
 
 - The whole product team can read a story and understand what value it provides to the user
-- Discussions about stories in IPM are smooth, and are about clarifying details, not questioning what the overall approach is - if you’re having trouble getting here, consider [IPM pre-planning](/practices/iteration-pre-planning) to help smooth out story grooming
+- Discussions about stories in IPM are smooth, and are about clarifying details, not questioning what the overall approach is - if you’re having trouble getting here, consider [IPM pre-planning](/practices/iteration-pre-planning/) to help smooth out story grooming
 - Engineers can tell from the story when they are done developing it
 - You can easily accept a story once it’s been delivered
 - The team delivers several user stories per week
@@ -144,13 +144,13 @@ Tip: A good sign that a story has gotten too big is when it has several blocks o
 
 ### Preceding
 
-- [Story Mapping](/practices/story-mapping)
-- [Personas](/practices/personas)
+- [Story Mapping](/practices/story-mapping/)
+- [Personas](/practices/personas/)
 
 ### Following
 
-- [Iteration Pre-Planning](/practices/iteration-pre-planning)
-- [Iteration Planning Meeting](/practices/ipm)
+- [Iteration Pre-Planning](/practices/iteration-pre-planning/)
+- [Iteration Planning Meeting](/practices/ipm/)
 
 ## Real World Examples
 

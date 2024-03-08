@@ -116,7 +116,7 @@ Firstly, the team should have a shared understanding of the scope and relative c
 
 ### Preceding
 
-[Iteration pre-planning](/practices/iteration-pre-planning) (optional)
+[Iteration pre-planning](/practices/iteration-pre-planning/) (optional)
 {{% /section %}}
 
 {{% section %}}

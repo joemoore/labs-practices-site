@@ -107,7 +107,7 @@ Avoid asking direct personal questions, but rather leave them open-ended so peop
 
 ## Related Practices
 
-[Speedback Feedback](/practices/speedback)
+[Speedback Feedback](/practices/speedback/)
 
 Setting up regular 1-on-1s with your teammates (this gives you ideas for things to talk about)
 

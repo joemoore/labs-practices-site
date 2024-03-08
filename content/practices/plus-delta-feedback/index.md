@@ -88,7 +88,7 @@ Sometimes one or both parties are uncomfortable providing deltas or other constr
 
 ## Related Practices
 
-- [Speedback Feedback](/practices/speedback)
+- [Speedback Feedback](/practices/speedback/)
   {{% /section %}}
 
 {{% section %}}

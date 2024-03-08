@@ -86,14 +86,14 @@ This is an activity that you can time box if it feels drawn out. Many of the tip
 
 ## Related Practices
 
-- [2x2 Prioritization](/practices/2x2)
+- [2x2 Prioritization](/practices/2x2/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Preceding
 
-- [Solution Brainstorming](/practices/solution-brainstorming)
+- [Solution Brainstorming](/practices/solution-brainstorming/)
 - Solution Grooming -- coming soon!
   {{% /section %}}
 
@@ -102,7 +102,7 @@ This is an activity that you can time box if it feels drawn out. Many of the tip
 ### Following
 
 - Scenario Walkthrough -- coming soon!
-- [Design Studio](/practices/design-studio)
+- [Design Studio](/practices/design-studio/)
   {{% /section %}}
 
 {{% section %}}

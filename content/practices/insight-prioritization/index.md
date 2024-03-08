@@ -64,27 +64,27 @@ Success is achieved when the team agrees to the top 3-5 Insights on which it wil
 
 ### Related Practices
 
-- [2x2 Prioritization](/practices/2x2)
+- [2x2 Prioritization](/practices/2x2/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Preceding
 
-- [Problem Prioritization](/practices/problem-prioritization)
-- [Research Synthesis](/practices/research-synthesis)
+- [Problem Prioritization](/practices/problem-prioritization/)
+- [Research Synthesis](/practices/research-synthesis/)
   {{% /section %}}
 
 {{% section %}}
 
 ### Parallel
 
-[Problem Prioritization](/practices/problem-prioritization)
+[Problem Prioritization](/practices/problem-prioritization/)
 {{% /section %}}
 
 {{% section %}}
 
 ### Following
 
-[Solution Brainstorming](/practices/solution-brainstorming)
+[Solution Brainstorming](/practices/solution-brainstorming/)
 {{% /section %}}

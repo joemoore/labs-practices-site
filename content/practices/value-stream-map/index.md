@@ -109,9 +109,9 @@ Some teams are sensitive to the idea of calling out “waste” in their process
 
 ### Related Practices
 
-[Event Storming](/practices/event-storming)
+[Event Storming](/practices/event-storming/)
 
-[Service Blueprint](/practices/service-blueprint)
+[Service Blueprint](/practices/service-blueprint/)
 {{% /section %}}
 
 {{% section %}}

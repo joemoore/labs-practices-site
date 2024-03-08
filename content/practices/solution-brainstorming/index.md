@@ -82,8 +82,8 @@ You may need to adjust the timing depending on how many people are present. Be s
 
 ### Preceding
 
-- [Insight Prioritization](/practices/insight-prioritization)
-- [Problem Prioritization](/practices/problem-prioritization)
+- [Insight Prioritization](/practices/insight-prioritization/)
+- [Problem Prioritization](/practices/problem-prioritization/)
   {{% /section %}}
 
 {{% section %}}
@@ -91,5 +91,5 @@ You may need to adjust the timing depending on how many people are present. Be s
 ### Following
 
 - Solution Grooming -- coming soon!
-- [Solution Prioritization](/practices/solution-prioritization)
+- [Solution Prioritization](/practices/solution-prioritization/)
   {{% /section %}}

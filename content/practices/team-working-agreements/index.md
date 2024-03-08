@@ -112,7 +112,7 @@ Also, just because a behavior does not get added to the working agreements does 
 
 ## Related Practices
 
-[Team Values](/practices/team-values)
+[Team Values](/practices/team-values/)
 
 ## Real World Examples
 
