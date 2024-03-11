@@ -330,7 +330,7 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p>1 또는 2단계에서 <a
-href="/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization/">통찰력
 우선순위 지정</a>과 유사한 우선순위 지정 연습을 활용하고자 할 수
 있습니다.</div></div>
 

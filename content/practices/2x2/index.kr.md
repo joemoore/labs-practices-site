@@ -251,15 +251,15 @@ miro_template_url: "https://miro.com/templates/2x2-prioritization-matrix/"
  id="related-practices">관련 사례</h2>
 
  <p><a
- href="/practices/insight-prioritization">통찰력
+ href="/practices/insight-prioritization/">통찰력
  우선순위 지정</a></p>
 
  <p><a
- href="/practices/problem-prioritization">문제
+ href="/practices/problem-prioritization/">문제
  우선순위 지정</a></p>
 
  <p><a
- href="/practices/solution-prioritization">솔루션
+ href="/practices/solution-prioritization/">솔루션
  우선순위 지정</a></p>
 
  </div></div>

@@ -248,7 +248,7 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p><a
-href="/practices/futurespective">&lsquo;돛단배&rsquo;
+href="/practices/futurespective/">&lsquo;돛단배&rsquo;
 형식의 미래 회고</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div

@@ -179,7 +179,7 @@ id="related-practices">관련 사례</h2>
 <ul>
 
 <li><a
-href="/practices/speedback">스피드백
+href="/practices/speedback/">스피드백
 피드백</a></li>
 
 </ul>

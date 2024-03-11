@@ -282,19 +282,19 @@ id="variation---individual-ranking-and-group-comparison-3-9-options-and-situatio
 <h2 id="related-practices">관련 사례</h2>
 
 <p><a
-href="/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization/">통찰력
 우선순위 지정</a></p>
 
 <p><a
-href="/practices/problem-prioritization">문제
+href="/practices/problem-prioritization/">문제
 우선순위 지정</a></p>
 
 <p><a
-href="/practices/solution-prioritization">솔루션
+href="/practices/solution-prioritization/">솔루션
 우선순위 지정</a></p>
 
 <p><a
-href="/practices/2x2">2x2
+href="/practices/2x2/">2x2
 우선순위 지정</a></p>
 
 <h2 id="real-world-examples">실제 예시</h2>

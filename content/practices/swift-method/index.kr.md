@@ -38,7 +38,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <li>
 
 <p>비즈니스 및 기술 인력이 이해하는 언어를 사용하여 시스템을 <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a>합니다.</p>
 
 </li>
@@ -46,7 +46,7 @@ href="/practices/event-storming">이벤트
 <li>
 
 <p>시스템의 기능 간 관계를 모델링하는 <a
-href="/practices/boris">Boris</a>
+href="/practices/boris/">Boris</a>
 연습을 수행합니다. Boris 중에 식별된 기술적 기능을 실시간으로 문서화하는 SNAP를 수행합니다.</p>
 
 <p><img
@@ -61,12 +61,12 @@ alt="SNAP 분석"  /></p>
 
 <p>씬 슬라이스는 짧은 도메인 이벤트 흐름입니다. 수직 슬라이스는 핵심 도메인에서 짧은 도메인 이벤트 흐름을
 선택하고 해당 이벤트를 생성하기 위해 <a
-href="/practices/boris">Boris</a>에서
+href="/practices/boris/">Boris</a>에서
 파생된 서비스를 활용하여 식별됩니다. 이러한 이벤트를 생성하는 데 필요한 아키텍처 구성 요소로 생각하면 됩니다. 씬
 슬라이스에는 <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a>, <a
-href="/practices/boris">Boris</a>,
+href="/practices/boris/">Boris</a>,
 SNAP 활동을 통해 정보가 제공됩니다.</p>
 
 <div class="callout td-box--gray-darkest p-3 my-5
@@ -239,7 +239,7 @@ id="facilitator-notes--tips">진행자 메모 및 팁</h3>
 
 <p>이 개념적인 아키텍처는 이제 시스템의 우수한 첫 번째 진행 방향을 나타냅니다. 기존 시스템을 현대화하는 툴로
 사용될 때 <a
-href="/practices/boris">Boris</a>는
+href="/practices/boris/">Boris</a>는
 가능성 있는 대상 아키텍처를 보여줍니다. Swift 방식의 다른 활동은 현재 상태에서 현대화된 상태로 이동하는 방법을 정의하는
 데 도움을 줍니다.</p>
 
@@ -254,11 +254,11 @@ id="related-practices">관련 사례</h3>
 <ul>
 
 <li><a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a></li>
 
 <li><a
-href="/practices/boris">Boris</a></li>
+href="/practices/boris/">Boris</a></li>
 
 </ul>
 
@@ -269,7 +269,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p>Uber Eats와 같은 유형의 애플리케이션을 위한 현대화의 <a
-href="/practices/boris">Boris</a>
+href="/practices/boris/">Boris</a>
 및 Swift 방식에 대한 자세한 설명은 <a
 href="https://miro.com/app/board/o9J_kzaSk0E=/"
 target="_blank">이벤트 스토밍 및 Boris 훈련 Miro 보드</a>를

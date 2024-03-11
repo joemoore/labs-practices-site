@@ -68,7 +68,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <li>
 
 <p>사용자 여정, <a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a> 또는 팀이 작성한 시나리오를 활용하여 해결하려는 문제가 무엇이며 누구를 위해 해결하려고 하는지
 정의합니다.</p>
 
@@ -308,15 +308,15 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a></li>
 
 <li><a
-href="/practices/journey-map">여정
+href="/practices/journey-map/">여정
 맵</a></li>
 
 <li><a
-href="/practices/scenario-writing">시나리오
+href="/practices/scenario-writing/">시나리오
 작성</a></li>
 
 </ul>

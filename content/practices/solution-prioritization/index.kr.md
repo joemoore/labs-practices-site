@@ -178,7 +178,7 @@ id="related-practices">관련 사례</h2>
 <ul>
 
 <li><a
-href="/practices/2x2">2x2
+href="/practices/2x2/">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -192,7 +192,7 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming/">솔루션
 브레인스토밍</a></li>
 
 <li>솔루션 다듬기 - 곧 제공 예정</li>
@@ -210,7 +210,7 @@ class="col-lg-9"><h3 id="following">다음
 <li>시나리오 워크스루 &ndash; 곧 제공 예정</li>
 
 <li><a
-href="/practices/design-studio">설계
+href="/practices/design-studio/">설계
 스튜디오</a></li>
 
 </ul>

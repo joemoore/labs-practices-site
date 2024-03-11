@@ -142,7 +142,7 @@ id="related-practices">관련 사례</h3>
 <ul>
 
 <li><a
-href="/practices/2x2">2x2
+href="/practices/2x2/">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -156,11 +156,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/problem-prioritization">문제
+href="/practices/problem-prioritization/">문제
 우선순위 지정</a></li>
 
 <li><a
-href="/practices/research-synthesis">연구
+href="/practices/research-synthesis/">연구
 합성</a></li>
 
 </ul>
@@ -172,7 +172,7 @@ class="col-lg-9"><h3 id="parallel">동시
 진행</h3>
 
 <p><a
-href="/practices/problem-prioritization">문제
+href="/practices/problem-prioritization/">문제
 우선순위 지정</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -180,5 +180,5 @@ class="col-lg-9"><h3 id="following">다음
 단계</h3>
 
 <p><a
-href="/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming/">솔루션
 브레인스토밍</a></div></div>

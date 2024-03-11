@@ -27,7 +27,7 @@ miro_template_url: "URL for related Miro template"
 <ul>
 
 <li>사용자 스토리를 다듬고 다음 <a
-href="/practices/ipm">반복
+href="/practices/ipm/">반복
 계획 회의</a> 준비(1~2주)</li>
 
 <li>고품질 설계를 위해 사용자 스토리를 준비하지만 일부 세부 사항을 완료하지 않음(2~4주)</li>
@@ -121,7 +121,7 @@ class="col-11"><p><p>설명 예시:</p>
 <p>설명을 통해 팀은 누구를 위해 사용자 스토리를 작성하며, 해당 사용자가 소프트웨어에서 이 기능을 원하는 이유,
 해당 사용자가 완수하는 데 도움이 되는 사항을 이해할 수 있습니다. 설명에서 이름을 사용하는 경우 이름은 “영업 담당자
 Alex”처럼 팀에서 만든 <a
-href="/practices/personas">역할</a>을
+href="/practices/personas/">역할</a>을
 나타내야 합니다. 또한 임의의 이름일 수 없으며 해당 역할이 의도된 사용자인 모든 스토리에서 일관되어야
 합니다.</p>
 
@@ -343,7 +343,7 @@ class="col-11"><p>팁: 명료성과 고품질 구현을 위해 사용자 인터�
 
 <li>IPM의 스토리에 관한 토론이 원활하고 세부 사항을 명확하게 설명하며 전반적인 방식이 무엇인지 의문을 갖지
 않습니다. 이와 관련하여 문제가 있다면 원활하게 스토리를 다듬을 수 있도록 <a
-href="/practices/iteration-pre-planning">IPM
+href="/practices/iteration-pre-planning/">IPM
 사전 계획</a>을 고려하십시오.</li>
 
 <li>엔지니어가 개발을 완료하면 스토리를 구분할 수 있습니다.</li>
@@ -431,11 +431,11 @@ class="col-11"><p>팁: 여러 블록의 검증 기준이 있고(특히 많은 �
 <ul>
 
 <li><a
-href="/practices/story-mapping">스토리
+href="/practices/story-mapping/">스토리
 매핑</a></li>
 
 <li><a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a></li>
 
 </ul>
@@ -445,11 +445,11 @@ href="/practices/personas">사용자
 <ul>
 
 <li><a
-href="/practices/iteration-pre-planning">반복
+href="/practices/iteration-pre-planning/">반복
 사전 계획</a></li>
 
 <li><a
-href="/practices/ipm">반복
+href="/practices/ipm/">반복
 계획 회의</a></li>
 
 </ul>

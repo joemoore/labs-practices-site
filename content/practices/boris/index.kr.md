@@ -42,7 +42,7 @@ id="sample-agenda--prompts">샘플 안건 및 메시지</h3>
 <li>
 
 <p><a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a>을 진행한 후 한 색상의 스티커 메모를 사용하여 각 경계 컨텍스트를 생성합니다. Blob의 보드에
 이들을 배치합니다.</p>
 
@@ -236,10 +236,10 @@ class="col-lg-9"><h3
 id="facilitator-notes--tips">진행자 메모 및 팁</h3>
 
 <p>Boris, <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a> 및 기타 기술은 대규모 시스템에서 “실제” 문제를 파악하고 현대화된 시스템의 목표를 향한 방향을
 발견하는 데 사용하는 <a
-href="/practices/swift-method">Swift
+href="/practices/swift-method/">Swift
 방식</a>의 일부입니다. 수사적인 질문을 통해 솔루션이 자연스럽게 드러나도록 해야 합니다. 솔루션을 견인하는 것과
 대상 아키텍처를 조직적으로 발전시키는 것 사이의 균형을 세밀하게 유지하는 과정을 연습하십시오. Boris 연습을 수행할 때
 미리 최적화해서는 안 됩니다.</div></div>
@@ -249,7 +249,7 @@ class="col-lg-9"><h3
 id="challenges-playbook">당면 과제 플레이북</h3>
 
 <p><em><strong>당면 과제: 언제 <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a>에서 Boris, SNAP로 전환해야 할지 확실하지
 않습니다.</strong></em></p>
 
@@ -261,7 +261,7 @@ href="/practices/event-storming">이벤트
 유기적으로 발생하는 대화의 카탈로그를 구축하는 형식으로 이루어집니다.</p>
 
 <p><em><strong>당면 과제: 때때로 <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a> 세션의 마무리 시점에 명확한 경계 컨텍스트가 없을 수
 있습니다.</strong></em></p>
 
@@ -283,7 +283,7 @@ href="/practices/event-storming">이벤트
 <p>사람들에게 노트북이나 휴대폰을 치워 달라고 말합니다. 초기에 참여에 대한 기대치를 설정합니다. 전체 그룹
 모빙(mobbing)을 진행하는 과정에서 일부 구성원들의 목소리가 묻히는 경우 대상 청중의 특정 분야를 언급함으로써 그들의
 구체적인 관점을 기반으로 <a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a> 또는 Boris 라운드를 수행합니다. 특히 각 사람이 회의실에 있는 이유를 파악하기 위해 준비 작업을
 수행했다면 그들 각자에게서 무언가 필요한 것입니다. 이렇게 파악한 이유를 참여하고 있지 않은 동료들에게 특정 유형의 정보를
 제공해 달라고 요청하는 데 활용할 수 있습니다.</p>
@@ -311,7 +311,7 @@ class="col-lg-9"><h2
 id="related-practices">관련 사례</h2>
 
 <p>Boris는 <a
-href="/practices/swift-method">Swift
+href="/practices/swift-method/">Swift
 방식</a>에 포함된 활동입니다.</div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -319,7 +319,7 @@ class="col-lg-9"><h3 id="preceding">이전
 단계</h3>
 
 <p><a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
@@ -327,7 +327,7 @@ class="col-lg-9"><h3
 id="real-world-examples">실제 예시</h3>
 
 <p>Uber Eats와 같은 유형의 애플리케이션을 위한 현대화의 Boris 및 <a
-href="/practices/swift-method">Swift
+href="/practices/swift-method/">Swift
 방식</a>에 대한 자세한 설명은 <a
 href="https://miro.com/app/board/o9J_kzaSk0E=/"
 target="_blank">이벤트 스토밍 및 Boris 훈련 Miro 보드</a>를

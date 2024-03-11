@@ -148,7 +148,7 @@ class="col-11"><p><strong>팁</strong>:
 쉬워집니다.</p></div></div>
 
 <p>맹신 가정을 두 개 이상 생각해 냈으면 가장 먼저 집중해야 할 가정을 우선순위 1번으로 지정합니다. <a
-href="/practices/assumptions">가정</a>
+href="/practices/assumptions/">가정</a>
 사례를 사용하거나 Y축에 “프로젝트를 중단할 가능성 높음” vs. “프로젝트를 중단할 가능성 낮음”과 X축에 “더 많은 증거
 필요” vs. “많은 증거가 있음”의 2x2를 사용해 보십시오. 더 많은 증거가 필요한 프로젝트를 중단할 가능성 높음 가정이
 대상입니다.</p>
@@ -485,14 +485,14 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p><a
-href="/practices/assumptions">가정</a></div></div>
+href="/practices/assumptions/">가정</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
 class="col-lg-9"><h3 id="preceding">이전
 단계</h3>
 
 <p><a
-href="/practices/assumptions">가정</a></div></div>
+href="/practices/assumptions/">가정</a></div></div>
 
 <div class="bg-gray-dark p-lg-5 p-3 mb-4"><div
 class="col-lg-9"><h3

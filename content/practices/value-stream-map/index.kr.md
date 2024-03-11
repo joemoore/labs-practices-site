@@ -238,11 +238,11 @@ class="col-lg-9"><h3
 id="related-practices">관련 사례</h3>
 
 <p><a
-href="/practices/event-storming">이벤트
+href="/practices/event-storming/">이벤트
 스토밍</a></p>
 
 <p><a
-href="/practices/service-blueprint">서비스
+href="/practices/service-blueprint/">서비스
 Blueprint</a></p>
 
 </div></div>

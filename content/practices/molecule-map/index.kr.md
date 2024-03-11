@@ -65,7 +65,7 @@ target="_blank">분자</a></strong> </div>
 <ul>
 
 <li>사용자 역할 - 지원 대상은 누구입니까? (<a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a> 사례 사용) 아직 생성하지 않았다면 사례를 진행합니다.</li>
 
 <li>문제 - 이들의 문제는 무엇입니까?</li>

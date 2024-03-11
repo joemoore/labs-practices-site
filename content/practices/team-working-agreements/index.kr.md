@@ -357,7 +357,7 @@ href="/practices/team-working-agreements/images/team-working-agreement-example.p
 <h2 id="related-practices">관련 사례</h2>
 
 <p><a
-href="/practices/team-values">팀
+href="/practices/team-values/">팀
 가치</a></p>
 
 <h2 id="real-world-examples">실제 예시</h2>

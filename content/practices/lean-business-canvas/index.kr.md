@@ -173,11 +173,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/molecule-map">분자
+href="/practices/molecule-map/">분자
 맵</a></li>
 
 <li><a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a></li>
 
 </ul>

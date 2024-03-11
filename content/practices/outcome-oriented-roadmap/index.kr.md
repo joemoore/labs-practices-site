@@ -563,11 +563,11 @@ class="col-lg-9"><h3 id="preceding">이전
 <p>비전, 임무, 전략 &ndash; 곧 제공 예정</p>
 
 <p><a
-href="/practices/lean-business-canvas">린
+href="/practices/lean-business-canvas/">린
 비즈니스 캔버스</a></p>
 
 <p><a
-href="/practices/problem-prioritization">문제
+href="/practices/problem-prioritization/">문제
 우선순위 지정</a></p>
 
 </div></div>

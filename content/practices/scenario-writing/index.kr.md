@@ -112,7 +112,7 @@ class="col-11"><p><strong>팁</strong>:
 있습니다.</p></div></div>
 
 <p><a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a> 활동을 사용하여 팀이 잘 형성된 사용자 역할을 생성하도록 이끌 수 있습니다.</p>
 
 </li>
@@ -226,15 +226,15 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/personas">사용자
+href="/practices/personas/">사용자
 역할</a></li>
 
 <li><a
-href="/practices/problem-prioritization">문제
+href="/practices/problem-prioritization/">문제
 우선순위 지정</a></li>
 
 <li><a
-href="/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization/">통찰력
 우선순위 지정</a></li>
 
 </ul>
@@ -246,5 +246,5 @@ class="col-lg-9"><h3 id="following">다음
 단계</h3>
 
 <p><a
-href="/practices/design-studio">설계
+href="/practices/design-studio/">설계
 스튜디오</a></div></div>

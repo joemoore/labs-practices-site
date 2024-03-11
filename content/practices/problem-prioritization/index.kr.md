@@ -155,7 +155,7 @@ id="variations">변형</h3>
 <ul>
 
 <li><a
-href="/practices/2x2">2x2
+href="/practices/2x2/">2x2
 우선순위 지정</a></li>
 
 </ul>
@@ -169,7 +169,7 @@ class="col-lg-9"><h3 id="preceding">이전
 <ul>
 
 <li><a
-href="/practices/research-synthesis">연구
+href="/practices/research-synthesis/">연구
 합성</a></li>
 
 </ul>
@@ -183,11 +183,11 @@ class="col-lg-9"><h3 id="following">다음
 <ul>
 
 <li><a
-href="/practices/insight-prioritization">통찰력
+href="/practices/insight-prioritization/">통찰력
 우선순위 지정</a></li>
 
 <li><a
-href="/practices/solution-brainstorming">솔루션
+href="/practices/solution-brainstorming/">솔루션
 브레인스토밍</a></li>
 
 </ul>

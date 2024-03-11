@@ -31,7 +31,7 @@ miro_template_url: "URL for related Miro template"
 <li>
 
 <p>시작하기 전에 팀으로서 <a
-href="/practices/ipm">IPM(반복
+href="/practices/ipm/">IPM(반복
 계획 회의)</a>의 결과에 따라 반복 사전 계획의 필요성을 결정합니다. 일반적인 조짐은 다음과
 같습니다.</p>
 
@@ -132,7 +132,7 @@ rel="nofollow">바이크쉐딩</a>”으로 인해 주안점에서 벗어나는 
 <h3 id="following">다음 단계</h3>
 
 <p><a
-href="/practices/ipm">IPM(반복
+href="/practices/ipm/">IPM(반복
 계획 회의)</a></p>
 
 <h2 id="real-world-examples">실제 예시</h2>
