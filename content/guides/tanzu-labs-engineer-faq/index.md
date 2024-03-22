@@ -102,15 +102,15 @@ Conversely, "Is it possible for a story to be too small?". To answer the questio
 
 For example, suppose your story is about authentication:
 
-- _User can sign in, \*\*\_and_** sign out, **_and_** recover their password, **_and_** change their password, **_and_\*\* recover their username\_
+> _A User can sign in, **_and_** sign out, **_and_** recover their password, **_and_** change their password, **_and_** recover their username_
 
 Your team collaborates, "How do we make this story smaller and still deliver value to the user?". Together, everyone decides to make smaller stories about authentication. So, now instead of having one large story, you have several smaller ones, including the following:
 
-- _User can sign in_
-- _User can sign out_
-- _User can recover their password_
-- _User can change their password_
-- _User can recover their username_
+- _A User can **sign in**_
+- _A User can **sign out**_
+- _A User can **recover their password**_
+- _A User can **change their password**_
+- _A User can **recover their username**_
 
 {{% callout %}}
 **Tip:** If a user story contains an **_"and"_**, try splitting the story at that point and evaluate whether the two (or more) stories provide value on their own.
@@ -118,11 +118,13 @@ Your team collaborates, "How do we make this story smaller and still deliver val
 
 However, the team goes too far in making smaller stories out of bigger ones. They decide to break down _User can sign in_ into the following tiny stories:
 
-- _User can view the Username field on the Sign In form_
-- _User can view the Password field on the Sign In form_
-- _User can view the 'Sign In' button on the Sign In form_
-- _User can view the entire Sign In form_
-- _User can sign-in using the Sign In form_
+- _A User can **view the Username field on the Sign In form**_
+- _A User can **view the Password field on the Sign In form**_
+- _A User can **view the 'Sign In' button on the Sign In form**_
+- _A User can **view the entire Sign In form**_
+- _A User can **sign-in using the Sign In form**_
+- _A User can **breathe in**_
+- _A User can **breathe out...**_
 
 Your team collaborates, "If we complete the two or three stories, is the Sign In form going to provide real value to our users?" The answer is no! Delivering a sign-in form to production that doesn't work does is not going to help your users. If anything, it's more likely to frustrate them, or put the product into an unreleasable state. In this case, _User can sign in_ was an appropriately-sized story.
 
@@ -359,7 +361,7 @@ There are a couple of different engineering challenges to consider:
 
 If you'd like to learn more about how Pivotal/Tanzu Labs approaches modern application development and engineering, please check out these amazing resources.
 
-- [How Pivotal/Tanzu Labs Works and Why](/learningpaths/cloud-native-development-in-practice/)
+- [How Pivotal/Tanzu Labs Works and Why](/learningpaths/application-development-how-we-work/)
 - [Fundamentals of Modern Application Development](/learningpaths/application-development/)
 - [Modern Application Development Rhythm](/learningpaths/application-development-rhythm/)
 - [Cloud Native Application Development with Spring](/learningpaths/application-development-rhythm/)
