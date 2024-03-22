@@ -32,10 +32,12 @@ remote: false
 miro_template_url: "URL for related Miro template"
 
 ---
+
 ## How to Use this Method
+
 If needed, write any valuable history or context here prior to the Sample Agenda and Prompts.
 
-***WARNING!*** ***WARNING!*** ***WARNING!***
+**_WARNING!_** **_WARNING!_** **_WARNING!_**
 
 This page will be available on public Internet! Think of the various audiences: future customers, current customers, partners, VMware employees, and anybody who happens to find this page.
 
@@ -49,9 +51,10 @@ Things to keep in mind:
 - No images of people's faces without written permission
 - No links to internal sources, such as GDrive, SharePoint
 
-***WARNING!*** ***WARNING!*** ***WARNING!***
+**_WARNING!_** **_WARNING!_** **_WARNING!_**
 
 ### Sample Agenda & Prompts
+
 1. This is a numbered list of steps. With markdown, just keep using the `1.` and it'll automatically create the numbers.
 
    You'll often have multiple paragraphs in one step. Like this one.
@@ -73,12 +76,15 @@ Things to keep in mind:
    Try not to make them to large either in pixels or disk space. 1280px on the longest side and 400KB or so max.
 
 ## Success/Expected Outcomes
+
 How do people know if this workshop was successful?
 
 ## Facilitator Notes & Tips
+
 Are there common ways by which this workshop gets off track? Notes like that are great for this section.
 
 ## Related Practices
+
 If there are any related practices list them here.
 
 - [Related Practice 1](/practices/related-practice-1)
@@ -87,22 +93,27 @@ If there are any related practices list them here.
 Delete if unused.
 
 ## Variations
+
 Are there alternative ways of performing this practice or workshop? Call out the differences here.
 
 Delete if unused.
 
 ### Preceding
+
 Optional. Delete if unused.
 
 - [Specific practice that takes place before this one](/practices/related-practice-before)
 
 ### Following
+
 Optional. Delete if unused.
 
 - [Specific practice that takes place after one](/practices/related-practice-after)
 
 ## Real World Examples
+
 Images, diagrams, or other interesting examples of this practice in the real world. Remember: no customer-identifying photos or notes, no faces.
 
 ## Recommended Reading
+
 Provide links to helpful books, slide decks, videos, etc. Remember: do not include links to internal resources.

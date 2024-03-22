@@ -39,8 +39,10 @@ Tell the reader here as you can see, console.logs are great. Or just write a set
 - It solves all your pain
 
 #### Cons
-- This pattern may create a side effect of ___
+
+- This pattern may create a side effect of \_\_\_
 
 ## Further reading
+
 - A link to a blog post
 - A link to a talk
