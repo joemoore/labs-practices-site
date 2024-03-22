@@ -13,6 +13,7 @@ featured:
   - "guides/tanzu-labs-engineer-faq"
   - "learningpaths/application-development"
   - "learningpaths/anchor-playbook"
+  - "learningpaths/application-development/test-driven-development"
   - "learningpaths/consulting-around-design-systems"
   - "learningpaths/application-development-rhythm"
   - "practices/2x2"
