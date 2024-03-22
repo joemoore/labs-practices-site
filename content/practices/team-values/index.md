@@ -38,7 +38,7 @@ why:
    - _"We believe..."_
    - _"We value..."_
    - _"We respect..."_
-   - _"We ****\_\_\_\_****..."_
+   - _"We ****\_\_\_\_****"_
 
 1. Set a timer for 6 minutes and have the team silently generate value statements using the prompts on the board. Each value statement should be on its own sticky note.
 

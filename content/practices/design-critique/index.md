@@ -43,18 +43,18 @@ why:
    - What is the goal of the app? For example, “'Super Bowl Land' is a series of screens for call center operators to manage the billing and account information for football fans during football season.”)
    - Who is the user?
    - What type of feedback are you looking for?
-   {{% callout %}}
-   **Tip**: Product value props and features can be mentioned here. Try to keep this whole intro to a few minutes.
-   {{% /callout %}}
+     {{% callout %}}
+     **Tip**: Product value props and features can be mentioned here. Try to keep this whole intro to a few minutes.
+     {{% /callout %}}
 
 Try to keep the project team from explaining too much. It can be a poor use of time and it robs everyone in the room of their fresh eyes. Some of the most useful feedback the team can get is “I don’t understand this” or “I didn’t see that.”
 
 1. Once everyone understands the app being critiqued and the desired feedback, set a timer for 8 minutes of silent critique during which critiquers:
    - Review the screens, and
    - Write sticky notes of constructive and positive commentary
-   {{% callout %}}
-   **Tip**: Silent work time lets everyone think about the design a bit more deeply and experience it by themselves—which happens to be the way you experience design in the real world
-   {{% /callout %}}
+     {{% callout %}}
+     **Tip**: Silent work time lets everyone think about the design a bit more deeply and experience it by themselves—which happens to be the way you experience design in the real world
+     {{% /callout %}}
 
 Be sure to find the good, too, so that positive aspects of the design are not later deleted because they weren’t commented on.
 

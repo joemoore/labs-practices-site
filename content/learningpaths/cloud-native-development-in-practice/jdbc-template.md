@@ -198,14 +198,15 @@ as the `routes` and `env` labels.
     ```java
     @BeforeEach
     public void setUp() throws Exception {
-        MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
+      MysqlDataSource dataSource = new MysqlDataSource();
+      dataSource.setUrl(System.getenv("SPRING_DATASOURCE_URL"));
 
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        jdbcTemplate.execute("TRUNCATE time_entries");
+      JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+      jdbcTemplate.execute("TRUNCATE time_entries");
 
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+      TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
+
     ```
 
     ```bash

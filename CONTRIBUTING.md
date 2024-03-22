@@ -2,7 +2,6 @@
 
 Thanks for your interest in contributing to the Labs Practices Site!
 
-
 ## Code Contributions
 
 If you are interested in contributing new features, bug fixes, or open issues, follow these steps:

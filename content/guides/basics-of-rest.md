@@ -189,7 +189,7 @@ This constraint states that a server can extend the functionality of a client by
 
 ## Conclusion
 
-Well, this is the end of this coverage of the basics of REST. Reading Roy Fielding's REST [dissertation](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) is a great place to start if you haven't already. If you’d like to start building your own REST APIs and are a Spring developer, be sure to check out [Building a REST API with Spring Boot](https://spring.academy/courses/building-a-rest-api-with-spring-boot) _(note: see [_Edit_](#edit) below)_ to see these principles in action!
+Well, this is the end of this coverage of the basics of REST. Reading Roy Fielding's REST [dissertation](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) is a great place to start if you haven't already. If you’d like to start building your own REST APIs and are a Spring developer, be sure to check out [Building a REST API with Spring Boot](https://spring.academy/courses/building-a-rest-api-with-spring-boot) _\(note: see [Edit](#edit) below\)_ to see these principles in action!
 
 <a name=edit></a>
 _**Edit** March 4, 2024: The article originally referenced was removed during the curation of the Labs Practices Site. Reference changed to the free online course on Spring Academy: [Building a REST API with Spring Boot](https://spring.academy/courses/building-a-rest-api-with-spring-boot). -- Joe Moore_

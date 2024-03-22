@@ -19,11 +19,11 @@ level2: Team Tips
 
 - Agree on tools that everyone has access to.
 - Agree on how you will communicate, interact, and make decisions. This can be based on user manuals created by each team member:
-  - Chat tools are used for ****\_**** .
-  - Email is used for ****\_\_\_**** .
-  - I tap someone on the shoulder by doing ****\_****.
-  - Standup is for ****\_**** .
-  - Stand-down is for ****\_\_\_\_****.
+  - Chat tools are used for \***\*\_\*\*** .
+  - Email is used for \***\*\_\_\_\*\*** .
+  - I tap someone on the shoulder by doing \***\*\_\*\***.
+  - Standup is for \***\*\_\*\*** .
+  - Stand-down is for \***\*\_\_\_\_\*\***.
 - Clearly set the agenda, desired outcomes and a timebox for each session.
 - Agree on hand gestures during video calls.
 - Maintain a team decision log.

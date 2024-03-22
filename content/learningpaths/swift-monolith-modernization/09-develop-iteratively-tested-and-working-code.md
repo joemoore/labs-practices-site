@@ -176,22 +176,24 @@ This results in the following Aggregate:
 
 ```java
 public class Restaurant {
-   private final String name;
-   private final List<String> meals = new ArrayList<>();
 
-   public Restaurant(String name, List<String> meals) {
-      this.name = name;
-      this.meals.addAll(meals);
-   }
+  private final String name;
+  private final List<String> meals = new ArrayList<>();
 
-   public String getName() {
-      return this.name;
-   }
+  public Restaurant(String name, List<String> meals) {
+    this.name = name;
+    this.meals.addAll(meals);
+  }
 
-   public List<String> getMenu() {
-      return this.meals;
-   }
+  public String getName() {
+    return this.name;
+  }
+
+  public List<String> getMenu() {
+    return this.meals;
+  }
 }
+
 ```
 
 #### API
@@ -238,21 +240,24 @@ This results in the following Spring `@RestController` component, which is basic
 @AllArgsConstructor
 public class RestaurantAPI {
 
-   private final RestaurantApplicationPort restaurantApplicationPort;
+  private final RestaurantApplicationPort restaurantApplicationPort;
 
-   @GetMapping("/retrieve-menu")
-   public RetrieveMenuResponse retrieveMenu() {
-      final List<RestaurantMenu> menus = this.restaurantApplicationPort.retrieveMenu();
-      return new RetrieveMenuResponse(menus);
-   }
+  @GetMapping("/retrieve-menu")
+  public RetrieveMenuResponse retrieveMenu() {
+    final List<RestaurantMenu> menus =
+      this.restaurantApplicationPort.retrieveMenu();
+    return new RetrieveMenuResponse(menus);
+  }
 
-   @Data
-   @NoArgsConstructor
-   @AllArgsConstructor
-   public static class RetrieveMenuResponse {
-      private List<RestaurantMenu> menus;
-   }
+  @Data
+  @NoArgsConstructor
+  @AllArgsConstructor
+  public static class RetrieveMenuResponse {
+
+    private List<RestaurantMenu> menus;
+  }
 }
+
 ```
 
 And the corresponding `RestaurantApplication` implementation (using dummy data):
@@ -262,11 +267,14 @@ And the corresponding `RestaurantApplication` implementation (using dummy data):
 @AllArgsConstructor
 public class RestaurantApplicationService implements RestaurantApplicationPort {
 
-   @Override
-   public List<RestaurantMenu> retrieveMenu() {
-      return Collections.singletonList(new RestaurantMenu("Restaurant New York", Arrays.asList("pizza")));
-   }
+  @Override
+  public List<RestaurantMenu> retrieveMenu() {
+    return Collections.singletonList(
+      new RestaurantMenu("Restaurant New York", Arrays.asList("pizza"))
+    );
+  }
 }
+
 ```
 
 #### Persistence
@@ -304,9 +312,9 @@ We have defined in the test the repository and its port method:
 
 ```java
 public interface RestaurantRepositoryPort {
-
-   List<Restaurant> getAll();
+  List<Restaurant> getAll();
 }
+
 ```
 
 {{% callout %}}
@@ -320,16 +328,18 @@ To have the above test pass, we implement `RestaurantApplicationService`:
 @AllArgsConstructor
 public class RestaurantApplicationService implements RestaurantApplicationPort {
 
-   private final RestaurantRepositoryPort restaurantRepositoryPort;
+  private final RestaurantRepositoryPort restaurantRepositoryPort;
 
-   @Override
-   public List<Menu> retrieveMenu() {
-      final List<Restaurant> restaurants = this.restaurantRepositoryPort.getAll();
-      return restaurants.stream()
-         .map((restaurant -> new Menu(restaurant.getName(), restaurant.getMenu())))
-         .collect(Collectors.toList());
-   }
+  @Override
+  public List<Menu> retrieveMenu() {
+    final List<Restaurant> restaurants = this.restaurantRepositoryPort.getAll();
+    return restaurants
+      .stream()
+      .map((restaurant -> new Menu(restaurant.getName(), restaurant.getMenu())))
+      .collect(Collectors.toList());
+  }
 }
+
 ```
 
 Let's implement the `RestaurantRepositoryPort` by using Spring Data JPA. See Spring Data JPA Repositories for more information about how Spring Data JPA works by defining marker interfaces, ID, and Entity types.
@@ -370,74 +380,84 @@ This leads us to the following classes:
 
 ```java
 @Entity
-@Table(name="restaurants")
+@Table(name = "restaurants")
 public class RestaurantEntity {
 
-   @Getter
-   @Setter
-   @EmbeddedId
-   private RestaurantId id;
+  @Getter
+  @Setter
+  @EmbeddedId
+  private RestaurantId id;
 
-   @Getter
-   @Setter
-   @Version
-   @Column
-   private Long version;
+  @Getter
+  @Setter
+  @Version
+  @Column
+  private Long version;
 
-   @Getter
-   @Setter
-   @OneToMany(mappedBy="restaurant", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-   private Set<MealEntity> meals;
+  @Getter
+  @Setter
+  @OneToMany(
+    mappedBy = "restaurant",
+    fetch = FetchType.EAGER,
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+  )
+  private Set<MealEntity> meals;
 }
+
 ```
 
 ```java
 @Embeddable
 public class RestaurantId implements Serializable {
 
-   @Column(name = "name")
-   @Getter
-   @Setter
-   public String name;
+  @Column(name = "name")
+  @Getter
+  @Setter
+  public String name;
 }
+
 ```
 
 ```java
 @Entity
-@Table(name="meals")
+@Table(name = "meals")
 public class MealEntity {
 
-   @Getter
-   @Setter
-   @EmbeddedId
-   private MealId id;
+  @Getter
+  @Setter
+  @EmbeddedId
+  private MealId id;
 
-   @MapsId("restaurantId")
-   @ManyToOne
-   @JoinColumn(name="restaurant_name", referencedColumnName = "name")
-   private RestaurantEntity restaurant;
+  @MapsId("restaurantId")
+  @ManyToOne
+  @JoinColumn(name = "restaurant_name", referencedColumnName = "name")
+  private RestaurantEntity restaurant;
 }
+
 ```
 
 ```java
 @Embeddable
 public class MealId implements Serializable {
 
-   @Getter
-   @Setter
-   private RestaurantId restaurantId;
+  @Getter
+  @Setter
+  private RestaurantId restaurantId;
 
-   @Getter
-   @Setter
-   @Column(name = "name")
-   public String name;
+  @Getter
+  @Setter
+  @Column(name = "name")
+  public String name;
 }
+
 ```
 
 ```java
 @Repository
-public interface RestaurantRepository extends JpaRepository<RestaurantEntity, String> {
-}
+public interface RestaurantRepository
+  extends JpaRepository<RestaurantEntity, String> {}
+
 ```
 
 To let JPA work, we create the database tables. It's not necessary to create them manually. By using a Spring Boot integration Flyway, they are created dynamically in a version-aware way.
@@ -473,23 +493,32 @@ Finally the adapter itself:
 ```java
 @Component
 @AllArgsConstructor
-public class JpaRestaurantRepositoryAdapter implements RestaurantRepositoryPort {
+public class JpaRestaurantRepositoryAdapter
+  implements RestaurantRepositoryPort {
 
-   private final RestaurantRepository repository;
+  private final RestaurantRepository repository;
 
-   @Override
-   public List<Restaurant> getAll() {
-      return repository.findAll().stream().map(this::convert).collect(Collectors.toList());
-   }
+  @Override
+  public List<Restaurant> getAll() {
+    return repository
+      .findAll()
+      .stream()
+      .map(this::convert)
+      .collect(Collectors.toList());
+  }
 
-   private Restaurant convert(RestaurantEntity entity) {
-      return new Restaurant(
-         entity.getId().getName(),
-         entity.getMeals().stream()
-            .map((meal) -> meal.getId().getName()).collect(Collectors.toList())
-      );
-   }
+  private Restaurant convert(RestaurantEntity entity) {
+    return new Restaurant(
+      entity.getId().getName(),
+      entity
+        .getMeals()
+        .stream()
+        .map(meal -> meal.getId().getName())
+        .collect(Collectors.toList())
+    );
+  }
 }
+
 ```
 
 #### Application
@@ -500,10 +529,11 @@ Up to this point, during testing, the code is working in isolation. But to start
 @SpringBootApplication
 public class RestaurantServiceApplication {
 
-   public static void main(String[] args) {
-      SpringApplication.run(RestaurantServiceApplication.class, args);
-   }
+  public static void main(String[] args) {
+    SpringApplication.run(RestaurantServiceApplication.class, args);
+  }
 }
+
 ```
 
 The following configuration is to configure Spring: know which database to use, Jackson for JSON serialization, and enabling [Flyway](https://github.com/flyway/flyway):
@@ -571,33 +601,35 @@ With the above tests, we need to extend the `Restaurant` core domain model with 
 ```java
 @EqualsAndHashCode
 public class Restaurant {
-   private final String name;
-   private final List<String> meals = new ArrayList<>();
 
-   public Restaurant(String name) {
-      this.name = name;
-   }
+  private final String name;
+  private final List<String> meals = new ArrayList<>();
 
-   public Restaurant(String name, List<String> meals) {
-      this.name = name;
-      this.meals.addAll(meals);
-   }
+  public Restaurant(String name) {
+    this.name = name;
+  }
 
-   public void registerMeal(String meal) {
-      if (this.meals.contains(meal)) {
-         throw new MealAlreadyRegisteredException();
-      }
-      this.meals.add(meal);
-   }
+  public Restaurant(String name, List<String> meals) {
+    this.name = name;
+    this.meals.addAll(meals);
+  }
 
-   public String getName() {
-      return this.name;
-   }
+  public void registerMeal(String meal) {
+    if (this.meals.contains(meal)) {
+      throw new MealAlreadyRegisteredException();
+    }
+    this.meals.add(meal);
+  }
 
-   public List<String> getMenu() {
-      return this.meals;
-   }
+  public String getName() {
+    return this.name;
+  }
+
+  public List<String> getMenu() {
+    return this.meals;
+  }
 }
+
 ```
 
 #### API
@@ -653,21 +685,27 @@ The above will change our `RestaurantAPI`:
 @RequestMapping("/api/restaurant/v1")
 @AllArgsConstructor
 public class RestaurantAPI {
-   private final RestaurantApplicationPort restaurantApplicationPort;
 
-   @PostMapping("/register-meal")
-   public void registerMeal(@RequestBody RegisterMealRequest body) {
-      this.restaurantApplicationPort.registerMeal(body.getRestaurant(), body.getMeal());
-   }
+  private final RestaurantApplicationPort restaurantApplicationPort;
 
-   @Data
-   @NoArgsConstructor
-   @AllArgsConstructor
-   public static class RegisterMealRequest {
-      private String restaurant;
-      private String meal;
-   }
+  @PostMapping("/register-meal")
+  public void registerMeal(@RequestBody RegisterMealRequest body) {
+    this.restaurantApplicationPort.registerMeal(
+        body.getRestaurant(),
+        body.getMeal()
+      );
+  }
+
+  @Data
+  @NoArgsConstructor
+  @AllArgsConstructor
+  public static class RegisterMealRequest {
+
+    private String restaurant;
+    private String meal;
+  }
 }
+
 ```
 
 HTTP Status 200 will be returned when successfully registered. Any exception thrown by `registerMeal` will result in an HTTP error code.
@@ -703,14 +741,16 @@ And the corresponding production code:
 @AllArgsConstructor
 public class RestaurantApplicationService implements RestaurantApplicationPort {
 
-   private final RestaurantRepositoryPort restaurantRepositoryPort;
+  private final RestaurantRepositoryPort restaurantRepositoryPort;
 
-   public void registerMeal(String restaurant, String name) {
-      Restaurant restaurantAgg = this.restaurantRepositoryPort.getById(restaurant);
-      restaurantAgg.registerMeal(name);
-      this.restaurantRepositoryPort.persist(restaurantAgg);
-   }
+  public void registerMeal(String restaurant, String name) {
+    Restaurant restaurantAgg =
+      this.restaurantRepositoryPort.getById(restaurant);
+    restaurantAgg.registerMeal(name);
+    this.restaurantRepositoryPort.persist(restaurantAgg);
+  }
 }
+
 ```
 
 #### Persistence

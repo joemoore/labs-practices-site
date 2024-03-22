@@ -175,17 +175,17 @@ This session is usually better to do once you have a product **mission**, **visi
    - Thumbs up - We’ve achieved the outcome!
    - Middle - We’re still working on this outcome.
    - Thumbs down - We’ve not started to work on this outcome or it’s no longer relevant.
-   This is to align on the team’s assessment of your progress. For outcomes that have been voted middle or thumbs down, action items need to be defined (e.g. break down outcome, focus better, revisit relevancy).
-   Alternatively, the team could review the metrics and assess whether the outcomes have been achieved.
-   Find a way for your team to capture the progress for each outcome - this could be done via color coding (e.g. green, orange, red), by using progress bars (e.g. 75% achieved), or by whatever works for you.
-   **Following this alignment session, update your roadmap.** You can do that by repeating steps 3–8.
-   {{% callout %}}
-   **Tip 1**: Block out time on a regular cadence (~ monthly) to review your roadmap to keep your roadmap up to date. Also make your roadmap visible for everyone: Either on the wall in your office or prominently in a remote working board to be reviewed during Iteration Planning Meetings, internal and stakeholder updates.
-   {{% /callout %}}
-   {{% callout %}}
-   **Tip 2**: Less mature product ideas often may require more frequent updating, as outcomes are validated or invalidated, and there is generally less certainty about what is right to do next. Do not worry if you have to update and change this regularly!  
-    {{% /callout %}}
-   {{% /section %}}
+     This is to align on the team’s assessment of your progress. For outcomes that have been voted middle or thumbs down, action items need to be defined (e.g. break down outcome, focus better, revisit relevancy).
+     Alternatively, the team could review the metrics and assess whether the outcomes have been achieved.
+     Find a way for your team to capture the progress for each outcome - this could be done via color coding (e.g. green, orange, red), by using progress bars (e.g. 75% achieved), or by whatever works for you.
+     **Following this alignment session, update your roadmap.** You can do that by repeating steps 3–8.
+     {{% callout %}}
+     **Tip 1**: Block out time on a regular cadence (~ monthly) to review your roadmap to keep your roadmap up to date. Also make your roadmap visible for everyone: Either on the wall in your office or prominently in a remote working board to be reviewed during Iteration Planning Meetings, internal and stakeholder updates.
+     {{% /callout %}}
+     {{% callout %}}
+     **Tip 2**: Less mature product ideas often may require more frequent updating, as outcomes are validated or invalidated, and there is generally less certainty about what is right to do next. Do not worry if you have to update and change this regularly!
+      {{% /callout %}}
+     {{% /section %}}
 
 {{% section %}}
 

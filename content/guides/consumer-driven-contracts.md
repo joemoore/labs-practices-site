@@ -79,14 +79,13 @@ You can then provide those base class implementations as such:
 @ActiveProfiles("mock")
 public abstract class Consumer1HttpBase {
 
-	@Autowired
-	private MockMvc mvc;
+  @Autowired
+  private MockMvc mvc;
 
-	@Before
-	public void test() {
-    	RestAssuredMockMvc.mockMvc(this.mvc);
-	}
-
+  @Before
+  public void test() {
+    RestAssuredMockMvc.mockMvc(this.mvc);
+  }
 }
 
 @RunWith(SpringRunner.class)
@@ -97,29 +96,33 @@ public abstract class Consumer1HttpBase {
 @ActiveProfiles("mock")
 public abstract class Consumer1MessagingBase {
 
-	@Autowired
-	private MockMvc mvc;
+  @Autowired
+  private MockMvc mvc;
 
-	@Before
-	public void test() {
-    	RestAssuredMockMvc.mockMvc(this.mvc);
-	}
+  @Before
+  public void test() {
+    RestAssuredMockMvc.mockMvc(this.mvc);
+  }
 
-	/**
- 	* This method is called from the triggeredBy() method in the contract DSL to
- 	* publish the message to be tested.
- 	*/
-	public void requestAutoRateApiIsCalled() {
-    	// given:
-    	MockMvcRequestSpecification request = RestAssuredMockMvc.given()
-            	.header("Content-Type", "application/json;charset=UTF-8")
-            	.body("{\"quote\":{\"jurisdiction\":\"NY\",\"policyEffectiveDate\":\"2017-05-25T15:04:05-04:00\",\"policyTransactionType\":\"01\",\"quoteEffectiveDate\":\"2017-05-25T15:04:05-04:00\",\"quoteId\":\"1\"}}");
+  /**
+   * This method is called from the triggeredBy() method in the contract DSL to
+   * publish the message to be tested.
+   */
+  public void requestAutoRateApiIsCalled() {
+    // given:
+    MockMvcRequestSpecification request = RestAssuredMockMvc.given()
+      .header("Content-Type", "application/json;charset=UTF-8")
+      .body(
+        "{\"quote\":{\"jurisdiction\":\"NY\",\"policyEffectiveDate\":\"2017-05-25T15:04:05-04:00\",\"policyTransactionType\":\"01\",\"quoteEffectiveDate\":\"2017-05-25T15:04:05-04:00\",\"quoteId\":\"1\"}}"
+      );
 
-    	// when:
-    	ResponseOptions response = RestAssuredMockMvc.given().spec(request)
-            	.post("/rateableQuote");
-	}
+    // when:
+    ResponseOptions response = RestAssuredMockMvc.given()
+      .spec(request)
+      .post("/rateableQuote");
+  }
 }
+
 ```
 
 ### Contracts for RESTful APIs
