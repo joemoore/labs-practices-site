@@ -19,5 +19,7 @@ featured:
   - "practices/2x2"
   - "practices/3-column-retro"
   - "practices/journey-map"
+  - "topics/pm-playbook"
+  - "topics/design-guide"
   - "topics/pivotal-workstation-setup"
 ---
