@@ -121,7 +121,9 @@
       &.practicesandworkshops-hero {
         background-image: url('{{ "images/backgrounds/background-practices.svg" | relURL }}');
       }
-      &.aboutandhowtocontribute-hero {
+      &.aboutandhowtocontribute-hero,
+      &.labsdesignguide-hero,
+      &.labspmplaybook-hero {
         background-image: url('{{ "images/backgrounds/background-community.svg" | relURL }}');
       }
       &.team-hero,
