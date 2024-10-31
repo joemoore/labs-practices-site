@@ -1,20 +1,9 @@
 ---
 title: Labs PM Playbook
 linktitle: Labs PM Playbook
-topic: Labs PM Playbook
-topicgroups: "Product Management"
-grouptitle: "Product Management"
-layout: topic
-weight: 1
-icon: agile
-description: >
-  VMware Tanzu Labs Product Manager Playbook
-menu:
-  main:
-    parent: sections
-    params:
-      split: left
-    weight: 4
+class: "topic"
 ---
 
-Here is the PM Playbook: [VMware Tanzu Labs PM Playbook](images/White_Paper-vmware-tanzu-labs-product-manager-playbook.pdf)
+The Labs PM Playbook is a resource created by Labs PMs. Regardless of branding, the content is agile product management gold.
+
+Here is the PM Playbook: [Labs PM Playbook](images/pm-playbook.pdf).

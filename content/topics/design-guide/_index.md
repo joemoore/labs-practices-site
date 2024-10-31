@@ -1,23 +1,12 @@
 ---
 title: Labs Design Guide
 linktitle: Labs Design Guide
-topic: Labs Design Guide
-topicgroups: "Design"
-grouptitle: "Design"
-layout: topic
-weight: 1
-icon: agile
-description: >
-  VMware Tanzu Labs Design Guide
-menu:
-  main:
-    parent: sections
-    params:
-      split: left
-    weight: 4
+class: "topic"
 ---
 
-Here is the design guide: [VMware Tanzu Labs Design Guide](images/Design-Guide-Tanzu-Labs.pdf)
+The Labs Design Guide is a resource created by Labs designers. Regardless of branding, the content is agile design gold.
+
+Here is the design guide: [Labs Design Guide](images/design-guide.pdf).
 
 
 
