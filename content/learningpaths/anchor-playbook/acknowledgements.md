@@ -18,6 +18,6 @@ This guide was created by Coby Almond, Megan Taylor, and Jennifer Van Hove, with
 
 ## Download
 
-If you would like to download the original Pivotal-branded version of the Anchor Playbook as published by the amazing team mentioned above, please do so. Regardless of branding, the content extremely valuable.
+If you would like to download the original Pivotal-branded version of the Anchor Playbook as published by the amazing team mentioned above, please do so.
 
 [![The Pivotal Anchor Playbook](/learningpaths/anchor-playbook/images/anchor-playbook.png)](/learningpaths/anchor-playbook/images/Pivotal-Anchor-Playbook.pdf)
